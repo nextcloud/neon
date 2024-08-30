@@ -1,0 +1,17 @@
+[
+  {
+    "op": "replace",
+    "path": "/components/schemas/NavigationEntry/properties/order",
+    "value": {
+      "oneOf": [
+        {
+          "type": "integer",
+          "format": "int64"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    }
+  }
+]

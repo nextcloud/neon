@@ -1524,7 +1524,6 @@ void main() {
             spreed.RichObjectParameter_Type.call,
             spreed.RichObjectParameter_Type.guest,
             spreed.RichObjectParameter_Type.userGroup,
-            spreed.RichObjectParameter_Type.group,
           ]) {
             testWidgets(type.value, (tester) async {
               final userDetails = MockUserDetails();

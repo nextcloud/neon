@@ -100,6 +100,9 @@
                             "background": {
                                 "type": "string"
                             },
+                            "background-text": {
+                                "type": "string"
+                            },
                             "background-plain": {
                                 "type": "boolean"
                             },

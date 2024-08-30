@@ -130,7 +130,6 @@ const RichObjectParameter_Type _$richObjectParameterTypeTalkAttachment = RichObj
 const RichObjectParameter_Type _$richObjectParameterTypeTalkPoll = RichObjectParameter_Type._('talkPoll');
 const RichObjectParameter_Type _$richObjectParameterTypeUser = RichObjectParameter_Type._('user');
 const RichObjectParameter_Type _$richObjectParameterTypeUserGroup = RichObjectParameter_Type._('userGroup');
-const RichObjectParameter_Type _$richObjectParameterTypeGroup = RichObjectParameter_Type._('group');
 
 RichObjectParameter_Type _$valueOfRichObjectParameter_Type(String name) {
   switch (name) {
@@ -180,8 +179,6 @@ RichObjectParameter_Type _$valueOfRichObjectParameter_Type(String name) {
       return _$richObjectParameterTypeUser;
     case 'userGroup':
       return _$richObjectParameterTypeUserGroup;
-    case 'group':
-      return _$richObjectParameterTypeGroup;
     default:
       throw ArgumentError(name);
   }
@@ -212,7 +209,6 @@ final BuiltSet<RichObjectParameter_Type> _$richObjectParameterTypeValues =
   _$richObjectParameterTypeTalkPoll,
   _$richObjectParameterTypeUser,
   _$richObjectParameterTypeUserGroup,
-  _$richObjectParameterTypeGroup,
 ]);
 
 const MessageType _$messageTypeComment = MessageType._('comment');
@@ -3936,6 +3932,36 @@ class _$RichObjectParameterSerializer implements StructuredSerializer<RichObject
         ..add('mtime')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
+    value = object.etag;
+    if (value != null) {
+      result
+        ..add('etag')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.permissions;
+    if (value != null) {
+      result
+        ..add('permissions')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.width;
+    if (value != null) {
+      result
+        ..add('width')
+        ..add(serializers.serialize(value, specifiedType: const FullType(RichObjectParameter_Width)));
+    }
+    value = object.height;
+    if (value != null) {
+      result
+        ..add('height')
+        ..add(serializers.serialize(value, specifiedType: const FullType(RichObjectParameter_Height)));
+    }
+    value = object.blurhash;
+    if (value != null) {
+      result
+        ..add('blurhash')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
     value = object.latitude;
     if (value != null) {
       result
@@ -3989,24 +4015,6 @@ class _$RichObjectParameterSerializer implements StructuredSerializer<RichObject
       result
         ..add('server')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.etag;
-    if (value != null) {
-      result
-        ..add('etag')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.width;
-    if (value != null) {
-      result
-        ..add('width')
-        ..add(serializers.serialize(value, specifiedType: const FullType(RichObjectParameter_Width)));
-    }
-    value = object.height;
-    if (value != null) {
-      result
-        ..add('height')
-        ..add(serializers.serialize(value, specifiedType: const FullType(RichObjectParameter_Height)));
     }
     return result;
   }
@@ -4066,6 +4074,23 @@ class _$RichObjectParameterSerializer implements StructuredSerializer<RichObject
         case 'mtime':
           result.mtime = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
+        case 'etag':
+          result.etag = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'permissions':
+          result.permissions = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'width':
+          result.width = serializers.deserialize(value, specifiedType: const FullType(RichObjectParameter_Width))
+              as RichObjectParameter_Width?;
+          break;
+        case 'height':
+          result.height = serializers.deserialize(value, specifiedType: const FullType(RichObjectParameter_Height))
+              as RichObjectParameter_Height?;
+          break;
+        case 'blurhash':
+          result.blurhash = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
         case 'latitude':
           result.latitude = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
@@ -4092,17 +4117,6 @@ class _$RichObjectParameterSerializer implements StructuredSerializer<RichObject
           break;
         case 'server':
           result.server = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'etag':
-          result.etag = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'width':
-          result.width = serializers.deserialize(value, specifiedType: const FullType(RichObjectParameter_Width))
-              as RichObjectParameter_Width?;
-          break;
-        case 'height':
-          result.height = serializers.deserialize(value, specifiedType: const FullType(RichObjectParameter_Height))
-              as RichObjectParameter_Height?;
           break;
       }
     }
@@ -21903,6 +21917,21 @@ abstract mixin class $RichObjectParameterInterfaceBuilder {
   String? get mtime;
   set mtime(String? mtime);
 
+  String? get etag;
+  set etag(String? etag);
+
+  String? get permissions;
+  set permissions(String? permissions);
+
+  RichObjectParameter_Width? get width;
+  set width(RichObjectParameter_Width? width);
+
+  RichObjectParameter_Height? get height;
+  set height(RichObjectParameter_Height? height);
+
+  String? get blurhash;
+  set blurhash(String? blurhash);
+
   String? get latitude;
   set latitude(String? latitude);
 
@@ -21929,15 +21958,6 @@ abstract mixin class $RichObjectParameterInterfaceBuilder {
 
   String? get server;
   set server(String? server);
-
-  String? get etag;
-  set etag(String? etag);
-
-  RichObjectParameter_Width? get width;
-  set width(RichObjectParameter_Width? width);
-
-  RichObjectParameter_Height? get height;
-  set height(RichObjectParameter_Height? height);
 }
 
 class _$RichObjectParameter extends RichObjectParameter {
@@ -21970,6 +21990,16 @@ class _$RichObjectParameter extends RichObjectParameter {
   @override
   final String? mtime;
   @override
+  final String? etag;
+  @override
+  final String? permissions;
+  @override
+  final RichObjectParameter_Width? width;
+  @override
+  final RichObjectParameter_Height? height;
+  @override
+  final String? blurhash;
+  @override
   final String? latitude;
   @override
   final String? longitude;
@@ -21987,12 +22017,6 @@ class _$RichObjectParameter extends RichObjectParameter {
   final String? conversation;
   @override
   final String? server;
-  @override
-  final String? etag;
-  @override
-  final RichObjectParameter_Width? width;
-  @override
-  final RichObjectParameter_Height? height;
 
   factory _$RichObjectParameter([void Function(RichObjectParameterBuilder)? updates]) =>
       (RichObjectParameterBuilder()..update(updates))._build();
@@ -22012,6 +22036,11 @@ class _$RichObjectParameter extends RichObjectParameter {
       this.mimetype,
       this.previewAvailable,
       this.mtime,
+      this.etag,
+      this.permissions,
+      this.width,
+      this.height,
+      this.blurhash,
       this.latitude,
       this.longitude,
       this.description,
@@ -22020,10 +22049,7 @@ class _$RichObjectParameter extends RichObjectParameter {
       this.visibility,
       this.assignable,
       this.conversation,
-      this.server,
-      this.etag,
-      this.width,
-      this.height})
+      this.server})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(type, r'RichObjectParameter', 'type');
     BuiltValueNullFieldError.checkNotNull(id, r'RichObjectParameter', 'id');
@@ -22056,6 +22082,11 @@ class _$RichObjectParameter extends RichObjectParameter {
         mimetype == other.mimetype &&
         previewAvailable == other.previewAvailable &&
         mtime == other.mtime &&
+        etag == other.etag &&
+        permissions == other.permissions &&
+        width == _$dynamicOther.width &&
+        height == _$dynamicOther.height &&
+        blurhash == other.blurhash &&
         latitude == other.latitude &&
         longitude == other.longitude &&
         description == other.description &&
@@ -22064,10 +22095,7 @@ class _$RichObjectParameter extends RichObjectParameter {
         visibility == other.visibility &&
         assignable == other.assignable &&
         conversation == other.conversation &&
-        server == other.server &&
-        etag == other.etag &&
-        width == _$dynamicOther.width &&
-        height == _$dynamicOther.height;
+        server == other.server;
   }
 
   @override
@@ -22087,6 +22115,11 @@ class _$RichObjectParameter extends RichObjectParameter {
     _$hash = $jc(_$hash, mimetype.hashCode);
     _$hash = $jc(_$hash, previewAvailable.hashCode);
     _$hash = $jc(_$hash, mtime.hashCode);
+    _$hash = $jc(_$hash, etag.hashCode);
+    _$hash = $jc(_$hash, permissions.hashCode);
+    _$hash = $jc(_$hash, width.hashCode);
+    _$hash = $jc(_$hash, height.hashCode);
+    _$hash = $jc(_$hash, blurhash.hashCode);
     _$hash = $jc(_$hash, latitude.hashCode);
     _$hash = $jc(_$hash, longitude.hashCode);
     _$hash = $jc(_$hash, description.hashCode);
@@ -22096,9 +22129,6 @@ class _$RichObjectParameter extends RichObjectParameter {
     _$hash = $jc(_$hash, assignable.hashCode);
     _$hash = $jc(_$hash, conversation.hashCode);
     _$hash = $jc(_$hash, server.hashCode);
-    _$hash = $jc(_$hash, etag.hashCode);
-    _$hash = $jc(_$hash, width.hashCode);
-    _$hash = $jc(_$hash, height.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -22120,6 +22150,11 @@ class _$RichObjectParameter extends RichObjectParameter {
           ..add('mimetype', mimetype)
           ..add('previewAvailable', previewAvailable)
           ..add('mtime', mtime)
+          ..add('etag', etag)
+          ..add('permissions', permissions)
+          ..add('width', width)
+          ..add('height', height)
+          ..add('blurhash', blurhash)
           ..add('latitude', latitude)
           ..add('longitude', longitude)
           ..add('description', description)
@@ -22128,10 +22163,7 @@ class _$RichObjectParameter extends RichObjectParameter {
           ..add('visibility', visibility)
           ..add('assignable', assignable)
           ..add('conversation', conversation)
-          ..add('server', server)
-          ..add('etag', etag)
-          ..add('width', width)
-          ..add('height', height))
+          ..add('server', server))
         .toString();
   }
 }
@@ -22196,6 +22228,26 @@ class RichObjectParameterBuilder
   String? get mtime => _$this._mtime;
   set mtime(covariant String? mtime) => _$this._mtime = mtime;
 
+  String? _etag;
+  String? get etag => _$this._etag;
+  set etag(covariant String? etag) => _$this._etag = etag;
+
+  String? _permissions;
+  String? get permissions => _$this._permissions;
+  set permissions(covariant String? permissions) => _$this._permissions = permissions;
+
+  RichObjectParameter_Width? _width;
+  RichObjectParameter_Width? get width => _$this._width;
+  set width(covariant RichObjectParameter_Width? width) => _$this._width = width;
+
+  RichObjectParameter_Height? _height;
+  RichObjectParameter_Height? get height => _$this._height;
+  set height(covariant RichObjectParameter_Height? height) => _$this._height = height;
+
+  String? _blurhash;
+  String? get blurhash => _$this._blurhash;
+  set blurhash(covariant String? blurhash) => _$this._blurhash = blurhash;
+
   String? _latitude;
   String? get latitude => _$this._latitude;
   set latitude(covariant String? latitude) => _$this._latitude = latitude;
@@ -22232,18 +22284,6 @@ class RichObjectParameterBuilder
   String? get server => _$this._server;
   set server(covariant String? server) => _$this._server = server;
 
-  String? _etag;
-  String? get etag => _$this._etag;
-  set etag(covariant String? etag) => _$this._etag = etag;
-
-  RichObjectParameter_Width? _width;
-  RichObjectParameter_Width? get width => _$this._width;
-  set width(covariant RichObjectParameter_Width? width) => _$this._width = width;
-
-  RichObjectParameter_Height? _height;
-  RichObjectParameter_Height? get height => _$this._height;
-  set height(covariant RichObjectParameter_Height? height) => _$this._height = height;
-
   RichObjectParameterBuilder() {
     RichObjectParameter._defaults(this);
   }
@@ -22265,6 +22305,11 @@ class RichObjectParameterBuilder
       _mimetype = $v.mimetype;
       _previewAvailable = $v.previewAvailable;
       _mtime = $v.mtime;
+      _etag = $v.etag;
+      _permissions = $v.permissions;
+      _width = $v.width;
+      _height = $v.height;
+      _blurhash = $v.blurhash;
       _latitude = $v.latitude;
       _longitude = $v.longitude;
       _description = $v.description;
@@ -22274,9 +22319,6 @@ class RichObjectParameterBuilder
       _assignable = $v.assignable;
       _conversation = $v.conversation;
       _server = $v.server;
-      _etag = $v.etag;
-      _width = $v.width;
-      _height = $v.height;
       _$v = null;
     }
     return this;
@@ -22314,6 +22356,11 @@ class RichObjectParameterBuilder
             mimetype: mimetype,
             previewAvailable: previewAvailable,
             mtime: mtime,
+            etag: etag,
+            permissions: permissions,
+            width: width,
+            height: height,
+            blurhash: blurhash,
             latitude: latitude,
             longitude: longitude,
             description: description,
@@ -22322,10 +22369,7 @@ class RichObjectParameterBuilder
             visibility: visibility,
             assignable: assignable,
             conversation: conversation,
-            server: server,
-            etag: etag,
-            width: width,
-            height: height);
+            server: server);
     replace(_$result);
     return _$result;
   }

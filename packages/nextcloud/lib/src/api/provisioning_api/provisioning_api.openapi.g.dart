@@ -6,6 +6,45 @@ part of 'provisioning_api.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const UserDetailsScope _$userDetailsScopeV2Private = UserDetailsScope._('v2Private');
+const UserDetailsScope _$userDetailsScopeV2Local = UserDetailsScope._('v2Local');
+const UserDetailsScope _$userDetailsScopeV2Federated = UserDetailsScope._('v2Federated');
+const UserDetailsScope _$userDetailsScopeV2Published = UserDetailsScope._('v2Published');
+const UserDetailsScope _$userDetailsScopePrivate = UserDetailsScope._('private');
+const UserDetailsScope _$userDetailsScopeContacts = UserDetailsScope._('contacts');
+const UserDetailsScope _$userDetailsScopePublic = UserDetailsScope._('public');
+
+UserDetailsScope _$valueOfUserDetailsScope(String name) {
+  switch (name) {
+    case 'v2Private':
+      return _$userDetailsScopeV2Private;
+    case 'v2Local':
+      return _$userDetailsScopeV2Local;
+    case 'v2Federated':
+      return _$userDetailsScopeV2Federated;
+    case 'v2Published':
+      return _$userDetailsScopeV2Published;
+    case 'private':
+      return _$userDetailsScopePrivate;
+    case 'contacts':
+      return _$userDetailsScopeContacts;
+    case 'public':
+      return _$userDetailsScopePublic;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<UserDetailsScope> _$userDetailsScopeValues = BuiltSet<UserDetailsScope>(const <UserDetailsScope>[
+  _$userDetailsScopeV2Private,
+  _$userDetailsScopeV2Local,
+  _$userDetailsScopeV2Federated,
+  _$userDetailsScopeV2Published,
+  _$userDetailsScopePrivate,
+  _$userDetailsScopeContacts,
+  _$userDetailsScopePublic,
+]);
+
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<AppConfigGetAppsResponseApplicationJson_Ocs_Data>
     _$appConfigGetAppsResponseApplicationJsonOcsDataSerializer =
@@ -124,6 +163,18 @@ Serializer<PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs>
 Serializer<PreferencesDeleteMultiplePreferenceResponseApplicationJson>
     _$preferencesDeleteMultiplePreferenceResponseApplicationJsonSerializer =
     _$PreferencesDeleteMultiplePreferenceResponseApplicationJsonSerializer();
+Serializer<UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1>
+    _$usersGetLastLoggedInUsersResponseApplicationJsonOcsDataUsers1Serializer =
+    _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1Serializer();
+Serializer<UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data>
+    _$usersGetLastLoggedInUsersResponseApplicationJsonOcsDataSerializer =
+    _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataSerializer();
+Serializer<UsersGetLastLoggedInUsersResponseApplicationJson_Ocs>
+    _$usersGetLastLoggedInUsersResponseApplicationJsonOcsSerializer =
+    _$UsersGetLastLoggedInUsersResponseApplicationJson_OcsSerializer();
+Serializer<UsersGetLastLoggedInUsersResponseApplicationJson>
+    _$usersGetLastLoggedInUsersResponseApplicationJsonSerializer =
+    _$UsersGetLastLoggedInUsersResponseApplicationJsonSerializer();
 Serializer<UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs>
     _$usersGetUserSubAdminGroupsResponseApplicationJsonOcsSerializer =
     _$UsersGetUserSubAdminGroupsResponseApplicationJson_OcsSerializer();
@@ -1996,31 +2047,31 @@ class _$UserDetailsSerializer implements StructuredSerializer<UserDetails> {
     if (value != null) {
       result
         ..add('additional_mailScope')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(UserDetailsScope)])));
     }
     value = object.addressScope;
     if (value != null) {
       result
         ..add('addressScope')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(UserDetailsScope)));
     }
     value = object.avatarScope;
     if (value != null) {
       result
         ..add('avatarScope')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(UserDetailsScope)));
     }
     value = object.biographyScope;
     if (value != null) {
       result
         ..add('biographyScope')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(UserDetailsScope)));
     }
     value = object.displaynameScope;
     if (value != null) {
       result
         ..add('displaynameScope')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(UserDetailsScope)));
     }
     value = object.email;
     if (value != null) {
@@ -2032,7 +2083,7 @@ class _$UserDetailsSerializer implements StructuredSerializer<UserDetails> {
     if (value != null) {
       result
         ..add('emailScope')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(UserDetailsScope)));
     }
     value = object.enabled;
     if (value != null) {
@@ -2044,13 +2095,13 @@ class _$UserDetailsSerializer implements StructuredSerializer<UserDetails> {
     if (value != null) {
       result
         ..add('fediverseScope')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(UserDetailsScope)));
     }
     value = object.headlineScope;
     if (value != null) {
       result
         ..add('headlineScope')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(UserDetailsScope)));
     }
     value = object.notifyEmail;
     if (value != null) {
@@ -2062,25 +2113,25 @@ class _$UserDetailsSerializer implements StructuredSerializer<UserDetails> {
     if (value != null) {
       result
         ..add('organisationScope')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(UserDetailsScope)));
     }
     value = object.phoneScope;
     if (value != null) {
       result
         ..add('phoneScope')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(UserDetailsScope)));
     }
     value = object.profileEnabledScope;
     if (value != null) {
       result
         ..add('profile_enabledScope')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(UserDetailsScope)));
     }
     value = object.roleScope;
     if (value != null) {
       result
         ..add('roleScope')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(UserDetailsScope)));
     }
     value = object.storageLocation;
     if (value != null) {
@@ -2092,13 +2143,13 @@ class _$UserDetailsSerializer implements StructuredSerializer<UserDetails> {
     if (value != null) {
       result
         ..add('twitterScope')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(UserDetailsScope)));
     }
     value = object.websiteScope;
     if (value != null) {
       result
         ..add('websiteScope')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(UserDetailsScope)));
     }
     return result;
   }
@@ -2120,16 +2171,18 @@ class _$UserDetailsSerializer implements StructuredSerializer<UserDetails> {
           break;
         case 'additional_mailScope':
           result.additionalMailScope.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(UserDetailsScope)]))! as BuiltList<Object?>);
           break;
         case 'address':
           result.address = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'addressScope':
-          result.addressScope = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.addressScope =
+              serializers.deserialize(value, specifiedType: const FullType(UserDetailsScope)) as UserDetailsScope?;
           break;
         case 'avatarScope':
-          result.avatarScope = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.avatarScope =
+              serializers.deserialize(value, specifiedType: const FullType(UserDetailsScope)) as UserDetailsScope?;
           break;
         case 'backend':
           result.backend = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -2142,7 +2195,8 @@ class _$UserDetailsSerializer implements StructuredSerializer<UserDetails> {
           result.biography = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'biographyScope':
-          result.biographyScope = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.biographyScope =
+              serializers.deserialize(value, specifiedType: const FullType(UserDetailsScope)) as UserDetailsScope?;
           break;
         case 'display-name':
           result.displayName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -2151,13 +2205,15 @@ class _$UserDetailsSerializer implements StructuredSerializer<UserDetails> {
           result.displayname = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'displaynameScope':
-          result.displaynameScope = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.displaynameScope =
+              serializers.deserialize(value, specifiedType: const FullType(UserDetailsScope)) as UserDetailsScope?;
           break;
         case 'email':
           result.email = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'emailScope':
-          result.emailScope = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.emailScope =
+              serializers.deserialize(value, specifiedType: const FullType(UserDetailsScope)) as UserDetailsScope?;
           break;
         case 'enabled':
           result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
@@ -2166,7 +2222,8 @@ class _$UserDetailsSerializer implements StructuredSerializer<UserDetails> {
           result.fediverse = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'fediverseScope':
-          result.fediverseScope = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.fediverseScope =
+              serializers.deserialize(value, specifiedType: const FullType(UserDetailsScope)) as UserDetailsScope?;
           break;
         case 'groups':
           result.groups.replace(serializers.deserialize(value,
@@ -2176,7 +2233,8 @@ class _$UserDetailsSerializer implements StructuredSerializer<UserDetails> {
           result.headline = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'headlineScope':
-          result.headlineScope = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.headlineScope =
+              serializers.deserialize(value, specifiedType: const FullType(UserDetailsScope)) as UserDetailsScope?;
           break;
         case 'id':
           result.id = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -2200,19 +2258,22 @@ class _$UserDetailsSerializer implements StructuredSerializer<UserDetails> {
           result.organisation = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'organisationScope':
-          result.organisationScope = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.organisationScope =
+              serializers.deserialize(value, specifiedType: const FullType(UserDetailsScope)) as UserDetailsScope?;
           break;
         case 'phone':
           result.phone = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'phoneScope':
-          result.phoneScope = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.phoneScope =
+              serializers.deserialize(value, specifiedType: const FullType(UserDetailsScope)) as UserDetailsScope?;
           break;
         case 'profile_enabled':
           result.profileEnabled = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'profile_enabledScope':
-          result.profileEnabledScope = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.profileEnabledScope =
+              serializers.deserialize(value, specifiedType: const FullType(UserDetailsScope)) as UserDetailsScope?;
           break;
         case 'quota':
           result.quota.replace(
@@ -2222,7 +2283,8 @@ class _$UserDetailsSerializer implements StructuredSerializer<UserDetails> {
           result.role = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'roleScope':
-          result.roleScope = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.roleScope =
+              serializers.deserialize(value, specifiedType: const FullType(UserDetailsScope)) as UserDetailsScope?;
           break;
         case 'storageLocation':
           result.storageLocation = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -2235,13 +2297,15 @@ class _$UserDetailsSerializer implements StructuredSerializer<UserDetails> {
           result.twitter = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'twitterScope':
-          result.twitterScope = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.twitterScope =
+              serializers.deserialize(value, specifiedType: const FullType(UserDetailsScope)) as UserDetailsScope?;
           break;
         case 'website':
           result.website = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'websiteScope':
-          result.websiteScope = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.websiteScope =
+              serializers.deserialize(value, specifiedType: const FullType(UserDetailsScope)) as UserDetailsScope?;
           break;
       }
     }
@@ -2893,6 +2957,193 @@ class _$PreferencesDeleteMultiplePreferenceResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs))!
               as PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1Serializer
+    implements StructuredSerializer<UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1> {
+  @override
+  final Iterable<Type> types = const [
+    UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1,
+    _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1
+  ];
+  @override
+  final String wireName = 'UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1 object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1 deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1Builder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data,
+    _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'users',
+      serializers.serialize(object.users,
+          specifiedType: const FullType(
+              BuiltMap, [FullType(String), FullType(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'users':
+          result.users.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap,
+                  [FullType(String), FullType(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users)]))!);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UsersGetLastLoggedInUsersResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<UsersGetLastLoggedInUsersResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    UsersGetLastLoggedInUsersResponseApplicationJson_Ocs,
+    _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'UsersGetLastLoggedInUsersResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UsersGetLastLoggedInUsersResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UsersGetLastLoggedInUsersResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UsersGetLastLoggedInUsersResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data))!
+              as UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UsersGetLastLoggedInUsersResponseApplicationJsonSerializer
+    implements StructuredSerializer<UsersGetLastLoggedInUsersResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    UsersGetLastLoggedInUsersResponseApplicationJson,
+    _$UsersGetLastLoggedInUsersResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'UsersGetLastLoggedInUsersResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UsersGetLastLoggedInUsersResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UsersGetLastLoggedInUsersResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UsersGetLastLoggedInUsersResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs))!
+              as UsersGetLastLoggedInUsersResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -9818,17 +10069,17 @@ abstract mixin class $UserDetailsInterfaceBuilder {
   ListBuilder<String> get additionalMail;
   set additionalMail(ListBuilder<String>? additionalMail);
 
-  ListBuilder<String> get additionalMailScope;
-  set additionalMailScope(ListBuilder<String>? additionalMailScope);
+  ListBuilder<UserDetailsScope> get additionalMailScope;
+  set additionalMailScope(ListBuilder<UserDetailsScope>? additionalMailScope);
 
   String? get address;
   set address(String? address);
 
-  String? get addressScope;
-  set addressScope(String? addressScope);
+  UserDetailsScope? get addressScope;
+  set addressScope(UserDetailsScope? addressScope);
 
-  String? get avatarScope;
-  set avatarScope(String? avatarScope);
+  UserDetailsScope? get avatarScope;
+  set avatarScope(UserDetailsScope? avatarScope);
 
   String? get backend;
   set backend(String? backend);
@@ -9839,8 +10090,8 @@ abstract mixin class $UserDetailsInterfaceBuilder {
   String? get biography;
   set biography(String? biography);
 
-  String? get biographyScope;
-  set biographyScope(String? biographyScope);
+  UserDetailsScope? get biographyScope;
+  set biographyScope(UserDetailsScope? biographyScope);
 
   String? get displayName;
   set displayName(String? displayName);
@@ -9848,14 +10099,14 @@ abstract mixin class $UserDetailsInterfaceBuilder {
   String? get displayname;
   set displayname(String? displayname);
 
-  String? get displaynameScope;
-  set displaynameScope(String? displaynameScope);
+  UserDetailsScope? get displaynameScope;
+  set displaynameScope(UserDetailsScope? displaynameScope);
 
   String? get email;
   set email(String? email);
 
-  String? get emailScope;
-  set emailScope(String? emailScope);
+  UserDetailsScope? get emailScope;
+  set emailScope(UserDetailsScope? emailScope);
 
   bool? get enabled;
   set enabled(bool? enabled);
@@ -9863,8 +10114,8 @@ abstract mixin class $UserDetailsInterfaceBuilder {
   String? get fediverse;
   set fediverse(String? fediverse);
 
-  String? get fediverseScope;
-  set fediverseScope(String? fediverseScope);
+  UserDetailsScope? get fediverseScope;
+  set fediverseScope(UserDetailsScope? fediverseScope);
 
   ListBuilder<String> get groups;
   set groups(ListBuilder<String>? groups);
@@ -9872,8 +10123,8 @@ abstract mixin class $UserDetailsInterfaceBuilder {
   String? get headline;
   set headline(String? headline);
 
-  String? get headlineScope;
-  set headlineScope(String? headlineScope);
+  UserDetailsScope? get headlineScope;
+  set headlineScope(UserDetailsScope? headlineScope);
 
   String? get id;
   set id(String? id);
@@ -9896,20 +10147,20 @@ abstract mixin class $UserDetailsInterfaceBuilder {
   String? get organisation;
   set organisation(String? organisation);
 
-  String? get organisationScope;
-  set organisationScope(String? organisationScope);
+  UserDetailsScope? get organisationScope;
+  set organisationScope(UserDetailsScope? organisationScope);
 
   String? get phone;
   set phone(String? phone);
 
-  String? get phoneScope;
-  set phoneScope(String? phoneScope);
+  UserDetailsScope? get phoneScope;
+  set phoneScope(UserDetailsScope? phoneScope);
 
   String? get profileEnabled;
   set profileEnabled(String? profileEnabled);
 
-  String? get profileEnabledScope;
-  set profileEnabledScope(String? profileEnabledScope);
+  UserDetailsScope? get profileEnabledScope;
+  set profileEnabledScope(UserDetailsScope? profileEnabledScope);
 
   UserDetailsQuotaBuilder get quota;
   set quota(UserDetailsQuotaBuilder? quota);
@@ -9917,8 +10168,8 @@ abstract mixin class $UserDetailsInterfaceBuilder {
   String? get role;
   set role(String? role);
 
-  String? get roleScope;
-  set roleScope(String? roleScope);
+  UserDetailsScope? get roleScope;
+  set roleScope(UserDetailsScope? roleScope);
 
   String? get storageLocation;
   set storageLocation(String? storageLocation);
@@ -9929,27 +10180,27 @@ abstract mixin class $UserDetailsInterfaceBuilder {
   String? get twitter;
   set twitter(String? twitter);
 
-  String? get twitterScope;
-  set twitterScope(String? twitterScope);
+  UserDetailsScope? get twitterScope;
+  set twitterScope(UserDetailsScope? twitterScope);
 
   String? get website;
   set website(String? website);
 
-  String? get websiteScope;
-  set websiteScope(String? websiteScope);
+  UserDetailsScope? get websiteScope;
+  set websiteScope(UserDetailsScope? websiteScope);
 }
 
 class _$UserDetails extends UserDetails {
   @override
   final BuiltList<String> additionalMail;
   @override
-  final BuiltList<String>? additionalMailScope;
+  final BuiltList<UserDetailsScope>? additionalMailScope;
   @override
   final String address;
   @override
-  final String? addressScope;
+  final UserDetailsScope? addressScope;
   @override
-  final String? avatarScope;
+  final UserDetailsScope? avatarScope;
   @override
   final String backend;
   @override
@@ -9957,29 +10208,29 @@ class _$UserDetails extends UserDetails {
   @override
   final String biography;
   @override
-  final String? biographyScope;
+  final UserDetailsScope? biographyScope;
   @override
   final String displayName;
   @override
   final String displayname;
   @override
-  final String? displaynameScope;
+  final UserDetailsScope? displaynameScope;
   @override
   final String? email;
   @override
-  final String? emailScope;
+  final UserDetailsScope? emailScope;
   @override
   final bool? enabled;
   @override
   final String fediverse;
   @override
-  final String? fediverseScope;
+  final UserDetailsScope? fediverseScope;
   @override
   final BuiltList<String> groups;
   @override
   final String headline;
   @override
-  final String? headlineScope;
+  final UserDetailsScope? headlineScope;
   @override
   final String id;
   @override
@@ -9995,21 +10246,21 @@ class _$UserDetails extends UserDetails {
   @override
   final String organisation;
   @override
-  final String? organisationScope;
+  final UserDetailsScope? organisationScope;
   @override
   final String phone;
   @override
-  final String? phoneScope;
+  final UserDetailsScope? phoneScope;
   @override
   final String profileEnabled;
   @override
-  final String? profileEnabledScope;
+  final UserDetailsScope? profileEnabledScope;
   @override
   final UserDetailsQuota quota;
   @override
   final String role;
   @override
-  final String? roleScope;
+  final UserDetailsScope? roleScope;
   @override
   final String? storageLocation;
   @override
@@ -10017,11 +10268,11 @@ class _$UserDetails extends UserDetails {
   @override
   final String twitter;
   @override
-  final String? twitterScope;
+  final UserDetailsScope? twitterScope;
   @override
   final String website;
   @override
-  final String? websiteScope;
+  final UserDetailsScope? websiteScope;
 
   factory _$UserDetails([void Function(UserDetailsBuilder)? updates]) =>
       (UserDetailsBuilder()..update(updates))._build();
@@ -10250,22 +10501,23 @@ class UserDetailsBuilder implements Builder<UserDetails, UserDetailsBuilder>, $U
   ListBuilder<String> get additionalMail => _$this._additionalMail ??= ListBuilder<String>();
   set additionalMail(covariant ListBuilder<String>? additionalMail) => _$this._additionalMail = additionalMail;
 
-  ListBuilder<String>? _additionalMailScope;
-  ListBuilder<String> get additionalMailScope => _$this._additionalMailScope ??= ListBuilder<String>();
-  set additionalMailScope(covariant ListBuilder<String>? additionalMailScope) =>
+  ListBuilder<UserDetailsScope>? _additionalMailScope;
+  ListBuilder<UserDetailsScope> get additionalMailScope =>
+      _$this._additionalMailScope ??= ListBuilder<UserDetailsScope>();
+  set additionalMailScope(covariant ListBuilder<UserDetailsScope>? additionalMailScope) =>
       _$this._additionalMailScope = additionalMailScope;
 
   String? _address;
   String? get address => _$this._address;
   set address(covariant String? address) => _$this._address = address;
 
-  String? _addressScope;
-  String? get addressScope => _$this._addressScope;
-  set addressScope(covariant String? addressScope) => _$this._addressScope = addressScope;
+  UserDetailsScope? _addressScope;
+  UserDetailsScope? get addressScope => _$this._addressScope;
+  set addressScope(covariant UserDetailsScope? addressScope) => _$this._addressScope = addressScope;
 
-  String? _avatarScope;
-  String? get avatarScope => _$this._avatarScope;
-  set avatarScope(covariant String? avatarScope) => _$this._avatarScope = avatarScope;
+  UserDetailsScope? _avatarScope;
+  UserDetailsScope? get avatarScope => _$this._avatarScope;
+  set avatarScope(covariant UserDetailsScope? avatarScope) => _$this._avatarScope = avatarScope;
 
   String? _backend;
   String? get backend => _$this._backend;
@@ -10281,9 +10533,9 @@ class UserDetailsBuilder implements Builder<UserDetails, UserDetailsBuilder>, $U
   String? get biography => _$this._biography;
   set biography(covariant String? biography) => _$this._biography = biography;
 
-  String? _biographyScope;
-  String? get biographyScope => _$this._biographyScope;
-  set biographyScope(covariant String? biographyScope) => _$this._biographyScope = biographyScope;
+  UserDetailsScope? _biographyScope;
+  UserDetailsScope? get biographyScope => _$this._biographyScope;
+  set biographyScope(covariant UserDetailsScope? biographyScope) => _$this._biographyScope = biographyScope;
 
   String? _displayName;
   String? get displayName => _$this._displayName;
@@ -10293,17 +10545,17 @@ class UserDetailsBuilder implements Builder<UserDetails, UserDetailsBuilder>, $U
   String? get displayname => _$this._displayname;
   set displayname(covariant String? displayname) => _$this._displayname = displayname;
 
-  String? _displaynameScope;
-  String? get displaynameScope => _$this._displaynameScope;
-  set displaynameScope(covariant String? displaynameScope) => _$this._displaynameScope = displaynameScope;
+  UserDetailsScope? _displaynameScope;
+  UserDetailsScope? get displaynameScope => _$this._displaynameScope;
+  set displaynameScope(covariant UserDetailsScope? displaynameScope) => _$this._displaynameScope = displaynameScope;
 
   String? _email;
   String? get email => _$this._email;
   set email(covariant String? email) => _$this._email = email;
 
-  String? _emailScope;
-  String? get emailScope => _$this._emailScope;
-  set emailScope(covariant String? emailScope) => _$this._emailScope = emailScope;
+  UserDetailsScope? _emailScope;
+  UserDetailsScope? get emailScope => _$this._emailScope;
+  set emailScope(covariant UserDetailsScope? emailScope) => _$this._emailScope = emailScope;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
@@ -10313,9 +10565,9 @@ class UserDetailsBuilder implements Builder<UserDetails, UserDetailsBuilder>, $U
   String? get fediverse => _$this._fediverse;
   set fediverse(covariant String? fediverse) => _$this._fediverse = fediverse;
 
-  String? _fediverseScope;
-  String? get fediverseScope => _$this._fediverseScope;
-  set fediverseScope(covariant String? fediverseScope) => _$this._fediverseScope = fediverseScope;
+  UserDetailsScope? _fediverseScope;
+  UserDetailsScope? get fediverseScope => _$this._fediverseScope;
+  set fediverseScope(covariant UserDetailsScope? fediverseScope) => _$this._fediverseScope = fediverseScope;
 
   ListBuilder<String>? _groups;
   ListBuilder<String> get groups => _$this._groups ??= ListBuilder<String>();
@@ -10325,9 +10577,9 @@ class UserDetailsBuilder implements Builder<UserDetails, UserDetailsBuilder>, $U
   String? get headline => _$this._headline;
   set headline(covariant String? headline) => _$this._headline = headline;
 
-  String? _headlineScope;
-  String? get headlineScope => _$this._headlineScope;
-  set headlineScope(covariant String? headlineScope) => _$this._headlineScope = headlineScope;
+  UserDetailsScope? _headlineScope;
+  UserDetailsScope? get headlineScope => _$this._headlineScope;
+  set headlineScope(covariant UserDetailsScope? headlineScope) => _$this._headlineScope = headlineScope;
 
   String? _id;
   String? get id => _$this._id;
@@ -10357,25 +10609,26 @@ class UserDetailsBuilder implements Builder<UserDetails, UserDetailsBuilder>, $U
   String? get organisation => _$this._organisation;
   set organisation(covariant String? organisation) => _$this._organisation = organisation;
 
-  String? _organisationScope;
-  String? get organisationScope => _$this._organisationScope;
-  set organisationScope(covariant String? organisationScope) => _$this._organisationScope = organisationScope;
+  UserDetailsScope? _organisationScope;
+  UserDetailsScope? get organisationScope => _$this._organisationScope;
+  set organisationScope(covariant UserDetailsScope? organisationScope) => _$this._organisationScope = organisationScope;
 
   String? _phone;
   String? get phone => _$this._phone;
   set phone(covariant String? phone) => _$this._phone = phone;
 
-  String? _phoneScope;
-  String? get phoneScope => _$this._phoneScope;
-  set phoneScope(covariant String? phoneScope) => _$this._phoneScope = phoneScope;
+  UserDetailsScope? _phoneScope;
+  UserDetailsScope? get phoneScope => _$this._phoneScope;
+  set phoneScope(covariant UserDetailsScope? phoneScope) => _$this._phoneScope = phoneScope;
 
   String? _profileEnabled;
   String? get profileEnabled => _$this._profileEnabled;
   set profileEnabled(covariant String? profileEnabled) => _$this._profileEnabled = profileEnabled;
 
-  String? _profileEnabledScope;
-  String? get profileEnabledScope => _$this._profileEnabledScope;
-  set profileEnabledScope(covariant String? profileEnabledScope) => _$this._profileEnabledScope = profileEnabledScope;
+  UserDetailsScope? _profileEnabledScope;
+  UserDetailsScope? get profileEnabledScope => _$this._profileEnabledScope;
+  set profileEnabledScope(covariant UserDetailsScope? profileEnabledScope) =>
+      _$this._profileEnabledScope = profileEnabledScope;
 
   UserDetailsQuotaBuilder? _quota;
   UserDetailsQuotaBuilder get quota => _$this._quota ??= UserDetailsQuotaBuilder();
@@ -10385,9 +10638,9 @@ class UserDetailsBuilder implements Builder<UserDetails, UserDetailsBuilder>, $U
   String? get role => _$this._role;
   set role(covariant String? role) => _$this._role = role;
 
-  String? _roleScope;
-  String? get roleScope => _$this._roleScope;
-  set roleScope(covariant String? roleScope) => _$this._roleScope = roleScope;
+  UserDetailsScope? _roleScope;
+  UserDetailsScope? get roleScope => _$this._roleScope;
+  set roleScope(covariant UserDetailsScope? roleScope) => _$this._roleScope = roleScope;
 
   String? _storageLocation;
   String? get storageLocation => _$this._storageLocation;
@@ -10401,17 +10654,17 @@ class UserDetailsBuilder implements Builder<UserDetails, UserDetailsBuilder>, $U
   String? get twitter => _$this._twitter;
   set twitter(covariant String? twitter) => _$this._twitter = twitter;
 
-  String? _twitterScope;
-  String? get twitterScope => _$this._twitterScope;
-  set twitterScope(covariant String? twitterScope) => _$this._twitterScope = twitterScope;
+  UserDetailsScope? _twitterScope;
+  UserDetailsScope? get twitterScope => _$this._twitterScope;
+  set twitterScope(covariant UserDetailsScope? twitterScope) => _$this._twitterScope = twitterScope;
 
   String? _website;
   String? get website => _$this._website;
   set website(covariant String? website) => _$this._website = website;
 
-  String? _websiteScope;
-  String? get websiteScope => _$this._websiteScope;
-  set websiteScope(covariant String? websiteScope) => _$this._websiteScope = websiteScope;
+  UserDetailsScope? _websiteScope;
+  UserDetailsScope? get websiteScope => _$this._websiteScope;
+  set websiteScope(covariant UserDetailsScope? websiteScope) => _$this._websiteScope = websiteScope;
 
   UserDetailsBuilder() {
     UserDetails._defaults(this);
@@ -12166,6 +12419,456 @@ class PreferencesDeleteMultiplePreferenceResponseApplicationJsonBuilder
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'PreferencesDeleteMultiplePreferenceResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder {
+  void replace($UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1Interface other);
+  void update(void Function($UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder) updates);
+  String? get id;
+  set id(String? id);
+}
+
+class _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1
+    extends UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1 {
+  @override
+  final String id;
+
+  factory _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1(
+          [void Function(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1Builder)? updates]) =>
+      (UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1Builder()..update(updates))._build();
+
+  _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1._({required this.id}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        id, r'UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1', 'id');
+  }
+
+  @override
+  UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1 rebuild(
+          void Function(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1Builder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1Builder toBuilder() =>
+      UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1Builder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1 && id == other.id;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1')
+          ..add('id', id))
+        .toString();
+  }
+}
+
+class UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1Builder
+    implements
+        Builder<UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1,
+            UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1Builder>,
+        $UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder {
+  _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1? _$v;
+
+  String? _id;
+  String? get id => _$this._id;
+  set id(covariant String? id) => _$this._id = id;
+
+  UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1Builder() {
+    UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1._defaults(this);
+  }
+
+  UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1Builder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1 other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1;
+  }
+
+  @override
+  void update(void Function(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1Builder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1 build() => _build();
+
+  _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1 _build() {
+    UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1._validate(this);
+    final _$result = _$v ??
+        _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1._(
+            id: BuiltValueNullFieldError.checkNotNull(
+                id, r'UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1', 'id'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  MapBuilder<String, UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users> get users;
+  set users(MapBuilder<String, UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users>? users);
+}
+
+class _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data
+    extends UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data {
+  @override
+  final BuiltMap<String, UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users> users;
+
+  factory _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data(
+          [void Function(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data._({required this.users}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(users, r'UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data', 'users');
+  }
+
+  @override
+  UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data rebuild(
+          void Function(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    final dynamic _$dynamicOther = other;
+    return other is UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data && users == _$dynamicOther.users;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, users.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data')
+          ..add('users', users))
+        .toString();
+  }
+}
+
+class UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data,
+            UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataBuilder>,
+        $UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data? _$v;
+
+  MapBuilder<String, UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users>? _users;
+  MapBuilder<String, UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users> get users =>
+      _$this._users ??= MapBuilder<String, UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users>();
+  set users(covariant MapBuilder<String, UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users>? users) =>
+      _$this._users = users;
+
+  UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataBuilder() {
+    UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _users = $v.users.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data _build() {
+    UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data._validate(this);
+    _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data _$result;
+    try {
+      _$result = _$v ?? _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data._(users: users.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'users';
+        users.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $UsersGetLastLoggedInUsersResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($UsersGetLastLoggedInUsersResponseApplicationJson_OcsInterface other);
+  void update(void Function($UsersGetLastLoggedInUsersResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs
+    extends UsersGetLastLoggedInUsersResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data data;
+
+  factory _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs(
+          [void Function(UsersGetLastLoggedInUsersResponseApplicationJson_OcsBuilder)? updates]) =>
+      (UsersGetLastLoggedInUsersResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'UsersGetLastLoggedInUsersResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'UsersGetLastLoggedInUsersResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  UsersGetLastLoggedInUsersResponseApplicationJson_Ocs rebuild(
+          void Function(UsersGetLastLoggedInUsersResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UsersGetLastLoggedInUsersResponseApplicationJson_OcsBuilder toBuilder() =>
+      UsersGetLastLoggedInUsersResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UsersGetLastLoggedInUsersResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UsersGetLastLoggedInUsersResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class UsersGetLastLoggedInUsersResponseApplicationJson_OcsBuilder
+    implements
+        Builder<UsersGetLastLoggedInUsersResponseApplicationJson_Ocs,
+            UsersGetLastLoggedInUsersResponseApplicationJson_OcsBuilder>,
+        $UsersGetLastLoggedInUsersResponseApplicationJson_OcsInterfaceBuilder {
+  _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataBuilder? _data;
+  UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  UsersGetLastLoggedInUsersResponseApplicationJson_OcsBuilder() {
+    UsersGetLastLoggedInUsersResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  UsersGetLastLoggedInUsersResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UsersGetLastLoggedInUsersResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(UsersGetLastLoggedInUsersResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UsersGetLastLoggedInUsersResponseApplicationJson_Ocs build() => _build();
+
+  _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs _build() {
+    UsersGetLastLoggedInUsersResponseApplicationJson_Ocs._validate(this);
+    _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UsersGetLastLoggedInUsersResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $UsersGetLastLoggedInUsersResponseApplicationJsonInterfaceBuilder {
+  void replace($UsersGetLastLoggedInUsersResponseApplicationJsonInterface other);
+  void update(void Function($UsersGetLastLoggedInUsersResponseApplicationJsonInterfaceBuilder) updates);
+  UsersGetLastLoggedInUsersResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(UsersGetLastLoggedInUsersResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$UsersGetLastLoggedInUsersResponseApplicationJson extends UsersGetLastLoggedInUsersResponseApplicationJson {
+  @override
+  final UsersGetLastLoggedInUsersResponseApplicationJson_Ocs ocs;
+
+  factory _$UsersGetLastLoggedInUsersResponseApplicationJson(
+          [void Function(UsersGetLastLoggedInUsersResponseApplicationJsonBuilder)? updates]) =>
+      (UsersGetLastLoggedInUsersResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$UsersGetLastLoggedInUsersResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'UsersGetLastLoggedInUsersResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  UsersGetLastLoggedInUsersResponseApplicationJson rebuild(
+          void Function(UsersGetLastLoggedInUsersResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UsersGetLastLoggedInUsersResponseApplicationJsonBuilder toBuilder() =>
+      UsersGetLastLoggedInUsersResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UsersGetLastLoggedInUsersResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UsersGetLastLoggedInUsersResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class UsersGetLastLoggedInUsersResponseApplicationJsonBuilder
+    implements
+        Builder<UsersGetLastLoggedInUsersResponseApplicationJson,
+            UsersGetLastLoggedInUsersResponseApplicationJsonBuilder>,
+        $UsersGetLastLoggedInUsersResponseApplicationJsonInterfaceBuilder {
+  _$UsersGetLastLoggedInUsersResponseApplicationJson? _$v;
+
+  UsersGetLastLoggedInUsersResponseApplicationJson_OcsBuilder? _ocs;
+  UsersGetLastLoggedInUsersResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= UsersGetLastLoggedInUsersResponseApplicationJson_OcsBuilder();
+  set ocs(covariant UsersGetLastLoggedInUsersResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  UsersGetLastLoggedInUsersResponseApplicationJsonBuilder() {
+    UsersGetLastLoggedInUsersResponseApplicationJson._defaults(this);
+  }
+
+  UsersGetLastLoggedInUsersResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UsersGetLastLoggedInUsersResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UsersGetLastLoggedInUsersResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(UsersGetLastLoggedInUsersResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UsersGetLastLoggedInUsersResponseApplicationJson build() => _build();
+
+  _$UsersGetLastLoggedInUsersResponseApplicationJson _build() {
+    UsersGetLastLoggedInUsersResponseApplicationJson._validate(this);
+    _$UsersGetLastLoggedInUsersResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$UsersGetLastLoggedInUsersResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UsersGetLastLoggedInUsersResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

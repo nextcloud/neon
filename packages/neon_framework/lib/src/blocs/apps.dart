@@ -287,5 +287,11 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
 }
 
 extension _NavigationEntryOrder on core.NavigationEntry {
-  int getOrder() => order.$int ?? int.parse(order.string!);
+  int getOrder() {
+    if (order == null) {
+      return -1;
+    }
+
+    return order!.$int ?? int.parse(order!.string!);
+  }
 }

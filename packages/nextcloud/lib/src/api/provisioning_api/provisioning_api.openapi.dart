@@ -1847,6 +1847,121 @@ class $UsersClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of [$getLastLoggedInUsers_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<UsersGetLastLoggedInUsersResponseApplicationJson, void> $getLastLoggedInUsers_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UsersGetLastLoggedInUsersResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Gets the list of users sorted by lastLogin, from most recent to least recent.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getLastLoggedInUsers] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for. Defaults to `""`.
+  ///   * [limit] Limit the amount of users returned.
+  ///   * [offset] Offset. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Users details returned based on last logged in information
+  ///
+  /// See:
+  ///  * [getLastLoggedInUsers] for a method executing this request and parsing the response.
+  ///  * [$getLastLoggedInUsers_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getLastLoggedInUsers_Request({
+    String? search,
+    int? limit,
+    int? offset,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    var __search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
+    __search ??= '';
+    _parameters['search'] = __search;
+
+    final __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    _parameters['limit'] = __limit;
+
+    var __offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
+    __offset ??= 0;
+    _parameters['offset'] = __offset;
+
+    final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/recent{?search*,limit*,offset*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Gets the list of users sorted by lastLogin, from most recent to least recent.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [search] Text to search for. Defaults to `""`.
+  ///   * [limit] Limit the amount of users returned.
+  ///   * [offset] Offset. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Users details returned based on last logged in information
+  ///
+  /// See:
+  ///  * [$getLastLoggedInUsers_Request] for the request send by this method.
+  ///  * [$getLastLoggedInUsers_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<UsersGetLastLoggedInUsersResponseApplicationJson, void>> getLastLoggedInUsers({
+    String? search,
+    int? limit,
+    int? offset,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $getLastLoggedInUsers_Request(
+      search: search,
+      limit: limit,
+      offset: offset,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $getLastLoggedInUsers_Serializer();
+    return _i1.ResponseConverter<UsersGetLastLoggedInUsersResponseApplicationJson, void>(_serializer)
+        .convert(_response);
+  }
+
   /// Builds a serializer to parse the response of [$getUserSubAdminGroups_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<UsersGetUserSubAdminGroupsResponseApplicationJson, void> $getUserSubAdminGroups_Serializer() =>
@@ -2484,6 +2599,7 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
+  ///   * [search] Text to search for. Defaults to `""`.
   ///   * [limit] Limit the amount of users returned.
   ///   * [offset] Offset. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -2496,11 +2612,16 @@ class $UsersClient {
   ///  * [$getDisabledUsersDetails_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $getDisabledUsersDetails_Request({
+    String? search,
     int? limit,
     int? offset,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
+    var __search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
+    __search ??= '';
+    _parameters['search'] = __search;
+
     final __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     _parameters['limit'] = __limit;
 
@@ -2508,7 +2629,7 @@ class $UsersClient {
     __offset ??= 0;
     _parameters['offset'] = __offset;
 
-    final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/disabled{?limit*,offset*}').expand(_parameters);
+    final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/disabled{?search*,limit*,offset*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -2542,6 +2663,7 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
+  ///   * [search] Text to search for. Defaults to `""`.
   ///   * [limit] Limit the amount of users returned.
   ///   * [offset] Offset. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -2553,11 +2675,13 @@ class $UsersClient {
   ///  * [$getDisabledUsersDetails_Request] for the request send by this method.
   ///  * [$getDisabledUsersDetails_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<UsersGetDisabledUsersDetailsResponseApplicationJson, void>> getDisabledUsersDetails({
+    String? search,
     int? limit,
     int? offset,
     bool? oCSAPIRequest,
   }) async {
     final _request = $getDisabledUsersDetails_Request(
+      search: search,
       limit: limit,
       offset: offset,
       oCSAPIRequest: oCSAPIRequest,
@@ -6166,6 +6290,96 @@ abstract class GroupsGetGroupUsersResponseApplicationJson
   }
 }
 
+class UserDetailsScope extends EnumClass {
+  const UserDetailsScope._(super.name);
+
+  /// `v2-private`
+  @BuiltValueEnumConst(wireName: 'v2-private')
+  static const UserDetailsScope v2Private = _$userDetailsScopeV2Private;
+
+  /// `v2-local`
+  @BuiltValueEnumConst(wireName: 'v2-local')
+  static const UserDetailsScope v2Local = _$userDetailsScopeV2Local;
+
+  /// `v2-federated`
+  @BuiltValueEnumConst(wireName: 'v2-federated')
+  static const UserDetailsScope v2Federated = _$userDetailsScopeV2Federated;
+
+  /// `v2-published`
+  @BuiltValueEnumConst(wireName: 'v2-published')
+  static const UserDetailsScope v2Published = _$userDetailsScopeV2Published;
+
+  /// `private`
+  static const UserDetailsScope private = _$userDetailsScopePrivate;
+
+  /// `contacts`
+  static const UserDetailsScope contacts = _$userDetailsScopeContacts;
+
+  /// `public`
+  static const UserDetailsScope public = _$userDetailsScopePublic;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<UserDetailsScope> get values => _$userDetailsScopeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static UserDetailsScope valueOf(String name) => _$valueOfUserDetailsScope(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for UserDetailsScope.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<UserDetailsScope> get serializer => const _$UserDetailsScopeSerializer();
+}
+
+class _$UserDetailsScopeSerializer implements PrimitiveSerializer<UserDetailsScope> {
+  const _$UserDetailsScopeSerializer();
+
+  static const Map<UserDetailsScope, Object> _toWire = <UserDetailsScope, Object>{
+    UserDetailsScope.v2Private: 'v2-private',
+    UserDetailsScope.v2Local: 'v2-local',
+    UserDetailsScope.v2Federated: 'v2-federated',
+    UserDetailsScope.v2Published: 'v2-published',
+    UserDetailsScope.private: 'private',
+    UserDetailsScope.contacts: 'contacts',
+    UserDetailsScope.public: 'public',
+  };
+
+  static const Map<Object, UserDetailsScope> _fromWire = <Object, UserDetailsScope>{
+    'v2-private': UserDetailsScope.v2Private,
+    'v2-local': UserDetailsScope.v2Local,
+    'v2-federated': UserDetailsScope.v2Federated,
+    'v2-published': UserDetailsScope.v2Published,
+    'private': UserDetailsScope.private,
+    'contacts': UserDetailsScope.contacts,
+    'public': UserDetailsScope.public,
+  };
+
+  @override
+  Iterable<Type> get types => const [UserDetailsScope];
+
+  @override
+  String get wireName => 'UserDetailsScope';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    UserDetailsScope object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  UserDetailsScope deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 @BuiltValue(instantiable: false)
 sealed class $UserDetails_BackendCapabilitiesInterface {
   bool get setDisplayName;
@@ -6296,26 +6510,26 @@ sealed class $UserDetailsInterface {
   @BuiltValueField(wireName: 'additional_mail')
   BuiltList<String> get additionalMail;
   @BuiltValueField(wireName: 'additional_mailScope')
-  BuiltList<String>? get additionalMailScope;
+  BuiltList<UserDetailsScope>? get additionalMailScope;
   String get address;
-  String? get addressScope;
-  String? get avatarScope;
+  UserDetailsScope? get addressScope;
+  UserDetailsScope? get avatarScope;
   String get backend;
   UserDetails_BackendCapabilities get backendCapabilities;
   String get biography;
-  String? get biographyScope;
+  UserDetailsScope? get biographyScope;
   @BuiltValueField(wireName: 'display-name')
   String get displayName;
   String get displayname;
-  String? get displaynameScope;
+  UserDetailsScope? get displaynameScope;
   String? get email;
-  String? get emailScope;
+  UserDetailsScope? get emailScope;
   bool? get enabled;
   String get fediverse;
-  String? get fediverseScope;
+  UserDetailsScope? get fediverseScope;
   BuiltList<String> get groups;
   String get headline;
-  String? get headlineScope;
+  UserDetailsScope? get headlineScope;
   String get id;
   String get language;
   int get lastLogin;
@@ -6324,22 +6538,22 @@ sealed class $UserDetailsInterface {
   @BuiltValueField(wireName: 'notify_email')
   String? get notifyEmail;
   String get organisation;
-  String? get organisationScope;
+  UserDetailsScope? get organisationScope;
   String get phone;
-  String? get phoneScope;
+  UserDetailsScope? get phoneScope;
   @BuiltValueField(wireName: 'profile_enabled')
   String get profileEnabled;
   @BuiltValueField(wireName: 'profile_enabledScope')
-  String? get profileEnabledScope;
+  UserDetailsScope? get profileEnabledScope;
   UserDetailsQuota get quota;
   String get role;
-  String? get roleScope;
+  UserDetailsScope? get roleScope;
   String? get storageLocation;
   BuiltList<String> get subadmin;
   String get twitter;
-  String? get twitterScope;
+  UserDetailsScope? get twitterScope;
   String get website;
-  String? get websiteScope;
+  UserDetailsScope? get websiteScope;
 
   /// Rebuilds the instance.
   ///
@@ -7294,6 +7508,268 @@ abstract class PreferencesDeleteMultiplePreferenceResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(PreferencesDeleteMultiplePreferenceResponseApplicationJsonBuilder b) {
     $PreferencesDeleteMultiplePreferenceResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1Interface {
+  String get id;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder].
+  $UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1Interface rebuild(
+    void Function($UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder].
+  $UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder b) {}
+}
+
+abstract class UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1
+    implements
+        $UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1Interface,
+        Built<UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1,
+            UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1Builder> {
+  /// Creates a new UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1 object using the builder pattern.
+  factory UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1([
+    void Function(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1Builder)? b,
+  ]) = _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1;
+
+  // coverage:ignore-start
+  const UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1.
+  static Serializer<UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1> get serializer =>
+      _$usersGetLastLoggedInUsersResponseApplicationJsonOcsDataUsers1Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1Builder b) {
+    $UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1Builder b) {
+    $UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1Interface._validate(b);
+  }
+}
+
+typedef UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users = ({
+  UserDetails? userDetails,
+  UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1? usersGetLastLoggedInUsersResponseApplicationJsonOcsDataUsers1
+});
+
+@BuiltValue(instantiable: false)
+sealed class $UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataInterface {
+  BuiltMap<String, UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users> get users;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data
+    implements
+        $UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataInterface,
+        Built<UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data,
+            UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data([
+    void Function(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data.
+  static Serializer<UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data> get serializer =>
+      _$usersGetLastLoggedInUsersResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataBuilder b) {
+    $UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataBuilder b) {
+    $UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $UsersGetLastLoggedInUsersResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UsersGetLastLoggedInUsersResponseApplicationJson_OcsInterfaceBuilder].
+  $UsersGetLastLoggedInUsersResponseApplicationJson_OcsInterface rebuild(
+    void Function($UsersGetLastLoggedInUsersResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UsersGetLastLoggedInUsersResponseApplicationJson_OcsInterfaceBuilder].
+  $UsersGetLastLoggedInUsersResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetLastLoggedInUsersResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetLastLoggedInUsersResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class UsersGetLastLoggedInUsersResponseApplicationJson_Ocs
+    implements
+        $UsersGetLastLoggedInUsersResponseApplicationJson_OcsInterface,
+        Built<UsersGetLastLoggedInUsersResponseApplicationJson_Ocs,
+            UsersGetLastLoggedInUsersResponseApplicationJson_OcsBuilder> {
+  /// Creates a new UsersGetLastLoggedInUsersResponseApplicationJson_Ocs object using the builder pattern.
+  factory UsersGetLastLoggedInUsersResponseApplicationJson_Ocs([
+    void Function(UsersGetLastLoggedInUsersResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const UsersGetLastLoggedInUsersResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UsersGetLastLoggedInUsersResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UsersGetLastLoggedInUsersResponseApplicationJson_Ocs.
+  static Serializer<UsersGetLastLoggedInUsersResponseApplicationJson_Ocs> get serializer =>
+      _$usersGetLastLoggedInUsersResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetLastLoggedInUsersResponseApplicationJson_OcsBuilder b) {
+    $UsersGetLastLoggedInUsersResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetLastLoggedInUsersResponseApplicationJson_OcsBuilder b) {
+    $UsersGetLastLoggedInUsersResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $UsersGetLastLoggedInUsersResponseApplicationJsonInterface {
+  UsersGetLastLoggedInUsersResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UsersGetLastLoggedInUsersResponseApplicationJsonInterfaceBuilder].
+  $UsersGetLastLoggedInUsersResponseApplicationJsonInterface rebuild(
+    void Function($UsersGetLastLoggedInUsersResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UsersGetLastLoggedInUsersResponseApplicationJsonInterfaceBuilder].
+  $UsersGetLastLoggedInUsersResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetLastLoggedInUsersResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetLastLoggedInUsersResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class UsersGetLastLoggedInUsersResponseApplicationJson
+    implements
+        $UsersGetLastLoggedInUsersResponseApplicationJsonInterface,
+        Built<UsersGetLastLoggedInUsersResponseApplicationJson,
+            UsersGetLastLoggedInUsersResponseApplicationJsonBuilder> {
+  /// Creates a new UsersGetLastLoggedInUsersResponseApplicationJson object using the builder pattern.
+  factory UsersGetLastLoggedInUsersResponseApplicationJson([
+    void Function(UsersGetLastLoggedInUsersResponseApplicationJsonBuilder)? b,
+  ]) = _$UsersGetLastLoggedInUsersResponseApplicationJson;
+
+  // coverage:ignore-start
+  const UsersGetLastLoggedInUsersResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UsersGetLastLoggedInUsersResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UsersGetLastLoggedInUsersResponseApplicationJson.
+  static Serializer<UsersGetLastLoggedInUsersResponseApplicationJson> get serializer =>
+      _$usersGetLastLoggedInUsersResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetLastLoggedInUsersResponseApplicationJsonBuilder b) {
+    $UsersGetLastLoggedInUsersResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetLastLoggedInUsersResponseApplicationJsonBuilder b) {
+    $UsersGetLastLoggedInUsersResponseApplicationJsonInterface._validate(b);
   }
 }
 
@@ -11184,6 +11660,21 @@ extension $GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersExten
       $b20d370ea28764b414e70ac5df151f1bExtension._fromJson(json);
 }
 
+/// Serialization extension for `UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users`.
+extension $UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_UsersExtension
+    on UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users {
+  /// Serializer for UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users> get serializer =>
+      $23fff76a4c828b7eda989f1236fdc6a4Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users fromJson(Object? json) =>
+      $23fff76a4c828b7eda989f1236fdc6a4Extension._fromJson(json);
+}
+
 /// Serialization extension for `UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users`.
 extension $UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersExtension
     on UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users {
@@ -11467,6 +11958,99 @@ class _$b20d370ea28764b414e70ac5df151f1bSerializer implements PrimitiveSerialize
       groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1:
           groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1,
       userDetails: userDetails
+    );
+  }
+}
+
+typedef _$23fff76a4c828b7eda989f1236fdc6a4 = ({
+  UserDetails? userDetails,
+  UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1? usersGetLastLoggedInUsersResponseApplicationJsonOcsDataUsers1
+});
+
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $23fff76a4c828b7eda989f1236fdc6a4Extension on _$23fff76a4c828b7eda989f1236fdc6a4 {
+  List<dynamic> get _values => [userDetails, usersGetLastLoggedInUsersResponseApplicationJsonOcsDataUsers1];
+  List<String> get _names => const ['userDetails', 'usersGetLastLoggedInUsersResponseApplicationJsonOcsDataUsers1'];
+
+  /// {@macro Dynamite.validateOneOf}
+  void validateOneOf() => _i5.validateOneOf(
+        _values,
+        _names,
+      );
+
+  /// {@macro Dynamite.validateAnyOf}
+  void validateAnyOf() => _i5.validateAnyOf(
+        _values,
+        _names,
+      );
+  static Serializer<_$23fff76a4c828b7eda989f1236fdc6a4> get _serializer =>
+      const _$23fff76a4c828b7eda989f1236fdc6a4Serializer();
+  static _$23fff76a4c828b7eda989f1236fdc6a4 _fromJson(Object? json) =>
+      _$jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
+}
+
+class _$23fff76a4c828b7eda989f1236fdc6a4Serializer implements PrimitiveSerializer<_$23fff76a4c828b7eda989f1236fdc6a4> {
+  const _$23fff76a4c828b7eda989f1236fdc6a4Serializer();
+
+  @override
+  Iterable<Type> get types => const [_$23fff76a4c828b7eda989f1236fdc6a4];
+
+  @override
+  String get wireName => r'_$23fff76a4c828b7eda989f1236fdc6a4';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    _$23fff76a4c828b7eda989f1236fdc6a4 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.userDetails;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(UserDetails))!;
+    }
+    value = object.usersGetLastLoggedInUsersResponseApplicationJsonOcsDataUsers1;
+    if (value != null) {
+      return serializers.serialize(
+        value,
+        specifiedType: const FullType(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1),
+      )!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  _$23fff76a4c828b7eda989f1236fdc6a4 deserialize(
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    UserDetails? userDetails;
+    try {
+      userDetails = serializers.deserialize(
+        data,
+        specifiedType: const FullType(UserDetails),
+      )! as UserDetails;
+    } catch (_) {}
+    UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1?
+        usersGetLastLoggedInUsersResponseApplicationJsonOcsDataUsers1;
+    try {
+      usersGetLastLoggedInUsersResponseApplicationJsonOcsDataUsers1 = serializers.deserialize(
+        data,
+        specifiedType: const FullType(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1),
+      )! as UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1;
+    } catch (_) {}
+    return (
+      userDetails: userDetails,
+      usersGetLastLoggedInUsersResponseApplicationJsonOcsDataUsers1:
+          usersGetLastLoggedInUsersResponseApplicationJsonOcsDataUsers1
     );
   }
 }
@@ -11852,6 +12436,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(const FullType(UserDetails), UserDetailsBuilder.new)
       ..add(UserDetails.serializer)
+      ..add(UserDetailsScope.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(UserDetailsScope)]), ListBuilder<UserDetailsScope>.new)
       ..addBuilderFactory(const FullType(UserDetails_BackendCapabilities), UserDetails_BackendCapabilitiesBuilder.new)
       ..add(UserDetails_BackendCapabilities.serializer)
       ..addBuilderFactory(const FullType(UserDetailsQuota), UserDetailsQuotaBuilder.new)
@@ -11924,6 +12510,34 @@ final Serializers _$serializers = (Serializers().toBuilder()
         PreferencesDeleteMultiplePreferenceResponseApplicationJson_OcsBuilder.new,
       )
       ..add(PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(UsersGetLastLoggedInUsersResponseApplicationJson),
+        UsersGetLastLoggedInUsersResponseApplicationJsonBuilder.new,
+      )
+      ..add(UsersGetLastLoggedInUsersResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs),
+        UsersGetLastLoggedInUsersResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data),
+        UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1),
+        UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1Builder.new,
+      )
+      ..add(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1.serializer)
+      ..add($23fff76a4c828b7eda989f1236fdc6a4Extension._serializer)
+      ..addBuilderFactory(
+        const FullType(
+          BuiltMap,
+          [FullType(String), FullType(UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users)],
+        ),
+        MapBuilder<String, UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users>.new,
+      )
       ..addBuilderFactory(
         const FullType(UsersGetUserSubAdminGroupsResponseApplicationJson),
         UsersGetUserSubAdminGroupsResponseApplicationJsonBuilder.new,
@@ -12252,6 +12866,7 @@ final Serializers _$jsonSerializers = (_$serializers.toBuilder()
             _$c4bc4131e74e61dae681408e87e2e2bd,
             _$b6d67dc2a96424d2f407f8e51557f3de,
             _$b20d370ea28764b414e70ac5df151f1b,
+            _$23fff76a4c828b7eda989f1236fdc6a4,
             _$1e1cd5e43e0a1022a23a294e58225d74,
             _$f9d75e948689049b3f3e23e024d4be73,
           },

@@ -45,6 +45,15 @@ Serializer<OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs>
 Serializer<OutOfOfficeClearOutOfOfficeResponseApplicationJson>
     _$outOfOfficeClearOutOfOfficeResponseApplicationJsonSerializer =
     _$OutOfOfficeClearOutOfOfficeResponseApplicationJsonSerializer();
+Serializer<UpcomingEvent> _$upcomingEventSerializer = _$UpcomingEventSerializer();
+Serializer<UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data>
+    _$upcomingEventsGetEventsResponseApplicationJsonOcsDataSerializer =
+    _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataSerializer();
+Serializer<UpcomingEventsGetEventsResponseApplicationJson_Ocs>
+    _$upcomingEventsGetEventsResponseApplicationJsonOcsSerializer =
+    _$UpcomingEventsGetEventsResponseApplicationJson_OcsSerializer();
+Serializer<UpcomingEventsGetEventsResponseApplicationJson> _$upcomingEventsGetEventsResponseApplicationJsonSerializer =
+    _$UpcomingEventsGetEventsResponseApplicationJsonSerializer();
 Serializer<Capabilities_Dav> _$capabilitiesDavSerializer = _$Capabilities_DavSerializer();
 Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
 
@@ -309,7 +318,19 @@ class _$OutOfOfficeDataCommonSerializer implements StructuredSerializer<OutOfOff
       'message',
       serializers.serialize(object.message, specifiedType: const FullType(String)),
     ];
-
+    Object? value;
+    value = object.replacementUserId;
+    if (value != null) {
+      result
+        ..add('replacementUserId')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.replacementUserDisplayName;
+    if (value != null) {
+      result
+        ..add('replacementUserDisplayName')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -329,6 +350,13 @@ class _$OutOfOfficeDataCommonSerializer implements StructuredSerializer<OutOfOff
           break;
         case 'message':
           result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'replacementUserId':
+          result.replacementUserId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'replacementUserDisplayName':
+          result.replacementUserDisplayName =
+              serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -360,7 +388,19 @@ class _$CurrentOutOfOfficeDataSerializer implements StructuredSerializer<Current
       'message',
       serializers.serialize(object.message, specifiedType: const FullType(String)),
     ];
-
+    Object? value;
+    value = object.replacementUserId;
+    if (value != null) {
+      result
+        ..add('replacementUserId')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.replacementUserDisplayName;
+    if (value != null) {
+      result
+        ..add('replacementUserDisplayName')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -392,6 +432,13 @@ class _$CurrentOutOfOfficeDataSerializer implements StructuredSerializer<Current
           break;
         case 'message':
           result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'replacementUserId':
+          result.replacementUserId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'replacementUserDisplayName':
+          result.replacementUserDisplayName =
+              serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -520,7 +567,19 @@ class _$OutOfOfficeDataSerializer implements StructuredSerializer<OutOfOfficeDat
       'message',
       serializers.serialize(object.message, specifiedType: const FullType(String)),
     ];
-
+    Object? value;
+    value = object.replacementUserId;
+    if (value != null) {
+      result
+        ..add('replacementUserId')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.replacementUserDisplayName;
+    if (value != null) {
+      result
+        ..add('replacementUserDisplayName')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -552,6 +611,13 @@ class _$OutOfOfficeDataSerializer implements StructuredSerializer<OutOfOfficeDat
           break;
         case 'message':
           result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'replacementUserId':
+          result.replacementUserId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'replacementUserDisplayName':
+          result.replacementUserDisplayName =
+              serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -677,7 +743,19 @@ class _$OutOfOfficeSetOutOfOfficeRequestApplicationJsonSerializer
       'message',
       serializers.serialize(object.message, specifiedType: const FullType(String)),
     ];
-
+    Object? value;
+    value = object.replacementUserId;
+    if (value != null) {
+      result
+        ..add('replacementUserId')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.replacementUserDisplayName;
+    if (value != null) {
+      result
+        ..add('replacementUserDisplayName')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -703,6 +781,13 @@ class _$OutOfOfficeSetOutOfOfficeRequestApplicationJsonSerializer
           break;
         case 'message':
           result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'replacementUserId':
+          result.replacementUserId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'replacementUserDisplayName':
+          result.replacementUserDisplayName =
+              serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -894,6 +979,215 @@ class _$OutOfOfficeClearOutOfOfficeResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs))!
               as OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UpcomingEventSerializer implements StructuredSerializer<UpcomingEvent> {
+  @override
+  final Iterable<Type> types = const [UpcomingEvent, _$UpcomingEvent];
+  @override
+  final String wireName = 'UpcomingEvent';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UpcomingEvent object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'uri',
+      serializers.serialize(object.uri, specifiedType: const FullType(String)),
+      'calendarUri',
+      serializers.serialize(object.calendarUri, specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.start;
+    if (value != null) {
+      result
+        ..add('start')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.summary;
+    if (value != null) {
+      result
+        ..add('summary')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.location;
+    if (value != null) {
+      result
+        ..add('location')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  UpcomingEvent deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UpcomingEventBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'uri':
+          result.uri = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'calendarUri':
+          result.calendarUri = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'start':
+          result.start = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'summary':
+          result.summary = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'location':
+          result.location = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data,
+    _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'events',
+      serializers.serialize(object.events, specifiedType: const FullType(BuiltList, [FullType(UpcomingEvent)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'events':
+          result.events.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(UpcomingEvent)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UpcomingEventsGetEventsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<UpcomingEventsGetEventsResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    UpcomingEventsGetEventsResponseApplicationJson_Ocs,
+    _$UpcomingEventsGetEventsResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'UpcomingEventsGetEventsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UpcomingEventsGetEventsResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UpcomingEventsGetEventsResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data))!
+              as UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UpcomingEventsGetEventsResponseApplicationJsonSerializer
+    implements StructuredSerializer<UpcomingEventsGetEventsResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    UpcomingEventsGetEventsResponseApplicationJson,
+    _$UpcomingEventsGetEventsResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'UpcomingEventsGetEventsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UpcomingEventsGetEventsResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(UpcomingEventsGetEventsResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UpcomingEventsGetEventsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UpcomingEventsGetEventsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(UpcomingEventsGetEventsResponseApplicationJson_Ocs))!
+              as UpcomingEventsGetEventsResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1576,6 +1870,12 @@ abstract mixin class $OutOfOfficeDataCommonInterfaceBuilder {
 
   String? get message;
   set message(String? message);
+
+  String? get replacementUserId;
+  set replacementUserId(String? replacementUserId);
+
+  String? get replacementUserDisplayName;
+  set replacementUserDisplayName(String? replacementUserDisplayName);
 }
 
 class _$OutOfOfficeDataCommon extends OutOfOfficeDataCommon {
@@ -1583,11 +1883,17 @@ class _$OutOfOfficeDataCommon extends OutOfOfficeDataCommon {
   final String userId;
   @override
   final String message;
+  @override
+  final String? replacementUserId;
+  @override
+  final String? replacementUserDisplayName;
 
   factory _$OutOfOfficeDataCommon([void Function(OutOfOfficeDataCommonBuilder)? updates]) =>
       (OutOfOfficeDataCommonBuilder()..update(updates))._build();
 
-  _$OutOfOfficeDataCommon._({required this.userId, required this.message}) : super._() {
+  _$OutOfOfficeDataCommon._(
+      {required this.userId, required this.message, this.replacementUserId, this.replacementUserDisplayName})
+      : super._() {
     BuiltValueNullFieldError.checkNotNull(userId, r'OutOfOfficeDataCommon', 'userId');
     BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeDataCommon', 'message');
   }
@@ -1602,7 +1908,11 @@ class _$OutOfOfficeDataCommon extends OutOfOfficeDataCommon {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is OutOfOfficeDataCommon && userId == other.userId && message == other.message;
+    return other is OutOfOfficeDataCommon &&
+        userId == other.userId &&
+        message == other.message &&
+        replacementUserId == other.replacementUserId &&
+        replacementUserDisplayName == other.replacementUserDisplayName;
   }
 
   @override
@@ -1610,6 +1920,8 @@ class _$OutOfOfficeDataCommon extends OutOfOfficeDataCommon {
     var _$hash = 0;
     _$hash = $jc(_$hash, userId.hashCode);
     _$hash = $jc(_$hash, message.hashCode);
+    _$hash = $jc(_$hash, replacementUserId.hashCode);
+    _$hash = $jc(_$hash, replacementUserDisplayName.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -1618,7 +1930,9 @@ class _$OutOfOfficeDataCommon extends OutOfOfficeDataCommon {
   String toString() {
     return (newBuiltValueToStringHelper(r'OutOfOfficeDataCommon')
           ..add('userId', userId)
-          ..add('message', message))
+          ..add('message', message)
+          ..add('replacementUserId', replacementUserId)
+          ..add('replacementUserDisplayName', replacementUserDisplayName))
         .toString();
   }
 }
@@ -1635,6 +1949,15 @@ class OutOfOfficeDataCommonBuilder
   String? get message => _$this._message;
   set message(covariant String? message) => _$this._message = message;
 
+  String? _replacementUserId;
+  String? get replacementUserId => _$this._replacementUserId;
+  set replacementUserId(covariant String? replacementUserId) => _$this._replacementUserId = replacementUserId;
+
+  String? _replacementUserDisplayName;
+  String? get replacementUserDisplayName => _$this._replacementUserDisplayName;
+  set replacementUserDisplayName(covariant String? replacementUserDisplayName) =>
+      _$this._replacementUserDisplayName = replacementUserDisplayName;
+
   OutOfOfficeDataCommonBuilder() {
     OutOfOfficeDataCommon._defaults(this);
   }
@@ -1644,6 +1967,8 @@ class OutOfOfficeDataCommonBuilder
     if ($v != null) {
       _userId = $v.userId;
       _message = $v.message;
+      _replacementUserId = $v.replacementUserId;
+      _replacementUserDisplayName = $v.replacementUserDisplayName;
       _$v = null;
     }
     return this;
@@ -1668,7 +1993,9 @@ class OutOfOfficeDataCommonBuilder
     final _$result = _$v ??
         _$OutOfOfficeDataCommon._(
             userId: BuiltValueNullFieldError.checkNotNull(userId, r'OutOfOfficeDataCommon', 'userId'),
-            message: BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeDataCommon', 'message'));
+            message: BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeDataCommon', 'message'),
+            replacementUserId: replacementUserId,
+            replacementUserDisplayName: replacementUserDisplayName);
     replace(_$result);
     return _$result;
   }
@@ -1694,6 +2021,12 @@ abstract mixin class $CurrentOutOfOfficeDataInterfaceBuilder implements $OutOfOf
 
   String? get message;
   set message(covariant String? message);
+
+  String? get replacementUserId;
+  set replacementUserId(covariant String? replacementUserId);
+
+  String? get replacementUserDisplayName;
+  set replacementUserDisplayName(covariant String? replacementUserDisplayName);
 }
 
 class _$CurrentOutOfOfficeData extends CurrentOutOfOfficeData {
@@ -1709,6 +2042,10 @@ class _$CurrentOutOfOfficeData extends CurrentOutOfOfficeData {
   final String userId;
   @override
   final String message;
+  @override
+  final String? replacementUserId;
+  @override
+  final String? replacementUserDisplayName;
 
   factory _$CurrentOutOfOfficeData([void Function(CurrentOutOfOfficeDataBuilder)? updates]) =>
       (CurrentOutOfOfficeDataBuilder()..update(updates))._build();
@@ -1719,7 +2056,9 @@ class _$CurrentOutOfOfficeData extends CurrentOutOfOfficeData {
       required this.endDate,
       required this.shortMessage,
       required this.userId,
-      required this.message})
+      required this.message,
+      this.replacementUserId,
+      this.replacementUserDisplayName})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'CurrentOutOfOfficeData', 'id');
     BuiltValueNullFieldError.checkNotNull(startDate, r'CurrentOutOfOfficeData', 'startDate');
@@ -1745,7 +2084,9 @@ class _$CurrentOutOfOfficeData extends CurrentOutOfOfficeData {
         endDate == other.endDate &&
         shortMessage == other.shortMessage &&
         userId == other.userId &&
-        message == other.message;
+        message == other.message &&
+        replacementUserId == other.replacementUserId &&
+        replacementUserDisplayName == other.replacementUserDisplayName;
   }
 
   @override
@@ -1757,6 +2098,8 @@ class _$CurrentOutOfOfficeData extends CurrentOutOfOfficeData {
     _$hash = $jc(_$hash, shortMessage.hashCode);
     _$hash = $jc(_$hash, userId.hashCode);
     _$hash = $jc(_$hash, message.hashCode);
+    _$hash = $jc(_$hash, replacementUserId.hashCode);
+    _$hash = $jc(_$hash, replacementUserDisplayName.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -1769,7 +2112,9 @@ class _$CurrentOutOfOfficeData extends CurrentOutOfOfficeData {
           ..add('endDate', endDate)
           ..add('shortMessage', shortMessage)
           ..add('userId', userId)
-          ..add('message', message))
+          ..add('message', message)
+          ..add('replacementUserId', replacementUserId)
+          ..add('replacementUserDisplayName', replacementUserDisplayName))
         .toString();
   }
 }
@@ -1802,6 +2147,15 @@ class CurrentOutOfOfficeDataBuilder
   String? get message => _$this._message;
   set message(covariant String? message) => _$this._message = message;
 
+  String? _replacementUserId;
+  String? get replacementUserId => _$this._replacementUserId;
+  set replacementUserId(covariant String? replacementUserId) => _$this._replacementUserId = replacementUserId;
+
+  String? _replacementUserDisplayName;
+  String? get replacementUserDisplayName => _$this._replacementUserDisplayName;
+  set replacementUserDisplayName(covariant String? replacementUserDisplayName) =>
+      _$this._replacementUserDisplayName = replacementUserDisplayName;
+
   CurrentOutOfOfficeDataBuilder() {
     CurrentOutOfOfficeData._defaults(this);
   }
@@ -1815,6 +2169,8 @@ class CurrentOutOfOfficeDataBuilder
       _shortMessage = $v.shortMessage;
       _userId = $v.userId;
       _message = $v.message;
+      _replacementUserId = $v.replacementUserId;
+      _replacementUserDisplayName = $v.replacementUserDisplayName;
       _$v = null;
     }
     return this;
@@ -1844,7 +2200,9 @@ class CurrentOutOfOfficeDataBuilder
             shortMessage:
                 BuiltValueNullFieldError.checkNotNull(shortMessage, r'CurrentOutOfOfficeData', 'shortMessage'),
             userId: BuiltValueNullFieldError.checkNotNull(userId, r'CurrentOutOfOfficeData', 'userId'),
-            message: BuiltValueNullFieldError.checkNotNull(message, r'CurrentOutOfOfficeData', 'message'));
+            message: BuiltValueNullFieldError.checkNotNull(message, r'CurrentOutOfOfficeData', 'message'),
+            replacementUserId: replacementUserId,
+            replacementUserDisplayName: replacementUserDisplayName);
     replace(_$result);
     return _$result;
   }
@@ -2112,6 +2470,12 @@ abstract mixin class $OutOfOfficeDataInterfaceBuilder implements $OutOfOfficeDat
 
   String? get message;
   set message(covariant String? message);
+
+  String? get replacementUserId;
+  set replacementUserId(covariant String? replacementUserId);
+
+  String? get replacementUserDisplayName;
+  set replacementUserDisplayName(covariant String? replacementUserDisplayName);
 }
 
 class _$OutOfOfficeData extends OutOfOfficeData {
@@ -2127,6 +2491,10 @@ class _$OutOfOfficeData extends OutOfOfficeData {
   final String userId;
   @override
   final String message;
+  @override
+  final String? replacementUserId;
+  @override
+  final String? replacementUserDisplayName;
 
   factory _$OutOfOfficeData([void Function(OutOfOfficeDataBuilder)? updates]) =>
       (OutOfOfficeDataBuilder()..update(updates))._build();
@@ -2137,7 +2505,9 @@ class _$OutOfOfficeData extends OutOfOfficeData {
       required this.lastDay,
       required this.status,
       required this.userId,
-      required this.message})
+      required this.message,
+      this.replacementUserId,
+      this.replacementUserDisplayName})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'OutOfOfficeData', 'id');
     BuiltValueNullFieldError.checkNotNull(firstDay, r'OutOfOfficeData', 'firstDay');
@@ -2162,7 +2532,9 @@ class _$OutOfOfficeData extends OutOfOfficeData {
         lastDay == other.lastDay &&
         status == other.status &&
         userId == other.userId &&
-        message == other.message;
+        message == other.message &&
+        replacementUserId == other.replacementUserId &&
+        replacementUserDisplayName == other.replacementUserDisplayName;
   }
 
   @override
@@ -2174,6 +2546,8 @@ class _$OutOfOfficeData extends OutOfOfficeData {
     _$hash = $jc(_$hash, status.hashCode);
     _$hash = $jc(_$hash, userId.hashCode);
     _$hash = $jc(_$hash, message.hashCode);
+    _$hash = $jc(_$hash, replacementUserId.hashCode);
+    _$hash = $jc(_$hash, replacementUserDisplayName.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -2186,7 +2560,9 @@ class _$OutOfOfficeData extends OutOfOfficeData {
           ..add('lastDay', lastDay)
           ..add('status', status)
           ..add('userId', userId)
-          ..add('message', message))
+          ..add('message', message)
+          ..add('replacementUserId', replacementUserId)
+          ..add('replacementUserDisplayName', replacementUserDisplayName))
         .toString();
   }
 }
@@ -2219,6 +2595,15 @@ class OutOfOfficeDataBuilder
   String? get message => _$this._message;
   set message(covariant String? message) => _$this._message = message;
 
+  String? _replacementUserId;
+  String? get replacementUserId => _$this._replacementUserId;
+  set replacementUserId(covariant String? replacementUserId) => _$this._replacementUserId = replacementUserId;
+
+  String? _replacementUserDisplayName;
+  String? get replacementUserDisplayName => _$this._replacementUserDisplayName;
+  set replacementUserDisplayName(covariant String? replacementUserDisplayName) =>
+      _$this._replacementUserDisplayName = replacementUserDisplayName;
+
   OutOfOfficeDataBuilder() {
     OutOfOfficeData._defaults(this);
   }
@@ -2232,6 +2617,8 @@ class OutOfOfficeDataBuilder
       _status = $v.status;
       _userId = $v.userId;
       _message = $v.message;
+      _replacementUserId = $v.replacementUserId;
+      _replacementUserDisplayName = $v.replacementUserDisplayName;
       _$v = null;
     }
     return this;
@@ -2260,7 +2647,9 @@ class OutOfOfficeDataBuilder
             lastDay: BuiltValueNullFieldError.checkNotNull(lastDay, r'OutOfOfficeData', 'lastDay'),
             status: BuiltValueNullFieldError.checkNotNull(status, r'OutOfOfficeData', 'status'),
             userId: BuiltValueNullFieldError.checkNotNull(userId, r'OutOfOfficeData', 'userId'),
-            message: BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeData', 'message'));
+            message: BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeData', 'message'),
+            replacementUserId: replacementUserId,
+            replacementUserDisplayName: replacementUserDisplayName);
     replace(_$result);
     return _$result;
   }
@@ -2515,6 +2904,12 @@ abstract mixin class $OutOfOfficeSetOutOfOfficeRequestApplicationJsonInterfaceBu
 
   String? get message;
   set message(String? message);
+
+  String? get replacementUserId;
+  set replacementUserId(String? replacementUserId);
+
+  String? get replacementUserDisplayName;
+  set replacementUserDisplayName(String? replacementUserDisplayName);
 }
 
 class _$OutOfOfficeSetOutOfOfficeRequestApplicationJson extends OutOfOfficeSetOutOfOfficeRequestApplicationJson {
@@ -2526,13 +2921,22 @@ class _$OutOfOfficeSetOutOfOfficeRequestApplicationJson extends OutOfOfficeSetOu
   final String status;
   @override
   final String message;
+  @override
+  final String? replacementUserId;
+  @override
+  final String? replacementUserDisplayName;
 
   factory _$OutOfOfficeSetOutOfOfficeRequestApplicationJson(
           [void Function(OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder)? updates]) =>
       (OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$OutOfOfficeSetOutOfOfficeRequestApplicationJson._(
-      {required this.firstDay, required this.lastDay, required this.status, required this.message})
+      {required this.firstDay,
+      required this.lastDay,
+      required this.status,
+      required this.message,
+      this.replacementUserId,
+      this.replacementUserDisplayName})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(firstDay, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'firstDay');
     BuiltValueNullFieldError.checkNotNull(lastDay, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'lastDay');
@@ -2556,7 +2960,9 @@ class _$OutOfOfficeSetOutOfOfficeRequestApplicationJson extends OutOfOfficeSetOu
         firstDay == other.firstDay &&
         lastDay == other.lastDay &&
         status == other.status &&
-        message == other.message;
+        message == other.message &&
+        replacementUserId == other.replacementUserId &&
+        replacementUserDisplayName == other.replacementUserDisplayName;
   }
 
   @override
@@ -2566,6 +2972,8 @@ class _$OutOfOfficeSetOutOfOfficeRequestApplicationJson extends OutOfOfficeSetOu
     _$hash = $jc(_$hash, lastDay.hashCode);
     _$hash = $jc(_$hash, status.hashCode);
     _$hash = $jc(_$hash, message.hashCode);
+    _$hash = $jc(_$hash, replacementUserId.hashCode);
+    _$hash = $jc(_$hash, replacementUserDisplayName.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -2576,7 +2984,9 @@ class _$OutOfOfficeSetOutOfOfficeRequestApplicationJson extends OutOfOfficeSetOu
           ..add('firstDay', firstDay)
           ..add('lastDay', lastDay)
           ..add('status', status)
-          ..add('message', message))
+          ..add('message', message)
+          ..add('replacementUserId', replacementUserId)
+          ..add('replacementUserDisplayName', replacementUserDisplayName))
         .toString();
   }
 }
@@ -2604,6 +3014,15 @@ class OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder
   String? get message => _$this._message;
   set message(covariant String? message) => _$this._message = message;
 
+  String? _replacementUserId;
+  String? get replacementUserId => _$this._replacementUserId;
+  set replacementUserId(covariant String? replacementUserId) => _$this._replacementUserId = replacementUserId;
+
+  String? _replacementUserDisplayName;
+  String? get replacementUserDisplayName => _$this._replacementUserDisplayName;
+  set replacementUserDisplayName(covariant String? replacementUserDisplayName) =>
+      _$this._replacementUserDisplayName = replacementUserDisplayName;
+
   OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder() {
     OutOfOfficeSetOutOfOfficeRequestApplicationJson._defaults(this);
   }
@@ -2615,6 +3034,8 @@ class OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder
       _lastDay = $v.lastDay;
       _status = $v.status;
       _message = $v.message;
+      _replacementUserId = $v.replacementUserId;
+      _replacementUserDisplayName = $v.replacementUserDisplayName;
       _$v = null;
     }
     return this;
@@ -2645,7 +3066,9 @@ class OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder
             status: BuiltValueNullFieldError.checkNotNull(
                 status, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'status'),
             message: BuiltValueNullFieldError.checkNotNull(
-                message, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'message'));
+                message, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'message'),
+            replacementUserId: replacementUserId,
+            replacementUserDisplayName: replacementUserDisplayName);
     replace(_$result);
     return _$result;
   }
@@ -3109,6 +3532,497 @@ class OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'OutOfOfficeClearOutOfOfficeResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $UpcomingEventInterfaceBuilder {
+  void replace($UpcomingEventInterface other);
+  void update(void Function($UpcomingEventInterfaceBuilder) updates);
+  String? get uri;
+  set uri(String? uri);
+
+  String? get calendarUri;
+  set calendarUri(String? calendarUri);
+
+  int? get start;
+  set start(int? start);
+
+  String? get summary;
+  set summary(String? summary);
+
+  String? get location;
+  set location(String? location);
+}
+
+class _$UpcomingEvent extends UpcomingEvent {
+  @override
+  final String uri;
+  @override
+  final String calendarUri;
+  @override
+  final int? start;
+  @override
+  final String? summary;
+  @override
+  final String? location;
+
+  factory _$UpcomingEvent([void Function(UpcomingEventBuilder)? updates]) =>
+      (UpcomingEventBuilder()..update(updates))._build();
+
+  _$UpcomingEvent._({required this.uri, required this.calendarUri, this.start, this.summary, this.location})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(uri, r'UpcomingEvent', 'uri');
+    BuiltValueNullFieldError.checkNotNull(calendarUri, r'UpcomingEvent', 'calendarUri');
+  }
+
+  @override
+  UpcomingEvent rebuild(void Function(UpcomingEventBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  UpcomingEventBuilder toBuilder() => UpcomingEventBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UpcomingEvent &&
+        uri == other.uri &&
+        calendarUri == other.calendarUri &&
+        start == other.start &&
+        summary == other.summary &&
+        location == other.location;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, uri.hashCode);
+    _$hash = $jc(_$hash, calendarUri.hashCode);
+    _$hash = $jc(_$hash, start.hashCode);
+    _$hash = $jc(_$hash, summary.hashCode);
+    _$hash = $jc(_$hash, location.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UpcomingEvent')
+          ..add('uri', uri)
+          ..add('calendarUri', calendarUri)
+          ..add('start', start)
+          ..add('summary', summary)
+          ..add('location', location))
+        .toString();
+  }
+}
+
+class UpcomingEventBuilder implements Builder<UpcomingEvent, UpcomingEventBuilder>, $UpcomingEventInterfaceBuilder {
+  _$UpcomingEvent? _$v;
+
+  String? _uri;
+  String? get uri => _$this._uri;
+  set uri(covariant String? uri) => _$this._uri = uri;
+
+  String? _calendarUri;
+  String? get calendarUri => _$this._calendarUri;
+  set calendarUri(covariant String? calendarUri) => _$this._calendarUri = calendarUri;
+
+  int? _start;
+  int? get start => _$this._start;
+  set start(covariant int? start) => _$this._start = start;
+
+  String? _summary;
+  String? get summary => _$this._summary;
+  set summary(covariant String? summary) => _$this._summary = summary;
+
+  String? _location;
+  String? get location => _$this._location;
+  set location(covariant String? location) => _$this._location = location;
+
+  UpcomingEventBuilder() {
+    UpcomingEvent._defaults(this);
+  }
+
+  UpcomingEventBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _uri = $v.uri;
+      _calendarUri = $v.calendarUri;
+      _start = $v.start;
+      _summary = $v.summary;
+      _location = $v.location;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UpcomingEvent other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UpcomingEvent;
+  }
+
+  @override
+  void update(void Function(UpcomingEventBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UpcomingEvent build() => _build();
+
+  _$UpcomingEvent _build() {
+    UpcomingEvent._validate(this);
+    final _$result = _$v ??
+        _$UpcomingEvent._(
+            uri: BuiltValueNullFieldError.checkNotNull(uri, r'UpcomingEvent', 'uri'),
+            calendarUri: BuiltValueNullFieldError.checkNotNull(calendarUri, r'UpcomingEvent', 'calendarUri'),
+            start: start,
+            summary: summary,
+            location: location);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  ListBuilder<UpcomingEvent> get events;
+  set events(ListBuilder<UpcomingEvent>? events);
+}
+
+class _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data
+    extends UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data {
+  @override
+  final BuiltList<UpcomingEvent> events;
+
+  factory _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data(
+          [void Function(UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data._({required this.events}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(events, r'UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data', 'events');
+  }
+
+  @override
+  UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data rebuild(
+          void Function(UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data && events == other.events;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, events.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data')
+          ..add('events', events))
+        .toString();
+  }
+}
+
+class UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data,
+            UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder>,
+        $UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data? _$v;
+
+  ListBuilder<UpcomingEvent>? _events;
+  ListBuilder<UpcomingEvent> get events => _$this._events ??= ListBuilder<UpcomingEvent>();
+  set events(covariant ListBuilder<UpcomingEvent>? events) => _$this._events = events;
+
+  UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder() {
+    UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _events = $v.events.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data _build() {
+    UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data._validate(this);
+    _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data _$result;
+    try {
+      _$result = _$v ?? _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data._(events: events.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'events';
+        events.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $UpcomingEventsGetEventsResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($UpcomingEventsGetEventsResponseApplicationJson_OcsInterface other);
+  void update(void Function($UpcomingEventsGetEventsResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$UpcomingEventsGetEventsResponseApplicationJson_Ocs extends UpcomingEventsGetEventsResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data data;
+
+  factory _$UpcomingEventsGetEventsResponseApplicationJson_Ocs(
+          [void Function(UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder)? updates]) =>
+      (UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$UpcomingEventsGetEventsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'UpcomingEventsGetEventsResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'UpcomingEventsGetEventsResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  UpcomingEventsGetEventsResponseApplicationJson_Ocs rebuild(
+          void Function(UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder toBuilder() =>
+      UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UpcomingEventsGetEventsResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UpcomingEventsGetEventsResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder
+    implements
+        Builder<UpcomingEventsGetEventsResponseApplicationJson_Ocs,
+            UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder>,
+        $UpcomingEventsGetEventsResponseApplicationJson_OcsInterfaceBuilder {
+  _$UpcomingEventsGetEventsResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder? _data;
+  UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder() {
+    UpcomingEventsGetEventsResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UpcomingEventsGetEventsResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UpcomingEventsGetEventsResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UpcomingEventsGetEventsResponseApplicationJson_Ocs build() => _build();
+
+  _$UpcomingEventsGetEventsResponseApplicationJson_Ocs _build() {
+    UpcomingEventsGetEventsResponseApplicationJson_Ocs._validate(this);
+    _$UpcomingEventsGetEventsResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ?? _$UpcomingEventsGetEventsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UpcomingEventsGetEventsResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $UpcomingEventsGetEventsResponseApplicationJsonInterfaceBuilder {
+  void replace($UpcomingEventsGetEventsResponseApplicationJsonInterface other);
+  void update(void Function($UpcomingEventsGetEventsResponseApplicationJsonInterfaceBuilder) updates);
+  UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$UpcomingEventsGetEventsResponseApplicationJson extends UpcomingEventsGetEventsResponseApplicationJson {
+  @override
+  final UpcomingEventsGetEventsResponseApplicationJson_Ocs ocs;
+
+  factory _$UpcomingEventsGetEventsResponseApplicationJson(
+          [void Function(UpcomingEventsGetEventsResponseApplicationJsonBuilder)? updates]) =>
+      (UpcomingEventsGetEventsResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$UpcomingEventsGetEventsResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'UpcomingEventsGetEventsResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  UpcomingEventsGetEventsResponseApplicationJson rebuild(
+          void Function(UpcomingEventsGetEventsResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UpcomingEventsGetEventsResponseApplicationJsonBuilder toBuilder() =>
+      UpcomingEventsGetEventsResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UpcomingEventsGetEventsResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UpcomingEventsGetEventsResponseApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class UpcomingEventsGetEventsResponseApplicationJsonBuilder
+    implements
+        Builder<UpcomingEventsGetEventsResponseApplicationJson, UpcomingEventsGetEventsResponseApplicationJsonBuilder>,
+        $UpcomingEventsGetEventsResponseApplicationJsonInterfaceBuilder {
+  _$UpcomingEventsGetEventsResponseApplicationJson? _$v;
+
+  UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder? _ocs;
+  UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder();
+  set ocs(covariant UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  UpcomingEventsGetEventsResponseApplicationJsonBuilder() {
+    UpcomingEventsGetEventsResponseApplicationJson._defaults(this);
+  }
+
+  UpcomingEventsGetEventsResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UpcomingEventsGetEventsResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UpcomingEventsGetEventsResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(UpcomingEventsGetEventsResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UpcomingEventsGetEventsResponseApplicationJson build() => _build();
+
+  _$UpcomingEventsGetEventsResponseApplicationJson _build() {
+    UpcomingEventsGetEventsResponseApplicationJson._validate(this);
+    _$UpcomingEventsGetEventsResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$UpcomingEventsGetEventsResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UpcomingEventsGetEventsResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

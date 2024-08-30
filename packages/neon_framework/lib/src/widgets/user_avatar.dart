@@ -44,7 +44,6 @@ class NeonUserAvatar extends StatefulWidget {
 
 class _UserAvatarState extends State<NeonUserAvatar> {
   late String username;
-  late double size;
 
   @override
   void initState() {
@@ -60,13 +59,8 @@ class _UserAvatarState extends State<NeonUserAvatar> {
     return LayoutBuilder(
       builder: (context, constraints) {
         final brightness = Theme.of(context).brightness;
-        size = constraints.constrain(Size.square(widget.size ?? largeIconSize)).shortestSide;
-        var pixelSize = (size * MediaQuery.of(context).devicePixelRatio).toInt();
-        if (pixelSize <= 64) {
-          pixelSize = 64;
-        } else {
-          pixelSize = 512;
-        }
+        final size = constraints.constrain(Size.square(widget.size ?? largeIconSize)).shortestSide;
+        final pixelSize = (size * MediaQuery.of(context).devicePixelRatio).toInt();
 
         final avatar = CircleAvatar(
           radius: size / 2,
@@ -79,11 +73,11 @@ class _UserAvatarState extends State<NeonUserAvatar> {
               getRequest: (client) => switch (brightness) {
                 Brightness.dark => client.core.avatar.$getAvatarDark_Request(
                     userId: username,
-                    size: pixelSize,
+                    size: pixelSize <= 64 ? core.AvatarGetAvatarDarkSize.$64 : core.AvatarGetAvatarDarkSize.$512,
                   ),
                 Brightness.light => client.core.avatar.$getAvatar_Request(
                     userId: username,
-                    size: pixelSize,
+                    size: pixelSize <= 64 ? core.AvatarGetAvatarSize.$64 : core.AvatarGetAvatarSize.$512,
                   ),
               },
             ),

@@ -134,13 +134,19 @@ void main() {
 
     group('Avatar', () {
       test('Get', () async {
-        final response = await tester.client.core.avatar.getAvatar(userId: 'admin', size: 32);
+        final response = await tester.client.core.avatar.getAvatar(
+          userId: 'admin',
+          size: core.AvatarGetAvatarSize.$64,
+        );
         expect(response.body, isNotEmpty);
         expect(response.headers.xNcIscustomavatar?.content, 0);
       });
 
       test('Get dark', () async {
-        final response = await tester.client.core.avatar.getAvatarDark(userId: 'admin', size: 32);
+        final response = await tester.client.core.avatar.getAvatarDark(
+          userId: 'admin',
+          size: core.AvatarGetAvatarDarkSize.$64,
+        );
         expect(response.body, isNotEmpty);
         expect(response.headers.xNcIscustomavatar?.content, 0);
       });

@@ -172,8 +172,7 @@ InlineSpan buildRichObjectParameter({
             spreed.RichObjectParameter_Type.user ||
             spreed.RichObjectParameter_Type.call ||
             spreed.RichObjectParameter_Type.guest ||
-            spreed.RichObjectParameter_Type.userGroup ||
-            spreed.RichObjectParameter_Type.group =>
+            spreed.RichObjectParameter_Type.userGroup =>
               TalkRichObjectMention(
                 parameter: parameter,
                 textStyle: textStyle,

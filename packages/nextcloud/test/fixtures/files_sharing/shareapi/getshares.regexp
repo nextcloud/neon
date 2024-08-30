@@ -10,7 +10,7 @@ accept: application/json
 authorization: Bearer mock
 content-type: application/json; charset=utf-8
 ocs-apirequest: true
-\{"shareType":0,"publicUpload":"false","password":"","expireDate":"","note":"","label":"","path":"/list-shares\.png","shareWith":"user2"\}
+\{"shareType":0,"publicUpload":"false","password":"","note":"","label":"","path":"/list-shares\.png","shareWith":"user2"\}
 GET http://localhost/ocs/v2\.php/apps/files_sharing/api/v1/shares\?shared_with_me=false&reshares=true&subfiles=false&path=%2Flist-shares\.png&include_tags=false
 accept: application/json
 authorization: Bearer mock

@@ -62,6 +62,8 @@ class $Client extends _i1.DynamiteClient {
 
   late final $CollaborationResourcesClient collaborationResources = $CollaborationResourcesClient(this);
 
+  late final $CsrfTokenClient csrfToken = $CsrfTokenClient(this);
+
   /// This controller handles guest avatar requests.
   late final $GuestAvatarClient guestAvatar = $GuestAvatarClient(this);
 
@@ -83,6 +85,8 @@ class $Client extends _i1.DynamiteClient {
   late final $ReferenceClient reference = $ReferenceClient(this);
 
   late final $ReferenceApiClient referenceApi = $ReferenceApiClient(this);
+
+  late final $TaskProcessingApiClient taskProcessingApi = $TaskProcessingApiClient(this);
 
   late final $TeamsApiClient teamsApi = $TeamsApiClient(this);
 
@@ -660,7 +664,7 @@ class $AvatarClient {
         bodyType: const FullType(Uint8List),
         headersType: const FullType(AvatarAvatarGetAvatarDarkHeaders),
         serializers: _$jsonSerializers,
-        validStatuses: const {200},
+        validStatuses: const {200, 201},
       );
 
   /// Get the dark avatar.
@@ -671,10 +675,13 @@ class $AvatarClient {
   /// Parameters:
   ///   * [userId] ID of the user.
   ///   * [size] Size of the avatar.
+  ///   * [guestFallback] Fallback to guest avatar if not found. Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200: Avatar returned
+  ///   * 201: Avatar returned
   ///   * 404: Avatar not found
+  ///   * 500
   ///
   /// See:
   ///  * [getAvatarDark] for a method executing this request and parsing the response.
@@ -682,16 +689,22 @@ class $AvatarClient {
   @_i2.experimental
   _i3.Request $getAvatarDark_Request({
     required String userId,
-    required int size,
+    required AvatarGetAvatarDarkSize size,
+    AvatarGetAvatarDarkGuestFallback? guestFallback,
   }) {
     final _parameters = <String, Object?>{};
     final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
     _parameters['userId'] = __userId;
 
-    final __size = _$jsonSerializers.serialize(size, specifiedType: const FullType(int));
+    final __size = _$jsonSerializers.serialize(size, specifiedType: const FullType(AvatarGetAvatarDarkSize));
     _parameters['size'] = __size;
 
-    final _path = _i6.UriTemplate('/index.php/avatar/{userId}/{size}/dark').expand(_parameters);
+    var __guestFallback =
+        _$jsonSerializers.serialize(guestFallback, specifiedType: const FullType(AvatarGetAvatarDarkGuestFallback));
+    __guestFallback ??= 0;
+    _parameters['guestFallback'] = __guestFallback;
+
+    final _path = _i6.UriTemplate('/index.php/avatar/{userId}/{size}/dark{?guestFallback*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
@@ -721,21 +734,26 @@ class $AvatarClient {
   /// Parameters:
   ///   * [userId] ID of the user.
   ///   * [size] Size of the avatar.
+  ///   * [guestFallback] Fallback to guest avatar if not found. Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200: Avatar returned
+  ///   * 201: Avatar returned
   ///   * 404: Avatar not found
+  ///   * 500
   ///
   /// See:
   ///  * [$getAvatarDark_Request] for the request send by this method.
   ///  * [$getAvatarDark_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Uint8List, AvatarAvatarGetAvatarDarkHeaders>> getAvatarDark({
     required String userId,
-    required int size,
+    required AvatarGetAvatarDarkSize size,
+    AvatarGetAvatarDarkGuestFallback? guestFallback,
   }) async {
     final _request = $getAvatarDark_Request(
       userId: userId,
       size: size,
+      guestFallback: guestFallback,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -750,7 +768,7 @@ class $AvatarClient {
         bodyType: const FullType(Uint8List),
         headersType: const FullType(AvatarAvatarGetAvatarHeaders),
         serializers: _$jsonSerializers,
-        validStatuses: const {200},
+        validStatuses: const {200, 201},
       );
 
   /// Get the avatar.
@@ -761,10 +779,13 @@ class $AvatarClient {
   /// Parameters:
   ///   * [userId] ID of the user.
   ///   * [size] Size of the avatar.
+  ///   * [guestFallback] Fallback to guest avatar if not found. Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200: Avatar returned
+  ///   * 201: Avatar returned
   ///   * 404: Avatar not found
+  ///   * 500
   ///
   /// See:
   ///  * [getAvatar] for a method executing this request and parsing the response.
@@ -772,16 +793,22 @@ class $AvatarClient {
   @_i2.experimental
   _i3.Request $getAvatar_Request({
     required String userId,
-    required int size,
+    required AvatarGetAvatarSize size,
+    AvatarGetAvatarGuestFallback? guestFallback,
   }) {
     final _parameters = <String, Object?>{};
     final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
     _parameters['userId'] = __userId;
 
-    final __size = _$jsonSerializers.serialize(size, specifiedType: const FullType(int));
+    final __size = _$jsonSerializers.serialize(size, specifiedType: const FullType(AvatarGetAvatarSize));
     _parameters['size'] = __size;
 
-    final _path = _i6.UriTemplate('/index.php/avatar/{userId}/{size}').expand(_parameters);
+    var __guestFallback =
+        _$jsonSerializers.serialize(guestFallback, specifiedType: const FullType(AvatarGetAvatarGuestFallback));
+    __guestFallback ??= 0;
+    _parameters['guestFallback'] = __guestFallback;
+
+    final _path = _i6.UriTemplate('/index.php/avatar/{userId}/{size}{?guestFallback*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
@@ -811,21 +838,26 @@ class $AvatarClient {
   /// Parameters:
   ///   * [userId] ID of the user.
   ///   * [size] Size of the avatar.
+  ///   * [guestFallback] Fallback to guest avatar if not found. Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200: Avatar returned
+  ///   * 201: Avatar returned
   ///   * 404: Avatar not found
+  ///   * 500
   ///
   /// See:
   ///  * [$getAvatar_Request] for the request send by this method.
   ///  * [$getAvatar_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Uint8List, AvatarAvatarGetAvatarHeaders>> getAvatar({
     required String userId,
-    required int size,
+    required AvatarGetAvatarSize size,
+    AvatarGetAvatarGuestFallback? guestFallback,
   }) async {
     final _request = $getAvatar_Request(
       userId: userId,
       size: size,
+      guestFallback: guestFallback,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -1735,6 +1767,79 @@ class $CollaborationResourcesClient {
   }
 }
 
+class $CsrfTokenClient {
+  /// Creates a new `DynamiteClient` for csrf_token requests.
+  $CsrfTokenClient(this._rootClient);
+
+  final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of [$index_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<CsrfTokenIndexResponseApplicationJson, void> $index_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(CsrfTokenIndexResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Returns a new CSRF token.
+  ///
+  /// Returns a `DynamiteRequest` backing the [index] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: CSRF token returned
+  ///   * 403: Strict cookie check failed
+  ///
+  /// See:
+  ///  * [index] for a method executing this request and parsing the response.
+  ///  * [$index_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $index_Request() {
+    const _path = '/index.php/csrftoken';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    return _request;
+  }
+
+  /// Returns a new CSRF token.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200: CSRF token returned
+  ///   * 403: Strict cookie check failed
+  ///
+  /// See:
+  ///  * [$index_Request] for the request send by this method.
+  ///  * [$index_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<CsrfTokenIndexResponseApplicationJson, void>> index() async {
+    final _request = $index_Request();
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $index_Serializer();
+    return _i1.ResponseConverter<CsrfTokenIndexResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+}
+
 /// This controller handles guest avatar requests.
 class $GuestAvatarClient {
   /// Creates a new `DynamiteClient` for guest_avatar requests.
@@ -1744,9 +1849,10 @@ class $GuestAvatarClient {
 
   /// Builds a serializer to parse the response of [$getAvatar_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<Uint8List, void> $getAvatar_Serializer() => _i1.DynamiteSerializer(
+  _i1.DynamiteSerializer<Uint8List, GuestAvatarGuestAvatarGetAvatarHeaders> $getAvatar_Serializer() =>
+      _i1.DynamiteSerializer(
         bodyType: const FullType(Uint8List),
-        headersType: null,
+        headersType: const FullType(GuestAvatarGuestAvatarGetAvatarHeaders),
         serializers: _$jsonSerializers,
         validStatuses: const {200, 201},
       );
@@ -1772,14 +1878,14 @@ class $GuestAvatarClient {
   @_i2.experimental
   _i3.Request $getAvatar_Request({
     required String guestName,
-    required String size,
+    required GuestAvatarGetAvatarSize size,
     GuestAvatarGetAvatarDarkTheme? darkTheme,
   }) {
     final _parameters = <String, Object?>{};
     final __guestName = _$jsonSerializers.serialize(guestName, specifiedType: const FullType(String));
     _parameters['guestName'] = __guestName;
 
-    final __size = _$jsonSerializers.serialize(size, specifiedType: const FullType(String));
+    final __size = _$jsonSerializers.serialize(size, specifiedType: const FullType(GuestAvatarGetAvatarSize));
     _parameters['size'] = __size;
 
     var __darkTheme =
@@ -1827,9 +1933,9 @@ class $GuestAvatarClient {
   /// See:
   ///  * [$getAvatar_Request] for the request send by this method.
   ///  * [$getAvatar_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<Uint8List, void>> getAvatar({
+  Future<_i1.DynamiteResponse<Uint8List, GuestAvatarGuestAvatarGetAvatarHeaders>> getAvatar({
     required String guestName,
-    required String size,
+    required GuestAvatarGetAvatarSize size,
     GuestAvatarGetAvatarDarkTheme? darkTheme,
   }) async {
     final _request = $getAvatar_Request(
@@ -1841,14 +1947,15 @@ class $GuestAvatarClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getAvatar_Serializer();
-    return _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    return _i1.ResponseConverter<Uint8List, GuestAvatarGuestAvatarGetAvatarHeaders>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getAvatarDark_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<Uint8List, void> $getAvatarDark_Serializer() => _i1.DynamiteSerializer(
+  _i1.DynamiteSerializer<Uint8List, GuestAvatarGuestAvatarGetAvatarDarkHeaders> $getAvatarDark_Serializer() =>
+      _i1.DynamiteSerializer(
         bodyType: const FullType(Uint8List),
-        headersType: null,
+        headersType: const FullType(GuestAvatarGuestAvatarGetAvatarDarkHeaders),
         serializers: _$jsonSerializers,
         validStatuses: const {200, 201},
       );
@@ -1873,13 +1980,13 @@ class $GuestAvatarClient {
   @_i2.experimental
   _i3.Request $getAvatarDark_Request({
     required String guestName,
-    required String size,
+    required GuestAvatarGetAvatarDarkSize size,
   }) {
     final _parameters = <String, Object?>{};
     final __guestName = _$jsonSerializers.serialize(guestName, specifiedType: const FullType(String));
     _parameters['guestName'] = __guestName;
 
-    final __size = _$jsonSerializers.serialize(size, specifiedType: const FullType(String));
+    final __size = _$jsonSerializers.serialize(size, specifiedType: const FullType(GuestAvatarGetAvatarDarkSize));
     _parameters['size'] = __size;
 
     final _path = _i6.UriTemplate('/index.php/avatar/guest/{guestName}/{size}/dark').expand(_parameters);
@@ -1921,9 +2028,9 @@ class $GuestAvatarClient {
   /// See:
   ///  * [$getAvatarDark_Request] for the request send by this method.
   ///  * [$getAvatarDark_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<Uint8List, void>> getAvatarDark({
+  Future<_i1.DynamiteResponse<Uint8List, GuestAvatarGuestAvatarGetAvatarDarkHeaders>> getAvatarDark({
     required String guestName,
-    required String size,
+    required GuestAvatarGetAvatarDarkSize size,
   }) async {
     final _request = $getAvatarDark_Request(
       guestName: guestName,
@@ -1933,7 +2040,7 @@ class $GuestAvatarClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getAvatarDark_Serializer();
-    return _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    return _i1.ResponseConverter<Uint8List, GuestAvatarGuestAvatarGetAvatarDarkHeaders>(_serializer).convert(_response);
   }
 }
 
@@ -2506,9 +2613,9 @@ class $PreviewClient {
   ///
   /// Parameters:
   ///   * [file] Path of the file. Defaults to `""`.
-  ///   * [x] Width of the preview. Defaults to `32`.
-  ///   * [y] Height of the preview. Defaults to `32`.
-  ///   * [a] Whether to not crop the preview. Defaults to `0`.
+  ///   * [x] Width of the preview. A width of -1 will use the original image width. Defaults to `32`.
+  ///   * [y] Height of the preview. A height of -1 will use the original image height. Defaults to `32`.
+  ///   * [a] Preserve the aspect ratio. Defaults to `0`.
   ///   * [forceIcon] Force returning an icon. Defaults to `1`.
   ///   * [mode] How to crop the image. Defaults to `"fill"`.
   ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
@@ -2530,7 +2637,7 @@ class $PreviewClient {
     int? y,
     PreviewGetPreviewA? a,
     PreviewGetPreviewForceIcon? forceIcon,
-    String? mode,
+    PreviewGetPreviewMode? mode,
     PreviewGetPreviewMimeFallback? mimeFallback,
   }) {
     final _parameters = <String, Object?>{};
@@ -2554,7 +2661,7 @@ class $PreviewClient {
     __forceIcon ??= 1;
     _parameters['forceIcon'] = __forceIcon;
 
-    var __mode = _$jsonSerializers.serialize(mode, specifiedType: const FullType(String));
+    var __mode = _$jsonSerializers.serialize(mode, specifiedType: const FullType(PreviewGetPreviewMode));
     __mode ??= 'fill';
     _parameters['mode'] = __mode;
 
@@ -2595,9 +2702,9 @@ class $PreviewClient {
   ///
   /// Parameters:
   ///   * [file] Path of the file. Defaults to `""`.
-  ///   * [x] Width of the preview. Defaults to `32`.
-  ///   * [y] Height of the preview. Defaults to `32`.
-  ///   * [a] Whether to not crop the preview. Defaults to `0`.
+  ///   * [x] Width of the preview. A width of -1 will use the original image width. Defaults to `32`.
+  ///   * [y] Height of the preview. A height of -1 will use the original image height. Defaults to `32`.
+  ///   * [a] Preserve the aspect ratio. Defaults to `0`.
   ///   * [forceIcon] Force returning an icon. Defaults to `1`.
   ///   * [mode] How to crop the image. Defaults to `"fill"`.
   ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
@@ -2618,7 +2725,7 @@ class $PreviewClient {
     int? y,
     PreviewGetPreviewA? a,
     PreviewGetPreviewForceIcon? forceIcon,
-    String? mode,
+    PreviewGetPreviewMode? mode,
     PreviewGetPreviewMimeFallback? mimeFallback,
   }) async {
     final _request = $getPreview_Request(
@@ -2653,9 +2760,9 @@ class $PreviewClient {
   ///
   /// Parameters:
   ///   * [fileId] ID of the file. Defaults to `-1`.
-  ///   * [x] Width of the preview. Defaults to `32`.
-  ///   * [y] Height of the preview. Defaults to `32`.
-  ///   * [a] Whether to not crop the preview. Defaults to `0`.
+  ///   * [x] Width of the preview. A width of -1 will use the original image width. Defaults to `32`.
+  ///   * [y] Height of the preview. A height of -1 will use the original image height. Defaults to `32`.
+  ///   * [a] Preserve the aspect ratio. Defaults to `0`.
   ///   * [forceIcon] Force returning an icon. Defaults to `1`.
   ///   * [mode] How to crop the image. Defaults to `"fill"`.
   ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
@@ -2677,7 +2784,7 @@ class $PreviewClient {
     int? y,
     PreviewGetPreviewByFileIdA? a,
     PreviewGetPreviewByFileIdForceIcon? forceIcon,
-    String? mode,
+    PreviewGetPreviewByFileIdMode? mode,
     PreviewGetPreviewByFileIdMimeFallback? mimeFallback,
   }) {
     final _parameters = <String, Object?>{};
@@ -2702,7 +2809,7 @@ class $PreviewClient {
     __forceIcon ??= 1;
     _parameters['forceIcon'] = __forceIcon;
 
-    var __mode = _$jsonSerializers.serialize(mode, specifiedType: const FullType(String));
+    var __mode = _$jsonSerializers.serialize(mode, specifiedType: const FullType(PreviewGetPreviewByFileIdMode));
     __mode ??= 'fill';
     _parameters['mode'] = __mode;
 
@@ -2743,9 +2850,9 @@ class $PreviewClient {
   ///
   /// Parameters:
   ///   * [fileId] ID of the file. Defaults to `-1`.
-  ///   * [x] Width of the preview. Defaults to `32`.
-  ///   * [y] Height of the preview. Defaults to `32`.
-  ///   * [a] Whether to not crop the preview. Defaults to `0`.
+  ///   * [x] Width of the preview. A width of -1 will use the original image width. Defaults to `32`.
+  ///   * [y] Height of the preview. A height of -1 will use the original image height. Defaults to `32`.
+  ///   * [a] Preserve the aspect ratio. Defaults to `0`.
   ///   * [forceIcon] Force returning an icon. Defaults to `1`.
   ///   * [mode] How to crop the image. Defaults to `"fill"`.
   ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
@@ -2766,7 +2873,7 @@ class $PreviewClient {
     int? y,
     PreviewGetPreviewByFileIdA? a,
     PreviewGetPreviewByFileIdForceIcon? forceIcon,
-    String? mode,
+    PreviewGetPreviewByFileIdMode? mode,
     PreviewGetPreviewByFileIdMimeFallback? mimeFallback,
   }) async {
     final _request = $getPreviewByFileId_Request(
@@ -3086,6 +3193,98 @@ class $ReferenceApiClient {
     return _i1.ResponseConverter<ReferenceApiExtractResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
+  /// Builds a serializer to parse the response of [$extractPublic_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<ReferenceApiExtractPublicResponseApplicationJson, void> $extractPublic_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ReferenceApiExtractPublicResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Extract references from a text.
+  ///
+  /// Returns a `DynamiteRequest` backing the [extractPublic] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: References returned
+  ///
+  /// See:
+  ///  * [extractPublic] for a method executing this request and parsing the response.
+  ///  * [$extractPublic_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $extractPublic_Request({
+    required ReferenceApiExtractPublicRequestApplicationJson $body,
+    bool? oCSAPIRequest,
+  }) {
+    const _path = '/ocs/v2.php/references/extractPublic';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(ReferenceApiExtractPublicRequestApplicationJson),
+      ),
+    );
+    return _request;
+  }
+
+  /// Extract references from a text.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: References returned
+  ///
+  /// See:
+  ///  * [$extractPublic_Request] for the request send by this method.
+  ///  * [$extractPublic_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<ReferenceApiExtractPublicResponseApplicationJson, void>> extractPublic({
+    required ReferenceApiExtractPublicRequestApplicationJson $body,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $extractPublic_Request(
+      oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $extractPublic_Serializer();
+    return _i1.ResponseConverter<ReferenceApiExtractPublicResponseApplicationJson, void>(_serializer)
+        .convert(_response);
+  }
+
   /// Builds a serializer to parse the response of [$resolveOne_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ReferenceApiResolveOneResponseApplicationJson, void> $resolveOne_Serializer() =>
@@ -3266,6 +3465,198 @@ class $ReferenceApiClient {
 
     final _serializer = $resolve_Serializer();
     return _i1.ResponseConverter<ReferenceApiResolveResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$resolveOnePublic_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<ReferenceApiResolveOnePublicResponseApplicationJson, void> $resolveOnePublic_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ReferenceApiResolveOnePublicResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Resolve from a public page.
+  ///
+  /// Returns a `DynamiteRequest` backing the [resolveOnePublic] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [reference] Reference to resolve.
+  ///   * [sharingToken] Token of the public share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Reference returned
+  ///
+  /// See:
+  ///  * [resolveOnePublic] for a method executing this request and parsing the response.
+  ///  * [$resolveOnePublic_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $resolveOnePublic_Request({
+    required String reference,
+    required String sharingToken,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __reference = _$jsonSerializers.serialize(reference, specifiedType: const FullType(String));
+    _parameters['reference'] = __reference;
+
+    final __sharingToken = _$jsonSerializers.serialize(sharingToken, specifiedType: const FullType(String));
+    _parameters['sharingToken'] = __sharingToken;
+
+    final _path =
+        _i6.UriTemplate('/ocs/v2.php/references/resolvePublic{?reference*,sharingToken*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Resolve from a public page.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [reference] Reference to resolve.
+  ///   * [sharingToken] Token of the public share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Reference returned
+  ///
+  /// See:
+  ///  * [$resolveOnePublic_Request] for the request send by this method.
+  ///  * [$resolveOnePublic_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<ReferenceApiResolveOnePublicResponseApplicationJson, void>> resolveOnePublic({
+    required String reference,
+    required String sharingToken,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $resolveOnePublic_Request(
+      reference: reference,
+      sharingToken: sharingToken,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $resolveOnePublic_Serializer();
+    return _i1.ResponseConverter<ReferenceApiResolveOnePublicResponseApplicationJson, void>(_serializer)
+        .convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$resolvePublic_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<ReferenceApiResolvePublicResponseApplicationJson, void> $resolvePublic_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ReferenceApiResolvePublicResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Resolve multiple references from a public page.
+  ///
+  /// Returns a `DynamiteRequest` backing the [resolvePublic] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: References returned
+  ///
+  /// See:
+  ///  * [resolvePublic] for a method executing this request and parsing the response.
+  ///  * [$resolvePublic_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $resolvePublic_Request({
+    required ReferenceApiResolvePublicRequestApplicationJson $body,
+    bool? oCSAPIRequest,
+  }) {
+    const _path = '/ocs/v2.php/references/resolvePublic';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(ReferenceApiResolvePublicRequestApplicationJson),
+      ),
+    );
+    return _request;
+  }
+
+  /// Resolve multiple references from a public page.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: References returned
+  ///
+  /// See:
+  ///  * [$resolvePublic_Request] for the request send by this method.
+  ///  * [$resolvePublic_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<ReferenceApiResolvePublicResponseApplicationJson, void>> resolvePublic({
+    required ReferenceApiResolvePublicRequestApplicationJson $body,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $resolvePublic_Request(
+      oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $resolvePublic_Serializer();
+    return _i1.ResponseConverter<ReferenceApiResolvePublicResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getProvidersInfo_Request].
@@ -3457,6 +3848,1349 @@ class $ReferenceApiClient {
 
     final _serializer = $touchProvider_Serializer();
     return _i1.ResponseConverter<ReferenceApiTouchProviderResponseApplicationJson, void>(_serializer)
+        .convert(_response);
+  }
+}
+
+class $TaskProcessingApiClient {
+  /// Creates a new `DynamiteClient` for task_processing_api requests.
+  $TaskProcessingApiClient(this._rootClient);
+
+  final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of [$taskTypes_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TaskProcessingApiTaskTypesResponseApplicationJson, void> $taskTypes_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TaskProcessingApiTaskTypesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Returns all available TaskProcessing task types.
+  ///
+  /// Returns a `DynamiteRequest` backing the [taskTypes] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Task types returned
+  ///
+  /// See:
+  ///  * [taskTypes] for a method executing this request and parsing the response.
+  ///  * [$taskTypes_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $taskTypes_Request({bool? oCSAPIRequest}) {
+    const _path = '/ocs/v2.php/taskprocessing/tasktypes';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Returns all available TaskProcessing task types.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Task types returned
+  ///
+  /// See:
+  ///  * [$taskTypes_Request] for the request send by this method.
+  ///  * [$taskTypes_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TaskProcessingApiTaskTypesResponseApplicationJson, void>> taskTypes({
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $taskTypes_Request(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $taskTypes_Serializer();
+    return _i1.ResponseConverter<TaskProcessingApiTaskTypesResponseApplicationJson, void>(_serializer)
+        .convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$schedule_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TaskProcessingApiScheduleResponseApplicationJson, void> $schedule_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TaskProcessingApiScheduleResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Schedules a task.
+  ///
+  /// Returns a `DynamiteRequest` backing the [schedule] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Task scheduled successfully
+  ///   * 500
+  ///   * 400: Scheduling task is not possible
+  ///   * 412: Scheduling task is not possible
+  ///   * 401: Cannot schedule task because it references files in its input that the user doesn't have access to
+  ///
+  /// See:
+  ///  * [schedule] for a method executing this request and parsing the response.
+  ///  * [$schedule_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $schedule_Request({
+    required TaskProcessingApiScheduleRequestApplicationJson $body,
+    bool? oCSAPIRequest,
+  }) {
+    const _path = '/ocs/v2.php/taskprocessing/schedule';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(TaskProcessingApiScheduleRequestApplicationJson),
+      ),
+    );
+    return _request;
+  }
+
+  /// Schedules a task.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Task scheduled successfully
+  ///   * 500
+  ///   * 400: Scheduling task is not possible
+  ///   * 412: Scheduling task is not possible
+  ///   * 401: Cannot schedule task because it references files in its input that the user doesn't have access to
+  ///
+  /// See:
+  ///  * [$schedule_Request] for the request send by this method.
+  ///  * [$schedule_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TaskProcessingApiScheduleResponseApplicationJson, void>> schedule({
+    required TaskProcessingApiScheduleRequestApplicationJson $body,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $schedule_Request(
+      oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $schedule_Serializer();
+    return _i1.ResponseConverter<TaskProcessingApiScheduleResponseApplicationJson, void>(_serializer)
+        .convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$getTask_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TaskProcessingApiGetTaskResponseApplicationJson, void> $getTask_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TaskProcessingApiGetTaskResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Gets a task including status and result.
+  ///
+  /// Tasks are removed 1 week after receiving their last update.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getTask] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] The id of the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Task returned
+  ///   * 404: Task not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getTask] for a method executing this request and parsing the response.
+  ///  * [$getTask_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getTask_Request({
+    required int id,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = __id;
+
+    final _path = _i6.UriTemplate('/ocs/v2.php/taskprocessing/task/{id}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Gets a task including status and result.
+  ///
+  /// Tasks are removed 1 week after receiving their last update.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] The id of the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Task returned
+  ///   * 404: Task not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [$getTask_Request] for the request send by this method.
+  ///  * [$getTask_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TaskProcessingApiGetTaskResponseApplicationJson, void>> getTask({
+    required int id,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $getTask_Request(
+      id: id,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $getTask_Serializer();
+    return _i1.ResponseConverter<TaskProcessingApiGetTaskResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$deleteTask_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TaskProcessingApiDeleteTaskResponseApplicationJson, void> $deleteTask_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TaskProcessingApiDeleteTaskResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Deletes a task.
+  ///
+  /// Returns a `DynamiteRequest` backing the [deleteTask] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] The id of the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Task deleted
+  ///   * 500
+  ///
+  /// See:
+  ///  * [deleteTask] for a method executing this request and parsing the response.
+  ///  * [$deleteTask_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $deleteTask_Request({
+    required int id,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = __id;
+
+    final _path = _i6.UriTemplate('/ocs/v2.php/taskprocessing/task/{id}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('delete', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Deletes a task.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] The id of the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Task deleted
+  ///   * 500
+  ///
+  /// See:
+  ///  * [$deleteTask_Request] for the request send by this method.
+  ///  * [$deleteTask_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TaskProcessingApiDeleteTaskResponseApplicationJson, void>> deleteTask({
+    required int id,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $deleteTask_Request(
+      id: id,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $deleteTask_Serializer();
+    return _i1.ResponseConverter<TaskProcessingApiDeleteTaskResponseApplicationJson, void>(_serializer)
+        .convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$listTasksByApp_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TaskProcessingApiListTasksByAppResponseApplicationJson, void> $listTasksByApp_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TaskProcessingApiListTasksByAppResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Returns tasks for the current user filtered by the appId and optional customId.
+  ///
+  /// Returns a `DynamiteRequest` backing the [listTasksByApp] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [appId] ID of the app.
+  ///   * [customId] An arbitrary identifier for the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Tasks returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [listTasksByApp] for a method executing this request and parsing the response.
+  ///  * [$listTasksByApp_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $listTasksByApp_Request({
+    required String appId,
+    String? customId,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
+    _parameters['appId'] = __appId;
+
+    final __customId = _$jsonSerializers.serialize(customId, specifiedType: const FullType(String));
+    _parameters['customId'] = __customId;
+
+    final _path = _i6.UriTemplate('/ocs/v2.php/taskprocessing/tasks/app/{appId}{?customId*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Returns tasks for the current user filtered by the appId and optional customId.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [appId] ID of the app.
+  ///   * [customId] An arbitrary identifier for the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Tasks returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [$listTasksByApp_Request] for the request send by this method.
+  ///  * [$listTasksByApp_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TaskProcessingApiListTasksByAppResponseApplicationJson, void>> listTasksByApp({
+    required String appId,
+    String? customId,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $listTasksByApp_Request(
+      appId: appId,
+      customId: customId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $listTasksByApp_Serializer();
+    return _i1.ResponseConverter<TaskProcessingApiListTasksByAppResponseApplicationJson, void>(_serializer)
+        .convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$listTasks_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TaskProcessingApiListTasksResponseApplicationJson, void> $listTasks_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TaskProcessingApiListTasksResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Returns tasks for the current user filtered by the optional taskType and optional customId.
+  ///
+  /// Returns a `DynamiteRequest` backing the [listTasks] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [taskType] The task type to filter by.
+  ///   * [customId] An arbitrary identifier for the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Tasks returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [listTasks] for a method executing this request and parsing the response.
+  ///  * [$listTasks_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $listTasks_Request({
+    String? taskType,
+    String? customId,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __taskType = _$jsonSerializers.serialize(taskType, specifiedType: const FullType(String));
+    _parameters['taskType'] = __taskType;
+
+    final __customId = _$jsonSerializers.serialize(customId, specifiedType: const FullType(String));
+    _parameters['customId'] = __customId;
+
+    final _path = _i6.UriTemplate('/ocs/v2.php/taskprocessing/tasks{?taskType*,customId*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Returns tasks for the current user filtered by the optional taskType and optional customId.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [taskType] The task type to filter by.
+  ///   * [customId] An arbitrary identifier for the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Tasks returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [$listTasks_Request] for the request send by this method.
+  ///  * [$listTasks_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TaskProcessingApiListTasksResponseApplicationJson, void>> listTasks({
+    String? taskType,
+    String? customId,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $listTasks_Request(
+      taskType: taskType,
+      customId: customId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $listTasks_Serializer();
+    return _i1.ResponseConverter<TaskProcessingApiListTasksResponseApplicationJson, void>(_serializer)
+        .convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$getFileContents_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getFileContents_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Returns the contents of a file referenced in a task.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getFileContents] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [taskId] The id of the task.
+  ///   * [fileId] The file id of the file to retrieve.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: File content returned
+  ///   * 500
+  ///   * 404: Task or file not found
+  ///
+  /// See:
+  ///  * [getFileContents] for a method executing this request and parsing the response.
+  ///  * [$getFileContents_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getFileContents_Request({
+    required int taskId,
+    required int fileId,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __taskId = _$jsonSerializers.serialize(taskId, specifiedType: const FullType(int));
+    _parameters['taskId'] = __taskId;
+
+    final __fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    _parameters['fileId'] = __fileId;
+
+    final _path = _i6.UriTemplate('/ocs/v2.php/taskprocessing/tasks/{taskId}/file/{fileId}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = '*/*';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Returns the contents of a file referenced in a task.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [taskId] The id of the task.
+  ///   * [fileId] The file id of the file to retrieve.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: File content returned
+  ///   * 500
+  ///   * 404: Task or file not found
+  ///
+  /// See:
+  ///  * [$getFileContents_Request] for the request send by this method.
+  ///  * [$getFileContents_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<Uint8List, void>> getFileContents({
+    required int taskId,
+    required int fileId,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $getFileContents_Request(
+      taskId: taskId,
+      fileId: fileId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $getFileContents_Serializer();
+    return _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$cancelTask_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TaskProcessingApiCancelTaskResponseApplicationJson, void> $cancelTask_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TaskProcessingApiCancelTaskResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Cancels a task.
+  ///
+  /// Returns a `DynamiteRequest` backing the [cancelTask] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [taskId] The id of the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Task canceled successfully
+  ///   * 500
+  ///   * 404: Task not found
+  ///
+  /// See:
+  ///  * [cancelTask] for a method executing this request and parsing the response.
+  ///  * [$cancelTask_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $cancelTask_Request({
+    required int taskId,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __taskId = _$jsonSerializers.serialize(taskId, specifiedType: const FullType(int));
+    _parameters['taskId'] = __taskId;
+
+    final _path = _i6.UriTemplate('/ocs/v2.php/taskprocessing/tasks/{taskId}/cancel').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Cancels a task.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [taskId] The id of the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Task canceled successfully
+  ///   * 500
+  ///   * 404: Task not found
+  ///
+  /// See:
+  ///  * [$cancelTask_Request] for the request send by this method.
+  ///  * [$cancelTask_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TaskProcessingApiCancelTaskResponseApplicationJson, void>> cancelTask({
+    required int taskId,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $cancelTask_Request(
+      taskId: taskId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $cancelTask_Serializer();
+    return _i1.ResponseConverter<TaskProcessingApiCancelTaskResponseApplicationJson, void>(_serializer)
+        .convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$getFileContentsExApp_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getFileContentsExApp_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Returns the contents of a file referenced in a task(ExApp route version).
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getFileContentsExApp] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [taskId] The id of the task.
+  ///   * [fileId] The file id of the file to retrieve.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: File content returned
+  ///   * 500
+  ///   * 404: Task or file not found
+  ///
+  /// See:
+  ///  * [getFileContentsExApp] for a method executing this request and parsing the response.
+  ///  * [$getFileContentsExApp_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getFileContentsExApp_Request({
+    required int taskId,
+    required int fileId,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __taskId = _$jsonSerializers.serialize(taskId, specifiedType: const FullType(int));
+    _parameters['taskId'] = __taskId;
+
+    final __fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    _parameters['fileId'] = __fileId;
+
+    final _path =
+        _i6.UriTemplate('/ocs/v2.php/taskprocessing/tasks_provider/{taskId}/file/{fileId}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = '*/*';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Returns the contents of a file referenced in a task(ExApp route version).
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [taskId] The id of the task.
+  ///   * [fileId] The file id of the file to retrieve.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: File content returned
+  ///   * 500
+  ///   * 404: Task or file not found
+  ///
+  /// See:
+  ///  * [$getFileContentsExApp_Request] for the request send by this method.
+  ///  * [$getFileContentsExApp_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<Uint8List, void>> getFileContentsExApp({
+    required int taskId,
+    required int fileId,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $getFileContentsExApp_Request(
+      taskId: taskId,
+      fileId: fileId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $getFileContentsExApp_Serializer();
+    return _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$setFileContentsExApp_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TaskProcessingApiSetFileContentsExAppResponseApplicationJson, void>
+      $setFileContentsExApp_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(TaskProcessingApiSetFileContentsExAppResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+            validStatuses: const {201},
+          );
+
+  /// Upload a file so it can be referenced in a task result (ExApp route version).
+  ///
+  /// Use field 'file' for the file upload.
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a `DynamiteRequest` backing the [setFileContentsExApp] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [taskId] The id of the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 201: File created
+  ///   * 400: File upload failed or no file was uploaded
+  ///   * 500
+  ///   * 404: Task not found
+  ///
+  /// See:
+  ///  * [setFileContentsExApp] for a method executing this request and parsing the response.
+  ///  * [$setFileContentsExApp_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $setFileContentsExApp_Request({
+    required int taskId,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __taskId = _$jsonSerializers.serialize(taskId, specifiedType: const FullType(int));
+    _parameters['taskId'] = __taskId;
+
+    final _path = _i6.UriTemplate('/ocs/v2.php/taskprocessing/tasks_provider/{taskId}/file').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Upload a file so it can be referenced in a task result (ExApp route version).
+  ///
+  /// Use field 'file' for the file upload.
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [taskId] The id of the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 201: File created
+  ///   * 400: File upload failed or no file was uploaded
+  ///   * 500
+  ///   * 404: Task not found
+  ///
+  /// See:
+  ///  * [$setFileContentsExApp_Request] for the request send by this method.
+  ///  * [$setFileContentsExApp_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TaskProcessingApiSetFileContentsExAppResponseApplicationJson, void>>
+      setFileContentsExApp({
+    required int taskId,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $setFileContentsExApp_Request(
+      taskId: taskId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $setFileContentsExApp_Serializer();
+    return _i1.ResponseConverter<TaskProcessingApiSetFileContentsExAppResponseApplicationJson, void>(_serializer)
+        .convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$setProgress_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TaskProcessingApiSetProgressResponseApplicationJson, void> $setProgress_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TaskProcessingApiSetProgressResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Sets the task progress.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a `DynamiteRequest` backing the [setProgress] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [taskId] The id of the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Progress updated successfully
+  ///   * 500
+  ///   * 404: Task not found
+  ///
+  /// See:
+  ///  * [setProgress] for a method executing this request and parsing the response.
+  ///  * [$setProgress_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $setProgress_Request({
+    required int taskId,
+    required TaskProcessingApiSetProgressRequestApplicationJson $body,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __taskId = _$jsonSerializers.serialize(taskId, specifiedType: const FullType(int));
+    _parameters['taskId'] = __taskId;
+
+    final _path = _i6.UriTemplate('/ocs/v2.php/taskprocessing/tasks_provider/{taskId}/progress').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(TaskProcessingApiSetProgressRequestApplicationJson),
+      ),
+    );
+    return _request;
+  }
+
+  /// Sets the task progress.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [taskId] The id of the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Progress updated successfully
+  ///   * 500
+  ///   * 404: Task not found
+  ///
+  /// See:
+  ///  * [$setProgress_Request] for the request send by this method.
+  ///  * [$setProgress_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TaskProcessingApiSetProgressResponseApplicationJson, void>> setProgress({
+    required int taskId,
+    required TaskProcessingApiSetProgressRequestApplicationJson $body,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $setProgress_Request(
+      taskId: taskId,
+      oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $setProgress_Serializer();
+    return _i1.ResponseConverter<TaskProcessingApiSetProgressResponseApplicationJson, void>(_serializer)
+        .convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$setResult_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TaskProcessingApiSetResultResponseApplicationJson, void> $setResult_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TaskProcessingApiSetResultResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Sets the task result.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a `DynamiteRequest` backing the [setResult] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [taskId] The id of the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Result updated successfully
+  ///   * 500
+  ///   * 404: Task not found
+  ///
+  /// See:
+  ///  * [setResult] for a method executing this request and parsing the response.
+  ///  * [$setResult_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $setResult_Request({
+    required int taskId,
+    bool? oCSAPIRequest,
+    TaskProcessingApiSetResultRequestApplicationJson? $body,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __taskId = _$jsonSerializers.serialize(taskId, specifiedType: const FullType(int));
+    _parameters['taskId'] = __taskId;
+
+    final _path = _i6.UriTemplate('/ocs/v2.php/taskprocessing/tasks_provider/{taskId}/result').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize(
+              $body,
+              specifiedType: const FullType(TaskProcessingApiSetResultRequestApplicationJson),
+            ),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              TaskProcessingApiSetResultRequestApplicationJson(),
+              specifiedType: const FullType(TaskProcessingApiSetResultRequestApplicationJson),
+            ),
+          );
+    return _request;
+  }
+
+  /// Sets the task result.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [taskId] The id of the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Result updated successfully
+  ///   * 500
+  ///   * 404: Task not found
+  ///
+  /// See:
+  ///  * [$setResult_Request] for the request send by this method.
+  ///  * [$setResult_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TaskProcessingApiSetResultResponseApplicationJson, void>> setResult({
+    required int taskId,
+    bool? oCSAPIRequest,
+    TaskProcessingApiSetResultRequestApplicationJson? $body,
+  }) async {
+    final _request = $setResult_Request(
+      taskId: taskId,
+      oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $setResult_Serializer();
+    return _i1.ResponseConverter<TaskProcessingApiSetResultResponseApplicationJson, void>(_serializer)
+        .convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$getNextScheduledTask_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson, void>
+      $getNextScheduledTask_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+            validStatuses: const {200},
+          );
+
+  /// Returns the next scheduled task for the taskTypeId.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getNextScheduledTask] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [providerIds] The ids of the providers.
+  ///   * [taskTypeIds] The ids of the task types.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Task returned
+  ///   * 204: No task found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getNextScheduledTask] for a method executing this request and parsing the response.
+  ///  * [$getNextScheduledTask_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getNextScheduledTask_Request({
+    required BuiltList<String> providerIds,
+    required BuiltList<String> taskTypeIds,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __providerIds =
+        _$jsonSerializers.serialize(providerIds, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    _parameters['providerIds%5B%5D'] = __providerIds;
+
+    final __taskTypeIds =
+        _$jsonSerializers.serialize(taskTypeIds, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    _parameters['taskTypeIds%5B%5D'] = __taskTypeIds;
+
+    final _path =
+        _i6.UriTemplate('/ocs/v2.php/taskprocessing/tasks_provider/next{?providerIds%5B%5D*,taskTypeIds%5B%5D*}')
+            .expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Returns the next scheduled task for the taskTypeId.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [providerIds] The ids of the providers.
+  ///   * [taskTypeIds] The ids of the task types.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Task returned
+  ///   * 204: No task found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [$getNextScheduledTask_Request] for the request send by this method.
+  ///  * [$getNextScheduledTask_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson, void>>
+      getNextScheduledTask({
+    required BuiltList<String> providerIds,
+    required BuiltList<String> taskTypeIds,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $getNextScheduledTask_Request(
+      providerIds: providerIds,
+      taskTypeIds: taskTypeIds,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $getNextScheduledTask_Serializer();
+    return _i1.ResponseConverter<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson, void>(_serializer)
         .convert(_response);
   }
 }
@@ -5019,7 +6753,7 @@ class $UnifiedSearchClient {
   ///   * [providerId] ID of the provider.
   ///   * [term] Term to search. Defaults to `""`.
   ///   * [sortOrder] Order of entries.
-  ///   * [limit] Maximum amount of entries.
+  ///   * [limit] Maximum amount of entries, limited to 25.
   ///   * [cursor] Offset for searching.
   ///   * [from] The current user URL. Defaults to `""`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -5103,7 +6837,7 @@ class $UnifiedSearchClient {
   ///   * [providerId] ID of the provider.
   ///   * [term] Term to search. Defaults to `""`.
   ///   * [sortOrder] Order of entries.
-  ///   * [limit] Maximum amount of entries.
+  ///   * [limit] Maximum amount of entries, limited to 25.
   ///   * [cursor] Offset for searching.
   ///   * [from] The current user URL. Defaults to `""`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -6616,6 +8350,133 @@ abstract class AutoCompleteGetResponseApplicationJson
   }
 }
 
+class AvatarGetAvatarDarkSize extends EnumClass {
+  const AvatarGetAvatarDarkSize._(super.name);
+
+  /// `64`
+  @BuiltValueEnumConst(wireName: '64')
+  static const AvatarGetAvatarDarkSize $64 = _$avatarGetAvatarDarkSize$64;
+
+  /// `512`
+  @BuiltValueEnumConst(wireName: '512')
+  static const AvatarGetAvatarDarkSize $512 = _$avatarGetAvatarDarkSize$512;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<AvatarGetAvatarDarkSize> get values => _$avatarGetAvatarDarkSizeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static AvatarGetAvatarDarkSize valueOf(String name) => _$valueOfAvatarGetAvatarDarkSize(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for AvatarGetAvatarDarkSize.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AvatarGetAvatarDarkSize> get serializer => const _$AvatarGetAvatarDarkSizeSerializer();
+}
+
+class _$AvatarGetAvatarDarkSizeSerializer implements PrimitiveSerializer<AvatarGetAvatarDarkSize> {
+  const _$AvatarGetAvatarDarkSizeSerializer();
+
+  static const Map<AvatarGetAvatarDarkSize, Object> _toWire = <AvatarGetAvatarDarkSize, Object>{
+    AvatarGetAvatarDarkSize.$64: 64,
+    AvatarGetAvatarDarkSize.$512: 512,
+  };
+
+  static const Map<Object, AvatarGetAvatarDarkSize> _fromWire = <Object, AvatarGetAvatarDarkSize>{
+    64: AvatarGetAvatarDarkSize.$64,
+    512: AvatarGetAvatarDarkSize.$512,
+  };
+
+  @override
+  Iterable<Type> get types => const [AvatarGetAvatarDarkSize];
+
+  @override
+  String get wireName => 'AvatarGetAvatarDarkSize';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    AvatarGetAvatarDarkSize object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  AvatarGetAvatarDarkSize deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class AvatarGetAvatarDarkGuestFallback extends EnumClass {
+  const AvatarGetAvatarDarkGuestFallback._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const AvatarGetAvatarDarkGuestFallback $0 = _$avatarGetAvatarDarkGuestFallback$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const AvatarGetAvatarDarkGuestFallback $1 = _$avatarGetAvatarDarkGuestFallback$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<AvatarGetAvatarDarkGuestFallback> get values => _$avatarGetAvatarDarkGuestFallbackValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static AvatarGetAvatarDarkGuestFallback valueOf(String name) => _$valueOfAvatarGetAvatarDarkGuestFallback(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for AvatarGetAvatarDarkGuestFallback.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AvatarGetAvatarDarkGuestFallback> get serializer =>
+      const _$AvatarGetAvatarDarkGuestFallbackSerializer();
+}
+
+class _$AvatarGetAvatarDarkGuestFallbackSerializer implements PrimitiveSerializer<AvatarGetAvatarDarkGuestFallback> {
+  const _$AvatarGetAvatarDarkGuestFallbackSerializer();
+
+  static const Map<AvatarGetAvatarDarkGuestFallback, Object> _toWire = <AvatarGetAvatarDarkGuestFallback, Object>{
+    AvatarGetAvatarDarkGuestFallback.$0: 0,
+    AvatarGetAvatarDarkGuestFallback.$1: 1,
+  };
+
+  static const Map<Object, AvatarGetAvatarDarkGuestFallback> _fromWire = <Object, AvatarGetAvatarDarkGuestFallback>{
+    0: AvatarGetAvatarDarkGuestFallback.$0,
+    1: AvatarGetAvatarDarkGuestFallback.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [AvatarGetAvatarDarkGuestFallback];
+
+  @override
+  String get wireName => 'AvatarGetAvatarDarkGuestFallback';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    AvatarGetAvatarDarkGuestFallback object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  AvatarGetAvatarDarkGuestFallback deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 @BuiltValue(instantiable: false)
 sealed class $AvatarAvatarGetAvatarDarkHeadersInterface {
   @BuiltValueField(wireName: 'x-nc-iscustomavatar')
@@ -6676,6 +8537,132 @@ abstract class AvatarAvatarGetAvatarDarkHeaders
   static void _validate(AvatarAvatarGetAvatarDarkHeadersBuilder b) {
     $AvatarAvatarGetAvatarDarkHeadersInterface._validate(b);
   }
+}
+
+class AvatarGetAvatarSize extends EnumClass {
+  const AvatarGetAvatarSize._(super.name);
+
+  /// `64`
+  @BuiltValueEnumConst(wireName: '64')
+  static const AvatarGetAvatarSize $64 = _$avatarGetAvatarSize$64;
+
+  /// `512`
+  @BuiltValueEnumConst(wireName: '512')
+  static const AvatarGetAvatarSize $512 = _$avatarGetAvatarSize$512;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<AvatarGetAvatarSize> get values => _$avatarGetAvatarSizeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static AvatarGetAvatarSize valueOf(String name) => _$valueOfAvatarGetAvatarSize(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for AvatarGetAvatarSize.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AvatarGetAvatarSize> get serializer => const _$AvatarGetAvatarSizeSerializer();
+}
+
+class _$AvatarGetAvatarSizeSerializer implements PrimitiveSerializer<AvatarGetAvatarSize> {
+  const _$AvatarGetAvatarSizeSerializer();
+
+  static const Map<AvatarGetAvatarSize, Object> _toWire = <AvatarGetAvatarSize, Object>{
+    AvatarGetAvatarSize.$64: 64,
+    AvatarGetAvatarSize.$512: 512,
+  };
+
+  static const Map<Object, AvatarGetAvatarSize> _fromWire = <Object, AvatarGetAvatarSize>{
+    64: AvatarGetAvatarSize.$64,
+    512: AvatarGetAvatarSize.$512,
+  };
+
+  @override
+  Iterable<Type> get types => const [AvatarGetAvatarSize];
+
+  @override
+  String get wireName => 'AvatarGetAvatarSize';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    AvatarGetAvatarSize object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  AvatarGetAvatarSize deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class AvatarGetAvatarGuestFallback extends EnumClass {
+  const AvatarGetAvatarGuestFallback._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const AvatarGetAvatarGuestFallback $0 = _$avatarGetAvatarGuestFallback$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const AvatarGetAvatarGuestFallback $1 = _$avatarGetAvatarGuestFallback$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<AvatarGetAvatarGuestFallback> get values => _$avatarGetAvatarGuestFallbackValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static AvatarGetAvatarGuestFallback valueOf(String name) => _$valueOfAvatarGetAvatarGuestFallback(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for AvatarGetAvatarGuestFallback.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AvatarGetAvatarGuestFallback> get serializer => const _$AvatarGetAvatarGuestFallbackSerializer();
+}
+
+class _$AvatarGetAvatarGuestFallbackSerializer implements PrimitiveSerializer<AvatarGetAvatarGuestFallback> {
+  const _$AvatarGetAvatarGuestFallbackSerializer();
+
+  static const Map<AvatarGetAvatarGuestFallback, Object> _toWire = <AvatarGetAvatarGuestFallback, Object>{
+    AvatarGetAvatarGuestFallback.$0: 0,
+    AvatarGetAvatarGuestFallback.$1: 1,
+  };
+
+  static const Map<Object, AvatarGetAvatarGuestFallback> _fromWire = <Object, AvatarGetAvatarGuestFallback>{
+    0: AvatarGetAvatarGuestFallback.$0,
+    1: AvatarGetAvatarGuestFallback.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [AvatarGetAvatarGuestFallback];
+
+  @override
+  String get wireName => 'AvatarGetAvatarGuestFallback';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    AvatarGetAvatarGuestFallback object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  AvatarGetAvatarGuestFallback deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -8251,6 +10238,131 @@ abstract class CollaborationResourcesCreateCollectionOnResourceResponseApplicati
   }
 }
 
+@BuiltValue(instantiable: false)
+sealed class $CsrfTokenIndexResponseApplicationJsonInterface {
+  String get token;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$CsrfTokenIndexResponseApplicationJsonInterfaceBuilder].
+  $CsrfTokenIndexResponseApplicationJsonInterface rebuild(
+    void Function($CsrfTokenIndexResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$CsrfTokenIndexResponseApplicationJsonInterfaceBuilder].
+  $CsrfTokenIndexResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CsrfTokenIndexResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CsrfTokenIndexResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class CsrfTokenIndexResponseApplicationJson
+    implements
+        $CsrfTokenIndexResponseApplicationJsonInterface,
+        Built<CsrfTokenIndexResponseApplicationJson, CsrfTokenIndexResponseApplicationJsonBuilder> {
+  /// Creates a new CsrfTokenIndexResponseApplicationJson object using the builder pattern.
+  factory CsrfTokenIndexResponseApplicationJson([void Function(CsrfTokenIndexResponseApplicationJsonBuilder)? b]) =
+      _$CsrfTokenIndexResponseApplicationJson;
+
+  // coverage:ignore-start
+  const CsrfTokenIndexResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory CsrfTokenIndexResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for CsrfTokenIndexResponseApplicationJson.
+  static Serializer<CsrfTokenIndexResponseApplicationJson> get serializer =>
+      _$csrfTokenIndexResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CsrfTokenIndexResponseApplicationJsonBuilder b) {
+    $CsrfTokenIndexResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CsrfTokenIndexResponseApplicationJsonBuilder b) {
+    $CsrfTokenIndexResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+class GuestAvatarGetAvatarSize extends EnumClass {
+  const GuestAvatarGetAvatarSize._(super.name);
+
+  /// `64`
+  @BuiltValueEnumConst(wireName: '64')
+  static const GuestAvatarGetAvatarSize $64 = _$guestAvatarGetAvatarSize$64;
+
+  /// `512`
+  @BuiltValueEnumConst(wireName: '512')
+  static const GuestAvatarGetAvatarSize $512 = _$guestAvatarGetAvatarSize$512;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<GuestAvatarGetAvatarSize> get values => _$guestAvatarGetAvatarSizeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static GuestAvatarGetAvatarSize valueOf(String name) => _$valueOfGuestAvatarGetAvatarSize(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for GuestAvatarGetAvatarSize.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<GuestAvatarGetAvatarSize> get serializer => const _$GuestAvatarGetAvatarSizeSerializer();
+}
+
+class _$GuestAvatarGetAvatarSizeSerializer implements PrimitiveSerializer<GuestAvatarGetAvatarSize> {
+  const _$GuestAvatarGetAvatarSizeSerializer();
+
+  static const Map<GuestAvatarGetAvatarSize, Object> _toWire = <GuestAvatarGetAvatarSize, Object>{
+    GuestAvatarGetAvatarSize.$64: 64,
+    GuestAvatarGetAvatarSize.$512: 512,
+  };
+
+  static const Map<Object, GuestAvatarGetAvatarSize> _fromWire = <Object, GuestAvatarGetAvatarSize>{
+    64: GuestAvatarGetAvatarSize.$64,
+    512: GuestAvatarGetAvatarSize.$512,
+  };
+
+  @override
+  Iterable<Type> get types => const [GuestAvatarGetAvatarSize];
+
+  @override
+  String get wireName => 'GuestAvatarGetAvatarSize';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    GuestAvatarGetAvatarSize object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  GuestAvatarGetAvatarSize deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 class GuestAvatarGetAvatarDarkTheme extends EnumClass {
   const GuestAvatarGetAvatarDarkTheme._(super.name);
 
@@ -8312,6 +10424,196 @@ class _$GuestAvatarGetAvatarDarkThemeSerializer implements PrimitiveSerializer<G
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $GuestAvatarGuestAvatarGetAvatarHeadersInterface {
+  @BuiltValueField(wireName: 'x-nc-iscustomavatar')
+  Header<int?>? get xNcIscustomavatar;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$GuestAvatarGuestAvatarGetAvatarHeadersInterfaceBuilder].
+  $GuestAvatarGuestAvatarGetAvatarHeadersInterface rebuild(
+    void Function($GuestAvatarGuestAvatarGetAvatarHeadersInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$GuestAvatarGuestAvatarGetAvatarHeadersInterfaceBuilder].
+  $GuestAvatarGuestAvatarGetAvatarHeadersInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GuestAvatarGuestAvatarGetAvatarHeadersInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GuestAvatarGuestAvatarGetAvatarHeadersInterfaceBuilder b) {}
+}
+
+abstract class GuestAvatarGuestAvatarGetAvatarHeaders
+    implements
+        $GuestAvatarGuestAvatarGetAvatarHeadersInterface,
+        Built<GuestAvatarGuestAvatarGetAvatarHeaders, GuestAvatarGuestAvatarGetAvatarHeadersBuilder> {
+  /// Creates a new GuestAvatarGuestAvatarGetAvatarHeaders object using the builder pattern.
+  factory GuestAvatarGuestAvatarGetAvatarHeaders([void Function(GuestAvatarGuestAvatarGetAvatarHeadersBuilder)? b]) =
+      _$GuestAvatarGuestAvatarGetAvatarHeaders;
+
+  // coverage:ignore-start
+  const GuestAvatarGuestAvatarGetAvatarHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory GuestAvatarGuestAvatarGetAvatarHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for GuestAvatarGuestAvatarGetAvatarHeaders.
+  static Serializer<GuestAvatarGuestAvatarGetAvatarHeaders> get serializer =>
+      _$guestAvatarGuestAvatarGetAvatarHeadersSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GuestAvatarGuestAvatarGetAvatarHeadersBuilder b) {
+    $GuestAvatarGuestAvatarGetAvatarHeadersInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GuestAvatarGuestAvatarGetAvatarHeadersBuilder b) {
+    $GuestAvatarGuestAvatarGetAvatarHeadersInterface._validate(b);
+  }
+}
+
+class GuestAvatarGetAvatarDarkSize extends EnumClass {
+  const GuestAvatarGetAvatarDarkSize._(super.name);
+
+  /// `64`
+  @BuiltValueEnumConst(wireName: '64')
+  static const GuestAvatarGetAvatarDarkSize $64 = _$guestAvatarGetAvatarDarkSize$64;
+
+  /// `512`
+  @BuiltValueEnumConst(wireName: '512')
+  static const GuestAvatarGetAvatarDarkSize $512 = _$guestAvatarGetAvatarDarkSize$512;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<GuestAvatarGetAvatarDarkSize> get values => _$guestAvatarGetAvatarDarkSizeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static GuestAvatarGetAvatarDarkSize valueOf(String name) => _$valueOfGuestAvatarGetAvatarDarkSize(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for GuestAvatarGetAvatarDarkSize.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<GuestAvatarGetAvatarDarkSize> get serializer => const _$GuestAvatarGetAvatarDarkSizeSerializer();
+}
+
+class _$GuestAvatarGetAvatarDarkSizeSerializer implements PrimitiveSerializer<GuestAvatarGetAvatarDarkSize> {
+  const _$GuestAvatarGetAvatarDarkSizeSerializer();
+
+  static const Map<GuestAvatarGetAvatarDarkSize, Object> _toWire = <GuestAvatarGetAvatarDarkSize, Object>{
+    GuestAvatarGetAvatarDarkSize.$64: 64,
+    GuestAvatarGetAvatarDarkSize.$512: 512,
+  };
+
+  static const Map<Object, GuestAvatarGetAvatarDarkSize> _fromWire = <Object, GuestAvatarGetAvatarDarkSize>{
+    64: GuestAvatarGetAvatarDarkSize.$64,
+    512: GuestAvatarGetAvatarDarkSize.$512,
+  };
+
+  @override
+  Iterable<Type> get types => const [GuestAvatarGetAvatarDarkSize];
+
+  @override
+  String get wireName => 'GuestAvatarGetAvatarDarkSize';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    GuestAvatarGetAvatarDarkSize object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  GuestAvatarGetAvatarDarkSize deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $GuestAvatarGuestAvatarGetAvatarDarkHeadersInterface {
+  @BuiltValueField(wireName: 'x-nc-iscustomavatar')
+  Header<int?>? get xNcIscustomavatar;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$GuestAvatarGuestAvatarGetAvatarDarkHeadersInterfaceBuilder].
+  $GuestAvatarGuestAvatarGetAvatarDarkHeadersInterface rebuild(
+    void Function($GuestAvatarGuestAvatarGetAvatarDarkHeadersInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$GuestAvatarGuestAvatarGetAvatarDarkHeadersInterfaceBuilder].
+  $GuestAvatarGuestAvatarGetAvatarDarkHeadersInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GuestAvatarGuestAvatarGetAvatarDarkHeadersInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GuestAvatarGuestAvatarGetAvatarDarkHeadersInterfaceBuilder b) {}
+}
+
+abstract class GuestAvatarGuestAvatarGetAvatarDarkHeaders
+    implements
+        $GuestAvatarGuestAvatarGetAvatarDarkHeadersInterface,
+        Built<GuestAvatarGuestAvatarGetAvatarDarkHeaders, GuestAvatarGuestAvatarGetAvatarDarkHeadersBuilder> {
+  /// Creates a new GuestAvatarGuestAvatarGetAvatarDarkHeaders object using the builder pattern.
+  factory GuestAvatarGuestAvatarGetAvatarDarkHeaders([
+    void Function(GuestAvatarGuestAvatarGetAvatarDarkHeadersBuilder)? b,
+  ]) = _$GuestAvatarGuestAvatarGetAvatarDarkHeaders;
+
+  // coverage:ignore-start
+  const GuestAvatarGuestAvatarGetAvatarDarkHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory GuestAvatarGuestAvatarGetAvatarDarkHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for GuestAvatarGuestAvatarGetAvatarDarkHeaders.
+  static Serializer<GuestAvatarGuestAvatarGetAvatarDarkHeaders> get serializer =>
+      _$guestAvatarGuestAvatarGetAvatarDarkHeadersSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GuestAvatarGuestAvatarGetAvatarDarkHeadersBuilder b) {
+    $GuestAvatarGuestAvatarGetAvatarDarkHeadersInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GuestAvatarGuestAvatarGetAvatarDarkHeadersBuilder b) {
+    $GuestAvatarGuestAvatarGetAvatarDarkHeadersInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -8761,11 +11063,14 @@ typedef NavigationEntry_Order = ({int? $int, String? string});
 @BuiltValue(instantiable: false)
 sealed class $NavigationEntryInterface {
   String get id;
-  NavigationEntry_Order get order;
+  NavigationEntry_Order? get order;
   String get href;
   String get icon;
   String get type;
   String get name;
+  String? get app;
+  @BuiltValueField(wireName: 'default')
+  bool? get $default;
   bool get active;
   String get classes;
   int get unread;
@@ -10251,11 +12556,19 @@ abstract class FilesCapabilities_Files_DirectEditing
 
 @BuiltValue(instantiable: false)
 sealed class $FilesCapabilities_FilesInterface {
+  @BuiltValueField(wireName: r'$comment')
+  String? get comment;
   bool get bigfilechunking;
   @BuiltValueField(wireName: 'blacklisted_files')
   BuiltList<JsonObject> get blacklistedFiles;
+  @BuiltValueField(wireName: 'forbidden_filenames')
+  BuiltList<String> get forbiddenFilenames;
+  @BuiltValueField(wireName: 'forbidden_filename_basenames')
+  BuiltList<String> get forbiddenFilenameBasenames;
   @BuiltValueField(wireName: 'forbidden_filename_characters')
   BuiltList<String> get forbiddenFilenameCharacters;
+  @BuiltValueField(wireName: 'forbidden_filename_extensions')
+  BuiltList<String> get forbiddenFilenameExtensions;
   FilesCapabilities_Files_DirectEditing get directEditing;
 
   /// Rebuilds the instance.
@@ -13196,6 +15509,8 @@ sealed class $ThemingPublicCapabilities_ThemingInterface {
   String get colorElementDark;
   String get logo;
   String get background;
+  @BuiltValueField(wireName: 'background-text')
+  String? get backgroundText;
   @BuiltValueField(wireName: 'background-plain')
   bool get backgroundPlain;
   @BuiltValueField(wireName: 'background-default')
@@ -14012,6 +16327,67 @@ class _$PreviewGetPreviewForceIconSerializer implements PrimitiveSerializer<Prev
       _fromWire[serialized]!;
 }
 
+class PreviewGetPreviewMode extends EnumClass {
+  const PreviewGetPreviewMode._(super.name);
+
+  /// `fill`
+  static const PreviewGetPreviewMode fill = _$previewGetPreviewModeFill;
+
+  /// `cover`
+  static const PreviewGetPreviewMode cover = _$previewGetPreviewModeCover;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<PreviewGetPreviewMode> get values => _$previewGetPreviewModeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static PreviewGetPreviewMode valueOf(String name) => _$valueOfPreviewGetPreviewMode(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for PreviewGetPreviewMode.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PreviewGetPreviewMode> get serializer => const _$PreviewGetPreviewModeSerializer();
+}
+
+class _$PreviewGetPreviewModeSerializer implements PrimitiveSerializer<PreviewGetPreviewMode> {
+  const _$PreviewGetPreviewModeSerializer();
+
+  static const Map<PreviewGetPreviewMode, Object> _toWire = <PreviewGetPreviewMode, Object>{
+    PreviewGetPreviewMode.fill: 'fill',
+    PreviewGetPreviewMode.cover: 'cover',
+  };
+
+  static const Map<Object, PreviewGetPreviewMode> _fromWire = <Object, PreviewGetPreviewMode>{
+    'fill': PreviewGetPreviewMode.fill,
+    'cover': PreviewGetPreviewMode.cover,
+  };
+
+  @override
+  Iterable<Type> get types => const [PreviewGetPreviewMode];
+
+  @override
+  String get wireName => 'PreviewGetPreviewMode';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PreviewGetPreviewMode object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PreviewGetPreviewMode deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 class PreviewGetPreviewMimeFallback extends EnumClass {
   const PreviewGetPreviewMimeFallback._(super.name);
 
@@ -14196,6 +16572,67 @@ class _$PreviewGetPreviewByFileIdForceIconSerializer
 
   @override
   PreviewGetPreviewByFileIdForceIcon deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class PreviewGetPreviewByFileIdMode extends EnumClass {
+  const PreviewGetPreviewByFileIdMode._(super.name);
+
+  /// `fill`
+  static const PreviewGetPreviewByFileIdMode fill = _$previewGetPreviewByFileIdModeFill;
+
+  /// `cover`
+  static const PreviewGetPreviewByFileIdMode cover = _$previewGetPreviewByFileIdModeCover;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<PreviewGetPreviewByFileIdMode> get values => _$previewGetPreviewByFileIdModeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static PreviewGetPreviewByFileIdMode valueOf(String name) => _$valueOfPreviewGetPreviewByFileIdMode(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for PreviewGetPreviewByFileIdMode.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PreviewGetPreviewByFileIdMode> get serializer => const _$PreviewGetPreviewByFileIdModeSerializer();
+}
+
+class _$PreviewGetPreviewByFileIdModeSerializer implements PrimitiveSerializer<PreviewGetPreviewByFileIdMode> {
+  const _$PreviewGetPreviewByFileIdModeSerializer();
+
+  static const Map<PreviewGetPreviewByFileIdMode, Object> _toWire = <PreviewGetPreviewByFileIdMode, Object>{
+    PreviewGetPreviewByFileIdMode.fill: 'fill',
+    PreviewGetPreviewByFileIdMode.cover: 'cover',
+  };
+
+  static const Map<Object, PreviewGetPreviewByFileIdMode> _fromWire = <Object, PreviewGetPreviewByFileIdMode>{
+    'fill': PreviewGetPreviewByFileIdMode.fill,
+    'cover': PreviewGetPreviewByFileIdMode.cover,
+  };
+
+  @override
+  Iterable<Type> get types => const [PreviewGetPreviewByFileIdMode];
+
+  @override
+  String get wireName => 'PreviewGetPreviewByFileIdMode';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PreviewGetPreviewByFileIdMode object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PreviewGetPreviewByFileIdMode deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
@@ -14799,6 +17236,286 @@ abstract class ReferenceApiExtractResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $ReferenceApiExtractPublicRequestApplicationJsonInterface {
+  static final _$resolve = _$jsonSerializers.deserialize(
+    false,
+    specifiedType: const FullType(bool),
+  )! as bool;
+
+  static final _$limit = _$jsonSerializers.deserialize(
+    1,
+    specifiedType: const FullType(int),
+  )! as int;
+
+  /// Text to extract from.
+  String get text;
+
+  /// Token of the public share.
+  String get sharingToken;
+
+  /// Resolve the references.
+  bool get resolve;
+
+  /// Maximum amount of references to extract, limited to 15.
+  int get limit;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ReferenceApiExtractPublicRequestApplicationJsonInterfaceBuilder].
+  $ReferenceApiExtractPublicRequestApplicationJsonInterface rebuild(
+    void Function($ReferenceApiExtractPublicRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ReferenceApiExtractPublicRequestApplicationJsonInterfaceBuilder].
+  $ReferenceApiExtractPublicRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ReferenceApiExtractPublicRequestApplicationJsonInterfaceBuilder b) {
+    b.resolve = _$resolve;
+    b.limit = _$limit;
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ReferenceApiExtractPublicRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ReferenceApiExtractPublicRequestApplicationJson
+    implements
+        $ReferenceApiExtractPublicRequestApplicationJsonInterface,
+        Built<ReferenceApiExtractPublicRequestApplicationJson, ReferenceApiExtractPublicRequestApplicationJsonBuilder> {
+  /// Creates a new ReferenceApiExtractPublicRequestApplicationJson object using the builder pattern.
+  factory ReferenceApiExtractPublicRequestApplicationJson([
+    void Function(ReferenceApiExtractPublicRequestApplicationJsonBuilder)? b,
+  ]) = _$ReferenceApiExtractPublicRequestApplicationJson;
+
+  // coverage:ignore-start
+  const ReferenceApiExtractPublicRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ReferenceApiExtractPublicRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ReferenceApiExtractPublicRequestApplicationJson.
+  static Serializer<ReferenceApiExtractPublicRequestApplicationJson> get serializer =>
+      _$referenceApiExtractPublicRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ReferenceApiExtractPublicRequestApplicationJsonBuilder b) {
+    $ReferenceApiExtractPublicRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ReferenceApiExtractPublicRequestApplicationJsonBuilder b) {
+    $ReferenceApiExtractPublicRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataInterface {
+  BuiltMap<String, Reference?> get references;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data
+    implements
+        $ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataInterface,
+        Built<ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data,
+            ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data([
+    void Function(ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data.
+  static Serializer<ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data> get serializer =>
+      _$referenceApiExtractPublicResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder b) {
+    $ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder b) {
+    $ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ReferenceApiExtractPublicResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ReferenceApiExtractPublicResponseApplicationJson_OcsInterfaceBuilder].
+  $ReferenceApiExtractPublicResponseApplicationJson_OcsInterface rebuild(
+    void Function($ReferenceApiExtractPublicResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ReferenceApiExtractPublicResponseApplicationJson_OcsInterfaceBuilder].
+  $ReferenceApiExtractPublicResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ReferenceApiExtractPublicResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ReferenceApiExtractPublicResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class ReferenceApiExtractPublicResponseApplicationJson_Ocs
+    implements
+        $ReferenceApiExtractPublicResponseApplicationJson_OcsInterface,
+        Built<ReferenceApiExtractPublicResponseApplicationJson_Ocs,
+            ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ReferenceApiExtractPublicResponseApplicationJson_Ocs object using the builder pattern.
+  factory ReferenceApiExtractPublicResponseApplicationJson_Ocs([
+    void Function(ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$ReferenceApiExtractPublicResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const ReferenceApiExtractPublicResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ReferenceApiExtractPublicResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ReferenceApiExtractPublicResponseApplicationJson_Ocs.
+  static Serializer<ReferenceApiExtractPublicResponseApplicationJson_Ocs> get serializer =>
+      _$referenceApiExtractPublicResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder b) {
+    $ReferenceApiExtractPublicResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder b) {
+    $ReferenceApiExtractPublicResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ReferenceApiExtractPublicResponseApplicationJsonInterface {
+  ReferenceApiExtractPublicResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ReferenceApiExtractPublicResponseApplicationJsonInterfaceBuilder].
+  $ReferenceApiExtractPublicResponseApplicationJsonInterface rebuild(
+    void Function($ReferenceApiExtractPublicResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ReferenceApiExtractPublicResponseApplicationJsonInterfaceBuilder].
+  $ReferenceApiExtractPublicResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ReferenceApiExtractPublicResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ReferenceApiExtractPublicResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ReferenceApiExtractPublicResponseApplicationJson
+    implements
+        $ReferenceApiExtractPublicResponseApplicationJsonInterface,
+        Built<ReferenceApiExtractPublicResponseApplicationJson,
+            ReferenceApiExtractPublicResponseApplicationJsonBuilder> {
+  /// Creates a new ReferenceApiExtractPublicResponseApplicationJson object using the builder pattern.
+  factory ReferenceApiExtractPublicResponseApplicationJson([
+    void Function(ReferenceApiExtractPublicResponseApplicationJsonBuilder)? b,
+  ]) = _$ReferenceApiExtractPublicResponseApplicationJson;
+
+  // coverage:ignore-start
+  const ReferenceApiExtractPublicResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ReferenceApiExtractPublicResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ReferenceApiExtractPublicResponseApplicationJson.
+  static Serializer<ReferenceApiExtractPublicResponseApplicationJson> get serializer =>
+      _$referenceApiExtractPublicResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ReferenceApiExtractPublicResponseApplicationJsonBuilder b) {
+    $ReferenceApiExtractPublicResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ReferenceApiExtractPublicResponseApplicationJsonBuilder b) {
+    $ReferenceApiExtractPublicResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterface {
   BuiltMap<String, Reference?> get references;
 
@@ -15257,6 +17974,470 @@ abstract class ReferenceApiResolveResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataInterface {
+  BuiltMap<String, Reference?> get references;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data
+    implements
+        $ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataInterface,
+        Built<ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data,
+            ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data([
+    void Function(ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data.
+  static Serializer<ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data> get serializer =>
+      _$referenceApiResolveOnePublicResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder b) {
+    $ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder b) {
+    $ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ReferenceApiResolveOnePublicResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ReferenceApiResolveOnePublicResponseApplicationJson_OcsInterfaceBuilder].
+  $ReferenceApiResolveOnePublicResponseApplicationJson_OcsInterface rebuild(
+    void Function($ReferenceApiResolveOnePublicResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ReferenceApiResolveOnePublicResponseApplicationJson_OcsInterfaceBuilder].
+  $ReferenceApiResolveOnePublicResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ReferenceApiResolveOnePublicResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ReferenceApiResolveOnePublicResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class ReferenceApiResolveOnePublicResponseApplicationJson_Ocs
+    implements
+        $ReferenceApiResolveOnePublicResponseApplicationJson_OcsInterface,
+        Built<ReferenceApiResolveOnePublicResponseApplicationJson_Ocs,
+            ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ReferenceApiResolveOnePublicResponseApplicationJson_Ocs object using the builder pattern.
+  factory ReferenceApiResolveOnePublicResponseApplicationJson_Ocs([
+    void Function(ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const ReferenceApiResolveOnePublicResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ReferenceApiResolveOnePublicResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ReferenceApiResolveOnePublicResponseApplicationJson_Ocs.
+  static Serializer<ReferenceApiResolveOnePublicResponseApplicationJson_Ocs> get serializer =>
+      _$referenceApiResolveOnePublicResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder b) {
+    $ReferenceApiResolveOnePublicResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder b) {
+    $ReferenceApiResolveOnePublicResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ReferenceApiResolveOnePublicResponseApplicationJsonInterface {
+  ReferenceApiResolveOnePublicResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ReferenceApiResolveOnePublicResponseApplicationJsonInterfaceBuilder].
+  $ReferenceApiResolveOnePublicResponseApplicationJsonInterface rebuild(
+    void Function($ReferenceApiResolveOnePublicResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ReferenceApiResolveOnePublicResponseApplicationJsonInterfaceBuilder].
+  $ReferenceApiResolveOnePublicResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ReferenceApiResolveOnePublicResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ReferenceApiResolveOnePublicResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ReferenceApiResolveOnePublicResponseApplicationJson
+    implements
+        $ReferenceApiResolveOnePublicResponseApplicationJsonInterface,
+        Built<ReferenceApiResolveOnePublicResponseApplicationJson,
+            ReferenceApiResolveOnePublicResponseApplicationJsonBuilder> {
+  /// Creates a new ReferenceApiResolveOnePublicResponseApplicationJson object using the builder pattern.
+  factory ReferenceApiResolveOnePublicResponseApplicationJson([
+    void Function(ReferenceApiResolveOnePublicResponseApplicationJsonBuilder)? b,
+  ]) = _$ReferenceApiResolveOnePublicResponseApplicationJson;
+
+  // coverage:ignore-start
+  const ReferenceApiResolveOnePublicResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ReferenceApiResolveOnePublicResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ReferenceApiResolveOnePublicResponseApplicationJson.
+  static Serializer<ReferenceApiResolveOnePublicResponseApplicationJson> get serializer =>
+      _$referenceApiResolveOnePublicResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ReferenceApiResolveOnePublicResponseApplicationJsonBuilder b) {
+    $ReferenceApiResolveOnePublicResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ReferenceApiResolveOnePublicResponseApplicationJsonBuilder b) {
+    $ReferenceApiResolveOnePublicResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ReferenceApiResolvePublicRequestApplicationJsonInterface {
+  static final _$limit = _$jsonSerializers.deserialize(
+    1,
+    specifiedType: const FullType(int),
+  )! as int;
+
+  /// References to resolve.
+  BuiltList<String> get references;
+
+  /// Token of the public share.
+  String get sharingToken;
+
+  /// Maximum amount of references to resolve, limited to 15.
+  int get limit;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ReferenceApiResolvePublicRequestApplicationJsonInterfaceBuilder].
+  $ReferenceApiResolvePublicRequestApplicationJsonInterface rebuild(
+    void Function($ReferenceApiResolvePublicRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ReferenceApiResolvePublicRequestApplicationJsonInterfaceBuilder].
+  $ReferenceApiResolvePublicRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ReferenceApiResolvePublicRequestApplicationJsonInterfaceBuilder b) {
+    b.limit = _$limit;
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ReferenceApiResolvePublicRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ReferenceApiResolvePublicRequestApplicationJson
+    implements
+        $ReferenceApiResolvePublicRequestApplicationJsonInterface,
+        Built<ReferenceApiResolvePublicRequestApplicationJson, ReferenceApiResolvePublicRequestApplicationJsonBuilder> {
+  /// Creates a new ReferenceApiResolvePublicRequestApplicationJson object using the builder pattern.
+  factory ReferenceApiResolvePublicRequestApplicationJson([
+    void Function(ReferenceApiResolvePublicRequestApplicationJsonBuilder)? b,
+  ]) = _$ReferenceApiResolvePublicRequestApplicationJson;
+
+  // coverage:ignore-start
+  const ReferenceApiResolvePublicRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ReferenceApiResolvePublicRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ReferenceApiResolvePublicRequestApplicationJson.
+  static Serializer<ReferenceApiResolvePublicRequestApplicationJson> get serializer =>
+      _$referenceApiResolvePublicRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ReferenceApiResolvePublicRequestApplicationJsonBuilder b) {
+    $ReferenceApiResolvePublicRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ReferenceApiResolvePublicRequestApplicationJsonBuilder b) {
+    $ReferenceApiResolvePublicRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataInterface {
+  BuiltMap<String, Reference?> get references;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data
+    implements
+        $ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataInterface,
+        Built<ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data,
+            ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data([
+    void Function(ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data.
+  static Serializer<ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data> get serializer =>
+      _$referenceApiResolvePublicResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder b) {
+    $ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder b) {
+    $ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ReferenceApiResolvePublicResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ReferenceApiResolvePublicResponseApplicationJson_OcsInterfaceBuilder].
+  $ReferenceApiResolvePublicResponseApplicationJson_OcsInterface rebuild(
+    void Function($ReferenceApiResolvePublicResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ReferenceApiResolvePublicResponseApplicationJson_OcsInterfaceBuilder].
+  $ReferenceApiResolvePublicResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ReferenceApiResolvePublicResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ReferenceApiResolvePublicResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class ReferenceApiResolvePublicResponseApplicationJson_Ocs
+    implements
+        $ReferenceApiResolvePublicResponseApplicationJson_OcsInterface,
+        Built<ReferenceApiResolvePublicResponseApplicationJson_Ocs,
+            ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ReferenceApiResolvePublicResponseApplicationJson_Ocs object using the builder pattern.
+  factory ReferenceApiResolvePublicResponseApplicationJson_Ocs([
+    void Function(ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$ReferenceApiResolvePublicResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const ReferenceApiResolvePublicResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ReferenceApiResolvePublicResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ReferenceApiResolvePublicResponseApplicationJson_Ocs.
+  static Serializer<ReferenceApiResolvePublicResponseApplicationJson_Ocs> get serializer =>
+      _$referenceApiResolvePublicResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder b) {
+    $ReferenceApiResolvePublicResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder b) {
+    $ReferenceApiResolvePublicResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ReferenceApiResolvePublicResponseApplicationJsonInterface {
+  ReferenceApiResolvePublicResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ReferenceApiResolvePublicResponseApplicationJsonInterfaceBuilder].
+  $ReferenceApiResolvePublicResponseApplicationJsonInterface rebuild(
+    void Function($ReferenceApiResolvePublicResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ReferenceApiResolvePublicResponseApplicationJsonInterfaceBuilder].
+  $ReferenceApiResolvePublicResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ReferenceApiResolvePublicResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ReferenceApiResolvePublicResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ReferenceApiResolvePublicResponseApplicationJson
+    implements
+        $ReferenceApiResolvePublicResponseApplicationJsonInterface,
+        Built<ReferenceApiResolvePublicResponseApplicationJson,
+            ReferenceApiResolvePublicResponseApplicationJsonBuilder> {
+  /// Creates a new ReferenceApiResolvePublicResponseApplicationJson object using the builder pattern.
+  factory ReferenceApiResolvePublicResponseApplicationJson([
+    void Function(ReferenceApiResolvePublicResponseApplicationJsonBuilder)? b,
+  ]) = _$ReferenceApiResolvePublicResponseApplicationJson;
+
+  // coverage:ignore-start
+  const ReferenceApiResolvePublicResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ReferenceApiResolvePublicResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ReferenceApiResolvePublicResponseApplicationJson.
+  static Serializer<ReferenceApiResolvePublicResponseApplicationJson> get serializer =>
+      _$referenceApiResolvePublicResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ReferenceApiResolvePublicResponseApplicationJsonBuilder b) {
+    $ReferenceApiResolvePublicResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ReferenceApiResolvePublicResponseApplicationJsonBuilder b) {
+    $ReferenceApiResolvePublicResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $ReferenceProviderInterface {
   String get id;
   String get title;
@@ -15700,6 +18881,3032 @@ abstract class ReferenceApiTouchProviderResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(ReferenceApiTouchProviderResponseApplicationJsonBuilder b) {
     $ReferenceApiTouchProviderResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+class TaskProcessingShape_Type extends EnumClass {
+  const TaskProcessingShape_Type._(super.name);
+
+  /// `Number`
+  @BuiltValueEnumConst(wireName: 'Number')
+  static const TaskProcessingShape_Type number = _$taskProcessingShapeTypeNumber;
+
+  /// `Text`
+  @BuiltValueEnumConst(wireName: 'Text')
+  static const TaskProcessingShape_Type text = _$taskProcessingShapeTypeText;
+
+  /// `Audio`
+  @BuiltValueEnumConst(wireName: 'Audio')
+  static const TaskProcessingShape_Type audio = _$taskProcessingShapeTypeAudio;
+
+  /// `Image`
+  @BuiltValueEnumConst(wireName: 'Image')
+  static const TaskProcessingShape_Type image = _$taskProcessingShapeTypeImage;
+
+  /// `Video`
+  @BuiltValueEnumConst(wireName: 'Video')
+  static const TaskProcessingShape_Type video = _$taskProcessingShapeTypeVideo;
+
+  /// `File`
+  @BuiltValueEnumConst(wireName: 'File')
+  static const TaskProcessingShape_Type file = _$taskProcessingShapeTypeFile;
+
+  /// `Enum`
+  @BuiltValueEnumConst(wireName: 'Enum')
+  static const TaskProcessingShape_Type $enum = _$taskProcessingShapeType$enum;
+
+  /// `ListOfNumbers`
+  @BuiltValueEnumConst(wireName: 'ListOfNumbers')
+  static const TaskProcessingShape_Type listOfNumbers = _$taskProcessingShapeTypeListOfNumbers;
+
+  /// `ListOfTexts`
+  @BuiltValueEnumConst(wireName: 'ListOfTexts')
+  static const TaskProcessingShape_Type listOfTexts = _$taskProcessingShapeTypeListOfTexts;
+
+  /// `ListOfImages`
+  @BuiltValueEnumConst(wireName: 'ListOfImages')
+  static const TaskProcessingShape_Type listOfImages = _$taskProcessingShapeTypeListOfImages;
+
+  /// `ListOfAudios`
+  @BuiltValueEnumConst(wireName: 'ListOfAudios')
+  static const TaskProcessingShape_Type listOfAudios = _$taskProcessingShapeTypeListOfAudios;
+
+  /// `ListOfVideos`
+  @BuiltValueEnumConst(wireName: 'ListOfVideos')
+  static const TaskProcessingShape_Type listOfVideos = _$taskProcessingShapeTypeListOfVideos;
+
+  /// `ListOfFiles`
+  @BuiltValueEnumConst(wireName: 'ListOfFiles')
+  static const TaskProcessingShape_Type listOfFiles = _$taskProcessingShapeTypeListOfFiles;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<TaskProcessingShape_Type> get values => _$taskProcessingShapeTypeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static TaskProcessingShape_Type valueOf(String name) => _$valueOfTaskProcessingShape_Type(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for TaskProcessingShape_Type.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<TaskProcessingShape_Type> get serializer => const _$TaskProcessingShape_TypeSerializer();
+}
+
+class _$TaskProcessingShape_TypeSerializer implements PrimitiveSerializer<TaskProcessingShape_Type> {
+  const _$TaskProcessingShape_TypeSerializer();
+
+  static const Map<TaskProcessingShape_Type, Object> _toWire = <TaskProcessingShape_Type, Object>{
+    TaskProcessingShape_Type.number: 'Number',
+    TaskProcessingShape_Type.text: 'Text',
+    TaskProcessingShape_Type.audio: 'Audio',
+    TaskProcessingShape_Type.image: 'Image',
+    TaskProcessingShape_Type.video: 'Video',
+    TaskProcessingShape_Type.file: 'File',
+    TaskProcessingShape_Type.$enum: 'Enum',
+    TaskProcessingShape_Type.listOfNumbers: 'ListOfNumbers',
+    TaskProcessingShape_Type.listOfTexts: 'ListOfTexts',
+    TaskProcessingShape_Type.listOfImages: 'ListOfImages',
+    TaskProcessingShape_Type.listOfAudios: 'ListOfAudios',
+    TaskProcessingShape_Type.listOfVideos: 'ListOfVideos',
+    TaskProcessingShape_Type.listOfFiles: 'ListOfFiles',
+  };
+
+  static const Map<Object, TaskProcessingShape_Type> _fromWire = <Object, TaskProcessingShape_Type>{
+    'Number': TaskProcessingShape_Type.number,
+    'Text': TaskProcessingShape_Type.text,
+    'Audio': TaskProcessingShape_Type.audio,
+    'Image': TaskProcessingShape_Type.image,
+    'Video': TaskProcessingShape_Type.video,
+    'File': TaskProcessingShape_Type.file,
+    'Enum': TaskProcessingShape_Type.$enum,
+    'ListOfNumbers': TaskProcessingShape_Type.listOfNumbers,
+    'ListOfTexts': TaskProcessingShape_Type.listOfTexts,
+    'ListOfImages': TaskProcessingShape_Type.listOfImages,
+    'ListOfAudios': TaskProcessingShape_Type.listOfAudios,
+    'ListOfVideos': TaskProcessingShape_Type.listOfVideos,
+    'ListOfFiles': TaskProcessingShape_Type.listOfFiles,
+  };
+
+  @override
+  Iterable<Type> get types => const [TaskProcessingShape_Type];
+
+  @override
+  String get wireName => 'TaskProcessingShape_Type';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    TaskProcessingShape_Type object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  TaskProcessingShape_Type deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingShapeInterface {
+  String get name;
+  String get description;
+  TaskProcessingShape_Type get type;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingShapeInterfaceBuilder].
+  $TaskProcessingShapeInterface rebuild(void Function($TaskProcessingShapeInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$TaskProcessingShapeInterfaceBuilder].
+  $TaskProcessingShapeInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingShapeInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingShapeInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingShape
+    implements $TaskProcessingShapeInterface, Built<TaskProcessingShape, TaskProcessingShapeBuilder> {
+  /// Creates a new TaskProcessingShape object using the builder pattern.
+  factory TaskProcessingShape([void Function(TaskProcessingShapeBuilder)? b]) = _$TaskProcessingShape;
+
+  // coverage:ignore-start
+  const TaskProcessingShape._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingShape.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingShape.
+  static Serializer<TaskProcessingShape> get serializer => _$taskProcessingShapeSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingShapeBuilder b) {
+    $TaskProcessingShapeInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingShapeBuilder b) {
+    $TaskProcessingShapeInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingTaskType_InputShapeEnumValuesInterface {
+  String get name;
+  String get value;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingTaskType_InputShapeEnumValuesInterfaceBuilder].
+  $TaskProcessingTaskType_InputShapeEnumValuesInterface rebuild(
+    void Function($TaskProcessingTaskType_InputShapeEnumValuesInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingTaskType_InputShapeEnumValuesInterfaceBuilder].
+  $TaskProcessingTaskType_InputShapeEnumValuesInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingTaskType_InputShapeEnumValuesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingTaskType_InputShapeEnumValuesInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingTaskType_InputShapeEnumValues
+    implements
+        $TaskProcessingTaskType_InputShapeEnumValuesInterface,
+        Built<TaskProcessingTaskType_InputShapeEnumValues, TaskProcessingTaskType_InputShapeEnumValuesBuilder> {
+  /// Creates a new TaskProcessingTaskType_InputShapeEnumValues object using the builder pattern.
+  factory TaskProcessingTaskType_InputShapeEnumValues([
+    void Function(TaskProcessingTaskType_InputShapeEnumValuesBuilder)? b,
+  ]) = _$TaskProcessingTaskType_InputShapeEnumValues;
+
+  // coverage:ignore-start
+  const TaskProcessingTaskType_InputShapeEnumValues._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingTaskType_InputShapeEnumValues.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingTaskType_InputShapeEnumValues.
+  static Serializer<TaskProcessingTaskType_InputShapeEnumValues> get serializer =>
+      _$taskProcessingTaskTypeInputShapeEnumValuesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingTaskType_InputShapeEnumValuesBuilder b) {
+    $TaskProcessingTaskType_InputShapeEnumValuesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingTaskType_InputShapeEnumValuesBuilder b) {
+    $TaskProcessingTaskType_InputShapeEnumValuesInterface._validate(b);
+  }
+}
+
+typedef TaskProcessingTaskType_InputShapeDefaults = ({num? $num, String? string});
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingTaskType_OptionalInputShapeEnumValuesInterface {
+  String get name;
+  String get value;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingTaskType_OptionalInputShapeEnumValuesInterfaceBuilder].
+  $TaskProcessingTaskType_OptionalInputShapeEnumValuesInterface rebuild(
+    void Function($TaskProcessingTaskType_OptionalInputShapeEnumValuesInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingTaskType_OptionalInputShapeEnumValuesInterfaceBuilder].
+  $TaskProcessingTaskType_OptionalInputShapeEnumValuesInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingTaskType_OptionalInputShapeEnumValuesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingTaskType_OptionalInputShapeEnumValuesInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingTaskType_OptionalInputShapeEnumValues
+    implements
+        $TaskProcessingTaskType_OptionalInputShapeEnumValuesInterface,
+        Built<TaskProcessingTaskType_OptionalInputShapeEnumValues,
+            TaskProcessingTaskType_OptionalInputShapeEnumValuesBuilder> {
+  /// Creates a new TaskProcessingTaskType_OptionalInputShapeEnumValues object using the builder pattern.
+  factory TaskProcessingTaskType_OptionalInputShapeEnumValues([
+    void Function(TaskProcessingTaskType_OptionalInputShapeEnumValuesBuilder)? b,
+  ]) = _$TaskProcessingTaskType_OptionalInputShapeEnumValues;
+
+  // coverage:ignore-start
+  const TaskProcessingTaskType_OptionalInputShapeEnumValues._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingTaskType_OptionalInputShapeEnumValues.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingTaskType_OptionalInputShapeEnumValues.
+  static Serializer<TaskProcessingTaskType_OptionalInputShapeEnumValues> get serializer =>
+      _$taskProcessingTaskTypeOptionalInputShapeEnumValuesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingTaskType_OptionalInputShapeEnumValuesBuilder b) {
+    $TaskProcessingTaskType_OptionalInputShapeEnumValuesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingTaskType_OptionalInputShapeEnumValuesBuilder b) {
+    $TaskProcessingTaskType_OptionalInputShapeEnumValuesInterface._validate(b);
+  }
+}
+
+typedef TaskProcessingTaskType_OptionalInputShapeDefaults = ({num? $num, String? string});
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingTaskType_OutputShapeEnumValuesInterface {
+  String get name;
+  String get value;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingTaskType_OutputShapeEnumValuesInterfaceBuilder].
+  $TaskProcessingTaskType_OutputShapeEnumValuesInterface rebuild(
+    void Function($TaskProcessingTaskType_OutputShapeEnumValuesInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingTaskType_OutputShapeEnumValuesInterfaceBuilder].
+  $TaskProcessingTaskType_OutputShapeEnumValuesInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingTaskType_OutputShapeEnumValuesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingTaskType_OutputShapeEnumValuesInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingTaskType_OutputShapeEnumValues
+    implements
+        $TaskProcessingTaskType_OutputShapeEnumValuesInterface,
+        Built<TaskProcessingTaskType_OutputShapeEnumValues, TaskProcessingTaskType_OutputShapeEnumValuesBuilder> {
+  /// Creates a new TaskProcessingTaskType_OutputShapeEnumValues object using the builder pattern.
+  factory TaskProcessingTaskType_OutputShapeEnumValues([
+    void Function(TaskProcessingTaskType_OutputShapeEnumValuesBuilder)? b,
+  ]) = _$TaskProcessingTaskType_OutputShapeEnumValues;
+
+  // coverage:ignore-start
+  const TaskProcessingTaskType_OutputShapeEnumValues._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingTaskType_OutputShapeEnumValues.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingTaskType_OutputShapeEnumValues.
+  static Serializer<TaskProcessingTaskType_OutputShapeEnumValues> get serializer =>
+      _$taskProcessingTaskTypeOutputShapeEnumValuesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingTaskType_OutputShapeEnumValuesBuilder b) {
+    $TaskProcessingTaskType_OutputShapeEnumValuesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingTaskType_OutputShapeEnumValuesBuilder b) {
+    $TaskProcessingTaskType_OutputShapeEnumValuesInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingTaskType_OptionalOutputShapeEnumValuesInterface {
+  String get name;
+  String get value;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingTaskType_OptionalOutputShapeEnumValuesInterfaceBuilder].
+  $TaskProcessingTaskType_OptionalOutputShapeEnumValuesInterface rebuild(
+    void Function($TaskProcessingTaskType_OptionalOutputShapeEnumValuesInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingTaskType_OptionalOutputShapeEnumValuesInterfaceBuilder].
+  $TaskProcessingTaskType_OptionalOutputShapeEnumValuesInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingTaskType_OptionalOutputShapeEnumValuesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingTaskType_OptionalOutputShapeEnumValuesInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingTaskType_OptionalOutputShapeEnumValues
+    implements
+        $TaskProcessingTaskType_OptionalOutputShapeEnumValuesInterface,
+        Built<TaskProcessingTaskType_OptionalOutputShapeEnumValues,
+            TaskProcessingTaskType_OptionalOutputShapeEnumValuesBuilder> {
+  /// Creates a new TaskProcessingTaskType_OptionalOutputShapeEnumValues object using the builder pattern.
+  factory TaskProcessingTaskType_OptionalOutputShapeEnumValues([
+    void Function(TaskProcessingTaskType_OptionalOutputShapeEnumValuesBuilder)? b,
+  ]) = _$TaskProcessingTaskType_OptionalOutputShapeEnumValues;
+
+  // coverage:ignore-start
+  const TaskProcessingTaskType_OptionalOutputShapeEnumValues._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingTaskType_OptionalOutputShapeEnumValues.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingTaskType_OptionalOutputShapeEnumValues.
+  static Serializer<TaskProcessingTaskType_OptionalOutputShapeEnumValues> get serializer =>
+      _$taskProcessingTaskTypeOptionalOutputShapeEnumValuesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingTaskType_OptionalOutputShapeEnumValuesBuilder b) {
+    $TaskProcessingTaskType_OptionalOutputShapeEnumValuesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingTaskType_OptionalOutputShapeEnumValuesBuilder b) {
+    $TaskProcessingTaskType_OptionalOutputShapeEnumValuesInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingTaskTypeInterface {
+  String get name;
+  String get description;
+  BuiltList<TaskProcessingShape> get inputShape;
+  BuiltList<BuiltList<TaskProcessingTaskType_InputShapeEnumValues>> get inputShapeEnumValues;
+  BuiltMap<String, TaskProcessingTaskType_InputShapeDefaults> get inputShapeDefaults;
+  BuiltList<TaskProcessingShape> get optionalInputShape;
+  BuiltList<BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>> get optionalInputShapeEnumValues;
+  BuiltMap<String, TaskProcessingTaskType_OptionalInputShapeDefaults> get optionalInputShapeDefaults;
+  BuiltList<TaskProcessingShape> get outputShape;
+  BuiltList<BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>> get outputShapeEnumValues;
+  BuiltList<TaskProcessingShape> get optionalOutputShape;
+  BuiltList<BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>> get optionalOutputShapeEnumValues;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingTaskTypeInterfaceBuilder].
+  $TaskProcessingTaskTypeInterface rebuild(void Function($TaskProcessingTaskTypeInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$TaskProcessingTaskTypeInterfaceBuilder].
+  $TaskProcessingTaskTypeInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingTaskTypeInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingTaskTypeInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingTaskType
+    implements $TaskProcessingTaskTypeInterface, Built<TaskProcessingTaskType, TaskProcessingTaskTypeBuilder> {
+  /// Creates a new TaskProcessingTaskType object using the builder pattern.
+  factory TaskProcessingTaskType([void Function(TaskProcessingTaskTypeBuilder)? b]) = _$TaskProcessingTaskType;
+
+  // coverage:ignore-start
+  const TaskProcessingTaskType._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingTaskType.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingTaskType.
+  static Serializer<TaskProcessingTaskType> get serializer => _$taskProcessingTaskTypeSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingTaskTypeBuilder b) {
+    $TaskProcessingTaskTypeInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingTaskTypeBuilder b) {
+    $TaskProcessingTaskTypeInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterface {
+  BuiltMap<String, TaskProcessingTaskType> get types;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data
+    implements
+        $TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterface,
+        Built<TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data,
+            TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data([
+    void Function(TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data.
+  static Serializer<TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data> get serializer =>
+      _$taskProcessingApiTaskTypesResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder b) {
+    $TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder b) {
+    $TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiTaskTypesResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiTaskTypesResponseApplicationJson_OcsInterfaceBuilder].
+  $TaskProcessingApiTaskTypesResponseApplicationJson_OcsInterface rebuild(
+    void Function($TaskProcessingApiTaskTypesResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiTaskTypesResponseApplicationJson_OcsInterfaceBuilder].
+  $TaskProcessingApiTaskTypesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiTaskTypesResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiTaskTypesResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiTaskTypesResponseApplicationJson_Ocs
+    implements
+        $TaskProcessingApiTaskTypesResponseApplicationJson_OcsInterface,
+        Built<TaskProcessingApiTaskTypesResponseApplicationJson_Ocs,
+            TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TaskProcessingApiTaskTypesResponseApplicationJson_Ocs object using the builder pattern.
+  factory TaskProcessingApiTaskTypesResponseApplicationJson_Ocs([
+    void Function(TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const TaskProcessingApiTaskTypesResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiTaskTypesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiTaskTypesResponseApplicationJson_Ocs.
+  static Serializer<TaskProcessingApiTaskTypesResponseApplicationJson_Ocs> get serializer =>
+      _$taskProcessingApiTaskTypesResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder b) {
+    $TaskProcessingApiTaskTypesResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder b) {
+    $TaskProcessingApiTaskTypesResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiTaskTypesResponseApplicationJsonInterface {
+  TaskProcessingApiTaskTypesResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiTaskTypesResponseApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiTaskTypesResponseApplicationJsonInterface rebuild(
+    void Function($TaskProcessingApiTaskTypesResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiTaskTypesResponseApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiTaskTypesResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiTaskTypesResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiTaskTypesResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiTaskTypesResponseApplicationJson
+    implements
+        $TaskProcessingApiTaskTypesResponseApplicationJsonInterface,
+        Built<TaskProcessingApiTaskTypesResponseApplicationJson,
+            TaskProcessingApiTaskTypesResponseApplicationJsonBuilder> {
+  /// Creates a new TaskProcessingApiTaskTypesResponseApplicationJson object using the builder pattern.
+  factory TaskProcessingApiTaskTypesResponseApplicationJson([
+    void Function(TaskProcessingApiTaskTypesResponseApplicationJsonBuilder)? b,
+  ]) = _$TaskProcessingApiTaskTypesResponseApplicationJson;
+
+  // coverage:ignore-start
+  const TaskProcessingApiTaskTypesResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiTaskTypesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiTaskTypesResponseApplicationJson.
+  static Serializer<TaskProcessingApiTaskTypesResponseApplicationJson> get serializer =>
+      _$taskProcessingApiTaskTypesResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiTaskTypesResponseApplicationJsonBuilder b) {
+    $TaskProcessingApiTaskTypesResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiTaskTypesResponseApplicationJsonBuilder b) {
+    $TaskProcessingApiTaskTypesResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiScheduleRequestApplicationJsonInterface {
+  static final _$customId = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  /// Task's input parameters.
+  BuiltMap<String, JsonObject> get input;
+
+  /// Type of the task.
+  String get type;
+
+  /// ID of the app that will execute the task.
+  String get appId;
+
+  /// An arbitrary identifier for the task.
+  String get customId;
+
+  /// URI to be requested when the task finishes.
+  String? get webhookUri;
+
+  /// Method used for the webhook request (HTTP:GET, HTTP:POST, HTTP:PUT, HTTP:DELETE or AppAPI:APP_ID:GET, AppAPI:APP_ID:POST...).
+  String? get webhookMethod;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiScheduleRequestApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiScheduleRequestApplicationJsonInterface rebuild(
+    void Function($TaskProcessingApiScheduleRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiScheduleRequestApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiScheduleRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiScheduleRequestApplicationJsonInterfaceBuilder b) {
+    b.customId = _$customId;
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiScheduleRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiScheduleRequestApplicationJson
+    implements
+        $TaskProcessingApiScheduleRequestApplicationJsonInterface,
+        Built<TaskProcessingApiScheduleRequestApplicationJson, TaskProcessingApiScheduleRequestApplicationJsonBuilder> {
+  /// Creates a new TaskProcessingApiScheduleRequestApplicationJson object using the builder pattern.
+  factory TaskProcessingApiScheduleRequestApplicationJson([
+    void Function(TaskProcessingApiScheduleRequestApplicationJsonBuilder)? b,
+  ]) = _$TaskProcessingApiScheduleRequestApplicationJson;
+
+  // coverage:ignore-start
+  const TaskProcessingApiScheduleRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiScheduleRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiScheduleRequestApplicationJson.
+  static Serializer<TaskProcessingApiScheduleRequestApplicationJson> get serializer =>
+      _$taskProcessingApiScheduleRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiScheduleRequestApplicationJsonBuilder b) {
+    $TaskProcessingApiScheduleRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiScheduleRequestApplicationJsonBuilder b) {
+    $TaskProcessingApiScheduleRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+class TaskProcessingTask_Status extends EnumClass {
+  const TaskProcessingTask_Status._(super.name);
+
+  /// `STATUS_CANCELLED`
+  @BuiltValueEnumConst(wireName: 'STATUS_CANCELLED')
+  static const TaskProcessingTask_Status sTATUSCANCELLED = _$taskProcessingTaskStatusSTATUSCANCELLED;
+
+  /// `STATUS_FAILED`
+  @BuiltValueEnumConst(wireName: 'STATUS_FAILED')
+  static const TaskProcessingTask_Status sTATUSFAILED = _$taskProcessingTaskStatusSTATUSFAILED;
+
+  /// `STATUS_SUCCESSFUL`
+  @BuiltValueEnumConst(wireName: 'STATUS_SUCCESSFUL')
+  static const TaskProcessingTask_Status sTATUSSUCCESSFUL = _$taskProcessingTaskStatusSTATUSSUCCESSFUL;
+
+  /// `STATUS_RUNNING`
+  @BuiltValueEnumConst(wireName: 'STATUS_RUNNING')
+  static const TaskProcessingTask_Status sTATUSRUNNING = _$taskProcessingTaskStatusSTATUSRUNNING;
+
+  /// `STATUS_SCHEDULED`
+  @BuiltValueEnumConst(wireName: 'STATUS_SCHEDULED')
+  static const TaskProcessingTask_Status sTATUSSCHEDULED = _$taskProcessingTaskStatusSTATUSSCHEDULED;
+
+  /// `STATUS_UNKNOWN`
+  @BuiltValueEnumConst(wireName: 'STATUS_UNKNOWN')
+  static const TaskProcessingTask_Status sTATUSUNKNOWN = _$taskProcessingTaskStatusSTATUSUNKNOWN;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<TaskProcessingTask_Status> get values => _$taskProcessingTaskStatusValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static TaskProcessingTask_Status valueOf(String name) => _$valueOfTaskProcessingTask_Status(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for TaskProcessingTask_Status.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<TaskProcessingTask_Status> get serializer => const _$TaskProcessingTask_StatusSerializer();
+}
+
+class _$TaskProcessingTask_StatusSerializer implements PrimitiveSerializer<TaskProcessingTask_Status> {
+  const _$TaskProcessingTask_StatusSerializer();
+
+  static const Map<TaskProcessingTask_Status, Object> _toWire = <TaskProcessingTask_Status, Object>{
+    TaskProcessingTask_Status.sTATUSCANCELLED: 'STATUS_CANCELLED',
+    TaskProcessingTask_Status.sTATUSFAILED: 'STATUS_FAILED',
+    TaskProcessingTask_Status.sTATUSSUCCESSFUL: 'STATUS_SUCCESSFUL',
+    TaskProcessingTask_Status.sTATUSRUNNING: 'STATUS_RUNNING',
+    TaskProcessingTask_Status.sTATUSSCHEDULED: 'STATUS_SCHEDULED',
+    TaskProcessingTask_Status.sTATUSUNKNOWN: 'STATUS_UNKNOWN',
+  };
+
+  static const Map<Object, TaskProcessingTask_Status> _fromWire = <Object, TaskProcessingTask_Status>{
+    'STATUS_CANCELLED': TaskProcessingTask_Status.sTATUSCANCELLED,
+    'STATUS_FAILED': TaskProcessingTask_Status.sTATUSFAILED,
+    'STATUS_SUCCESSFUL': TaskProcessingTask_Status.sTATUSSUCCESSFUL,
+    'STATUS_RUNNING': TaskProcessingTask_Status.sTATUSRUNNING,
+    'STATUS_SCHEDULED': TaskProcessingTask_Status.sTATUSSCHEDULED,
+    'STATUS_UNKNOWN': TaskProcessingTask_Status.sTATUSUNKNOWN,
+  };
+
+  @override
+  Iterable<Type> get types => const [TaskProcessingTask_Status];
+
+  @override
+  String get wireName => 'TaskProcessingTask_Status';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    TaskProcessingTask_Status object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  TaskProcessingTask_Status deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+typedef TaskProcessingIO = ({
+  BuiltList<num>? builtListNum,
+  BuiltList<String>? builtListString,
+  num? $num,
+  String? string
+});
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingTaskInterface {
+  int get id;
+  int get lastUpdated;
+  String get type;
+  TaskProcessingTask_Status get status;
+  String? get userId;
+  String get appId;
+  BuiltMap<String, TaskProcessingIO> get input;
+  BuiltMap<String, TaskProcessingIO>? get output;
+  String? get customId;
+  int? get completionExpectedAt;
+  double? get progress;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingTaskInterfaceBuilder].
+  $TaskProcessingTaskInterface rebuild(void Function($TaskProcessingTaskInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$TaskProcessingTaskInterfaceBuilder].
+  $TaskProcessingTaskInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingTaskInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingTaskInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingTask
+    implements $TaskProcessingTaskInterface, Built<TaskProcessingTask, TaskProcessingTaskBuilder> {
+  /// Creates a new TaskProcessingTask object using the builder pattern.
+  factory TaskProcessingTask([void Function(TaskProcessingTaskBuilder)? b]) = _$TaskProcessingTask;
+
+  // coverage:ignore-start
+  const TaskProcessingTask._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingTask.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingTask.
+  static Serializer<TaskProcessingTask> get serializer => _$taskProcessingTaskSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingTaskBuilder b) {
+    $TaskProcessingTaskInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingTaskBuilder b) {
+    $TaskProcessingTaskInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataInterface {
+  TaskProcessingTask get task;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data
+    implements
+        $TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataInterface,
+        Built<TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data,
+            TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data([
+    void Function(TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data.
+  static Serializer<TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data> get serializer =>
+      _$taskProcessingApiScheduleResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder b) {
+    $TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder b) {
+    $TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiScheduleResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiScheduleResponseApplicationJson_OcsInterfaceBuilder].
+  $TaskProcessingApiScheduleResponseApplicationJson_OcsInterface rebuild(
+    void Function($TaskProcessingApiScheduleResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiScheduleResponseApplicationJson_OcsInterfaceBuilder].
+  $TaskProcessingApiScheduleResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiScheduleResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiScheduleResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiScheduleResponseApplicationJson_Ocs
+    implements
+        $TaskProcessingApiScheduleResponseApplicationJson_OcsInterface,
+        Built<TaskProcessingApiScheduleResponseApplicationJson_Ocs,
+            TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TaskProcessingApiScheduleResponseApplicationJson_Ocs object using the builder pattern.
+  factory TaskProcessingApiScheduleResponseApplicationJson_Ocs([
+    void Function(TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TaskProcessingApiScheduleResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const TaskProcessingApiScheduleResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiScheduleResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiScheduleResponseApplicationJson_Ocs.
+  static Serializer<TaskProcessingApiScheduleResponseApplicationJson_Ocs> get serializer =>
+      _$taskProcessingApiScheduleResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder b) {
+    $TaskProcessingApiScheduleResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder b) {
+    $TaskProcessingApiScheduleResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiScheduleResponseApplicationJsonInterface {
+  TaskProcessingApiScheduleResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiScheduleResponseApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiScheduleResponseApplicationJsonInterface rebuild(
+    void Function($TaskProcessingApiScheduleResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiScheduleResponseApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiScheduleResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiScheduleResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiScheduleResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiScheduleResponseApplicationJson
+    implements
+        $TaskProcessingApiScheduleResponseApplicationJsonInterface,
+        Built<TaskProcessingApiScheduleResponseApplicationJson,
+            TaskProcessingApiScheduleResponseApplicationJsonBuilder> {
+  /// Creates a new TaskProcessingApiScheduleResponseApplicationJson object using the builder pattern.
+  factory TaskProcessingApiScheduleResponseApplicationJson([
+    void Function(TaskProcessingApiScheduleResponseApplicationJsonBuilder)? b,
+  ]) = _$TaskProcessingApiScheduleResponseApplicationJson;
+
+  // coverage:ignore-start
+  const TaskProcessingApiScheduleResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiScheduleResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiScheduleResponseApplicationJson.
+  static Serializer<TaskProcessingApiScheduleResponseApplicationJson> get serializer =>
+      _$taskProcessingApiScheduleResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiScheduleResponseApplicationJsonBuilder b) {
+    $TaskProcessingApiScheduleResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiScheduleResponseApplicationJsonBuilder b) {
+    $TaskProcessingApiScheduleResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterface {
+  TaskProcessingTask get task;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data
+    implements
+        $TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterface,
+        Built<TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data,
+            TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data([
+    void Function(TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data.
+  static Serializer<TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data> get serializer =>
+      _$taskProcessingApiGetTaskResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder b) {
+    $TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder b) {
+    $TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiGetTaskResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiGetTaskResponseApplicationJson_OcsInterfaceBuilder].
+  $TaskProcessingApiGetTaskResponseApplicationJson_OcsInterface rebuild(
+    void Function($TaskProcessingApiGetTaskResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiGetTaskResponseApplicationJson_OcsInterfaceBuilder].
+  $TaskProcessingApiGetTaskResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiGetTaskResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiGetTaskResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiGetTaskResponseApplicationJson_Ocs
+    implements
+        $TaskProcessingApiGetTaskResponseApplicationJson_OcsInterface,
+        Built<TaskProcessingApiGetTaskResponseApplicationJson_Ocs,
+            TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TaskProcessingApiGetTaskResponseApplicationJson_Ocs object using the builder pattern.
+  factory TaskProcessingApiGetTaskResponseApplicationJson_Ocs([
+    void Function(TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const TaskProcessingApiGetTaskResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiGetTaskResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiGetTaskResponseApplicationJson_Ocs.
+  static Serializer<TaskProcessingApiGetTaskResponseApplicationJson_Ocs> get serializer =>
+      _$taskProcessingApiGetTaskResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder b) {
+    $TaskProcessingApiGetTaskResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder b) {
+    $TaskProcessingApiGetTaskResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiGetTaskResponseApplicationJsonInterface {
+  TaskProcessingApiGetTaskResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiGetTaskResponseApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiGetTaskResponseApplicationJsonInterface rebuild(
+    void Function($TaskProcessingApiGetTaskResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiGetTaskResponseApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiGetTaskResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiGetTaskResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiGetTaskResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiGetTaskResponseApplicationJson
+    implements
+        $TaskProcessingApiGetTaskResponseApplicationJsonInterface,
+        Built<TaskProcessingApiGetTaskResponseApplicationJson, TaskProcessingApiGetTaskResponseApplicationJsonBuilder> {
+  /// Creates a new TaskProcessingApiGetTaskResponseApplicationJson object using the builder pattern.
+  factory TaskProcessingApiGetTaskResponseApplicationJson([
+    void Function(TaskProcessingApiGetTaskResponseApplicationJsonBuilder)? b,
+  ]) = _$TaskProcessingApiGetTaskResponseApplicationJson;
+
+  // coverage:ignore-start
+  const TaskProcessingApiGetTaskResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiGetTaskResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiGetTaskResponseApplicationJson.
+  static Serializer<TaskProcessingApiGetTaskResponseApplicationJson> get serializer =>
+      _$taskProcessingApiGetTaskResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiGetTaskResponseApplicationJsonBuilder b) {
+    $TaskProcessingApiGetTaskResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiGetTaskResponseApplicationJsonBuilder b) {
+    $TaskProcessingApiGetTaskResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiDeleteTaskResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  JsonObject? get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiDeleteTaskResponseApplicationJson_OcsInterfaceBuilder].
+  $TaskProcessingApiDeleteTaskResponseApplicationJson_OcsInterface rebuild(
+    void Function($TaskProcessingApiDeleteTaskResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiDeleteTaskResponseApplicationJson_OcsInterfaceBuilder].
+  $TaskProcessingApiDeleteTaskResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiDeleteTaskResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiDeleteTaskResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs
+    implements
+        $TaskProcessingApiDeleteTaskResponseApplicationJson_OcsInterface,
+        Built<TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs,
+            TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs object using the builder pattern.
+  factory TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs([
+    void Function(TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs.
+  static Serializer<TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs> get serializer =>
+      _$taskProcessingApiDeleteTaskResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder b) {
+    $TaskProcessingApiDeleteTaskResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder b) {
+    $TaskProcessingApiDeleteTaskResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiDeleteTaskResponseApplicationJsonInterface {
+  TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiDeleteTaskResponseApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiDeleteTaskResponseApplicationJsonInterface rebuild(
+    void Function($TaskProcessingApiDeleteTaskResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiDeleteTaskResponseApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiDeleteTaskResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiDeleteTaskResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiDeleteTaskResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiDeleteTaskResponseApplicationJson
+    implements
+        $TaskProcessingApiDeleteTaskResponseApplicationJsonInterface,
+        Built<TaskProcessingApiDeleteTaskResponseApplicationJson,
+            TaskProcessingApiDeleteTaskResponseApplicationJsonBuilder> {
+  /// Creates a new TaskProcessingApiDeleteTaskResponseApplicationJson object using the builder pattern.
+  factory TaskProcessingApiDeleteTaskResponseApplicationJson([
+    void Function(TaskProcessingApiDeleteTaskResponseApplicationJsonBuilder)? b,
+  ]) = _$TaskProcessingApiDeleteTaskResponseApplicationJson;
+
+  // coverage:ignore-start
+  const TaskProcessingApiDeleteTaskResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiDeleteTaskResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiDeleteTaskResponseApplicationJson.
+  static Serializer<TaskProcessingApiDeleteTaskResponseApplicationJson> get serializer =>
+      _$taskProcessingApiDeleteTaskResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiDeleteTaskResponseApplicationJsonBuilder b) {
+    $TaskProcessingApiDeleteTaskResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiDeleteTaskResponseApplicationJsonBuilder b) {
+    $TaskProcessingApiDeleteTaskResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterface {
+  BuiltList<TaskProcessingTask> get tasks;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data
+    implements
+        $TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterface,
+        Built<TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data,
+            TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data([
+    void Function(TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data.
+  static Serializer<TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data> get serializer =>
+      _$taskProcessingApiListTasksByAppResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder b) {
+    $TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder b) {
+    $TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiListTasksByAppResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiListTasksByAppResponseApplicationJson_OcsInterfaceBuilder].
+  $TaskProcessingApiListTasksByAppResponseApplicationJson_OcsInterface rebuild(
+    void Function($TaskProcessingApiListTasksByAppResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiListTasksByAppResponseApplicationJson_OcsInterfaceBuilder].
+  $TaskProcessingApiListTasksByAppResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiListTasksByAppResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiListTasksByAppResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs
+    implements
+        $TaskProcessingApiListTasksByAppResponseApplicationJson_OcsInterface,
+        Built<TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs,
+            TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs object using the builder pattern.
+  factory TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs([
+    void Function(TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs.
+  static Serializer<TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs> get serializer =>
+      _$taskProcessingApiListTasksByAppResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder b) {
+    $TaskProcessingApiListTasksByAppResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder b) {
+    $TaskProcessingApiListTasksByAppResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiListTasksByAppResponseApplicationJsonInterface {
+  TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiListTasksByAppResponseApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiListTasksByAppResponseApplicationJsonInterface rebuild(
+    void Function($TaskProcessingApiListTasksByAppResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiListTasksByAppResponseApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiListTasksByAppResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiListTasksByAppResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiListTasksByAppResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiListTasksByAppResponseApplicationJson
+    implements
+        $TaskProcessingApiListTasksByAppResponseApplicationJsonInterface,
+        Built<TaskProcessingApiListTasksByAppResponseApplicationJson,
+            TaskProcessingApiListTasksByAppResponseApplicationJsonBuilder> {
+  /// Creates a new TaskProcessingApiListTasksByAppResponseApplicationJson object using the builder pattern.
+  factory TaskProcessingApiListTasksByAppResponseApplicationJson([
+    void Function(TaskProcessingApiListTasksByAppResponseApplicationJsonBuilder)? b,
+  ]) = _$TaskProcessingApiListTasksByAppResponseApplicationJson;
+
+  // coverage:ignore-start
+  const TaskProcessingApiListTasksByAppResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiListTasksByAppResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiListTasksByAppResponseApplicationJson.
+  static Serializer<TaskProcessingApiListTasksByAppResponseApplicationJson> get serializer =>
+      _$taskProcessingApiListTasksByAppResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiListTasksByAppResponseApplicationJsonBuilder b) {
+    $TaskProcessingApiListTasksByAppResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiListTasksByAppResponseApplicationJsonBuilder b) {
+    $TaskProcessingApiListTasksByAppResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataInterface {
+  BuiltList<TaskProcessingTask> get tasks;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data
+    implements
+        $TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataInterface,
+        Built<TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data,
+            TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data([
+    void Function(TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data.
+  static Serializer<TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data> get serializer =>
+      _$taskProcessingApiListTasksResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder b) {
+    $TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder b) {
+    $TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiListTasksResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiListTasksResponseApplicationJson_OcsInterfaceBuilder].
+  $TaskProcessingApiListTasksResponseApplicationJson_OcsInterface rebuild(
+    void Function($TaskProcessingApiListTasksResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiListTasksResponseApplicationJson_OcsInterfaceBuilder].
+  $TaskProcessingApiListTasksResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiListTasksResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiListTasksResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiListTasksResponseApplicationJson_Ocs
+    implements
+        $TaskProcessingApiListTasksResponseApplicationJson_OcsInterface,
+        Built<TaskProcessingApiListTasksResponseApplicationJson_Ocs,
+            TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TaskProcessingApiListTasksResponseApplicationJson_Ocs object using the builder pattern.
+  factory TaskProcessingApiListTasksResponseApplicationJson_Ocs([
+    void Function(TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TaskProcessingApiListTasksResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const TaskProcessingApiListTasksResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiListTasksResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiListTasksResponseApplicationJson_Ocs.
+  static Serializer<TaskProcessingApiListTasksResponseApplicationJson_Ocs> get serializer =>
+      _$taskProcessingApiListTasksResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder b) {
+    $TaskProcessingApiListTasksResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder b) {
+    $TaskProcessingApiListTasksResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiListTasksResponseApplicationJsonInterface {
+  TaskProcessingApiListTasksResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiListTasksResponseApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiListTasksResponseApplicationJsonInterface rebuild(
+    void Function($TaskProcessingApiListTasksResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiListTasksResponseApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiListTasksResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiListTasksResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiListTasksResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiListTasksResponseApplicationJson
+    implements
+        $TaskProcessingApiListTasksResponseApplicationJsonInterface,
+        Built<TaskProcessingApiListTasksResponseApplicationJson,
+            TaskProcessingApiListTasksResponseApplicationJsonBuilder> {
+  /// Creates a new TaskProcessingApiListTasksResponseApplicationJson object using the builder pattern.
+  factory TaskProcessingApiListTasksResponseApplicationJson([
+    void Function(TaskProcessingApiListTasksResponseApplicationJsonBuilder)? b,
+  ]) = _$TaskProcessingApiListTasksResponseApplicationJson;
+
+  // coverage:ignore-start
+  const TaskProcessingApiListTasksResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiListTasksResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiListTasksResponseApplicationJson.
+  static Serializer<TaskProcessingApiListTasksResponseApplicationJson> get serializer =>
+      _$taskProcessingApiListTasksResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiListTasksResponseApplicationJsonBuilder b) {
+    $TaskProcessingApiListTasksResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiListTasksResponseApplicationJsonBuilder b) {
+    $TaskProcessingApiListTasksResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataInterface {
+  TaskProcessingTask get task;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data
+    implements
+        $TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataInterface,
+        Built<TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data,
+            TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data([
+    void Function(TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data.
+  static Serializer<TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data> get serializer =>
+      _$taskProcessingApiCancelTaskResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder b) {
+    $TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder b) {
+    $TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiCancelTaskResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiCancelTaskResponseApplicationJson_OcsInterfaceBuilder].
+  $TaskProcessingApiCancelTaskResponseApplicationJson_OcsInterface rebuild(
+    void Function($TaskProcessingApiCancelTaskResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiCancelTaskResponseApplicationJson_OcsInterfaceBuilder].
+  $TaskProcessingApiCancelTaskResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiCancelTaskResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiCancelTaskResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiCancelTaskResponseApplicationJson_Ocs
+    implements
+        $TaskProcessingApiCancelTaskResponseApplicationJson_OcsInterface,
+        Built<TaskProcessingApiCancelTaskResponseApplicationJson_Ocs,
+            TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TaskProcessingApiCancelTaskResponseApplicationJson_Ocs object using the builder pattern.
+  factory TaskProcessingApiCancelTaskResponseApplicationJson_Ocs([
+    void Function(TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const TaskProcessingApiCancelTaskResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiCancelTaskResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiCancelTaskResponseApplicationJson_Ocs.
+  static Serializer<TaskProcessingApiCancelTaskResponseApplicationJson_Ocs> get serializer =>
+      _$taskProcessingApiCancelTaskResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder b) {
+    $TaskProcessingApiCancelTaskResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder b) {
+    $TaskProcessingApiCancelTaskResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiCancelTaskResponseApplicationJsonInterface {
+  TaskProcessingApiCancelTaskResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiCancelTaskResponseApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiCancelTaskResponseApplicationJsonInterface rebuild(
+    void Function($TaskProcessingApiCancelTaskResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiCancelTaskResponseApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiCancelTaskResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiCancelTaskResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiCancelTaskResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiCancelTaskResponseApplicationJson
+    implements
+        $TaskProcessingApiCancelTaskResponseApplicationJsonInterface,
+        Built<TaskProcessingApiCancelTaskResponseApplicationJson,
+            TaskProcessingApiCancelTaskResponseApplicationJsonBuilder> {
+  /// Creates a new TaskProcessingApiCancelTaskResponseApplicationJson object using the builder pattern.
+  factory TaskProcessingApiCancelTaskResponseApplicationJson([
+    void Function(TaskProcessingApiCancelTaskResponseApplicationJsonBuilder)? b,
+  ]) = _$TaskProcessingApiCancelTaskResponseApplicationJson;
+
+  // coverage:ignore-start
+  const TaskProcessingApiCancelTaskResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiCancelTaskResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiCancelTaskResponseApplicationJson.
+  static Serializer<TaskProcessingApiCancelTaskResponseApplicationJson> get serializer =>
+      _$taskProcessingApiCancelTaskResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiCancelTaskResponseApplicationJsonBuilder b) {
+    $TaskProcessingApiCancelTaskResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiCancelTaskResponseApplicationJsonBuilder b) {
+    $TaskProcessingApiCancelTaskResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataInterface {
+  int get fileId;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data
+    implements
+        $TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataInterface,
+        Built<TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data,
+            TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data([
+    void Function(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data.
+  static Serializer<TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data> get serializer =>
+      _$taskProcessingApiSetFileContentsExAppResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder b) {
+    $TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder b) {
+    $TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsInterfaceBuilder].
+  $TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsInterface rebuild(
+    void Function($TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsInterfaceBuilder].
+  $TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs
+    implements
+        $TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsInterface,
+        Built<TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs,
+            TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs object using the builder pattern.
+  factory TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs([
+    void Function(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs.
+  static Serializer<TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs> get serializer =>
+      _$taskProcessingApiSetFileContentsExAppResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder b) {
+    $TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder b) {
+    $TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiSetFileContentsExAppResponseApplicationJsonInterface {
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiSetFileContentsExAppResponseApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiSetFileContentsExAppResponseApplicationJsonInterface rebuild(
+    void Function($TaskProcessingApiSetFileContentsExAppResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiSetFileContentsExAppResponseApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiSetFileContentsExAppResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiSetFileContentsExAppResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiSetFileContentsExAppResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiSetFileContentsExAppResponseApplicationJson
+    implements
+        $TaskProcessingApiSetFileContentsExAppResponseApplicationJsonInterface,
+        Built<TaskProcessingApiSetFileContentsExAppResponseApplicationJson,
+            TaskProcessingApiSetFileContentsExAppResponseApplicationJsonBuilder> {
+  /// Creates a new TaskProcessingApiSetFileContentsExAppResponseApplicationJson object using the builder pattern.
+  factory TaskProcessingApiSetFileContentsExAppResponseApplicationJson([
+    void Function(TaskProcessingApiSetFileContentsExAppResponseApplicationJsonBuilder)? b,
+  ]) = _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson;
+
+  // coverage:ignore-start
+  const TaskProcessingApiSetFileContentsExAppResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiSetFileContentsExAppResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiSetFileContentsExAppResponseApplicationJson.
+  static Serializer<TaskProcessingApiSetFileContentsExAppResponseApplicationJson> get serializer =>
+      _$taskProcessingApiSetFileContentsExAppResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiSetFileContentsExAppResponseApplicationJsonBuilder b) {
+    $TaskProcessingApiSetFileContentsExAppResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiSetFileContentsExAppResponseApplicationJsonBuilder b) {
+    $TaskProcessingApiSetFileContentsExAppResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiSetProgressRequestApplicationJsonInterface {
+  /// The progress.
+  double get progress;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiSetProgressRequestApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiSetProgressRequestApplicationJsonInterface rebuild(
+    void Function($TaskProcessingApiSetProgressRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiSetProgressRequestApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiSetProgressRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiSetProgressRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiSetProgressRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiSetProgressRequestApplicationJson
+    implements
+        $TaskProcessingApiSetProgressRequestApplicationJsonInterface,
+        Built<TaskProcessingApiSetProgressRequestApplicationJson,
+            TaskProcessingApiSetProgressRequestApplicationJsonBuilder> {
+  /// Creates a new TaskProcessingApiSetProgressRequestApplicationJson object using the builder pattern.
+  factory TaskProcessingApiSetProgressRequestApplicationJson([
+    void Function(TaskProcessingApiSetProgressRequestApplicationJsonBuilder)? b,
+  ]) = _$TaskProcessingApiSetProgressRequestApplicationJson;
+
+  // coverage:ignore-start
+  const TaskProcessingApiSetProgressRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiSetProgressRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiSetProgressRequestApplicationJson.
+  static Serializer<TaskProcessingApiSetProgressRequestApplicationJson> get serializer =>
+      _$taskProcessingApiSetProgressRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiSetProgressRequestApplicationJsonBuilder b) {
+    $TaskProcessingApiSetProgressRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiSetProgressRequestApplicationJsonBuilder b) {
+    $TaskProcessingApiSetProgressRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataInterface {
+  TaskProcessingTask get task;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data
+    implements
+        $TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataInterface,
+        Built<TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data,
+            TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data([
+    void Function(TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data.
+  static Serializer<TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data> get serializer =>
+      _$taskProcessingApiSetProgressResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder b) {
+    $TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder b) {
+    $TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiSetProgressResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiSetProgressResponseApplicationJson_OcsInterfaceBuilder].
+  $TaskProcessingApiSetProgressResponseApplicationJson_OcsInterface rebuild(
+    void Function($TaskProcessingApiSetProgressResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiSetProgressResponseApplicationJson_OcsInterfaceBuilder].
+  $TaskProcessingApiSetProgressResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiSetProgressResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiSetProgressResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiSetProgressResponseApplicationJson_Ocs
+    implements
+        $TaskProcessingApiSetProgressResponseApplicationJson_OcsInterface,
+        Built<TaskProcessingApiSetProgressResponseApplicationJson_Ocs,
+            TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TaskProcessingApiSetProgressResponseApplicationJson_Ocs object using the builder pattern.
+  factory TaskProcessingApiSetProgressResponseApplicationJson_Ocs([
+    void Function(TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const TaskProcessingApiSetProgressResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiSetProgressResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiSetProgressResponseApplicationJson_Ocs.
+  static Serializer<TaskProcessingApiSetProgressResponseApplicationJson_Ocs> get serializer =>
+      _$taskProcessingApiSetProgressResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder b) {
+    $TaskProcessingApiSetProgressResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder b) {
+    $TaskProcessingApiSetProgressResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiSetProgressResponseApplicationJsonInterface {
+  TaskProcessingApiSetProgressResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiSetProgressResponseApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiSetProgressResponseApplicationJsonInterface rebuild(
+    void Function($TaskProcessingApiSetProgressResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiSetProgressResponseApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiSetProgressResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiSetProgressResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiSetProgressResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiSetProgressResponseApplicationJson
+    implements
+        $TaskProcessingApiSetProgressResponseApplicationJsonInterface,
+        Built<TaskProcessingApiSetProgressResponseApplicationJson,
+            TaskProcessingApiSetProgressResponseApplicationJsonBuilder> {
+  /// Creates a new TaskProcessingApiSetProgressResponseApplicationJson object using the builder pattern.
+  factory TaskProcessingApiSetProgressResponseApplicationJson([
+    void Function(TaskProcessingApiSetProgressResponseApplicationJsonBuilder)? b,
+  ]) = _$TaskProcessingApiSetProgressResponseApplicationJson;
+
+  // coverage:ignore-start
+  const TaskProcessingApiSetProgressResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiSetProgressResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiSetProgressResponseApplicationJson.
+  static Serializer<TaskProcessingApiSetProgressResponseApplicationJson> get serializer =>
+      _$taskProcessingApiSetProgressResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiSetProgressResponseApplicationJsonBuilder b) {
+    $TaskProcessingApiSetProgressResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiSetProgressResponseApplicationJsonBuilder b) {
+    $TaskProcessingApiSetProgressResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiSetResultRequestApplicationJsonInterface {
+  /// The resulting task output, files are represented by their IDs.
+  BuiltMap<String, JsonObject>? get output;
+
+  /// An error message if the task failed.
+  String? get errorMessage;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiSetResultRequestApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiSetResultRequestApplicationJsonInterface rebuild(
+    void Function($TaskProcessingApiSetResultRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiSetResultRequestApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiSetResultRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiSetResultRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiSetResultRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiSetResultRequestApplicationJson
+    implements
+        $TaskProcessingApiSetResultRequestApplicationJsonInterface,
+        Built<TaskProcessingApiSetResultRequestApplicationJson,
+            TaskProcessingApiSetResultRequestApplicationJsonBuilder> {
+  /// Creates a new TaskProcessingApiSetResultRequestApplicationJson object using the builder pattern.
+  factory TaskProcessingApiSetResultRequestApplicationJson([
+    void Function(TaskProcessingApiSetResultRequestApplicationJsonBuilder)? b,
+  ]) = _$TaskProcessingApiSetResultRequestApplicationJson;
+
+  // coverage:ignore-start
+  const TaskProcessingApiSetResultRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiSetResultRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiSetResultRequestApplicationJson.
+  static Serializer<TaskProcessingApiSetResultRequestApplicationJson> get serializer =>
+      _$taskProcessingApiSetResultRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiSetResultRequestApplicationJsonBuilder b) {
+    $TaskProcessingApiSetResultRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiSetResultRequestApplicationJsonBuilder b) {
+    $TaskProcessingApiSetResultRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataInterface {
+  TaskProcessingTask get task;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data
+    implements
+        $TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataInterface,
+        Built<TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data,
+            TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data([
+    void Function(TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data.
+  static Serializer<TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data> get serializer =>
+      _$taskProcessingApiSetResultResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder b) {
+    $TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder b) {
+    $TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiSetResultResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiSetResultResponseApplicationJson_OcsInterfaceBuilder].
+  $TaskProcessingApiSetResultResponseApplicationJson_OcsInterface rebuild(
+    void Function($TaskProcessingApiSetResultResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiSetResultResponseApplicationJson_OcsInterfaceBuilder].
+  $TaskProcessingApiSetResultResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiSetResultResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiSetResultResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiSetResultResponseApplicationJson_Ocs
+    implements
+        $TaskProcessingApiSetResultResponseApplicationJson_OcsInterface,
+        Built<TaskProcessingApiSetResultResponseApplicationJson_Ocs,
+            TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TaskProcessingApiSetResultResponseApplicationJson_Ocs object using the builder pattern.
+  factory TaskProcessingApiSetResultResponseApplicationJson_Ocs([
+    void Function(TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TaskProcessingApiSetResultResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const TaskProcessingApiSetResultResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiSetResultResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiSetResultResponseApplicationJson_Ocs.
+  static Serializer<TaskProcessingApiSetResultResponseApplicationJson_Ocs> get serializer =>
+      _$taskProcessingApiSetResultResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder b) {
+    $TaskProcessingApiSetResultResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder b) {
+    $TaskProcessingApiSetResultResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiSetResultResponseApplicationJsonInterface {
+  TaskProcessingApiSetResultResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiSetResultResponseApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiSetResultResponseApplicationJsonInterface rebuild(
+    void Function($TaskProcessingApiSetResultResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiSetResultResponseApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiSetResultResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiSetResultResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiSetResultResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiSetResultResponseApplicationJson
+    implements
+        $TaskProcessingApiSetResultResponseApplicationJsonInterface,
+        Built<TaskProcessingApiSetResultResponseApplicationJson,
+            TaskProcessingApiSetResultResponseApplicationJsonBuilder> {
+  /// Creates a new TaskProcessingApiSetResultResponseApplicationJson object using the builder pattern.
+  factory TaskProcessingApiSetResultResponseApplicationJson([
+    void Function(TaskProcessingApiSetResultResponseApplicationJsonBuilder)? b,
+  ]) = _$TaskProcessingApiSetResultResponseApplicationJson;
+
+  // coverage:ignore-start
+  const TaskProcessingApiSetResultResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiSetResultResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiSetResultResponseApplicationJson.
+  static Serializer<TaskProcessingApiSetResultResponseApplicationJson> get serializer =>
+      _$taskProcessingApiSetResultResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiSetResultResponseApplicationJsonBuilder b) {
+    $TaskProcessingApiSetResultResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiSetResultResponseApplicationJsonBuilder b) {
+    $TaskProcessingApiSetResultResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderInterface {
+  String get name;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderInterfaceBuilder].
+  $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderInterface rebuild(
+    void Function($TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderInterfaceBuilder)
+        updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderInterfaceBuilder].
+  $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(
+    $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderInterfaceBuilder b,
+  ) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(
+    $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderInterfaceBuilder b,
+  ) {}
+}
+
+abstract class TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider
+    implements
+        $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderInterface,
+        Built<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider,
+            TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder> {
+  /// Creates a new TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider object using the builder pattern.
+  factory TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider([
+    void Function(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder)? b,
+  ]) = _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider;
+
+  // coverage:ignore-start
+  const TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider.
+  static Serializer<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider> get serializer =>
+      _$taskProcessingApiGetNextScheduledTaskResponseApplicationJsonOcsDataProviderSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder b) {
+    $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder b) {
+    $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataInterface {
+  TaskProcessingTask get task;
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider get provider;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data
+    implements
+        $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataInterface,
+        Built<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data,
+            TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data([
+    void Function(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data.
+  static Serializer<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data> get serializer =>
+      _$taskProcessingApiGetNextScheduledTaskResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder b) {
+    $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder b) {
+    $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsInterfaceBuilder].
+  $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsInterface rebuild(
+    void Function($TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsInterfaceBuilder].
+  $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs
+    implements
+        $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsInterface,
+        Built<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs,
+            TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs object using the builder pattern.
+  factory TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs([
+    void Function(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs.
+  static Serializer<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs> get serializer =>
+      _$taskProcessingApiGetNextScheduledTaskResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder b) {
+    $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder b) {
+    $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonInterface {
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonInterface rebuild(
+    void Function($TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonInterfaceBuilder].
+  $TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TaskProcessingApiGetNextScheduledTaskResponseApplicationJson
+    implements
+        $TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonInterface,
+        Built<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson,
+            TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonBuilder> {
+  /// Creates a new TaskProcessingApiGetNextScheduledTaskResponseApplicationJson object using the builder pattern.
+  factory TaskProcessingApiGetNextScheduledTaskResponseApplicationJson([
+    void Function(TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonBuilder)? b,
+  ]) = _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson;
+
+  // coverage:ignore-start
+  const TaskProcessingApiGetNextScheduledTaskResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TaskProcessingApiGetNextScheduledTaskResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TaskProcessingApiGetNextScheduledTaskResponseApplicationJson.
+  static Serializer<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson> get serializer =>
+      _$taskProcessingApiGetNextScheduledTaskResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonBuilder b) {
+    $TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonBuilder b) {
+    $TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonInterface._validate(b);
   }
 }
 
@@ -20548,6 +26755,47 @@ extension $OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesExtens
       $ff3cbb941adc0f0f38f18ba5aabd7f48Extension._fromJson(json);
 }
 
+/// Serialization extension for `TaskProcessingTaskType_InputShapeDefaults`.
+extension $TaskProcessingTaskType_InputShapeDefaultsExtension on TaskProcessingTaskType_InputShapeDefaults {
+  /// Serializer for TaskProcessingTaskType_InputShapeDefaults.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<TaskProcessingTaskType_InputShapeDefaults> get serializer =>
+      $b6d67dc2a96424d2f407f8e51557f3deExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static TaskProcessingTaskType_InputShapeDefaults fromJson(Object? json) =>
+      $b6d67dc2a96424d2f407f8e51557f3deExtension._fromJson(json);
+}
+
+/// Serialization extension for `TaskProcessingTaskType_OptionalInputShapeDefaults`.
+extension $TaskProcessingTaskType_OptionalInputShapeDefaultsExtension
+    on TaskProcessingTaskType_OptionalInputShapeDefaults {
+  /// Serializer for TaskProcessingTaskType_OptionalInputShapeDefaults.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<TaskProcessingTaskType_OptionalInputShapeDefaults> get serializer =>
+      $b6d67dc2a96424d2f407f8e51557f3deExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static TaskProcessingTaskType_OptionalInputShapeDefaults fromJson(Object? json) =>
+      $b6d67dc2a96424d2f407f8e51557f3deExtension._fromJson(json);
+}
+
+/// Serialization extension for `TaskProcessingIO`.
+extension $TaskProcessingIOExtension on TaskProcessingIO {
+  /// Serializer for TaskProcessingIO.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<TaskProcessingIO> get serializer => $17b504aaa197cb55522acb1f128f183aExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static TaskProcessingIO fromJson(Object? json) => $17b504aaa197cb55522acb1f128f183aExtension._fromJson(json);
+}
+
 /// Serialization extension for `UnifiedSearchSearchCursor`.
 extension $UnifiedSearchSearchCursorExtension on UnifiedSearchSearchCursor {
   /// Serializer for UnifiedSearchSearchCursor.
@@ -21274,6 +27522,197 @@ class _$ff3cbb941adc0f0f38f18ba5aabd7f48Serializer implements PrimitiveSerialize
   }
 }
 
+typedef _$b6d67dc2a96424d2f407f8e51557f3de = ({num? $num, String? string});
+
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $b6d67dc2a96424d2f407f8e51557f3deExtension on _$b6d67dc2a96424d2f407f8e51557f3de {
+  List<dynamic> get _values => [$num, string];
+  List<String> get _names => const [r'$num', 'string'];
+
+  /// {@macro Dynamite.validateOneOf}
+  void validateOneOf() => _i5.validateOneOf(
+        _values,
+        _names,
+      );
+
+  /// {@macro Dynamite.validateAnyOf}
+  void validateAnyOf() => _i5.validateAnyOf(
+        _values,
+        _names,
+      );
+  static Serializer<_$b6d67dc2a96424d2f407f8e51557f3de> get _serializer =>
+      const _$b6d67dc2a96424d2f407f8e51557f3deSerializer();
+  static _$b6d67dc2a96424d2f407f8e51557f3de _fromJson(Object? json) =>
+      _$jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
+}
+
+class _$b6d67dc2a96424d2f407f8e51557f3deSerializer implements PrimitiveSerializer<_$b6d67dc2a96424d2f407f8e51557f3de> {
+  const _$b6d67dc2a96424d2f407f8e51557f3deSerializer();
+
+  @override
+  Iterable<Type> get types => const [_$b6d67dc2a96424d2f407f8e51557f3de];
+
+  @override
+  String get wireName => r'_$b6d67dc2a96424d2f407f8e51557f3de';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    _$b6d67dc2a96424d2f407f8e51557f3de object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.$num;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(num))!;
+    }
+    value = object.string;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(String))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  _$b6d67dc2a96424d2f407f8e51557f3de deserialize(
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    num? $num;
+    try {
+      $num = serializers.deserialize(
+        data,
+        specifiedType: const FullType(num),
+      )! as num;
+    } catch (_) {}
+    String? string;
+    try {
+      string = serializers.deserialize(
+        data,
+        specifiedType: const FullType(String),
+      )! as String;
+    } catch (_) {}
+    return ($num: $num, string: string);
+  }
+}
+
+typedef _$17b504aaa197cb55522acb1f128f183a = ({
+  BuiltList<num>? builtListNum,
+  BuiltList<String>? builtListString,
+  num? $num,
+  String? string
+});
+
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $17b504aaa197cb55522acb1f128f183aExtension on _$17b504aaa197cb55522acb1f128f183a {
+  List<dynamic> get _values => [builtListNum, builtListString, $num, string];
+  List<String> get _names => const ['builtListNum', 'builtListString', r'$num', 'string'];
+
+  /// {@macro Dynamite.validateOneOf}
+  void validateOneOf() => _i5.validateOneOf(
+        _values,
+        _names,
+      );
+
+  /// {@macro Dynamite.validateAnyOf}
+  void validateAnyOf() => _i5.validateAnyOf(
+        _values,
+        _names,
+      );
+  static Serializer<_$17b504aaa197cb55522acb1f128f183a> get _serializer =>
+      const _$17b504aaa197cb55522acb1f128f183aSerializer();
+  static _$17b504aaa197cb55522acb1f128f183a _fromJson(Object? json) =>
+      _$jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
+}
+
+class _$17b504aaa197cb55522acb1f128f183aSerializer implements PrimitiveSerializer<_$17b504aaa197cb55522acb1f128f183a> {
+  const _$17b504aaa197cb55522acb1f128f183aSerializer();
+
+  @override
+  Iterable<Type> get types => const [_$17b504aaa197cb55522acb1f128f183a];
+
+  @override
+  String get wireName => r'_$17b504aaa197cb55522acb1f128f183a';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    _$17b504aaa197cb55522acb1f128f183a object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.builtListNum;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(num)]))!;
+    }
+    value = object.builtListString;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)]))!;
+    }
+    value = object.$num;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(num))!;
+    }
+    value = object.string;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(String))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  _$17b504aaa197cb55522acb1f128f183a deserialize(
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    BuiltList<num>? builtListNum;
+    try {
+      builtListNum = serializers.deserialize(
+        data,
+        specifiedType: const FullType(BuiltList, [FullType(num)]),
+      )! as BuiltList<num>;
+    } catch (_) {}
+    BuiltList<String>? builtListString;
+    try {
+      builtListString = serializers.deserialize(
+        data,
+        specifiedType: const FullType(BuiltList, [FullType(String)]),
+      )! as BuiltList<String>;
+    } catch (_) {}
+    num? $num;
+    try {
+      $num = serializers.deserialize(
+        data,
+        specifiedType: const FullType(num),
+      )! as num;
+    } catch (_) {}
+    String? string;
+    try {
+      string = serializers.deserialize(
+        data,
+        specifiedType: const FullType(String),
+      )! as String;
+    } catch (_) {}
+    return (builtListNum: builtListNum, builtListString: builtListString, $num: $num, string: string);
+  }
+}
+
 // coverage:ignore-start
 /// Serializer for all values in this library.
 ///
@@ -21366,10 +27805,14 @@ final Serializers _$serializers = (Serializers().toBuilder()
         const FullType(BuiltList, [FullType(AutocompleteResult)]),
         ListBuilder<AutocompleteResult>.new,
       )
+      ..add(AvatarGetAvatarDarkSize.serializer)
+      ..add(AvatarGetAvatarDarkGuestFallback.serializer)
       ..addBuilderFactory(const FullType(AvatarAvatarGetAvatarDarkHeaders), AvatarAvatarGetAvatarDarkHeadersBuilder.new)
       ..add(AvatarAvatarGetAvatarDarkHeaders.serializer)
       ..addBuilderFactory(const FullType(Header, [FullType.nullable(int)]), HeaderBuilder<int?>.new)
       ..add(Header.serializer)
+      ..add(AvatarGetAvatarSize.serializer)
+      ..add(AvatarGetAvatarGuestFallback.serializer)
       ..addBuilderFactory(const FullType(AvatarAvatarGetAvatarHeaders), AvatarAvatarGetAvatarHeadersBuilder.new)
       ..add(AvatarAvatarGetAvatarHeaders.serializer)
       ..addBuilderFactory(
@@ -21480,7 +27923,24 @@ final Serializers _$serializers = (Serializers().toBuilder()
         CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder.new,
       )
       ..add(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(CsrfTokenIndexResponseApplicationJson),
+        CsrfTokenIndexResponseApplicationJsonBuilder.new,
+      )
+      ..add(CsrfTokenIndexResponseApplicationJson.serializer)
+      ..add(GuestAvatarGetAvatarSize.serializer)
       ..add(GuestAvatarGetAvatarDarkTheme.serializer)
+      ..addBuilderFactory(
+        const FullType(GuestAvatarGuestAvatarGetAvatarHeaders),
+        GuestAvatarGuestAvatarGetAvatarHeadersBuilder.new,
+      )
+      ..add(GuestAvatarGuestAvatarGetAvatarHeaders.serializer)
+      ..add(GuestAvatarGetAvatarDarkSize.serializer)
+      ..addBuilderFactory(
+        const FullType(GuestAvatarGuestAvatarGetAvatarDarkHeaders),
+        GuestAvatarGuestAvatarGetAvatarDarkHeadersBuilder.new,
+      )
+      ..add(GuestAvatarGuestAvatarGetAvatarDarkHeaders.serializer)
       ..addBuilderFactory(
         const FullType(HoverCardGetUserResponseApplicationJson),
         HoverCardGetUserResponseApplicationJsonBuilder.new,
@@ -21822,9 +28282,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add($ff3cbb941adc0f0f38f18ba5aabd7f48Extension._serializer)
       ..add(PreviewGetPreviewA.serializer)
       ..add(PreviewGetPreviewForceIcon.serializer)
+      ..add(PreviewGetPreviewMode.serializer)
       ..add(PreviewGetPreviewMimeFallback.serializer)
       ..add(PreviewGetPreviewByFileIdA.serializer)
       ..add(PreviewGetPreviewByFileIdForceIcon.serializer)
+      ..add(PreviewGetPreviewByFileIdMode.serializer)
       ..add(PreviewGetPreviewByFileIdMimeFallback.serializer)
       ..addBuilderFactory(
         const FullType(ProfileApiSetVisibilityRequestApplicationJson),
@@ -21868,6 +28330,26 @@ final Serializers _$serializers = (Serializers().toBuilder()
         MapBuilder<String, Reference?>.new,
       )
       ..addBuilderFactory(
+        const FullType(ReferenceApiExtractPublicRequestApplicationJson),
+        ReferenceApiExtractPublicRequestApplicationJsonBuilder.new,
+      )
+      ..add(ReferenceApiExtractPublicRequestApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(ReferenceApiExtractPublicResponseApplicationJson),
+        ReferenceApiExtractPublicResponseApplicationJsonBuilder.new,
+      )
+      ..add(ReferenceApiExtractPublicResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(ReferenceApiExtractPublicResponseApplicationJson_Ocs),
+        ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(ReferenceApiExtractPublicResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data),
+        ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
         const FullType(ReferenceApiResolveOneResponseApplicationJson),
         ReferenceApiResolveOneResponseApplicationJsonBuilder.new,
       )
@@ -21903,6 +28385,41 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(ReferenceApiResolveResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
+        const FullType(ReferenceApiResolveOnePublicResponseApplicationJson),
+        ReferenceApiResolveOnePublicResponseApplicationJsonBuilder.new,
+      )
+      ..add(ReferenceApiResolveOnePublicResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(ReferenceApiResolveOnePublicResponseApplicationJson_Ocs),
+        ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(ReferenceApiResolveOnePublicResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data),
+        ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(ReferenceApiResolvePublicRequestApplicationJson),
+        ReferenceApiResolvePublicRequestApplicationJsonBuilder.new,
+      )
+      ..add(ReferenceApiResolvePublicRequestApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(ReferenceApiResolvePublicResponseApplicationJson),
+        ReferenceApiResolvePublicResponseApplicationJsonBuilder.new,
+      )
+      ..add(ReferenceApiResolvePublicResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(ReferenceApiResolvePublicResponseApplicationJson_Ocs),
+        ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(ReferenceApiResolvePublicResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data),
+        ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
         const FullType(ReferenceApiGetProvidersInfoResponseApplicationJson),
         ReferenceApiGetProvidersInfoResponseApplicationJsonBuilder.new,
       )
@@ -21935,6 +28452,285 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiTaskTypesResponseApplicationJson),
+        TaskProcessingApiTaskTypesResponseApplicationJsonBuilder.new,
+      )
+      ..add(TaskProcessingApiTaskTypesResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiTaskTypesResponseApplicationJson_Ocs),
+        TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(TaskProcessingApiTaskTypesResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data),
+        TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(TaskProcessingTaskType), TaskProcessingTaskTypeBuilder.new)
+      ..add(TaskProcessingTaskType.serializer)
+      ..addBuilderFactory(const FullType(TaskProcessingShape), TaskProcessingShapeBuilder.new)
+      ..add(TaskProcessingShape.serializer)
+      ..add(TaskProcessingShape_Type.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(TaskProcessingShape)]),
+        ListBuilder<TaskProcessingShape>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(TaskProcessingTaskType_InputShapeEnumValues),
+        TaskProcessingTaskType_InputShapeEnumValuesBuilder.new,
+      )
+      ..add(TaskProcessingTaskType_InputShapeEnumValues.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(TaskProcessingTaskType_InputShapeEnumValues)]),
+        ListBuilder<TaskProcessingTaskType_InputShapeEnumValues>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [
+          FullType(BuiltList, [FullType(TaskProcessingTaskType_InputShapeEnumValues)]),
+        ]),
+        ListBuilder<BuiltList<TaskProcessingTaskType_InputShapeEnumValues>>.new,
+      )
+      ..add($b6d67dc2a96424d2f407f8e51557f3deExtension._serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingTaskType_InputShapeDefaults)]),
+        MapBuilder<String, TaskProcessingTaskType_InputShapeDefaults>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(TaskProcessingTaskType_OptionalInputShapeEnumValues),
+        TaskProcessingTaskType_OptionalInputShapeEnumValuesBuilder.new,
+      )
+      ..add(TaskProcessingTaskType_OptionalInputShapeEnumValues.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(TaskProcessingTaskType_OptionalInputShapeEnumValues)]),
+        ListBuilder<TaskProcessingTaskType_OptionalInputShapeEnumValues>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [
+          FullType(BuiltList, [FullType(TaskProcessingTaskType_OptionalInputShapeEnumValues)]),
+        ]),
+        ListBuilder<BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingTaskType_OptionalInputShapeDefaults)]),
+        MapBuilder<String, TaskProcessingTaskType_OptionalInputShapeDefaults>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(TaskProcessingTaskType_OutputShapeEnumValues),
+        TaskProcessingTaskType_OutputShapeEnumValuesBuilder.new,
+      )
+      ..add(TaskProcessingTaskType_OutputShapeEnumValues.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(TaskProcessingTaskType_OutputShapeEnumValues)]),
+        ListBuilder<TaskProcessingTaskType_OutputShapeEnumValues>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [
+          FullType(BuiltList, [FullType(TaskProcessingTaskType_OutputShapeEnumValues)]),
+        ]),
+        ListBuilder<BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(TaskProcessingTaskType_OptionalOutputShapeEnumValues),
+        TaskProcessingTaskType_OptionalOutputShapeEnumValuesBuilder.new,
+      )
+      ..add(TaskProcessingTaskType_OptionalOutputShapeEnumValues.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(TaskProcessingTaskType_OptionalOutputShapeEnumValues)]),
+        ListBuilder<TaskProcessingTaskType_OptionalOutputShapeEnumValues>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [
+          FullType(BuiltList, [FullType(TaskProcessingTaskType_OptionalOutputShapeEnumValues)]),
+        ]),
+        ListBuilder<BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingTaskType)]),
+        MapBuilder<String, TaskProcessingTaskType>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiScheduleRequestApplicationJson),
+        TaskProcessingApiScheduleRequestApplicationJsonBuilder.new,
+      )
+      ..add(TaskProcessingApiScheduleRequestApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+        MapBuilder<String, JsonObject>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiScheduleResponseApplicationJson),
+        TaskProcessingApiScheduleResponseApplicationJsonBuilder.new,
+      )
+      ..add(TaskProcessingApiScheduleResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiScheduleResponseApplicationJson_Ocs),
+        TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(TaskProcessingApiScheduleResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data),
+        TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(TaskProcessingTask), TaskProcessingTaskBuilder.new)
+      ..add(TaskProcessingTask.serializer)
+      ..add(TaskProcessingTask_Status.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(num)]), ListBuilder<num>.new)
+      ..add($17b504aaa197cb55522acb1f128f183aExtension._serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingIO)]),
+        MapBuilder<String, TaskProcessingIO>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiGetTaskResponseApplicationJson),
+        TaskProcessingApiGetTaskResponseApplicationJsonBuilder.new,
+      )
+      ..add(TaskProcessingApiGetTaskResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiGetTaskResponseApplicationJson_Ocs),
+        TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(TaskProcessingApiGetTaskResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data),
+        TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiDeleteTaskResponseApplicationJson),
+        TaskProcessingApiDeleteTaskResponseApplicationJsonBuilder.new,
+      )
+      ..add(TaskProcessingApiDeleteTaskResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs),
+        TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiListTasksByAppResponseApplicationJson),
+        TaskProcessingApiListTasksByAppResponseApplicationJsonBuilder.new,
+      )
+      ..add(TaskProcessingApiListTasksByAppResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs),
+        TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data),
+        TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(TaskProcessingTask)]),
+        ListBuilder<TaskProcessingTask>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiListTasksResponseApplicationJson),
+        TaskProcessingApiListTasksResponseApplicationJsonBuilder.new,
+      )
+      ..add(TaskProcessingApiListTasksResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiListTasksResponseApplicationJson_Ocs),
+        TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(TaskProcessingApiListTasksResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data),
+        TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiCancelTaskResponseApplicationJson),
+        TaskProcessingApiCancelTaskResponseApplicationJsonBuilder.new,
+      )
+      ..add(TaskProcessingApiCancelTaskResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiCancelTaskResponseApplicationJson_Ocs),
+        TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(TaskProcessingApiCancelTaskResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data),
+        TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiSetFileContentsExAppResponseApplicationJson),
+        TaskProcessingApiSetFileContentsExAppResponseApplicationJsonBuilder.new,
+      )
+      ..add(TaskProcessingApiSetFileContentsExAppResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs),
+        TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data),
+        TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiSetProgressRequestApplicationJson),
+        TaskProcessingApiSetProgressRequestApplicationJsonBuilder.new,
+      )
+      ..add(TaskProcessingApiSetProgressRequestApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiSetProgressResponseApplicationJson),
+        TaskProcessingApiSetProgressResponseApplicationJsonBuilder.new,
+      )
+      ..add(TaskProcessingApiSetProgressResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiSetProgressResponseApplicationJson_Ocs),
+        TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(TaskProcessingApiSetProgressResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data),
+        TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiSetResultRequestApplicationJson),
+        TaskProcessingApiSetResultRequestApplicationJsonBuilder.new,
+      )
+      ..add(TaskProcessingApiSetResultRequestApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiSetResultResponseApplicationJson),
+        TaskProcessingApiSetResultResponseApplicationJsonBuilder.new,
+      )
+      ..add(TaskProcessingApiSetResultResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiSetResultResponseApplicationJson_Ocs),
+        TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(TaskProcessingApiSetResultResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data),
+        TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson),
+        TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonBuilder.new,
+      )
+      ..add(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs),
+        TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data),
+        TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider),
+        TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder.new,
+      )
+      ..add(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider.serializer)
       ..addBuilderFactory(
         const FullType(TeamsApiResolveOneResponseApplicationJson),
         TeamsApiResolveOneResponseApplicationJsonBuilder.new,
@@ -22309,6 +29105,8 @@ final Serializers _$jsonSerializers = (_$serializers.toBuilder()
             _$46564992d3ed3482aa6c1162698aac99,
             _$06c2e47196a84ebc3718dccf9eb4b29d,
             _$ff3cbb941adc0f0f38f18ba5aabd7f48,
+            _$b6d67dc2a96424d2f407f8e51557f3de,
+            _$17b504aaa197cb55522acb1f128f183a,
           },
         ),
       )

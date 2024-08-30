@@ -6,6 +6,106 @@ part of 'core.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const AvatarGetAvatarDarkSize _$avatarGetAvatarDarkSize$64 = AvatarGetAvatarDarkSize._('\$64');
+const AvatarGetAvatarDarkSize _$avatarGetAvatarDarkSize$512 = AvatarGetAvatarDarkSize._('\$512');
+
+AvatarGetAvatarDarkSize _$valueOfAvatarGetAvatarDarkSize(String name) {
+  switch (name) {
+    case '\$64':
+      return _$avatarGetAvatarDarkSize$64;
+    case '\$512':
+      return _$avatarGetAvatarDarkSize$512;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<AvatarGetAvatarDarkSize> _$avatarGetAvatarDarkSizeValues =
+    BuiltSet<AvatarGetAvatarDarkSize>(const <AvatarGetAvatarDarkSize>[
+  _$avatarGetAvatarDarkSize$64,
+  _$avatarGetAvatarDarkSize$512,
+]);
+
+const AvatarGetAvatarDarkGuestFallback _$avatarGetAvatarDarkGuestFallback$0 = AvatarGetAvatarDarkGuestFallback._('\$0');
+const AvatarGetAvatarDarkGuestFallback _$avatarGetAvatarDarkGuestFallback$1 = AvatarGetAvatarDarkGuestFallback._('\$1');
+
+AvatarGetAvatarDarkGuestFallback _$valueOfAvatarGetAvatarDarkGuestFallback(String name) {
+  switch (name) {
+    case '\$0':
+      return _$avatarGetAvatarDarkGuestFallback$0;
+    case '\$1':
+      return _$avatarGetAvatarDarkGuestFallback$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<AvatarGetAvatarDarkGuestFallback> _$avatarGetAvatarDarkGuestFallbackValues =
+    BuiltSet<AvatarGetAvatarDarkGuestFallback>(const <AvatarGetAvatarDarkGuestFallback>[
+  _$avatarGetAvatarDarkGuestFallback$0,
+  _$avatarGetAvatarDarkGuestFallback$1,
+]);
+
+const AvatarGetAvatarSize _$avatarGetAvatarSize$64 = AvatarGetAvatarSize._('\$64');
+const AvatarGetAvatarSize _$avatarGetAvatarSize$512 = AvatarGetAvatarSize._('\$512');
+
+AvatarGetAvatarSize _$valueOfAvatarGetAvatarSize(String name) {
+  switch (name) {
+    case '\$64':
+      return _$avatarGetAvatarSize$64;
+    case '\$512':
+      return _$avatarGetAvatarSize$512;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<AvatarGetAvatarSize> _$avatarGetAvatarSizeValues =
+    BuiltSet<AvatarGetAvatarSize>(const <AvatarGetAvatarSize>[
+  _$avatarGetAvatarSize$64,
+  _$avatarGetAvatarSize$512,
+]);
+
+const AvatarGetAvatarGuestFallback _$avatarGetAvatarGuestFallback$0 = AvatarGetAvatarGuestFallback._('\$0');
+const AvatarGetAvatarGuestFallback _$avatarGetAvatarGuestFallback$1 = AvatarGetAvatarGuestFallback._('\$1');
+
+AvatarGetAvatarGuestFallback _$valueOfAvatarGetAvatarGuestFallback(String name) {
+  switch (name) {
+    case '\$0':
+      return _$avatarGetAvatarGuestFallback$0;
+    case '\$1':
+      return _$avatarGetAvatarGuestFallback$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<AvatarGetAvatarGuestFallback> _$avatarGetAvatarGuestFallbackValues =
+    BuiltSet<AvatarGetAvatarGuestFallback>(const <AvatarGetAvatarGuestFallback>[
+  _$avatarGetAvatarGuestFallback$0,
+  _$avatarGetAvatarGuestFallback$1,
+]);
+
+const GuestAvatarGetAvatarSize _$guestAvatarGetAvatarSize$64 = GuestAvatarGetAvatarSize._('\$64');
+const GuestAvatarGetAvatarSize _$guestAvatarGetAvatarSize$512 = GuestAvatarGetAvatarSize._('\$512');
+
+GuestAvatarGetAvatarSize _$valueOfGuestAvatarGetAvatarSize(String name) {
+  switch (name) {
+    case '\$64':
+      return _$guestAvatarGetAvatarSize$64;
+    case '\$512':
+      return _$guestAvatarGetAvatarSize$512;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<GuestAvatarGetAvatarSize> _$guestAvatarGetAvatarSizeValues =
+    BuiltSet<GuestAvatarGetAvatarSize>(const <GuestAvatarGetAvatarSize>[
+  _$guestAvatarGetAvatarSize$64,
+  _$guestAvatarGetAvatarSize$512,
+]);
+
 const GuestAvatarGetAvatarDarkTheme _$guestAvatarGetAvatarDarkTheme$0 = GuestAvatarGetAvatarDarkTheme._('\$0');
 const GuestAvatarGetAvatarDarkTheme _$guestAvatarGetAvatarDarkTheme$1 = GuestAvatarGetAvatarDarkTheme._('\$1');
 
@@ -24,6 +124,26 @@ final BuiltSet<GuestAvatarGetAvatarDarkTheme> _$guestAvatarGetAvatarDarkThemeVal
     BuiltSet<GuestAvatarGetAvatarDarkTheme>(const <GuestAvatarGetAvatarDarkTheme>[
   _$guestAvatarGetAvatarDarkTheme$0,
   _$guestAvatarGetAvatarDarkTheme$1,
+]);
+
+const GuestAvatarGetAvatarDarkSize _$guestAvatarGetAvatarDarkSize$64 = GuestAvatarGetAvatarDarkSize._('\$64');
+const GuestAvatarGetAvatarDarkSize _$guestAvatarGetAvatarDarkSize$512 = GuestAvatarGetAvatarDarkSize._('\$512');
+
+GuestAvatarGetAvatarDarkSize _$valueOfGuestAvatarGetAvatarDarkSize(String name) {
+  switch (name) {
+    case '\$64':
+      return _$guestAvatarGetAvatarDarkSize$64;
+    case '\$512':
+      return _$guestAvatarGetAvatarDarkSize$512;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<GuestAvatarGetAvatarDarkSize> _$guestAvatarGetAvatarDarkSizeValues =
+    BuiltSet<GuestAvatarGetAvatarDarkSize>(const <GuestAvatarGetAvatarDarkSize>[
+  _$guestAvatarGetAvatarDarkSize$64,
+  _$guestAvatarGetAvatarDarkSize$512,
 ]);
 
 const NavigationGetAppsNavigationAbsolute _$navigationGetAppsNavigationAbsolute$0 =
@@ -143,6 +263,26 @@ final BuiltSet<PreviewGetPreviewForceIcon> _$previewGetPreviewForceIconValues =
   _$previewGetPreviewForceIcon$1,
 ]);
 
+const PreviewGetPreviewMode _$previewGetPreviewModeFill = PreviewGetPreviewMode._('fill');
+const PreviewGetPreviewMode _$previewGetPreviewModeCover = PreviewGetPreviewMode._('cover');
+
+PreviewGetPreviewMode _$valueOfPreviewGetPreviewMode(String name) {
+  switch (name) {
+    case 'fill':
+      return _$previewGetPreviewModeFill;
+    case 'cover':
+      return _$previewGetPreviewModeCover;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<PreviewGetPreviewMode> _$previewGetPreviewModeValues =
+    BuiltSet<PreviewGetPreviewMode>(const <PreviewGetPreviewMode>[
+  _$previewGetPreviewModeFill,
+  _$previewGetPreviewModeCover,
+]);
+
 const PreviewGetPreviewMimeFallback _$previewGetPreviewMimeFallback$0 = PreviewGetPreviewMimeFallback._('\$0');
 const PreviewGetPreviewMimeFallback _$previewGetPreviewMimeFallback$1 = PreviewGetPreviewMimeFallback._('\$1');
 
@@ -205,6 +345,26 @@ final BuiltSet<PreviewGetPreviewByFileIdForceIcon> _$previewGetPreviewByFileIdFo
   _$previewGetPreviewByFileIdForceIcon$1,
 ]);
 
+const PreviewGetPreviewByFileIdMode _$previewGetPreviewByFileIdModeFill = PreviewGetPreviewByFileIdMode._('fill');
+const PreviewGetPreviewByFileIdMode _$previewGetPreviewByFileIdModeCover = PreviewGetPreviewByFileIdMode._('cover');
+
+PreviewGetPreviewByFileIdMode _$valueOfPreviewGetPreviewByFileIdMode(String name) {
+  switch (name) {
+    case 'fill':
+      return _$previewGetPreviewByFileIdModeFill;
+    case 'cover':
+      return _$previewGetPreviewByFileIdModeCover;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<PreviewGetPreviewByFileIdMode> _$previewGetPreviewByFileIdModeValues =
+    BuiltSet<PreviewGetPreviewByFileIdMode>(const <PreviewGetPreviewByFileIdMode>[
+  _$previewGetPreviewByFileIdModeFill,
+  _$previewGetPreviewByFileIdModeCover,
+]);
+
 const PreviewGetPreviewByFileIdMimeFallback _$previewGetPreviewByFileIdMimeFallback$0 =
     PreviewGetPreviewByFileIdMimeFallback._('\$0');
 const PreviewGetPreviewByFileIdMimeFallback _$previewGetPreviewByFileIdMimeFallback$1 =
@@ -225,6 +385,109 @@ final BuiltSet<PreviewGetPreviewByFileIdMimeFallback> _$previewGetPreviewByFileI
     BuiltSet<PreviewGetPreviewByFileIdMimeFallback>(const <PreviewGetPreviewByFileIdMimeFallback>[
   _$previewGetPreviewByFileIdMimeFallback$0,
   _$previewGetPreviewByFileIdMimeFallback$1,
+]);
+
+const TaskProcessingShape_Type _$taskProcessingShapeTypeNumber = TaskProcessingShape_Type._('number');
+const TaskProcessingShape_Type _$taskProcessingShapeTypeText = TaskProcessingShape_Type._('text');
+const TaskProcessingShape_Type _$taskProcessingShapeTypeAudio = TaskProcessingShape_Type._('audio');
+const TaskProcessingShape_Type _$taskProcessingShapeTypeImage = TaskProcessingShape_Type._('image');
+const TaskProcessingShape_Type _$taskProcessingShapeTypeVideo = TaskProcessingShape_Type._('video');
+const TaskProcessingShape_Type _$taskProcessingShapeTypeFile = TaskProcessingShape_Type._('file');
+const TaskProcessingShape_Type _$taskProcessingShapeType$enum = TaskProcessingShape_Type._('\$enum');
+const TaskProcessingShape_Type _$taskProcessingShapeTypeListOfNumbers = TaskProcessingShape_Type._('listOfNumbers');
+const TaskProcessingShape_Type _$taskProcessingShapeTypeListOfTexts = TaskProcessingShape_Type._('listOfTexts');
+const TaskProcessingShape_Type _$taskProcessingShapeTypeListOfImages = TaskProcessingShape_Type._('listOfImages');
+const TaskProcessingShape_Type _$taskProcessingShapeTypeListOfAudios = TaskProcessingShape_Type._('listOfAudios');
+const TaskProcessingShape_Type _$taskProcessingShapeTypeListOfVideos = TaskProcessingShape_Type._('listOfVideos');
+const TaskProcessingShape_Type _$taskProcessingShapeTypeListOfFiles = TaskProcessingShape_Type._('listOfFiles');
+
+TaskProcessingShape_Type _$valueOfTaskProcessingShape_Type(String name) {
+  switch (name) {
+    case 'number':
+      return _$taskProcessingShapeTypeNumber;
+    case 'text':
+      return _$taskProcessingShapeTypeText;
+    case 'audio':
+      return _$taskProcessingShapeTypeAudio;
+    case 'image':
+      return _$taskProcessingShapeTypeImage;
+    case 'video':
+      return _$taskProcessingShapeTypeVideo;
+    case 'file':
+      return _$taskProcessingShapeTypeFile;
+    case '\$enum':
+      return _$taskProcessingShapeType$enum;
+    case 'listOfNumbers':
+      return _$taskProcessingShapeTypeListOfNumbers;
+    case 'listOfTexts':
+      return _$taskProcessingShapeTypeListOfTexts;
+    case 'listOfImages':
+      return _$taskProcessingShapeTypeListOfImages;
+    case 'listOfAudios':
+      return _$taskProcessingShapeTypeListOfAudios;
+    case 'listOfVideos':
+      return _$taskProcessingShapeTypeListOfVideos;
+    case 'listOfFiles':
+      return _$taskProcessingShapeTypeListOfFiles;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<TaskProcessingShape_Type> _$taskProcessingShapeTypeValues =
+    BuiltSet<TaskProcessingShape_Type>(const <TaskProcessingShape_Type>[
+  _$taskProcessingShapeTypeNumber,
+  _$taskProcessingShapeTypeText,
+  _$taskProcessingShapeTypeAudio,
+  _$taskProcessingShapeTypeImage,
+  _$taskProcessingShapeTypeVideo,
+  _$taskProcessingShapeTypeFile,
+  _$taskProcessingShapeType$enum,
+  _$taskProcessingShapeTypeListOfNumbers,
+  _$taskProcessingShapeTypeListOfTexts,
+  _$taskProcessingShapeTypeListOfImages,
+  _$taskProcessingShapeTypeListOfAudios,
+  _$taskProcessingShapeTypeListOfVideos,
+  _$taskProcessingShapeTypeListOfFiles,
+]);
+
+const TaskProcessingTask_Status _$taskProcessingTaskStatusSTATUSCANCELLED =
+    TaskProcessingTask_Status._('sTATUSCANCELLED');
+const TaskProcessingTask_Status _$taskProcessingTaskStatusSTATUSFAILED = TaskProcessingTask_Status._('sTATUSFAILED');
+const TaskProcessingTask_Status _$taskProcessingTaskStatusSTATUSSUCCESSFUL =
+    TaskProcessingTask_Status._('sTATUSSUCCESSFUL');
+const TaskProcessingTask_Status _$taskProcessingTaskStatusSTATUSRUNNING = TaskProcessingTask_Status._('sTATUSRUNNING');
+const TaskProcessingTask_Status _$taskProcessingTaskStatusSTATUSSCHEDULED =
+    TaskProcessingTask_Status._('sTATUSSCHEDULED');
+const TaskProcessingTask_Status _$taskProcessingTaskStatusSTATUSUNKNOWN = TaskProcessingTask_Status._('sTATUSUNKNOWN');
+
+TaskProcessingTask_Status _$valueOfTaskProcessingTask_Status(String name) {
+  switch (name) {
+    case 'sTATUSCANCELLED':
+      return _$taskProcessingTaskStatusSTATUSCANCELLED;
+    case 'sTATUSFAILED':
+      return _$taskProcessingTaskStatusSTATUSFAILED;
+    case 'sTATUSSUCCESSFUL':
+      return _$taskProcessingTaskStatusSTATUSSUCCESSFUL;
+    case 'sTATUSRUNNING':
+      return _$taskProcessingTaskStatusSTATUSRUNNING;
+    case 'sTATUSSCHEDULED':
+      return _$taskProcessingTaskStatusSTATUSSCHEDULED;
+    case 'sTATUSUNKNOWN':
+      return _$taskProcessingTaskStatusSTATUSUNKNOWN;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<TaskProcessingTask_Status> _$taskProcessingTaskStatusValues =
+    BuiltSet<TaskProcessingTask_Status>(const <TaskProcessingTask_Status>[
+  _$taskProcessingTaskStatusSTATUSCANCELLED,
+  _$taskProcessingTaskStatusSTATUSFAILED,
+  _$taskProcessingTaskStatusSTATUSSUCCESSFUL,
+  _$taskProcessingTaskStatusSTATUSRUNNING,
+  _$taskProcessingTaskStatusSTATUSSCHEDULED,
+  _$taskProcessingTaskStatusSTATUSUNKNOWN,
 ]);
 
 const TextProcessingTask_Status _$textProcessingTaskStatus$0 = TextProcessingTask_Status._('\$0');
@@ -398,6 +661,12 @@ Serializer<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJs
 Serializer<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson>
     _$collaborationResourcesCreateCollectionOnResourceResponseApplicationJsonSerializer =
     _$CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonSerializer();
+Serializer<CsrfTokenIndexResponseApplicationJson> _$csrfTokenIndexResponseApplicationJsonSerializer =
+    _$CsrfTokenIndexResponseApplicationJsonSerializer();
+Serializer<GuestAvatarGuestAvatarGetAvatarHeaders> _$guestAvatarGuestAvatarGetAvatarHeadersSerializer =
+    _$GuestAvatarGuestAvatarGetAvatarHeadersSerializer();
+Serializer<GuestAvatarGuestAvatarGetAvatarDarkHeaders> _$guestAvatarGuestAvatarGetAvatarDarkHeadersSerializer =
+    _$GuestAvatarGuestAvatarGetAvatarDarkHeadersSerializer();
 Serializer<ContactsAction> _$contactsActionSerializer = _$ContactsActionSerializer();
 Serializer<HoverCardGetUserResponseApplicationJson_Ocs_Data>
     _$hoverCardGetUserResponseApplicationJsonOcsDataSerializer =
@@ -576,6 +845,18 @@ Serializer<ReferenceApiExtractResponseApplicationJson_Ocs> _$referenceApiExtract
     _$ReferenceApiExtractResponseApplicationJson_OcsSerializer();
 Serializer<ReferenceApiExtractResponseApplicationJson> _$referenceApiExtractResponseApplicationJsonSerializer =
     _$ReferenceApiExtractResponseApplicationJsonSerializer();
+Serializer<ReferenceApiExtractPublicRequestApplicationJson>
+    _$referenceApiExtractPublicRequestApplicationJsonSerializer =
+    _$ReferenceApiExtractPublicRequestApplicationJsonSerializer();
+Serializer<ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data>
+    _$referenceApiExtractPublicResponseApplicationJsonOcsDataSerializer =
+    _$ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataSerializer();
+Serializer<ReferenceApiExtractPublicResponseApplicationJson_Ocs>
+    _$referenceApiExtractPublicResponseApplicationJsonOcsSerializer =
+    _$ReferenceApiExtractPublicResponseApplicationJson_OcsSerializer();
+Serializer<ReferenceApiExtractPublicResponseApplicationJson>
+    _$referenceApiExtractPublicResponseApplicationJsonSerializer =
+    _$ReferenceApiExtractPublicResponseApplicationJsonSerializer();
 Serializer<ReferenceApiResolveOneResponseApplicationJson_Ocs_Data>
     _$referenceApiResolveOneResponseApplicationJsonOcsDataSerializer =
     _$ReferenceApiResolveOneResponseApplicationJson_Ocs_DataSerializer();
@@ -593,6 +874,27 @@ Serializer<ReferenceApiResolveResponseApplicationJson_Ocs> _$referenceApiResolve
     _$ReferenceApiResolveResponseApplicationJson_OcsSerializer();
 Serializer<ReferenceApiResolveResponseApplicationJson> _$referenceApiResolveResponseApplicationJsonSerializer =
     _$ReferenceApiResolveResponseApplicationJsonSerializer();
+Serializer<ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data>
+    _$referenceApiResolveOnePublicResponseApplicationJsonOcsDataSerializer =
+    _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataSerializer();
+Serializer<ReferenceApiResolveOnePublicResponseApplicationJson_Ocs>
+    _$referenceApiResolveOnePublicResponseApplicationJsonOcsSerializer =
+    _$ReferenceApiResolveOnePublicResponseApplicationJson_OcsSerializer();
+Serializer<ReferenceApiResolveOnePublicResponseApplicationJson>
+    _$referenceApiResolveOnePublicResponseApplicationJsonSerializer =
+    _$ReferenceApiResolveOnePublicResponseApplicationJsonSerializer();
+Serializer<ReferenceApiResolvePublicRequestApplicationJson>
+    _$referenceApiResolvePublicRequestApplicationJsonSerializer =
+    _$ReferenceApiResolvePublicRequestApplicationJsonSerializer();
+Serializer<ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data>
+    _$referenceApiResolvePublicResponseApplicationJsonOcsDataSerializer =
+    _$ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataSerializer();
+Serializer<ReferenceApiResolvePublicResponseApplicationJson_Ocs>
+    _$referenceApiResolvePublicResponseApplicationJsonOcsSerializer =
+    _$ReferenceApiResolvePublicResponseApplicationJson_OcsSerializer();
+Serializer<ReferenceApiResolvePublicResponseApplicationJson>
+    _$referenceApiResolvePublicResponseApplicationJsonSerializer =
+    _$ReferenceApiResolvePublicResponseApplicationJsonSerializer();
 Serializer<ReferenceProvider> _$referenceProviderSerializer = _$ReferenceProviderSerializer();
 Serializer<ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs>
     _$referenceApiGetProvidersInfoResponseApplicationJsonOcsSerializer =
@@ -612,6 +914,127 @@ Serializer<ReferenceApiTouchProviderResponseApplicationJson_Ocs>
 Serializer<ReferenceApiTouchProviderResponseApplicationJson>
     _$referenceApiTouchProviderResponseApplicationJsonSerializer =
     _$ReferenceApiTouchProviderResponseApplicationJsonSerializer();
+Serializer<TaskProcessingShape> _$taskProcessingShapeSerializer = _$TaskProcessingShapeSerializer();
+Serializer<TaskProcessingTaskType_InputShapeEnumValues> _$taskProcessingTaskTypeInputShapeEnumValuesSerializer =
+    _$TaskProcessingTaskType_InputShapeEnumValuesSerializer();
+Serializer<TaskProcessingTaskType_OptionalInputShapeEnumValues>
+    _$taskProcessingTaskTypeOptionalInputShapeEnumValuesSerializer =
+    _$TaskProcessingTaskType_OptionalInputShapeEnumValuesSerializer();
+Serializer<TaskProcessingTaskType_OutputShapeEnumValues> _$taskProcessingTaskTypeOutputShapeEnumValuesSerializer =
+    _$TaskProcessingTaskType_OutputShapeEnumValuesSerializer();
+Serializer<TaskProcessingTaskType_OptionalOutputShapeEnumValues>
+    _$taskProcessingTaskTypeOptionalOutputShapeEnumValuesSerializer =
+    _$TaskProcessingTaskType_OptionalOutputShapeEnumValuesSerializer();
+Serializer<TaskProcessingTaskType> _$taskProcessingTaskTypeSerializer = _$TaskProcessingTaskTypeSerializer();
+Serializer<TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data>
+    _$taskProcessingApiTaskTypesResponseApplicationJsonOcsDataSerializer =
+    _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataSerializer();
+Serializer<TaskProcessingApiTaskTypesResponseApplicationJson_Ocs>
+    _$taskProcessingApiTaskTypesResponseApplicationJsonOcsSerializer =
+    _$TaskProcessingApiTaskTypesResponseApplicationJson_OcsSerializer();
+Serializer<TaskProcessingApiTaskTypesResponseApplicationJson>
+    _$taskProcessingApiTaskTypesResponseApplicationJsonSerializer =
+    _$TaskProcessingApiTaskTypesResponseApplicationJsonSerializer();
+Serializer<TaskProcessingApiScheduleRequestApplicationJson>
+    _$taskProcessingApiScheduleRequestApplicationJsonSerializer =
+    _$TaskProcessingApiScheduleRequestApplicationJsonSerializer();
+Serializer<TaskProcessingTask> _$taskProcessingTaskSerializer = _$TaskProcessingTaskSerializer();
+Serializer<TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data>
+    _$taskProcessingApiScheduleResponseApplicationJsonOcsDataSerializer =
+    _$TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataSerializer();
+Serializer<TaskProcessingApiScheduleResponseApplicationJson_Ocs>
+    _$taskProcessingApiScheduleResponseApplicationJsonOcsSerializer =
+    _$TaskProcessingApiScheduleResponseApplicationJson_OcsSerializer();
+Serializer<TaskProcessingApiScheduleResponseApplicationJson>
+    _$taskProcessingApiScheduleResponseApplicationJsonSerializer =
+    _$TaskProcessingApiScheduleResponseApplicationJsonSerializer();
+Serializer<TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data>
+    _$taskProcessingApiGetTaskResponseApplicationJsonOcsDataSerializer =
+    _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataSerializer();
+Serializer<TaskProcessingApiGetTaskResponseApplicationJson_Ocs>
+    _$taskProcessingApiGetTaskResponseApplicationJsonOcsSerializer =
+    _$TaskProcessingApiGetTaskResponseApplicationJson_OcsSerializer();
+Serializer<TaskProcessingApiGetTaskResponseApplicationJson>
+    _$taskProcessingApiGetTaskResponseApplicationJsonSerializer =
+    _$TaskProcessingApiGetTaskResponseApplicationJsonSerializer();
+Serializer<TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs>
+    _$taskProcessingApiDeleteTaskResponseApplicationJsonOcsSerializer =
+    _$TaskProcessingApiDeleteTaskResponseApplicationJson_OcsSerializer();
+Serializer<TaskProcessingApiDeleteTaskResponseApplicationJson>
+    _$taskProcessingApiDeleteTaskResponseApplicationJsonSerializer =
+    _$TaskProcessingApiDeleteTaskResponseApplicationJsonSerializer();
+Serializer<TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data>
+    _$taskProcessingApiListTasksByAppResponseApplicationJsonOcsDataSerializer =
+    _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataSerializer();
+Serializer<TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs>
+    _$taskProcessingApiListTasksByAppResponseApplicationJsonOcsSerializer =
+    _$TaskProcessingApiListTasksByAppResponseApplicationJson_OcsSerializer();
+Serializer<TaskProcessingApiListTasksByAppResponseApplicationJson>
+    _$taskProcessingApiListTasksByAppResponseApplicationJsonSerializer =
+    _$TaskProcessingApiListTasksByAppResponseApplicationJsonSerializer();
+Serializer<TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data>
+    _$taskProcessingApiListTasksResponseApplicationJsonOcsDataSerializer =
+    _$TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataSerializer();
+Serializer<TaskProcessingApiListTasksResponseApplicationJson_Ocs>
+    _$taskProcessingApiListTasksResponseApplicationJsonOcsSerializer =
+    _$TaskProcessingApiListTasksResponseApplicationJson_OcsSerializer();
+Serializer<TaskProcessingApiListTasksResponseApplicationJson>
+    _$taskProcessingApiListTasksResponseApplicationJsonSerializer =
+    _$TaskProcessingApiListTasksResponseApplicationJsonSerializer();
+Serializer<TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data>
+    _$taskProcessingApiCancelTaskResponseApplicationJsonOcsDataSerializer =
+    _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataSerializer();
+Serializer<TaskProcessingApiCancelTaskResponseApplicationJson_Ocs>
+    _$taskProcessingApiCancelTaskResponseApplicationJsonOcsSerializer =
+    _$TaskProcessingApiCancelTaskResponseApplicationJson_OcsSerializer();
+Serializer<TaskProcessingApiCancelTaskResponseApplicationJson>
+    _$taskProcessingApiCancelTaskResponseApplicationJsonSerializer =
+    _$TaskProcessingApiCancelTaskResponseApplicationJsonSerializer();
+Serializer<TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data>
+    _$taskProcessingApiSetFileContentsExAppResponseApplicationJsonOcsDataSerializer =
+    _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataSerializer();
+Serializer<TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs>
+    _$taskProcessingApiSetFileContentsExAppResponseApplicationJsonOcsSerializer =
+    _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsSerializer();
+Serializer<TaskProcessingApiSetFileContentsExAppResponseApplicationJson>
+    _$taskProcessingApiSetFileContentsExAppResponseApplicationJsonSerializer =
+    _$TaskProcessingApiSetFileContentsExAppResponseApplicationJsonSerializer();
+Serializer<TaskProcessingApiSetProgressRequestApplicationJson>
+    _$taskProcessingApiSetProgressRequestApplicationJsonSerializer =
+    _$TaskProcessingApiSetProgressRequestApplicationJsonSerializer();
+Serializer<TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data>
+    _$taskProcessingApiSetProgressResponseApplicationJsonOcsDataSerializer =
+    _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataSerializer();
+Serializer<TaskProcessingApiSetProgressResponseApplicationJson_Ocs>
+    _$taskProcessingApiSetProgressResponseApplicationJsonOcsSerializer =
+    _$TaskProcessingApiSetProgressResponseApplicationJson_OcsSerializer();
+Serializer<TaskProcessingApiSetProgressResponseApplicationJson>
+    _$taskProcessingApiSetProgressResponseApplicationJsonSerializer =
+    _$TaskProcessingApiSetProgressResponseApplicationJsonSerializer();
+Serializer<TaskProcessingApiSetResultRequestApplicationJson>
+    _$taskProcessingApiSetResultRequestApplicationJsonSerializer =
+    _$TaskProcessingApiSetResultRequestApplicationJsonSerializer();
+Serializer<TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data>
+    _$taskProcessingApiSetResultResponseApplicationJsonOcsDataSerializer =
+    _$TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataSerializer();
+Serializer<TaskProcessingApiSetResultResponseApplicationJson_Ocs>
+    _$taskProcessingApiSetResultResponseApplicationJsonOcsSerializer =
+    _$TaskProcessingApiSetResultResponseApplicationJson_OcsSerializer();
+Serializer<TaskProcessingApiSetResultResponseApplicationJson>
+    _$taskProcessingApiSetResultResponseApplicationJsonSerializer =
+    _$TaskProcessingApiSetResultResponseApplicationJsonSerializer();
+Serializer<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider>
+    _$taskProcessingApiGetNextScheduledTaskResponseApplicationJsonOcsDataProviderSerializer =
+    _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderSerializer();
+Serializer<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data>
+    _$taskProcessingApiGetNextScheduledTaskResponseApplicationJsonOcsDataSerializer =
+    _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataSerializer();
+Serializer<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs>
+    _$taskProcessingApiGetNextScheduledTaskResponseApplicationJsonOcsSerializer =
+    _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsSerializer();
+Serializer<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson>
+    _$taskProcessingApiGetNextScheduledTaskResponseApplicationJsonSerializer =
+    _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonSerializer();
 Serializer<TeamResource> _$teamResourceSerializer = _$TeamResourceSerializer();
 Serializer<TeamsApiResolveOneResponseApplicationJson_Ocs_Data>
     _$teamsApiResolveOneResponseApplicationJsonOcsDataSerializer =
@@ -2952,6 +3375,134 @@ class _$CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonS
   }
 }
 
+class _$CsrfTokenIndexResponseApplicationJsonSerializer
+    implements StructuredSerializer<CsrfTokenIndexResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [CsrfTokenIndexResponseApplicationJson, _$CsrfTokenIndexResponseApplicationJson];
+  @override
+  final String wireName = 'CsrfTokenIndexResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CsrfTokenIndexResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'token',
+      serializers.serialize(object.token, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CsrfTokenIndexResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CsrfTokenIndexResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'token':
+          result.token = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GuestAvatarGuestAvatarGetAvatarHeadersSerializer
+    implements StructuredSerializer<GuestAvatarGuestAvatarGetAvatarHeaders> {
+  @override
+  final Iterable<Type> types = const [GuestAvatarGuestAvatarGetAvatarHeaders, _$GuestAvatarGuestAvatarGetAvatarHeaders];
+  @override
+  final String wireName = 'GuestAvatarGuestAvatarGetAvatarHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, GuestAvatarGuestAvatarGetAvatarHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xNcIscustomavatar;
+    if (value != null) {
+      result
+        ..add('x-nc-iscustomavatar')
+        ..add(serializers.serialize(value, specifiedType: const FullType(Header, [FullType.nullable(int)])));
+    }
+    return result;
+  }
+
+  @override
+  GuestAvatarGuestAvatarGetAvatarHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GuestAvatarGuestAvatarGetAvatarHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-nc-iscustomavatar':
+          result.xNcIscustomavatar.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Header, [FullType.nullable(int)]))! as Header<int?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GuestAvatarGuestAvatarGetAvatarDarkHeadersSerializer
+    implements StructuredSerializer<GuestAvatarGuestAvatarGetAvatarDarkHeaders> {
+  @override
+  final Iterable<Type> types = const [
+    GuestAvatarGuestAvatarGetAvatarDarkHeaders,
+    _$GuestAvatarGuestAvatarGetAvatarDarkHeaders
+  ];
+  @override
+  final String wireName = 'GuestAvatarGuestAvatarGetAvatarDarkHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, GuestAvatarGuestAvatarGetAvatarDarkHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xNcIscustomavatar;
+    if (value != null) {
+      result
+        ..add('x-nc-iscustomavatar')
+        ..add(serializers.serialize(value, specifiedType: const FullType(Header, [FullType.nullable(int)])));
+    }
+    return result;
+  }
+
+  @override
+  GuestAvatarGuestAvatarGetAvatarDarkHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GuestAvatarGuestAvatarGetAvatarDarkHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-nc-iscustomavatar':
+          result.xNcIscustomavatar.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Header, [FullType.nullable(int)]))! as Header<int?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$ContactsActionSerializer implements StructuredSerializer<ContactsAction> {
   @override
   final Iterable<Type> types = const [ContactsAction, _$ContactsAction];
@@ -3248,8 +3799,6 @@ class _$NavigationEntrySerializer implements StructuredSerializer<NavigationEntr
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(String)),
-      'order',
-      serializers.serialize(object.order, specifiedType: const FullType(NavigationEntry_Order)),
       'href',
       serializers.serialize(object.href, specifiedType: const FullType(String)),
       'icon',
@@ -3265,7 +3814,25 @@ class _$NavigationEntrySerializer implements StructuredSerializer<NavigationEntr
       'unread',
       serializers.serialize(object.unread, specifiedType: const FullType(int)),
     ];
-
+    Object? value;
+    value = object.order;
+    if (value != null) {
+      result
+        ..add('order')
+        ..add(serializers.serialize(value, specifiedType: const FullType(NavigationEntry_Order)));
+    }
+    value = object.app;
+    if (value != null) {
+      result
+        ..add('app')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.$default;
+    if (value != null) {
+      result
+        ..add('default')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     return result;
   }
 
@@ -3284,8 +3851,8 @@ class _$NavigationEntrySerializer implements StructuredSerializer<NavigationEntr
           result.id = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'order':
-          result.order = serializers.deserialize(value, specifiedType: const FullType(NavigationEntry_Order))!
-              as NavigationEntry_Order;
+          result.order = serializers.deserialize(value, specifiedType: const FullType(NavigationEntry_Order))
+              as NavigationEntry_Order?;
           break;
         case 'href':
           result.href = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -3298,6 +3865,12 @@ class _$NavigationEntrySerializer implements StructuredSerializer<NavigationEntr
           break;
         case 'name':
           result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'app':
+          result.app = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'default':
+          result.$default = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
         case 'active':
           result.active = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -4333,13 +4906,27 @@ class _$FilesCapabilities_FilesSerializer implements StructuredSerializer<FilesC
       serializers.serialize(object.bigfilechunking, specifiedType: const FullType(bool)),
       'blacklisted_files',
       serializers.serialize(object.blacklistedFiles, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])),
+      'forbidden_filenames',
+      serializers.serialize(object.forbiddenFilenames, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      'forbidden_filename_basenames',
+      serializers.serialize(object.forbiddenFilenameBasenames,
+          specifiedType: const FullType(BuiltList, [FullType(String)])),
       'forbidden_filename_characters',
       serializers.serialize(object.forbiddenFilenameCharacters,
+          specifiedType: const FullType(BuiltList, [FullType(String)])),
+      'forbidden_filename_extensions',
+      serializers.serialize(object.forbiddenFilenameExtensions,
           specifiedType: const FullType(BuiltList, [FullType(String)])),
       'directEditing',
       serializers.serialize(object.directEditing, specifiedType: const FullType(FilesCapabilities_Files_DirectEditing)),
     ];
-
+    Object? value;
+    value = object.comment;
+    if (value != null) {
+      result
+        ..add('\$comment')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -4354,6 +4941,9 @@ class _$FilesCapabilities_FilesSerializer implements StructuredSerializer<FilesC
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case '\$comment':
+          result.comment = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
         case 'bigfilechunking':
           result.bigfilechunking = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
@@ -4361,8 +4951,20 @@ class _$FilesCapabilities_FilesSerializer implements StructuredSerializer<FilesC
           result.blacklistedFiles.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
+        case 'forbidden_filenames':
+          result.forbiddenFilenames.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'forbidden_filename_basenames':
+          result.forbiddenFilenameBasenames.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
         case 'forbidden_filename_characters':
           result.forbiddenFilenameCharacters.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'forbidden_filename_extensions':
+          result.forbiddenFilenameExtensions.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
           break;
         case 'directEditing':
@@ -6726,7 +7328,13 @@ class _$ThemingPublicCapabilities_ThemingSerializer implements StructuredSeriali
       'favicon',
       serializers.serialize(object.favicon, specifiedType: const FullType(String)),
     ];
-
+    Object? value;
+    value = object.backgroundText;
+    if (value != null) {
+      result
+        ..add('background-text')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -6770,6 +7378,9 @@ class _$ThemingPublicCapabilities_ThemingSerializer implements StructuredSeriali
           break;
         case 'background':
           result.background = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'background-text':
+          result.backgroundText = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'background-plain':
           result.backgroundPlain = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -7621,6 +8232,204 @@ class _$ReferenceApiExtractResponseApplicationJsonSerializer
   }
 }
 
+class _$ReferenceApiExtractPublicRequestApplicationJsonSerializer
+    implements StructuredSerializer<ReferenceApiExtractPublicRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ReferenceApiExtractPublicRequestApplicationJson,
+    _$ReferenceApiExtractPublicRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'ReferenceApiExtractPublicRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ReferenceApiExtractPublicRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'text',
+      serializers.serialize(object.text, specifiedType: const FullType(String)),
+      'sharingToken',
+      serializers.serialize(object.sharingToken, specifiedType: const FullType(String)),
+      'resolve',
+      serializers.serialize(object.resolve, specifiedType: const FullType(bool)),
+      'limit',
+      serializers.serialize(object.limit, specifiedType: const FullType(int)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ReferenceApiExtractPublicRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ReferenceApiExtractPublicRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'text':
+          result.text = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'sharingToken':
+          result.sharingToken = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'resolve':
+          result.resolve = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'limit':
+          result.limit = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data,
+    _$ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'references',
+      serializers.serialize(object.references,
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(Reference)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'references':
+          result.references.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(Reference)]))!);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ReferenceApiExtractPublicResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ReferenceApiExtractPublicResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    ReferenceApiExtractPublicResponseApplicationJson_Ocs,
+    _$ReferenceApiExtractPublicResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'ReferenceApiExtractPublicResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ReferenceApiExtractPublicResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ReferenceApiExtractPublicResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data))!
+              as ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ReferenceApiExtractPublicResponseApplicationJsonSerializer
+    implements StructuredSerializer<ReferenceApiExtractPublicResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ReferenceApiExtractPublicResponseApplicationJson,
+    _$ReferenceApiExtractPublicResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'ReferenceApiExtractPublicResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ReferenceApiExtractPublicResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(ReferenceApiExtractPublicResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ReferenceApiExtractPublicResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ReferenceApiExtractPublicResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ReferenceApiExtractPublicResponseApplicationJson_Ocs))!
+              as ReferenceApiExtractPublicResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$ReferenceApiResolveOneResponseApplicationJson_Ocs_DataSerializer
     implements StructuredSerializer<ReferenceApiResolveOneResponseApplicationJson_Ocs_Data> {
   @override
@@ -7939,6 +8748,342 @@ class _$ReferenceApiResolveResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(ReferenceApiResolveResponseApplicationJson_Ocs))!
               as ReferenceApiResolveResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data,
+    _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'references',
+      serializers.serialize(object.references,
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(Reference)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'references':
+          result.references.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(Reference)]))!);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ReferenceApiResolveOnePublicResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ReferenceApiResolveOnePublicResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    ReferenceApiResolveOnePublicResponseApplicationJson_Ocs,
+    _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'ReferenceApiResolveOnePublicResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ReferenceApiResolveOnePublicResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ReferenceApiResolveOnePublicResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data))!
+              as ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ReferenceApiResolveOnePublicResponseApplicationJsonSerializer
+    implements StructuredSerializer<ReferenceApiResolveOnePublicResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ReferenceApiResolveOnePublicResponseApplicationJson,
+    _$ReferenceApiResolveOnePublicResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'ReferenceApiResolveOnePublicResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ReferenceApiResolveOnePublicResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(ReferenceApiResolveOnePublicResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ReferenceApiResolveOnePublicResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ReferenceApiResolveOnePublicResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ReferenceApiResolveOnePublicResponseApplicationJson_Ocs))!
+              as ReferenceApiResolveOnePublicResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ReferenceApiResolvePublicRequestApplicationJsonSerializer
+    implements StructuredSerializer<ReferenceApiResolvePublicRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ReferenceApiResolvePublicRequestApplicationJson,
+    _$ReferenceApiResolvePublicRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'ReferenceApiResolvePublicRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ReferenceApiResolvePublicRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'references',
+      serializers.serialize(object.references, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      'sharingToken',
+      serializers.serialize(object.sharingToken, specifiedType: const FullType(String)),
+      'limit',
+      serializers.serialize(object.limit, specifiedType: const FullType(int)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ReferenceApiResolvePublicRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ReferenceApiResolvePublicRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'references':
+          result.references.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'sharingToken':
+          result.sharingToken = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'limit':
+          result.limit = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data,
+    _$ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'references',
+      serializers.serialize(object.references,
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(Reference)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'references':
+          result.references.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(Reference)]))!);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ReferenceApiResolvePublicResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ReferenceApiResolvePublicResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    ReferenceApiResolvePublicResponseApplicationJson_Ocs,
+    _$ReferenceApiResolvePublicResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'ReferenceApiResolvePublicResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ReferenceApiResolvePublicResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ReferenceApiResolvePublicResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data))!
+              as ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ReferenceApiResolvePublicResponseApplicationJsonSerializer
+    implements StructuredSerializer<ReferenceApiResolvePublicResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ReferenceApiResolvePublicResponseApplicationJson,
+    _$ReferenceApiResolvePublicResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'ReferenceApiResolvePublicResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ReferenceApiResolvePublicResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(ReferenceApiResolvePublicResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ReferenceApiResolvePublicResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ReferenceApiResolvePublicResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ReferenceApiResolvePublicResponseApplicationJson_Ocs))!
+              as ReferenceApiResolvePublicResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -8280,6 +9425,2231 @@ class _$ReferenceApiTouchProviderResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(ReferenceApiTouchProviderResponseApplicationJson_Ocs))!
               as ReferenceApiTouchProviderResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingShapeSerializer implements StructuredSerializer<TaskProcessingShape> {
+  @override
+  final Iterable<Type> types = const [TaskProcessingShape, _$TaskProcessingShape];
+  @override
+  final String wireName = 'TaskProcessingShape';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingShape object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'description',
+      serializers.serialize(object.description, specifiedType: const FullType(String)),
+      'type',
+      serializers.serialize(object.type, specifiedType: const FullType(TaskProcessingShape_Type)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingShape deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingShapeBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'name':
+          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'description':
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'type':
+          result.type = serializers.deserialize(value, specifiedType: const FullType(TaskProcessingShape_Type))!
+              as TaskProcessingShape_Type;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingTaskType_InputShapeEnumValuesSerializer
+    implements StructuredSerializer<TaskProcessingTaskType_InputShapeEnumValues> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingTaskType_InputShapeEnumValues,
+    _$TaskProcessingTaskType_InputShapeEnumValues
+  ];
+  @override
+  final String wireName = 'TaskProcessingTaskType_InputShapeEnumValues';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingTaskType_InputShapeEnumValues object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'value',
+      serializers.serialize(object.value, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingTaskType_InputShapeEnumValues deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingTaskType_InputShapeEnumValuesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'name':
+          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'value':
+          result.value = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingTaskType_OptionalInputShapeEnumValuesSerializer
+    implements StructuredSerializer<TaskProcessingTaskType_OptionalInputShapeEnumValues> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingTaskType_OptionalInputShapeEnumValues,
+    _$TaskProcessingTaskType_OptionalInputShapeEnumValues
+  ];
+  @override
+  final String wireName = 'TaskProcessingTaskType_OptionalInputShapeEnumValues';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingTaskType_OptionalInputShapeEnumValues object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'value',
+      serializers.serialize(object.value, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingTaskType_OptionalInputShapeEnumValues deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingTaskType_OptionalInputShapeEnumValuesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'name':
+          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'value':
+          result.value = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingTaskType_OutputShapeEnumValuesSerializer
+    implements StructuredSerializer<TaskProcessingTaskType_OutputShapeEnumValues> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingTaskType_OutputShapeEnumValues,
+    _$TaskProcessingTaskType_OutputShapeEnumValues
+  ];
+  @override
+  final String wireName = 'TaskProcessingTaskType_OutputShapeEnumValues';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingTaskType_OutputShapeEnumValues object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'value',
+      serializers.serialize(object.value, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingTaskType_OutputShapeEnumValues deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingTaskType_OutputShapeEnumValuesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'name':
+          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'value':
+          result.value = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingTaskType_OptionalOutputShapeEnumValuesSerializer
+    implements StructuredSerializer<TaskProcessingTaskType_OptionalOutputShapeEnumValues> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingTaskType_OptionalOutputShapeEnumValues,
+    _$TaskProcessingTaskType_OptionalOutputShapeEnumValues
+  ];
+  @override
+  final String wireName = 'TaskProcessingTaskType_OptionalOutputShapeEnumValues';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingTaskType_OptionalOutputShapeEnumValues object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'value',
+      serializers.serialize(object.value, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingTaskType_OptionalOutputShapeEnumValues deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingTaskType_OptionalOutputShapeEnumValuesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'name':
+          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'value':
+          result.value = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingTaskTypeSerializer implements StructuredSerializer<TaskProcessingTaskType> {
+  @override
+  final Iterable<Type> types = const [TaskProcessingTaskType, _$TaskProcessingTaskType];
+  @override
+  final String wireName = 'TaskProcessingTaskType';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingTaskType object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'description',
+      serializers.serialize(object.description, specifiedType: const FullType(String)),
+      'inputShape',
+      serializers.serialize(object.inputShape,
+          specifiedType: const FullType(BuiltList, [FullType(TaskProcessingShape)])),
+      'inputShapeEnumValues',
+      serializers.serialize(object.inputShapeEnumValues,
+          specifiedType: const FullType(BuiltList, [
+            FullType(BuiltList, [FullType(TaskProcessingTaskType_InputShapeEnumValues)])
+          ])),
+      'inputShapeDefaults',
+      serializers.serialize(object.inputShapeDefaults,
+          specifiedType:
+              const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingTaskType_InputShapeDefaults)])),
+      'optionalInputShape',
+      serializers.serialize(object.optionalInputShape,
+          specifiedType: const FullType(BuiltList, [FullType(TaskProcessingShape)])),
+      'optionalInputShapeEnumValues',
+      serializers.serialize(object.optionalInputShapeEnumValues,
+          specifiedType: const FullType(BuiltList, [
+            FullType(BuiltList, [FullType(TaskProcessingTaskType_OptionalInputShapeEnumValues)])
+          ])),
+      'optionalInputShapeDefaults',
+      serializers.serialize(object.optionalInputShapeDefaults,
+          specifiedType: const FullType(
+              BuiltMap, [FullType(String), FullType(TaskProcessingTaskType_OptionalInputShapeDefaults)])),
+      'outputShape',
+      serializers.serialize(object.outputShape,
+          specifiedType: const FullType(BuiltList, [FullType(TaskProcessingShape)])),
+      'outputShapeEnumValues',
+      serializers.serialize(object.outputShapeEnumValues,
+          specifiedType: const FullType(BuiltList, [
+            FullType(BuiltList, [FullType(TaskProcessingTaskType_OutputShapeEnumValues)])
+          ])),
+      'optionalOutputShape',
+      serializers.serialize(object.optionalOutputShape,
+          specifiedType: const FullType(BuiltList, [FullType(TaskProcessingShape)])),
+      'optionalOutputShapeEnumValues',
+      serializers.serialize(object.optionalOutputShapeEnumValues,
+          specifiedType: const FullType(BuiltList, [
+            FullType(BuiltList, [FullType(TaskProcessingTaskType_OptionalOutputShapeEnumValues)])
+          ])),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingTaskType deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingTaskTypeBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'name':
+          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'description':
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'inputShape':
+          result.inputShape.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(TaskProcessingShape)]))! as BuiltList<Object?>);
+          break;
+        case 'inputShapeEnumValues':
+          result.inputShapeEnumValues.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [
+                FullType(BuiltList, [FullType(TaskProcessingTaskType_InputShapeEnumValues)])
+              ]))! as BuiltList<Object?>);
+          break;
+        case 'inputShapeDefaults':
+          result.inputShapeDefaults.replace(serializers.deserialize(value,
+              specifiedType:
+                  const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingTaskType_InputShapeDefaults)]))!);
+          break;
+        case 'optionalInputShape':
+          result.optionalInputShape.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(TaskProcessingShape)]))! as BuiltList<Object?>);
+          break;
+        case 'optionalInputShapeEnumValues':
+          result.optionalInputShapeEnumValues.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [
+                FullType(BuiltList, [FullType(TaskProcessingTaskType_OptionalInputShapeEnumValues)])
+              ]))! as BuiltList<Object?>);
+          break;
+        case 'optionalInputShapeDefaults':
+          result.optionalInputShapeDefaults.replace(serializers.deserialize(value,
+              specifiedType: const FullType(
+                  BuiltMap, [FullType(String), FullType(TaskProcessingTaskType_OptionalInputShapeDefaults)]))!);
+          break;
+        case 'outputShape':
+          result.outputShape.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(TaskProcessingShape)]))! as BuiltList<Object?>);
+          break;
+        case 'outputShapeEnumValues':
+          result.outputShapeEnumValues.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [
+                FullType(BuiltList, [FullType(TaskProcessingTaskType_OutputShapeEnumValues)])
+              ]))! as BuiltList<Object?>);
+          break;
+        case 'optionalOutputShape':
+          result.optionalOutputShape.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(TaskProcessingShape)]))! as BuiltList<Object?>);
+          break;
+        case 'optionalOutputShapeEnumValues':
+          result.optionalOutputShapeEnumValues.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [
+                FullType(BuiltList, [FullType(TaskProcessingTaskType_OptionalOutputShapeEnumValues)])
+              ]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data,
+    _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'types',
+      serializers.serialize(object.types,
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingTaskType)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'types':
+          result.types.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingTaskType)]))!);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiTaskTypesResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TaskProcessingApiTaskTypesResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiTaskTypesResponseApplicationJson_Ocs,
+    _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiTaskTypesResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingApiTaskTypesResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiTaskTypesResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data))!
+              as TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiTaskTypesResponseApplicationJsonSerializer
+    implements StructuredSerializer<TaskProcessingApiTaskTypesResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiTaskTypesResponseApplicationJson,
+    _$TaskProcessingApiTaskTypesResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiTaskTypesResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingApiTaskTypesResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(TaskProcessingApiTaskTypesResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiTaskTypesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiTaskTypesResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TaskProcessingApiTaskTypesResponseApplicationJson_Ocs))!
+              as TaskProcessingApiTaskTypesResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiScheduleRequestApplicationJsonSerializer
+    implements StructuredSerializer<TaskProcessingApiScheduleRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiScheduleRequestApplicationJson,
+    _$TaskProcessingApiScheduleRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiScheduleRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingApiScheduleRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'input',
+      serializers.serialize(object.input,
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)])),
+      'type',
+      serializers.serialize(object.type, specifiedType: const FullType(String)),
+      'appId',
+      serializers.serialize(object.appId, specifiedType: const FullType(String)),
+      'customId',
+      serializers.serialize(object.customId, specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.webhookUri;
+    if (value != null) {
+      result
+        ..add('webhookUri')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.webhookMethod;
+    if (value != null) {
+      result
+        ..add('webhookMethod')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  TaskProcessingApiScheduleRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiScheduleRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'input':
+          result.input.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]))!);
+          break;
+        case 'type':
+          result.type = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'appId':
+          result.appId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'customId':
+          result.customId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'webhookUri':
+          result.webhookUri = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'webhookMethod':
+          result.webhookMethod = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingTaskSerializer implements StructuredSerializer<TaskProcessingTask> {
+  @override
+  final Iterable<Type> types = const [TaskProcessingTask, _$TaskProcessingTask];
+  @override
+  final String wireName = 'TaskProcessingTask';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingTask object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      'lastUpdated',
+      serializers.serialize(object.lastUpdated, specifiedType: const FullType(int)),
+      'type',
+      serializers.serialize(object.type, specifiedType: const FullType(String)),
+      'status',
+      serializers.serialize(object.status, specifiedType: const FullType(TaskProcessingTask_Status)),
+      'appId',
+      serializers.serialize(object.appId, specifiedType: const FullType(String)),
+      'input',
+      serializers.serialize(object.input,
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingIO)])),
+    ];
+    Object? value;
+    value = object.userId;
+    if (value != null) {
+      result
+        ..add('userId')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.output;
+    if (value != null) {
+      result
+        ..add('output')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingIO)])));
+    }
+    value = object.customId;
+    if (value != null) {
+      result
+        ..add('customId')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.completionExpectedAt;
+    if (value != null) {
+      result
+        ..add('completionExpectedAt')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.progress;
+    if (value != null) {
+      result
+        ..add('progress')
+        ..add(serializers.serialize(value, specifiedType: const FullType(double)));
+    }
+    return result;
+  }
+
+  @override
+  TaskProcessingTask deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingTaskBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'lastUpdated':
+          result.lastUpdated = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'type':
+          result.type = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'status':
+          result.status = serializers.deserialize(value, specifiedType: const FullType(TaskProcessingTask_Status))!
+              as TaskProcessingTask_Status;
+          break;
+        case 'userId':
+          result.userId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'appId':
+          result.appId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'input':
+          result.input.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingIO)]))!);
+          break;
+        case 'output':
+          result.output.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingIO)]))!);
+          break;
+        case 'customId':
+          result.customId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'completionExpectedAt':
+          result.completionExpectedAt = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'progress':
+          result.progress = serializers.deserialize(value, specifiedType: const FullType(double)) as double?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data,
+    _$TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'task',
+      serializers.serialize(object.task, specifiedType: const FullType(TaskProcessingTask)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'task':
+          result.task.replace(
+              serializers.deserialize(value, specifiedType: const FullType(TaskProcessingTask))! as TaskProcessingTask);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiScheduleResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TaskProcessingApiScheduleResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiScheduleResponseApplicationJson_Ocs,
+    _$TaskProcessingApiScheduleResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiScheduleResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingApiScheduleResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiScheduleResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data))!
+              as TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiScheduleResponseApplicationJsonSerializer
+    implements StructuredSerializer<TaskProcessingApiScheduleResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiScheduleResponseApplicationJson,
+    _$TaskProcessingApiScheduleResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiScheduleResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingApiScheduleResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(TaskProcessingApiScheduleResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiScheduleResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiScheduleResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TaskProcessingApiScheduleResponseApplicationJson_Ocs))!
+              as TaskProcessingApiScheduleResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data,
+    _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'task',
+      serializers.serialize(object.task, specifiedType: const FullType(TaskProcessingTask)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'task':
+          result.task.replace(
+              serializers.deserialize(value, specifiedType: const FullType(TaskProcessingTask))! as TaskProcessingTask);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiGetTaskResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TaskProcessingApiGetTaskResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiGetTaskResponseApplicationJson_Ocs,
+    _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiGetTaskResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingApiGetTaskResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiGetTaskResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data))!
+              as TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiGetTaskResponseApplicationJsonSerializer
+    implements StructuredSerializer<TaskProcessingApiGetTaskResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiGetTaskResponseApplicationJson,
+    _$TaskProcessingApiGetTaskResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiGetTaskResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingApiGetTaskResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(TaskProcessingApiGetTaskResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiGetTaskResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiGetTaskResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TaskProcessingApiGetTaskResponseApplicationJson_Ocs))!
+              as TaskProcessingApiGetTaskResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiDeleteTaskResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs,
+    _$TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+    ];
+    Object? value;
+    value = object.data;
+    if (value != null) {
+      result
+        ..add('data')
+        ..add(serializers.serialize(value, specifiedType: const FullType(JsonObject)));
+    }
+    return result;
+  }
+
+  @override
+  TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject)) as JsonObject?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiDeleteTaskResponseApplicationJsonSerializer
+    implements StructuredSerializer<TaskProcessingApiDeleteTaskResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiDeleteTaskResponseApplicationJson,
+    _$TaskProcessingApiDeleteTaskResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiDeleteTaskResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingApiDeleteTaskResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiDeleteTaskResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiDeleteTaskResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs))!
+              as TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data,
+    _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'tasks',
+      serializers.serialize(object.tasks, specifiedType: const FullType(BuiltList, [FullType(TaskProcessingTask)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'tasks':
+          result.tasks.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(TaskProcessingTask)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiListTasksByAppResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs,
+    _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data))!
+              as TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiListTasksByAppResponseApplicationJsonSerializer
+    implements StructuredSerializer<TaskProcessingApiListTasksByAppResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiListTasksByAppResponseApplicationJson,
+    _$TaskProcessingApiListTasksByAppResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiListTasksByAppResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingApiListTasksByAppResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiListTasksByAppResponseApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiListTasksByAppResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs))!
+              as TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data,
+    _$TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'tasks',
+      serializers.serialize(object.tasks, specifiedType: const FullType(BuiltList, [FullType(TaskProcessingTask)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'tasks':
+          result.tasks.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(TaskProcessingTask)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiListTasksResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TaskProcessingApiListTasksResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiListTasksResponseApplicationJson_Ocs,
+    _$TaskProcessingApiListTasksResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiListTasksResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingApiListTasksResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiListTasksResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data))!
+              as TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiListTasksResponseApplicationJsonSerializer
+    implements StructuredSerializer<TaskProcessingApiListTasksResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiListTasksResponseApplicationJson,
+    _$TaskProcessingApiListTasksResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiListTasksResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingApiListTasksResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(TaskProcessingApiListTasksResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiListTasksResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiListTasksResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TaskProcessingApiListTasksResponseApplicationJson_Ocs))!
+              as TaskProcessingApiListTasksResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data,
+    _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'task',
+      serializers.serialize(object.task, specifiedType: const FullType(TaskProcessingTask)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'task':
+          result.task.replace(
+              serializers.deserialize(value, specifiedType: const FullType(TaskProcessingTask))! as TaskProcessingTask);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiCancelTaskResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TaskProcessingApiCancelTaskResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiCancelTaskResponseApplicationJson_Ocs,
+    _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiCancelTaskResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingApiCancelTaskResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiCancelTaskResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data))!
+              as TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiCancelTaskResponseApplicationJsonSerializer
+    implements StructuredSerializer<TaskProcessingApiCancelTaskResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiCancelTaskResponseApplicationJson,
+    _$TaskProcessingApiCancelTaskResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiCancelTaskResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingApiCancelTaskResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(TaskProcessingApiCancelTaskResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiCancelTaskResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiCancelTaskResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TaskProcessingApiCancelTaskResponseApplicationJson_Ocs))!
+              as TaskProcessingApiCancelTaskResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data,
+    _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'fileId',
+      serializers.serialize(object.fileId, specifiedType: const FullType(int)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'fileId':
+          result.fileId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs,
+    _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data))!
+              as TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiSetFileContentsExAppResponseApplicationJsonSerializer
+    implements StructuredSerializer<TaskProcessingApiSetFileContentsExAppResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiSetFileContentsExAppResponseApplicationJson,
+    _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiSetFileContentsExAppResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, TaskProcessingApiSetFileContentsExAppResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiSetFileContentsExAppResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs))!
+              as TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiSetProgressRequestApplicationJsonSerializer
+    implements StructuredSerializer<TaskProcessingApiSetProgressRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiSetProgressRequestApplicationJson,
+    _$TaskProcessingApiSetProgressRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiSetProgressRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingApiSetProgressRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'progress',
+      serializers.serialize(object.progress, specifiedType: const FullType(double)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiSetProgressRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiSetProgressRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'progress':
+          result.progress = serializers.deserialize(value, specifiedType: const FullType(double))! as double;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data,
+    _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'task',
+      serializers.serialize(object.task, specifiedType: const FullType(TaskProcessingTask)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'task':
+          result.task.replace(
+              serializers.deserialize(value, specifiedType: const FullType(TaskProcessingTask))! as TaskProcessingTask);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiSetProgressResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TaskProcessingApiSetProgressResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiSetProgressResponseApplicationJson_Ocs,
+    _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiSetProgressResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingApiSetProgressResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiSetProgressResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data))!
+              as TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiSetProgressResponseApplicationJsonSerializer
+    implements StructuredSerializer<TaskProcessingApiSetProgressResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiSetProgressResponseApplicationJson,
+    _$TaskProcessingApiSetProgressResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiSetProgressResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingApiSetProgressResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(TaskProcessingApiSetProgressResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiSetProgressResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiSetProgressResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TaskProcessingApiSetProgressResponseApplicationJson_Ocs))!
+              as TaskProcessingApiSetProgressResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiSetResultRequestApplicationJsonSerializer
+    implements StructuredSerializer<TaskProcessingApiSetResultRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiSetResultRequestApplicationJson,
+    _$TaskProcessingApiSetResultRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiSetResultRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingApiSetResultRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.output;
+    if (value != null) {
+      result
+        ..add('output')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)])));
+    }
+    value = object.errorMessage;
+    if (value != null) {
+      result
+        ..add('errorMessage')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  TaskProcessingApiSetResultRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiSetResultRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'output':
+          result.output.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]))!);
+          break;
+        case 'errorMessage':
+          result.errorMessage = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data,
+    _$TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'task',
+      serializers.serialize(object.task, specifiedType: const FullType(TaskProcessingTask)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'task':
+          result.task.replace(
+              serializers.deserialize(value, specifiedType: const FullType(TaskProcessingTask))! as TaskProcessingTask);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiSetResultResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TaskProcessingApiSetResultResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiSetResultResponseApplicationJson_Ocs,
+    _$TaskProcessingApiSetResultResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiSetResultResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingApiSetResultResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiSetResultResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data))!
+              as TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiSetResultResponseApplicationJsonSerializer
+    implements StructuredSerializer<TaskProcessingApiSetResultResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiSetResultResponseApplicationJson,
+    _$TaskProcessingApiSetResultResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiSetResultResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TaskProcessingApiSetResultResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(TaskProcessingApiSetResultResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiSetResultResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiSetResultResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TaskProcessingApiSetResultResponseApplicationJson_Ocs))!
+              as TaskProcessingApiSetResultResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderSerializer
+    implements StructuredSerializer<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider,
+    _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'name':
+          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data,
+    _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'task',
+      serializers.serialize(object.task, specifiedType: const FullType(TaskProcessingTask)),
+      'provider',
+      serializers.serialize(object.provider,
+          specifiedType:
+              const FullType(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'task':
+          result.task.replace(
+              serializers.deserialize(value, specifiedType: const FullType(TaskProcessingTask))! as TaskProcessingTask);
+          break;
+        case 'provider':
+          result.provider.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider))!
+              as TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs,
+    _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data))!
+              as TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonSerializer
+    implements StructuredSerializer<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TaskProcessingApiGetNextScheduledTaskResponseApplicationJson,
+    _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'TaskProcessingApiGetNextScheduledTaskResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, TaskProcessingApiGetNextScheduledTaskResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs))!
+              as TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -17248,6 +20618,312 @@ class CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBui
   }
 }
 
+abstract mixin class $CsrfTokenIndexResponseApplicationJsonInterfaceBuilder {
+  void replace($CsrfTokenIndexResponseApplicationJsonInterface other);
+  void update(void Function($CsrfTokenIndexResponseApplicationJsonInterfaceBuilder) updates);
+  String? get token;
+  set token(String? token);
+}
+
+class _$CsrfTokenIndexResponseApplicationJson extends CsrfTokenIndexResponseApplicationJson {
+  @override
+  final String token;
+
+  factory _$CsrfTokenIndexResponseApplicationJson(
+          [void Function(CsrfTokenIndexResponseApplicationJsonBuilder)? updates]) =>
+      (CsrfTokenIndexResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$CsrfTokenIndexResponseApplicationJson._({required this.token}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(token, r'CsrfTokenIndexResponseApplicationJson', 'token');
+  }
+
+  @override
+  CsrfTokenIndexResponseApplicationJson rebuild(void Function(CsrfTokenIndexResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CsrfTokenIndexResponseApplicationJsonBuilder toBuilder() =>
+      CsrfTokenIndexResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CsrfTokenIndexResponseApplicationJson && token == other.token;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, token.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CsrfTokenIndexResponseApplicationJson')..add('token', token)).toString();
+  }
+}
+
+class CsrfTokenIndexResponseApplicationJsonBuilder
+    implements
+        Builder<CsrfTokenIndexResponseApplicationJson, CsrfTokenIndexResponseApplicationJsonBuilder>,
+        $CsrfTokenIndexResponseApplicationJsonInterfaceBuilder {
+  _$CsrfTokenIndexResponseApplicationJson? _$v;
+
+  String? _token;
+  String? get token => _$this._token;
+  set token(covariant String? token) => _$this._token = token;
+
+  CsrfTokenIndexResponseApplicationJsonBuilder() {
+    CsrfTokenIndexResponseApplicationJson._defaults(this);
+  }
+
+  CsrfTokenIndexResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _token = $v.token;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant CsrfTokenIndexResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CsrfTokenIndexResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(CsrfTokenIndexResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CsrfTokenIndexResponseApplicationJson build() => _build();
+
+  _$CsrfTokenIndexResponseApplicationJson _build() {
+    CsrfTokenIndexResponseApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$CsrfTokenIndexResponseApplicationJson._(
+            token: BuiltValueNullFieldError.checkNotNull(token, r'CsrfTokenIndexResponseApplicationJson', 'token'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $GuestAvatarGuestAvatarGetAvatarHeadersInterfaceBuilder {
+  void replace($GuestAvatarGuestAvatarGetAvatarHeadersInterface other);
+  void update(void Function($GuestAvatarGuestAvatarGetAvatarHeadersInterfaceBuilder) updates);
+  HeaderBuilder<int?> get xNcIscustomavatar;
+  set xNcIscustomavatar(HeaderBuilder<int?>? xNcIscustomavatar);
+}
+
+class _$GuestAvatarGuestAvatarGetAvatarHeaders extends GuestAvatarGuestAvatarGetAvatarHeaders {
+  @override
+  final Header<int?>? xNcIscustomavatar;
+
+  factory _$GuestAvatarGuestAvatarGetAvatarHeaders(
+          [void Function(GuestAvatarGuestAvatarGetAvatarHeadersBuilder)? updates]) =>
+      (GuestAvatarGuestAvatarGetAvatarHeadersBuilder()..update(updates))._build();
+
+  _$GuestAvatarGuestAvatarGetAvatarHeaders._({this.xNcIscustomavatar}) : super._();
+
+  @override
+  GuestAvatarGuestAvatarGetAvatarHeaders rebuild(
+          void Function(GuestAvatarGuestAvatarGetAvatarHeadersBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GuestAvatarGuestAvatarGetAvatarHeadersBuilder toBuilder() =>
+      GuestAvatarGuestAvatarGetAvatarHeadersBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GuestAvatarGuestAvatarGetAvatarHeaders && xNcIscustomavatar == other.xNcIscustomavatar;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, xNcIscustomavatar.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GuestAvatarGuestAvatarGetAvatarHeaders')
+          ..add('xNcIscustomavatar', xNcIscustomavatar))
+        .toString();
+  }
+}
+
+class GuestAvatarGuestAvatarGetAvatarHeadersBuilder
+    implements
+        Builder<GuestAvatarGuestAvatarGetAvatarHeaders, GuestAvatarGuestAvatarGetAvatarHeadersBuilder>,
+        $GuestAvatarGuestAvatarGetAvatarHeadersInterfaceBuilder {
+  _$GuestAvatarGuestAvatarGetAvatarHeaders? _$v;
+
+  HeaderBuilder<int?>? _xNcIscustomavatar;
+  HeaderBuilder<int?> get xNcIscustomavatar => _$this._xNcIscustomavatar ??= HeaderBuilder<int?>();
+  set xNcIscustomavatar(covariant HeaderBuilder<int?>? xNcIscustomavatar) =>
+      _$this._xNcIscustomavatar = xNcIscustomavatar;
+
+  GuestAvatarGuestAvatarGetAvatarHeadersBuilder() {
+    GuestAvatarGuestAvatarGetAvatarHeaders._defaults(this);
+  }
+
+  GuestAvatarGuestAvatarGetAvatarHeadersBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _xNcIscustomavatar = $v.xNcIscustomavatar?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant GuestAvatarGuestAvatarGetAvatarHeaders other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$GuestAvatarGuestAvatarGetAvatarHeaders;
+  }
+
+  @override
+  void update(void Function(GuestAvatarGuestAvatarGetAvatarHeadersBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GuestAvatarGuestAvatarGetAvatarHeaders build() => _build();
+
+  _$GuestAvatarGuestAvatarGetAvatarHeaders _build() {
+    GuestAvatarGuestAvatarGetAvatarHeaders._validate(this);
+    _$GuestAvatarGuestAvatarGetAvatarHeaders _$result;
+    try {
+      _$result = _$v ?? _$GuestAvatarGuestAvatarGetAvatarHeaders._(xNcIscustomavatar: _xNcIscustomavatar?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'xNcIscustomavatar';
+        _xNcIscustomavatar?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'GuestAvatarGuestAvatarGetAvatarHeaders', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $GuestAvatarGuestAvatarGetAvatarDarkHeadersInterfaceBuilder {
+  void replace($GuestAvatarGuestAvatarGetAvatarDarkHeadersInterface other);
+  void update(void Function($GuestAvatarGuestAvatarGetAvatarDarkHeadersInterfaceBuilder) updates);
+  HeaderBuilder<int?> get xNcIscustomavatar;
+  set xNcIscustomavatar(HeaderBuilder<int?>? xNcIscustomavatar);
+}
+
+class _$GuestAvatarGuestAvatarGetAvatarDarkHeaders extends GuestAvatarGuestAvatarGetAvatarDarkHeaders {
+  @override
+  final Header<int?>? xNcIscustomavatar;
+
+  factory _$GuestAvatarGuestAvatarGetAvatarDarkHeaders(
+          [void Function(GuestAvatarGuestAvatarGetAvatarDarkHeadersBuilder)? updates]) =>
+      (GuestAvatarGuestAvatarGetAvatarDarkHeadersBuilder()..update(updates))._build();
+
+  _$GuestAvatarGuestAvatarGetAvatarDarkHeaders._({this.xNcIscustomavatar}) : super._();
+
+  @override
+  GuestAvatarGuestAvatarGetAvatarDarkHeaders rebuild(
+          void Function(GuestAvatarGuestAvatarGetAvatarDarkHeadersBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GuestAvatarGuestAvatarGetAvatarDarkHeadersBuilder toBuilder() =>
+      GuestAvatarGuestAvatarGetAvatarDarkHeadersBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GuestAvatarGuestAvatarGetAvatarDarkHeaders && xNcIscustomavatar == other.xNcIscustomavatar;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, xNcIscustomavatar.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GuestAvatarGuestAvatarGetAvatarDarkHeaders')
+          ..add('xNcIscustomavatar', xNcIscustomavatar))
+        .toString();
+  }
+}
+
+class GuestAvatarGuestAvatarGetAvatarDarkHeadersBuilder
+    implements
+        Builder<GuestAvatarGuestAvatarGetAvatarDarkHeaders, GuestAvatarGuestAvatarGetAvatarDarkHeadersBuilder>,
+        $GuestAvatarGuestAvatarGetAvatarDarkHeadersInterfaceBuilder {
+  _$GuestAvatarGuestAvatarGetAvatarDarkHeaders? _$v;
+
+  HeaderBuilder<int?>? _xNcIscustomavatar;
+  HeaderBuilder<int?> get xNcIscustomavatar => _$this._xNcIscustomavatar ??= HeaderBuilder<int?>();
+  set xNcIscustomavatar(covariant HeaderBuilder<int?>? xNcIscustomavatar) =>
+      _$this._xNcIscustomavatar = xNcIscustomavatar;
+
+  GuestAvatarGuestAvatarGetAvatarDarkHeadersBuilder() {
+    GuestAvatarGuestAvatarGetAvatarDarkHeaders._defaults(this);
+  }
+
+  GuestAvatarGuestAvatarGetAvatarDarkHeadersBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _xNcIscustomavatar = $v.xNcIscustomavatar?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant GuestAvatarGuestAvatarGetAvatarDarkHeaders other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$GuestAvatarGuestAvatarGetAvatarDarkHeaders;
+  }
+
+  @override
+  void update(void Function(GuestAvatarGuestAvatarGetAvatarDarkHeadersBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GuestAvatarGuestAvatarGetAvatarDarkHeaders build() => _build();
+
+  _$GuestAvatarGuestAvatarGetAvatarDarkHeaders _build() {
+    GuestAvatarGuestAvatarGetAvatarDarkHeaders._validate(this);
+    _$GuestAvatarGuestAvatarGetAvatarDarkHeaders _$result;
+    try {
+      _$result = _$v ?? _$GuestAvatarGuestAvatarGetAvatarDarkHeaders._(xNcIscustomavatar: _xNcIscustomavatar?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'xNcIscustomavatar';
+        _xNcIscustomavatar?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'GuestAvatarGuestAvatarGetAvatarDarkHeaders', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $ContactsActionInterfaceBuilder {
   void replace($ContactsActionInterface other);
   void update(void Function($ContactsActionInterfaceBuilder) updates);
@@ -17976,6 +21652,12 @@ abstract mixin class $NavigationEntryInterfaceBuilder {
   String? get name;
   set name(String? name);
 
+  String? get app;
+  set app(String? app);
+
+  bool? get $default;
+  set $default(bool? $default);
+
   bool? get active;
   set active(bool? active);
 
@@ -17990,7 +21672,7 @@ class _$NavigationEntry extends NavigationEntry {
   @override
   final String id;
   @override
-  final NavigationEntry_Order order;
+  final NavigationEntry_Order? order;
   @override
   final String href;
   @override
@@ -17999,6 +21681,10 @@ class _$NavigationEntry extends NavigationEntry {
   final String type;
   @override
   final String name;
+  @override
+  final String? app;
+  @override
+  final bool? $default;
   @override
   final bool active;
   @override
@@ -18011,17 +21697,18 @@ class _$NavigationEntry extends NavigationEntry {
 
   _$NavigationEntry._(
       {required this.id,
-      required this.order,
+      this.order,
       required this.href,
       required this.icon,
       required this.type,
       required this.name,
+      this.app,
+      this.$default,
       required this.active,
       required this.classes,
       required this.unread})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'NavigationEntry', 'id');
-    BuiltValueNullFieldError.checkNotNull(order, r'NavigationEntry', 'order');
     BuiltValueNullFieldError.checkNotNull(href, r'NavigationEntry', 'href');
     BuiltValueNullFieldError.checkNotNull(icon, r'NavigationEntry', 'icon');
     BuiltValueNullFieldError.checkNotNull(type, r'NavigationEntry', 'type');
@@ -18048,6 +21735,8 @@ class _$NavigationEntry extends NavigationEntry {
         icon == other.icon &&
         type == other.type &&
         name == other.name &&
+        app == other.app &&
+        $default == other.$default &&
         active == other.active &&
         classes == other.classes &&
         unread == other.unread;
@@ -18062,6 +21751,8 @@ class _$NavigationEntry extends NavigationEntry {
     _$hash = $jc(_$hash, icon.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, app.hashCode);
+    _$hash = $jc(_$hash, $default.hashCode);
     _$hash = $jc(_$hash, active.hashCode);
     _$hash = $jc(_$hash, classes.hashCode);
     _$hash = $jc(_$hash, unread.hashCode);
@@ -18078,6 +21769,8 @@ class _$NavigationEntry extends NavigationEntry {
           ..add('icon', icon)
           ..add('type', type)
           ..add('name', name)
+          ..add('app', app)
+          ..add('\$default', $default)
           ..add('active', active)
           ..add('classes', classes)
           ..add('unread', unread))
@@ -18113,6 +21806,14 @@ class NavigationEntryBuilder
   String? get name => _$this._name;
   set name(covariant String? name) => _$this._name = name;
 
+  String? _app;
+  String? get app => _$this._app;
+  set app(covariant String? app) => _$this._app = app;
+
+  bool? _$default;
+  bool? get $default => _$this._$default;
+  set $default(covariant bool? $default) => _$this._$default = $default;
+
   bool? _active;
   bool? get active => _$this._active;
   set active(covariant bool? active) => _$this._active = active;
@@ -18138,6 +21839,8 @@ class NavigationEntryBuilder
       _icon = $v.icon;
       _type = $v.type;
       _name = $v.name;
+      _app = $v.app;
+      _$default = $v.$default;
       _active = $v.active;
       _classes = $v.classes;
       _unread = $v.unread;
@@ -18165,11 +21868,13 @@ class NavigationEntryBuilder
     final _$result = _$v ??
         _$NavigationEntry._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'NavigationEntry', 'id'),
-            order: BuiltValueNullFieldError.checkNotNull(order, r'NavigationEntry', 'order'),
+            order: order,
             href: BuiltValueNullFieldError.checkNotNull(href, r'NavigationEntry', 'href'),
             icon: BuiltValueNullFieldError.checkNotNull(icon, r'NavigationEntry', 'icon'),
             type: BuiltValueNullFieldError.checkNotNull(type, r'NavigationEntry', 'type'),
             name: BuiltValueNullFieldError.checkNotNull(name, r'NavigationEntry', 'name'),
+            app: app,
+            $default: $default,
             active: BuiltValueNullFieldError.checkNotNull(active, r'NavigationEntry', 'active'),
             classes: BuiltValueNullFieldError.checkNotNull(classes, r'NavigationEntry', 'classes'),
             unread: BuiltValueNullFieldError.checkNotNull(unread, r'NavigationEntry', 'unread'));
@@ -20726,14 +24431,26 @@ class FilesCapabilities_Files_DirectEditingBuilder
 abstract mixin class $FilesCapabilities_FilesInterfaceBuilder {
   void replace($FilesCapabilities_FilesInterface other);
   void update(void Function($FilesCapabilities_FilesInterfaceBuilder) updates);
+  String? get comment;
+  set comment(String? comment);
+
   bool? get bigfilechunking;
   set bigfilechunking(bool? bigfilechunking);
 
   ListBuilder<JsonObject> get blacklistedFiles;
   set blacklistedFiles(ListBuilder<JsonObject>? blacklistedFiles);
 
+  ListBuilder<String> get forbiddenFilenames;
+  set forbiddenFilenames(ListBuilder<String>? forbiddenFilenames);
+
+  ListBuilder<String> get forbiddenFilenameBasenames;
+  set forbiddenFilenameBasenames(ListBuilder<String>? forbiddenFilenameBasenames);
+
   ListBuilder<String> get forbiddenFilenameCharacters;
   set forbiddenFilenameCharacters(ListBuilder<String>? forbiddenFilenameCharacters);
+
+  ListBuilder<String> get forbiddenFilenameExtensions;
+  set forbiddenFilenameExtensions(ListBuilder<String>? forbiddenFilenameExtensions);
 
   FilesCapabilities_Files_DirectEditingBuilder get directEditing;
   set directEditing(FilesCapabilities_Files_DirectEditingBuilder? directEditing);
@@ -20741,11 +24458,19 @@ abstract mixin class $FilesCapabilities_FilesInterfaceBuilder {
 
 class _$FilesCapabilities_Files extends FilesCapabilities_Files {
   @override
+  final String? comment;
+  @override
   final bool bigfilechunking;
   @override
   final BuiltList<JsonObject> blacklistedFiles;
   @override
+  final BuiltList<String> forbiddenFilenames;
+  @override
+  final BuiltList<String> forbiddenFilenameBasenames;
+  @override
   final BuiltList<String> forbiddenFilenameCharacters;
+  @override
+  final BuiltList<String> forbiddenFilenameExtensions;
   @override
   final FilesCapabilities_Files_DirectEditing directEditing;
 
@@ -20753,15 +24478,24 @@ class _$FilesCapabilities_Files extends FilesCapabilities_Files {
       (FilesCapabilities_FilesBuilder()..update(updates))._build();
 
   _$FilesCapabilities_Files._(
-      {required this.bigfilechunking,
+      {this.comment,
+      required this.bigfilechunking,
       required this.blacklistedFiles,
+      required this.forbiddenFilenames,
+      required this.forbiddenFilenameBasenames,
       required this.forbiddenFilenameCharacters,
+      required this.forbiddenFilenameExtensions,
       required this.directEditing})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(bigfilechunking, r'FilesCapabilities_Files', 'bigfilechunking');
     BuiltValueNullFieldError.checkNotNull(blacklistedFiles, r'FilesCapabilities_Files', 'blacklistedFiles');
+    BuiltValueNullFieldError.checkNotNull(forbiddenFilenames, r'FilesCapabilities_Files', 'forbiddenFilenames');
+    BuiltValueNullFieldError.checkNotNull(
+        forbiddenFilenameBasenames, r'FilesCapabilities_Files', 'forbiddenFilenameBasenames');
     BuiltValueNullFieldError.checkNotNull(
         forbiddenFilenameCharacters, r'FilesCapabilities_Files', 'forbiddenFilenameCharacters');
+    BuiltValueNullFieldError.checkNotNull(
+        forbiddenFilenameExtensions, r'FilesCapabilities_Files', 'forbiddenFilenameExtensions');
     BuiltValueNullFieldError.checkNotNull(directEditing, r'FilesCapabilities_Files', 'directEditing');
   }
 
@@ -20776,18 +24510,26 @@ class _$FilesCapabilities_Files extends FilesCapabilities_Files {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is FilesCapabilities_Files &&
+        comment == other.comment &&
         bigfilechunking == other.bigfilechunking &&
         blacklistedFiles == other.blacklistedFiles &&
+        forbiddenFilenames == other.forbiddenFilenames &&
+        forbiddenFilenameBasenames == other.forbiddenFilenameBasenames &&
         forbiddenFilenameCharacters == other.forbiddenFilenameCharacters &&
+        forbiddenFilenameExtensions == other.forbiddenFilenameExtensions &&
         directEditing == other.directEditing;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, comment.hashCode);
     _$hash = $jc(_$hash, bigfilechunking.hashCode);
     _$hash = $jc(_$hash, blacklistedFiles.hashCode);
+    _$hash = $jc(_$hash, forbiddenFilenames.hashCode);
+    _$hash = $jc(_$hash, forbiddenFilenameBasenames.hashCode);
     _$hash = $jc(_$hash, forbiddenFilenameCharacters.hashCode);
+    _$hash = $jc(_$hash, forbiddenFilenameExtensions.hashCode);
     _$hash = $jc(_$hash, directEditing.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -20796,9 +24538,13 @@ class _$FilesCapabilities_Files extends FilesCapabilities_Files {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'FilesCapabilities_Files')
+          ..add('comment', comment)
           ..add('bigfilechunking', bigfilechunking)
           ..add('blacklistedFiles', blacklistedFiles)
+          ..add('forbiddenFilenames', forbiddenFilenames)
+          ..add('forbiddenFilenameBasenames', forbiddenFilenameBasenames)
           ..add('forbiddenFilenameCharacters', forbiddenFilenameCharacters)
+          ..add('forbiddenFilenameExtensions', forbiddenFilenameExtensions)
           ..add('directEditing', directEditing))
         .toString();
   }
@@ -20810,6 +24556,10 @@ class FilesCapabilities_FilesBuilder
         $FilesCapabilities_FilesInterfaceBuilder {
   _$FilesCapabilities_Files? _$v;
 
+  String? _comment;
+  String? get comment => _$this._comment;
+  set comment(covariant String? comment) => _$this._comment = comment;
+
   bool? _bigfilechunking;
   bool? get bigfilechunking => _$this._bigfilechunking;
   set bigfilechunking(covariant bool? bigfilechunking) => _$this._bigfilechunking = bigfilechunking;
@@ -20819,10 +24569,25 @@ class FilesCapabilities_FilesBuilder
   set blacklistedFiles(covariant ListBuilder<JsonObject>? blacklistedFiles) =>
       _$this._blacklistedFiles = blacklistedFiles;
 
+  ListBuilder<String>? _forbiddenFilenames;
+  ListBuilder<String> get forbiddenFilenames => _$this._forbiddenFilenames ??= ListBuilder<String>();
+  set forbiddenFilenames(covariant ListBuilder<String>? forbiddenFilenames) =>
+      _$this._forbiddenFilenames = forbiddenFilenames;
+
+  ListBuilder<String>? _forbiddenFilenameBasenames;
+  ListBuilder<String> get forbiddenFilenameBasenames => _$this._forbiddenFilenameBasenames ??= ListBuilder<String>();
+  set forbiddenFilenameBasenames(covariant ListBuilder<String>? forbiddenFilenameBasenames) =>
+      _$this._forbiddenFilenameBasenames = forbiddenFilenameBasenames;
+
   ListBuilder<String>? _forbiddenFilenameCharacters;
   ListBuilder<String> get forbiddenFilenameCharacters => _$this._forbiddenFilenameCharacters ??= ListBuilder<String>();
   set forbiddenFilenameCharacters(covariant ListBuilder<String>? forbiddenFilenameCharacters) =>
       _$this._forbiddenFilenameCharacters = forbiddenFilenameCharacters;
+
+  ListBuilder<String>? _forbiddenFilenameExtensions;
+  ListBuilder<String> get forbiddenFilenameExtensions => _$this._forbiddenFilenameExtensions ??= ListBuilder<String>();
+  set forbiddenFilenameExtensions(covariant ListBuilder<String>? forbiddenFilenameExtensions) =>
+      _$this._forbiddenFilenameExtensions = forbiddenFilenameExtensions;
 
   FilesCapabilities_Files_DirectEditingBuilder? _directEditing;
   FilesCapabilities_Files_DirectEditingBuilder get directEditing =>
@@ -20837,9 +24602,13 @@ class FilesCapabilities_FilesBuilder
   FilesCapabilities_FilesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _comment = $v.comment;
       _bigfilechunking = $v.bigfilechunking;
       _blacklistedFiles = $v.blacklistedFiles.toBuilder();
+      _forbiddenFilenames = $v.forbiddenFilenames.toBuilder();
+      _forbiddenFilenameBasenames = $v.forbiddenFilenameBasenames.toBuilder();
       _forbiddenFilenameCharacters = $v.forbiddenFilenameCharacters.toBuilder();
+      _forbiddenFilenameExtensions = $v.forbiddenFilenameExtensions.toBuilder();
       _directEditing = $v.directEditing.toBuilder();
       _$v = null;
     }
@@ -20866,18 +24635,28 @@ class FilesCapabilities_FilesBuilder
     try {
       _$result = _$v ??
           _$FilesCapabilities_Files._(
+              comment: comment,
               bigfilechunking:
                   BuiltValueNullFieldError.checkNotNull(bigfilechunking, r'FilesCapabilities_Files', 'bigfilechunking'),
               blacklistedFiles: blacklistedFiles.build(),
+              forbiddenFilenames: forbiddenFilenames.build(),
+              forbiddenFilenameBasenames: forbiddenFilenameBasenames.build(),
               forbiddenFilenameCharacters: forbiddenFilenameCharacters.build(),
+              forbiddenFilenameExtensions: forbiddenFilenameExtensions.build(),
               directEditing: directEditing.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'blacklistedFiles';
         blacklistedFiles.build();
+        _$failedField = 'forbiddenFilenames';
+        forbiddenFilenames.build();
+        _$failedField = 'forbiddenFilenameBasenames';
+        forbiddenFilenameBasenames.build();
         _$failedField = 'forbiddenFilenameCharacters';
         forbiddenFilenameCharacters.build();
+        _$failedField = 'forbiddenFilenameExtensions';
+        forbiddenFilenameExtensions.build();
         _$failedField = 'directEditing';
         directEditing.build();
       } catch (e) {
@@ -26692,6 +30471,9 @@ abstract mixin class $ThemingPublicCapabilities_ThemingInterfaceBuilder {
   String? get background;
   set background(String? background);
 
+  String? get backgroundText;
+  set backgroundText(String? backgroundText);
+
   bool? get backgroundPlain;
   set backgroundPlain(bool? backgroundPlain);
 
@@ -26727,6 +30509,8 @@ class _$ThemingPublicCapabilities_Theming extends ThemingPublicCapabilities_Them
   @override
   final String background;
   @override
+  final String? backgroundText;
+  @override
   final bool backgroundPlain;
   @override
   final bool backgroundDefault;
@@ -26749,6 +30533,7 @@ class _$ThemingPublicCapabilities_Theming extends ThemingPublicCapabilities_Them
       required this.colorElementDark,
       required this.logo,
       required this.background,
+      this.backgroundText,
       required this.backgroundPlain,
       required this.backgroundDefault,
       required this.logoheader,
@@ -26792,6 +30577,7 @@ class _$ThemingPublicCapabilities_Theming extends ThemingPublicCapabilities_Them
         colorElementDark == other.colorElementDark &&
         logo == other.logo &&
         background == other.background &&
+        backgroundText == other.backgroundText &&
         backgroundPlain == other.backgroundPlain &&
         backgroundDefault == other.backgroundDefault &&
         logoheader == other.logoheader &&
@@ -26811,6 +30597,7 @@ class _$ThemingPublicCapabilities_Theming extends ThemingPublicCapabilities_Them
     _$hash = $jc(_$hash, colorElementDark.hashCode);
     _$hash = $jc(_$hash, logo.hashCode);
     _$hash = $jc(_$hash, background.hashCode);
+    _$hash = $jc(_$hash, backgroundText.hashCode);
     _$hash = $jc(_$hash, backgroundPlain.hashCode);
     _$hash = $jc(_$hash, backgroundDefault.hashCode);
     _$hash = $jc(_$hash, logoheader.hashCode);
@@ -26832,6 +30619,7 @@ class _$ThemingPublicCapabilities_Theming extends ThemingPublicCapabilities_Them
           ..add('colorElementDark', colorElementDark)
           ..add('logo', logo)
           ..add('background', background)
+          ..add('backgroundText', backgroundText)
           ..add('backgroundPlain', backgroundPlain)
           ..add('backgroundDefault', backgroundDefault)
           ..add('logoheader', logoheader)
@@ -26886,6 +30674,10 @@ class ThemingPublicCapabilities_ThemingBuilder
   String? get background => _$this._background;
   set background(covariant String? background) => _$this._background = background;
 
+  String? _backgroundText;
+  String? get backgroundText => _$this._backgroundText;
+  set backgroundText(covariant String? backgroundText) => _$this._backgroundText = backgroundText;
+
   bool? _backgroundPlain;
   bool? get backgroundPlain => _$this._backgroundPlain;
   set backgroundPlain(covariant bool? backgroundPlain) => _$this._backgroundPlain = backgroundPlain;
@@ -26919,6 +30711,7 @@ class ThemingPublicCapabilities_ThemingBuilder
       _colorElementDark = $v.colorElementDark;
       _logo = $v.logo;
       _background = $v.background;
+      _backgroundText = $v.backgroundText;
       _backgroundPlain = $v.backgroundPlain;
       _backgroundDefault = $v.backgroundDefault;
       _logoheader = $v.logoheader;
@@ -26961,6 +30754,7 @@ class ThemingPublicCapabilities_ThemingBuilder
             logo: BuiltValueNullFieldError.checkNotNull(logo, r'ThemingPublicCapabilities_Theming', 'logo'),
             background:
                 BuiltValueNullFieldError.checkNotNull(background, r'ThemingPublicCapabilities_Theming', 'background'),
+            backgroundText: backgroundText,
             backgroundPlain: BuiltValueNullFieldError.checkNotNull(
                 backgroundPlain, r'ThemingPublicCapabilities_Theming', 'backgroundPlain'),
             backgroundDefault: BuiltValueNullFieldError.checkNotNull(
@@ -29051,6 +32845,504 @@ class ReferenceApiExtractResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class $ReferenceApiExtractPublicRequestApplicationJsonInterfaceBuilder {
+  void replace($ReferenceApiExtractPublicRequestApplicationJsonInterface other);
+  void update(void Function($ReferenceApiExtractPublicRequestApplicationJsonInterfaceBuilder) updates);
+  String? get text;
+  set text(String? text);
+
+  String? get sharingToken;
+  set sharingToken(String? sharingToken);
+
+  bool? get resolve;
+  set resolve(bool? resolve);
+
+  int? get limit;
+  set limit(int? limit);
+}
+
+class _$ReferenceApiExtractPublicRequestApplicationJson extends ReferenceApiExtractPublicRequestApplicationJson {
+  @override
+  final String text;
+  @override
+  final String sharingToken;
+  @override
+  final bool resolve;
+  @override
+  final int limit;
+
+  factory _$ReferenceApiExtractPublicRequestApplicationJson(
+          [void Function(ReferenceApiExtractPublicRequestApplicationJsonBuilder)? updates]) =>
+      (ReferenceApiExtractPublicRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$ReferenceApiExtractPublicRequestApplicationJson._(
+      {required this.text, required this.sharingToken, required this.resolve, required this.limit})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(text, r'ReferenceApiExtractPublicRequestApplicationJson', 'text');
+    BuiltValueNullFieldError.checkNotNull(
+        sharingToken, r'ReferenceApiExtractPublicRequestApplicationJson', 'sharingToken');
+    BuiltValueNullFieldError.checkNotNull(resolve, r'ReferenceApiExtractPublicRequestApplicationJson', 'resolve');
+    BuiltValueNullFieldError.checkNotNull(limit, r'ReferenceApiExtractPublicRequestApplicationJson', 'limit');
+  }
+
+  @override
+  ReferenceApiExtractPublicRequestApplicationJson rebuild(
+          void Function(ReferenceApiExtractPublicRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ReferenceApiExtractPublicRequestApplicationJsonBuilder toBuilder() =>
+      ReferenceApiExtractPublicRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ReferenceApiExtractPublicRequestApplicationJson &&
+        text == other.text &&
+        sharingToken == other.sharingToken &&
+        resolve == other.resolve &&
+        limit == other.limit;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, text.hashCode);
+    _$hash = $jc(_$hash, sharingToken.hashCode);
+    _$hash = $jc(_$hash, resolve.hashCode);
+    _$hash = $jc(_$hash, limit.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ReferenceApiExtractPublicRequestApplicationJson')
+          ..add('text', text)
+          ..add('sharingToken', sharingToken)
+          ..add('resolve', resolve)
+          ..add('limit', limit))
+        .toString();
+  }
+}
+
+class ReferenceApiExtractPublicRequestApplicationJsonBuilder
+    implements
+        Builder<ReferenceApiExtractPublicRequestApplicationJson,
+            ReferenceApiExtractPublicRequestApplicationJsonBuilder>,
+        $ReferenceApiExtractPublicRequestApplicationJsonInterfaceBuilder {
+  _$ReferenceApiExtractPublicRequestApplicationJson? _$v;
+
+  String? _text;
+  String? get text => _$this._text;
+  set text(covariant String? text) => _$this._text = text;
+
+  String? _sharingToken;
+  String? get sharingToken => _$this._sharingToken;
+  set sharingToken(covariant String? sharingToken) => _$this._sharingToken = sharingToken;
+
+  bool? _resolve;
+  bool? get resolve => _$this._resolve;
+  set resolve(covariant bool? resolve) => _$this._resolve = resolve;
+
+  int? _limit;
+  int? get limit => _$this._limit;
+  set limit(covariant int? limit) => _$this._limit = limit;
+
+  ReferenceApiExtractPublicRequestApplicationJsonBuilder() {
+    ReferenceApiExtractPublicRequestApplicationJson._defaults(this);
+  }
+
+  ReferenceApiExtractPublicRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _text = $v.text;
+      _sharingToken = $v.sharingToken;
+      _resolve = $v.resolve;
+      _limit = $v.limit;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ReferenceApiExtractPublicRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ReferenceApiExtractPublicRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(ReferenceApiExtractPublicRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ReferenceApiExtractPublicRequestApplicationJson build() => _build();
+
+  _$ReferenceApiExtractPublicRequestApplicationJson _build() {
+    ReferenceApiExtractPublicRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$ReferenceApiExtractPublicRequestApplicationJson._(
+            text:
+                BuiltValueNullFieldError.checkNotNull(text, r'ReferenceApiExtractPublicRequestApplicationJson', 'text'),
+            sharingToken: BuiltValueNullFieldError.checkNotNull(
+                sharingToken, r'ReferenceApiExtractPublicRequestApplicationJson', 'sharingToken'),
+            resolve: BuiltValueNullFieldError.checkNotNull(
+                resolve, r'ReferenceApiExtractPublicRequestApplicationJson', 'resolve'),
+            limit: BuiltValueNullFieldError.checkNotNull(
+                limit, r'ReferenceApiExtractPublicRequestApplicationJson', 'limit'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  MapBuilder<String, Reference?> get references;
+  set references(MapBuilder<String, Reference?>? references);
+}
+
+class _$ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data
+    extends ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data {
+  @override
+  final BuiltMap<String, Reference?> references;
+
+  factory _$ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data(
+          [void Function(ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data._({required this.references}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        references, r'ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data', 'references');
+  }
+
+  @override
+  ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data rebuild(
+          void Function(ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data && references == other.references;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, references.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data')
+          ..add('references', references))
+        .toString();
+  }
+}
+
+class ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data,
+            ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder>,
+        $ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data? _$v;
+
+  MapBuilder<String, Reference?>? _references;
+  MapBuilder<String, Reference?> get references => _$this._references ??= MapBuilder<String, Reference?>();
+  set references(covariant MapBuilder<String, Reference?>? references) => _$this._references = references;
+
+  ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder() {
+    ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _references = $v.references.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data _build() {
+    ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data._validate(this);
+    _$ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data _$result;
+    try {
+      _$result = _$v ?? _$ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data._(references: references.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'references';
+        references.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ReferenceApiExtractPublicResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ReferenceApiExtractPublicResponseApplicationJson_OcsInterface other);
+  void update(void Function($ReferenceApiExtractPublicResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$ReferenceApiExtractPublicResponseApplicationJson_Ocs
+    extends ReferenceApiExtractPublicResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data data;
+
+  factory _$ReferenceApiExtractPublicResponseApplicationJson_Ocs(
+          [void Function(ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$ReferenceApiExtractPublicResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ReferenceApiExtractPublicResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ReferenceApiExtractPublicResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  ReferenceApiExtractPublicResponseApplicationJson_Ocs rebuild(
+          void Function(ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder toBuilder() =>
+      ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ReferenceApiExtractPublicResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ReferenceApiExtractPublicResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder
+    implements
+        Builder<ReferenceApiExtractPublicResponseApplicationJson_Ocs,
+            ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder>,
+        $ReferenceApiExtractPublicResponseApplicationJson_OcsInterfaceBuilder {
+  _$ReferenceApiExtractPublicResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder? _data;
+  ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder() {
+    ReferenceApiExtractPublicResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ReferenceApiExtractPublicResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ReferenceApiExtractPublicResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ReferenceApiExtractPublicResponseApplicationJson_Ocs build() => _build();
+
+  _$ReferenceApiExtractPublicResponseApplicationJson_Ocs _build() {
+    ReferenceApiExtractPublicResponseApplicationJson_Ocs._validate(this);
+    _$ReferenceApiExtractPublicResponseApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$ReferenceApiExtractPublicResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ReferenceApiExtractPublicResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ReferenceApiExtractPublicResponseApplicationJsonInterfaceBuilder {
+  void replace($ReferenceApiExtractPublicResponseApplicationJsonInterface other);
+  void update(void Function($ReferenceApiExtractPublicResponseApplicationJsonInterfaceBuilder) updates);
+  ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$ReferenceApiExtractPublicResponseApplicationJson extends ReferenceApiExtractPublicResponseApplicationJson {
+  @override
+  final ReferenceApiExtractPublicResponseApplicationJson_Ocs ocs;
+
+  factory _$ReferenceApiExtractPublicResponseApplicationJson(
+          [void Function(ReferenceApiExtractPublicResponseApplicationJsonBuilder)? updates]) =>
+      (ReferenceApiExtractPublicResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$ReferenceApiExtractPublicResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ReferenceApiExtractPublicResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  ReferenceApiExtractPublicResponseApplicationJson rebuild(
+          void Function(ReferenceApiExtractPublicResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ReferenceApiExtractPublicResponseApplicationJsonBuilder toBuilder() =>
+      ReferenceApiExtractPublicResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ReferenceApiExtractPublicResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ReferenceApiExtractPublicResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class ReferenceApiExtractPublicResponseApplicationJsonBuilder
+    implements
+        Builder<ReferenceApiExtractPublicResponseApplicationJson,
+            ReferenceApiExtractPublicResponseApplicationJsonBuilder>,
+        $ReferenceApiExtractPublicResponseApplicationJsonInterfaceBuilder {
+  _$ReferenceApiExtractPublicResponseApplicationJson? _$v;
+
+  ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder? _ocs;
+  ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  ReferenceApiExtractPublicResponseApplicationJsonBuilder() {
+    ReferenceApiExtractPublicResponseApplicationJson._defaults(this);
+  }
+
+  ReferenceApiExtractPublicResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ReferenceApiExtractPublicResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ReferenceApiExtractPublicResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(ReferenceApiExtractPublicResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ReferenceApiExtractPublicResponseApplicationJson build() => _build();
+
+  _$ReferenceApiExtractPublicResponseApplicationJson _build() {
+    ReferenceApiExtractPublicResponseApplicationJson._validate(this);
+    _$ReferenceApiExtractPublicResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$ReferenceApiExtractPublicResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ReferenceApiExtractPublicResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterfaceBuilder {
   void replace($ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterface other);
   void update(void Function($ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
@@ -29850,6 +34142,849 @@ class ReferenceApiResolveResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'ReferenceApiResolveResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  MapBuilder<String, Reference?> get references;
+  set references(MapBuilder<String, Reference?>? references);
+}
+
+class _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data
+    extends ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data {
+  @override
+  final BuiltMap<String, Reference?> references;
+
+  factory _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data(
+          [void Function(ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data._({required this.references}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        references, r'ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data', 'references');
+  }
+
+  @override
+  ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data rebuild(
+          void Function(ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data && references == other.references;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, references.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data')
+          ..add('references', references))
+        .toString();
+  }
+}
+
+class ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data,
+            ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder>,
+        $ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data? _$v;
+
+  MapBuilder<String, Reference?>? _references;
+  MapBuilder<String, Reference?> get references => _$this._references ??= MapBuilder<String, Reference?>();
+  set references(covariant MapBuilder<String, Reference?>? references) => _$this._references = references;
+
+  ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder() {
+    ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _references = $v.references.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data _build() {
+    ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data._validate(this);
+    _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data _$result;
+    try {
+      _$result =
+          _$v ?? _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data._(references: references.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'references';
+        references.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ReferenceApiResolveOnePublicResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ReferenceApiResolveOnePublicResponseApplicationJson_OcsInterface other);
+  void update(void Function($ReferenceApiResolveOnePublicResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs
+    extends ReferenceApiResolveOnePublicResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data data;
+
+  factory _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs(
+          [void Function(ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ReferenceApiResolveOnePublicResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ReferenceApiResolveOnePublicResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  ReferenceApiResolveOnePublicResponseApplicationJson_Ocs rebuild(
+          void Function(ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder toBuilder() =>
+      ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ReferenceApiResolveOnePublicResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ReferenceApiResolveOnePublicResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder
+    implements
+        Builder<ReferenceApiResolveOnePublicResponseApplicationJson_Ocs,
+            ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder>,
+        $ReferenceApiResolveOnePublicResponseApplicationJson_OcsInterfaceBuilder {
+  _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder? _data;
+  ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder() {
+    ReferenceApiResolveOnePublicResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ReferenceApiResolveOnePublicResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ReferenceApiResolveOnePublicResponseApplicationJson_Ocs build() => _build();
+
+  _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs _build() {
+    ReferenceApiResolveOnePublicResponseApplicationJson_Ocs._validate(this);
+    _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ReferenceApiResolveOnePublicResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ReferenceApiResolveOnePublicResponseApplicationJsonInterfaceBuilder {
+  void replace($ReferenceApiResolveOnePublicResponseApplicationJsonInterface other);
+  void update(void Function($ReferenceApiResolveOnePublicResponseApplicationJsonInterfaceBuilder) updates);
+  ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$ReferenceApiResolveOnePublicResponseApplicationJson
+    extends ReferenceApiResolveOnePublicResponseApplicationJson {
+  @override
+  final ReferenceApiResolveOnePublicResponseApplicationJson_Ocs ocs;
+
+  factory _$ReferenceApiResolveOnePublicResponseApplicationJson(
+          [void Function(ReferenceApiResolveOnePublicResponseApplicationJsonBuilder)? updates]) =>
+      (ReferenceApiResolveOnePublicResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$ReferenceApiResolveOnePublicResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ReferenceApiResolveOnePublicResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  ReferenceApiResolveOnePublicResponseApplicationJson rebuild(
+          void Function(ReferenceApiResolveOnePublicResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ReferenceApiResolveOnePublicResponseApplicationJsonBuilder toBuilder() =>
+      ReferenceApiResolveOnePublicResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ReferenceApiResolveOnePublicResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ReferenceApiResolveOnePublicResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class ReferenceApiResolveOnePublicResponseApplicationJsonBuilder
+    implements
+        Builder<ReferenceApiResolveOnePublicResponseApplicationJson,
+            ReferenceApiResolveOnePublicResponseApplicationJsonBuilder>,
+        $ReferenceApiResolveOnePublicResponseApplicationJsonInterfaceBuilder {
+  _$ReferenceApiResolveOnePublicResponseApplicationJson? _$v;
+
+  ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder? _ocs;
+  ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  ReferenceApiResolveOnePublicResponseApplicationJsonBuilder() {
+    ReferenceApiResolveOnePublicResponseApplicationJson._defaults(this);
+  }
+
+  ReferenceApiResolveOnePublicResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ReferenceApiResolveOnePublicResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ReferenceApiResolveOnePublicResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(ReferenceApiResolveOnePublicResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ReferenceApiResolveOnePublicResponseApplicationJson build() => _build();
+
+  _$ReferenceApiResolveOnePublicResponseApplicationJson _build() {
+    ReferenceApiResolveOnePublicResponseApplicationJson._validate(this);
+    _$ReferenceApiResolveOnePublicResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$ReferenceApiResolveOnePublicResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ReferenceApiResolveOnePublicResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ReferenceApiResolvePublicRequestApplicationJsonInterfaceBuilder {
+  void replace($ReferenceApiResolvePublicRequestApplicationJsonInterface other);
+  void update(void Function($ReferenceApiResolvePublicRequestApplicationJsonInterfaceBuilder) updates);
+  ListBuilder<String> get references;
+  set references(ListBuilder<String>? references);
+
+  String? get sharingToken;
+  set sharingToken(String? sharingToken);
+
+  int? get limit;
+  set limit(int? limit);
+}
+
+class _$ReferenceApiResolvePublicRequestApplicationJson extends ReferenceApiResolvePublicRequestApplicationJson {
+  @override
+  final BuiltList<String> references;
+  @override
+  final String sharingToken;
+  @override
+  final int limit;
+
+  factory _$ReferenceApiResolvePublicRequestApplicationJson(
+          [void Function(ReferenceApiResolvePublicRequestApplicationJsonBuilder)? updates]) =>
+      (ReferenceApiResolvePublicRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$ReferenceApiResolvePublicRequestApplicationJson._(
+      {required this.references, required this.sharingToken, required this.limit})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(references, r'ReferenceApiResolvePublicRequestApplicationJson', 'references');
+    BuiltValueNullFieldError.checkNotNull(
+        sharingToken, r'ReferenceApiResolvePublicRequestApplicationJson', 'sharingToken');
+    BuiltValueNullFieldError.checkNotNull(limit, r'ReferenceApiResolvePublicRequestApplicationJson', 'limit');
+  }
+
+  @override
+  ReferenceApiResolvePublicRequestApplicationJson rebuild(
+          void Function(ReferenceApiResolvePublicRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ReferenceApiResolvePublicRequestApplicationJsonBuilder toBuilder() =>
+      ReferenceApiResolvePublicRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ReferenceApiResolvePublicRequestApplicationJson &&
+        references == other.references &&
+        sharingToken == other.sharingToken &&
+        limit == other.limit;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, references.hashCode);
+    _$hash = $jc(_$hash, sharingToken.hashCode);
+    _$hash = $jc(_$hash, limit.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ReferenceApiResolvePublicRequestApplicationJson')
+          ..add('references', references)
+          ..add('sharingToken', sharingToken)
+          ..add('limit', limit))
+        .toString();
+  }
+}
+
+class ReferenceApiResolvePublicRequestApplicationJsonBuilder
+    implements
+        Builder<ReferenceApiResolvePublicRequestApplicationJson,
+            ReferenceApiResolvePublicRequestApplicationJsonBuilder>,
+        $ReferenceApiResolvePublicRequestApplicationJsonInterfaceBuilder {
+  _$ReferenceApiResolvePublicRequestApplicationJson? _$v;
+
+  ListBuilder<String>? _references;
+  ListBuilder<String> get references => _$this._references ??= ListBuilder<String>();
+  set references(covariant ListBuilder<String>? references) => _$this._references = references;
+
+  String? _sharingToken;
+  String? get sharingToken => _$this._sharingToken;
+  set sharingToken(covariant String? sharingToken) => _$this._sharingToken = sharingToken;
+
+  int? _limit;
+  int? get limit => _$this._limit;
+  set limit(covariant int? limit) => _$this._limit = limit;
+
+  ReferenceApiResolvePublicRequestApplicationJsonBuilder() {
+    ReferenceApiResolvePublicRequestApplicationJson._defaults(this);
+  }
+
+  ReferenceApiResolvePublicRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _references = $v.references.toBuilder();
+      _sharingToken = $v.sharingToken;
+      _limit = $v.limit;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ReferenceApiResolvePublicRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ReferenceApiResolvePublicRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(ReferenceApiResolvePublicRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ReferenceApiResolvePublicRequestApplicationJson build() => _build();
+
+  _$ReferenceApiResolvePublicRequestApplicationJson _build() {
+    ReferenceApiResolvePublicRequestApplicationJson._validate(this);
+    _$ReferenceApiResolvePublicRequestApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$ReferenceApiResolvePublicRequestApplicationJson._(
+              references: references.build(),
+              sharingToken: BuiltValueNullFieldError.checkNotNull(
+                  sharingToken, r'ReferenceApiResolvePublicRequestApplicationJson', 'sharingToken'),
+              limit: BuiltValueNullFieldError.checkNotNull(
+                  limit, r'ReferenceApiResolvePublicRequestApplicationJson', 'limit'));
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'references';
+        references.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ReferenceApiResolvePublicRequestApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  MapBuilder<String, Reference?> get references;
+  set references(MapBuilder<String, Reference?>? references);
+}
+
+class _$ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data
+    extends ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data {
+  @override
+  final BuiltMap<String, Reference?> references;
+
+  factory _$ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data(
+          [void Function(ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data._({required this.references}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        references, r'ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data', 'references');
+  }
+
+  @override
+  ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data rebuild(
+          void Function(ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data && references == other.references;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, references.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data')
+          ..add('references', references))
+        .toString();
+  }
+}
+
+class ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data,
+            ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder>,
+        $ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data? _$v;
+
+  MapBuilder<String, Reference?>? _references;
+  MapBuilder<String, Reference?> get references => _$this._references ??= MapBuilder<String, Reference?>();
+  set references(covariant MapBuilder<String, Reference?>? references) => _$this._references = references;
+
+  ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder() {
+    ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _references = $v.references.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data _build() {
+    ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data._validate(this);
+    _$ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data _$result;
+    try {
+      _$result = _$v ?? _$ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data._(references: references.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'references';
+        references.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ReferenceApiResolvePublicResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ReferenceApiResolvePublicResponseApplicationJson_OcsInterface other);
+  void update(void Function($ReferenceApiResolvePublicResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$ReferenceApiResolvePublicResponseApplicationJson_Ocs
+    extends ReferenceApiResolvePublicResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data data;
+
+  factory _$ReferenceApiResolvePublicResponseApplicationJson_Ocs(
+          [void Function(ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$ReferenceApiResolvePublicResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ReferenceApiResolvePublicResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ReferenceApiResolvePublicResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  ReferenceApiResolvePublicResponseApplicationJson_Ocs rebuild(
+          void Function(ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder toBuilder() =>
+      ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ReferenceApiResolvePublicResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ReferenceApiResolvePublicResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder
+    implements
+        Builder<ReferenceApiResolvePublicResponseApplicationJson_Ocs,
+            ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder>,
+        $ReferenceApiResolvePublicResponseApplicationJson_OcsInterfaceBuilder {
+  _$ReferenceApiResolvePublicResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder? _data;
+  ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder() {
+    ReferenceApiResolvePublicResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ReferenceApiResolvePublicResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ReferenceApiResolvePublicResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ReferenceApiResolvePublicResponseApplicationJson_Ocs build() => _build();
+
+  _$ReferenceApiResolvePublicResponseApplicationJson_Ocs _build() {
+    ReferenceApiResolvePublicResponseApplicationJson_Ocs._validate(this);
+    _$ReferenceApiResolvePublicResponseApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$ReferenceApiResolvePublicResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ReferenceApiResolvePublicResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ReferenceApiResolvePublicResponseApplicationJsonInterfaceBuilder {
+  void replace($ReferenceApiResolvePublicResponseApplicationJsonInterface other);
+  void update(void Function($ReferenceApiResolvePublicResponseApplicationJsonInterfaceBuilder) updates);
+  ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$ReferenceApiResolvePublicResponseApplicationJson extends ReferenceApiResolvePublicResponseApplicationJson {
+  @override
+  final ReferenceApiResolvePublicResponseApplicationJson_Ocs ocs;
+
+  factory _$ReferenceApiResolvePublicResponseApplicationJson(
+          [void Function(ReferenceApiResolvePublicResponseApplicationJsonBuilder)? updates]) =>
+      (ReferenceApiResolvePublicResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$ReferenceApiResolvePublicResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ReferenceApiResolvePublicResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  ReferenceApiResolvePublicResponseApplicationJson rebuild(
+          void Function(ReferenceApiResolvePublicResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ReferenceApiResolvePublicResponseApplicationJsonBuilder toBuilder() =>
+      ReferenceApiResolvePublicResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ReferenceApiResolvePublicResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ReferenceApiResolvePublicResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class ReferenceApiResolvePublicResponseApplicationJsonBuilder
+    implements
+        Builder<ReferenceApiResolvePublicResponseApplicationJson,
+            ReferenceApiResolvePublicResponseApplicationJsonBuilder>,
+        $ReferenceApiResolvePublicResponseApplicationJsonInterfaceBuilder {
+  _$ReferenceApiResolvePublicResponseApplicationJson? _$v;
+
+  ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder? _ocs;
+  ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  ReferenceApiResolvePublicResponseApplicationJsonBuilder() {
+    ReferenceApiResolvePublicResponseApplicationJson._defaults(this);
+  }
+
+  ReferenceApiResolvePublicResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ReferenceApiResolvePublicResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ReferenceApiResolvePublicResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(ReferenceApiResolvePublicResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ReferenceApiResolvePublicResponseApplicationJson build() => _build();
+
+  _$ReferenceApiResolvePublicResponseApplicationJson _build() {
+    ReferenceApiResolvePublicResponseApplicationJson._validate(this);
+    _$ReferenceApiResolvePublicResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$ReferenceApiResolvePublicResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ReferenceApiResolvePublicResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -30683,6 +35818,5439 @@ class ReferenceApiTouchProviderResponseApplicationJsonBuilder
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'ReferenceApiTouchProviderResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingShapeInterfaceBuilder {
+  void replace($TaskProcessingShapeInterface other);
+  void update(void Function($TaskProcessingShapeInterfaceBuilder) updates);
+  String? get name;
+  set name(String? name);
+
+  String? get description;
+  set description(String? description);
+
+  TaskProcessingShape_Type? get type;
+  set type(TaskProcessingShape_Type? type);
+}
+
+class _$TaskProcessingShape extends TaskProcessingShape {
+  @override
+  final String name;
+  @override
+  final String description;
+  @override
+  final TaskProcessingShape_Type type;
+
+  factory _$TaskProcessingShape([void Function(TaskProcessingShapeBuilder)? updates]) =>
+      (TaskProcessingShapeBuilder()..update(updates))._build();
+
+  _$TaskProcessingShape._({required this.name, required this.description, required this.type}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(name, r'TaskProcessingShape', 'name');
+    BuiltValueNullFieldError.checkNotNull(description, r'TaskProcessingShape', 'description');
+    BuiltValueNullFieldError.checkNotNull(type, r'TaskProcessingShape', 'type');
+  }
+
+  @override
+  TaskProcessingShape rebuild(void Function(TaskProcessingShapeBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingShapeBuilder toBuilder() => TaskProcessingShapeBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingShape && name == other.name && description == other.description && type == other.type;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, description.hashCode);
+    _$hash = $jc(_$hash, type.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingShape')
+          ..add('name', name)
+          ..add('description', description)
+          ..add('type', type))
+        .toString();
+  }
+}
+
+class TaskProcessingShapeBuilder
+    implements Builder<TaskProcessingShape, TaskProcessingShapeBuilder>, $TaskProcessingShapeInterfaceBuilder {
+  _$TaskProcessingShape? _$v;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(covariant String? name) => _$this._name = name;
+
+  String? _description;
+  String? get description => _$this._description;
+  set description(covariant String? description) => _$this._description = description;
+
+  TaskProcessingShape_Type? _type;
+  TaskProcessingShape_Type? get type => _$this._type;
+  set type(covariant TaskProcessingShape_Type? type) => _$this._type = type;
+
+  TaskProcessingShapeBuilder() {
+    TaskProcessingShape._defaults(this);
+  }
+
+  TaskProcessingShapeBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _name = $v.name;
+      _description = $v.description;
+      _type = $v.type;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingShape other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingShape;
+  }
+
+  @override
+  void update(void Function(TaskProcessingShapeBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingShape build() => _build();
+
+  _$TaskProcessingShape _build() {
+    TaskProcessingShape._validate(this);
+    final _$result = _$v ??
+        _$TaskProcessingShape._(
+            name: BuiltValueNullFieldError.checkNotNull(name, r'TaskProcessingShape', 'name'),
+            description: BuiltValueNullFieldError.checkNotNull(description, r'TaskProcessingShape', 'description'),
+            type: BuiltValueNullFieldError.checkNotNull(type, r'TaskProcessingShape', 'type'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingTaskType_InputShapeEnumValuesInterfaceBuilder {
+  void replace($TaskProcessingTaskType_InputShapeEnumValuesInterface other);
+  void update(void Function($TaskProcessingTaskType_InputShapeEnumValuesInterfaceBuilder) updates);
+  String? get name;
+  set name(String? name);
+
+  String? get value;
+  set value(String? value);
+}
+
+class _$TaskProcessingTaskType_InputShapeEnumValues extends TaskProcessingTaskType_InputShapeEnumValues {
+  @override
+  final String name;
+  @override
+  final String value;
+
+  factory _$TaskProcessingTaskType_InputShapeEnumValues(
+          [void Function(TaskProcessingTaskType_InputShapeEnumValuesBuilder)? updates]) =>
+      (TaskProcessingTaskType_InputShapeEnumValuesBuilder()..update(updates))._build();
+
+  _$TaskProcessingTaskType_InputShapeEnumValues._({required this.name, required this.value}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(name, r'TaskProcessingTaskType_InputShapeEnumValues', 'name');
+    BuiltValueNullFieldError.checkNotNull(value, r'TaskProcessingTaskType_InputShapeEnumValues', 'value');
+  }
+
+  @override
+  TaskProcessingTaskType_InputShapeEnumValues rebuild(
+          void Function(TaskProcessingTaskType_InputShapeEnumValuesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingTaskType_InputShapeEnumValuesBuilder toBuilder() =>
+      TaskProcessingTaskType_InputShapeEnumValuesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingTaskType_InputShapeEnumValues && name == other.name && value == other.value;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, value.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingTaskType_InputShapeEnumValues')
+          ..add('name', name)
+          ..add('value', value))
+        .toString();
+  }
+}
+
+class TaskProcessingTaskType_InputShapeEnumValuesBuilder
+    implements
+        Builder<TaskProcessingTaskType_InputShapeEnumValues, TaskProcessingTaskType_InputShapeEnumValuesBuilder>,
+        $TaskProcessingTaskType_InputShapeEnumValuesInterfaceBuilder {
+  _$TaskProcessingTaskType_InputShapeEnumValues? _$v;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(covariant String? name) => _$this._name = name;
+
+  String? _value;
+  String? get value => _$this._value;
+  set value(covariant String? value) => _$this._value = value;
+
+  TaskProcessingTaskType_InputShapeEnumValuesBuilder() {
+    TaskProcessingTaskType_InputShapeEnumValues._defaults(this);
+  }
+
+  TaskProcessingTaskType_InputShapeEnumValuesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _name = $v.name;
+      _value = $v.value;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingTaskType_InputShapeEnumValues other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingTaskType_InputShapeEnumValues;
+  }
+
+  @override
+  void update(void Function(TaskProcessingTaskType_InputShapeEnumValuesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingTaskType_InputShapeEnumValues build() => _build();
+
+  _$TaskProcessingTaskType_InputShapeEnumValues _build() {
+    TaskProcessingTaskType_InputShapeEnumValues._validate(this);
+    final _$result = _$v ??
+        _$TaskProcessingTaskType_InputShapeEnumValues._(
+            name: BuiltValueNullFieldError.checkNotNull(name, r'TaskProcessingTaskType_InputShapeEnumValues', 'name'),
+            value:
+                BuiltValueNullFieldError.checkNotNull(value, r'TaskProcessingTaskType_InputShapeEnumValues', 'value'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingTaskType_OptionalInputShapeEnumValuesInterfaceBuilder {
+  void replace($TaskProcessingTaskType_OptionalInputShapeEnumValuesInterface other);
+  void update(void Function($TaskProcessingTaskType_OptionalInputShapeEnumValuesInterfaceBuilder) updates);
+  String? get name;
+  set name(String? name);
+
+  String? get value;
+  set value(String? value);
+}
+
+class _$TaskProcessingTaskType_OptionalInputShapeEnumValues
+    extends TaskProcessingTaskType_OptionalInputShapeEnumValues {
+  @override
+  final String name;
+  @override
+  final String value;
+
+  factory _$TaskProcessingTaskType_OptionalInputShapeEnumValues(
+          [void Function(TaskProcessingTaskType_OptionalInputShapeEnumValuesBuilder)? updates]) =>
+      (TaskProcessingTaskType_OptionalInputShapeEnumValuesBuilder()..update(updates))._build();
+
+  _$TaskProcessingTaskType_OptionalInputShapeEnumValues._({required this.name, required this.value}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(name, r'TaskProcessingTaskType_OptionalInputShapeEnumValues', 'name');
+    BuiltValueNullFieldError.checkNotNull(value, r'TaskProcessingTaskType_OptionalInputShapeEnumValues', 'value');
+  }
+
+  @override
+  TaskProcessingTaskType_OptionalInputShapeEnumValues rebuild(
+          void Function(TaskProcessingTaskType_OptionalInputShapeEnumValuesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingTaskType_OptionalInputShapeEnumValuesBuilder toBuilder() =>
+      TaskProcessingTaskType_OptionalInputShapeEnumValuesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingTaskType_OptionalInputShapeEnumValues && name == other.name && value == other.value;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, value.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingTaskType_OptionalInputShapeEnumValues')
+          ..add('name', name)
+          ..add('value', value))
+        .toString();
+  }
+}
+
+class TaskProcessingTaskType_OptionalInputShapeEnumValuesBuilder
+    implements
+        Builder<TaskProcessingTaskType_OptionalInputShapeEnumValues,
+            TaskProcessingTaskType_OptionalInputShapeEnumValuesBuilder>,
+        $TaskProcessingTaskType_OptionalInputShapeEnumValuesInterfaceBuilder {
+  _$TaskProcessingTaskType_OptionalInputShapeEnumValues? _$v;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(covariant String? name) => _$this._name = name;
+
+  String? _value;
+  String? get value => _$this._value;
+  set value(covariant String? value) => _$this._value = value;
+
+  TaskProcessingTaskType_OptionalInputShapeEnumValuesBuilder() {
+    TaskProcessingTaskType_OptionalInputShapeEnumValues._defaults(this);
+  }
+
+  TaskProcessingTaskType_OptionalInputShapeEnumValuesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _name = $v.name;
+      _value = $v.value;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingTaskType_OptionalInputShapeEnumValues other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingTaskType_OptionalInputShapeEnumValues;
+  }
+
+  @override
+  void update(void Function(TaskProcessingTaskType_OptionalInputShapeEnumValuesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingTaskType_OptionalInputShapeEnumValues build() => _build();
+
+  _$TaskProcessingTaskType_OptionalInputShapeEnumValues _build() {
+    TaskProcessingTaskType_OptionalInputShapeEnumValues._validate(this);
+    final _$result = _$v ??
+        _$TaskProcessingTaskType_OptionalInputShapeEnumValues._(
+            name: BuiltValueNullFieldError.checkNotNull(
+                name, r'TaskProcessingTaskType_OptionalInputShapeEnumValues', 'name'),
+            value: BuiltValueNullFieldError.checkNotNull(
+                value, r'TaskProcessingTaskType_OptionalInputShapeEnumValues', 'value'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingTaskType_OutputShapeEnumValuesInterfaceBuilder {
+  void replace($TaskProcessingTaskType_OutputShapeEnumValuesInterface other);
+  void update(void Function($TaskProcessingTaskType_OutputShapeEnumValuesInterfaceBuilder) updates);
+  String? get name;
+  set name(String? name);
+
+  String? get value;
+  set value(String? value);
+}
+
+class _$TaskProcessingTaskType_OutputShapeEnumValues extends TaskProcessingTaskType_OutputShapeEnumValues {
+  @override
+  final String name;
+  @override
+  final String value;
+
+  factory _$TaskProcessingTaskType_OutputShapeEnumValues(
+          [void Function(TaskProcessingTaskType_OutputShapeEnumValuesBuilder)? updates]) =>
+      (TaskProcessingTaskType_OutputShapeEnumValuesBuilder()..update(updates))._build();
+
+  _$TaskProcessingTaskType_OutputShapeEnumValues._({required this.name, required this.value}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(name, r'TaskProcessingTaskType_OutputShapeEnumValues', 'name');
+    BuiltValueNullFieldError.checkNotNull(value, r'TaskProcessingTaskType_OutputShapeEnumValues', 'value');
+  }
+
+  @override
+  TaskProcessingTaskType_OutputShapeEnumValues rebuild(
+          void Function(TaskProcessingTaskType_OutputShapeEnumValuesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingTaskType_OutputShapeEnumValuesBuilder toBuilder() =>
+      TaskProcessingTaskType_OutputShapeEnumValuesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingTaskType_OutputShapeEnumValues && name == other.name && value == other.value;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, value.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingTaskType_OutputShapeEnumValues')
+          ..add('name', name)
+          ..add('value', value))
+        .toString();
+  }
+}
+
+class TaskProcessingTaskType_OutputShapeEnumValuesBuilder
+    implements
+        Builder<TaskProcessingTaskType_OutputShapeEnumValues, TaskProcessingTaskType_OutputShapeEnumValuesBuilder>,
+        $TaskProcessingTaskType_OutputShapeEnumValuesInterfaceBuilder {
+  _$TaskProcessingTaskType_OutputShapeEnumValues? _$v;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(covariant String? name) => _$this._name = name;
+
+  String? _value;
+  String? get value => _$this._value;
+  set value(covariant String? value) => _$this._value = value;
+
+  TaskProcessingTaskType_OutputShapeEnumValuesBuilder() {
+    TaskProcessingTaskType_OutputShapeEnumValues._defaults(this);
+  }
+
+  TaskProcessingTaskType_OutputShapeEnumValuesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _name = $v.name;
+      _value = $v.value;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingTaskType_OutputShapeEnumValues other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingTaskType_OutputShapeEnumValues;
+  }
+
+  @override
+  void update(void Function(TaskProcessingTaskType_OutputShapeEnumValuesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingTaskType_OutputShapeEnumValues build() => _build();
+
+  _$TaskProcessingTaskType_OutputShapeEnumValues _build() {
+    TaskProcessingTaskType_OutputShapeEnumValues._validate(this);
+    final _$result = _$v ??
+        _$TaskProcessingTaskType_OutputShapeEnumValues._(
+            name: BuiltValueNullFieldError.checkNotNull(name, r'TaskProcessingTaskType_OutputShapeEnumValues', 'name'),
+            value:
+                BuiltValueNullFieldError.checkNotNull(value, r'TaskProcessingTaskType_OutputShapeEnumValues', 'value'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingTaskType_OptionalOutputShapeEnumValuesInterfaceBuilder {
+  void replace($TaskProcessingTaskType_OptionalOutputShapeEnumValuesInterface other);
+  void update(void Function($TaskProcessingTaskType_OptionalOutputShapeEnumValuesInterfaceBuilder) updates);
+  String? get name;
+  set name(String? name);
+
+  String? get value;
+  set value(String? value);
+}
+
+class _$TaskProcessingTaskType_OptionalOutputShapeEnumValues
+    extends TaskProcessingTaskType_OptionalOutputShapeEnumValues {
+  @override
+  final String name;
+  @override
+  final String value;
+
+  factory _$TaskProcessingTaskType_OptionalOutputShapeEnumValues(
+          [void Function(TaskProcessingTaskType_OptionalOutputShapeEnumValuesBuilder)? updates]) =>
+      (TaskProcessingTaskType_OptionalOutputShapeEnumValuesBuilder()..update(updates))._build();
+
+  _$TaskProcessingTaskType_OptionalOutputShapeEnumValues._({required this.name, required this.value}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(name, r'TaskProcessingTaskType_OptionalOutputShapeEnumValues', 'name');
+    BuiltValueNullFieldError.checkNotNull(value, r'TaskProcessingTaskType_OptionalOutputShapeEnumValues', 'value');
+  }
+
+  @override
+  TaskProcessingTaskType_OptionalOutputShapeEnumValues rebuild(
+          void Function(TaskProcessingTaskType_OptionalOutputShapeEnumValuesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingTaskType_OptionalOutputShapeEnumValuesBuilder toBuilder() =>
+      TaskProcessingTaskType_OptionalOutputShapeEnumValuesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingTaskType_OptionalOutputShapeEnumValues && name == other.name && value == other.value;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, value.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingTaskType_OptionalOutputShapeEnumValues')
+          ..add('name', name)
+          ..add('value', value))
+        .toString();
+  }
+}
+
+class TaskProcessingTaskType_OptionalOutputShapeEnumValuesBuilder
+    implements
+        Builder<TaskProcessingTaskType_OptionalOutputShapeEnumValues,
+            TaskProcessingTaskType_OptionalOutputShapeEnumValuesBuilder>,
+        $TaskProcessingTaskType_OptionalOutputShapeEnumValuesInterfaceBuilder {
+  _$TaskProcessingTaskType_OptionalOutputShapeEnumValues? _$v;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(covariant String? name) => _$this._name = name;
+
+  String? _value;
+  String? get value => _$this._value;
+  set value(covariant String? value) => _$this._value = value;
+
+  TaskProcessingTaskType_OptionalOutputShapeEnumValuesBuilder() {
+    TaskProcessingTaskType_OptionalOutputShapeEnumValues._defaults(this);
+  }
+
+  TaskProcessingTaskType_OptionalOutputShapeEnumValuesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _name = $v.name;
+      _value = $v.value;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingTaskType_OptionalOutputShapeEnumValues other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingTaskType_OptionalOutputShapeEnumValues;
+  }
+
+  @override
+  void update(void Function(TaskProcessingTaskType_OptionalOutputShapeEnumValuesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingTaskType_OptionalOutputShapeEnumValues build() => _build();
+
+  _$TaskProcessingTaskType_OptionalOutputShapeEnumValues _build() {
+    TaskProcessingTaskType_OptionalOutputShapeEnumValues._validate(this);
+    final _$result = _$v ??
+        _$TaskProcessingTaskType_OptionalOutputShapeEnumValues._(
+            name: BuiltValueNullFieldError.checkNotNull(
+                name, r'TaskProcessingTaskType_OptionalOutputShapeEnumValues', 'name'),
+            value: BuiltValueNullFieldError.checkNotNull(
+                value, r'TaskProcessingTaskType_OptionalOutputShapeEnumValues', 'value'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingTaskTypeInterfaceBuilder {
+  void replace($TaskProcessingTaskTypeInterface other);
+  void update(void Function($TaskProcessingTaskTypeInterfaceBuilder) updates);
+  String? get name;
+  set name(String? name);
+
+  String? get description;
+  set description(String? description);
+
+  ListBuilder<TaskProcessingShape> get inputShape;
+  set inputShape(ListBuilder<TaskProcessingShape>? inputShape);
+
+  ListBuilder<BuiltList<TaskProcessingTaskType_InputShapeEnumValues>> get inputShapeEnumValues;
+  set inputShapeEnumValues(ListBuilder<BuiltList<TaskProcessingTaskType_InputShapeEnumValues>>? inputShapeEnumValues);
+
+  MapBuilder<String, TaskProcessingTaskType_InputShapeDefaults> get inputShapeDefaults;
+  set inputShapeDefaults(MapBuilder<String, TaskProcessingTaskType_InputShapeDefaults>? inputShapeDefaults);
+
+  ListBuilder<TaskProcessingShape> get optionalInputShape;
+  set optionalInputShape(ListBuilder<TaskProcessingShape>? optionalInputShape);
+
+  ListBuilder<BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>> get optionalInputShapeEnumValues;
+  set optionalInputShapeEnumValues(
+      ListBuilder<BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>>? optionalInputShapeEnumValues);
+
+  MapBuilder<String, TaskProcessingTaskType_OptionalInputShapeDefaults> get optionalInputShapeDefaults;
+  set optionalInputShapeDefaults(
+      MapBuilder<String, TaskProcessingTaskType_OptionalInputShapeDefaults>? optionalInputShapeDefaults);
+
+  ListBuilder<TaskProcessingShape> get outputShape;
+  set outputShape(ListBuilder<TaskProcessingShape>? outputShape);
+
+  ListBuilder<BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>> get outputShapeEnumValues;
+  set outputShapeEnumValues(
+      ListBuilder<BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>>? outputShapeEnumValues);
+
+  ListBuilder<TaskProcessingShape> get optionalOutputShape;
+  set optionalOutputShape(ListBuilder<TaskProcessingShape>? optionalOutputShape);
+
+  ListBuilder<BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>> get optionalOutputShapeEnumValues;
+  set optionalOutputShapeEnumValues(
+      ListBuilder<BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>>? optionalOutputShapeEnumValues);
+}
+
+class _$TaskProcessingTaskType extends TaskProcessingTaskType {
+  @override
+  final String name;
+  @override
+  final String description;
+  @override
+  final BuiltList<TaskProcessingShape> inputShape;
+  @override
+  final BuiltList<BuiltList<TaskProcessingTaskType_InputShapeEnumValues>> inputShapeEnumValues;
+  @override
+  final BuiltMap<String, TaskProcessingTaskType_InputShapeDefaults> inputShapeDefaults;
+  @override
+  final BuiltList<TaskProcessingShape> optionalInputShape;
+  @override
+  final BuiltList<BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>> optionalInputShapeEnumValues;
+  @override
+  final BuiltMap<String, TaskProcessingTaskType_OptionalInputShapeDefaults> optionalInputShapeDefaults;
+  @override
+  final BuiltList<TaskProcessingShape> outputShape;
+  @override
+  final BuiltList<BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>> outputShapeEnumValues;
+  @override
+  final BuiltList<TaskProcessingShape> optionalOutputShape;
+  @override
+  final BuiltList<BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>> optionalOutputShapeEnumValues;
+
+  factory _$TaskProcessingTaskType([void Function(TaskProcessingTaskTypeBuilder)? updates]) =>
+      (TaskProcessingTaskTypeBuilder()..update(updates))._build();
+
+  _$TaskProcessingTaskType._(
+      {required this.name,
+      required this.description,
+      required this.inputShape,
+      required this.inputShapeEnumValues,
+      required this.inputShapeDefaults,
+      required this.optionalInputShape,
+      required this.optionalInputShapeEnumValues,
+      required this.optionalInputShapeDefaults,
+      required this.outputShape,
+      required this.outputShapeEnumValues,
+      required this.optionalOutputShape,
+      required this.optionalOutputShapeEnumValues})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(name, r'TaskProcessingTaskType', 'name');
+    BuiltValueNullFieldError.checkNotNull(description, r'TaskProcessingTaskType', 'description');
+    BuiltValueNullFieldError.checkNotNull(inputShape, r'TaskProcessingTaskType', 'inputShape');
+    BuiltValueNullFieldError.checkNotNull(inputShapeEnumValues, r'TaskProcessingTaskType', 'inputShapeEnumValues');
+    BuiltValueNullFieldError.checkNotNull(inputShapeDefaults, r'TaskProcessingTaskType', 'inputShapeDefaults');
+    BuiltValueNullFieldError.checkNotNull(optionalInputShape, r'TaskProcessingTaskType', 'optionalInputShape');
+    BuiltValueNullFieldError.checkNotNull(
+        optionalInputShapeEnumValues, r'TaskProcessingTaskType', 'optionalInputShapeEnumValues');
+    BuiltValueNullFieldError.checkNotNull(
+        optionalInputShapeDefaults, r'TaskProcessingTaskType', 'optionalInputShapeDefaults');
+    BuiltValueNullFieldError.checkNotNull(outputShape, r'TaskProcessingTaskType', 'outputShape');
+    BuiltValueNullFieldError.checkNotNull(outputShapeEnumValues, r'TaskProcessingTaskType', 'outputShapeEnumValues');
+    BuiltValueNullFieldError.checkNotNull(optionalOutputShape, r'TaskProcessingTaskType', 'optionalOutputShape');
+    BuiltValueNullFieldError.checkNotNull(
+        optionalOutputShapeEnumValues, r'TaskProcessingTaskType', 'optionalOutputShapeEnumValues');
+  }
+
+  @override
+  TaskProcessingTaskType rebuild(void Function(TaskProcessingTaskTypeBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingTaskTypeBuilder toBuilder() => TaskProcessingTaskTypeBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    final dynamic _$dynamicOther = other;
+    return other is TaskProcessingTaskType &&
+        name == other.name &&
+        description == other.description &&
+        inputShape == other.inputShape &&
+        inputShapeEnumValues == other.inputShapeEnumValues &&
+        inputShapeDefaults == _$dynamicOther.inputShapeDefaults &&
+        optionalInputShape == other.optionalInputShape &&
+        optionalInputShapeEnumValues == other.optionalInputShapeEnumValues &&
+        optionalInputShapeDefaults == _$dynamicOther.optionalInputShapeDefaults &&
+        outputShape == other.outputShape &&
+        outputShapeEnumValues == other.outputShapeEnumValues &&
+        optionalOutputShape == other.optionalOutputShape &&
+        optionalOutputShapeEnumValues == other.optionalOutputShapeEnumValues;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, description.hashCode);
+    _$hash = $jc(_$hash, inputShape.hashCode);
+    _$hash = $jc(_$hash, inputShapeEnumValues.hashCode);
+    _$hash = $jc(_$hash, inputShapeDefaults.hashCode);
+    _$hash = $jc(_$hash, optionalInputShape.hashCode);
+    _$hash = $jc(_$hash, optionalInputShapeEnumValues.hashCode);
+    _$hash = $jc(_$hash, optionalInputShapeDefaults.hashCode);
+    _$hash = $jc(_$hash, outputShape.hashCode);
+    _$hash = $jc(_$hash, outputShapeEnumValues.hashCode);
+    _$hash = $jc(_$hash, optionalOutputShape.hashCode);
+    _$hash = $jc(_$hash, optionalOutputShapeEnumValues.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingTaskType')
+          ..add('name', name)
+          ..add('description', description)
+          ..add('inputShape', inputShape)
+          ..add('inputShapeEnumValues', inputShapeEnumValues)
+          ..add('inputShapeDefaults', inputShapeDefaults)
+          ..add('optionalInputShape', optionalInputShape)
+          ..add('optionalInputShapeEnumValues', optionalInputShapeEnumValues)
+          ..add('optionalInputShapeDefaults', optionalInputShapeDefaults)
+          ..add('outputShape', outputShape)
+          ..add('outputShapeEnumValues', outputShapeEnumValues)
+          ..add('optionalOutputShape', optionalOutputShape)
+          ..add('optionalOutputShapeEnumValues', optionalOutputShapeEnumValues))
+        .toString();
+  }
+}
+
+class TaskProcessingTaskTypeBuilder
+    implements Builder<TaskProcessingTaskType, TaskProcessingTaskTypeBuilder>, $TaskProcessingTaskTypeInterfaceBuilder {
+  _$TaskProcessingTaskType? _$v;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(covariant String? name) => _$this._name = name;
+
+  String? _description;
+  String? get description => _$this._description;
+  set description(covariant String? description) => _$this._description = description;
+
+  ListBuilder<TaskProcessingShape>? _inputShape;
+  ListBuilder<TaskProcessingShape> get inputShape => _$this._inputShape ??= ListBuilder<TaskProcessingShape>();
+  set inputShape(covariant ListBuilder<TaskProcessingShape>? inputShape) => _$this._inputShape = inputShape;
+
+  ListBuilder<BuiltList<TaskProcessingTaskType_InputShapeEnumValues>>? _inputShapeEnumValues;
+  ListBuilder<BuiltList<TaskProcessingTaskType_InputShapeEnumValues>> get inputShapeEnumValues =>
+      _$this._inputShapeEnumValues ??= ListBuilder<BuiltList<TaskProcessingTaskType_InputShapeEnumValues>>();
+  set inputShapeEnumValues(
+          covariant ListBuilder<BuiltList<TaskProcessingTaskType_InputShapeEnumValues>>? inputShapeEnumValues) =>
+      _$this._inputShapeEnumValues = inputShapeEnumValues;
+
+  MapBuilder<String, TaskProcessingTaskType_InputShapeDefaults>? _inputShapeDefaults;
+  MapBuilder<String, TaskProcessingTaskType_InputShapeDefaults> get inputShapeDefaults =>
+      _$this._inputShapeDefaults ??= MapBuilder<String, TaskProcessingTaskType_InputShapeDefaults>();
+  set inputShapeDefaults(covariant MapBuilder<String, TaskProcessingTaskType_InputShapeDefaults>? inputShapeDefaults) =>
+      _$this._inputShapeDefaults = inputShapeDefaults;
+
+  ListBuilder<TaskProcessingShape>? _optionalInputShape;
+  ListBuilder<TaskProcessingShape> get optionalInputShape =>
+      _$this._optionalInputShape ??= ListBuilder<TaskProcessingShape>();
+  set optionalInputShape(covariant ListBuilder<TaskProcessingShape>? optionalInputShape) =>
+      _$this._optionalInputShape = optionalInputShape;
+
+  ListBuilder<BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>>? _optionalInputShapeEnumValues;
+  ListBuilder<BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>> get optionalInputShapeEnumValues =>
+      _$this._optionalInputShapeEnumValues ??=
+          ListBuilder<BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>>();
+  set optionalInputShapeEnumValues(
+          covariant ListBuilder<BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>>?
+              optionalInputShapeEnumValues) =>
+      _$this._optionalInputShapeEnumValues = optionalInputShapeEnumValues;
+
+  MapBuilder<String, TaskProcessingTaskType_OptionalInputShapeDefaults>? _optionalInputShapeDefaults;
+  MapBuilder<String, TaskProcessingTaskType_OptionalInputShapeDefaults> get optionalInputShapeDefaults =>
+      _$this._optionalInputShapeDefaults ??= MapBuilder<String, TaskProcessingTaskType_OptionalInputShapeDefaults>();
+  set optionalInputShapeDefaults(
+          covariant MapBuilder<String, TaskProcessingTaskType_OptionalInputShapeDefaults>?
+              optionalInputShapeDefaults) =>
+      _$this._optionalInputShapeDefaults = optionalInputShapeDefaults;
+
+  ListBuilder<TaskProcessingShape>? _outputShape;
+  ListBuilder<TaskProcessingShape> get outputShape => _$this._outputShape ??= ListBuilder<TaskProcessingShape>();
+  set outputShape(covariant ListBuilder<TaskProcessingShape>? outputShape) => _$this._outputShape = outputShape;
+
+  ListBuilder<BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>>? _outputShapeEnumValues;
+  ListBuilder<BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>> get outputShapeEnumValues =>
+      _$this._outputShapeEnumValues ??= ListBuilder<BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>>();
+  set outputShapeEnumValues(
+          covariant ListBuilder<BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>>? outputShapeEnumValues) =>
+      _$this._outputShapeEnumValues = outputShapeEnumValues;
+
+  ListBuilder<TaskProcessingShape>? _optionalOutputShape;
+  ListBuilder<TaskProcessingShape> get optionalOutputShape =>
+      _$this._optionalOutputShape ??= ListBuilder<TaskProcessingShape>();
+  set optionalOutputShape(covariant ListBuilder<TaskProcessingShape>? optionalOutputShape) =>
+      _$this._optionalOutputShape = optionalOutputShape;
+
+  ListBuilder<BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>>? _optionalOutputShapeEnumValues;
+  ListBuilder<BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>> get optionalOutputShapeEnumValues =>
+      _$this._optionalOutputShapeEnumValues ??=
+          ListBuilder<BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>>();
+  set optionalOutputShapeEnumValues(
+          covariant ListBuilder<BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>>?
+              optionalOutputShapeEnumValues) =>
+      _$this._optionalOutputShapeEnumValues = optionalOutputShapeEnumValues;
+
+  TaskProcessingTaskTypeBuilder() {
+    TaskProcessingTaskType._defaults(this);
+  }
+
+  TaskProcessingTaskTypeBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _name = $v.name;
+      _description = $v.description;
+      _inputShape = $v.inputShape.toBuilder();
+      _inputShapeEnumValues = $v.inputShapeEnumValues.toBuilder();
+      _inputShapeDefaults = $v.inputShapeDefaults.toBuilder();
+      _optionalInputShape = $v.optionalInputShape.toBuilder();
+      _optionalInputShapeEnumValues = $v.optionalInputShapeEnumValues.toBuilder();
+      _optionalInputShapeDefaults = $v.optionalInputShapeDefaults.toBuilder();
+      _outputShape = $v.outputShape.toBuilder();
+      _outputShapeEnumValues = $v.outputShapeEnumValues.toBuilder();
+      _optionalOutputShape = $v.optionalOutputShape.toBuilder();
+      _optionalOutputShapeEnumValues = $v.optionalOutputShapeEnumValues.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingTaskType other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingTaskType;
+  }
+
+  @override
+  void update(void Function(TaskProcessingTaskTypeBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingTaskType build() => _build();
+
+  _$TaskProcessingTaskType _build() {
+    TaskProcessingTaskType._validate(this);
+    _$TaskProcessingTaskType _$result;
+    try {
+      _$result = _$v ??
+          _$TaskProcessingTaskType._(
+              name: BuiltValueNullFieldError.checkNotNull(name, r'TaskProcessingTaskType', 'name'),
+              description: BuiltValueNullFieldError.checkNotNull(description, r'TaskProcessingTaskType', 'description'),
+              inputShape: inputShape.build(),
+              inputShapeEnumValues: inputShapeEnumValues.build(),
+              inputShapeDefaults: inputShapeDefaults.build(),
+              optionalInputShape: optionalInputShape.build(),
+              optionalInputShapeEnumValues: optionalInputShapeEnumValues.build(),
+              optionalInputShapeDefaults: optionalInputShapeDefaults.build(),
+              outputShape: outputShape.build(),
+              outputShapeEnumValues: outputShapeEnumValues.build(),
+              optionalOutputShape: optionalOutputShape.build(),
+              optionalOutputShapeEnumValues: optionalOutputShapeEnumValues.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'inputShape';
+        inputShape.build();
+        _$failedField = 'inputShapeEnumValues';
+        inputShapeEnumValues.build();
+        _$failedField = 'inputShapeDefaults';
+        inputShapeDefaults.build();
+        _$failedField = 'optionalInputShape';
+        optionalInputShape.build();
+        _$failedField = 'optionalInputShapeEnumValues';
+        optionalInputShapeEnumValues.build();
+        _$failedField = 'optionalInputShapeDefaults';
+        optionalInputShapeDefaults.build();
+        _$failedField = 'outputShape';
+        outputShape.build();
+        _$failedField = 'outputShapeEnumValues';
+        outputShapeEnumValues.build();
+        _$failedField = 'optionalOutputShape';
+        optionalOutputShape.build();
+        _$failedField = 'optionalOutputShapeEnumValues';
+        optionalOutputShapeEnumValues.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'TaskProcessingTaskType', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  MapBuilder<String, TaskProcessingTaskType> get types;
+  set types(MapBuilder<String, TaskProcessingTaskType>? types);
+}
+
+class _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data
+    extends TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data {
+  @override
+  final BuiltMap<String, TaskProcessingTaskType> types;
+
+  factory _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data(
+          [void Function(TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data._({required this.types}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        types, r'TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data', 'types');
+  }
+
+  @override
+  TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data rebuild(
+          void Function(TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data && types == other.types;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, types.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data')
+          ..add('types', types))
+        .toString();
+  }
+}
+
+class TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data,
+            TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder>,
+        $TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data? _$v;
+
+  MapBuilder<String, TaskProcessingTaskType>? _types;
+  MapBuilder<String, TaskProcessingTaskType> get types =>
+      _$this._types ??= MapBuilder<String, TaskProcessingTaskType>();
+  set types(covariant MapBuilder<String, TaskProcessingTaskType>? types) => _$this._types = types;
+
+  TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder() {
+    TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _types = $v.types.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data _build() {
+    TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data._validate(this);
+    _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data _$result;
+    try {
+      _$result = _$v ?? _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data._(types: types.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'types';
+        types.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiTaskTypesResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($TaskProcessingApiTaskTypesResponseApplicationJson_OcsInterface other);
+  void update(void Function($TaskProcessingApiTaskTypesResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs
+    extends TaskProcessingApiTaskTypesResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data data;
+
+  factory _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs(
+          [void Function(TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'TaskProcessingApiTaskTypesResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'TaskProcessingApiTaskTypesResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  TaskProcessingApiTaskTypesResponseApplicationJson_Ocs rebuild(
+          void Function(TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder toBuilder() =>
+      TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiTaskTypesResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiTaskTypesResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder
+    implements
+        Builder<TaskProcessingApiTaskTypesResponseApplicationJson_Ocs,
+            TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder>,
+        $TaskProcessingApiTaskTypesResponseApplicationJson_OcsInterfaceBuilder {
+  _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder? _data;
+  TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder() {
+    TaskProcessingApiTaskTypesResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiTaskTypesResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiTaskTypesResponseApplicationJson_Ocs build() => _build();
+
+  _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs _build() {
+    TaskProcessingApiTaskTypesResponseApplicationJson_Ocs._validate(this);
+    _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiTaskTypesResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiTaskTypesResponseApplicationJsonInterfaceBuilder {
+  void replace($TaskProcessingApiTaskTypesResponseApplicationJsonInterface other);
+  void update(void Function($TaskProcessingApiTaskTypesResponseApplicationJsonInterfaceBuilder) updates);
+  TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$TaskProcessingApiTaskTypesResponseApplicationJson extends TaskProcessingApiTaskTypesResponseApplicationJson {
+  @override
+  final TaskProcessingApiTaskTypesResponseApplicationJson_Ocs ocs;
+
+  factory _$TaskProcessingApiTaskTypesResponseApplicationJson(
+          [void Function(TaskProcessingApiTaskTypesResponseApplicationJsonBuilder)? updates]) =>
+      (TaskProcessingApiTaskTypesResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiTaskTypesResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TaskProcessingApiTaskTypesResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  TaskProcessingApiTaskTypesResponseApplicationJson rebuild(
+          void Function(TaskProcessingApiTaskTypesResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiTaskTypesResponseApplicationJsonBuilder toBuilder() =>
+      TaskProcessingApiTaskTypesResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiTaskTypesResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiTaskTypesResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class TaskProcessingApiTaskTypesResponseApplicationJsonBuilder
+    implements
+        Builder<TaskProcessingApiTaskTypesResponseApplicationJson,
+            TaskProcessingApiTaskTypesResponseApplicationJsonBuilder>,
+        $TaskProcessingApiTaskTypesResponseApplicationJsonInterfaceBuilder {
+  _$TaskProcessingApiTaskTypesResponseApplicationJson? _$v;
+
+  TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder? _ocs;
+  TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  TaskProcessingApiTaskTypesResponseApplicationJsonBuilder() {
+    TaskProcessingApiTaskTypesResponseApplicationJson._defaults(this);
+  }
+
+  TaskProcessingApiTaskTypesResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiTaskTypesResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiTaskTypesResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiTaskTypesResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiTaskTypesResponseApplicationJson build() => _build();
+
+  _$TaskProcessingApiTaskTypesResponseApplicationJson _build() {
+    TaskProcessingApiTaskTypesResponseApplicationJson._validate(this);
+    _$TaskProcessingApiTaskTypesResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$TaskProcessingApiTaskTypesResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiTaskTypesResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiScheduleRequestApplicationJsonInterfaceBuilder {
+  void replace($TaskProcessingApiScheduleRequestApplicationJsonInterface other);
+  void update(void Function($TaskProcessingApiScheduleRequestApplicationJsonInterfaceBuilder) updates);
+  MapBuilder<String, JsonObject> get input;
+  set input(MapBuilder<String, JsonObject>? input);
+
+  String? get type;
+  set type(String? type);
+
+  String? get appId;
+  set appId(String? appId);
+
+  String? get customId;
+  set customId(String? customId);
+
+  String? get webhookUri;
+  set webhookUri(String? webhookUri);
+
+  String? get webhookMethod;
+  set webhookMethod(String? webhookMethod);
+}
+
+class _$TaskProcessingApiScheduleRequestApplicationJson extends TaskProcessingApiScheduleRequestApplicationJson {
+  @override
+  final BuiltMap<String, JsonObject> input;
+  @override
+  final String type;
+  @override
+  final String appId;
+  @override
+  final String customId;
+  @override
+  final String? webhookUri;
+  @override
+  final String? webhookMethod;
+
+  factory _$TaskProcessingApiScheduleRequestApplicationJson(
+          [void Function(TaskProcessingApiScheduleRequestApplicationJsonBuilder)? updates]) =>
+      (TaskProcessingApiScheduleRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiScheduleRequestApplicationJson._(
+      {required this.input,
+      required this.type,
+      required this.appId,
+      required this.customId,
+      this.webhookUri,
+      this.webhookMethod})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(input, r'TaskProcessingApiScheduleRequestApplicationJson', 'input');
+    BuiltValueNullFieldError.checkNotNull(type, r'TaskProcessingApiScheduleRequestApplicationJson', 'type');
+    BuiltValueNullFieldError.checkNotNull(appId, r'TaskProcessingApiScheduleRequestApplicationJson', 'appId');
+    BuiltValueNullFieldError.checkNotNull(customId, r'TaskProcessingApiScheduleRequestApplicationJson', 'customId');
+  }
+
+  @override
+  TaskProcessingApiScheduleRequestApplicationJson rebuild(
+          void Function(TaskProcessingApiScheduleRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiScheduleRequestApplicationJsonBuilder toBuilder() =>
+      TaskProcessingApiScheduleRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiScheduleRequestApplicationJson &&
+        input == other.input &&
+        type == other.type &&
+        appId == other.appId &&
+        customId == other.customId &&
+        webhookUri == other.webhookUri &&
+        webhookMethod == other.webhookMethod;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, input.hashCode);
+    _$hash = $jc(_$hash, type.hashCode);
+    _$hash = $jc(_$hash, appId.hashCode);
+    _$hash = $jc(_$hash, customId.hashCode);
+    _$hash = $jc(_$hash, webhookUri.hashCode);
+    _$hash = $jc(_$hash, webhookMethod.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiScheduleRequestApplicationJson')
+          ..add('input', input)
+          ..add('type', type)
+          ..add('appId', appId)
+          ..add('customId', customId)
+          ..add('webhookUri', webhookUri)
+          ..add('webhookMethod', webhookMethod))
+        .toString();
+  }
+}
+
+class TaskProcessingApiScheduleRequestApplicationJsonBuilder
+    implements
+        Builder<TaskProcessingApiScheduleRequestApplicationJson,
+            TaskProcessingApiScheduleRequestApplicationJsonBuilder>,
+        $TaskProcessingApiScheduleRequestApplicationJsonInterfaceBuilder {
+  _$TaskProcessingApiScheduleRequestApplicationJson? _$v;
+
+  MapBuilder<String, JsonObject>? _input;
+  MapBuilder<String, JsonObject> get input => _$this._input ??= MapBuilder<String, JsonObject>();
+  set input(covariant MapBuilder<String, JsonObject>? input) => _$this._input = input;
+
+  String? _type;
+  String? get type => _$this._type;
+  set type(covariant String? type) => _$this._type = type;
+
+  String? _appId;
+  String? get appId => _$this._appId;
+  set appId(covariant String? appId) => _$this._appId = appId;
+
+  String? _customId;
+  String? get customId => _$this._customId;
+  set customId(covariant String? customId) => _$this._customId = customId;
+
+  String? _webhookUri;
+  String? get webhookUri => _$this._webhookUri;
+  set webhookUri(covariant String? webhookUri) => _$this._webhookUri = webhookUri;
+
+  String? _webhookMethod;
+  String? get webhookMethod => _$this._webhookMethod;
+  set webhookMethod(covariant String? webhookMethod) => _$this._webhookMethod = webhookMethod;
+
+  TaskProcessingApiScheduleRequestApplicationJsonBuilder() {
+    TaskProcessingApiScheduleRequestApplicationJson._defaults(this);
+  }
+
+  TaskProcessingApiScheduleRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _input = $v.input.toBuilder();
+      _type = $v.type;
+      _appId = $v.appId;
+      _customId = $v.customId;
+      _webhookUri = $v.webhookUri;
+      _webhookMethod = $v.webhookMethod;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiScheduleRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiScheduleRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiScheduleRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiScheduleRequestApplicationJson build() => _build();
+
+  _$TaskProcessingApiScheduleRequestApplicationJson _build() {
+    TaskProcessingApiScheduleRequestApplicationJson._validate(this);
+    _$TaskProcessingApiScheduleRequestApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$TaskProcessingApiScheduleRequestApplicationJson._(
+              input: input.build(),
+              type: BuiltValueNullFieldError.checkNotNull(
+                  type, r'TaskProcessingApiScheduleRequestApplicationJson', 'type'),
+              appId: BuiltValueNullFieldError.checkNotNull(
+                  appId, r'TaskProcessingApiScheduleRequestApplicationJson', 'appId'),
+              customId: BuiltValueNullFieldError.checkNotNull(
+                  customId, r'TaskProcessingApiScheduleRequestApplicationJson', 'customId'),
+              webhookUri: webhookUri,
+              webhookMethod: webhookMethod);
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'input';
+        input.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiScheduleRequestApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingTaskInterfaceBuilder {
+  void replace($TaskProcessingTaskInterface other);
+  void update(void Function($TaskProcessingTaskInterfaceBuilder) updates);
+  int? get id;
+  set id(int? id);
+
+  int? get lastUpdated;
+  set lastUpdated(int? lastUpdated);
+
+  String? get type;
+  set type(String? type);
+
+  TaskProcessingTask_Status? get status;
+  set status(TaskProcessingTask_Status? status);
+
+  String? get userId;
+  set userId(String? userId);
+
+  String? get appId;
+  set appId(String? appId);
+
+  MapBuilder<String, TaskProcessingIO> get input;
+  set input(MapBuilder<String, TaskProcessingIO>? input);
+
+  MapBuilder<String, TaskProcessingIO> get output;
+  set output(MapBuilder<String, TaskProcessingIO>? output);
+
+  String? get customId;
+  set customId(String? customId);
+
+  int? get completionExpectedAt;
+  set completionExpectedAt(int? completionExpectedAt);
+
+  double? get progress;
+  set progress(double? progress);
+}
+
+class _$TaskProcessingTask extends TaskProcessingTask {
+  @override
+  final int id;
+  @override
+  final int lastUpdated;
+  @override
+  final String type;
+  @override
+  final TaskProcessingTask_Status status;
+  @override
+  final String? userId;
+  @override
+  final String appId;
+  @override
+  final BuiltMap<String, TaskProcessingIO> input;
+  @override
+  final BuiltMap<String, TaskProcessingIO>? output;
+  @override
+  final String? customId;
+  @override
+  final int? completionExpectedAt;
+  @override
+  final double? progress;
+
+  factory _$TaskProcessingTask([void Function(TaskProcessingTaskBuilder)? updates]) =>
+      (TaskProcessingTaskBuilder()..update(updates))._build();
+
+  _$TaskProcessingTask._(
+      {required this.id,
+      required this.lastUpdated,
+      required this.type,
+      required this.status,
+      this.userId,
+      required this.appId,
+      required this.input,
+      this.output,
+      this.customId,
+      this.completionExpectedAt,
+      this.progress})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(id, r'TaskProcessingTask', 'id');
+    BuiltValueNullFieldError.checkNotNull(lastUpdated, r'TaskProcessingTask', 'lastUpdated');
+    BuiltValueNullFieldError.checkNotNull(type, r'TaskProcessingTask', 'type');
+    BuiltValueNullFieldError.checkNotNull(status, r'TaskProcessingTask', 'status');
+    BuiltValueNullFieldError.checkNotNull(appId, r'TaskProcessingTask', 'appId');
+    BuiltValueNullFieldError.checkNotNull(input, r'TaskProcessingTask', 'input');
+  }
+
+  @override
+  TaskProcessingTask rebuild(void Function(TaskProcessingTaskBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingTaskBuilder toBuilder() => TaskProcessingTaskBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    final dynamic _$dynamicOther = other;
+    return other is TaskProcessingTask &&
+        id == other.id &&
+        lastUpdated == other.lastUpdated &&
+        type == other.type &&
+        status == other.status &&
+        userId == other.userId &&
+        appId == other.appId &&
+        input == _$dynamicOther.input &&
+        output == _$dynamicOther.output &&
+        customId == other.customId &&
+        completionExpectedAt == other.completionExpectedAt &&
+        progress == other.progress;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, lastUpdated.hashCode);
+    _$hash = $jc(_$hash, type.hashCode);
+    _$hash = $jc(_$hash, status.hashCode);
+    _$hash = $jc(_$hash, userId.hashCode);
+    _$hash = $jc(_$hash, appId.hashCode);
+    _$hash = $jc(_$hash, input.hashCode);
+    _$hash = $jc(_$hash, output.hashCode);
+    _$hash = $jc(_$hash, customId.hashCode);
+    _$hash = $jc(_$hash, completionExpectedAt.hashCode);
+    _$hash = $jc(_$hash, progress.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingTask')
+          ..add('id', id)
+          ..add('lastUpdated', lastUpdated)
+          ..add('type', type)
+          ..add('status', status)
+          ..add('userId', userId)
+          ..add('appId', appId)
+          ..add('input', input)
+          ..add('output', output)
+          ..add('customId', customId)
+          ..add('completionExpectedAt', completionExpectedAt)
+          ..add('progress', progress))
+        .toString();
+  }
+}
+
+class TaskProcessingTaskBuilder
+    implements Builder<TaskProcessingTask, TaskProcessingTaskBuilder>, $TaskProcessingTaskInterfaceBuilder {
+  _$TaskProcessingTask? _$v;
+
+  int? _id;
+  int? get id => _$this._id;
+  set id(covariant int? id) => _$this._id = id;
+
+  int? _lastUpdated;
+  int? get lastUpdated => _$this._lastUpdated;
+  set lastUpdated(covariant int? lastUpdated) => _$this._lastUpdated = lastUpdated;
+
+  String? _type;
+  String? get type => _$this._type;
+  set type(covariant String? type) => _$this._type = type;
+
+  TaskProcessingTask_Status? _status;
+  TaskProcessingTask_Status? get status => _$this._status;
+  set status(covariant TaskProcessingTask_Status? status) => _$this._status = status;
+
+  String? _userId;
+  String? get userId => _$this._userId;
+  set userId(covariant String? userId) => _$this._userId = userId;
+
+  String? _appId;
+  String? get appId => _$this._appId;
+  set appId(covariant String? appId) => _$this._appId = appId;
+
+  MapBuilder<String, TaskProcessingIO>? _input;
+  MapBuilder<String, TaskProcessingIO> get input => _$this._input ??= MapBuilder<String, TaskProcessingIO>();
+  set input(covariant MapBuilder<String, TaskProcessingIO>? input) => _$this._input = input;
+
+  MapBuilder<String, TaskProcessingIO>? _output;
+  MapBuilder<String, TaskProcessingIO> get output => _$this._output ??= MapBuilder<String, TaskProcessingIO>();
+  set output(covariant MapBuilder<String, TaskProcessingIO>? output) => _$this._output = output;
+
+  String? _customId;
+  String? get customId => _$this._customId;
+  set customId(covariant String? customId) => _$this._customId = customId;
+
+  int? _completionExpectedAt;
+  int? get completionExpectedAt => _$this._completionExpectedAt;
+  set completionExpectedAt(covariant int? completionExpectedAt) => _$this._completionExpectedAt = completionExpectedAt;
+
+  double? _progress;
+  double? get progress => _$this._progress;
+  set progress(covariant double? progress) => _$this._progress = progress;
+
+  TaskProcessingTaskBuilder() {
+    TaskProcessingTask._defaults(this);
+  }
+
+  TaskProcessingTaskBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _lastUpdated = $v.lastUpdated;
+      _type = $v.type;
+      _status = $v.status;
+      _userId = $v.userId;
+      _appId = $v.appId;
+      _input = $v.input.toBuilder();
+      _output = $v.output?.toBuilder();
+      _customId = $v.customId;
+      _completionExpectedAt = $v.completionExpectedAt;
+      _progress = $v.progress;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingTask other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingTask;
+  }
+
+  @override
+  void update(void Function(TaskProcessingTaskBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingTask build() => _build();
+
+  _$TaskProcessingTask _build() {
+    TaskProcessingTask._validate(this);
+    _$TaskProcessingTask _$result;
+    try {
+      _$result = _$v ??
+          _$TaskProcessingTask._(
+              id: BuiltValueNullFieldError.checkNotNull(id, r'TaskProcessingTask', 'id'),
+              lastUpdated: BuiltValueNullFieldError.checkNotNull(lastUpdated, r'TaskProcessingTask', 'lastUpdated'),
+              type: BuiltValueNullFieldError.checkNotNull(type, r'TaskProcessingTask', 'type'),
+              status: BuiltValueNullFieldError.checkNotNull(status, r'TaskProcessingTask', 'status'),
+              userId: userId,
+              appId: BuiltValueNullFieldError.checkNotNull(appId, r'TaskProcessingTask', 'appId'),
+              input: input.build(),
+              output: _output?.build(),
+              customId: customId,
+              completionExpectedAt: completionExpectedAt,
+              progress: progress);
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'input';
+        input.build();
+        _$failedField = 'output';
+        _output?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'TaskProcessingTask', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  TaskProcessingTaskBuilder get task;
+  set task(TaskProcessingTaskBuilder? task);
+}
+
+class _$TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data
+    extends TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data {
+  @override
+  final TaskProcessingTask task;
+
+  factory _$TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data(
+          [void Function(TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data._({required this.task}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(task, r'TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data', 'task');
+  }
+
+  @override
+  TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data rebuild(
+          void Function(TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data && task == other.task;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, task.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data')
+          ..add('task', task))
+        .toString();
+  }
+}
+
+class TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data,
+            TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder>,
+        $TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data? _$v;
+
+  TaskProcessingTaskBuilder? _task;
+  TaskProcessingTaskBuilder get task => _$this._task ??= TaskProcessingTaskBuilder();
+  set task(covariant TaskProcessingTaskBuilder? task) => _$this._task = task;
+
+  TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder() {
+    TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _task = $v.task.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data _build() {
+    TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data._validate(this);
+    _$TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data _$result;
+    try {
+      _$result = _$v ?? _$TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data._(task: task.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'task';
+        task.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiScheduleResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($TaskProcessingApiScheduleResponseApplicationJson_OcsInterface other);
+  void update(void Function($TaskProcessingApiScheduleResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$TaskProcessingApiScheduleResponseApplicationJson_Ocs
+    extends TaskProcessingApiScheduleResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data data;
+
+  factory _$TaskProcessingApiScheduleResponseApplicationJson_Ocs(
+          [void Function(TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiScheduleResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'TaskProcessingApiScheduleResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'TaskProcessingApiScheduleResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  TaskProcessingApiScheduleResponseApplicationJson_Ocs rebuild(
+          void Function(TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder toBuilder() =>
+      TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiScheduleResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiScheduleResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder
+    implements
+        Builder<TaskProcessingApiScheduleResponseApplicationJson_Ocs,
+            TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder>,
+        $TaskProcessingApiScheduleResponseApplicationJson_OcsInterfaceBuilder {
+  _$TaskProcessingApiScheduleResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder? _data;
+  TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder() {
+    TaskProcessingApiScheduleResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiScheduleResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiScheduleResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiScheduleResponseApplicationJson_Ocs build() => _build();
+
+  _$TaskProcessingApiScheduleResponseApplicationJson_Ocs _build() {
+    TaskProcessingApiScheduleResponseApplicationJson_Ocs._validate(this);
+    _$TaskProcessingApiScheduleResponseApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$TaskProcessingApiScheduleResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiScheduleResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiScheduleResponseApplicationJsonInterfaceBuilder {
+  void replace($TaskProcessingApiScheduleResponseApplicationJsonInterface other);
+  void update(void Function($TaskProcessingApiScheduleResponseApplicationJsonInterfaceBuilder) updates);
+  TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$TaskProcessingApiScheduleResponseApplicationJson extends TaskProcessingApiScheduleResponseApplicationJson {
+  @override
+  final TaskProcessingApiScheduleResponseApplicationJson_Ocs ocs;
+
+  factory _$TaskProcessingApiScheduleResponseApplicationJson(
+          [void Function(TaskProcessingApiScheduleResponseApplicationJsonBuilder)? updates]) =>
+      (TaskProcessingApiScheduleResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiScheduleResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TaskProcessingApiScheduleResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  TaskProcessingApiScheduleResponseApplicationJson rebuild(
+          void Function(TaskProcessingApiScheduleResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiScheduleResponseApplicationJsonBuilder toBuilder() =>
+      TaskProcessingApiScheduleResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiScheduleResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiScheduleResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class TaskProcessingApiScheduleResponseApplicationJsonBuilder
+    implements
+        Builder<TaskProcessingApiScheduleResponseApplicationJson,
+            TaskProcessingApiScheduleResponseApplicationJsonBuilder>,
+        $TaskProcessingApiScheduleResponseApplicationJsonInterfaceBuilder {
+  _$TaskProcessingApiScheduleResponseApplicationJson? _$v;
+
+  TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder? _ocs;
+  TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  TaskProcessingApiScheduleResponseApplicationJsonBuilder() {
+    TaskProcessingApiScheduleResponseApplicationJson._defaults(this);
+  }
+
+  TaskProcessingApiScheduleResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiScheduleResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiScheduleResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiScheduleResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiScheduleResponseApplicationJson build() => _build();
+
+  _$TaskProcessingApiScheduleResponseApplicationJson _build() {
+    TaskProcessingApiScheduleResponseApplicationJson._validate(this);
+    _$TaskProcessingApiScheduleResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$TaskProcessingApiScheduleResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiScheduleResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  TaskProcessingTaskBuilder get task;
+  set task(TaskProcessingTaskBuilder? task);
+}
+
+class _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data
+    extends TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data {
+  @override
+  final TaskProcessingTask task;
+
+  factory _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data(
+          [void Function(TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data._({required this.task}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(task, r'TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data', 'task');
+  }
+
+  @override
+  TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data rebuild(
+          void Function(TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data && task == other.task;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, task.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data')..add('task', task))
+        .toString();
+  }
+}
+
+class TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data,
+            TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder>,
+        $TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data? _$v;
+
+  TaskProcessingTaskBuilder? _task;
+  TaskProcessingTaskBuilder get task => _$this._task ??= TaskProcessingTaskBuilder();
+  set task(covariant TaskProcessingTaskBuilder? task) => _$this._task = task;
+
+  TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder() {
+    TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _task = $v.task.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data _build() {
+    TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data._validate(this);
+    _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data _$result;
+    try {
+      _$result = _$v ?? _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data._(task: task.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'task';
+        task.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiGetTaskResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($TaskProcessingApiGetTaskResponseApplicationJson_OcsInterface other);
+  void update(void Function($TaskProcessingApiGetTaskResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs
+    extends TaskProcessingApiGetTaskResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data data;
+
+  factory _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs(
+          [void Function(TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'TaskProcessingApiGetTaskResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'TaskProcessingApiGetTaskResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  TaskProcessingApiGetTaskResponseApplicationJson_Ocs rebuild(
+          void Function(TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder toBuilder() =>
+      TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiGetTaskResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiGetTaskResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder
+    implements
+        Builder<TaskProcessingApiGetTaskResponseApplicationJson_Ocs,
+            TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder>,
+        $TaskProcessingApiGetTaskResponseApplicationJson_OcsInterfaceBuilder {
+  _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder? _data;
+  TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder() {
+    TaskProcessingApiGetTaskResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiGetTaskResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiGetTaskResponseApplicationJson_Ocs build() => _build();
+
+  _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs _build() {
+    TaskProcessingApiGetTaskResponseApplicationJson_Ocs._validate(this);
+    _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ?? _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiGetTaskResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiGetTaskResponseApplicationJsonInterfaceBuilder {
+  void replace($TaskProcessingApiGetTaskResponseApplicationJsonInterface other);
+  void update(void Function($TaskProcessingApiGetTaskResponseApplicationJsonInterfaceBuilder) updates);
+  TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$TaskProcessingApiGetTaskResponseApplicationJson extends TaskProcessingApiGetTaskResponseApplicationJson {
+  @override
+  final TaskProcessingApiGetTaskResponseApplicationJson_Ocs ocs;
+
+  factory _$TaskProcessingApiGetTaskResponseApplicationJson(
+          [void Function(TaskProcessingApiGetTaskResponseApplicationJsonBuilder)? updates]) =>
+      (TaskProcessingApiGetTaskResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiGetTaskResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TaskProcessingApiGetTaskResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  TaskProcessingApiGetTaskResponseApplicationJson rebuild(
+          void Function(TaskProcessingApiGetTaskResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiGetTaskResponseApplicationJsonBuilder toBuilder() =>
+      TaskProcessingApiGetTaskResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiGetTaskResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiGetTaskResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class TaskProcessingApiGetTaskResponseApplicationJsonBuilder
+    implements
+        Builder<TaskProcessingApiGetTaskResponseApplicationJson,
+            TaskProcessingApiGetTaskResponseApplicationJsonBuilder>,
+        $TaskProcessingApiGetTaskResponseApplicationJsonInterfaceBuilder {
+  _$TaskProcessingApiGetTaskResponseApplicationJson? _$v;
+
+  TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder? _ocs;
+  TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  TaskProcessingApiGetTaskResponseApplicationJsonBuilder() {
+    TaskProcessingApiGetTaskResponseApplicationJson._defaults(this);
+  }
+
+  TaskProcessingApiGetTaskResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiGetTaskResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiGetTaskResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiGetTaskResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiGetTaskResponseApplicationJson build() => _build();
+
+  _$TaskProcessingApiGetTaskResponseApplicationJson _build() {
+    TaskProcessingApiGetTaskResponseApplicationJson._validate(this);
+    _$TaskProcessingApiGetTaskResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$TaskProcessingApiGetTaskResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiGetTaskResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiDeleteTaskResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($TaskProcessingApiDeleteTaskResponseApplicationJson_OcsInterface other);
+  void update(void Function($TaskProcessingApiDeleteTaskResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
+}
+
+class _$TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs
+    extends TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final JsonObject? data;
+
+  factory _$TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs(
+          [void Function(TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs._({required this.meta, this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs', 'meta');
+  }
+
+  @override
+  TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs rebuild(
+          void Function(TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder toBuilder() =>
+      TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder
+    implements
+        Builder<TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs,
+            TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder>,
+        $TaskProcessingApiDeleteTaskResponseApplicationJson_OcsInterfaceBuilder {
+  _$TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  JsonObject? _data;
+  JsonObject? get data => _$this._data;
+  set data(covariant JsonObject? data) => _$this._data = data;
+
+  TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder() {
+    TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs build() => _build();
+
+  _$TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs _build() {
+    TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs._validate(this);
+    _$TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ?? _$TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs._(meta: meta.build(), data: data);
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiDeleteTaskResponseApplicationJsonInterfaceBuilder {
+  void replace($TaskProcessingApiDeleteTaskResponseApplicationJsonInterface other);
+  void update(void Function($TaskProcessingApiDeleteTaskResponseApplicationJsonInterfaceBuilder) updates);
+  TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$TaskProcessingApiDeleteTaskResponseApplicationJson extends TaskProcessingApiDeleteTaskResponseApplicationJson {
+  @override
+  final TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs ocs;
+
+  factory _$TaskProcessingApiDeleteTaskResponseApplicationJson(
+          [void Function(TaskProcessingApiDeleteTaskResponseApplicationJsonBuilder)? updates]) =>
+      (TaskProcessingApiDeleteTaskResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiDeleteTaskResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TaskProcessingApiDeleteTaskResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  TaskProcessingApiDeleteTaskResponseApplicationJson rebuild(
+          void Function(TaskProcessingApiDeleteTaskResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiDeleteTaskResponseApplicationJsonBuilder toBuilder() =>
+      TaskProcessingApiDeleteTaskResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiDeleteTaskResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiDeleteTaskResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class TaskProcessingApiDeleteTaskResponseApplicationJsonBuilder
+    implements
+        Builder<TaskProcessingApiDeleteTaskResponseApplicationJson,
+            TaskProcessingApiDeleteTaskResponseApplicationJsonBuilder>,
+        $TaskProcessingApiDeleteTaskResponseApplicationJsonInterfaceBuilder {
+  _$TaskProcessingApiDeleteTaskResponseApplicationJson? _$v;
+
+  TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder? _ocs;
+  TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  TaskProcessingApiDeleteTaskResponseApplicationJsonBuilder() {
+    TaskProcessingApiDeleteTaskResponseApplicationJson._defaults(this);
+  }
+
+  TaskProcessingApiDeleteTaskResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiDeleteTaskResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiDeleteTaskResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiDeleteTaskResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiDeleteTaskResponseApplicationJson build() => _build();
+
+  _$TaskProcessingApiDeleteTaskResponseApplicationJson _build() {
+    TaskProcessingApiDeleteTaskResponseApplicationJson._validate(this);
+    _$TaskProcessingApiDeleteTaskResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$TaskProcessingApiDeleteTaskResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiDeleteTaskResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  ListBuilder<TaskProcessingTask> get tasks;
+  set tasks(ListBuilder<TaskProcessingTask>? tasks);
+}
+
+class _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data
+    extends TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data {
+  @override
+  final BuiltList<TaskProcessingTask> tasks;
+
+  factory _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data(
+          [void Function(TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data._({required this.tasks}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        tasks, r'TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data', 'tasks');
+  }
+
+  @override
+  TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data rebuild(
+          void Function(TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data && tasks == other.tasks;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, tasks.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data')
+          ..add('tasks', tasks))
+        .toString();
+  }
+}
+
+class TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data,
+            TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder>,
+        $TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data? _$v;
+
+  ListBuilder<TaskProcessingTask>? _tasks;
+  ListBuilder<TaskProcessingTask> get tasks => _$this._tasks ??= ListBuilder<TaskProcessingTask>();
+  set tasks(covariant ListBuilder<TaskProcessingTask>? tasks) => _$this._tasks = tasks;
+
+  TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder() {
+    TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _tasks = $v.tasks.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data _build() {
+    TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data._validate(this);
+    _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data _$result;
+    try {
+      _$result = _$v ?? _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data._(tasks: tasks.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'tasks';
+        tasks.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiListTasksByAppResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($TaskProcessingApiListTasksByAppResponseApplicationJson_OcsInterface other);
+  void update(void Function($TaskProcessingApiListTasksByAppResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs
+    extends TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data data;
+
+  factory _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs(
+          [void Function(TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs rebuild(
+          void Function(TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder toBuilder() =>
+      TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder
+    implements
+        Builder<TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs,
+            TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder>,
+        $TaskProcessingApiListTasksByAppResponseApplicationJson_OcsInterfaceBuilder {
+  _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder? _data;
+  TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
+
+  TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder() {
+    TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs build() => _build();
+
+  _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs _build() {
+    TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs._validate(this);
+    _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiListTasksByAppResponseApplicationJsonInterfaceBuilder {
+  void replace($TaskProcessingApiListTasksByAppResponseApplicationJsonInterface other);
+  void update(void Function($TaskProcessingApiListTasksByAppResponseApplicationJsonInterfaceBuilder) updates);
+  TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$TaskProcessingApiListTasksByAppResponseApplicationJson
+    extends TaskProcessingApiListTasksByAppResponseApplicationJson {
+  @override
+  final TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs ocs;
+
+  factory _$TaskProcessingApiListTasksByAppResponseApplicationJson(
+          [void Function(TaskProcessingApiListTasksByAppResponseApplicationJsonBuilder)? updates]) =>
+      (TaskProcessingApiListTasksByAppResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiListTasksByAppResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TaskProcessingApiListTasksByAppResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  TaskProcessingApiListTasksByAppResponseApplicationJson rebuild(
+          void Function(TaskProcessingApiListTasksByAppResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiListTasksByAppResponseApplicationJsonBuilder toBuilder() =>
+      TaskProcessingApiListTasksByAppResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiListTasksByAppResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiListTasksByAppResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class TaskProcessingApiListTasksByAppResponseApplicationJsonBuilder
+    implements
+        Builder<TaskProcessingApiListTasksByAppResponseApplicationJson,
+            TaskProcessingApiListTasksByAppResponseApplicationJsonBuilder>,
+        $TaskProcessingApiListTasksByAppResponseApplicationJsonInterfaceBuilder {
+  _$TaskProcessingApiListTasksByAppResponseApplicationJson? _$v;
+
+  TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder? _ocs;
+  TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  TaskProcessingApiListTasksByAppResponseApplicationJsonBuilder() {
+    TaskProcessingApiListTasksByAppResponseApplicationJson._defaults(this);
+  }
+
+  TaskProcessingApiListTasksByAppResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiListTasksByAppResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiListTasksByAppResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiListTasksByAppResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiListTasksByAppResponseApplicationJson build() => _build();
+
+  _$TaskProcessingApiListTasksByAppResponseApplicationJson _build() {
+    TaskProcessingApiListTasksByAppResponseApplicationJson._validate(this);
+    _$TaskProcessingApiListTasksByAppResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$TaskProcessingApiListTasksByAppResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiListTasksByAppResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  ListBuilder<TaskProcessingTask> get tasks;
+  set tasks(ListBuilder<TaskProcessingTask>? tasks);
+}
+
+class _$TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data
+    extends TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data {
+  @override
+  final BuiltList<TaskProcessingTask> tasks;
+
+  factory _$TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data(
+          [void Function(TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data._({required this.tasks}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        tasks, r'TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data', 'tasks');
+  }
+
+  @override
+  TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data rebuild(
+          void Function(TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data && tasks == other.tasks;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, tasks.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data')
+          ..add('tasks', tasks))
+        .toString();
+  }
+}
+
+class TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data,
+            TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder>,
+        $TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data? _$v;
+
+  ListBuilder<TaskProcessingTask>? _tasks;
+  ListBuilder<TaskProcessingTask> get tasks => _$this._tasks ??= ListBuilder<TaskProcessingTask>();
+  set tasks(covariant ListBuilder<TaskProcessingTask>? tasks) => _$this._tasks = tasks;
+
+  TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder() {
+    TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _tasks = $v.tasks.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data _build() {
+    TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data._validate(this);
+    _$TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data _$result;
+    try {
+      _$result = _$v ?? _$TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data._(tasks: tasks.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'tasks';
+        tasks.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiListTasksResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($TaskProcessingApiListTasksResponseApplicationJson_OcsInterface other);
+  void update(void Function($TaskProcessingApiListTasksResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$TaskProcessingApiListTasksResponseApplicationJson_Ocs
+    extends TaskProcessingApiListTasksResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data data;
+
+  factory _$TaskProcessingApiListTasksResponseApplicationJson_Ocs(
+          [void Function(TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiListTasksResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'TaskProcessingApiListTasksResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'TaskProcessingApiListTasksResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  TaskProcessingApiListTasksResponseApplicationJson_Ocs rebuild(
+          void Function(TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder toBuilder() =>
+      TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiListTasksResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiListTasksResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder
+    implements
+        Builder<TaskProcessingApiListTasksResponseApplicationJson_Ocs,
+            TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder>,
+        $TaskProcessingApiListTasksResponseApplicationJson_OcsInterfaceBuilder {
+  _$TaskProcessingApiListTasksResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder? _data;
+  TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder() {
+    TaskProcessingApiListTasksResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiListTasksResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiListTasksResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiListTasksResponseApplicationJson_Ocs build() => _build();
+
+  _$TaskProcessingApiListTasksResponseApplicationJson_Ocs _build() {
+    TaskProcessingApiListTasksResponseApplicationJson_Ocs._validate(this);
+    _$TaskProcessingApiListTasksResponseApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$TaskProcessingApiListTasksResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiListTasksResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiListTasksResponseApplicationJsonInterfaceBuilder {
+  void replace($TaskProcessingApiListTasksResponseApplicationJsonInterface other);
+  void update(void Function($TaskProcessingApiListTasksResponseApplicationJsonInterfaceBuilder) updates);
+  TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$TaskProcessingApiListTasksResponseApplicationJson extends TaskProcessingApiListTasksResponseApplicationJson {
+  @override
+  final TaskProcessingApiListTasksResponseApplicationJson_Ocs ocs;
+
+  factory _$TaskProcessingApiListTasksResponseApplicationJson(
+          [void Function(TaskProcessingApiListTasksResponseApplicationJsonBuilder)? updates]) =>
+      (TaskProcessingApiListTasksResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiListTasksResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TaskProcessingApiListTasksResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  TaskProcessingApiListTasksResponseApplicationJson rebuild(
+          void Function(TaskProcessingApiListTasksResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiListTasksResponseApplicationJsonBuilder toBuilder() =>
+      TaskProcessingApiListTasksResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiListTasksResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiListTasksResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class TaskProcessingApiListTasksResponseApplicationJsonBuilder
+    implements
+        Builder<TaskProcessingApiListTasksResponseApplicationJson,
+            TaskProcessingApiListTasksResponseApplicationJsonBuilder>,
+        $TaskProcessingApiListTasksResponseApplicationJsonInterfaceBuilder {
+  _$TaskProcessingApiListTasksResponseApplicationJson? _$v;
+
+  TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder? _ocs;
+  TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  TaskProcessingApiListTasksResponseApplicationJsonBuilder() {
+    TaskProcessingApiListTasksResponseApplicationJson._defaults(this);
+  }
+
+  TaskProcessingApiListTasksResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiListTasksResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiListTasksResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiListTasksResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiListTasksResponseApplicationJson build() => _build();
+
+  _$TaskProcessingApiListTasksResponseApplicationJson _build() {
+    TaskProcessingApiListTasksResponseApplicationJson._validate(this);
+    _$TaskProcessingApiListTasksResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$TaskProcessingApiListTasksResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiListTasksResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  TaskProcessingTaskBuilder get task;
+  set task(TaskProcessingTaskBuilder? task);
+}
+
+class _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data
+    extends TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data {
+  @override
+  final TaskProcessingTask task;
+
+  factory _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data(
+          [void Function(TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data._({required this.task}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(task, r'TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data', 'task');
+  }
+
+  @override
+  TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data rebuild(
+          void Function(TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data && task == other.task;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, task.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data')
+          ..add('task', task))
+        .toString();
+  }
+}
+
+class TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data,
+            TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder>,
+        $TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data? _$v;
+
+  TaskProcessingTaskBuilder? _task;
+  TaskProcessingTaskBuilder get task => _$this._task ??= TaskProcessingTaskBuilder();
+  set task(covariant TaskProcessingTaskBuilder? task) => _$this._task = task;
+
+  TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder() {
+    TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _task = $v.task.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data _build() {
+    TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data._validate(this);
+    _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data _$result;
+    try {
+      _$result = _$v ?? _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data._(task: task.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'task';
+        task.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiCancelTaskResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($TaskProcessingApiCancelTaskResponseApplicationJson_OcsInterface other);
+  void update(void Function($TaskProcessingApiCancelTaskResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs
+    extends TaskProcessingApiCancelTaskResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data data;
+
+  factory _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs(
+          [void Function(TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'TaskProcessingApiCancelTaskResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'TaskProcessingApiCancelTaskResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  TaskProcessingApiCancelTaskResponseApplicationJson_Ocs rebuild(
+          void Function(TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder toBuilder() =>
+      TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiCancelTaskResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiCancelTaskResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder
+    implements
+        Builder<TaskProcessingApiCancelTaskResponseApplicationJson_Ocs,
+            TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder>,
+        $TaskProcessingApiCancelTaskResponseApplicationJson_OcsInterfaceBuilder {
+  _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder? _data;
+  TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder() {
+    TaskProcessingApiCancelTaskResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiCancelTaskResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiCancelTaskResponseApplicationJson_Ocs build() => _build();
+
+  _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs _build() {
+    TaskProcessingApiCancelTaskResponseApplicationJson_Ocs._validate(this);
+    _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiCancelTaskResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiCancelTaskResponseApplicationJsonInterfaceBuilder {
+  void replace($TaskProcessingApiCancelTaskResponseApplicationJsonInterface other);
+  void update(void Function($TaskProcessingApiCancelTaskResponseApplicationJsonInterfaceBuilder) updates);
+  TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$TaskProcessingApiCancelTaskResponseApplicationJson extends TaskProcessingApiCancelTaskResponseApplicationJson {
+  @override
+  final TaskProcessingApiCancelTaskResponseApplicationJson_Ocs ocs;
+
+  factory _$TaskProcessingApiCancelTaskResponseApplicationJson(
+          [void Function(TaskProcessingApiCancelTaskResponseApplicationJsonBuilder)? updates]) =>
+      (TaskProcessingApiCancelTaskResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiCancelTaskResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TaskProcessingApiCancelTaskResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  TaskProcessingApiCancelTaskResponseApplicationJson rebuild(
+          void Function(TaskProcessingApiCancelTaskResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiCancelTaskResponseApplicationJsonBuilder toBuilder() =>
+      TaskProcessingApiCancelTaskResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiCancelTaskResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiCancelTaskResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class TaskProcessingApiCancelTaskResponseApplicationJsonBuilder
+    implements
+        Builder<TaskProcessingApiCancelTaskResponseApplicationJson,
+            TaskProcessingApiCancelTaskResponseApplicationJsonBuilder>,
+        $TaskProcessingApiCancelTaskResponseApplicationJsonInterfaceBuilder {
+  _$TaskProcessingApiCancelTaskResponseApplicationJson? _$v;
+
+  TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder? _ocs;
+  TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  TaskProcessingApiCancelTaskResponseApplicationJsonBuilder() {
+    TaskProcessingApiCancelTaskResponseApplicationJson._defaults(this);
+  }
+
+  TaskProcessingApiCancelTaskResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiCancelTaskResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiCancelTaskResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiCancelTaskResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiCancelTaskResponseApplicationJson build() => _build();
+
+  _$TaskProcessingApiCancelTaskResponseApplicationJson _build() {
+    TaskProcessingApiCancelTaskResponseApplicationJson._validate(this);
+    _$TaskProcessingApiCancelTaskResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$TaskProcessingApiCancelTaskResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiCancelTaskResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataInterface other);
+  void update(
+      void Function($TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  int? get fileId;
+  set fileId(int? fileId);
+}
+
+class _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data
+    extends TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data {
+  @override
+  final int fileId;
+
+  factory _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data(
+          [void Function(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data._({required this.fileId}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        fileId, r'TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data', 'fileId');
+  }
+
+  @override
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data rebuild(
+          void Function(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data && fileId == other.fileId;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, fileId.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data')
+          ..add('fileId', fileId))
+        .toString();
+  }
+}
+
+class TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data,
+            TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder>,
+        $TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data? _$v;
+
+  int? _fileId;
+  int? get fileId => _$this._fileId;
+  set fileId(covariant int? fileId) => _$this._fileId = fileId;
+
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder() {
+    TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _fileId = $v.fileId;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data _build() {
+    TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data._validate(this);
+    final _$result = _$v ??
+        _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data._(
+            fileId: BuiltValueNullFieldError.checkNotNull(
+                fileId, r'TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data', 'fileId'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsInterface other);
+  void update(void Function($TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs
+    extends TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data data;
+
+  factory _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs(
+          [void Function(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs._({required this.meta, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        meta, r'TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs rebuild(
+          void Function(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder toBuilder() =>
+      TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder
+    implements
+        Builder<TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs,
+            TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder>,
+        $TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsInterfaceBuilder {
+  _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder? _data;
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
+
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder() {
+    TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs build() => _build();
+
+  _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs _build() {
+    TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs._validate(this);
+    _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiSetFileContentsExAppResponseApplicationJsonInterfaceBuilder {
+  void replace($TaskProcessingApiSetFileContentsExAppResponseApplicationJsonInterface other);
+  void update(void Function($TaskProcessingApiSetFileContentsExAppResponseApplicationJsonInterfaceBuilder) updates);
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson
+    extends TaskProcessingApiSetFileContentsExAppResponseApplicationJson {
+  @override
+  final TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs ocs;
+
+  factory _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson(
+          [void Function(TaskProcessingApiSetFileContentsExAppResponseApplicationJsonBuilder)? updates]) =>
+      (TaskProcessingApiSetFileContentsExAppResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TaskProcessingApiSetFileContentsExAppResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJson rebuild(
+          void Function(TaskProcessingApiSetFileContentsExAppResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJsonBuilder toBuilder() =>
+      TaskProcessingApiSetFileContentsExAppResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiSetFileContentsExAppResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiSetFileContentsExAppResponseApplicationJson')
+          ..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class TaskProcessingApiSetFileContentsExAppResponseApplicationJsonBuilder
+    implements
+        Builder<TaskProcessingApiSetFileContentsExAppResponseApplicationJson,
+            TaskProcessingApiSetFileContentsExAppResponseApplicationJsonBuilder>,
+        $TaskProcessingApiSetFileContentsExAppResponseApplicationJsonInterfaceBuilder {
+  _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson? _$v;
+
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder? _ocs;
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJsonBuilder() {
+    TaskProcessingApiSetFileContentsExAppResponseApplicationJson._defaults(this);
+  }
+
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiSetFileContentsExAppResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiSetFileContentsExAppResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiSetFileContentsExAppResponseApplicationJson build() => _build();
+
+  _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson _build() {
+    TaskProcessingApiSetFileContentsExAppResponseApplicationJson._validate(this);
+    _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiSetFileContentsExAppResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiSetProgressRequestApplicationJsonInterfaceBuilder {
+  void replace($TaskProcessingApiSetProgressRequestApplicationJsonInterface other);
+  void update(void Function($TaskProcessingApiSetProgressRequestApplicationJsonInterfaceBuilder) updates);
+  double? get progress;
+  set progress(double? progress);
+}
+
+class _$TaskProcessingApiSetProgressRequestApplicationJson extends TaskProcessingApiSetProgressRequestApplicationJson {
+  @override
+  final double progress;
+
+  factory _$TaskProcessingApiSetProgressRequestApplicationJson(
+          [void Function(TaskProcessingApiSetProgressRequestApplicationJsonBuilder)? updates]) =>
+      (TaskProcessingApiSetProgressRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiSetProgressRequestApplicationJson._({required this.progress}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(progress, r'TaskProcessingApiSetProgressRequestApplicationJson', 'progress');
+  }
+
+  @override
+  TaskProcessingApiSetProgressRequestApplicationJson rebuild(
+          void Function(TaskProcessingApiSetProgressRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiSetProgressRequestApplicationJsonBuilder toBuilder() =>
+      TaskProcessingApiSetProgressRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiSetProgressRequestApplicationJson && progress == other.progress;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, progress.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiSetProgressRequestApplicationJson')
+          ..add('progress', progress))
+        .toString();
+  }
+}
+
+class TaskProcessingApiSetProgressRequestApplicationJsonBuilder
+    implements
+        Builder<TaskProcessingApiSetProgressRequestApplicationJson,
+            TaskProcessingApiSetProgressRequestApplicationJsonBuilder>,
+        $TaskProcessingApiSetProgressRequestApplicationJsonInterfaceBuilder {
+  _$TaskProcessingApiSetProgressRequestApplicationJson? _$v;
+
+  double? _progress;
+  double? get progress => _$this._progress;
+  set progress(covariant double? progress) => _$this._progress = progress;
+
+  TaskProcessingApiSetProgressRequestApplicationJsonBuilder() {
+    TaskProcessingApiSetProgressRequestApplicationJson._defaults(this);
+  }
+
+  TaskProcessingApiSetProgressRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _progress = $v.progress;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiSetProgressRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiSetProgressRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiSetProgressRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiSetProgressRequestApplicationJson build() => _build();
+
+  _$TaskProcessingApiSetProgressRequestApplicationJson _build() {
+    TaskProcessingApiSetProgressRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$TaskProcessingApiSetProgressRequestApplicationJson._(
+            progress: BuiltValueNullFieldError.checkNotNull(
+                progress, r'TaskProcessingApiSetProgressRequestApplicationJson', 'progress'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  TaskProcessingTaskBuilder get task;
+  set task(TaskProcessingTaskBuilder? task);
+}
+
+class _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data
+    extends TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data {
+  @override
+  final TaskProcessingTask task;
+
+  factory _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data(
+          [void Function(TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data._({required this.task}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        task, r'TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data', 'task');
+  }
+
+  @override
+  TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data rebuild(
+          void Function(TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data && task == other.task;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, task.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data')
+          ..add('task', task))
+        .toString();
+  }
+}
+
+class TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data,
+            TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder>,
+        $TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data? _$v;
+
+  TaskProcessingTaskBuilder? _task;
+  TaskProcessingTaskBuilder get task => _$this._task ??= TaskProcessingTaskBuilder();
+  set task(covariant TaskProcessingTaskBuilder? task) => _$this._task = task;
+
+  TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder() {
+    TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _task = $v.task.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data _build() {
+    TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data._validate(this);
+    _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data _$result;
+    try {
+      _$result = _$v ?? _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data._(task: task.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'task';
+        task.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiSetProgressResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($TaskProcessingApiSetProgressResponseApplicationJson_OcsInterface other);
+  void update(void Function($TaskProcessingApiSetProgressResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs
+    extends TaskProcessingApiSetProgressResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data data;
+
+  factory _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs(
+          [void Function(TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'TaskProcessingApiSetProgressResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'TaskProcessingApiSetProgressResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  TaskProcessingApiSetProgressResponseApplicationJson_Ocs rebuild(
+          void Function(TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder toBuilder() =>
+      TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiSetProgressResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiSetProgressResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder
+    implements
+        Builder<TaskProcessingApiSetProgressResponseApplicationJson_Ocs,
+            TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder>,
+        $TaskProcessingApiSetProgressResponseApplicationJson_OcsInterfaceBuilder {
+  _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder? _data;
+  TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder() {
+    TaskProcessingApiSetProgressResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiSetProgressResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiSetProgressResponseApplicationJson_Ocs build() => _build();
+
+  _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs _build() {
+    TaskProcessingApiSetProgressResponseApplicationJson_Ocs._validate(this);
+    _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiSetProgressResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiSetProgressResponseApplicationJsonInterfaceBuilder {
+  void replace($TaskProcessingApiSetProgressResponseApplicationJsonInterface other);
+  void update(void Function($TaskProcessingApiSetProgressResponseApplicationJsonInterfaceBuilder) updates);
+  TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$TaskProcessingApiSetProgressResponseApplicationJson
+    extends TaskProcessingApiSetProgressResponseApplicationJson {
+  @override
+  final TaskProcessingApiSetProgressResponseApplicationJson_Ocs ocs;
+
+  factory _$TaskProcessingApiSetProgressResponseApplicationJson(
+          [void Function(TaskProcessingApiSetProgressResponseApplicationJsonBuilder)? updates]) =>
+      (TaskProcessingApiSetProgressResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiSetProgressResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TaskProcessingApiSetProgressResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  TaskProcessingApiSetProgressResponseApplicationJson rebuild(
+          void Function(TaskProcessingApiSetProgressResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiSetProgressResponseApplicationJsonBuilder toBuilder() =>
+      TaskProcessingApiSetProgressResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiSetProgressResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiSetProgressResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class TaskProcessingApiSetProgressResponseApplicationJsonBuilder
+    implements
+        Builder<TaskProcessingApiSetProgressResponseApplicationJson,
+            TaskProcessingApiSetProgressResponseApplicationJsonBuilder>,
+        $TaskProcessingApiSetProgressResponseApplicationJsonInterfaceBuilder {
+  _$TaskProcessingApiSetProgressResponseApplicationJson? _$v;
+
+  TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder? _ocs;
+  TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  TaskProcessingApiSetProgressResponseApplicationJsonBuilder() {
+    TaskProcessingApiSetProgressResponseApplicationJson._defaults(this);
+  }
+
+  TaskProcessingApiSetProgressResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiSetProgressResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiSetProgressResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiSetProgressResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiSetProgressResponseApplicationJson build() => _build();
+
+  _$TaskProcessingApiSetProgressResponseApplicationJson _build() {
+    TaskProcessingApiSetProgressResponseApplicationJson._validate(this);
+    _$TaskProcessingApiSetProgressResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$TaskProcessingApiSetProgressResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiSetProgressResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiSetResultRequestApplicationJsonInterfaceBuilder {
+  void replace($TaskProcessingApiSetResultRequestApplicationJsonInterface other);
+  void update(void Function($TaskProcessingApiSetResultRequestApplicationJsonInterfaceBuilder) updates);
+  MapBuilder<String, JsonObject> get output;
+  set output(MapBuilder<String, JsonObject>? output);
+
+  String? get errorMessage;
+  set errorMessage(String? errorMessage);
+}
+
+class _$TaskProcessingApiSetResultRequestApplicationJson extends TaskProcessingApiSetResultRequestApplicationJson {
+  @override
+  final BuiltMap<String, JsonObject>? output;
+  @override
+  final String? errorMessage;
+
+  factory _$TaskProcessingApiSetResultRequestApplicationJson(
+          [void Function(TaskProcessingApiSetResultRequestApplicationJsonBuilder)? updates]) =>
+      (TaskProcessingApiSetResultRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiSetResultRequestApplicationJson._({this.output, this.errorMessage}) : super._();
+
+  @override
+  TaskProcessingApiSetResultRequestApplicationJson rebuild(
+          void Function(TaskProcessingApiSetResultRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiSetResultRequestApplicationJsonBuilder toBuilder() =>
+      TaskProcessingApiSetResultRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiSetResultRequestApplicationJson &&
+        output == other.output &&
+        errorMessage == other.errorMessage;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, output.hashCode);
+    _$hash = $jc(_$hash, errorMessage.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiSetResultRequestApplicationJson')
+          ..add('output', output)
+          ..add('errorMessage', errorMessage))
+        .toString();
+  }
+}
+
+class TaskProcessingApiSetResultRequestApplicationJsonBuilder
+    implements
+        Builder<TaskProcessingApiSetResultRequestApplicationJson,
+            TaskProcessingApiSetResultRequestApplicationJsonBuilder>,
+        $TaskProcessingApiSetResultRequestApplicationJsonInterfaceBuilder {
+  _$TaskProcessingApiSetResultRequestApplicationJson? _$v;
+
+  MapBuilder<String, JsonObject>? _output;
+  MapBuilder<String, JsonObject> get output => _$this._output ??= MapBuilder<String, JsonObject>();
+  set output(covariant MapBuilder<String, JsonObject>? output) => _$this._output = output;
+
+  String? _errorMessage;
+  String? get errorMessage => _$this._errorMessage;
+  set errorMessage(covariant String? errorMessage) => _$this._errorMessage = errorMessage;
+
+  TaskProcessingApiSetResultRequestApplicationJsonBuilder() {
+    TaskProcessingApiSetResultRequestApplicationJson._defaults(this);
+  }
+
+  TaskProcessingApiSetResultRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _output = $v.output?.toBuilder();
+      _errorMessage = $v.errorMessage;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiSetResultRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiSetResultRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiSetResultRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiSetResultRequestApplicationJson build() => _build();
+
+  _$TaskProcessingApiSetResultRequestApplicationJson _build() {
+    TaskProcessingApiSetResultRequestApplicationJson._validate(this);
+    _$TaskProcessingApiSetResultRequestApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$TaskProcessingApiSetResultRequestApplicationJson._(output: _output?.build(), errorMessage: errorMessage);
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'output';
+        _output?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiSetResultRequestApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  TaskProcessingTaskBuilder get task;
+  set task(TaskProcessingTaskBuilder? task);
+}
+
+class _$TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data
+    extends TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data {
+  @override
+  final TaskProcessingTask task;
+
+  factory _$TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data(
+          [void Function(TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data._({required this.task}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(task, r'TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data', 'task');
+  }
+
+  @override
+  TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data rebuild(
+          void Function(TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data && task == other.task;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, task.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data')
+          ..add('task', task))
+        .toString();
+  }
+}
+
+class TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data,
+            TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder>,
+        $TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data? _$v;
+
+  TaskProcessingTaskBuilder? _task;
+  TaskProcessingTaskBuilder get task => _$this._task ??= TaskProcessingTaskBuilder();
+  set task(covariant TaskProcessingTaskBuilder? task) => _$this._task = task;
+
+  TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder() {
+    TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _task = $v.task.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data _build() {
+    TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data._validate(this);
+    _$TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data _$result;
+    try {
+      _$result = _$v ?? _$TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data._(task: task.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'task';
+        task.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiSetResultResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($TaskProcessingApiSetResultResponseApplicationJson_OcsInterface other);
+  void update(void Function($TaskProcessingApiSetResultResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$TaskProcessingApiSetResultResponseApplicationJson_Ocs
+    extends TaskProcessingApiSetResultResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data data;
+
+  factory _$TaskProcessingApiSetResultResponseApplicationJson_Ocs(
+          [void Function(TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiSetResultResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'TaskProcessingApiSetResultResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'TaskProcessingApiSetResultResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  TaskProcessingApiSetResultResponseApplicationJson_Ocs rebuild(
+          void Function(TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder toBuilder() =>
+      TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiSetResultResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiSetResultResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder
+    implements
+        Builder<TaskProcessingApiSetResultResponseApplicationJson_Ocs,
+            TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder>,
+        $TaskProcessingApiSetResultResponseApplicationJson_OcsInterfaceBuilder {
+  _$TaskProcessingApiSetResultResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder? _data;
+  TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder() {
+    TaskProcessingApiSetResultResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiSetResultResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiSetResultResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiSetResultResponseApplicationJson_Ocs build() => _build();
+
+  _$TaskProcessingApiSetResultResponseApplicationJson_Ocs _build() {
+    TaskProcessingApiSetResultResponseApplicationJson_Ocs._validate(this);
+    _$TaskProcessingApiSetResultResponseApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$TaskProcessingApiSetResultResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiSetResultResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiSetResultResponseApplicationJsonInterfaceBuilder {
+  void replace($TaskProcessingApiSetResultResponseApplicationJsonInterface other);
+  void update(void Function($TaskProcessingApiSetResultResponseApplicationJsonInterfaceBuilder) updates);
+  TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$TaskProcessingApiSetResultResponseApplicationJson extends TaskProcessingApiSetResultResponseApplicationJson {
+  @override
+  final TaskProcessingApiSetResultResponseApplicationJson_Ocs ocs;
+
+  factory _$TaskProcessingApiSetResultResponseApplicationJson(
+          [void Function(TaskProcessingApiSetResultResponseApplicationJsonBuilder)? updates]) =>
+      (TaskProcessingApiSetResultResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiSetResultResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TaskProcessingApiSetResultResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  TaskProcessingApiSetResultResponseApplicationJson rebuild(
+          void Function(TaskProcessingApiSetResultResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiSetResultResponseApplicationJsonBuilder toBuilder() =>
+      TaskProcessingApiSetResultResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiSetResultResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiSetResultResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class TaskProcessingApiSetResultResponseApplicationJsonBuilder
+    implements
+        Builder<TaskProcessingApiSetResultResponseApplicationJson,
+            TaskProcessingApiSetResultResponseApplicationJsonBuilder>,
+        $TaskProcessingApiSetResultResponseApplicationJsonInterfaceBuilder {
+  _$TaskProcessingApiSetResultResponseApplicationJson? _$v;
+
+  TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder? _ocs;
+  TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  TaskProcessingApiSetResultResponseApplicationJsonBuilder() {
+    TaskProcessingApiSetResultResponseApplicationJson._defaults(this);
+  }
+
+  TaskProcessingApiSetResultResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiSetResultResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiSetResultResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiSetResultResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiSetResultResponseApplicationJson build() => _build();
+
+  _$TaskProcessingApiSetResultResponseApplicationJson _build() {
+    TaskProcessingApiSetResultResponseApplicationJson._validate(this);
+    _$TaskProcessingApiSetResultResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$TaskProcessingApiSetResultResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiSetResultResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderInterfaceBuilder {
+  void replace($TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderInterface other);
+  void update(
+      void Function($TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderInterfaceBuilder)
+          updates);
+  String? get name;
+  set name(String? name);
+}
+
+class _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider
+    extends TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider {
+  @override
+  final String name;
+
+  factory _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider(
+          [void Function(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder)?
+              updates]) =>
+      (TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder()..update(updates))
+          ._build();
+
+  _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider._({required this.name}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        name, r'TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider', 'name');
+  }
+
+  @override
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider rebuild(
+          void Function(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder toBuilder() =>
+      TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider &&
+        name == other.name;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            r'TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider')
+          ..add('name', name))
+        .toString();
+  }
+}
+
+class TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder
+    implements
+        Builder<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider,
+            TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder>,
+        $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderInterfaceBuilder {
+  _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider? _$v;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(covariant String? name) => _$this._name = name;
+
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder() {
+    TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider._defaults(this);
+  }
+
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _name = $v.name;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider;
+  }
+
+  @override
+  void update(
+      void Function(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider build() => _build();
+
+  _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider _build() {
+    TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider._validate(this);
+    final _$result = _$v ??
+        _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider._(
+            name: BuiltValueNullFieldError.checkNotNull(
+                name, r'TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider', 'name'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataInterface other);
+  void update(
+      void Function($TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  TaskProcessingTaskBuilder get task;
+  set task(TaskProcessingTaskBuilder? task);
+
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder get provider;
+  set provider(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder? provider);
+}
+
+class _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data
+    extends TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data {
+  @override
+  final TaskProcessingTask task;
+  @override
+  final TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider provider;
+
+  factory _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data(
+          [void Function(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data._(
+      {required this.task, required this.provider})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        task, r'TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data', 'task');
+    BuiltValueNullFieldError.checkNotNull(
+        provider, r'TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data', 'provider');
+  }
+
+  @override
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data rebuild(
+          void Function(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data &&
+        task == other.task &&
+        provider == other.provider;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, task.hashCode);
+    _$hash = $jc(_$hash, provider.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data')
+          ..add('task', task)
+          ..add('provider', provider))
+        .toString();
+  }
+}
+
+class TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data,
+            TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder>,
+        $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data? _$v;
+
+  TaskProcessingTaskBuilder? _task;
+  TaskProcessingTaskBuilder get task => _$this._task ??= TaskProcessingTaskBuilder();
+  set task(covariant TaskProcessingTaskBuilder? task) => _$this._task = task;
+
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder? _provider;
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder get provider =>
+      _$this._provider ??= TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder();
+  set provider(
+          covariant TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder? provider) =>
+      _$this._provider = provider;
+
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder() {
+    TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _task = $v.task.toBuilder();
+      _provider = $v.provider.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data _build() {
+    TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data._validate(this);
+    _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data _$result;
+    try {
+      _$result = _$v ??
+          _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data._(
+              task: task.build(), provider: provider.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'task';
+        task.build();
+        _$failedField = 'provider';
+        provider.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsInterface other);
+  void update(void Function($TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs
+    extends TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data data;
+
+  factory _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs(
+          [void Function(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs._({required this.meta, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        meta, r'TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs rebuild(
+          void Function(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder toBuilder() =>
+      TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder
+    implements
+        Builder<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs,
+            TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder>,
+        $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsInterfaceBuilder {
+  _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder? _data;
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
+
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder() {
+    TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs build() => _build();
+
+  _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs _build() {
+    TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs._validate(this);
+    _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonInterfaceBuilder {
+  void replace($TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonInterface other);
+  void update(void Function($TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonInterfaceBuilder) updates);
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson
+    extends TaskProcessingApiGetNextScheduledTaskResponseApplicationJson {
+  @override
+  final TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs ocs;
+
+  factory _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson(
+          [void Function(TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonBuilder)? updates]) =>
+      (TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TaskProcessingApiGetNextScheduledTaskResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson rebuild(
+          void Function(TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonBuilder toBuilder() =>
+      TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TaskProcessingApiGetNextScheduledTaskResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TaskProcessingApiGetNextScheduledTaskResponseApplicationJson')
+          ..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonBuilder
+    implements
+        Builder<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson,
+            TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonBuilder>,
+        $TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonInterfaceBuilder {
+  _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson? _$v;
+
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder? _ocs;
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonBuilder() {
+    TaskProcessingApiGetNextScheduledTaskResponseApplicationJson._defaults(this);
+  }
+
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TaskProcessingApiGetNextScheduledTaskResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TaskProcessingApiGetNextScheduledTaskResponseApplicationJson build() => _build();
+
+  _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson _build() {
+    TaskProcessingApiGetNextScheduledTaskResponseApplicationJson._validate(this);
+    _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TaskProcessingApiGetNextScheduledTaskResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

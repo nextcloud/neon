@@ -53,7 +53,7 @@ class TalkRichObjectMention extends StatelessWidget {
         child = CircleAvatar(
           child: Icon(AdaptiveIcons.person),
         );
-      case spreed.RichObjectParameter_Type.userGroup || spreed.RichObjectParameter_Type.group:
+      case spreed.RichObjectParameter_Type.userGroup:
         final userDetailsBloc = NeonProvider.of<UserDetailsBloc>(context);
         final groups = userDetailsBloc.userDetails.valueOrNull?.data?.groups ?? BuiltList();
 

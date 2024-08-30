@@ -1,6 +1,7 @@
 addressbook
 apirequest
 apppassword
+basenames
 bigfilechunking
 boardname
 bools
@@ -25,12 +26,14 @@ itemsperpage
 keepalive
 keypair
 lastmod
+lehv
 licence
 lightrain
 lightrainshowers
 loglevel
 logoheader
 matterbridge
+mdnj
 mimetypes
 mountpoint
 navigations
@@ -54,7 +57,13 @@ sharebymail
 sharee
 shareesapi
 stackname
+statuscancelled
 statuscode
+statusfailed
+statusrunning
+statusscheduled
+statussuccessful
+statusunknown
 stime
 stunservers
 stylesheet

@@ -931,8 +931,7 @@
                             "talk-attachment",
                             "talk-poll",
                             "user",
-                            "user-group",
-                            "group"
+                            "user-group"
                         ]
                     },
                     "id": {
@@ -1001,6 +1000,41 @@
                         "description": "The mtime of the file/folder as unix timestamp",
                         "example": "1661854213"
                     },
+                    "etag": {
+                        "type": "string",
+                        "description": "The ETag of the file/folder",
+                        "example": "abcdefghi"
+                    },
+                    "permissions": {
+                        "type": "string",
+                        "description": "The permissions on the file/folder",
+                        "example": "3"
+                    },
+                    "width": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "integer"
+                            }
+                        ]
+                    },
+                    "height": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "integer"
+                            }
+                        ]
+                    },
+                    "blurhash": {
+                        "type": "string",
+                        "description": "The blurhash of the image",
+                        "example": "LEHV9uae2yk8pyo0adR*.7kCMdnj"
+                    },
                     "latitude": {
                         "type": "string",
                         "description": "The latitude of the location MUST be the same as in the id",
@@ -1045,29 +1079,6 @@
                         "type": "string",
                         "description": "The URL of the instance the user lives on",
                         "example": "localhost"
-                    },
-                    "etag": {
-                        "type": "string"
-                    },
-                    "width": {
-                        "oneOf": [
-                            {
-                                "type": "string"
-                            },
-                            {
-                                "type": "integer"
-                            }
-                        ]
-                    },
-                    "height": {
-                        "oneOf": [
-                            {
-                                "type": "string"
-                            },
-                            {
-                                "type": "integer"
-                            }
-                        ]
                     }
                 }
             },

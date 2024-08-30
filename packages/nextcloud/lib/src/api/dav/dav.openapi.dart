@@ -18,6 +18,7 @@ library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
 import 'dart:convert';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
@@ -51,6 +52,8 @@ class $Client extends _i1.DynamiteClient {
   late final $DirectClient direct = $DirectClient(this);
 
   late final $OutOfOfficeClient outOfOffice = $OutOfOfficeClient(this);
+
+  late final $UpcomingEventsClient upcomingEvents = $UpcomingEventsClient(this);
 }
 
 class $DirectClient {
@@ -374,6 +377,7 @@ class $OutOfOfficeClient {
   ///   * 200: Absence data
   ///   * 400: When the first day is not before the last day
   ///   * 401: When the user is not logged in
+  ///   * 404: When the replacementUserId was provided but replacement user was not found
   ///
   /// See:
   ///  * [setOutOfOffice] for a method executing this request and parsing the response.
@@ -436,6 +440,7 @@ class $OutOfOfficeClient {
   ///   * 200: Absence data
   ///   * 400: When the first day is not before the last day
   ///   * 401: When the user is not logged in
+  ///   * 404: When the replacementUserId was provided but replacement user was not found
   ///
   /// See:
   ///  * [$setOutOfOffice_Request] for the request send by this method.
@@ -551,6 +556,107 @@ class $OutOfOfficeClient {
     final _serializer = $clearOutOfOffice_Serializer();
     return _i1.ResponseConverter<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void>(_serializer)
         .convert(_response);
+  }
+}
+
+class $UpcomingEventsClient {
+  /// Creates a new `DynamiteClient` for upcoming_events requests.
+  $UpcomingEventsClient(this._rootClient);
+
+  final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of [$getEvents_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<UpcomingEventsGetEventsResponseApplicationJson, void> $getEvents_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UpcomingEventsGetEventsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Get information about upcoming events.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getEvents] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [location] location/URL to filter by.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Upcoming events
+  ///   * 401: When not authenticated
+  ///
+  /// See:
+  ///  * [getEvents] for a method executing this request and parsing the response.
+  ///  * [$getEvents_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getEvents_Request({
+    String? location,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __location = _$jsonSerializers.serialize(location, specifiedType: const FullType(String));
+    _parameters['location'] = __location;
+
+    final _path = _i6.UriTemplate('/ocs/v2.php/apps/dav/api/v1/events/upcoming{?location*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get information about upcoming events.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [location] location/URL to filter by.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Upcoming events
+  ///   * 401: When not authenticated
+  ///
+  /// See:
+  ///  * [$getEvents_Request] for the request send by this method.
+  ///  * [$getEvents_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<UpcomingEventsGetEventsResponseApplicationJson, void>> getEvents({
+    String? location,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $getEvents_Request(
+      location: location,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $getEvents_Serializer();
+    return _i1.ResponseConverter<UpcomingEventsGetEventsResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -870,6 +976,8 @@ abstract class DirectGetUrlResponseApplicationJson
 sealed class $OutOfOfficeDataCommonInterface {
   String get userId;
   String get message;
+  String? get replacementUserId;
+  String? get replacementUserDisplayName;
 
   /// Rebuilds the instance.
   ///
@@ -1325,6 +1433,12 @@ sealed class $OutOfOfficeSetOutOfOfficeRequestApplicationJsonInterface {
   /// Longer multiline message that is shown to others during the absence.
   String get message;
 
+  /// User id of the replacement user.
+  String? get replacementUserId;
+
+  /// Display name of the replacement user.
+  String? get replacementUserDisplayName;
+
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
@@ -1643,6 +1757,256 @@ abstract class OutOfOfficeClearOutOfOfficeResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $UpcomingEventInterface {
+  String get uri;
+  String get calendarUri;
+  int? get start;
+  String? get summary;
+  String? get location;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UpcomingEventInterfaceBuilder].
+  $UpcomingEventInterface rebuild(void Function($UpcomingEventInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$UpcomingEventInterfaceBuilder].
+  $UpcomingEventInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UpcomingEventInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UpcomingEventInterfaceBuilder b) {}
+}
+
+abstract class UpcomingEvent implements $UpcomingEventInterface, Built<UpcomingEvent, UpcomingEventBuilder> {
+  /// Creates a new UpcomingEvent object using the builder pattern.
+  factory UpcomingEvent([void Function(UpcomingEventBuilder)? b]) = _$UpcomingEvent;
+
+  // coverage:ignore-start
+  const UpcomingEvent._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UpcomingEvent.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UpcomingEvent.
+  static Serializer<UpcomingEvent> get serializer => _$upcomingEventSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UpcomingEventBuilder b) {
+    $UpcomingEventInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UpcomingEventBuilder b) {
+    $UpcomingEventInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataInterface {
+  BuiltList<UpcomingEvent> get events;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data
+    implements
+        $UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataInterface,
+        Built<UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data,
+            UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data([
+    void Function(UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data.
+  static Serializer<UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data> get serializer =>
+      _$upcomingEventsGetEventsResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder b) {
+    $UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder b) {
+    $UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $UpcomingEventsGetEventsResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UpcomingEventsGetEventsResponseApplicationJson_OcsInterfaceBuilder].
+  $UpcomingEventsGetEventsResponseApplicationJson_OcsInterface rebuild(
+    void Function($UpcomingEventsGetEventsResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UpcomingEventsGetEventsResponseApplicationJson_OcsInterfaceBuilder].
+  $UpcomingEventsGetEventsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UpcomingEventsGetEventsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UpcomingEventsGetEventsResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class UpcomingEventsGetEventsResponseApplicationJson_Ocs
+    implements
+        $UpcomingEventsGetEventsResponseApplicationJson_OcsInterface,
+        Built<UpcomingEventsGetEventsResponseApplicationJson_Ocs,
+            UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new UpcomingEventsGetEventsResponseApplicationJson_Ocs object using the builder pattern.
+  factory UpcomingEventsGetEventsResponseApplicationJson_Ocs([
+    void Function(UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$UpcomingEventsGetEventsResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const UpcomingEventsGetEventsResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UpcomingEventsGetEventsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UpcomingEventsGetEventsResponseApplicationJson_Ocs.
+  static Serializer<UpcomingEventsGetEventsResponseApplicationJson_Ocs> get serializer =>
+      _$upcomingEventsGetEventsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder b) {
+    $UpcomingEventsGetEventsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder b) {
+    $UpcomingEventsGetEventsResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $UpcomingEventsGetEventsResponseApplicationJsonInterface {
+  UpcomingEventsGetEventsResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UpcomingEventsGetEventsResponseApplicationJsonInterfaceBuilder].
+  $UpcomingEventsGetEventsResponseApplicationJsonInterface rebuild(
+    void Function($UpcomingEventsGetEventsResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UpcomingEventsGetEventsResponseApplicationJsonInterfaceBuilder].
+  $UpcomingEventsGetEventsResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UpcomingEventsGetEventsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UpcomingEventsGetEventsResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class UpcomingEventsGetEventsResponseApplicationJson
+    implements
+        $UpcomingEventsGetEventsResponseApplicationJsonInterface,
+        Built<UpcomingEventsGetEventsResponseApplicationJson, UpcomingEventsGetEventsResponseApplicationJsonBuilder> {
+  /// Creates a new UpcomingEventsGetEventsResponseApplicationJson object using the builder pattern.
+  factory UpcomingEventsGetEventsResponseApplicationJson([
+    void Function(UpcomingEventsGetEventsResponseApplicationJsonBuilder)? b,
+  ]) = _$UpcomingEventsGetEventsResponseApplicationJson;
+
+  // coverage:ignore-start
+  const UpcomingEventsGetEventsResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UpcomingEventsGetEventsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UpcomingEventsGetEventsResponseApplicationJson.
+  static Serializer<UpcomingEventsGetEventsResponseApplicationJson> get serializer =>
+      _$upcomingEventsGetEventsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UpcomingEventsGetEventsResponseApplicationJsonBuilder b) {
+    $UpcomingEventsGetEventsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UpcomingEventsGetEventsResponseApplicationJsonBuilder b) {
+    $UpcomingEventsGetEventsResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $Capabilities_DavInterface {
   String get chunking;
   String? get bulkupload;
@@ -1833,6 +2197,24 @@ final Serializers _$serializers = (Serializers().toBuilder()
         OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder.new,
       )
       ..add(OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(UpcomingEventsGetEventsResponseApplicationJson),
+        UpcomingEventsGetEventsResponseApplicationJsonBuilder.new,
+      )
+      ..add(UpcomingEventsGetEventsResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(UpcomingEventsGetEventsResponseApplicationJson_Ocs),
+        UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(UpcomingEventsGetEventsResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data),
+        UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(UpcomingEvent), UpcomingEventBuilder.new)
+      ..add(UpcomingEvent.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(UpcomingEvent)]), ListBuilder<UpcomingEvent>.new)
       ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
       ..add(Capabilities.serializer)
       ..addBuilderFactory(const FullType(Capabilities_Dav), Capabilities_DavBuilder.new)

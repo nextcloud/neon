@@ -50,7 +50,7 @@ For an example checkout the [example](https://github.com/nextcloud/neon/blob/mai
 
 | Component                                                                          | Supported versions (1) |
 |------------------------------------------------------------------------------------|------------------------|
-| [Server](https://github.com/nextcloud/server) (2)                                  | 28 - 29                |
+| [Server](https://github.com/nextcloud/server) (2)                                  | 28 - 30                |
 | [Cookbook app](https://github.com/nextcloud/cookbook)                              | 0.11.1                 |
 | [News app](https://github.com/nextcloud/news)                                      | 25                     |
 | [NextPush app](https://codeberg.org/NextPush/uppush)                               | 1.4 - 1.5              |
@@ -61,7 +61,7 @@ For an example checkout the [example](https://github.com/nextcloud/neon/blob/mai
 | [User account deletion app](https://framagit.org/framasoft/nextcloud/drop_account) | 2.4 - 2.6              |
 
 1: Other versions might be supported too or at least mostly working, but we do not test against those.  
-2: Server includes the following apps: comments, core, dashboard, dav, files, files_external, files_reminders, files_sharing, files_trashbin, files_versions, provisioning_api, settings, sharebymail, systemtags, theming, updatenotification, user_ldap, user_status, weather_status and WebDAV.  
+2: Server includes the following apps: comments, core, dashboard, dav, files, files_external, files_reminders, files_sharing, files_trashbin, files_versions, provisioning_api, settings, sharebymail, systemtags, theming, updatenotification, user_ldap, user_status, weather_status, webhook_listeners and WebDAV.  
 
 We aim to support all currently maintained server versions and all app versions that support those server versions.
 The currently maintained server versions can be found here: https://github.com/nextcloud/server/wiki/Maintenance-and-Release-Schedule

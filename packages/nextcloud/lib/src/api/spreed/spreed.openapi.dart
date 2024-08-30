@@ -15553,9 +15553,6 @@ class RichObjectParameter_Type extends EnumClass {
   @BuiltValueEnumConst(wireName: 'user-group')
   static const RichObjectParameter_Type userGroup = _$richObjectParameterTypeUserGroup;
 
-  /// `group`
-  static const RichObjectParameter_Type group = _$richObjectParameterTypeGroup;
-
   /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RichObjectParameter_Type> get values => _$richObjectParameterTypeValues;
@@ -15599,7 +15596,6 @@ class _$RichObjectParameter_TypeSerializer implements PrimitiveSerializer<RichOb
     RichObjectParameter_Type.talkPoll: 'talk-poll',
     RichObjectParameter_Type.user: 'user',
     RichObjectParameter_Type.userGroup: 'user-group',
-    RichObjectParameter_Type.group: 'group',
   };
 
   static const Map<Object, RichObjectParameter_Type> _fromWire = <Object, RichObjectParameter_Type>{
@@ -15626,7 +15622,6 @@ class _$RichObjectParameter_TypeSerializer implements PrimitiveSerializer<RichOb
     'talk-poll': RichObjectParameter_Type.talkPoll,
     'user': RichObjectParameter_Type.user,
     'user-group': RichObjectParameter_Type.userGroup,
-    'group': RichObjectParameter_Type.group,
   };
 
   @override
@@ -15697,6 +15692,17 @@ sealed class $RichObjectParameterInterface {
   /// The mtime of the file/folder as unix timestamp.
   String? get mtime;
 
+  /// The ETag of the file/folder.
+  String? get etag;
+
+  /// The permissions on the file/folder.
+  String? get permissions;
+  RichObjectParameter_Width? get width;
+  RichObjectParameter_Height? get height;
+
+  /// The blurhash of the image.
+  String? get blurhash;
+
   /// The latitude of the location MUST be the same as in the id.
   String? get latitude;
 
@@ -15723,9 +15729,6 @@ sealed class $RichObjectParameterInterface {
 
   /// The URL of the instance the user lives on.
   String? get server;
-  String? get etag;
-  RichObjectParameter_Width? get width;
-  RichObjectParameter_Height? get height;
 
   /// Rebuilds the instance.
   ///
