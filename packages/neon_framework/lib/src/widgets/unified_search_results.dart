@@ -102,10 +102,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
       if (result.hasData)
         for (final entry in result.requireData.entries)
           AdaptiveListTile(
-            leading: NeonImageWrapper(
-              size: const Size.square(largeIconSize),
-              child: _buildThumbnail(context, account, entry),
-            ),
+            leading: _buildThumbnail(context, account, entry),
             title: Text(entry.title),
             subtitle: Text(entry.subline),
             onTap: () {
