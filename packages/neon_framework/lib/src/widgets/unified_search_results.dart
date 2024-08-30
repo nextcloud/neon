@@ -164,7 +164,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
   ) {
     if (entry.icon.startsWith('/')) {
       return NeonUriImage(
-        size: Size.square(IconTheme.of(context).size!),
+        size: const Size.square(largeIconSize),
         uri: Uri.parse(entry.icon),
         account: account,
       );
@@ -174,6 +174,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
       return NeonServerIcon(
         colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn),
         icon: entry.icon,
+        size: largeIconSize,
       );
     }
 
