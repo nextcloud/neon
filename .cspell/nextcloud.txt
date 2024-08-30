@@ -74,6 +74,7 @@ systemtags
 totalitems
 trashbin
 turnservers
+unban
 undelete
 unifiedpush
 unstar

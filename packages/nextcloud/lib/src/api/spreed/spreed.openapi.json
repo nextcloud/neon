@@ -21,6 +21,51 @@
             }
         },
         "schemas": {
+            "Ban": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "moderatorActorType",
+                    "moderatorActorId",
+                    "moderatorDisplayName",
+                    "bannedActorType",
+                    "bannedActorId",
+                    "bannedDisplayName",
+                    "bannedTime",
+                    "internalNote"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "moderatorActorType": {
+                        "type": "string"
+                    },
+                    "moderatorActorId": {
+                        "type": "string"
+                    },
+                    "moderatorDisplayName": {
+                        "type": "string"
+                    },
+                    "bannedActorType": {
+                        "type": "string"
+                    },
+                    "bannedActorId": {
+                        "type": "string"
+                    },
+                    "bannedDisplayName": {
+                        "type": "string"
+                    },
+                    "bannedTime": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "internalNote": {
+                        "type": "string"
+                    }
+                }
+            },
             "BaseMessage": {
                 "type": "object",
                 "required": [
@@ -185,11 +230,19 @@
                 "type": "object",
                 "required": [
                     "features",
+                    "features-local",
                     "config",
+                    "config-local",
                     "version"
                 ],
                 "properties": {
                     "features": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "features-local": {
                         "type": "array",
                         "items": {
                             "type": "string"
@@ -363,6 +416,15 @@
                             }
                         }
                     },
+                    "config-local": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
                     "version": {
                         "type": "string"
                     }
@@ -373,11 +435,7 @@
                 "required": [
                     "id",
                     "label",
-                    "source",
-                    "status",
-                    "statusClearAt",
-                    "statusIcon",
-                    "statusMessage"
+                    "source"
                 ],
                 "properties": {
                     "id": {
@@ -392,9 +450,11 @@
                     "mentionId": {
                         "type": "string"
                     },
+                    "details": {
+                        "type": "string"
+                    },
                     "status": {
-                        "type": "string",
-                        "nullable": true
+                        "type": "string"
                     },
                     "statusClearAt": {
                         "type": "integer",
@@ -451,6 +511,12 @@
                                     "format": "int64"
                                 }
                             },
+                            "reactionsSelf": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
                             "referenceId": {
                                 "type": "string"
                             },
@@ -476,12 +542,6 @@
                             },
                             "silent": {
                                 "type": "boolean"
-                            },
-                            "reactionsSelf": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                }
                             }
                         }
                     }
@@ -534,6 +594,25 @@
                     },
                     "userId": {
                         "type": "string"
+                    }
+                }
+            },
+            "DeletedChatMessage": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "deleted"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "deleted": {
+                        "type": "boolean",
+                        "enum": [
+                            true
+                        ]
                     }
                 }
             },
@@ -971,6 +1050,8 @@
                         "example": "To do"
                     },
                     "size": {
+                        "description": "The file size in bytes",
+                        "example": "3145728",
                         "oneOf": [
                             {
                                 "type": "string"
@@ -1011,6 +1092,8 @@
                         "example": "3"
                     },
                     "width": {
+                        "description": "The width in pixels if the file is an image",
+                        "example": "1920",
                         "oneOf": [
                             {
                                 "type": "string"
@@ -1021,6 +1104,8 @@
                         ]
                     },
                     "height": {
+                        "description": "The height in pixels if the file is an image",
+                        "example": "1080",
                         "oneOf": [
                             {
                                 "type": "string"
@@ -1259,6 +1344,10 @@
                         "type": "integer",
                         "format": "int64"
                     },
+                    "mentionPermissions": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
                     "messageExpiration": {
                         "type": "integer",
                         "format": "int64"
@@ -1299,6 +1388,12 @@
                     "recordingConsent": {
                         "type": "integer",
                         "format": "int64"
+                    },
+                    "remoteServer": {
+                        "type": "string"
+                    },
+                    "remoteToken": {
+                        "type": "string"
                     },
                     "sessionId": {
                         "type": "string"
@@ -1363,6 +1458,12 @@
                     "userId"
                 ],
                 "properties": {
+                    "actorId": {
+                        "type": "string"
+                    },
+                    "actorType": {
+                        "$ref": "#/components/schemas/ActorType"
+                    },
                     "inCall": {
                         "type": "integer",
                         "format": "int64"
@@ -1401,6 +1502,45 @@
                     "userId"
                 ],
                 "properties": {
+                    "federation": {
+                        "oneOf": [
+                            {
+                                "type": "object",
+                                "required": [
+                                    "server",
+                                    "nextcloudServer",
+                                    "helloAuthParams",
+                                    "roomId"
+                                ],
+                                "properties": {
+                                    "server": {
+                                        "type": "string"
+                                    },
+                                    "nextcloudServer": {
+                                        "type": "string"
+                                    },
+                                    "helloAuthParams": {
+                                        "type": "object",
+                                        "required": [
+                                            "token"
+                                        ],
+                                        "properties": {
+                                            "token": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "roomId": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "array",
+                                "maxItems": 0
+                            }
+                        ]
+                    },
                     "helloAuthParams": {
                         "type": "object",
                         "required": [
@@ -1528,25 +1668,6 @@
                     "federated_users",
                     "phones"
                 ]
-            },
-            "DeletedChatMessage": {
-                "type": "object",
-                "required": [
-                    "id",
-                    "deleted"
-                ],
-                "properties": {
-                    "id": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "deleted": {
-                        "type": "boolean",
-                        "enum": [
-                            true
-                        ]
-                    }
-                }
             }
         }
     },
@@ -2030,6 +2151,346 @@
                                 "schema": {
                                     "type": "string",
                                     "format": "binary"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/ocs/v2.php/apps/spreed/api/{apiVersion}/ban/{token}": {
+            "post": {
+                "operationId": "ban-ban-actor",
+                "summary": "Ban an actor or IP address",
+                "description": "Required capability: `ban-v1`",
+                "tags": [
+                    "ban"
+                ],
+                "security": [
+                    {},
+                    {
+                        "bearer_auth": []
+                    },
+                    {
+                        "basic_auth": []
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "actorType",
+                                    "actorId"
+                                ],
+                                "properties": {
+                                    "actorType": {
+                                        "type": "string",
+                                        "enum": [
+                                            "users",
+                                            "guests",
+                                            "ip"
+                                        ],
+                                        "description": "Type of actor to ban, or `ip` when banning a clients remote address"
+                                    },
+                                    "actorId": {
+                                        "type": "string",
+                                        "description": "Actor ID or the IP address or range in case of type `ip`"
+                                    },
+                                    "internalNote": {
+                                        "type": "string",
+                                        "default": "",
+                                        "description": "Optional internal note (max. 4000 characters)"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "apiVersion",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "v1"
+                            ],
+                            "default": "v1"
+                        }
+                    },
+                    {
+                        "name": "token",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^[a-z0-9]{4,30}$"
+                        }
+                    },
+                    {
+                        "name": "OCS-APIRequest",
+                        "in": "header",
+                        "description": "Required to be true for the API request to pass",
+                        "required": true,
+                        "schema": {
+                            "type": "boolean",
+                            "default": true
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ban successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {
+                                                    "$ref": "#/components/schemas/Ban"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Actor information is invalid",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "error"
+                                                    ],
+                                                    "properties": {
+                                                        "error": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "bannedActor",
+                                                                "internalNote",
+                                                                "moderator",
+                                                                "self",
+                                                                "room"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "operationId": "ban-list-bans",
+                "summary": "List the bans of a conversation",
+                "description": "Required capability: `ban-v1`",
+                "tags": [
+                    "ban"
+                ],
+                "security": [
+                    {},
+                    {
+                        "bearer_auth": []
+                    },
+                    {
+                        "basic_auth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "apiVersion",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "v1"
+                            ],
+                            "default": "v1"
+                        }
+                    },
+                    {
+                        "name": "token",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^[a-z0-9]{4,30}$"
+                        }
+                    },
+                    {
+                        "name": "OCS-APIRequest",
+                        "in": "header",
+                        "description": "Required to be true for the API request to pass",
+                        "required": true,
+                        "schema": {
+                            "type": "boolean",
+                            "default": true
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List all bans",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/Ban"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/ocs/v2.php/apps/spreed/api/{apiVersion}/ban/{token}/{banId}": {
+            "delete": {
+                "operationId": "ban-unban-actor",
+                "summary": "Unban an actor or IP address",
+                "description": "Required capability: `ban-v1`",
+                "tags": [
+                    "ban"
+                ],
+                "security": [
+                    {},
+                    {
+                        "bearer_auth": []
+                    },
+                    {
+                        "basic_auth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "apiVersion",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "v1"
+                            ],
+                            "default": "v1"
+                        }
+                    },
+                    {
+                        "name": "token",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^[a-z0-9]{4,30}$"
+                        }
+                    },
+                    {
+                        "name": "banId",
+                        "in": "path",
+                        "description": "ID of the ban to be removed",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "OCS-APIRequest",
+                        "in": "header",
+                        "description": "Required to be true for the API request to pass",
+                        "required": true,
+                        "schema": {
+                            "type": "boolean",
+                            "default": true
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Unban successfully or not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {}
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -3713,14 +4174,6 @@
                                         "minimum": 0,
                                         "maximum": 15
                                     },
-                                    "forcePermissions": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "nullable": true,
-                                        "description": "In-call permissions",
-                                        "minimum": 0,
-                                        "maximum": 255
-                                    },
                                     "silent": {
                                         "type": "boolean",
                                         "default": false,
@@ -4141,6 +4594,471 @@
                 }
             }
         },
+        "/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/federation": {
+            "post": {
+                "operationId": "call-join-federated-call",
+                "summary": "Join call on the host server using the session id of the federated user.",
+                "tags": [
+                    "call"
+                ],
+                "security": [
+                    {},
+                    {
+                        "bearer_auth": []
+                    },
+                    {
+                        "basic_auth": []
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "sessionId"
+                                ],
+                                "properties": {
+                                    "sessionId": {
+                                        "type": "string",
+                                        "description": "Federated session id to join with"
+                                    },
+                                    "flags": {
+                                        "type": "integer",
+                                        "format": "int64",
+                                        "nullable": true,
+                                        "description": "In-Call flags",
+                                        "minimum": 0,
+                                        "maximum": 15
+                                    },
+                                    "silent": {
+                                        "type": "boolean",
+                                        "default": false,
+                                        "description": "Join the call silently"
+                                    },
+                                    "recordingConsent": {
+                                        "type": "boolean",
+                                        "default": false,
+                                        "description": "Agreement to be recorded"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "apiVersion",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "v4"
+                            ],
+                            "default": "v4"
+                        }
+                    },
+                    {
+                        "name": "token",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^[a-z0-9]{4,30}$"
+                        }
+                    },
+                    {
+                        "name": "OCS-APIRequest",
+                        "in": "header",
+                        "description": "Required to be true for the API request to pass",
+                        "required": true,
+                        "schema": {
+                            "type": "boolean",
+                            "default": true
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Call joined successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Conditions to join not met",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "error": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Call not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "operationId": "call-update-federated-call-flags",
+                "summary": "Update the in-call flags on the host server using the session id of the federated user.",
+                "tags": [
+                    "call"
+                ],
+                "security": [
+                    {},
+                    {
+                        "bearer_auth": []
+                    },
+                    {
+                        "basic_auth": []
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "sessionId",
+                                    "flags"
+                                ],
+                                "properties": {
+                                    "sessionId": {
+                                        "type": "string",
+                                        "description": "Federated session id to update the flags with"
+                                    },
+                                    "flags": {
+                                        "type": "integer",
+                                        "format": "int64",
+                                        "description": "New flags",
+                                        "minimum": 0,
+                                        "maximum": 15
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "apiVersion",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "v4"
+                            ],
+                            "default": "v4"
+                        }
+                    },
+                    {
+                        "name": "token",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^[a-z0-9]{4,30}$"
+                        }
+                    },
+                    {
+                        "name": "OCS-APIRequest",
+                        "in": "header",
+                        "description": "Required to be true for the API request to pass",
+                        "required": true,
+                        "schema": {
+                            "type": "boolean",
+                            "default": true
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "In-call flags updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Updating in-call flags is not possible",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Call session not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "call-leave-federated-call",
+                "summary": "Leave a call on the host server using the session id of the federated user.",
+                "tags": [
+                    "call"
+                ],
+                "security": [
+                    {},
+                    {
+                        "bearer_auth": []
+                    },
+                    {
+                        "basic_auth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "apiVersion",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "v4"
+                            ],
+                            "default": "v4"
+                        }
+                    },
+                    {
+                        "name": "token",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^[a-z0-9]{4,30}$"
+                        }
+                    },
+                    {
+                        "name": "sessionId",
+                        "in": "query",
+                        "description": "Federated session id to leave with",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "OCS-APIRequest",
+                        "in": "header",
+                        "description": "Required to be true for the API request to pass",
+                        "required": true,
+                        "schema": {
+                            "type": "boolean",
+                            "default": true
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Call left successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Call session not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/ring/{attendeeId}": {
             "post": {
                 "operationId": "call-ring-attendee",
@@ -4229,8 +5147,8 @@
                             }
                         }
                     },
-                    "400": {
-                        "description": "Ringing attendee is not possible",
+                    "404": {
+                        "description": "Attendee could not be found",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -4257,8 +5175,8 @@
                             }
                         }
                     },
-                    "404": {
-                        "description": "Attendee could not be found",
+                    "400": {
+                        "description": "Ringing attendee is not possible",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -4277,7 +5195,17 @@
                                                 "meta": {
                                                     "$ref": "#/components/schemas/OCSMeta"
                                                 },
-                                                "data": {}
+                                                "data": {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "error"
+                                                    ],
+                                                    "properties": {
+                                                        "error": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -10569,7 +11497,22 @@
                                                 "meta": {
                                                     "$ref": "#/components/schemas/OCSMeta"
                                                 },
-                                                "data": {}
+                                                "data": {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "error"
+                                                    ],
+                                                    "properties": {
+                                                        "error": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "breakout-room",
+                                                                "type",
+                                                                "value"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -10675,7 +11618,22 @@
                                                 "meta": {
                                                     "$ref": "#/components/schemas/OCSMeta"
                                                 },
-                                                "data": {}
+                                                "data": {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "error"
+                                                    ],
+                                                    "properties": {
+                                                        "error": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "breakout-room",
+                                                                "type",
+                                                                "value"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -10803,7 +11761,21 @@
                                                 "meta": {
                                                     "$ref": "#/components/schemas/OCSMeta"
                                                 },
-                                                "data": {}
+                                                "data": {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "error"
+                                                    ],
+                                                    "properties": {
+                                                        "error": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "type",
+                                                                "value"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -10935,7 +11907,21 @@
                                                 "meta": {
                                                     "$ref": "#/components/schemas/OCSMeta"
                                                 },
-                                                "data": {}
+                                                "data": {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "error"
+                                                    ],
+                                                    "properties": {
+                                                        "error": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "type",
+                                                                "value"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -11068,7 +12054,22 @@
                                                 "meta": {
                                                     "$ref": "#/components/schemas/OCSMeta"
                                                 },
-                                                "data": {}
+                                                "data": {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "error"
+                                                    ],
+                                                    "properties": {
+                                                        "error": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "breakout-room",
+                                                                "type",
+                                                                "value"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -11176,34 +12177,6 @@
                             }
                         }
                     },
-                    "403": {
-                        "description": "Setting password is not allowed",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "required": [
-                                        "ocs"
-                                    ],
-                                    "properties": {
-                                        "ocs": {
-                                            "type": "object",
-                                            "required": [
-                                                "meta",
-                                                "data"
-                                            ],
-                                            "properties": {
-                                                "meta": {
-                                                    "$ref": "#/components/schemas/OCSMeta"
-                                                },
-                                                "data": {}
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "400": {
                         "description": "Setting password is not possible",
                         "content": {
@@ -11226,7 +12199,18 @@
                                                 },
                                                 "data": {
                                                     "type": "object",
+                                                    "required": [
+                                                        "error"
+                                                    ],
                                                     "properties": {
+                                                        "error": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "breakout-room",
+                                                                "type",
+                                                                "value"
+                                                            ]
+                                                        },
                                                         "message": {
                                                             "type": "string"
                                                         }
@@ -11305,7 +12289,7 @@
                     {
                         "name": "mode",
                         "in": "path",
-                        "description": "Level of the permissions ('call', 'default')",
+                        "description": "Level of the permissions ('call' (removed in Talk 20), 'default')",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -11378,7 +12362,23 @@
                                                 "meta": {
                                                     "$ref": "#/components/schemas/OCSMeta"
                                                 },
-                                                "data": {}
+                                                "data": {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "error"
+                                                    ],
+                                                    "properties": {
+                                                        "error": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "breakout-room",
+                                                                "mode",
+                                                                "type",
+                                                                "value"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -11706,7 +12706,7 @@
                         }
                     },
                     "400": {
-                        "description": "Adding participant is not possible",
+                        "description": "Adding participant is not possible, e.g. when the user is banned (check error attribute of response for detail key)",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -12435,6 +13435,7 @@
             "put": {
                 "operationId": "room-set-all-attendees-permissions",
                 "summary": "Update the permissions of all attendees",
+                "deprecated": true,
                 "tags": [
                     "room"
                 ],
@@ -12704,7 +13705,21 @@
                                                 "meta": {
                                                     "$ref": "#/components/schemas/OCSMeta"
                                                 },
-                                                "data": {}
+                                                "data": {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "error"
+                                                    ],
+                                                    "properties": {
+                                                        "error": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "ban",
+                                                                "password"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -14061,7 +15076,23 @@
                                                 "meta": {
                                                     "$ref": "#/components/schemas/OCSMeta"
                                                 },
-                                                "data": {}
+                                                "data": {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "error"
+                                                    ],
+                                                    "properties": {
+                                                        "error": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "breakout-room",
+                                                                "object",
+                                                                "type",
+                                                                "value"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -14176,34 +15207,6 @@
                             }
                         }
                     },
-                    "400": {
-                        "description": "Updating SIP enabled state is not possible",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "required": [
-                                        "ocs"
-                                    ],
-                                    "properties": {
-                                        "ocs": {
-                                            "type": "object",
-                                            "required": [
-                                                "meta",
-                                                "data"
-                                            ],
-                                            "properties": {
-                                                "meta": {
-                                                    "$ref": "#/components/schemas/OCSMeta"
-                                                },
-                                                "data": {}
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "401": {
                         "description": "User not found",
                         "content": {
@@ -14281,6 +15284,50 @@
                                                     "$ref": "#/components/schemas/OCSMeta"
                                                 },
                                                 "data": {}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Updating SIP enabled state is not possible",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "error"
+                                                    ],
+                                                    "properties": {
+                                                        "error": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "breakout-room",
+                                                                "token",
+                                                                "type",
+                                                                "value"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -14417,7 +15464,12 @@
                                                     ],
                                                     "properties": {
                                                         "error": {
-                                                            "type": "string"
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "breakout-room",
+                                                                "call",
+                                                                "value"
+                                                            ]
                                                         }
                                                     }
                                                 }
@@ -14580,9 +15632,17 @@
                                                 },
                                                 "data": {
                                                     "type": "object",
+                                                    "required": [
+                                                        "error"
+                                                    ],
                                                     "properties": {
                                                         "error": {
-                                                            "type": "string"
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "breakout-room",
+                                                                "type",
+                                                                "value"
+                                                            ]
                                                         }
                                                     }
                                                 }
@@ -14689,6 +15749,155 @@
                                                             "maxItems": 0
                                                         }
                                                     ]
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/mention-permissions": {
+            "put": {
+                "operationId": "room-set-mention-permissions",
+                "summary": "Update the mention permissions for a room",
+                "tags": [
+                    "room"
+                ],
+                "security": [
+                    {
+                        "bearer_auth": []
+                    },
+                    {
+                        "basic_auth": []
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "mentionPermissions"
+                                ],
+                                "properties": {
+                                    "mentionPermissions": {
+                                        "type": "integer",
+                                        "format": "int64",
+                                        "enum": [
+                                            0,
+                                            1
+                                        ],
+                                        "description": "New mention permissions"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "apiVersion",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "v4"
+                            ],
+                            "default": "v4"
+                        }
+                    },
+                    {
+                        "name": "token",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^[a-z0-9]{4,30}$"
+                        }
+                    },
+                    {
+                        "name": "OCS-APIRequest",
+                        "in": "header",
+                        "description": "Required to be true for the API request to pass",
+                        "required": true,
+                        "schema": {
+                            "type": "boolean",
+                            "default": true
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Permissions updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {
+                                                    "$ref": "#/components/schemas/Room"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Updating permissions is not possible",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "error"
+                                                    ],
+                                                    "properties": {
+                                                        "error": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "breakout-room",
+                                                                "type",
+                                                                "value"
+                                                            ]
+                                                        }
+                                                    }
                                                 }
                                             }
                                         }
@@ -16318,7 +17527,8 @@
         "/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/federation/active": {
             "post": {
                 "operationId": "room-join-federated-room",
-                "summary": "Fake join a room on the host server to verify the federated user is still part of it",
+                "summary": "Join room on the host server using the session id of the federated user.",
+                "description": "The session id can be null only for requests from Talk < 20.",
                 "tags": [
                     "room"
                 ],
@@ -16331,6 +17541,23 @@
                         "basic_auth": []
                     }
                 ],
+                "requestBody": {
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "sessionId": {
+                                        "type": "string",
+                                        "nullable": true,
+                                        "description": "Federated session id to join with"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
                 "parameters": [
                     {
                         "name": "apiVersion",
@@ -16367,7 +17594,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Federated user is still part of the room",
+                        "description": "Federated user joined the room",
                         "headers": {
                             "X-Nextcloud-Talk-Hash": {
                                 "schema": {
@@ -16375,6 +17602,127 @@
                                 }
                             }
                         },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {
+                                                    "$ref": "#/components/schemas/Room"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Room not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "room-leave-federated-room",
+                "summary": "Leave room on the host server using the session id of the federated user.",
+                "tags": [
+                    "room"
+                ],
+                "security": [
+                    {},
+                    {
+                        "bearer_auth": []
+                    },
+                    {
+                        "basic_auth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "apiVersion",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "v4"
+                            ],
+                            "default": "v4"
+                        }
+                    },
+                    {
+                        "name": "token",
+                        "in": "path",
+                        "description": "Token of the room",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^[a-z0-9]{4,30}$"
+                        }
+                    },
+                    {
+                        "name": "sessionId",
+                        "in": "query",
+                        "description": "Federated session id to leave with",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "OCS-APIRequest",
+                        "in": "header",
+                        "description": "Required to be true for the API request to pass",
+                        "required": true,
+                        "schema": {
+                            "type": "boolean",
+                            "default": true
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully left the room",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -16402,7 +17750,7 @@
                         }
                     },
                     "404": {
-                        "description": "Room not found",
+                        "description": "Room not found (non-federation request)",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -18467,18 +19815,16 @@
                     }
                 ],
                 "requestBody": {
-                    "required": true,
+                    "required": false,
                     "content": {
                         "application/json": {
                             "schema": {
                                 "type": "object",
-                                "required": [
-                                    "owner"
-                                ],
                                 "properties": {
                                     "owner": {
                                         "type": "string",
-                                        "description": "User that will own the recording file"
+                                        "nullable": true,
+                                        "description": "User that will own the recording file. `null` is actually not allowed and will always result in a \"400 Bad Request\". It's only allowed code-wise to handle requests where the post data exceeded the limits, so we can return a proper error instead of \"500 Internal Server Error\"."
                                     }
                                 }
                             }

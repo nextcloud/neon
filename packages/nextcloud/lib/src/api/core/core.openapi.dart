@@ -15080,7 +15080,11 @@ abstract class SpreedCapabilities_Config
 @BuiltValue(instantiable: false)
 sealed class $SpreedCapabilitiesInterface {
   BuiltList<String> get features;
+  @BuiltValueField(wireName: 'features-local')
+  BuiltList<String> get featuresLocal;
   SpreedCapabilities_Config get config;
+  @BuiltValueField(wireName: 'config-local')
+  BuiltMap<String, BuiltList<String>> get configLocal;
   String get version;
 
   /// Rebuilds the instance.
@@ -28239,6 +28243,13 @@ final Serializers _$serializers = (Serializers().toBuilder()
         SpreedCapabilities_Config_SignalingBuilder.new,
       )
       ..add(SpreedCapabilities_Config_Signaling.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [
+          FullType(String),
+          FullType(BuiltList, [FullType(String)]),
+        ]),
+        MapBuilder<String, BuiltList<String>>.new,
+      )
       ..addBuilderFactory(const FullType(SpreedPublicCapabilities0), SpreedPublicCapabilities0Builder.new)
       ..add(SpreedPublicCapabilities0.serializer)
       ..add($06c2e47196a84ebc3718dccf9eb4b29dExtension._serializer)

@@ -7033,8 +7033,16 @@ class _$SpreedCapabilitiesSerializer implements StructuredSerializer<SpreedCapab
     final result = <Object?>[
       'features',
       serializers.serialize(object.features, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      'features-local',
+      serializers.serialize(object.featuresLocal, specifiedType: const FullType(BuiltList, [FullType(String)])),
       'config',
       serializers.serialize(object.config, specifiedType: const FullType(SpreedCapabilities_Config)),
+      'config-local',
+      serializers.serialize(object.configLocal,
+          specifiedType: const FullType(BuiltMap, [
+            FullType(String),
+            FullType(BuiltList, [FullType(String)])
+          ])),
       'version',
       serializers.serialize(object.version, specifiedType: const FullType(String)),
     ];
@@ -7057,9 +7065,20 @@ class _$SpreedCapabilitiesSerializer implements StructuredSerializer<SpreedCapab
           result.features.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
           break;
+        case 'features-local':
+          result.featuresLocal.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
         case 'config':
           result.config.replace(serializers.deserialize(value,
               specifiedType: const FullType(SpreedCapabilities_Config))! as SpreedCapabilities_Config);
+          break;
+        case 'config-local':
+          result.configLocal.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, [
+                FullType(String),
+                FullType(BuiltList, [FullType(String)])
+              ]))!);
           break;
         case 'version':
           result.version = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -29735,8 +29754,14 @@ abstract mixin class $SpreedCapabilitiesInterfaceBuilder {
   ListBuilder<String> get features;
   set features(ListBuilder<String>? features);
 
+  ListBuilder<String> get featuresLocal;
+  set featuresLocal(ListBuilder<String>? featuresLocal);
+
   SpreedCapabilities_ConfigBuilder get config;
   set config(SpreedCapabilities_ConfigBuilder? config);
+
+  MapBuilder<String, BuiltList<String>> get configLocal;
+  set configLocal(MapBuilder<String, BuiltList<String>>? configLocal);
 
   String? get version;
   set version(String? version);
@@ -29746,16 +29771,28 @@ class _$SpreedCapabilities extends SpreedCapabilities {
   @override
   final BuiltList<String> features;
   @override
+  final BuiltList<String> featuresLocal;
+  @override
   final SpreedCapabilities_Config config;
+  @override
+  final BuiltMap<String, BuiltList<String>> configLocal;
   @override
   final String version;
 
   factory _$SpreedCapabilities([void Function(SpreedCapabilitiesBuilder)? updates]) =>
       (SpreedCapabilitiesBuilder()..update(updates))._build();
 
-  _$SpreedCapabilities._({required this.features, required this.config, required this.version}) : super._() {
+  _$SpreedCapabilities._(
+      {required this.features,
+      required this.featuresLocal,
+      required this.config,
+      required this.configLocal,
+      required this.version})
+      : super._() {
     BuiltValueNullFieldError.checkNotNull(features, r'SpreedCapabilities', 'features');
+    BuiltValueNullFieldError.checkNotNull(featuresLocal, r'SpreedCapabilities', 'featuresLocal');
     BuiltValueNullFieldError.checkNotNull(config, r'SpreedCapabilities', 'config');
+    BuiltValueNullFieldError.checkNotNull(configLocal, r'SpreedCapabilities', 'configLocal');
     BuiltValueNullFieldError.checkNotNull(version, r'SpreedCapabilities', 'version');
   }
 
@@ -29771,7 +29808,9 @@ class _$SpreedCapabilities extends SpreedCapabilities {
     if (identical(other, this)) return true;
     return other is SpreedCapabilities &&
         features == other.features &&
+        featuresLocal == other.featuresLocal &&
         config == other.config &&
+        configLocal == other.configLocal &&
         version == other.version;
   }
 
@@ -29779,7 +29818,9 @@ class _$SpreedCapabilities extends SpreedCapabilities {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, features.hashCode);
+    _$hash = $jc(_$hash, featuresLocal.hashCode);
     _$hash = $jc(_$hash, config.hashCode);
+    _$hash = $jc(_$hash, configLocal.hashCode);
     _$hash = $jc(_$hash, version.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -29789,7 +29830,9 @@ class _$SpreedCapabilities extends SpreedCapabilities {
   String toString() {
     return (newBuiltValueToStringHelper(r'SpreedCapabilities')
           ..add('features', features)
+          ..add('featuresLocal', featuresLocal)
           ..add('config', config)
+          ..add('configLocal', configLocal)
           ..add('version', version))
         .toString();
   }
@@ -29803,9 +29846,18 @@ class SpreedCapabilitiesBuilder
   ListBuilder<String> get features => _$this._features ??= ListBuilder<String>();
   set features(covariant ListBuilder<String>? features) => _$this._features = features;
 
+  ListBuilder<String>? _featuresLocal;
+  ListBuilder<String> get featuresLocal => _$this._featuresLocal ??= ListBuilder<String>();
+  set featuresLocal(covariant ListBuilder<String>? featuresLocal) => _$this._featuresLocal = featuresLocal;
+
   SpreedCapabilities_ConfigBuilder? _config;
   SpreedCapabilities_ConfigBuilder get config => _$this._config ??= SpreedCapabilities_ConfigBuilder();
   set config(covariant SpreedCapabilities_ConfigBuilder? config) => _$this._config = config;
+
+  MapBuilder<String, BuiltList<String>>? _configLocal;
+  MapBuilder<String, BuiltList<String>> get configLocal =>
+      _$this._configLocal ??= MapBuilder<String, BuiltList<String>>();
+  set configLocal(covariant MapBuilder<String, BuiltList<String>>? configLocal) => _$this._configLocal = configLocal;
 
   String? _version;
   String? get version => _$this._version;
@@ -29819,7 +29871,9 @@ class SpreedCapabilitiesBuilder
     final $v = _$v;
     if ($v != null) {
       _features = $v.features.toBuilder();
+      _featuresLocal = $v.featuresLocal.toBuilder();
       _config = $v.config.toBuilder();
+      _configLocal = $v.configLocal.toBuilder();
       _version = $v.version;
       _$v = null;
     }
@@ -29847,15 +29901,21 @@ class SpreedCapabilitiesBuilder
       _$result = _$v ??
           _$SpreedCapabilities._(
               features: features.build(),
+              featuresLocal: featuresLocal.build(),
               config: config.build(),
+              configLocal: configLocal.build(),
               version: BuiltValueNullFieldError.checkNotNull(version, r'SpreedCapabilities', 'version'));
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'features';
         features.build();
+        _$failedField = 'featuresLocal';
+        featuresLocal.build();
         _$failedField = 'config';
         config.build();
+        _$failedField = 'configLocal';
+        configLocal.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'SpreedCapabilities', _$failedField, e.toString());
       }

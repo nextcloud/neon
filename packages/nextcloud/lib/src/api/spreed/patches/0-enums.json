@@ -105,5 +105,12 @@
     "value": {
       "$ref": "#/components/schemas/ActorType"
     }
+  },
+  {
+    "op": "replace",
+    "path": "/components/schemas/SignalingSession/properties/actorType",
+    "value": {
+      "$ref": "#/components/schemas/ActorType"
+    }
   }
 ]
