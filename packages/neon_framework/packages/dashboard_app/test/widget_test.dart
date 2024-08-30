@@ -70,10 +70,10 @@ void main() {
           isNotNull,
         ),
       );
-      expect(find.byType(NeonImageWrapper), findsOneWidget);
+      expect(find.byType(ClipRRect), findsOneWidget);
       expect(
-        tester.widget(find.byType(NeonImageWrapper)),
-        isA<NeonImageWrapper>().having(
+        tester.widget(find.byType(ClipRRect)),
+        isA<ClipRRect>().having(
           (a) => a.borderRadius,
           'borderRadius is correct',
           BorderRadius.circular(largeIconSize),
@@ -98,11 +98,11 @@ void main() {
       );
 
       expect(
-        tester.widget(find.byType(NeonImageWrapper)),
-        isA<NeonImageWrapper>().having(
+        tester.widget(find.byType(ClipRRect)),
+        isA<ClipRRect>().having(
           (a) => a.borderRadius,
-          'borderRadius is null',
-          null,
+          'borderRadius is zero',
+          BorderRadius.zero,
         ),
       );
 
@@ -301,10 +301,10 @@ void main() {
           isNotNull,
         ),
       );
-      expect(find.byType(NeonImageWrapper), findsOneWidget);
+      expect(find.byType(ClipRRect), findsOneWidget);
       expect(
-        tester.widget(find.byType(NeonImageWrapper)),
-        isA<NeonImageWrapper>().having(
+        tester.widget(find.byType(ClipRRect)),
+        isA<ClipRRect>().having(
           (a) => a.borderRadius,
           'borderRadius is correct',
           BorderRadius.circular(largeIconSize),
@@ -364,11 +364,11 @@ void main() {
       );
 
       expect(
-        tester.widget(find.byType(NeonImageWrapper)),
-        isA<NeonImageWrapper>().having(
+        tester.widget(find.byType(ClipRRect)),
+        isA<ClipRRect>().having(
           (a) => a.borderRadius,
-          'borderRadius is null',
-          null,
+          'borderRadius is zero',
+          BorderRadius.zero,
         ),
       );
 
