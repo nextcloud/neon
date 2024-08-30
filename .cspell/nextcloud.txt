@@ -51,6 +51,7 @@ reshares
 resharing
 rgdnvw
 roomid
+rowocs
 setsip
 shareapi
 sharebymail
