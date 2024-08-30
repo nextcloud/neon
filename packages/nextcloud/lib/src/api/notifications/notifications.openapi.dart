@@ -66,6 +66,7 @@ class $ApiClient {
 
   /// Builds a serializer to parse the response of [$generateNotification_Request].
   @_i2.experimental
+  @Deprecated('')
   _i1.DynamiteSerializer<ApiGenerateNotificationResponseApplicationJson, void> $generateNotification_Serializer() =>
       _i1.DynamiteSerializer(
         bodyType: const FullType(ApiGenerateNotificationResponseApplicationJson),
@@ -74,7 +75,7 @@ class $ApiClient {
         validStatuses: const {200},
       );
 
-  /// Generate a notification for a user.
+  /// Generate a notification for a user (deprecated, use v3 instead).
   ///
   /// This endpoint requires admin access.
   ///
@@ -96,6 +97,7 @@ class $ApiClient {
   ///  * [generateNotification] for a method executing this request and parsing the response.
   ///  * [$generateNotification_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
+  @Deprecated('')
   _i3.Request $generateNotification_Request({
     required String userId,
     required ApiGenerateNotificationRequestApplicationJson $body,
@@ -147,7 +149,7 @@ class $ApiClient {
     return _request;
   }
 
-  /// Generate a notification for a user.
+  /// Generate a notification for a user (deprecated, use v3 instead).
   ///
   /// This endpoint requires admin access.
   ///
@@ -168,6 +170,7 @@ class $ApiClient {
   /// See:
   ///  * [$generateNotification_Request] for the request send by this method.
   ///  * [$generateNotification_Serializer] for a converter to parse the `Response` from an executed request.
+  @Deprecated('')
   Future<_i1.DynamiteResponse<ApiGenerateNotificationResponseApplicationJson, void>> generateNotification({
     required String userId,
     required ApiGenerateNotificationRequestApplicationJson $body,
@@ -185,6 +188,136 @@ class $ApiClient {
 
     final _serializer = $generateNotification_Serializer();
     return _i1.ResponseConverter<ApiGenerateNotificationResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$generateNotificationV3_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<ApiGenerateNotificationV3ResponseApplicationJson, void> $generateNotificationV3_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ApiGenerateNotificationV3ResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Generate a notification with rich object parameters for a user.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a `DynamiteRequest` backing the [generateNotificationV3] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion3]
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Notification generated successfully, returned id is the notification ID for future delete requests
+  ///   * 400: Provided data was invalid, check error field of the response of log file for details
+  ///
+  /// See:
+  ///  * [generateNotificationV3] for a method executing this request and parsing the response.
+  ///  * [$generateNotificationV3_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $generateNotificationV3_Request({
+    required String apiVersion3,
+    required String userId,
+    bool? oCSAPIRequest,
+    ApiGenerateNotificationV3RequestApplicationJson? $body,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __apiVersion3 = _$jsonSerializers.serialize(apiVersion3, specifiedType: const FullType(String));
+    _i6.checkString(
+      __apiVersion3,
+      'apiVersion3',
+      pattern: RegExp(r'^(v3)$'),
+    );
+    _parameters['apiVersion3'] = __apiVersion3;
+
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
+
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion3}/admin_notifications/{userId}')
+        .expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
+
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize(
+              $body,
+              specifiedType: const FullType(ApiGenerateNotificationV3RequestApplicationJson),
+            ),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              ApiGenerateNotificationV3RequestApplicationJson(),
+              specifiedType: const FullType(ApiGenerateNotificationV3RequestApplicationJson),
+            ),
+          );
+    return _request;
+  }
+
+  /// Generate a notification with rich object parameters for a user.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion3]
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Notification generated successfully, returned id is the notification ID for future delete requests
+  ///   * 400: Provided data was invalid, check error field of the response of log file for details
+  ///
+  /// See:
+  ///  * [$generateNotificationV3_Request] for the request send by this method.
+  ///  * [$generateNotificationV3_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<ApiGenerateNotificationV3ResponseApplicationJson, void>> generateNotificationV3({
+    required String apiVersion3,
+    required String userId,
+    bool? oCSAPIRequest,
+    ApiGenerateNotificationV3RequestApplicationJson? $body,
+  }) async {
+    final _request = $generateNotificationV3_Request(
+      apiVersion3: apiVersion3,
+      userId: userId,
+      oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $generateNotificationV3_Serializer();
+    return _i1.ResponseConverter<ApiGenerateNotificationV3ResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 }
 
@@ -1463,6 +1596,644 @@ abstract class ApiGenerateNotificationResponseApplicationJson
   }
 }
 
+class RichObjectParameter_CallType extends EnumClass {
+  const RichObjectParameter_CallType._(super.name);
+
+  /// `one2one`
+  static const RichObjectParameter_CallType one2one = _$richObjectParameterCallTypeOne2one;
+
+  /// `group`
+  static const RichObjectParameter_CallType group = _$richObjectParameterCallTypeGroup;
+
+  /// `public`
+  static const RichObjectParameter_CallType public = _$richObjectParameterCallTypePublic;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RichObjectParameter_CallType> get values => _$richObjectParameterCallTypeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RichObjectParameter_CallType valueOf(String name) => _$valueOfRichObjectParameter_CallType(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for RichObjectParameter_CallType.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RichObjectParameter_CallType> get serializer => const _$RichObjectParameter_CallTypeSerializer();
+}
+
+class _$RichObjectParameter_CallTypeSerializer implements PrimitiveSerializer<RichObjectParameter_CallType> {
+  const _$RichObjectParameter_CallTypeSerializer();
+
+  static const Map<RichObjectParameter_CallType, Object> _toWire = <RichObjectParameter_CallType, Object>{
+    RichObjectParameter_CallType.one2one: 'one2one',
+    RichObjectParameter_CallType.group: 'group',
+    RichObjectParameter_CallType.public: 'public',
+  };
+
+  static const Map<Object, RichObjectParameter_CallType> _fromWire = <Object, RichObjectParameter_CallType>{
+    'one2one': RichObjectParameter_CallType.one2one,
+    'group': RichObjectParameter_CallType.group,
+    'public': RichObjectParameter_CallType.public,
+  };
+
+  @override
+  Iterable<Type> get types => const [RichObjectParameter_CallType];
+
+  @override
+  String get wireName => 'RichObjectParameter_CallType';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RichObjectParameter_CallType object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RichObjectParameter_CallType deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class RichObjectParameter_PreviewAvailable extends EnumClass {
+  const RichObjectParameter_PreviewAvailable._(super.name);
+
+  /// `yes`
+  static const RichObjectParameter_PreviewAvailable yes = _$richObjectParameterPreviewAvailableYes;
+
+  /// `no`
+  static const RichObjectParameter_PreviewAvailable no = _$richObjectParameterPreviewAvailableNo;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RichObjectParameter_PreviewAvailable> get values => _$richObjectParameterPreviewAvailableValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RichObjectParameter_PreviewAvailable valueOf(String name) =>
+      _$valueOfRichObjectParameter_PreviewAvailable(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for RichObjectParameter_PreviewAvailable.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RichObjectParameter_PreviewAvailable> get serializer =>
+      const _$RichObjectParameter_PreviewAvailableSerializer();
+}
+
+class _$RichObjectParameter_PreviewAvailableSerializer
+    implements PrimitiveSerializer<RichObjectParameter_PreviewAvailable> {
+  const _$RichObjectParameter_PreviewAvailableSerializer();
+
+  static const Map<RichObjectParameter_PreviewAvailable, Object> _toWire =
+      <RichObjectParameter_PreviewAvailable, Object>{
+    RichObjectParameter_PreviewAvailable.yes: 'yes',
+    RichObjectParameter_PreviewAvailable.no: 'no',
+  };
+
+  static const Map<Object, RichObjectParameter_PreviewAvailable> _fromWire =
+      <Object, RichObjectParameter_PreviewAvailable>{
+    'yes': RichObjectParameter_PreviewAvailable.yes,
+    'no': RichObjectParameter_PreviewAvailable.no,
+  };
+
+  @override
+  Iterable<Type> get types => const [RichObjectParameter_PreviewAvailable];
+
+  @override
+  String get wireName => 'RichObjectParameter_PreviewAvailable';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RichObjectParameter_PreviewAvailable object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RichObjectParameter_PreviewAvailable deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class RichObjectParameter_Visibility extends EnumClass {
+  const RichObjectParameter_Visibility._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const RichObjectParameter_Visibility $0 = _$richObjectParameterVisibility$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const RichObjectParameter_Visibility $1 = _$richObjectParameterVisibility$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RichObjectParameter_Visibility> get values => _$richObjectParameterVisibilityValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RichObjectParameter_Visibility valueOf(String name) => _$valueOfRichObjectParameter_Visibility(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for RichObjectParameter_Visibility.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RichObjectParameter_Visibility> get serializer =>
+      const _$RichObjectParameter_VisibilitySerializer();
+}
+
+class _$RichObjectParameter_VisibilitySerializer implements PrimitiveSerializer<RichObjectParameter_Visibility> {
+  const _$RichObjectParameter_VisibilitySerializer();
+
+  static const Map<RichObjectParameter_Visibility, Object> _toWire = <RichObjectParameter_Visibility, Object>{
+    RichObjectParameter_Visibility.$0: '0',
+    RichObjectParameter_Visibility.$1: '1',
+  };
+
+  static const Map<Object, RichObjectParameter_Visibility> _fromWire = <Object, RichObjectParameter_Visibility>{
+    '0': RichObjectParameter_Visibility.$0,
+    '1': RichObjectParameter_Visibility.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [RichObjectParameter_Visibility];
+
+  @override
+  String get wireName => 'RichObjectParameter_Visibility';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RichObjectParameter_Visibility object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RichObjectParameter_Visibility deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class RichObjectParameter_Assignable extends EnumClass {
+  const RichObjectParameter_Assignable._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const RichObjectParameter_Assignable $0 = _$richObjectParameterAssignable$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const RichObjectParameter_Assignable $1 = _$richObjectParameterAssignable$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RichObjectParameter_Assignable> get values => _$richObjectParameterAssignableValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RichObjectParameter_Assignable valueOf(String name) => _$valueOfRichObjectParameter_Assignable(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for RichObjectParameter_Assignable.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RichObjectParameter_Assignable> get serializer =>
+      const _$RichObjectParameter_AssignableSerializer();
+}
+
+class _$RichObjectParameter_AssignableSerializer implements PrimitiveSerializer<RichObjectParameter_Assignable> {
+  const _$RichObjectParameter_AssignableSerializer();
+
+  static const Map<RichObjectParameter_Assignable, Object> _toWire = <RichObjectParameter_Assignable, Object>{
+    RichObjectParameter_Assignable.$0: '0',
+    RichObjectParameter_Assignable.$1: '1',
+  };
+
+  static const Map<Object, RichObjectParameter_Assignable> _fromWire = <Object, RichObjectParameter_Assignable>{
+    '0': RichObjectParameter_Assignable.$0,
+    '1': RichObjectParameter_Assignable.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [RichObjectParameter_Assignable];
+
+  @override
+  String get wireName => 'RichObjectParameter_Assignable';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RichObjectParameter_Assignable object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RichObjectParameter_Assignable deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RichObjectParameterInterface {
+  String get type;
+  String get id;
+  String get name;
+  String? get server;
+  String? get link;
+  @BuiltValueField(wireName: 'call-type')
+  RichObjectParameter_CallType? get callType;
+  @BuiltValueField(wireName: 'icon-url')
+  String? get iconUrl;
+  @BuiltValueField(wireName: 'message-id')
+  String? get messageId;
+  String? get boardname;
+  String? get stackname;
+  String? get size;
+  String? get path;
+  String? get mimetype;
+  @BuiltValueField(wireName: 'preview-available')
+  RichObjectParameter_PreviewAvailable? get previewAvailable;
+  String? get mtime;
+  String? get latitude;
+  String? get longitude;
+  String? get description;
+  String? get thumb;
+  String? get website;
+  RichObjectParameter_Visibility? get visibility;
+  RichObjectParameter_Assignable? get assignable;
+  String? get conversation;
+  String? get etag;
+  String? get permissions;
+  String? get width;
+  String? get height;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RichObjectParameterInterfaceBuilder].
+  $RichObjectParameterInterface rebuild(void Function($RichObjectParameterInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$RichObjectParameterInterfaceBuilder].
+  $RichObjectParameterInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RichObjectParameterInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RichObjectParameterInterfaceBuilder b) {}
+}
+
+abstract class RichObjectParameter
+    implements $RichObjectParameterInterface, Built<RichObjectParameter, RichObjectParameterBuilder> {
+  /// Creates a new RichObjectParameter object using the builder pattern.
+  factory RichObjectParameter([void Function(RichObjectParameterBuilder)? b]) = _$RichObjectParameter;
+
+  // coverage:ignore-start
+  const RichObjectParameter._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RichObjectParameter.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RichObjectParameter.
+  static Serializer<RichObjectParameter> get serializer => _$richObjectParameterSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RichObjectParameterBuilder b) {
+    $RichObjectParameterInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RichObjectParameterBuilder b) {
+    $RichObjectParameterInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ApiGenerateNotificationV3RequestApplicationJsonInterface {
+  static final _$subject = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  static final _$message = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  static final _$subjectParameters = _$jsonSerializers.deserialize(
+    const {},
+    specifiedType: const FullType(BuiltMap, [FullType(String), FullType(RichObjectParameter)]),
+  )! as BuiltMap<String, RichObjectParameter>;
+
+  static final _$messageParameters = _$jsonSerializers.deserialize(
+    const {},
+    specifiedType: const FullType(BuiltMap, [FullType(String), FullType(RichObjectParameter)]),
+  )! as BuiltMap<String, RichObjectParameter>;
+
+  /// Subject of the notification.
+  String get subject;
+
+  /// Message of the notification.
+  String get message;
+
+  /// Rich objects to fill the subject placeholders, {@see \OCP\RichObjectStrings\Definitions}.
+  BuiltMap<String, RichObjectParameter> get subjectParameters;
+
+  /// Rich objects to fill the message placeholders, {@see \OCP\RichObjectStrings\Definitions}.
+  BuiltMap<String, RichObjectParameter> get messageParameters;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ApiGenerateNotificationV3RequestApplicationJsonInterfaceBuilder].
+  $ApiGenerateNotificationV3RequestApplicationJsonInterface rebuild(
+    void Function($ApiGenerateNotificationV3RequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ApiGenerateNotificationV3RequestApplicationJsonInterfaceBuilder].
+  $ApiGenerateNotificationV3RequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiGenerateNotificationV3RequestApplicationJsonInterfaceBuilder b) {
+    b.subject = _$subject;
+    b.message = _$message;
+    b.subjectParameters.replace(_$subjectParameters);
+    b.messageParameters.replace(_$messageParameters);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiGenerateNotificationV3RequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ApiGenerateNotificationV3RequestApplicationJson
+    implements
+        $ApiGenerateNotificationV3RequestApplicationJsonInterface,
+        Built<ApiGenerateNotificationV3RequestApplicationJson, ApiGenerateNotificationV3RequestApplicationJsonBuilder> {
+  /// Creates a new ApiGenerateNotificationV3RequestApplicationJson object using the builder pattern.
+  factory ApiGenerateNotificationV3RequestApplicationJson([
+    void Function(ApiGenerateNotificationV3RequestApplicationJsonBuilder)? b,
+  ]) = _$ApiGenerateNotificationV3RequestApplicationJson;
+
+  // coverage:ignore-start
+  const ApiGenerateNotificationV3RequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ApiGenerateNotificationV3RequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ApiGenerateNotificationV3RequestApplicationJson.
+  static Serializer<ApiGenerateNotificationV3RequestApplicationJson> get serializer =>
+      _$apiGenerateNotificationV3RequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiGenerateNotificationV3RequestApplicationJsonBuilder b) {
+    $ApiGenerateNotificationV3RequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiGenerateNotificationV3RequestApplicationJsonBuilder b) {
+    $ApiGenerateNotificationV3RequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataInterface {
+  int get id;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data
+    implements
+        $ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataInterface,
+        Built<ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data,
+            ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data([
+    void Function(ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data.
+  static Serializer<ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data> get serializer =>
+      _$apiGenerateNotificationV3ResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder b) {
+    $ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder b) {
+    $ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ApiGenerateNotificationV3ResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ApiGenerateNotificationV3ResponseApplicationJson_OcsInterfaceBuilder].
+  $ApiGenerateNotificationV3ResponseApplicationJson_OcsInterface rebuild(
+    void Function($ApiGenerateNotificationV3ResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ApiGenerateNotificationV3ResponseApplicationJson_OcsInterfaceBuilder].
+  $ApiGenerateNotificationV3ResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiGenerateNotificationV3ResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiGenerateNotificationV3ResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class ApiGenerateNotificationV3ResponseApplicationJson_Ocs
+    implements
+        $ApiGenerateNotificationV3ResponseApplicationJson_OcsInterface,
+        Built<ApiGenerateNotificationV3ResponseApplicationJson_Ocs,
+            ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ApiGenerateNotificationV3ResponseApplicationJson_Ocs object using the builder pattern.
+  factory ApiGenerateNotificationV3ResponseApplicationJson_Ocs([
+    void Function(ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const ApiGenerateNotificationV3ResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ApiGenerateNotificationV3ResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ApiGenerateNotificationV3ResponseApplicationJson_Ocs.
+  static Serializer<ApiGenerateNotificationV3ResponseApplicationJson_Ocs> get serializer =>
+      _$apiGenerateNotificationV3ResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder b) {
+    $ApiGenerateNotificationV3ResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder b) {
+    $ApiGenerateNotificationV3ResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ApiGenerateNotificationV3ResponseApplicationJsonInterface {
+  ApiGenerateNotificationV3ResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ApiGenerateNotificationV3ResponseApplicationJsonInterfaceBuilder].
+  $ApiGenerateNotificationV3ResponseApplicationJsonInterface rebuild(
+    void Function($ApiGenerateNotificationV3ResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ApiGenerateNotificationV3ResponseApplicationJsonInterfaceBuilder].
+  $ApiGenerateNotificationV3ResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiGenerateNotificationV3ResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiGenerateNotificationV3ResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ApiGenerateNotificationV3ResponseApplicationJson
+    implements
+        $ApiGenerateNotificationV3ResponseApplicationJsonInterface,
+        Built<ApiGenerateNotificationV3ResponseApplicationJson,
+            ApiGenerateNotificationV3ResponseApplicationJsonBuilder> {
+  /// Creates a new ApiGenerateNotificationV3ResponseApplicationJson object using the builder pattern.
+  factory ApiGenerateNotificationV3ResponseApplicationJson([
+    void Function(ApiGenerateNotificationV3ResponseApplicationJsonBuilder)? b,
+  ]) = _$ApiGenerateNotificationV3ResponseApplicationJson;
+
+  // coverage:ignore-start
+  const ApiGenerateNotificationV3ResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ApiGenerateNotificationV3ResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ApiGenerateNotificationV3ResponseApplicationJson.
+  static Serializer<ApiGenerateNotificationV3ResponseApplicationJson> get serializer =>
+      _$apiGenerateNotificationV3ResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiGenerateNotificationV3ResponseApplicationJsonBuilder b) {
+    $ApiGenerateNotificationV3ResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiGenerateNotificationV3ResponseApplicationJsonBuilder b) {
+    $ApiGenerateNotificationV3ResponseApplicationJsonInterface._validate(b);
+  }
+}
+
 class EndpointListNotificationsApiVersion extends EnumClass {
   const EndpointListNotificationsApiVersion._(super.name);
 
@@ -1602,9 +2373,9 @@ sealed class $NotificationInterface {
   String get link;
   BuiltList<NotificationAction> get actions;
   String? get subjectRich;
-  BuiltMap<String, JsonObject>? get subjectRichParameters;
+  BuiltMap<String, RichObjectParameter>? get subjectRichParameters;
   String? get messageRich;
-  BuiltMap<String, JsonObject>? get messageRichParameters;
+  BuiltMap<String, RichObjectParameter>? get messageRichParameters;
   String? get icon;
   bool? get shouldNotify;
 
@@ -3825,6 +4596,36 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(ApiGenerateNotificationResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
       ..add(OCSMeta.serializer)
+      ..addBuilderFactory(
+        const FullType(ApiGenerateNotificationV3RequestApplicationJson),
+        ApiGenerateNotificationV3RequestApplicationJsonBuilder.new,
+      )
+      ..add(ApiGenerateNotificationV3RequestApplicationJson.serializer)
+      ..addBuilderFactory(const FullType(RichObjectParameter), RichObjectParameterBuilder.new)
+      ..add(RichObjectParameter.serializer)
+      ..add(RichObjectParameter_CallType.serializer)
+      ..add(RichObjectParameter_PreviewAvailable.serializer)
+      ..add(RichObjectParameter_Visibility.serializer)
+      ..add(RichObjectParameter_Assignable.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(RichObjectParameter)]),
+        MapBuilder<String, RichObjectParameter>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(ApiGenerateNotificationV3ResponseApplicationJson),
+        ApiGenerateNotificationV3ResponseApplicationJsonBuilder.new,
+      )
+      ..add(ApiGenerateNotificationV3ResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(ApiGenerateNotificationV3ResponseApplicationJson_Ocs),
+        ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(ApiGenerateNotificationV3ResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data),
+        ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data.serializer)
       ..add(EndpointListNotificationsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(EndpointListNotificationsResponseApplicationJson),
@@ -3843,10 +4644,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(NotificationAction)]),
         ListBuilder<NotificationAction>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
-        MapBuilder<String, JsonObject>.new,
       )
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Notification)]), ListBuilder<Notification>.new)
       ..addBuilderFactory(
