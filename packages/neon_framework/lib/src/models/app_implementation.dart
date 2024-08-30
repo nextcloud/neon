@@ -28,8 +28,6 @@ import 'package:vector_graphics/vector_graphics.dart';
 @immutable
 abstract class AppImplementation<T extends Bloc, R extends AppImplementationOptions> implements Disposable, Findable {
   /// The unique id of an app.
-  ///
-  /// It is common to specify them in `AppIDs`.
   @override
   String get id;
 

@@ -53,41 +53,6 @@ void main() {
       formatter.format(output),
     );
   }
-
-  final library = Library((b) {
-    final appIDBuilder = ClassBuilder()
-      ..docs.add('/// IDs of the apps.')
-      ..annotations
-          .add(refer('Deprecated').call([refer("\"Use 'appID' from 'package:nextcloud/<id>.dart' instead.\"")]))
-      ..name = 'AppIDs'
-      ..modifier = ClassModifier.final$;
-
-    for (final state in states) {
-      final clientID = state.clientID;
-
-      b.directives.add(Directive.import('package:nextcloud/$clientID.dart', as: '_$clientID'));
-
-      final appID = Field((b) {
-        b
-          ..docs.add('/// ID for the $clientID app.')
-          ..static = true
-          ..modifier = FieldModifier.constant
-          ..type = refer('String')
-          ..name = state.dartName
-          ..assignment = refer('_$clientID.$_idField').code;
-      });
-
-      appIDBuilder.fields.add(appID);
-    }
-
-    b.body.add(appIDBuilder.build());
-  });
-
-  final output = library.accept(emitter).toString();
-
-  File('lib/src/app_ids.dart').writeAsStringSync(
-    formatter.format(output),
-  );
 }
 
 Library _buildClientExports(_State state) {
