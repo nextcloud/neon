@@ -1,8 +1,5 @@
-import 'package:cookie_jar/cookie_jar.dart' as cookie_jar;
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:http/http.dart' as http;
-import 'package:nextcloud/src/utils/cookie_jar_client.dart';
-import 'package:universal_io/io.dart';
 
 /// A client configuring the clients for all Nextcloud APIs.
 ///
@@ -24,21 +21,8 @@ class NextcloudClient extends DynamiteClient with http.BaseClient {
     String? loginName,
     String? password,
     String? appPassword,
-    @Deprecated('Use a custom http client to set the user agent.') String? userAgent,
     http.Client? httpClient,
-    @Deprecated('Use a custom http client to persist cookies.') cookie_jar.CookieJar? cookieJar,
   }) {
-    var client = httpClient ?? http.Client();
-    if (cookieJar != null || userAgent != null) {
-      client = CookieJarClient(
-        httpClient: httpClient,
-        cookieJar: cookieJar,
-        baseHeaders: {
-          if (userAgent != null) HttpHeaders.userAgentHeader: userAgent,
-        },
-      );
-    }
-
     final authentications = [
       if (appPassword != null)
         DynamiteHttpBearerAuthentication(
@@ -53,7 +37,7 @@ class NextcloudClient extends DynamiteClient with http.BaseClient {
 
     return NextcloudClient._(
       baseURL,
-      httpClient: client,
+      httpClient: httpClient,
       authentications: authentications,
     );
   }
