@@ -80,3 +80,7 @@ See [here](packages/neon_framework/example/README.md) for screenshots.
 | Linux    | :white_check_mark: |
 | Windows  | :rocket:           |
 | Web      | :white_check_mark: |
+
+## Try it out
+
+Check the [example](packages/neon_framework/example) for instructions to try out the app.
