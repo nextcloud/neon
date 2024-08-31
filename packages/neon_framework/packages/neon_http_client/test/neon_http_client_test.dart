@@ -2,6 +2,7 @@ import 'package:cookie_store/cookie_store.dart';
 import 'package:http/http.dart';
 import 'package:http/testing.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:neon_http_client/src/interceptors/authorization_throttling_interceptor.dart';
 import 'package:neon_http_client/src/interceptors/interceptors.dart';
 import 'package:neon_http_client/src/neon_http_client.dart';
 import 'package:nextcloud/nextcloud.dart';
@@ -46,8 +47,8 @@ void main() {
       );
 
       expect(
-        client.interceptors.first,
-        isA<BaseHeaderInterceptor>(),
+        client.interceptors,
+        contains(isA<BaseHeaderInterceptor>()),
       );
     });
 
@@ -60,8 +61,22 @@ void main() {
       );
 
       expect(
+        client.interceptors,
+        contains(isA<CookieStoreInterceptor>()),
+      );
+    });
+
+    test('adds authorization throttling interceptor before cookie store', () {
+      final cookieStore = _MockCookieStore();
+
+      client = NeonHttpClient(
+        baseURL: Uri(),
+        cookieStore: cookieStore,
+      );
+
+      expect(
         client.interceptors.first,
-        isA<CookieStoreInterceptor>(),
+        isA<AuthorizationThrottlingInterceptor>(),
       );
     });
 
