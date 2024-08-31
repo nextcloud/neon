@@ -101,7 +101,11 @@ final class NeonHttpClient with http.BaseClient {
           interceptedRequest = await interceptor.interceptRequest(
             request: interceptedRequest,
           );
-        } catch (_, stackTrace) {
+        } catch (error, stackTrace) {
+          if (error is http.ClientException) {
+            rethrow;
+          }
+
           Error.throwWithStackTrace(
             InterceptionException('Failed to intercept request', request.url),
             stackTrace,
@@ -131,7 +135,11 @@ final class NeonHttpClient with http.BaseClient {
             response: interceptedResponse,
             url: url,
           );
-        } catch (_, stackTrace) {
+        } catch (error, stackTrace) {
+          if (error is http.ClientException) {
+            rethrow;
+          }
+
           Error.throwWithStackTrace(
             InterceptionException('Failed to intercept response', request.url),
             stackTrace,

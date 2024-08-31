@@ -4,6 +4,7 @@ import 'package:http/testing.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_http_client/src/interceptors/interceptors.dart';
 import 'package:neon_http_client/src/neon_http_client.dart';
+import 'package:nextcloud/nextcloud.dart';
 import 'package:test/test.dart';
 
 class _MockCookieStore extends Mock implements CookieStore {}
@@ -137,7 +138,26 @@ void main() {
         ).called(1);
       });
 
-      test('rethrows errors as InterceptionFailure', () async {
+      test('rethrows http.ClientExceptions', () async {
+        final exception = DynamiteStatusCodeException(Response('', 404));
+        when(() => interceptor.shouldInterceptRequest(any())).thenReturn(true);
+        when(
+          () => interceptor.interceptRequest(request: any(named: 'request')),
+        ).thenThrow(exception);
+
+        expect(client.get(uri), throwsA(exception));
+
+        when(() => interceptor.shouldInterceptRequest(any())).thenReturn(true);
+        when(() => interceptor.interceptRequest(request: any(named: 'request'))).thenReturn(fakeRequest());
+        when(() => interceptor.shouldInterceptResponse(any())).thenReturn(true);
+        when(
+          () => interceptor.interceptResponse(response: any(named: 'response'), url: any(named: 'url')),
+        ).thenThrow(exception);
+
+        expect(client.get(uri), throwsA(exception));
+      });
+
+      test('rethrows non-http.ClientExceptions as InterceptionFailure', () async {
         when(() => interceptor.shouldInterceptRequest(any())).thenReturn(true);
         when(
           () => interceptor.interceptRequest(request: any(named: 'request')),
