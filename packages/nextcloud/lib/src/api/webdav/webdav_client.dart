@@ -1,7 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'dart:async';
-import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:http/http.dart' as http;
@@ -62,11 +61,21 @@ class WebDavClient {
 
   /// Returns a request to create a collection at [path].
   ///
+  /// The props in [set] will be added.
+  ///
   /// See:
-  ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_MKCOL for more information.
+  ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_MKCOL and http://www.webdav.org/specs/rfc5689.html for more information.
   ///   * [mkcol] for a complete operation executing this request.
-  http.Request mkcol_Request(PathUri path) {
+  http.Request mkcol_Request(
+    PathUri path, {
+    WebDavProp? set,
+  }) {
     final request = http.Request('MKCOL', _constructUri(path));
+    if (set != null) {
+      request.body = WebDavMkcol(
+        set: WebDavSet(prop: set),
+      ).toXmlElement(namespaces: namespaces).toXmlString();
+    }
 
     _addBaseHeaders(request);
     return request;
@@ -74,11 +83,19 @@ class WebDavClient {
 
   /// Creates a collection at [path].
   ///
+  /// The props in [set] will be added.
+  ///
   /// See:
-  ///  * http://www.webdav.org/specs/rfc2518.html#METHOD_MKCOL for more information.
+  ///  * http://www.webdav.org/specs/rfc2518.html#METHOD_MKCOL and http://www.webdav.org/specs/rfc5689.html for more information.
   ///  * [mkcol_Request] for the request sent by this method.
-  Future<http.StreamedResponse> mkcol(PathUri path) {
-    final request = mkcol_Request(path);
+  Future<http.StreamedResponse> mkcol(
+    PathUri path, {
+    WebDavProp? set,
+  }) {
+    final request = mkcol_Request(
+      path,
+      set: set,
+    );
 
     return csrfClient.send(request);
   }
@@ -412,7 +429,6 @@ class WebDavClient {
     WebDavDepth? depth,
   }) {
     final request = http.Request('PROPFIND', _constructUri(path))
-      ..encoding = utf8
       ..body = WebDavPropfind(prop: prop ?? const WebDavPropWithoutValues())
           .toXmlElement(namespaces: namespaces)
           .toXmlString();
@@ -461,7 +477,6 @@ class WebDavClient {
     WebDavPropWithoutValues? prop,
   }) {
     final request = http.Request('REPORT', _constructUri(path))
-      ..encoding = utf8
       ..body = WebDavOcFilterFiles(
         filterRules: filterRules,
         prop: prop ?? const WebDavPropWithoutValues(), // coverage:ignore-line
@@ -508,7 +523,6 @@ class WebDavClient {
     WebDavPropWithoutValues? remove,
   }) {
     final request = http.Request('PROPPATCH', _constructUri(path))
-      ..encoding = utf8
       ..body = WebDavPropertyupdate(
         set: set != null ? WebDavSet(prop: set) : null,
         remove: remove != null ? WebDavRemove(prop: remove) : null,

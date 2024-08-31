@@ -90,6 +90,18 @@ class WebDavPropertyupdate with _$WebDavPropertyupdateXmlSerializableMixin {
 
 @immutable
 @annotation.XmlSerializable(createMixin: true)
+@annotation.XmlRootElement(name: 'mkcol', namespace: namespaceDav)
+class WebDavMkcol with _$WebDavMkcolXmlSerializableMixin {
+  const WebDavMkcol({
+    this.set,
+  });
+
+  @annotation.XmlElement(name: 'set', namespace: namespaceDav, includeIfNull: false)
+  final WebDavSet? set;
+}
+
+@immutable
+@annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'set', namespace: namespaceDav)
 class WebDavSet with _$WebDavSetXmlSerializableMixin {
   const WebDavSet({
