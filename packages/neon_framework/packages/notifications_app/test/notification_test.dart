@@ -1,4 +1,5 @@
 import 'package:built_collection/built_collection.dart';
+import 'package:built_value/json_object.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/models.dart';
@@ -45,7 +46,9 @@ void main() {
     when(() => notification.notificationId).thenReturn(0);
     when(() => notification.app).thenReturn('app');
     when(() => notification.subject).thenReturn('subject');
+    when(() => notification.subjectRichParameters).thenReturn(BuiltMap());
     when(() => notification.message).thenReturn('message');
+    when(() => notification.messageRichParameters).thenReturn(BuiltMap());
     when(() => notification.datetime).thenReturn(tz.TZDateTime.now(tz.UTC).toIso8601String());
     when(() => notification.actions).thenReturn(BuiltList([primaryAction, secondaryAction]));
     when(() => notification.icon).thenReturn('');
@@ -56,7 +59,7 @@ void main() {
     account = MockAccount();
   });
 
-  testWidgets('Notification', (tester) async {
+  testWidgets('Plain', (tester) async {
     await tester.pumpWidgetWithAccessibility(
       TestApp(
         localizationsDelegates: NotificationsLocalizations.localizationsDelegates,
@@ -77,7 +80,7 @@ void main() {
     expect(find.text('subject'), findsOne);
     expect(find.text('now'), findsOne);
     expect(find.byType(NotificationsAction), findsExactly(2));
-    await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/notification.png'));
+    await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/notification_plain.png'));
 
     await tester.tap(find.byType(NotificationsNotification));
     verify(() => urlLauncher.launchUrl('https://cloud.example.com:8443/link', any())).called(1);
@@ -85,5 +88,47 @@ void main() {
     await tester.drag(find.byType(NotificationsNotification), const Offset(500, 0));
     await tester.pumpAndSettle();
     verify(callback.call).called(1);
+  });
+
+  testWidgets('Rich', (tester) async {
+    when(() => notification.subjectRich).thenReturn('subject {user}');
+    when(() => notification.subjectRichParameters).thenReturn(
+      BuiltMap({
+        'user': BuiltMap<String, JsonObject>({
+          'type': JsonObject('user'),
+          'id': JsonObject('user'),
+          'name': JsonObject('user'),
+        }),
+      }),
+    );
+    when(() => notification.messageRich).thenReturn('message {call}');
+    when(() => notification.messageRichParameters).thenReturn(
+      BuiltMap({
+        'call': BuiltMap<String, JsonObject>({
+          'type': JsonObject('call'),
+          'id': JsonObject('call'),
+          'name': JsonObject('call'),
+          'icon-url': JsonObject('call'),
+        }),
+      }),
+    );
+
+    await tester.pumpWidgetWithAccessibility(
+      TestApp(
+        localizationsDelegates: NotificationsLocalizations.localizationsDelegates,
+        supportedLocales: NotificationsLocalizations.supportedLocales,
+        providers: [
+          Provider<BuiltSet<AppImplementation>>.value(value: BuiltSet()),
+          Provider<Account>.value(value: account),
+        ],
+        child: NotificationsNotification(
+          notification: notification,
+          onDelete: callback,
+        ),
+      ),
+    );
+
+    expect(find.byType(NeonRichObjectMention), findsExactly(2));
+    await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/notification_rich.png'));
   });
 }
