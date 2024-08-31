@@ -523,6 +523,26 @@ void main() {
       );
     });
 
+    test('Extended mkcol', () async {
+      final response = await tester.client.webdav.mkcol(
+        PathUri.parse('test/extended-mkcol'),
+        set: const WebDavProp(
+          davResourcetype: WebDavResourcetype(collection: [null]),
+          ocTags: WebDavOcTags(tags: ['extended']),
+        ),
+      );
+      expect(response.statusCode, 201);
+
+      final propfindResponse = await tester.client.webdav.propfind(
+        PathUri.parse('test/extended-mkcol'),
+        prop: const WebDavPropWithoutValues.fromBools(
+          ocTags: true,
+        ),
+      );
+      final props = propfindResponse.responses.single.propstats.first.prop;
+      expect(props.ocTags!.tags!.single, 'extended');
+    });
+
     group('litmus', () {
       group('basic', () {
         test('options', () async {
