@@ -24,8 +24,8 @@ class DashboardWidgetItem extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget leading = SizedBox.square(
       dimension: largeIconSize,
-      child: NeonImageWrapper(
-        borderRadius: roundIcon ? BorderRadius.circular(largeIconSize) : null,
+      child: ClipRRect(
+        borderRadius: roundIcon ? BorderRadius.circular(largeIconSize) : BorderRadius.zero,
         child: item.iconUrl.isNotEmpty
             ? NeonUriImage(
                 uri: Uri.parse(item.iconUrl),

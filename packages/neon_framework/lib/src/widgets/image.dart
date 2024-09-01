@@ -26,7 +26,6 @@ typedef ErrorWidgetBuilder = Widget? Function(BuildContext context, Object? erro
 /// See:
 ///  * [NeonApiImage] for an image widget from an Nextcloud API endpoint.
 ///  * [NeonUriImage] for an image widget from an arbitrary URL.
-///  * [NeonImageWrapper] for a wrapping widget for images
 @internal
 class NeonImage extends StatelessWidget {
   /// Custom image implementation.
@@ -157,7 +156,6 @@ class NeonImage extends StatelessWidget {
 /// See:
 ///  * [NeonImage] for a customized image
 ///  * [NeonUriImage] for an image widget from an arbitrary URL.
-///  * [NeonImageWrapper] for a wrapping widget for images
 class NeonApiImage extends StatefulWidget {
   /// Creates a new Neon API image fetching the image with the currently active account.
   const NeonApiImage({
@@ -272,7 +270,6 @@ class _NeonApiImageState extends State<NeonApiImage> {
 /// See:
 ///  * [NeonImage] for a customized image
 ///  * [NeonApiImage] for an image widget from an Nextcloud API endpoint.
-///  * [NeonImageWrapper] for a wrapping widget for images
 class NeonUriImage extends StatefulWidget {
   /// Creates a new Neon URL image with the active account.
   const NeonUriImage({
@@ -387,60 +384,6 @@ class _NeonUriImageState extends State<NeonUriImage> {
       svgColorFilter: widget.svgColorFilter,
       errorBuilder: widget.errorBuilder,
       blurHash: widget.blurHash,
-    );
-  }
-}
-
-/// Nextcloud image wrapper widget.
-///
-/// Wraps a child (most commonly an image) into a uniformly styled container.
-///
-/// See:
-///  * [NeonImage] for a customized image
-///  * [NeonApiImage] for an image widget from an Nextcloud API endpoint.
-///  * [NeonUriImage] for an image widget from an arbitrary URL.
-class NeonImageWrapper extends StatelessWidget {
-  /// Creates a new image wrapper.
-  const NeonImageWrapper({
-    required this.child,
-    this.color = Colors.white,
-    this.size,
-    this.borderRadius,
-    super.key,
-  });
-
-  /// The widget below this widget in the tree.
-  ///
-  /// {@macro flutter.widgets.ProxyWidget.child}
-  final Widget child;
-
-  /// The color to paint the background area with.
-  final Color color;
-
-  /// The size of the widget.
-  final Size? size;
-
-  /// The corners of this box are rounded by this [BorderRadius].
-  ///
-  /// If null defaults to `const BorderRadius.all(Radius.circular(8))`.
-  ///
-  /// The shape or the [borderRadius] won't clip the children of the decorated [Container].
-  /// If the clip is required, insert a clip widget (e.g., [ClipRect], [ClipRRect], [ClipPath])
-  /// as the child of the [Container]. Be aware that clipping may be costly in terms of performance.
-  final BorderRadius? borderRadius;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: size?.height,
-      width: size?.width,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        borderRadius: borderRadius ?? const BorderRadius.all(Radius.circular(8)),
-        color: color,
-      ),
-      clipBehavior: Clip.antiAlias,
-      child: child,
     );
   }
 }

@@ -102,10 +102,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
       if (result.hasData)
         for (final entry in result.requireData.entries)
           AdaptiveListTile(
-            leading: NeonImageWrapper(
-              size: const Size.square(largeIconSize),
-              child: _buildThumbnail(context, account, entry),
-            ),
+            leading: _buildThumbnail(context, account, entry),
             title: Text(entry.title),
             subtitle: Text(entry.subline),
             onTap: () {
@@ -167,7 +164,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
   ) {
     if (entry.icon.startsWith('/')) {
       return NeonUriImage(
-        size: Size.square(IconTheme.of(context).size!),
+        size: const Size.square(largeIconSize),
         uri: Uri.parse(entry.icon),
         account: account,
       );
@@ -177,6 +174,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
       return NeonServerIcon(
         colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn),
         icon: entry.icon,
+        size: largeIconSize,
       );
     }
 
