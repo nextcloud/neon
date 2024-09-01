@@ -1,5 +1,6 @@
 aarch
 allprojects
+anydpi
 autoptr
 buildscript
 buildsystem
@@ -42,7 +43,7 @@ libflutter
 libgtk
 libsqlite
 mipmap
-Multimap
+multimap
 ndebug
 nodoc
 noopenapi
