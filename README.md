@@ -60,6 +60,7 @@ See [here](packages/neon_framework/example/README.md) for screenshots.
 | [News](packages/neon_framework/packages/news_app)                   | :white_check_mark: |
 | [Notes](packages/neon_framework/packages/notes_app)                 | :white_check_mark: |
 | [Notifications](packages/neon_framework/packages/notifications_app) | :white_check_mark: |
+| [Talk](packages/neon_framework/packages/talk_app)                   | :construction:     |
 | Activity                                                            | :rocket:           |
 | Calendar                                                            | :rocket:           |
 | Contacts                                                            | :rocket:           |
@@ -67,7 +68,6 @@ See [here](packages/neon_framework/example/README.md) for screenshots.
 | Cospend                                                             | :rocket:           |
 | Deck                                                                | :rocket:           |
 | Photos                                                              | :rocket:           |
-| Talk                                                                | :construction:     |
 | Tasks                                                               | :rocket:           |
 
 ## Platform support
