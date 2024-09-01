@@ -1,12 +1,12 @@
 import 'dart:convert';
+import 'dart:io' show Directory, File, Link;
 
 import 'package:http/http.dart' as http;
 import 'package:nextcloud/core.dart' as core;
-import 'package:nextcloud_test/src/app.dart';
-import 'package:universal_io/io.dart' show Directory, File, Link;
-import 'package:version/version.dart';
+import 'package:nextcloud_test_presets/src/models/models.dart';
 
-Future<void> main() async {
+/// Generates the test presets.
+Future<void> generatePresets() async {
   const appIDs = [
     'cookbook',
     'news',
@@ -169,7 +169,7 @@ Future<List<App>> _getApps(List<String> appIDs, http.Client httpClient) async {
 
       final download = release['download'] as String;
 
-      final appRelease = (
+      final appRelease = AppRelease(
         version: version,
         url: download,
         minimumServerVersion: minimumServerVersionRequirement,
@@ -184,7 +184,7 @@ Future<List<App>> _getApps(List<String> appIDs, http.Client httpClient) async {
     }
 
     apps.add(
-      (
+      App(
         id: id,
         releases: releases.values.toList(),
       ),
