@@ -1,14 +1,9 @@
-import 'package:cookie_store/cookie_store.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:http/http.dart';
 import 'package:http/testing.dart';
 import 'package:interceptor_http_client/interceptor_http_client.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:neon_http_client/src/interceptors/interceptors.dart';
-import 'package:neon_http_client/src/neon_http_client.dart';
-import 'package:nextcloud/nextcloud.dart';
 import 'package:test/test.dart';
-
-class _MockCookieStore extends Mock implements CookieStore {}
 
 class _MockInterceptor extends Mock implements HttpInterceptor {}
 
@@ -27,7 +22,7 @@ void main() {
   final mockedClient = MockClient((request) async {
     return Response.fromStream(fakeResponse());
   });
-  late NeonHttpClient client;
+  late InterceptorHttpClient client;
 
   setUpAll(() {
     registerFallbackValue(_FakeUri());
@@ -39,71 +34,16 @@ void main() {
     client.close();
   });
 
-  group(NeonHttpClient, () {
-    test('adds user agent', () {
-      client = NeonHttpClient(
-        baseURL: Uri(),
-        userAgent: 'NeonTest',
-      );
-
-      expect(
-        client.interceptors,
-        contains(isA<BaseHeaderInterceptor>()),
-      );
-    });
-
-    test('adds cookie store', () {
-      final cookieStore = _MockCookieStore();
-
-      client = NeonHttpClient(
-        baseURL: Uri(),
-        cookieStore: cookieStore,
-      );
-
-      expect(
-        client.interceptors,
-        contains(isA<CookieStoreInterceptor>()),
-      );
-    });
-
-    test('adds authorization throttling interceptor before cookie store', () {
-      final cookieStore = _MockCookieStore();
-
-      client = NeonHttpClient(
-        baseURL: Uri(),
-        cookieStore: cookieStore,
-      );
-
-      expect(
-        client.interceptors.first,
-        isA<AuthorizationThrottlingInterceptor>(),
-      );
-    });
-
-    test('adds csrf interceptor after cookie store', () {
-      final cookieStore = _MockCookieStore();
-
-      client = NeonHttpClient(
-        baseURL: Uri(),
-        cookieStore: cookieStore,
-      );
-
-      expect(
-        client.interceptors.last,
-        isA<CSRFInterceptor>(),
-      );
-    });
-
+  group(InterceptorHttpClient, () {
     group('interceptors', () {
       late HttpInterceptor interceptor;
 
       setUp(() {
         interceptor = _MockInterceptor();
 
-        client = NeonHttpClient(
-          baseURL: Uri(),
-          client: mockedClient,
-          interceptors: [interceptor],
+        client = InterceptorHttpClient(
+          baseClient: mockedClient,
+          interceptors: BuiltList([interceptor]),
         );
       });
 
@@ -153,26 +93,7 @@ void main() {
         ).called(1);
       });
 
-      test('rethrows http.ClientExceptions', () async {
-        final exception = DynamiteStatusCodeException(Response('', 404));
-        when(() => interceptor.shouldInterceptRequest(any())).thenReturn(true);
-        when(
-          () => interceptor.interceptRequest(request: any(named: 'request')),
-        ).thenThrow(exception);
-
-        expect(client.get(uri), throwsA(exception));
-
-        when(() => interceptor.shouldInterceptRequest(any())).thenReturn(true);
-        when(() => interceptor.interceptRequest(request: any(named: 'request'))).thenReturn(fakeRequest());
-        when(() => interceptor.shouldInterceptResponse(any())).thenReturn(true);
-        when(
-          () => interceptor.interceptResponse(response: any(named: 'response'), url: any(named: 'url')),
-        ).thenThrow(exception);
-
-        expect(client.get(uri), throwsA(exception));
-      });
-
-      test('rethrows non-http.ClientExceptions as InterceptionFailure', () async {
+      test('rethrows errors as InterceptionFailure', () async {
         when(() => interceptor.shouldInterceptRequest(any())).thenReturn(true);
         when(
           () => interceptor.interceptRequest(request: any(named: 'request')),
@@ -205,41 +126,6 @@ void main() {
               uri,
             ),
           ),
-        );
-      });
-    });
-
-    group('timeout', () {
-      test('does not time out without timeout', () async {
-        client = NeonHttpClient(
-          baseURL: Uri(),
-          client: MockClient((request) async {
-            await Future<void>.delayed(const Duration(milliseconds: 10));
-
-            return Response.fromStream(fakeResponse());
-          }),
-        );
-
-        expect(
-          client.get(uri),
-          completion(isA<Response>()),
-        );
-      });
-
-      test('does time out', () async {
-        client = NeonHttpClient(
-          baseURL: Uri(),
-          timeLimit: const Duration(milliseconds: 3),
-          client: MockClient((request) async {
-            await Future<void>.delayed(const Duration(milliseconds: 10));
-
-            return Response.fromStream(fakeResponse());
-          }),
-        );
-
-        expect(
-          client.get(uri),
-          throwsA(isA<HttpTimeoutException>()),
         );
       });
     });

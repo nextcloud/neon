@@ -1,6 +1,6 @@
 import 'package:http/http.dart';
+import 'package:interceptor_http_client/interceptor_http_client.dart';
 import 'package:meta/meta.dart';
-import 'package:neon_http_client/src/interceptors/http_interceptor.dart';
 import 'package:nextcloud/nextcloud.dart';
 
 @internal

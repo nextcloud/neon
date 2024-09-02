@@ -4,6 +4,8 @@ dependency_overrides:
     path: ../../../cookie_store
   dynamite_runtime:
     path: ../../../dynamite/packages/dynamite_runtime
+  interceptor_http_client:
+    path: ../../../interceptor_http_client
   neon_lints:
     path: ../../../neon_lints
   nextcloud:

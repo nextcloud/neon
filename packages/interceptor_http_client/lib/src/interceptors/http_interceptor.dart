@@ -14,7 +14,7 @@ abstract interface class HttpInterceptor {
   ///
   /// Exceptions might be thrown during interception.
   /// If the exception is an [http.ClientException] it will be thrown as is,
-  /// otherwise it wrapped as an `InterceptionException`.
+  /// otherwise it is wrapped as an `InterceptionException`.
   FutureOr<http.BaseRequest> interceptRequest({required http.BaseRequest request});
 
   /// Whether this interceptor should intercept response.
@@ -26,7 +26,7 @@ abstract interface class HttpInterceptor {
   ///
   /// Exceptions might be thrown during interception.
   /// If the exception is an [http.ClientException] it will be thrown as is,
-  /// otherwise it wrapped as an `InterceptionException`.
+  /// otherwise it is wrapped as an `InterceptionException`.
   FutureOr<http.StreamedResponse> interceptResponse({
     required http.StreamedResponse response,
     required Uri url,
