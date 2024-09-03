@@ -1,6 +1,6 @@
 # Neon
 
-<img src="assets/logo.svg" alt="Neon logo" width="200"/>
+<img src="assets/logo_inverted.svg" alt="Neon logo" width="200"/>
 
 A framework for building convergent cross-platform Nextcloud clients using Flutter.
 
