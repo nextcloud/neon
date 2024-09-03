@@ -113,8 +113,9 @@ copy_app_svg talk external/nextcloud-spreed
   inkscape assets/logo_inverted.svg -o web/favicon.png        -w 16  -h 16
 
   # Splash screens
-  inkscape assets/logo_inverted.svg -o img/splash_icon.png            -w  768 -h  768                                      # 768px at xxxhdpi is 192dp
-  inkscape assets/logo.svg          -o img/splash_icon_android_12.png -w 1152 -h 1152 --actions="export-background:$color" # 1152px at xxxhdpi is 288dp
+  inkscape assets/logo_inverted.svg -o img/splash_icon.png -w 768 -h 768 # 768px at xxxhdpi is 192dp
+  convert -size 1152x1152 xc:none img/splash_icon.png -gravity center -composite img/splash_icon_android_12.png # 1152px at xxxhdpi is 288dp
+  exiftool -overwrite_original -all= img/splash_icon_android_12.png # To remove timestamps
   fvm dart run flutter_native_splash:create
 
   precompile_assets
