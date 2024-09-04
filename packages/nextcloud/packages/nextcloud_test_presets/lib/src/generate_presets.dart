@@ -108,7 +108,12 @@ Future<List<Version>> _getServerVersions(http.Client httpClient) async {
       try {
         final tag = result as Map<String, dynamic>;
 
-        final version = Version.parse(tag['name'] as String);
+        final name = tag['name'] as String;
+        if (!name.endsWith('-fpm-alpine')) {
+          continue;
+        }
+
+        final version = Version.parse(name);
         final normalizedVersion = Version(version.major, version.minor, 0);
 
         if (version < core.minVersion) {
