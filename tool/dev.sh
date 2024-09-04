@@ -6,7 +6,7 @@ source tool/common.sh
 if [ "$#" -eq 1 ]; then
     preset="$1"
 else
-    preset="packages/nextcloud/packages/nextcloud_test/docker/presets/latest"
+    preset="packages/nextcloud/packages/nextcloud_test_presets/docker/presets/latest"
 fi
 
 ./tool/build-dev-container.sh "$preset"

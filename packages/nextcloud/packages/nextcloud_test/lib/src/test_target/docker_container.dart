@@ -71,7 +71,7 @@ final class DockerContainerFactory extends TestTargetFactory<DockerContainerInst
 
   @override
   BuiltListMultimap<String, Version> getPresets() {
-    final files = Glob('packages/nextcloud_test/docker/presets/**/*').listSync();
+    final files = Glob('packages/nextcloud_test_presets/docker/presets/**/*').listSync();
 
     return BuiltListMultimap<String, Version>.build((b) {
       for (final file in files) {

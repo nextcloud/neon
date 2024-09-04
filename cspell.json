@@ -19,7 +19,7 @@
     "packages/neon_framework/example/web/sqflite_sw.js",
     "packages/neon_framework/example/web/sqlite3.wasm",
     "packages/neon_lints/lib",
-    "packages/nextcloud/packages/nextcloud_test/docker/static",
+    "packages/nextcloud/packages/nextcloud_test_presets/docker/static",
     "packages/nextcloud/test/files",
     "packages/nextcloud/test/fixtures"
   ],

@@ -31,7 +31,7 @@ To run the tests against development versions follow these steps:
 
 ```sh
 cd /path/to/server
-/path/to/neon/packages/nextcloud/packages/nextcloud_test/docker/local.sh
+/path/to/neon/packages/nextcloud/packages/nextcloud_test_presets/docker/local.sh
 
 # Open a second terminal
 cd /path/to/neon/packages/nextcloud
