@@ -30,7 +30,7 @@ dependencies:
   timezone: ^0.9.4
 
 dev_dependencies:
-  build_runner: ^2.4.11
+  build_runner: ^2.4.12
   custom_lint: ^0.6.5
   flutter_keyboard_visibility: ^6.0.0
   flutter_test:
