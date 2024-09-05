@@ -12,21 +12,20 @@ class App {
   final String id;
   final List<AppRelease> releases;
 
-  AppRelease? findLatestCompatibleRelease(Version serverVersion, {bool allowUnstable = false}) {
+  AppRelease? findLatestCompatibleRelease(ServerRelease serverRelease, {bool allowUnstable = false}) {
     final compatibleReleases = releases
         .where(
           (release) =>
-              serverVersion >= release.minimumServerVersion &&
-              serverVersion < release.maximumServerVersion.incrementMajor() &&
+              serverRelease.isCompatible(release.minimumServerVersion, release.maximumServerVersion) &&
               (allowUnstable || !release.version.isPreRelease),
         )
         .toList()
-      ..sort((a, b) => b.version.compareTo(a.version));
+      ..sort((a, b) => b.compareTo(a));
     return compatibleReleases.firstOrNull;
   }
 
   AppRelease findLatestRelease() {
-    final sortedReleases = releases..sort((a, b) => b.version.compareTo(a.version));
+    final sortedReleases = releases..sort((a, b) => b.compareTo(a));
     return sortedReleases.first;
   }
 }

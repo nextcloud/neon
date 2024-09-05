@@ -19,8 +19,8 @@ Future<void> generatePresets() async {
 
   final httpClient = http.Client();
 
-  final serverVersions = await _getServerVersions(httpClient);
-  serverVersions.sort((a, b) => b.compareTo(a));
+  final serverReleases = await _getServerReleases(httpClient);
+  serverReleases.sort((a, b) => b.compareTo(a));
   final apps = await _getApps(appIDs, httpClient);
 
   for (final app in apps) {
@@ -31,12 +31,12 @@ Future<void> generatePresets() async {
     appPresetsDir.createSync();
 
     for (final release in app.releases) {
-      final serverVersion = release.findLatestServerVersion(serverVersions);
-      if (serverVersion == null) {
+      final serverRelease = release.findLatestServerRelease(serverReleases);
+      if (serverRelease == null) {
         continue;
       }
 
-      final buffer = StringBuffer()..writeln('SERVER_VERSION=$serverVersion');
+      final buffer = StringBuffer()..writeln('SERVER_VERSION=${serverRelease.dockerImageTag}');
 
       for (final a in apps) {
         buffer
@@ -45,15 +45,14 @@ Future<void> generatePresets() async {
         if (a == app) {
           buffer.writeln(release.url);
         } else {
-          final release = a.findLatestCompatibleRelease(serverVersion) ??
-              a.findLatestCompatibleRelease(serverVersion, allowUnstable: true) ??
+          final release = a.findLatestCompatibleRelease(serverRelease) ??
+              a.findLatestCompatibleRelease(serverRelease, allowUnstable: true) ??
               a.findLatestRelease();
           buffer.writeln(release.url);
         }
       }
 
-      File('${appPresetsDir.path}/${release.version.major}.${release.version.minor}')
-          .writeAsStringSync(buffer.toString());
+      File('${appPresetsDir.path}/${release.presetVersion}').writeAsStringSync(buffer.toString());
     }
   }
 
@@ -63,31 +62,31 @@ Future<void> generatePresets() async {
   }
   serverPresetsDir.createSync();
 
-  for (final serverVersion in serverVersions) {
-    final buffer = StringBuffer()..writeln('SERVER_VERSION=$serverVersion');
+  for (final serverRelease in serverReleases) {
+    final buffer = StringBuffer()..writeln('SERVER_VERSION=${serverRelease.dockerImageTag}');
 
     for (final app in apps) {
-      final release = app.findLatestCompatibleRelease(serverVersion) ??
-          app.findLatestCompatibleRelease(serverVersion, allowUnstable: true) ??
+      final release = app.findLatestCompatibleRelease(serverRelease) ??
+          app.findLatestCompatibleRelease(serverRelease, allowUnstable: true) ??
           app.findLatestRelease();
       buffer.writeln('${app.id.toUpperCase()}_URL=${release.url}');
     }
 
-    File('${serverPresetsDir.path}/${serverVersion.major}.${serverVersion.minor}').writeAsStringSync(buffer.toString());
+    File('${serverPresetsDir.path}/${serverRelease.presetVersion}').writeAsStringSync(buffer.toString());
   }
 
   final latestPresetLink = Link('docker/presets/latest');
   if (latestPresetLink.existsSync()) {
-    latestPresetLink.updateSync('server/${serverVersions.first.major}.${serverVersions.first.minor}');
+    latestPresetLink.updateSync('server/${serverReleases.first.presetVersion}');
   } else {
-    latestPresetLink.createSync('server/${serverVersions.first.major}.${serverVersions.first.minor}');
+    latestPresetLink.createSync('server/${serverReleases.first.presetVersion}');
   }
 
   httpClient.close();
 }
 
-Future<List<Version>> _getServerVersions(http.Client httpClient) async {
-  final versions = <Version, Version>{};
+Future<List<ServerRelease>> _getServerReleases(http.Client httpClient) async {
+  final versions = <Version, ServerRelease>{};
   String? next = 'https://hub.docker.com/v2/repositories/library/nextcloud/tags?page_size=1000';
 
   while (next != null) {
@@ -108,17 +107,27 @@ Future<List<Version>> _getServerVersions(http.Client httpClient) async {
       try {
         final tag = result as Map<String, dynamic>;
 
-        final version = Version.parse(tag['name'] as String);
+        final name = tag['name'] as String;
+        if (!name.endsWith('-fpm-alpine')) {
+          continue;
+        }
+
+        final version = Version.parse(name);
         final normalizedVersion = Version(version.major, version.minor, 0);
 
         if (version < core.minVersion) {
           continue;
         }
 
+        final release = ServerRelease(
+          version: version,
+          dockerImageDigest: tag['digest'] as String,
+        );
+
         if (!versions.containsKey(normalizedVersion)) {
-          versions[normalizedVersion] = version;
+          versions[normalizedVersion] = release;
         } else if (version > versions[normalizedVersion]) {
-          versions[normalizedVersion] = version;
+          versions[normalizedVersion] = release;
         }
       } catch (_) {}
     }

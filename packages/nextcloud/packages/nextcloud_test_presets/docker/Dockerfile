@@ -1,5 +1,5 @@
 ARG SERVER_VERSION
-FROM nextcloud:${SERVER_VERSION}-fpm-alpine AS nextcloud
+FROM nextcloud:${SERVER_VERSION} AS nextcloud
 
 WORKDIR /usr/src/nextcloud
 
