@@ -3,12 +3,13 @@ import 'dart:io';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:cookie_store/cookie_store.dart';
+import 'package:http/http.dart' as http;
+import 'package:interceptor_http_client/interceptor_http_client.dart';
 import 'package:meta/meta.dart';
-import 'package:neon_http_client/neon_http_client.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud_test/src/fixture_interceptor.dart';
 import 'package:nextcloud_test/src/fixtures.dart';
 import 'package:nextcloud_test/src/models/models.dart';
-import 'package:nextcloud_test/src/proxy_http_client.dart';
 import 'package:nextcloud_test/src/test_target/docker_container.dart';
 import 'package:nextcloud_test/src/test_target/local.dart';
 import 'package:version/version.dart';
@@ -74,12 +75,14 @@ abstract class TestTargetInstance {
       appPassword = await createAppPassword(username);
     }
 
-    final httpClient = NeonHttpClient(
-      baseURL: hostURL,
-      cookieStore: CookieStore(),
-      client: getProxyHttpClient(
-        onRequest: appendFixture,
-      ),
+    final httpClient = InterceptorHttpClient(
+      baseClient: http.Client(),
+      interceptors: BuiltList([
+        CookieStoreInterceptor(
+          cookieStore: CookieStore(),
+        ),
+        const FixtureInterceptor(appendFixture: appendFixture),
+      ]),
     );
 
     return NextcloudClient(

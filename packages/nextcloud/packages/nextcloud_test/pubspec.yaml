@@ -13,11 +13,11 @@ dependencies:
       path: packages/cookie_store
   glob: ^2.1.2
   http: ^1.2.0
-  meta: ^1.0.0
-  neon_http_client:
+  interceptor_http_client:
     git:
       url: https://github.com/nextcloud/neon
-      path: packages/neon_http_client
+      path: packages/interceptor_http_client
+  meta: ^1.0.0
   nextcloud: ^7.0.0
   path: ^1.9.0
   process_run: ^1.0.0+1
