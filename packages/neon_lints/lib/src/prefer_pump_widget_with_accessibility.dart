@@ -24,8 +24,7 @@ Use 'pumpWidgetWithAccessibility' instead to perform automatic accessibility gui
   ) {
     context.registry.addInvocationExpression((node) {
       if (node.function.toSource() == _pumpWidget) {
-        // ignore: deprecated_member_use
-        reporter.reportErrorForToken(code, node.beginToken);
+        reporter.atToken(node.beginToken, _code);
       }
     });
   }

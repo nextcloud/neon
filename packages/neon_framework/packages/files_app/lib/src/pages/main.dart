@@ -31,7 +31,9 @@ class _FilesMainPageState extends State<FilesMainPage> {
     bloc = NeonProvider.of<FilesBloc>(context);
 
     errorsSubscription = bloc.errors.listen((error) {
-      NeonError.showSnackbar(context, error);
+      if (mounted) {
+        NeonError.showSnackbar(context, error);
+      }
     });
   }
 

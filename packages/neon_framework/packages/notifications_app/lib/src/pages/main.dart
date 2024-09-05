@@ -30,7 +30,9 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
     bloc = NeonProvider.of<NotificationsBlocInterface>(context) as NotificationsBloc;
 
     errorsSubscription = bloc.errors.listen((error) {
-      NeonError.showSnackbar(context, error);
+      if (mounted) {
+        NeonError.showSnackbar(context, error);
+      }
     });
   }
 

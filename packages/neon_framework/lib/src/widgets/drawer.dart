@@ -87,8 +87,8 @@ class _NeonDrawerState extends State<NeonDrawer> {
 
 /// Custom styled [DrawerHeader] used inside a [Drawer] or [NeonDrawer].
 ///
-/// The neon drawer will display the [core.ThemingPublicCapabilities_Theming.name]
-/// and [core.ThemingPublicCapabilities_Theming.logo] and automatically rebuild
+/// The neon drawer will display the [core.$ThemingPublicCapabilities_ThemingInterface.name]
+/// and [core.$ThemingPublicCapabilities_ThemingInterface.logo] and automatically rebuild
 /// when the current theme changes.
 @internal
 class NeonDrawerHeader extends StatelessWidget {

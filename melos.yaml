@@ -36,6 +36,7 @@ scripts:
   format:check: dart format --output=none --set-exit-if-changed --line-length 120 .
   analyze: >
     dart analyze --fatal-infos . &&
+    rm -rf packages/neon_framework/example/linux/flutter/ephemeral/ &&
     dart run custom_lint --fatal-infos .
   test: >
     melos run test:dart &&

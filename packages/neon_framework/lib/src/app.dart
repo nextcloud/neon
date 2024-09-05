@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:collection/collection.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -219,7 +218,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
                   deviceThemeLight: deviceThemeLight,
                   deviceThemeDark: deviceThemeDark,
                   oledAsDark: options.themeOLEDAsDark.value,
-                  appThemes: _appImplementations.map((a) => a.theme).whereNotNull(),
+                  appThemes: _appImplementations.map((a) => a.theme).nonNulls,
                   neonTheme: widget.neonTheme,
                 );
 

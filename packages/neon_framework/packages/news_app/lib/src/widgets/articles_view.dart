@@ -48,7 +48,9 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
     super.initState();
 
     errorsSubscription = widget.bloc.errors.listen((error) {
-      NeonError.showSnackbar(context, error);
+      if (mounted) {
+        NeonError.showSnackbar(context, error);
+      }
     });
 
     options = NeonProvider.of<NewsOptions>(context);
