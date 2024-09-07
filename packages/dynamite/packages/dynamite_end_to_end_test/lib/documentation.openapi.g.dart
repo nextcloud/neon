@@ -37,6 +37,7 @@ Serializer<Object2> _$object2Serializer = _$Object2Serializer();
 Serializer<Object1> _$object1Serializer = _$Object1Serializer();
 Serializer<NonRootClientSetModeRequestApplicationJson> _$nonRootClientSetModeRequestApplicationJsonSerializer =
     _$NonRootClientSetModeRequestApplicationJsonSerializer();
+Serializer<Object4> _$object4Serializer = _$Object4Serializer();
 
 class _$Object2Serializer implements StructuredSerializer<Object2> {
   @override
@@ -174,6 +175,75 @@ class _$NonRootClientSetModeRequestApplicationJsonSerializer
       switch (key) {
         case 'test':
           result.test = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Object4Serializer implements StructuredSerializer<Object4> {
+  @override
+  final Iterable<Type> types = const [Object4, _$Object4];
+  @override
+  final String wireName = 'Object4';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Object4 object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.html;
+    if (value != null) {
+      result
+        ..add('html')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.htmlInCodeblock;
+    if (value != null) {
+      result
+        ..add('html-in-codeblock')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.htmlAfterCodeBlock;
+    if (value != null) {
+      result
+        ..add('html-after-code-block')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.htmlInCodeBlockAfterCodeBlock;
+    if (value != null) {
+      result
+        ..add('html-in-code-block-after-code-block')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  Object4 deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = Object4Builder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'html':
+          result.html = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'html-in-codeblock':
+          result.htmlInCodeblock = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'html-after-code-block':
+          result.htmlAfterCodeBlock = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'html-in-code-block-after-code-block':
+          result.htmlInCodeBlockAfterCodeBlock =
+              serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -484,6 +554,138 @@ class NonRootClientSetModeRequestApplicationJsonBuilder
   _$NonRootClientSetModeRequestApplicationJson _build() {
     NonRootClientSetModeRequestApplicationJson._validate(this);
     final _$result = _$v ?? _$NonRootClientSetModeRequestApplicationJson._(test: test);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $Object4InterfaceBuilder {
+  void replace($Object4Interface other);
+  void update(void Function($Object4InterfaceBuilder) updates);
+  String? get html;
+  set html(String? html);
+
+  String? get htmlInCodeblock;
+  set htmlInCodeblock(String? htmlInCodeblock);
+
+  String? get htmlAfterCodeBlock;
+  set htmlAfterCodeBlock(String? htmlAfterCodeBlock);
+
+  String? get htmlInCodeBlockAfterCodeBlock;
+  set htmlInCodeBlockAfterCodeBlock(String? htmlInCodeBlockAfterCodeBlock);
+}
+
+class _$Object4 extends Object4 {
+  @override
+  final String? html;
+  @override
+  final String? htmlInCodeblock;
+  @override
+  final String? htmlAfterCodeBlock;
+  @override
+  final String? htmlInCodeBlockAfterCodeBlock;
+
+  factory _$Object4([void Function(Object4Builder)? updates]) => (Object4Builder()..update(updates))._build();
+
+  _$Object4._({this.html, this.htmlInCodeblock, this.htmlAfterCodeBlock, this.htmlInCodeBlockAfterCodeBlock})
+      : super._();
+
+  @override
+  Object4 rebuild(void Function(Object4Builder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  Object4Builder toBuilder() => Object4Builder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Object4 &&
+        html == other.html &&
+        htmlInCodeblock == other.htmlInCodeblock &&
+        htmlAfterCodeBlock == other.htmlAfterCodeBlock &&
+        htmlInCodeBlockAfterCodeBlock == other.htmlInCodeBlockAfterCodeBlock;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, html.hashCode);
+    _$hash = $jc(_$hash, htmlInCodeblock.hashCode);
+    _$hash = $jc(_$hash, htmlAfterCodeBlock.hashCode);
+    _$hash = $jc(_$hash, htmlInCodeBlockAfterCodeBlock.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'Object4')
+          ..add('html', html)
+          ..add('htmlInCodeblock', htmlInCodeblock)
+          ..add('htmlAfterCodeBlock', htmlAfterCodeBlock)
+          ..add('htmlInCodeBlockAfterCodeBlock', htmlInCodeBlockAfterCodeBlock))
+        .toString();
+  }
+}
+
+class Object4Builder implements Builder<Object4, Object4Builder>, $Object4InterfaceBuilder {
+  _$Object4? _$v;
+
+  String? _html;
+  String? get html => _$this._html;
+  set html(covariant String? html) => _$this._html = html;
+
+  String? _htmlInCodeblock;
+  String? get htmlInCodeblock => _$this._htmlInCodeblock;
+  set htmlInCodeblock(covariant String? htmlInCodeblock) => _$this._htmlInCodeblock = htmlInCodeblock;
+
+  String? _htmlAfterCodeBlock;
+  String? get htmlAfterCodeBlock => _$this._htmlAfterCodeBlock;
+  set htmlAfterCodeBlock(covariant String? htmlAfterCodeBlock) => _$this._htmlAfterCodeBlock = htmlAfterCodeBlock;
+
+  String? _htmlInCodeBlockAfterCodeBlock;
+  String? get htmlInCodeBlockAfterCodeBlock => _$this._htmlInCodeBlockAfterCodeBlock;
+  set htmlInCodeBlockAfterCodeBlock(covariant String? htmlInCodeBlockAfterCodeBlock) =>
+      _$this._htmlInCodeBlockAfterCodeBlock = htmlInCodeBlockAfterCodeBlock;
+
+  Object4Builder() {
+    Object4._defaults(this);
+  }
+
+  Object4Builder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _html = $v.html;
+      _htmlInCodeblock = $v.htmlInCodeblock;
+      _htmlAfterCodeBlock = $v.htmlAfterCodeBlock;
+      _htmlInCodeBlockAfterCodeBlock = $v.htmlInCodeBlockAfterCodeBlock;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant Object4 other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Object4;
+  }
+
+  @override
+  void update(void Function(Object4Builder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  Object4 build() => _build();
+
+  _$Object4 _build() {
+    Object4._validate(this);
+    final _$result = _$v ??
+        _$Object4._(
+            html: html,
+            htmlInCodeblock: htmlInCodeblock,
+            htmlAfterCodeBlock: htmlAfterCodeBlock,
+            htmlInCodeBlockAfterCodeBlock: htmlInCodeBlockAfterCodeBlock);
     replace(_$result);
     return _$result;
   }

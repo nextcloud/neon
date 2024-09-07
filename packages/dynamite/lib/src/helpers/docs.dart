@@ -8,7 +8,16 @@ Iterable<String> escapeDescription(String? description) sync* {
     return;
   }
 
-  final lines = description.split('\n');
+  final htmlEscapedDescription = description.replaceAllMapped(RegExp('<([^>]+)>'), (match) {
+    final codeBlockQuotes = description.split('').take(match.start).where((char) => char == '`').length;
+    if (codeBlockQuotes.isEven) {
+      return '&lt;${match.group(1)!}&gt;';
+    }
+
+    return match.group(0)!;
+  });
+
+  final lines = htmlEscapedDescription.split('\n');
 
   for (var i = 0; i < lines.length; i++) {
     final line = lines[i];
