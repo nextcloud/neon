@@ -9,13 +9,11 @@ class NewsFeedIcon extends StatelessWidget {
   const NewsFeedIcon({
     required this.feed,
     this.size = largeIconSize,
-    this.borderRadius,
     super.key,
   });
 
   final news.Feed feed;
   final double size;
-  final BorderRadius? borderRadius;
 
   @override
   Widget build(BuildContext context) {
