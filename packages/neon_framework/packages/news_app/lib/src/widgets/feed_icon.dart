@@ -21,16 +21,19 @@ class NewsFeedIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     final faviconLink = feed.faviconLink;
 
-    return faviconLink != null && faviconLink.isNotEmpty
-        ? NeonUriImage(
-            uri: Uri.parse(faviconLink),
-            size: Size.square(size),
-            account: NeonProvider.of<Account>(context),
-          )
-        : Icon(
-            Icons.rss_feed,
-            size: size,
-            color: Theme.of(context).colorScheme.primary,
-          );
+    return SizedBox.square(
+      dimension: size,
+      child: faviconLink != null && faviconLink.isNotEmpty
+          ? NeonUriImage(
+              uri: Uri.parse(faviconLink),
+              size: Size.square(size),
+              account: NeonProvider.of<Account>(context),
+            )
+          : Icon(
+              Icons.rss_feed,
+              size: size,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+    );
   }
 }
