@@ -108,17 +108,6 @@ sealed class Option<T> extends ChangeNotifier implements ValueListenable<T>, Dis
     value = defaultValue;
   }
 
-  /// Loads [data] into [value] by calling [deserialize] on it.
-  void load(Object? data) {
-    final value = deserialize(data);
-
-    if (value != null) {
-      // Do not trigger the validation to avoid resetting when the values haven't been loaded yet.
-      _value = value;
-      notifyListeners();
-    }
-  }
-
   /// Deserializes the data.
   T? deserialize(Object? data);
 

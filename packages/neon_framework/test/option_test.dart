@@ -195,10 +195,7 @@ void main() {
         values: valuesLabel,
       );
 
-      // ignore: cascade_invocations
-      option.load('SelectValues.second');
-
-      expect(option.value, SelectValues.second);
+      expect(option.deserialize('SelectValues.second'), SelectValues.second);
     });
 
     test('Stream', () async {
@@ -320,11 +317,8 @@ void main() {
     });
 
     test('Deserialize', () {
-      expect(option.value, true);
-
-      option.load(false);
-
-      expect(option.value, false);
+      expect(option.deserialize(true), true);
+      expect(option.deserialize(false), false);
     });
   });
 }

@@ -29,11 +29,17 @@ extension SerializeOptions on Iterable<Option<dynamic>> {
   void deserialize(Map<String, Object?> data) {
     for (final entry in data.entries) {
       final option = firstWhereOrNull((option) => option.key.value == entry.key);
+      if (option == null) {
+        continue;
+      }
 
       if (entry.value != null) {
-        option?.load(entry.value);
+        final value = option.deserialize(data);
+        if (value != null) {
+          option.value = value;
+        }
       } else {
-        option?.reset();
+        option.reset();
       }
     }
   }
