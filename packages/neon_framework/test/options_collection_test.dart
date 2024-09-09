@@ -79,7 +79,7 @@ void main() {
 
       collection.import(json);
 
-      verify(() => option1.load(false)).called(1);
+      verify(() => option1.deserialize({'key1': false, 'key2': null})).called(1);
       verify(option2.reset).called(1);
     });
   });
