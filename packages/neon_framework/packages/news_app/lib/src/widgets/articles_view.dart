@@ -187,7 +187,6 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                 child: NewsFeedIcon(
                   feed: feed,
                   size: smallIconSize,
-                  borderRadius: const BorderRadius.all(Radius.circular(2)),
                 ),
               ),
               RelativeTime(

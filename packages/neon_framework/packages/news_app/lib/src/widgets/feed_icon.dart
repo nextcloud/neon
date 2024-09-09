@@ -9,28 +9,29 @@ class NewsFeedIcon extends StatelessWidget {
   const NewsFeedIcon({
     required this.feed,
     this.size = largeIconSize,
-    this.borderRadius,
     super.key,
   });
 
   final news.Feed feed;
   final double size;
-  final BorderRadius? borderRadius;
 
   @override
   Widget build(BuildContext context) {
     final faviconLink = feed.faviconLink;
 
-    return faviconLink != null && faviconLink.isNotEmpty
-        ? NeonUriImage(
-            uri: Uri.parse(faviconLink),
-            size: Size.square(size),
-            account: NeonProvider.of<Account>(context),
-          )
-        : Icon(
-            Icons.rss_feed,
-            size: size,
-            color: Theme.of(context).colorScheme.primary,
-          );
+    return SizedBox.square(
+      dimension: size,
+      child: faviconLink != null && faviconLink.isNotEmpty
+          ? NeonUriImage(
+              uri: Uri.parse(faviconLink),
+              size: Size.square(size),
+              account: NeonProvider.of<Account>(context),
+            )
+          : Icon(
+              Icons.rss_feed,
+              size: size,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+    );
   }
 }
