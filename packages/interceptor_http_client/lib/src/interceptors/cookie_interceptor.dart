@@ -1,10 +1,10 @@
 import 'dart:async';
+import 'dart:io' show Cookie, HttpHeaders;
 
 import 'package:cookie_store/cookie_store.dart';
 import 'package:http/http.dart' as http;
+import 'package:interceptor_http_client/src/interceptors/interceptors.dart';
 import 'package:meta/meta.dart';
-import 'package:neon_http_client/src/interceptors/http_interceptor.dart';
-import 'package:universal_io/io.dart';
 
 /// A HttpInterceptor to implement cookie persisting interceptors.
 ///
@@ -79,13 +79,13 @@ abstract class CookieInterceptor implements HttpInterceptor {
 }
 
 /// A HttpInterceptor persisting cookies in the provided [cookieStore].
-@internal
 final class CookieStoreInterceptor extends CookieInterceptor {
   /// Creates a new interceptor persisting cookies.
   const CookieStoreInterceptor({
     required this.cookieStore,
   });
 
+  /// The cookie store instance backing this interceptor.
   final CookieStore cookieStore;
 
   @override

@@ -1,5 +1,5 @@
 import 'package:http/http.dart' as http;
-import 'package:neon_http_client/src/interceptors/http_interceptor.dart';
+import 'package:interceptor_http_client/src/interceptors/http_interceptor.dart';
 import 'package:test/test.dart';
 
 class _TestHttpInterceptor implements HttpInterceptor {

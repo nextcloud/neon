@@ -3,10 +3,9 @@ import 'dart:io';
 
 import 'package:cookie_store/cookie_store.dart';
 import 'package:http/http.dart' as http;
+import 'package:interceptor_http_client/src/interceptors/cookie_interceptor.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:neon_http_client/src/interceptors/cookie_interceptor.dart';
 import 'package:test/test.dart';
-import 'package:universal_io/io.dart';
 
 class _MockCookieStore extends Mock implements CookieStore {}
 

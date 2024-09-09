@@ -1,13 +1,18 @@
+import 'package:built_collection/built_collection.dart';
+import 'package:http/http.dart' as http;
 import 'package:http_client_conformance_tests/http_client_conformance_tests.dart';
-import 'package:neon_http_client/src/neon_http_client.dart';
+import 'package:interceptor_http_client/src/interceptor_http_client.dart';
 import 'package:test/test.dart';
 
 void main() {
   group(
-    'Neon Client VM conformance test',
+    'Interceptor Client VM conformance test',
     () {
       testAll(
-        () => NeonHttpClient(baseURL: Uri()),
+        () => InterceptorHttpClient(
+          baseClient: http.Client(),
+          interceptors: BuiltList(),
+        ),
         canReceiveSetCookieHeaders: true,
         canSendCookieHeaders: true,
       );
@@ -18,10 +23,13 @@ void main() {
   );
 
   group(
-    'Neon Client browser conformance test',
+    'Interceptor Client browser conformance test',
     () {
       testAll(
-        () => NeonHttpClient(baseURL: Uri()),
+        () => InterceptorHttpClient(
+          baseClient: http.Client(),
+          interceptors: BuiltList(),
+        ),
         redirectAlwaysAllowed: true,
         canStreamRequestBody: false,
         canStreamResponseBody: false,

@@ -1,5 +1,5 @@
-name: neon_http_client
-description: A http client for the Neon framework.
+name: interceptor_http_client
+description: A http client with request and response interceptors.
 version: 0.1.0
 publish_to: none
 
@@ -13,13 +13,7 @@ dependencies:
       url: https://github.com/nextcloud/neon
       path: packages/cookie_store
   http: ^1.0.0
-  interceptor_http_client:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/interceptor_http_client
-  logging: ^1.0.0
   meta: ^1.0.0
-  nextcloud: ^7.0.0
 
 dev_dependencies:
   http_client_conformance_tests:
