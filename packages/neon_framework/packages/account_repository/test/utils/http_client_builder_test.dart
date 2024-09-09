@@ -54,7 +54,7 @@ void main() {
           .having(
             (c) => c.httpClient,
             'httpClient',
-            isA<NeonHttpClient>().having((c) => c.interceptors, 'interceptors', hasLength(2)),
+            isA<NeonHttpClient>().having((c) => c.interceptors, 'interceptors', hasLength(3)),
           ),
     );
 
@@ -81,7 +81,7 @@ void main() {
           .having(
             (c) => c.httpClient,
             'httpClient',
-            isA<NeonHttpClient>().having((c) => c.interceptors, 'interceptors', hasLength(2)),
+            isA<NeonHttpClient>().having((c) => c.interceptors, 'interceptors', hasLength(3)),
           ),
     );
 

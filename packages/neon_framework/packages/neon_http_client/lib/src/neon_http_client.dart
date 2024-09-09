@@ -4,6 +4,7 @@ import 'package:built_collection/built_collection.dart';
 import 'package:cookie_store/cookie_store.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
+import 'package:neon_http_client/src/interceptors/authorization_throttling_interceptor.dart';
 import 'package:neon_http_client/src/interceptors/interceptors.dart';
 import 'package:neon_http_client/src/utils/utils.dart';
 import 'package:universal_io/io.dart';
@@ -47,6 +48,8 @@ final class NeonHttpClient with http.BaseClient {
       if (interceptors != null) {
         builder.addAll(interceptors);
       }
+
+      builder.add(AuthorizationThrottlingInterceptor(baseURL: baseURL));
 
       if (cookieStore != null) {
         builder.add(
@@ -101,7 +104,11 @@ final class NeonHttpClient with http.BaseClient {
           interceptedRequest = await interceptor.interceptRequest(
             request: interceptedRequest,
           );
-        } catch (_, stackTrace) {
+        } catch (error, stackTrace) {
+          if (error is http.ClientException) {
+            rethrow;
+          }
+
           Error.throwWithStackTrace(
             InterceptionException('Failed to intercept request', request.url),
             stackTrace,
@@ -131,7 +138,11 @@ final class NeonHttpClient with http.BaseClient {
             response: interceptedResponse,
             url: url,
           );
-        } catch (_, stackTrace) {
+        } catch (error, stackTrace) {
+          if (error is http.ClientException) {
+            rethrow;
+          }
+
           Error.throwWithStackTrace(
             InterceptionException('Failed to intercept response', request.url),
             stackTrace,
