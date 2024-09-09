@@ -171,6 +171,28 @@
           }
         ]
       },
+      "Object4": {
+        "description": "An Object to test escaping of HTML inside descriptions.",
+        "type": "object",
+        "properties": {
+          "html": {
+            "description": "<div>",
+            "type": "string"
+          },
+          "html-in-codeblock": {
+            "description": "`<div>`",
+            "type": "string"
+          },
+          "html-after-code-block": {
+            "description": "`abc` <div>",
+            "type": "string"
+          },
+          "html-in-code-block-after-code-block": {
+            "description": "`abc` `<div>`",
+            "type": "string"
+          }
+        }
+      },
       "huntingSkill": {
         "description": "The measured skill for hunting",
         "type": "object",

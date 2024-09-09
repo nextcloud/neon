@@ -613,6 +613,69 @@ abstract class NonRootClientSetModeRequestApplicationJson
 /// An Object to test the documentation of someOf extension methods and typdefs.
 typedef Object3 = ({int? $int, String? string});
 
+/// An Object to test escaping of HTML inside descriptions.
+@BuiltValue(instantiable: false)
+sealed class $Object4Interface {
+  /// &lt;div&gt;.
+  String? get html;
+
+  /// `<div>`.
+  @BuiltValueField(wireName: 'html-in-codeblock')
+  String? get htmlInCodeblock;
+
+  /// `abc` &lt;div&gt;.
+  @BuiltValueField(wireName: 'html-after-code-block')
+  String? get htmlAfterCodeBlock;
+
+  /// `abc` `<div>`.
+  @BuiltValueField(wireName: 'html-in-code-block-after-code-block')
+  String? get htmlInCodeBlockAfterCodeBlock;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Object4InterfaceBuilder].
+  $Object4Interface rebuild(void Function($Object4InterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$Object4InterfaceBuilder].
+  $Object4InterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Object4InterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Object4InterfaceBuilder b) {}
+}
+
+/// An Object to test escaping of HTML inside descriptions.
+abstract class Object4 implements $Object4Interface, Built<Object4, Object4Builder> {
+  /// Creates a new Object4 object using the builder pattern.
+  factory Object4([void Function(Object4Builder)? b]) = _$Object4;
+
+  const Object4._();
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  factory Object4.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+
+  /// Serializer for Object4.
+  static Serializer<Object4> get serializer => _$object4Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Object4Builder b) {
+    $Object4Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Object4Builder b) {
+    $Object4Interface._validate(b);
+  }
+}
+
 /// The measured skill for hunting.
 class HuntingSkill extends EnumClass {
   const HuntingSkill._(super.name);
@@ -796,6 +859,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(NonRootClientSetModeRequestApplicationJson.serializer)
       ..add($b2c4857c0136baea42828d89c87c757dExtension._serializer)
+      ..addBuilderFactory(const FullType(Object4), Object4Builder.new)
+      ..add(Object4.serializer)
       ..add(HuntingSkill.serializer))
     .build();
 
