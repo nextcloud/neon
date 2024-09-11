@@ -1,4 +1,5 @@
 import 'package:built_collection/built_collection.dart';
+import 'package:meta/meta.dart';
 import 'package:nextcloud/webdav.dart';
 import 'package:nextcloud_test/src/models/models.dart';
 // ignore: implementation_imports
@@ -9,6 +10,7 @@ var _closed = false;
 final _fixture = <String>[];
 
 /// Appends some [data] to the current fixture.
+@internal
 void appendFixture(String data) {
   if (!_closed) {
     _fixture.add(data);
@@ -30,6 +32,7 @@ void resetFixture() {
 /// Validates that the requests match the stored fixtures.
 ///
 /// If there is no stored fixture a new one is created.
+@internal
 void validateFixture(NextcloudTester tester) {
   if (_fixture.isEmpty) {
     return;

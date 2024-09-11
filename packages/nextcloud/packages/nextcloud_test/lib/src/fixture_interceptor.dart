@@ -4,8 +4,10 @@ import 'dart:typed_data';
 
 import 'package:http/http.dart' as http;
 import 'package:interceptor_http_client/interceptor_http_client.dart';
+import 'package:meta/meta.dart';
 
 /// An http interceptor that records every request and adds them to a fixture.
+@internal
 final class FixtureInterceptor implements HttpInterceptor {
   /// Creates a new fixture interceptor.
   const FixtureInterceptor({

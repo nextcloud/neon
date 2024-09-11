@@ -1,2 +1,2 @@
-export 'src/fixtures.dart' hide appendFixture;
+export 'src/fixtures.dart' hide appendFixture, validateFixture;
 export 'src/presets.dart';

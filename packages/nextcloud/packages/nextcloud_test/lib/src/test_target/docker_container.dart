@@ -89,6 +89,7 @@ final class DockerContainerFactory extends TestTargetFactory<DockerContainerInst
 }
 
 /// Test target representing a docker container.
+@internal
 final class DockerContainerInstance extends TestTargetInstance {
   /// Creates a new Docker container instance.
   DockerContainerInstance({
