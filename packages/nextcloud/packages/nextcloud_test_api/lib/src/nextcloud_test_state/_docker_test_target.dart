@@ -1,18 +1,15 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'dart:math';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:glob/glob.dart';
 import 'package:glob/list_local_fs.dart';
 import 'package:meta/meta.dart';
-import 'package:nextcloud_test/src/models/models.dart';
-import 'package:nextcloud_test/src/test_target/test_target.dart';
+import 'package:nextcloud_test_api/src/models/models.dart';
+import 'package:nextcloud_test_api/src/nextcloud_test_api.dart';
+import 'package:nextcloud_test_api/src/utils/utils.dart';
 import 'package:path/path.dart' as p;
-import 'package:version/version.dart';
-
-int _randomPort() => 1024 + Random().nextInt(65535 - 1024);
 
 /// Factory for spawning docker containers as test targets.
 @internal
@@ -20,7 +17,7 @@ final class DockerContainerFactory extends TestTargetFactory<DockerContainerInst
   /// Creates a new docker container and returns its representation.
   @override
   Future<DockerContainerInstance> spawn(Preset preset) async {
-    final dockerImageName = 'ghcr.io/nextcloud/neon/dev:${preset.name}-${preset.version.major}.${preset.version.minor}';
+    final dockerImageName = 'ghcr.io/nextcloud/neon/dev:${preset.imageTag}';
 
     var result = await Process.run(
       'docker',
@@ -41,7 +38,7 @@ final class DockerContainerFactory extends TestTargetFactory<DockerContainerInst
 
     late int port;
     while (true) {
-      port = _randomPort();
+      port = randomPort();
       result = await Process.run(
         'docker',
         [

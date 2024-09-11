@@ -1,3 +1,6 @@
+@TestOn('vm')
+library;
+
 import 'dart:io';
 
 import 'package:nextcloud/core.dart' as core;
@@ -6,8 +9,8 @@ import 'package:nextcloud/webdav.dart' as webdav;
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 
-void main() {
-  presets('server', 'files_sharing', (tester) {
+void main() async {
+  await presets('server', 'files_sharing', (tester) {
     group('shareapi', () {
       test('createShare', () async {
         final file = File('test/files/test.png');

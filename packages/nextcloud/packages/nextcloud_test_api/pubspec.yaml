@@ -1,0 +1,26 @@
+name: nextcloud_test_api
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ^3.0.0
+
+dependencies:
+  built_collection: ^5.0.0
+  built_value: ^8.9.2
+  dart_frog: ^1.1.0
+  glob: ^2.1.2
+  http: ^1.2.0
+  meta: ^1.0.0
+  path: ^1.9.0
+  version: ^3.0.0
+
+dev_dependencies:
+  build_runner: ^2.4.11
+  built_value_generator: ^8.9.2
+  built_value_test: ^8.9.2
+  dart_frog_cli: ^1.2.3
+  neon_lints:
+    git:
+      url: https://github.com/nextcloud/neon
+      path: packages/neon_lints

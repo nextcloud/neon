@@ -4,8 +4,8 @@ import 'package:nextcloud/settings.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 
-void main() {
-  presets('server', 'settings', username: 'admin', (tester) {
+void main() async {
+  await presets('server', 'settings', username: 'admin', (tester) {
     group('Logs', () {
       test('Download', () async {
         final response = await tester.client.settings.logSettings.download();

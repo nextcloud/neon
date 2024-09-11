@@ -5,8 +5,8 @@ import 'package:test/test.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:version/version.dart';
 
-void main() {
-  presets('tables', 'tables', (tester) {
+void main() async {
+  await presets('tables', 'tables', (tester) {
     test('Is supported', () async {
       final response = await tester.client.core.ocs.getCapabilities();
 

@@ -4,9 +4,8 @@ import 'dart:io';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:meta/meta.dart';
-import 'package:nextcloud_test/src/models/models.dart';
-import 'package:nextcloud_test/src/test_target/test_target.dart';
-import 'package:version/version.dart';
+import 'package:nextcloud_test_api/src/models/models.dart';
+import 'package:nextcloud_test_api/src/nextcloud_test_api.dart';
 
 /// Factory for running tests against a local instance.
 @internal

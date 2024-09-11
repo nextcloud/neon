@@ -4,8 +4,8 @@ import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 
-void main() {
-  presets('server', 'user_status', (tester) {
+void main() async {
+  await presets('server', 'user_status', (tester) {
     setUp(() async {
       await tester.client.userStatus.userStatus.setStatus(
         $body: user_status.UserStatusSetStatusRequestApplicationJson(

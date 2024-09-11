@@ -5,8 +5,8 @@ import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 import 'package:version/version.dart';
 
-void main() {
-  presets('server', 'weather_status', (tester) {
+void main() async {
+  await presets('server', 'weather_status', (tester) {
     test('Set mode', () async {
       final response = await tester.client.weatherStatus.weatherStatus.setMode(
         $body: weather_status.WeatherStatusSetModeRequestApplicationJson(

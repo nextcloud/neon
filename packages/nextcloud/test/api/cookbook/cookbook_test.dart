@@ -4,8 +4,8 @@ import 'package:nextcloud/cookbook.dart' as cookbook;
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 
-void main() {
-  presets('cookbook', 'cookbook', (tester) {
+void main() async {
+  await presets('cookbook', 'cookbook', (tester) {
     group('CookbookVersionCheck', () {
       test('Is supported', () async {
         final response = await tester.client.cookbook.getVersionCheck();

@@ -6,7 +6,7 @@ environment:
   sdk: ^3.0.0
 
 dependencies:
-  built_collection: ^5.1.1
+  built_collection: ^5.0.0
   cookie_store:
     git:
       url: https://github.com/nextcloud/neon
@@ -19,13 +19,18 @@ dependencies:
       path: packages/interceptor_http_client
   meta: ^1.0.0
   nextcloud: ^7.0.0
+  nextcloud_test_api:
+    git:
+      url: https://github.com/nextcloud/neon
+      path: packages/nextcloud/packages/nextcloud_test_api
   path: ^1.9.0
   test: ^1.24.0
   test_api: ^0.7.0
-  universal_io: ^2.0.0
-  version: ^3.0.0
 
 dev_dependencies:
+  build_runner: ^2.4.11
+  built_value_generator: ^8.9.2
+  built_value_test: ^8.9.2
   neon_lints:
     git:
       url: https://github.com/nextcloud/neon

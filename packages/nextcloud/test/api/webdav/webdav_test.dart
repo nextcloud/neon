@@ -1,3 +1,6 @@
+@TestOn('vm')
+library;
+
 import 'dart:convert';
 import 'dart:math';
 import 'dart:typed_data';
@@ -16,7 +19,7 @@ class MockCallbackFunction extends Mock {
   void progressCallback(double progress);
 }
 
-void main() {
+void main() async {
   test('Chunked responses', () async {
     await HttpServer.bind('127.0.0.1', 0).then((server) async {
       server.listen((request) {
@@ -66,7 +69,7 @@ void main() {
     });
   });
 
-  presets('server', 'webdav', (tester) {
+  await presets('server', 'webdav', (tester) {
     setUpAll(() async {
       await tester.client.webdav.mkcol(PathUri.parse('test'));
       resetFixture();

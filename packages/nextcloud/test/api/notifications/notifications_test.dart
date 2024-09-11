@@ -6,8 +6,8 @@ import 'package:nextcloud/src/utils/date_time.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 
-void main() {
-  presets('server', 'notifications', username: 'admin', (tester) {
+void main() async {
+  await presets('server', 'notifications', username: 'admin', (tester) {
     Future<void> sendTestNotification() async {
       await tester.client.notifications.api.generateNotification(
         userId: 'admin',
