@@ -8,17 +8,23 @@ rules:
     - 2
     - always
     - - ci
+      - account_repository
       - cookie_store
+      - cookie_store_conformance_tests
       - dashboard_app
       - deps
       - docs
       - dynamite
       - dynamite_end_to_end_test
+      - dynamite_petstore_example
       - dynamite_runtime
+      - example
       - files_app
+      - interceptor_http_client
       - neon_framework
       - neon_http_client
       - neon_lints
+      - neon_lints_test
       - news_app
       - nextcloud
       - nextcloud_test
