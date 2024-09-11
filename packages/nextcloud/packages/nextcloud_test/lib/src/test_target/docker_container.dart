@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 import 'dart:math';
 
 import 'package:built_collection/built_collection.dart';
@@ -9,7 +10,6 @@ import 'package:meta/meta.dart';
 import 'package:nextcloud_test/src/models/models.dart';
 import 'package:nextcloud_test/src/test_target/test_target.dart';
 import 'package:path/path.dart' as p;
-import 'package:process_run/process_run.dart';
 import 'package:version/version.dart';
 
 int _randomPort() => 1024 + Random().nextInt(65535 - 1024);
@@ -22,17 +22,19 @@ final class DockerContainerFactory extends TestTargetFactory<DockerContainerInst
   Future<DockerContainerInstance> spawn(Preset preset) async {
     final dockerImageName = 'ghcr.io/nextcloud/neon/dev:${preset.name}-${preset.version.major}.${preset.version.minor}';
 
-    var result = await runExecutableArguments(
+    var result = await Process.run(
       'docker',
       [
         'images',
         '-q',
         dockerImageName,
       ],
+      stdoutEncoding: utf8,
     );
     if (result.exitCode != 0) {
       throw Exception('Querying docker image failed: ${result.stderr}');
     }
+
     if (result.stdout.toString().isEmpty) {
       throw Exception('Missing docker image $dockerImageName. Please build it using ./tool/build-dev-container.sh');
     }
@@ -40,7 +42,7 @@ final class DockerContainerFactory extends TestTargetFactory<DockerContainerInst
     late int port;
     while (true) {
       port = _randomPort();
-      result = await runExecutableArguments(
+      result = await Process.run(
         'docker',
         [
           'run',
@@ -52,7 +54,9 @@ final class DockerContainerFactory extends TestTargetFactory<DockerContainerInst
           '$port:80',
           dockerImageName,
         ],
+        stdoutEncoding: utf8,
       );
+
       // 125 means the docker run command itself has failed which indicated the port is already used
       if (result.exitCode != 125) {
         break;
@@ -85,7 +89,6 @@ final class DockerContainerFactory extends TestTargetFactory<DockerContainerInst
 }
 
 /// Test target representing a docker container.
-@internal
 final class DockerContainerInstance extends TestTargetInstance {
   /// Creates a new Docker container instance.
   DockerContainerInstance({
@@ -101,13 +104,15 @@ final class DockerContainerInstance extends TestTargetInstance {
 
   /// Removes the docker container from the system.
   @override
-  Future<void> destroy() => runExecutableArguments(
-        'docker',
-        [
-          'kill',
-          id,
-        ],
-      );
+  Future<void> destroy() async {
+    await Process.run(
+      'docker',
+      [
+        'kill',
+        id,
+      ],
+    );
+  }
 
   @override
   late Uri hostURL = Uri(
@@ -124,8 +129,7 @@ final class DockerContainerInstance extends TestTargetInstance {
 
   @override
   Future<String> createAppPassword(String username) async {
-    final inputStream = StreamController<List<int>>();
-    final process = runExecutableArguments(
+    final process = await Process.start(
       'docker',
       [
         'exec',
@@ -137,16 +141,17 @@ final class DockerContainerInstance extends TestTargetInstance {
         'user:add-app-password',
         username,
       ],
-      stdin: inputStream.stream,
     );
-    inputStream.add(utf8.encode(username));
-    await inputStream.close();
+    process.stdin.add(utf8.encode(username));
+    await process.stdin.close();
+    final stdout = await utf8.decodeStream(process.stdout);
 
-    final result = await process;
-    if (result.exitCode != 0) {
-      throw Exception('Failed to run generate app password command\n${result.stderr}\n${result.stdout}');
+    if (await process.exitCode != 0) {
+      final stderr = await utf8.decodeStream(process.stderr);
+
+      throw Exception('Failed to run generate app password command\n$stderr\n$stdout');
     }
 
-    return (result.stdout as String).split('\n')[1];
+    return stdout.split('\n')[1];
   }
 }

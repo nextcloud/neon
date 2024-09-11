@@ -1,15 +1,13 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:meta/meta.dart';
 import 'package:nextcloud_test/src/models/models.dart';
 import 'package:nextcloud_test/src/test_target/test_target.dart';
-import 'package:process_run/process_run.dart';
 import 'package:version/version.dart';
 
 /// Factory for running tests against a local instance.
-@internal
 final class LocalFactory extends TestTargetFactory<LocalInstance> {
   /// Creates a new test factory for a local server.
   LocalFactory({
@@ -30,7 +28,7 @@ final class LocalFactory extends TestTargetFactory<LocalInstance> {
     final presets = ListMultimapBuilder<String, Version>();
     final regex = RegExp('  - (.*): (.*)');
 
-    var result = runExecutableArgumentsSync(
+    var result = Process.runSync(
       'php',
       [
         '-f',
@@ -38,6 +36,7 @@ final class LocalFactory extends TestTargetFactory<LocalInstance> {
         'app:list',
         '--enabled',
       ],
+      stdoutEncoding: utf8,
       workingDirectory: _dir,
     );
     if (result.exitCode != 0) {
@@ -54,13 +53,14 @@ final class LocalFactory extends TestTargetFactory<LocalInstance> {
       }
     }
 
-    result = runExecutableArgumentsSync(
+    result = Process.runSync(
       'php',
       [
         '-f',
         './occ',
         'status',
       ],
+      stdoutEncoding: utf8,
       workingDirectory: _dir,
     );
     if (result.exitCode != 0) {
@@ -86,7 +86,6 @@ final class LocalFactory extends TestTargetFactory<LocalInstance> {
 }
 
 /// Test target representing a local instance.
-@internal
 final class LocalInstance extends TestTargetInstance {
   /// Creates a new test instance for a local server.
   LocalInstance({
@@ -109,8 +108,7 @@ final class LocalInstance extends TestTargetInstance {
 
   @override
   Future<String> createAppPassword(String username) async {
-    final inputStream = StreamController<List<int>>();
-    final process = runExecutableArguments(
+    final process = await Process.start(
       'php',
       [
         '-f',
@@ -118,17 +116,19 @@ final class LocalInstance extends TestTargetInstance {
         'user:add-app-password',
         username,
       ],
-      stdin: inputStream.stream,
       workingDirectory: _dir,
     );
-    inputStream.add(utf8.encode(username));
-    await inputStream.close();
 
-    final result = await process;
-    if (result.exitCode != 0) {
-      throw Exception('Failed to run generate app password command\n${result.stderr}\n${result.stdout}');
+    process.stdin.add(utf8.encode(username));
+    await process.stdin.close();
+    final stdout = await utf8.decodeStream(process.stdout);
+
+    if (await process.exitCode != 0) {
+      final stderr = await utf8.decodeStream(process.stderr);
+
+      throw Exception('Failed to run generate app password command\n$stderr\n$stdout');
     }
 
-    return (result.stdout as String).split('\n')[1];
+    return stdout.split('\n')[1];
   }
 }
