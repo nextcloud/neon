@@ -14,7 +14,6 @@ import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/models/account_cache.dart';
 import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/settings/models/exportable.dart';
-import 'package:neon_framework/src/storage/persistence.dart';
 import 'package:neon_framework/src/utils/account_options.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:neon_framework/testing.dart';
