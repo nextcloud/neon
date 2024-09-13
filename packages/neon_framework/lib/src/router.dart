@@ -109,8 +109,8 @@ class HomeRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return FutureBuilder(
-      future: context.read<AccountRepository>().accounts.first,
+    return StreamBuilder(
+      stream: context.read<AccountRepository>().accounts,
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
           return const SizedBox.shrink();
