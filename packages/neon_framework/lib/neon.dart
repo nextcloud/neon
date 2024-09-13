@@ -52,17 +52,17 @@ Future<void> runNeon({
     tz.setLocalLocation(location);
   }
 
-  await NeonStorage().init();
+  final accountStorage = AccountStorage();
+  await NeonStorage().init(
+    dataTables: [
+      accountStorage,
+    ],
+  );
 
   final packageInfo = await PackageInfo.fromPlatform();
 
   final globalOptions = GlobalOptions(
     packageInfo,
-  );
-
-  final accountStorage = AccountStorage(
-    accountsPersistence: NeonStorage().singleValueStore(StorageKeys.accounts),
-    lastAccountPersistence: NeonStorage().singleValueStore(StorageKeys.lastUsedAccount),
   );
 
   final accountRepository = AccountRepository(

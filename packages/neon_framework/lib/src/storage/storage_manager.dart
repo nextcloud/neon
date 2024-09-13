@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/storage/storage.dart';
+import 'package:neon_storage/neon_sqlite.dart';
 
 /// Neon storage that manages the storage backend.
 ///
@@ -33,13 +34,16 @@ class NeonStorage {
   /// Sets the individual storages.
   ///
   /// Required to be called before accessing any individual one.
-  Future<void> init() async {
+  Future<void> init({
+    Iterable<Table>? cacheTables,
+    Iterable<Table>? dataTables,
+  }) async {
     if (_initialized) {
       return;
     }
 
-    _neonCache = NeonCacheDB();
-    _neonData = NeonDataDB();
+    _neonCache = NeonCacheDB(tables: cacheTables);
+    _neonData = NeonDataDB(tables: dataTables);
 
     await _neonCache.init();
     await _neonData.init();

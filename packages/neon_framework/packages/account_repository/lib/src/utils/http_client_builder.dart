@@ -1,8 +1,8 @@
 import 'package:account_repository/src/models/models.dart';
 import 'package:cookie_store/cookie_store.dart';
 import 'package:http/http.dart' as http;
-import 'package:neon_framework/storage.dart';
 import 'package:neon_http_client/neon_http_client.dart';
+import 'package:neon_storage/neon_storage.dart';
 import 'package:nextcloud/nextcloud.dart';
 
 /// Builds a [NextcloudClient] authenticated with the given [credentials].

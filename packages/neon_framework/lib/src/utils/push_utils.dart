@@ -94,8 +94,13 @@ class PushUtils {
         }
       },
     );
-    await NeonStorage().init();
 
+    final accountStorage = AccountStorage();
+    await NeonStorage().init(
+      dataTables: [
+        accountStorage,
+      ],
+    );
     final keypair = loadRSAKeypair();
     for (final message in Uri(query: utf8.decode(messages)).queryParameters.values) {
       final data = json.decode(message) as Map<String, dynamic>;
@@ -115,10 +120,6 @@ class PushUtils {
       } else {
         final localizations = await appLocalizationsFromSystem();
         final packageInfo = await PackageInfo.fromPlatform();
-        final accountStorage = AccountStorage(
-          accountsPersistence: NeonStorage().singleValueStore(StorageKeys.accounts),
-          lastAccountPersistence: NeonStorage().singleValueStore(StorageKeys.lastUsedAccount),
-        );
         final accountRepository = AccountRepository(
           userAgent: buildUserAgent(packageInfo),
           httpClient: http.Client(),
