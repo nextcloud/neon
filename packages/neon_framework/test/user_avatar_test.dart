@@ -14,40 +14,42 @@ void main() {
     FakeNeonStorage.setup();
   });
 
-  for (final (withStatus, matcher) in [(false, findsNothing), (true, findsOne)]) {
-    testWidgets('${withStatus ? 'With' : 'Without'} status', (tester) async {
-      final account = MockAccount();
+  group('NeonUserAvatar', () {
+    for (final (withStatus, matcher) in [(false, findsNothing), (true, findsOne)]) {
+      testWidgets('${withStatus ? 'With' : 'Without'} status', (tester) async {
+        final account = MockAccount();
 
-      final userStatusBloc = MockUserStatusBloc();
-      when(() => userStatusBloc.statuses).thenAnswer(
-        (_) => BehaviorSubject.seeded(
-          BuiltMap({
-            'test': Result<user_status.$PublicInterface>(
-              user_status.Public(
-                (b) => b
-                  ..userId = 'test'
-                  ..status = user_status.$Type.online,
+        final userStatusBloc = MockUserStatusBloc();
+        when(() => userStatusBloc.statuses).thenAnswer(
+          (_) => BehaviorSubject.seeded(
+            BuiltMap({
+              'test': Result<user_status.$PublicInterface>(
+                user_status.Public(
+                  (b) => b
+                    ..userId = 'test'
+                    ..status = user_status.$Type.online,
+                ),
+                null,
+                isLoading: false,
+                isCached: false,
               ),
-              null,
-              isLoading: false,
-              isCached: false,
-            ),
-          }),
-        ),
-      );
-
-      await tester.pumpWidgetWithAccessibility(
-        TestApp(
-          child: NeonUserAvatar(
-            account: account,
-            userStatusBloc: withStatus ? userStatusBloc : null,
+            }),
           ),
-        ),
-      );
+        );
 
-      expect(find.byType(NeonUserStatusIndicator), matcher);
-    });
-  }
+        await tester.pumpWidgetWithAccessibility(
+          TestApp(
+            child: NeonUserAvatar(
+              account: account,
+              userStatusBloc: withStatus ? userStatusBloc : null,
+            ),
+          ),
+        );
+
+        expect(find.byType(NeonUserStatusIndicator), matcher);
+      });
+    }
+  });
 
   group('Status indicator', () {
     for (final (status, icon, textMatcher, iconMatcher) in [

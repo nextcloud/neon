@@ -2,22 +2,18 @@
 
 import 'dart:async';
 
+import 'package:account_repository/account_repository.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/models.dart';
-import 'package:neon_framework/src/blocs/accounts.dart';
-import 'package:neon_framework/src/models/account.dart';
+import 'package:neon_framework/src/login/login.dart';
 import 'package:neon_framework/src/pages/account_settings.dart';
 import 'package:neon_framework/src/pages/app_implementation_settings.dart';
 import 'package:neon_framework/src/pages/home.dart';
-import 'package:neon_framework/src/pages/login.dart';
-import 'package:neon_framework/src/pages/login_check_account.dart';
-import 'package:neon_framework/src/pages/login_check_server_status.dart';
-import 'package:neon_framework/src/pages/login_flow.dart';
-import 'package:neon_framework/src/pages/login_qr_code.dart';
 import 'package:neon_framework/src/pages/route_not_found.dart';
 import 'package:neon_framework/src/pages/settings.dart';
 import 'package:neon_framework/src/utils/findable.dart';
@@ -29,6 +25,7 @@ part 'router.g.dart';
 @internal
 GoRouter buildAppRouter({
   required GlobalKey<NavigatorState> navigatorKey,
+  required AccountRepository accountRepository,
 }) =>
     GoRouter(
       debugLogDiagnostics: kDebugMode,
@@ -44,19 +41,13 @@ GoRouter buildAppRouter({
 /// Handles redirects of the [GoRouter] of [buildAppRouter].
 @visibleForTesting
 String? redirect(BuildContext context, GoRouterState state) {
-  final loginQRcode = LoginQRcode.tryParse(state.uri.toString());
-  if (loginQRcode != null) {
-    return LoginCheckServerStatusWithCredentialsRoute(
-      serverUrl: loginQRcode.serverURL,
-      loginName: loginQRcode.username,
-      password: loginQRcode.password,
-    ).location;
+  final uri = state.uri.toString();
+  if (AccountRepository.isLogInQRCode(url: uri)) {
+    return LoginRoute(qrCode: uri).location;
   }
 
-  // Redirect to login screen when no account is logged in.
-  // We only check the prefix of the current location as we also don't want to redirect on any of the other login routes.
-  final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-  if (!accountsBloc.hasAccounts && !state.matchedLocation.startsWith(const LoginRoute().location)) {
+  // Redirect to login screen when no account is logged in
+  if (!context.read<AccountRepository>().hasAccounts) {
     return const LoginRoute().location;
   }
 
@@ -80,11 +71,10 @@ class AccountSettingsRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    final bloc = NeonProvider.of<AccountsBloc>(context);
-    final account = bloc.accounts.value.find(accountID);
+    final accountRepository = context.read<AccountRepository>();
 
     return AccountSettingsPage(
-      account: account,
+      account: accountRepository.accountByID(accountID)!,
     );
   }
 }
@@ -104,24 +94,6 @@ class AccountSettingsRoute extends GoRouteData {
           path: 'apps/:appid',
           name: 'AppImplementationSettings',
         ),
-        TypedGoRoute<_AddAccountRoute>(
-          path: 'account/add',
-          name: 'addAccount',
-          routes: [
-            TypedGoRoute<_AddAccountFlowRoute>(
-              path: 'flow',
-            ),
-            TypedGoRoute<_AddAccountQRcodeRoute>(
-              path: 'qr-code',
-            ),
-            TypedGoRoute<_AddAccountCheckServerStatusRoute>(
-              path: 'check/server',
-            ),
-            TypedGoRoute<_AddAccountCheckAccountRoute>(
-              path: 'check/account',
-            ),
-          ],
-        ),
         TypedGoRoute<AccountSettingsRoute>(
           path: 'account/:accountID',
           name: 'AccountSettings',
@@ -137,15 +109,19 @@ class HomeRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-    return StreamBuilder(
-      stream: accountsBloc.activeAccount,
+    return FutureBuilder(
+      future: context.read<AccountRepository>().accounts.first,
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
           return const SizedBox.shrink();
         }
 
-        final account = snapshot.requireData!;
+        final account = snapshot.requireData.active;
+
+        if (account == null) {
+          throw StateError('User must be logged in to show home page.');
+        }
+
         return HomePage(
           key: Key(account.id),
         );
@@ -156,312 +132,32 @@ class HomeRoute extends GoRouteData {
 
 /// {@template AppRoutes.LoginRoute}
 /// Route for the initial [LoginPage].
-///
-/// All routes related to the login flow are subroutes of this.
-/// All subroutes redirect to subroutes of [HomeRoute] if a at least one
-/// account is already logged in and further accounts should be added.
 /// {@endtemplate}
 @TypedGoRoute<LoginRoute>(
   path: '/login',
   name: 'login',
-  routes: [
-    TypedGoRoute<LoginFlowRoute>(
-      path: 'flow',
-    ),
-    TypedGoRoute<LoginQRcodeRoute>(
-      path: 'qr-code',
-    ),
-    TypedGoRoute<LoginCheckServerStatusRoute>(
-      path: 'check/server',
-    ),
-    TypedGoRoute<LoginCheckServerStatusWithCredentialsRoute>(
-      path: 'check/server/:loginName/:password',
-    ),
-    TypedGoRoute<LoginCheckAccountRoute>(
-      path: 'check/account',
-    ),
-  ],
 )
 @immutable
 class LoginRoute extends GoRouteData {
   /// {@macro AppRoutes.LoginRoute}
-  const LoginRoute();
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) => const LoginPage();
-
-  @override
-  FutureOr<String?> redirect(BuildContext context, GoRouterState state) {
-    final hasAccounts = NeonProvider.of<AccountsBloc>(context).hasAccounts;
-
-    if (state.fullPath == location && hasAccounts) {
-      return const _AddAccountRoute().location;
-    }
-
-    return null;
-  }
-}
-
-/// {@template AppRoutes.LoginFlowRoute}
-/// Route for the [LoginFlowPage].
-///
-/// Redirects to [_AddAccountFlowRoute] when at least one account is already
-/// logged in.
-/// {@endtemplate}
-@immutable
-class LoginFlowRoute extends GoRouteData {
-  /// {@macro AppRoutes.LoginFlowRoute}
-  const LoginFlowRoute({
-    required this.serverUrl,
+  const LoginRoute({
+    this.serverUrl,
+    this.qrCode,
   });
 
-  /// {@template AppRoutes.LoginFlow.serverUrl}
-  /// The url of the server to initiate the login flow for.
-  /// {@endtemplate}
-  final Uri serverUrl;
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return LoginFlowPage(
-      serverURL: serverUrl,
-    );
-  }
-
-  @override
-  FutureOr<String?> redirect(BuildContext context, GoRouterState state) {
-    final hasAccounts = NeonProvider.of<AccountsBloc>(context).hasAccounts;
-
-    if (state.fullPath == location && hasAccounts) {
-      return _AddAccountFlowRoute(serverUrl: serverUrl).location;
-    }
-
-    return null;
-  }
-}
-
-/// {@template AppRoutes.LoginQRcodeRoute}
-/// Route for the [LoginQRcodePage].
-///
-/// Redirects to [_AddAccountQRcodeRoute] when at least one account is already
-/// logged in.
-/// {@endtemplate}
-@immutable
-class LoginQRcodeRoute extends GoRouteData {
-  /// {@macro AppRoutes.LoginQRcodeRoute}
-  const LoginQRcodeRoute();
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) => const LoginQRcodePage();
-
-  @override
-  FutureOr<String?> redirect(BuildContext context, GoRouterState state) {
-    final hasAccounts = NeonProvider.of<AccountsBloc>(context).hasAccounts;
-
-    if (state.fullPath == location && hasAccounts) {
-      return const _AddAccountQRcodeRoute().location;
-    }
-
-    return null;
-  }
-}
-
-/// {@template AppRoutes.LoginCheckServerStatusRoute}
-/// Route for the [LoginCheckServerStatusPage].
-///
-/// Redirects to [_AddAccountCheckServerStatusRoute] when at least one account
-/// is already logged in.
-/// {@endtemplate}
-@immutable
-class LoginCheckServerStatusRoute extends GoRouteData {
-  /// {@macro AppRoutes.LoginCheckServerStatusRoute}
+  /// The server url if already known.
   ///
-  /// Use [LoginCheckServerStatusWithCredentialsRoute] to specify credentials.
-  const LoginCheckServerStatusRoute({
-    required this.serverUrl,
-  });
+  /// This is used when a user needs to re authenticate an existing account.
+  final Uri? serverUrl;
 
-  /// {@macro AppRoutes.LoginFlow.serverUrl}
-  final Uri serverUrl;
+  /// The login qr code.
+  final String? qrCode;
 
   @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return LoginCheckServerStatusPage(
-      serverURL: serverUrl,
-    );
-  }
-
-  @override
-  FutureOr<String?> redirect(BuildContext context, GoRouterState state) {
-    final hasAccounts = NeonProvider.of<AccountsBloc>(context).hasAccounts;
-
-    if (state.fullPath == location && hasAccounts) {
-      return _AddAccountCheckServerStatusRoute(
-        serverUrl: serverUrl,
-      ).location;
-    }
-
-    return null;
-  }
-}
-
-/// {@template AppRoutes.LoginCheckServerStatusWithCredentialsRoute}
-/// Route for the [LoginCheckServerStatusPage].
-///
-/// Redirects to [_AddAccountCheckServerStatusWithCredentialsRoute] when at least one account
-/// is already logged in.
-/// {@endtemplate}
-@immutable
-class LoginCheckServerStatusWithCredentialsRoute extends LoginCheckServerStatusRoute {
-  /// {@macro AppRoutes.LoginCheckServerStatusWithCredentialsRoute}
-  const LoginCheckServerStatusWithCredentialsRoute({
-    required super.serverUrl,
-    required this.loginName,
-    required this.password,
-  });
-
-  /// {@macro AppRoutes.LoginFlow.serverUrl}
-  @override
-  Uri get serverUrl => super.serverUrl;
-
-  /// {@template AppRoutes.LoginFlow.loginName}
-  /// The login name of the credentials.
-  /// {@endtemplate}
-  final String loginName;
-
-  /// {@template AppRoutes.LoginFlow.password}
-  /// The password of the credentials.
-  /// {@endtemplate}
-  final String password;
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return LoginCheckServerStatusPage.withCredentials(
-      serverURL: serverUrl,
-      loginName: loginName,
-      password: password,
-    );
-  }
-
-  @override
-  FutureOr<String?> redirect(BuildContext context, GoRouterState state) {
-    final hasAccounts = NeonProvider.of<AccountsBloc>(context).hasAccounts;
-
-    if (state.fullPath == location && hasAccounts) {
-      return _AddAccountCheckServerStatusWithCredentialsRoute(
-        serverUrl: serverUrl,
-        loginName: loginName,
-        password: password,
-      ).location;
-    }
-
-    return null;
-  }
-}
-
-/// {@template AppRoutes.LoginCheckAccountRoute}
-/// Route for the [LoginCheckAccountPage].
-///
-/// Redirects to [_AddAccountCheckAccountRoute] when at least one account
-/// is already logged in.
-/// {@endtemplate}
-@immutable
-class LoginCheckAccountRoute extends GoRouteData {
-  /// {@macro AppRoutes.LoginCheckAccountRoute}
-  const LoginCheckAccountRoute({
-    required this.serverUrl,
-    required this.loginName,
-    required this.password,
-  });
-
-  /// {@macro AppRoutes.LoginFlow.serverUrl}
-  final Uri serverUrl;
-
-  /// {@macro AppRoutes.LoginFlow.loginName}
-  final String loginName;
-
-  /// {@macro AppRoutes.LoginFlow.password}
-  final String password;
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return LoginCheckAccountPage(
-      serverURL: serverUrl,
-      loginName: loginName,
-      password: password,
-    );
-  }
-
-  @override
-  FutureOr<String?> redirect(BuildContext context, GoRouterState state) {
-    final hasAccounts = NeonProvider.of<AccountsBloc>(context).hasAccounts;
-
-    if (state.fullPath == location && hasAccounts) {
-      return _AddAccountCheckAccountRoute(
-        serverUrl: serverUrl,
-        loginName: loginName,
-        password: password,
-      ).location;
-    }
-
-    return null;
-  }
-}
-
-@immutable
-class _AddAccountRoute extends LoginRoute {
-  const _AddAccountRoute();
-}
-
-@immutable
-class _AddAccountFlowRoute extends LoginFlowRoute {
-  const _AddAccountFlowRoute({
-    required super.serverUrl,
-  });
-
-  @override
-  Uri get serverUrl => super.serverUrl;
-}
-
-@immutable
-class _AddAccountQRcodeRoute extends LoginQRcodeRoute {
-  const _AddAccountQRcodeRoute();
-}
-
-@immutable
-class _AddAccountCheckServerStatusRoute extends LoginCheckServerStatusRoute {
-  const _AddAccountCheckServerStatusRoute({
-    required super.serverUrl,
-  });
-
-  @override
-  Uri get serverUrl => super.serverUrl;
-}
-
-@immutable
-class _AddAccountCheckServerStatusWithCredentialsRoute extends LoginCheckServerStatusWithCredentialsRoute {
-  const _AddAccountCheckServerStatusWithCredentialsRoute({
-    required super.serverUrl,
-    required super.loginName,
-    required super.password,
-  });
-}
-
-@immutable
-class _AddAccountCheckAccountRoute extends LoginCheckAccountRoute {
-  const _AddAccountCheckAccountRoute({
-    required super.serverUrl,
-    required super.loginName,
-    required super.password,
-  });
-
-  @override
-  Uri get serverUrl => super.serverUrl;
-
-  @override
-  String get loginName => super.loginName;
-
-  @override
-  String get password => super.password;
+  Widget build(BuildContext context, GoRouterState state) => LoginPage(
+        serverURL: serverUrl,
+        qrCode: qrCode,
+      );
 }
 
 /// {@template AppRoutes.AppImplementationSettingsRoute}

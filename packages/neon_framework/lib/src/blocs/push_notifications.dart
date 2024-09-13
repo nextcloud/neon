@@ -1,34 +1,32 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:account_repository/account_repository.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
-import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
 import 'package:neon_framework/src/platform/platform.dart';
 import 'package:neon_framework/src/storage/keys.dart';
-import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
 import 'package:neon_framework/src/utils/push_utils.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/notifications.dart' as notifications;
-import 'package:rxdart/rxdart.dart';
 import 'package:unifiedpush/unifiedpush.dart';
 
 /// Bloc for managing push notifications and registration.
 sealed class PushNotificationsBloc {
   @internal
   factory PushNotificationsBloc({
-    required BehaviorSubject<BuiltList<Account>> accountsSubject,
     required GlobalOptions globalOptions,
+    required AccountRepository accountRepository,
   }) = _PushNotificationsBloc;
 }
 
 class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
   _PushNotificationsBloc({
-    required this.accountsSubject,
     required this.globalOptions,
+    required this.accountRepository,
   }) {
     if (NeonPlatform.instance.canUsePushNotifications) {
       unawaited(UnifiedPush.getDistributors().then(globalOptions.updateDistributors));
@@ -42,11 +40,11 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
   @override
   final log = Logger('PushNotificationsBloc');
 
-  final BehaviorSubject<BuiltList<Account>> accountsSubject;
   late final storage = NeonStorage().settingsStore(StorageKeys.lastEndpoint);
   final GlobalOptions globalOptions;
+  final AccountRepository accountRepository;
 
-  StreamSubscription<BuiltList<Account>>? accountsListener;
+  StreamSubscription<({Account? active, BuiltList<Account> accounts})>? accountsListener;
 
   @override
   void dispose() {
@@ -59,7 +57,7 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
       await setupUnifiedPush();
 
       globalOptions.pushNotificationsDistributor.addListener(distributorListener);
-      accountsListener = accountsSubject.listen(registerUnifiedPushInstances);
+      accountsListener = accountRepository.accounts.listen(registerUnifiedPushInstances);
     } else {
       globalOptions.pushNotificationsDistributor.removeListener(distributorListener);
       unawaited(accountsListener?.cancel());
@@ -72,7 +70,7 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
 
     await UnifiedPush.initialize(
       onNewEndpoint: (endpoint, instance) async {
-        final account = accountsSubject.value.tryFind(instance);
+        final account = accountRepository.accountByID(instance);
         if (account == null) {
           log.fine('Account for $instance not found, can not process endpoint');
           return;
@@ -108,9 +106,9 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
     final distributor = globalOptions.pushNotificationsDistributor.value;
     final disabled = distributor == null;
     final sameDistributor = distributor == await UnifiedPush.getDistributor();
-    final accounts = accountsSubject.value;
+    final accounts = await accountRepository.accounts.first;
     if (disabled || !sameDistributor) {
-      await unregisterUnifiedPushInstances(accounts);
+      await unregisterUnifiedPushInstances(accounts.accounts);
     }
     if (!disabled && !sameDistributor) {
       log.fine('UnifiedPush distributor changed to $distributor');
@@ -136,9 +134,9 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
     }
   }
 
-  Future<void> registerUnifiedPushInstances(BuiltList<Account> accounts) async {
+  Future<void> registerUnifiedPushInstances(({Account? active, BuiltList<Account> accounts}) event) async {
     // Notifications will only work on accounts with app password
-    for (final account in accounts.where((a) => a.password != null)) {
+    for (final account in event.accounts.where((a) => a.password != null)) {
       await UnifiedPush.registerApp(account.id);
     }
   }

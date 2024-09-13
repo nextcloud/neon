@@ -1,9 +1,7 @@
 import 'dart:async';
-import 'dart:convert';
 
+import 'package:account_repository/account_repository.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:collection/collection.dart';
-import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
@@ -14,10 +12,7 @@ import 'package:neon_framework/src/models/account_cache.dart';
 import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/storage/keys.dart';
 import 'package:neon_framework/src/utils/account_options.dart';
-import 'package:neon_framework/src/utils/findable.dart';
-import 'package:neon_framework/src/utils/global_options.dart';
 import 'package:neon_framework/storage.dart';
-import 'package:nextcloud/core.dart' as core;
 import 'package:rxdart/rxdart.dart';
 
 /// The Bloc responsible for managing the [Account]s
@@ -25,25 +20,15 @@ import 'package:rxdart/rxdart.dart';
 abstract interface class AccountsBloc implements Disposable {
   @internal
   factory AccountsBloc({
-    required GlobalOptions globalOptions,
     required BuiltSet<AppImplementation> allAppImplementations,
+    required AccountRepository accountRepository,
   }) = _AccountsBloc;
-
-  /// Logs in the given [account].
-  ///
-  /// It will also call [setActiveAccount] when no other accounts are registered in [AccountsBloc.accounts].
-  void addAccount(Account account);
 
   /// Logs out the given [account].
   ///
   /// If [account] is the current [AccountsBloc.activeAccount] it will automatically activate the first one in [AccountsBloc.accounts].
   /// It is not defined whether listeners of [AccountsBloc.accounts] or [AccountsBloc.activeAccount] are informed first.
   void removeAccount(Account account);
-
-  /// Updates the given [account].
-  ///
-  /// It triggers an event in both [AccountsBloc.accounts] and [AccountsBloc.activeAccount] to inform all listeners.
-  void updateAccount(Account account);
 
   /// Sets the active [account].
   ///
@@ -102,45 +87,17 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   /// The last state will be loaded from storage and all necessary listeners
   /// will be set up.
   _AccountsBloc({
-    required this.globalOptions,
     required this.allAppImplementations,
-  }) {
-    final lastUsedStorage = NeonStorage().singleValueStore(StorageKeys.lastUsedAccount);
+    required AccountRepository accountRepository,
+  }) : _accountRepository = accountRepository {
+    accountRepository.accounts.listen((event) {
+      accounts.add(event.accounts);
 
-    accounts
-      ..add(loadAccounts())
-      ..listen((as) async {
-        globalOptions.updateAccounts(as);
-        await saveAccounts(as);
-      });
-    activeAccount.listen((aa) async {
-      if (aa != null) {
-        await lastUsedStorage.setString(aa.id);
-      } else {
-        await lastUsedStorage.remove();
+      final active = event.active;
+      if (active != null) {
+        activeAccount.add(active);
       }
     });
-
-    final as = accounts.value;
-
-    if (globalOptions.rememberLastUsedAccount.value && lastUsedStorage.hasValue()) {
-      final lastUsedAccountID = lastUsedStorage.getString();
-      if (lastUsedAccountID != null) {
-        final aa = as.tryFind(lastUsedAccountID);
-        if (aa != null) {
-          setActiveAccount(aa);
-        }
-      }
-    }
-
-    final account = as.tryFind(globalOptions.initialAccount.value);
-    if (activeAccount.valueOrNull == null) {
-      if (account != null) {
-        setActiveAccount(account);
-      } else if (as.isNotEmpty) {
-        setActiveAccount(as.first);
-      }
-    }
 
     accounts.listen((accounts) {
       accountsOptions.pruneAgainst(accounts);
@@ -160,8 +117,8 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   @override
   final log = Logger('AccountsBloc');
 
-  final GlobalOptions globalOptions;
   final BuiltSet<AppImplementation> allAppImplementations;
+  final AccountRepository _accountRepository;
 
   final accountsOptions = AccountCache<AccountOptions>();
   final appsBlocs = AccountCache<AppsBloc>();
@@ -195,63 +152,21 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   final activeAccount = BehaviorSubject();
 
   @override
-  void addAccount(Account account) {
-    if (activeAccount.valueOrNull == null) {
-      setActiveAccount(account);
-    }
-    accounts.add(accounts.value.rebuild((b) => b..add(account)));
-  }
-
-  @override
-  void removeAccount(Account account) {
-    accounts.add(accounts.value.rebuild((b) => b..removeWhere((a) => a.id == account.id)));
-
-    final as = accounts.value;
-    final aa = activeAccount.valueOrNull;
-    if (aa?.id == account.id) {
-      if (as.firstOrNull != null) {
-        setActiveAccount(as.first);
-      } else {
-        activeAccount.add(null);
-      }
-    }
-
-    unawaited(() async {
-      try {
-        await account.client.core.appPassword.deleteAppPassword();
-      } on http.ClientException catch (error, stackTrace) {
-        log.info(
-          'Error deleting the app password.',
-          error,
-          stackTrace,
-        );
-      }
-    }());
-  }
-
-  @override
-  void setActiveAccount(Account account) {
-    if (activeAccount.valueOrNull != account) {
-      activeAccount.add(account);
+  Future<void> removeAccount(Account account) async {
+    try {
+      await _accountRepository.logOut(account.id);
+    } on DeleteCredentialsFailure catch (error, stackTrace) {
+      log.info(
+        'Error deleting the app password.',
+        error,
+        stackTrace,
+      );
     }
   }
 
   @override
-  void updateAccount(Account account) {
-    final as = accounts.value;
-    final index = as.indexWhere((a) => a.id == account.id);
-
-    accounts.add(
-      as.rebuild((b) {
-        if (index == -1) {
-          b.add(account);
-        } else {
-          b[index] = account;
-        }
-      }),
-    );
-
-    setActiveAccount(account);
+  Future<void> setActiveAccount(Account account) async {
+    await _accountRepository.switchAccount(account.id);
   }
 
   @override
@@ -259,7 +174,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
 
   @override
   Account? accountByID(String accountID) {
-    return accounts.value.tryFind(accountID);
+    return _accountRepository.accountByID(accountID);
   }
 
   @override
@@ -313,25 +228,4 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
         account: account,
         capabilities: getCapabilitiesBlocFor(account).capabilities,
       );
-}
-
-/// Gets a list of logged in accounts from storage.
-///
-/// It is not checked whether the stored information is still valid.
-BuiltList<Account> loadAccounts() {
-  final storage = NeonStorage().singleValueStore(StorageKeys.accounts);
-
-  if (storage.hasValue()) {
-    return storage.getStringList()!.map((a) => Account.fromJson(json.decode(a) as Map<String, dynamic>)).toBuiltList();
-  }
-
-  return BuiltList();
-}
-
-/// Saves the given [accounts] to the storage.
-Future<void> saveAccounts(BuiltList<Account> accounts) async {
-  final storage = NeonStorage().singleValueStore(StorageKeys.accounts);
-  final values = accounts.map((a) => json.encode(a.toJson())).toBuiltList();
-
-  await storage.setStringList(values);
 }

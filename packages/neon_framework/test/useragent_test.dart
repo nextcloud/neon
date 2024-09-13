@@ -10,8 +10,20 @@ void main() {
       version: 'version',
       buildNumber: 'buildNumber',
     );
-    buildUserAgent(packageInfo);
 
-    expect(neonUserAgent, 'Neon version+buildNumber');
+    expect(
+      buildUserAgent(packageInfo),
+      'Neon version+buildNumber',
+    );
+
+    expect(
+      buildUserAgent(packageInfo, 'Nextcloud Neon'),
+      'Neon version+buildNumber',
+    );
+
+    expect(
+      buildUserAgent(packageInfo, 'Cookbook'),
+      'Neon (Cookbook) version+buildNumber',
+    );
   });
 }

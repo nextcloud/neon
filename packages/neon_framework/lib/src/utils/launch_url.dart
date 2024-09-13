@@ -1,4 +1,5 @@
 import 'package:neon_framework/models.dart';
+import 'package:neon_framework/src/utils/account_client_extension.dart';
 import 'package:url_launcher/url_launcher.dart' as url_launcher;
 
 /// Completes the [url] using the [account] if necessary and launches it in an external application.
