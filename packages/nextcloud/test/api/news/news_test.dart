@@ -5,8 +5,8 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 
-void main() {
-  presets('news', 'news', (tester) {
+void main() async {
+  await presets('news', 'news', (tester) {
     tearDown(() async {
       closeFixture();
 

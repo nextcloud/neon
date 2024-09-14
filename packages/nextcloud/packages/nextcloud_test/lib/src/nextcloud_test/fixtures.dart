@@ -1,14 +1,14 @@
-import 'package:built_collection/built_collection.dart';
-import 'package:nextcloud/webdav.dart';
-import 'package:nextcloud_test/src/models/models.dart';
+import 'package:meta/meta.dart';
+import 'package:nextcloud_test_api/client.dart';
+import 'package:test/expect.dart';
 // ignore: implementation_imports
 import 'package:test_api/src/backend/invoker.dart';
-import 'package:universal_io/io.dart';
 
 var _closed = false;
 final _fixture = <String>[];
 
 /// Appends some [data] to the current fixture.
+@internal
 void appendFixture(String data) {
   if (!_closed) {
     _fixture.add(data);
@@ -29,8 +29,9 @@ void resetFixture() {
 
 /// Validates that the requests match the stored fixtures.
 ///
-/// If there is no stored fixture a new one is created.
-void validateFixture(NextcloudTester tester) {
+/// If there is no stored fixture an empty one is created.
+@internal
+Future<void> validateFixture(NextcloudTestApiClient client, Preset preset) async {
   if (_fixture.isEmpty) {
     return;
   }
@@ -52,37 +53,31 @@ void validateFixture(NextcloudTester tester) {
 
   // Remove the groups that are the preset name and the preset version and the app is kept.
   for (var i = 0; i <= 2; i++) {
-    if (groups[i] == '${tester.version.major}.${tester.version.minor}') {
+    if (groups[i] == '${preset.version.major}.${preset.version.minor}') {
       groups.removeAt(i);
       break;
     }
   }
 
-  final fixturesPath = PathUri(
-    isAbsolute: false,
-    isDirectory: true,
-    pathSegments: BuiltList.from([
-      'test',
-      'fixtures',
-      ...groups.map(_formatName),
-    ]),
-  );
-  final fixturesDir = Directory(fixturesPath.path);
-  if (!fixturesDir.existsSync()) {
-    fixturesDir.createSync(recursive: true);
-  }
+  final fixtureName = _formatName(Invoker.current!.liveTest.individualName);
 
-  final fixtureName = _formatName(Invoker.current!.liveTest.individualName.toLowerCase());
-  final fixtureFile = File(fixturesPath.join(PathUri.parse('$fixtureName.regexp')).path);
-  if (fixtureFile.existsSync()) {
-    final pattern = fixtureFile.readAsStringSync();
-    final hasMatch = RegExp('^$pattern\$').hasMatch(data);
-    if (!hasMatch) {
-      throw Exception('$data\ndoes not match\n$pattern');
-    }
-  } else {
-    fixtureFile.writeAsStringSync(RegExp.escape(data));
-    throw Exception('Missing fixture $fixtureFile');
+  final fixturePath = [
+    ...groups.map(_formatName),
+    '$fixtureName.regexp',
+  ];
+
+  final response = await client.validateFixture(
+    fixturePath: fixturePath,
+  );
+  final pattern = response.fixture;
+
+  if (pattern == null) {
+    fail(
+      'Missing fixture: '
+      '$data',
+    );
+  } else if (!RegExp('^$pattern\$').hasMatch(data)) {
+    fail('$data\ndoes not match\n$pattern');
   }
 
   _closed = false;

@@ -5,8 +5,8 @@ import 'package:nextcloud/notes.dart' as notes;
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 
-void main() {
-  presets('notes', 'notes', (tester) {
+void main() async {
+  await presets('notes', 'notes', (tester) {
     tearDown(() async {
       closeFixture();
 

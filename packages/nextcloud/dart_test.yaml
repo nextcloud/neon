@@ -1,0 +1,16 @@
+platforms:
+  - vm
+  - chrome
+
+define_platforms:
+  chromium:
+    name: Chromium
+    extends: chrome
+    settings:
+      executable: chromium
+
+override_platforms:
+  chrome:
+    settings:
+      arguments: --disable-web-security
+      executable: chromium

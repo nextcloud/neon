@@ -3,8 +3,8 @@ import 'package:nextcloud/provisioning_api.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 
-void main() {
-  presets('server', 'provisioning_api', username: 'admin', (tester) {
+void main() async {
+  await presets('server', 'provisioning_api', username: 'admin', (tester) {
     group('Users', () {
       test('Get current user', () async {
         final response = await tester.client.provisioningApi.users.getCurrentUser();

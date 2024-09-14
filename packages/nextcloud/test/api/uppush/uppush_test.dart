@@ -2,8 +2,8 @@ import 'package:nextcloud/uppush.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 
-void main() {
-  presets('uppush', 'uppush', username: 'admin', (tester) {
+void main() async {
+  await presets('uppush', 'uppush', username: 'admin', (tester) {
     test('Is installed', () async {
       final response = await tester.client.uppush.check();
       expect(response.statusCode, 200);

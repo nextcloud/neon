@@ -7,8 +7,8 @@ import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 import 'package:version/version.dart';
 
-void main() {
-  presets('server', 'notifications', username: 'admin', (tester) {
+void main() async {
+  await presets('server', 'notifications', username: 'admin', (tester) {
     Future<void> sendTestNotification() async {
       // ignore: deprecated_member_use_from_same_package
       await tester.client.notifications.api.generateNotification(

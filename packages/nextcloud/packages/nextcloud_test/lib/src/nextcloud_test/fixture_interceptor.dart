@@ -4,8 +4,10 @@ import 'dart:typed_data';
 
 import 'package:http/http.dart' as http;
 import 'package:interceptor_http_client/interceptor_http_client.dart';
+import 'package:meta/meta.dart';
 
 /// An http interceptor that records every request and adds them to a fixture.
+@internal
 final class FixtureInterceptor implements HttpInterceptor {
   /// Creates a new fixture interceptor.
   const FixtureInterceptor({
@@ -65,16 +67,19 @@ final class FixtureInterceptor implements HttpInterceptor {
       final name = header.key.toLowerCase();
       var value = header.value;
 
-      if (name == HttpHeaders.hostHeader) {
-        continue;
-      } else if (name == HttpHeaders.cookieHeader) {
-        continue;
-      } else if (name == HttpHeaders.authorizationHeader) {
-        value = '${value.split(' ').first} mock';
-      } else if (name == 'requesttoken') {
-        value = 'token';
-      } else if (name == 'destination') {
-        value = Uri.parse(value).replace(port: 80).toString();
+      switch (name) {
+        case HttpHeaders.hostHeader:
+        case HttpHeaders.cookieHeader:
+          continue;
+
+        case HttpHeaders.authorizationHeader:
+          value = '${value.split(' ').first} mock';
+
+        case 'requesttoken':
+          value = 'token';
+
+        case 'destination':
+          value = Uri.parse(value).replace(port: 80).toString();
       }
 
       headers.add('\n$name: $value');
@@ -86,7 +91,7 @@ final class FixtureInterceptor implements HttpInterceptor {
     if (body.isNotEmpty) {
       try {
         buffer.write('\n${utf8.decode(body)}');
-      } catch (_) {
+      } on FormatException catch (_) {
         buffer.write('\n${base64.encode(body)}');
       }
     }

@@ -28,6 +28,7 @@ rules:
       - news_app
       - nextcloud
       - nextcloud_test
+      - nextcloud_test_api
       - nextcloud_test_presets
       - notes_app
       - notifications_app
