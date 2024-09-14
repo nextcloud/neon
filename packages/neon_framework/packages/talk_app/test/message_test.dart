@@ -1558,7 +1558,7 @@ void main() {
               );
 
               expect(find.byType(TalkRichObjectMention), isPreview ? findsNothing : findsOne);
-              expect(find.text('name'), findsOne);
+              expect(find.text('name', findRichText: true), findsOne);
             });
           }
         });
@@ -1587,7 +1587,7 @@ void main() {
           );
 
           expect(find.byType(TalkRichObjectFile), isPreview ? findsNothing : findsOne);
-          expect(find.text('name'), findsOne);
+          expect(find.text('name', findRichText: true), findsOne);
         });
 
         testWidgets('Deck card', (tester) async {
@@ -1611,7 +1611,7 @@ void main() {
           );
 
           expect(find.byType(TalkRichObjectDeckCard), isPreview ? findsNothing : findsOne);
-          expect(find.text('name'), findsOne);
+          expect(find.text('name', findRichText: true), findsOne);
         });
 
         testWidgets('Fallback', (tester) async {
@@ -1633,7 +1633,7 @@ void main() {
           );
 
           expect(find.byType(TalkRichObjectFallback), isPreview ? findsNothing : findsOne);
-          expect(find.text('name'), findsOne);
+          expect(find.text('name', findRichText: true), findsOne);
         });
       });
     }
