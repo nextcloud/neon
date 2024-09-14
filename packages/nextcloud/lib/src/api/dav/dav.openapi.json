@@ -134,7 +134,9 @@
                 "type": "object",
                 "required": [
                     "userId",
-                    "message"
+                    "message",
+                    "replacementUserId",
+                    "replacementUserDisplayName"
                 ],
                 "properties": {
                     "userId": {
@@ -142,6 +144,45 @@
                     },
                     "message": {
                         "type": "string"
+                    },
+                    "replacementUserId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "replacementUserDisplayName": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                }
+            },
+            "UpcomingEvent": {
+                "type": "object",
+                "required": [
+                    "uri",
+                    "calendarUri",
+                    "start",
+                    "summary",
+                    "location"
+                ],
+                "properties": {
+                    "uri": {
+                        "type": "string"
+                    },
+                    "calendarUri": {
+                        "type": "string"
+                    },
+                    "start": {
+                        "type": "integer",
+                        "format": "int64",
+                        "nullable": true
+                    },
+                    "summary": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "location": {
+                        "type": "string",
+                        "nullable": true
                     }
                 }
             }
@@ -317,6 +358,117 @@
                                                     "$ref": "#/components/schemas/OCSMeta"
                                                 },
                                                 "data": {}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/ocs/v2.php/apps/dav/api/v1/events/upcoming": {
+            "get": {
+                "operationId": "upcoming_events-get-events",
+                "summary": "Get information about upcoming events",
+                "tags": [
+                    "upcoming_events"
+                ],
+                "security": [
+                    {
+                        "bearer_auth": []
+                    },
+                    {
+                        "basic_auth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "location",
+                        "in": "query",
+                        "description": "location/URL to filter by",
+                        "schema": {
+                            "type": "string",
+                            "nullable": true
+                        }
+                    },
+                    {
+                        "name": "OCS-APIRequest",
+                        "in": "header",
+                        "description": "Required to be true for the API request to pass",
+                        "required": true,
+                        "schema": {
+                            "type": "boolean",
+                            "default": true
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Upcoming events",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "events"
+                                                    ],
+                                                    "properties": {
+                                                        "events": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "$ref": "#/components/schemas/UpcomingEvent"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "When not authenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {
+                                                    "nullable": true
+                                                }
                                             }
                                         }
                                     }
@@ -568,6 +720,16 @@
                                     "message": {
                                         "type": "string",
                                         "description": "Longer multiline message that is shown to others during the absence"
+                                    },
+                                    "replacementUserId": {
+                                        "type": "string",
+                                        "nullable": true,
+                                        "description": "User id of the replacement user"
+                                    },
+                                    "replacementUserDisplayName": {
+                                        "type": "string",
+                                        "nullable": true,
+                                        "description": "Display name of the replacement user"
                                     }
                                 }
                             }
@@ -668,6 +830,36 @@
                     },
                     "401": {
                         "description": "When the user is not logged in",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "When the replacementUserId was provided but replacement user was not found",
                         "content": {
                             "application/json": {
                                 "schema": {

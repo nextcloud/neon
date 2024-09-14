@@ -354,6 +354,8 @@ const Api1CreateTableColumnRequestApplicationJson_Type _$api1CreateTableColumnRe
     Api1CreateTableColumnRequestApplicationJson_Type._('datetime');
 const Api1CreateTableColumnRequestApplicationJson_Type _$api1CreateTableColumnRequestApplicationJsonTypeSelect =
     Api1CreateTableColumnRequestApplicationJson_Type._('select');
+const Api1CreateTableColumnRequestApplicationJson_Type _$api1CreateTableColumnRequestApplicationJsonTypeUsergroup =
+    Api1CreateTableColumnRequestApplicationJson_Type._('usergroup');
 
 Api1CreateTableColumnRequestApplicationJson_Type _$valueOfApi1CreateTableColumnRequestApplicationJson_Type(
     String name) {
@@ -366,6 +368,8 @@ Api1CreateTableColumnRequestApplicationJson_Type _$valueOfApi1CreateTableColumnR
       return _$api1CreateTableColumnRequestApplicationJsonTypeDatetime;
     case 'select':
       return _$api1CreateTableColumnRequestApplicationJsonTypeSelect;
+    case 'usergroup':
+      return _$api1CreateTableColumnRequestApplicationJsonTypeUsergroup;
     default:
       throw ArgumentError(name);
   }
@@ -378,6 +382,7 @@ final BuiltSet<Api1CreateTableColumnRequestApplicationJson_Type>
   _$api1CreateTableColumnRequestApplicationJsonTypeNumber,
   _$api1CreateTableColumnRequestApplicationJsonTypeDatetime,
   _$api1CreateTableColumnRequestApplicationJsonTypeSelect,
+  _$api1CreateTableColumnRequestApplicationJsonTypeUsergroup,
 ]);
 
 const Api1CreateColumnRequestApplicationJson_Type _$api1CreateColumnRequestApplicationJsonTypeText =
@@ -388,6 +393,8 @@ const Api1CreateColumnRequestApplicationJson_Type _$api1CreateColumnRequestAppli
     Api1CreateColumnRequestApplicationJson_Type._('datetime');
 const Api1CreateColumnRequestApplicationJson_Type _$api1CreateColumnRequestApplicationJsonTypeSelect =
     Api1CreateColumnRequestApplicationJson_Type._('select');
+const Api1CreateColumnRequestApplicationJson_Type _$api1CreateColumnRequestApplicationJsonTypeUsergroup =
+    Api1CreateColumnRequestApplicationJson_Type._('usergroup');
 
 Api1CreateColumnRequestApplicationJson_Type _$valueOfApi1CreateColumnRequestApplicationJson_Type(String name) {
   switch (name) {
@@ -399,6 +406,8 @@ Api1CreateColumnRequestApplicationJson_Type _$valueOfApi1CreateColumnRequestAppl
       return _$api1CreateColumnRequestApplicationJsonTypeDatetime;
     case 'select':
       return _$api1CreateColumnRequestApplicationJsonTypeSelect;
+    case 'usergroup':
+      return _$api1CreateColumnRequestApplicationJsonTypeUsergroup;
     default:
       throw ArgumentError(name);
   }
@@ -410,6 +419,7 @@ final BuiltSet<Api1CreateColumnRequestApplicationJson_Type> _$api1CreateColumnRe
   _$api1CreateColumnRequestApplicationJsonTypeNumber,
   _$api1CreateColumnRequestApplicationJsonTypeDatetime,
   _$api1CreateColumnRequestApplicationJsonTypeSelect,
+  _$api1CreateColumnRequestApplicationJsonTypeUsergroup,
 ]);
 
 const ApiColumnsIndexNodeType _$apiColumnsIndexNodeTypeTable = ApiColumnsIndexNodeType._('table');
@@ -666,6 +676,52 @@ final BuiltSet<ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType
   _$apiColumnsCreateDatetimeColumnRequestApplicationJsonBaseNodeTypeView,
 ]);
 
+const ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType
+    _$apiColumnsCreateUsergroupColumnRequestApplicationJsonBaseNodeTypeTable =
+    ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType._('table');
+const ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType
+    _$apiColumnsCreateUsergroupColumnRequestApplicationJsonBaseNodeTypeView =
+    ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType._('view');
+
+ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType
+    _$valueOfApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType(String name) {
+  switch (name) {
+    case 'table':
+      return _$apiColumnsCreateUsergroupColumnRequestApplicationJsonBaseNodeTypeTable;
+    case 'view':
+      return _$apiColumnsCreateUsergroupColumnRequestApplicationJsonBaseNodeTypeView;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType>
+    _$apiColumnsCreateUsergroupColumnRequestApplicationJsonBaseNodeTypeValues = BuiltSet<
+        ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType>(const <ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType>[
+  _$apiColumnsCreateUsergroupColumnRequestApplicationJsonBaseNodeTypeTable,
+  _$apiColumnsCreateUsergroupColumnRequestApplicationJsonBaseNodeTypeView,
+]);
+
+const RowocsCreateRowNodeCollection _$rowocsCreateRowNodeCollectionTables = RowocsCreateRowNodeCollection._('tables');
+const RowocsCreateRowNodeCollection _$rowocsCreateRowNodeCollectionViews = RowocsCreateRowNodeCollection._('views');
+
+RowocsCreateRowNodeCollection _$valueOfRowocsCreateRowNodeCollection(String name) {
+  switch (name) {
+    case 'tables':
+      return _$rowocsCreateRowNodeCollectionTables;
+    case 'views':
+      return _$rowocsCreateRowNodeCollectionViews;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RowocsCreateRowNodeCollection> _$rowocsCreateRowNodeCollectionValues =
+    BuiltSet<RowocsCreateRowNodeCollection>(const <RowocsCreateRowNodeCollection>[
+  _$rowocsCreateRowNodeCollectionTables,
+  _$rowocsCreateRowNodeCollectionViews,
+]);
+
 Serializer<Table_OnSharePermissions> _$tableOnSharePermissionsSerializer = _$Table_OnSharePermissionsSerializer();
 Serializer<View_Sort> _$viewSortSerializer = _$View_SortSerializer();
 Serializer<View_Filter> _$viewFilterSerializer = _$View_FilterSerializer();
@@ -676,6 +732,7 @@ Serializer<Api1CreateTableRequestApplicationJson> _$api1CreateTableRequestApplic
     _$Api1CreateTableRequestApplicationJsonSerializer();
 Serializer<Api1UpdateTableRequestApplicationJson> _$api1UpdateTableRequestApplicationJsonSerializer =
     _$Api1UpdateTableRequestApplicationJsonSerializer();
+Serializer<Api1Api1ShowSchemeHeaders> _$api1Api1ShowSchemeHeadersSerializer = _$Api1Api1ShowSchemeHeadersSerializer();
 Serializer<Api1CreateViewRequestApplicationJson> _$api1CreateViewRequestApplicationJsonSerializer =
     _$Api1CreateViewRequestApplicationJsonSerializer();
 Serializer<Api1UpdateViewRequestApplicationJson_Data0> _$api1UpdateViewRequestApplicationJsonData0Serializer =
@@ -771,6 +828,15 @@ Serializer<ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs>
 Serializer<ApiColumnsCreateDatetimeColumnResponseApplicationJson>
     _$apiColumnsCreateDatetimeColumnResponseApplicationJsonSerializer =
     _$ApiColumnsCreateDatetimeColumnResponseApplicationJsonSerializer();
+Serializer<ApiColumnsCreateUsergroupColumnRequestApplicationJson>
+    _$apiColumnsCreateUsergroupColumnRequestApplicationJsonSerializer =
+    _$ApiColumnsCreateUsergroupColumnRequestApplicationJsonSerializer();
+Serializer<ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs>
+    _$apiColumnsCreateUsergroupColumnResponseApplicationJsonOcsSerializer =
+    _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsSerializer();
+Serializer<ApiColumnsCreateUsergroupColumnResponseApplicationJson>
+    _$apiColumnsCreateUsergroupColumnResponseApplicationJsonSerializer =
+    _$ApiColumnsCreateUsergroupColumnResponseApplicationJsonSerializer();
 Serializer<ApiFavoriteCreateResponseApplicationJson_Ocs> _$apiFavoriteCreateResponseApplicationJsonOcsSerializer =
     _$ApiFavoriteCreateResponseApplicationJson_OcsSerializer();
 Serializer<ApiFavoriteCreateResponseApplicationJson> _$apiFavoriteCreateResponseApplicationJsonSerializer =
@@ -808,6 +874,19 @@ Serializer<ApiTablesDestroyResponseApplicationJson_Ocs> _$apiTablesDestroyRespon
     _$ApiTablesDestroyResponseApplicationJson_OcsSerializer();
 Serializer<ApiTablesDestroyResponseApplicationJson> _$apiTablesDestroyResponseApplicationJsonSerializer =
     _$ApiTablesDestroyResponseApplicationJsonSerializer();
+Serializer<ApiTablesShowSchemeResponseApplicationJson_Ocs> _$apiTablesShowSchemeResponseApplicationJsonOcsSerializer =
+    _$ApiTablesShowSchemeResponseApplicationJson_OcsSerializer();
+Serializer<ApiTablesShowSchemeResponseApplicationJson> _$apiTablesShowSchemeResponseApplicationJsonSerializer =
+    _$ApiTablesShowSchemeResponseApplicationJsonSerializer();
+Serializer<ApiTablesCreateFromSchemeRequestApplicationJson>
+    _$apiTablesCreateFromSchemeRequestApplicationJsonSerializer =
+    _$ApiTablesCreateFromSchemeRequestApplicationJsonSerializer();
+Serializer<ApiTablesCreateFromSchemeResponseApplicationJson_Ocs>
+    _$apiTablesCreateFromSchemeResponseApplicationJsonOcsSerializer =
+    _$ApiTablesCreateFromSchemeResponseApplicationJson_OcsSerializer();
+Serializer<ApiTablesCreateFromSchemeResponseApplicationJson>
+    _$apiTablesCreateFromSchemeResponseApplicationJsonSerializer =
+    _$ApiTablesCreateFromSchemeResponseApplicationJsonSerializer();
 Serializer<ApiTablesTransferRequestApplicationJson> _$apiTablesTransferRequestApplicationJsonSerializer =
     _$ApiTablesTransferRequestApplicationJsonSerializer();
 Serializer<ApiTablesTransferResponseApplicationJson_Ocs> _$apiTablesTransferResponseApplicationJsonOcsSerializer =
@@ -861,6 +940,12 @@ Serializer<ContextUpdateContentOrderResponseApplicationJson_Ocs>
 Serializer<ContextUpdateContentOrderResponseApplicationJson>
     _$contextUpdateContentOrderResponseApplicationJsonSerializer =
     _$ContextUpdateContentOrderResponseApplicationJsonSerializer();
+Serializer<RowocsCreateRowRequestApplicationJson> _$rowocsCreateRowRequestApplicationJsonSerializer =
+    _$RowocsCreateRowRequestApplicationJsonSerializer();
+Serializer<RowocsCreateRowResponseApplicationJson_Ocs> _$rowocsCreateRowResponseApplicationJsonOcsSerializer =
+    _$RowocsCreateRowResponseApplicationJson_OcsSerializer();
+Serializer<RowocsCreateRowResponseApplicationJson> _$rowocsCreateRowResponseApplicationJsonSerializer =
+    _$RowocsCreateRowResponseApplicationJsonSerializer();
 Serializer<Capabilities_Tables> _$capabilitiesTablesSerializer = _$Capabilities_TablesSerializer();
 Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
 
@@ -1467,6 +1552,47 @@ class _$Api1UpdateTableRequestApplicationJsonSerializer
           break;
         case 'archived':
           result.archived = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Api1Api1ShowSchemeHeadersSerializer implements StructuredSerializer<Api1Api1ShowSchemeHeaders> {
+  @override
+  final Iterable<Type> types = const [Api1Api1ShowSchemeHeaders, _$Api1Api1ShowSchemeHeaders];
+  @override
+  final String wireName = 'Api1Api1ShowSchemeHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Api1Api1ShowSchemeHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.contentDisposition;
+    if (value != null) {
+      result
+        ..add('content-disposition')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  Api1Api1ShowSchemeHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = Api1Api1ShowSchemeHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'content-disposition':
+          result.contentDisposition = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -2349,6 +2475,16 @@ class _$ColumnSerializer implements StructuredSerializer<Column> {
       serializers.serialize(object.selectionDefault, specifiedType: const FullType(String)),
       'datetimeDefault',
       serializers.serialize(object.datetimeDefault, specifiedType: const FullType(String)),
+      'usergroupDefault',
+      serializers.serialize(object.usergroupDefault, specifiedType: const FullType(String)),
+      'usergroupMultipleItems',
+      serializers.serialize(object.usergroupMultipleItems, specifiedType: const FullType(bool)),
+      'usergroupSelectUsers',
+      serializers.serialize(object.usergroupSelectUsers, specifiedType: const FullType(bool)),
+      'usergroupSelectGroups',
+      serializers.serialize(object.usergroupSelectGroups, specifiedType: const FullType(bool)),
+      'showUserStatus',
+      serializers.serialize(object.showUserStatus, specifiedType: const FullType(bool)),
     ];
 
     return result;
@@ -2436,6 +2572,21 @@ class _$ColumnSerializer implements StructuredSerializer<Column> {
           break;
         case 'datetimeDefault':
           result.datetimeDefault = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'usergroupDefault':
+          result.usergroupDefault = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'usergroupMultipleItems':
+          result.usergroupMultipleItems = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'usergroupSelectUsers':
+          result.usergroupSelectUsers = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'usergroupSelectGroups':
+          result.usergroupSelectGroups = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'showUserStatus':
+          result.showUserStatus = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -2551,6 +2702,36 @@ class _$Api1CreateTableColumnRequestApplicationJsonSerializer
         ..add('datetimeDefault')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
+    value = object.usergroupDefault;
+    if (value != null) {
+      result
+        ..add('usergroupDefault')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.usergroupMultipleItems;
+    if (value != null) {
+      result
+        ..add('usergroupMultipleItems')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.usergroupSelectUsers;
+    if (value != null) {
+      result
+        ..add('usergroupSelectUsers')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.usergroupSelectGroups;
+    if (value != null) {
+      result
+        ..add('usergroupSelectGroups')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.usergroupShowUserStatus;
+    if (value != null) {
+      result
+        ..add('usergroupShowUserStatus')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     value = object.selectedViewIds;
     if (value != null) {
       result
@@ -2623,6 +2804,21 @@ class _$Api1CreateTableColumnRequestApplicationJsonSerializer
           break;
         case 'datetimeDefault':
           result.datetimeDefault = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'usergroupDefault':
+          result.usergroupDefault = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'usergroupMultipleItems':
+          result.usergroupMultipleItems = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'usergroupSelectUsers':
+          result.usergroupSelectUsers = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'usergroupSelectGroups':
+          result.usergroupSelectGroups = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'usergroupShowUserStatus':
+          result.usergroupShowUserStatus = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
         case 'selectedViewIds':
           result.selectedViewIds.replace(serializers.deserialize(value,
@@ -2750,6 +2946,36 @@ class _$Api1CreateColumnRequestApplicationJsonSerializer
         ..add('datetimeDefault')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
+    value = object.usergroupDefault;
+    if (value != null) {
+      result
+        ..add('usergroupDefault')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.usergroupMultipleItems;
+    if (value != null) {
+      result
+        ..add('usergroupMultipleItems')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.usergroupSelectUsers;
+    if (value != null) {
+      result
+        ..add('usergroupSelectUsers')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.usergroupSelectGroups;
+    if (value != null) {
+      result
+        ..add('usergroupSelectGroups')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.usergroupShowUserStatus;
+    if (value != null) {
+      result
+        ..add('usergroupShowUserStatus')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     value = object.selectedViewIds;
     if (value != null) {
       result
@@ -2828,6 +3054,21 @@ class _$Api1CreateColumnRequestApplicationJsonSerializer
           break;
         case 'datetimeDefault':
           result.datetimeDefault = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'usergroupDefault':
+          result.usergroupDefault = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'usergroupMultipleItems':
+          result.usergroupMultipleItems = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'usergroupSelectUsers':
+          result.usergroupSelectUsers = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'usergroupSelectGroups':
+          result.usergroupSelectGroups = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'usergroupShowUserStatus':
+          result.usergroupShowUserStatus = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
         case 'selectedViewIds':
           result.selectedViewIds.replace(serializers.deserialize(value,
@@ -2945,6 +3186,36 @@ class _$Api1UpdateColumnRequestApplicationJsonSerializer
         ..add('datetimeDefault')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
+    value = object.usergroupDefault;
+    if (value != null) {
+      result
+        ..add('usergroupDefault')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.usergroupMultipleItems;
+    if (value != null) {
+      result
+        ..add('usergroupMultipleItems')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.usergroupSelectUsers;
+    if (value != null) {
+      result
+        ..add('usergroupSelectUsers')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.usergroupSelectGroups;
+    if (value != null) {
+      result
+        ..add('usergroupSelectGroups')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.usergroupShowUserStatus;
+    if (value != null) {
+      result
+        ..add('usergroupShowUserStatus')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     return result;
   }
 
@@ -3006,6 +3277,21 @@ class _$Api1UpdateColumnRequestApplicationJsonSerializer
           break;
         case 'datetimeDefault':
           result.datetimeDefault = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'usergroupDefault':
+          result.usergroupDefault = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'usergroupMultipleItems':
+          result.usergroupMultipleItems = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'usergroupSelectUsers':
+          result.usergroupSelectUsers = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'usergroupSelectGroups':
+          result.usergroupSelectGroups = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'usergroupShowUserStatus':
+          result.usergroupShowUserStatus = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
       }
     }
@@ -4516,6 +4802,226 @@ class _$ApiColumnsCreateDatetimeColumnResponseApplicationJsonSerializer
   }
 }
 
+class _$ApiColumnsCreateUsergroupColumnRequestApplicationJsonSerializer
+    implements StructuredSerializer<ApiColumnsCreateUsergroupColumnRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ApiColumnsCreateUsergroupColumnRequestApplicationJson,
+    _$ApiColumnsCreateUsergroupColumnRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'ApiColumnsCreateUsergroupColumnRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ApiColumnsCreateUsergroupColumnRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'baseNodeId',
+      serializers.serialize(object.baseNodeId, specifiedType: const FullType(int)),
+      'title',
+      serializers.serialize(object.title, specifiedType: const FullType(String)),
+      'mandatory',
+      serializers.serialize(object.mandatory, specifiedType: const FullType(bool)),
+      'baseNodeType',
+      serializers.serialize(object.baseNodeType,
+          specifiedType: const FullType(ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType)),
+    ];
+    Object? value;
+    value = object.usergroupDefault;
+    if (value != null) {
+      result
+        ..add('usergroupDefault')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.usergroupMultipleItems;
+    if (value != null) {
+      result
+        ..add('usergroupMultipleItems')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.usergroupSelectUsers;
+    if (value != null) {
+      result
+        ..add('usergroupSelectUsers')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.usergroupSelectGroups;
+    if (value != null) {
+      result
+        ..add('usergroupSelectGroups')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.showUserStatus;
+    if (value != null) {
+      result
+        ..add('showUserStatus')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.description;
+    if (value != null) {
+      result
+        ..add('description')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.selectedViewIds;
+    if (value != null) {
+      result
+        ..add('selectedViewIds')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(int)])));
+    }
+    return result;
+  }
+
+  @override
+  ApiColumnsCreateUsergroupColumnRequestApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'baseNodeId':
+          result.baseNodeId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'title':
+          result.title = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'usergroupDefault':
+          result.usergroupDefault = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'usergroupMultipleItems':
+          result.usergroupMultipleItems = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'usergroupSelectUsers':
+          result.usergroupSelectUsers = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'usergroupSelectGroups':
+          result.usergroupSelectGroups = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'showUserStatus':
+          result.showUserStatus = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'description':
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'selectedViewIds':
+          result.selectedViewIds.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<Object?>);
+          break;
+        case 'mandatory':
+          result.mandatory = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'baseNodeType':
+          result.baseNodeType = serializers.deserialize(value,
+                  specifiedType: const FullType(ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType))!
+              as ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs,
+    _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Column)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(Column))! as Column);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ApiColumnsCreateUsergroupColumnResponseApplicationJsonSerializer
+    implements StructuredSerializer<ApiColumnsCreateUsergroupColumnResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ApiColumnsCreateUsergroupColumnResponseApplicationJson,
+    _$ApiColumnsCreateUsergroupColumnResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'ApiColumnsCreateUsergroupColumnResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ApiColumnsCreateUsergroupColumnResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ApiColumnsCreateUsergroupColumnResponseApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs))!
+              as ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$ApiFavoriteCreateResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<ApiFavoriteCreateResponseApplicationJson_Ocs> {
   @override
@@ -5397,6 +5903,254 @@ class _$ApiTablesDestroyResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(ApiTablesDestroyResponseApplicationJson_Ocs))!
               as ApiTablesDestroyResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ApiTablesShowSchemeResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ApiTablesShowSchemeResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    ApiTablesShowSchemeResponseApplicationJson_Ocs,
+    _$ApiTablesShowSchemeResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'ApiTablesShowSchemeResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ApiTablesShowSchemeResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Table)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ApiTablesShowSchemeResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiTablesShowSchemeResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(Table))! as Table);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ApiTablesShowSchemeResponseApplicationJsonSerializer
+    implements StructuredSerializer<ApiTablesShowSchemeResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ApiTablesShowSchemeResponseApplicationJson,
+    _$ApiTablesShowSchemeResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'ApiTablesShowSchemeResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ApiTablesShowSchemeResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(ApiTablesShowSchemeResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ApiTablesShowSchemeResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiTablesShowSchemeResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ApiTablesShowSchemeResponseApplicationJson_Ocs))!
+              as ApiTablesShowSchemeResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ApiTablesCreateFromSchemeRequestApplicationJsonSerializer
+    implements StructuredSerializer<ApiTablesCreateFromSchemeRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ApiTablesCreateFromSchemeRequestApplicationJson,
+    _$ApiTablesCreateFromSchemeRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'ApiTablesCreateFromSchemeRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ApiTablesCreateFromSchemeRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'title',
+      serializers.serialize(object.title, specifiedType: const FullType(String)),
+      'emoji',
+      serializers.serialize(object.emoji, specifiedType: const FullType(String)),
+      'description',
+      serializers.serialize(object.description, specifiedType: const FullType(String)),
+      'columns',
+      serializers.serialize(object.columns, specifiedType: const FullType(BuiltList, [FullType(Column)])),
+      'views',
+      serializers.serialize(object.views, specifiedType: const FullType(BuiltList, [FullType(View)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  ApiTablesCreateFromSchemeRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiTablesCreateFromSchemeRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'title':
+          result.title = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'emoji':
+          result.emoji = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'description':
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'columns':
+          result.columns.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(Column)]))! as BuiltList<Object?>);
+          break;
+        case 'views':
+          result.views.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(View)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ApiTablesCreateFromSchemeResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ApiTablesCreateFromSchemeResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    ApiTablesCreateFromSchemeResponseApplicationJson_Ocs,
+    _$ApiTablesCreateFromSchemeResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'ApiTablesCreateFromSchemeResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ApiTablesCreateFromSchemeResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Table)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ApiTablesCreateFromSchemeResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(Table))! as Table);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ApiTablesCreateFromSchemeResponseApplicationJsonSerializer
+    implements StructuredSerializer<ApiTablesCreateFromSchemeResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ApiTablesCreateFromSchemeResponseApplicationJson,
+    _$ApiTablesCreateFromSchemeResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'ApiTablesCreateFromSchemeResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ApiTablesCreateFromSchemeResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(ApiTablesCreateFromSchemeResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ApiTablesCreateFromSchemeResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiTablesCreateFromSchemeResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ApiTablesCreateFromSchemeResponseApplicationJson_Ocs))!
+              as ApiTablesCreateFromSchemeResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -6590,6 +7344,135 @@ class _$ContextUpdateContentOrderResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(ContextUpdateContentOrderResponseApplicationJson_Ocs))!
               as ContextUpdateContentOrderResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RowocsCreateRowRequestApplicationJsonSerializer
+    implements StructuredSerializer<RowocsCreateRowRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [RowocsCreateRowRequestApplicationJson, _$RowocsCreateRowRequestApplicationJson];
+  @override
+  final String wireName = 'RowocsCreateRowRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RowocsCreateRowRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(RowocsCreateRowRequestApplicationJson_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  RowocsCreateRowRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RowocsCreateRowRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'data':
+          result.data =
+              serializers.deserialize(value, specifiedType: const FullType(RowocsCreateRowRequestApplicationJson_Data))!
+                  as RowocsCreateRowRequestApplicationJson_Data;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RowocsCreateRowResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RowocsCreateRowResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    RowocsCreateRowResponseApplicationJson_Ocs,
+    _$RowocsCreateRowResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'RowocsCreateRowResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RowocsCreateRowResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Row)),
+    ];
+
+    return result;
+  }
+
+  @override
+  RowocsCreateRowResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RowocsCreateRowResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(Row))! as Row);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RowocsCreateRowResponseApplicationJsonSerializer
+    implements StructuredSerializer<RowocsCreateRowResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [RowocsCreateRowResponseApplicationJson, _$RowocsCreateRowResponseApplicationJson];
+  @override
+  final String wireName = 'RowocsCreateRowResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RowocsCreateRowResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RowocsCreateRowResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  RowocsCreateRowResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RowocsCreateRowResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+              serializers.deserialize(value, specifiedType: const FullType(RowocsCreateRowResponseApplicationJson_Ocs))!
+                  as RowocsCreateRowResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -8242,6 +9125,95 @@ class Api1UpdateTableRequestApplicationJsonBuilder
             emoji: emoji,
             archived:
                 BuiltValueNullFieldError.checkNotNull(archived, r'Api1UpdateTableRequestApplicationJson', 'archived'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $Api1Api1ShowSchemeHeadersInterfaceBuilder {
+  void replace($Api1Api1ShowSchemeHeadersInterface other);
+  void update(void Function($Api1Api1ShowSchemeHeadersInterfaceBuilder) updates);
+  String? get contentDisposition;
+  set contentDisposition(String? contentDisposition);
+}
+
+class _$Api1Api1ShowSchemeHeaders extends Api1Api1ShowSchemeHeaders {
+  @override
+  final String? contentDisposition;
+
+  factory _$Api1Api1ShowSchemeHeaders([void Function(Api1Api1ShowSchemeHeadersBuilder)? updates]) =>
+      (Api1Api1ShowSchemeHeadersBuilder()..update(updates))._build();
+
+  _$Api1Api1ShowSchemeHeaders._({this.contentDisposition}) : super._();
+
+  @override
+  Api1Api1ShowSchemeHeaders rebuild(void Function(Api1Api1ShowSchemeHeadersBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  Api1Api1ShowSchemeHeadersBuilder toBuilder() => Api1Api1ShowSchemeHeadersBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Api1Api1ShowSchemeHeaders && contentDisposition == other.contentDisposition;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, contentDisposition.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'Api1Api1ShowSchemeHeaders')..add('contentDisposition', contentDisposition))
+        .toString();
+  }
+}
+
+class Api1Api1ShowSchemeHeadersBuilder
+    implements
+        Builder<Api1Api1ShowSchemeHeaders, Api1Api1ShowSchemeHeadersBuilder>,
+        $Api1Api1ShowSchemeHeadersInterfaceBuilder {
+  _$Api1Api1ShowSchemeHeaders? _$v;
+
+  String? _contentDisposition;
+  String? get contentDisposition => _$this._contentDisposition;
+  set contentDisposition(covariant String? contentDisposition) => _$this._contentDisposition = contentDisposition;
+
+  Api1Api1ShowSchemeHeadersBuilder() {
+    Api1Api1ShowSchemeHeaders._defaults(this);
+  }
+
+  Api1Api1ShowSchemeHeadersBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _contentDisposition = $v.contentDisposition;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant Api1Api1ShowSchemeHeaders other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Api1Api1ShowSchemeHeaders;
+  }
+
+  @override
+  void update(void Function(Api1Api1ShowSchemeHeadersBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  Api1Api1ShowSchemeHeaders build() => _build();
+
+  _$Api1Api1ShowSchemeHeaders _build() {
+    Api1Api1ShowSchemeHeaders._validate(this);
+    final _$result = _$v ?? _$Api1Api1ShowSchemeHeaders._(contentDisposition: contentDisposition);
     replace(_$result);
     return _$result;
   }
@@ -10401,6 +11373,21 @@ abstract mixin class $ColumnInterfaceBuilder {
 
   String? get datetimeDefault;
   set datetimeDefault(String? datetimeDefault);
+
+  String? get usergroupDefault;
+  set usergroupDefault(String? usergroupDefault);
+
+  bool? get usergroupMultipleItems;
+  set usergroupMultipleItems(bool? usergroupMultipleItems);
+
+  bool? get usergroupSelectUsers;
+  set usergroupSelectUsers(bool? usergroupSelectUsers);
+
+  bool? get usergroupSelectGroups;
+  set usergroupSelectGroups(bool? usergroupSelectGroups);
+
+  bool? get showUserStatus;
+  set showUserStatus(bool? showUserStatus);
 }
 
 class _$Column extends Column {
@@ -10452,6 +11439,16 @@ class _$Column extends Column {
   final String selectionDefault;
   @override
   final String datetimeDefault;
+  @override
+  final String usergroupDefault;
+  @override
+  final bool usergroupMultipleItems;
+  @override
+  final bool usergroupSelectUsers;
+  @override
+  final bool usergroupSelectGroups;
+  @override
+  final bool showUserStatus;
 
   factory _$Column([void Function(ColumnBuilder)? updates]) => (ColumnBuilder()..update(updates))._build();
 
@@ -10479,7 +11476,12 @@ class _$Column extends Column {
       required this.textMaxLength,
       required this.selectionOptions,
       required this.selectionDefault,
-      required this.datetimeDefault})
+      required this.datetimeDefault,
+      required this.usergroupDefault,
+      required this.usergroupMultipleItems,
+      required this.usergroupSelectUsers,
+      required this.usergroupSelectGroups,
+      required this.showUserStatus})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'Column', 'id');
     BuiltValueNullFieldError.checkNotNull(title, r'Column', 'title');
@@ -10505,6 +11507,11 @@ class _$Column extends Column {
     BuiltValueNullFieldError.checkNotNull(selectionOptions, r'Column', 'selectionOptions');
     BuiltValueNullFieldError.checkNotNull(selectionDefault, r'Column', 'selectionDefault');
     BuiltValueNullFieldError.checkNotNull(datetimeDefault, r'Column', 'datetimeDefault');
+    BuiltValueNullFieldError.checkNotNull(usergroupDefault, r'Column', 'usergroupDefault');
+    BuiltValueNullFieldError.checkNotNull(usergroupMultipleItems, r'Column', 'usergroupMultipleItems');
+    BuiltValueNullFieldError.checkNotNull(usergroupSelectUsers, r'Column', 'usergroupSelectUsers');
+    BuiltValueNullFieldError.checkNotNull(usergroupSelectGroups, r'Column', 'usergroupSelectGroups');
+    BuiltValueNullFieldError.checkNotNull(showUserStatus, r'Column', 'showUserStatus');
   }
 
   @override
@@ -10540,7 +11547,12 @@ class _$Column extends Column {
         textMaxLength == other.textMaxLength &&
         selectionOptions == other.selectionOptions &&
         selectionDefault == other.selectionDefault &&
-        datetimeDefault == other.datetimeDefault;
+        datetimeDefault == other.datetimeDefault &&
+        usergroupDefault == other.usergroupDefault &&
+        usergroupMultipleItems == other.usergroupMultipleItems &&
+        usergroupSelectUsers == other.usergroupSelectUsers &&
+        usergroupSelectGroups == other.usergroupSelectGroups &&
+        showUserStatus == other.showUserStatus;
   }
 
   @override
@@ -10570,6 +11582,11 @@ class _$Column extends Column {
     _$hash = $jc(_$hash, selectionOptions.hashCode);
     _$hash = $jc(_$hash, selectionDefault.hashCode);
     _$hash = $jc(_$hash, datetimeDefault.hashCode);
+    _$hash = $jc(_$hash, usergroupDefault.hashCode);
+    _$hash = $jc(_$hash, usergroupMultipleItems.hashCode);
+    _$hash = $jc(_$hash, usergroupSelectUsers.hashCode);
+    _$hash = $jc(_$hash, usergroupSelectGroups.hashCode);
+    _$hash = $jc(_$hash, showUserStatus.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -10600,7 +11617,12 @@ class _$Column extends Column {
           ..add('textMaxLength', textMaxLength)
           ..add('selectionOptions', selectionOptions)
           ..add('selectionDefault', selectionDefault)
-          ..add('datetimeDefault', datetimeDefault))
+          ..add('datetimeDefault', datetimeDefault)
+          ..add('usergroupDefault', usergroupDefault)
+          ..add('usergroupMultipleItems', usergroupMultipleItems)
+          ..add('usergroupSelectUsers', usergroupSelectUsers)
+          ..add('usergroupSelectGroups', usergroupSelectGroups)
+          ..add('showUserStatus', showUserStatus))
         .toString();
   }
 }
@@ -10704,6 +11726,28 @@ class ColumnBuilder implements Builder<Column, ColumnBuilder>, $ColumnInterfaceB
   String? get datetimeDefault => _$this._datetimeDefault;
   set datetimeDefault(covariant String? datetimeDefault) => _$this._datetimeDefault = datetimeDefault;
 
+  String? _usergroupDefault;
+  String? get usergroupDefault => _$this._usergroupDefault;
+  set usergroupDefault(covariant String? usergroupDefault) => _$this._usergroupDefault = usergroupDefault;
+
+  bool? _usergroupMultipleItems;
+  bool? get usergroupMultipleItems => _$this._usergroupMultipleItems;
+  set usergroupMultipleItems(covariant bool? usergroupMultipleItems) =>
+      _$this._usergroupMultipleItems = usergroupMultipleItems;
+
+  bool? _usergroupSelectUsers;
+  bool? get usergroupSelectUsers => _$this._usergroupSelectUsers;
+  set usergroupSelectUsers(covariant bool? usergroupSelectUsers) => _$this._usergroupSelectUsers = usergroupSelectUsers;
+
+  bool? _usergroupSelectGroups;
+  bool? get usergroupSelectGroups => _$this._usergroupSelectGroups;
+  set usergroupSelectGroups(covariant bool? usergroupSelectGroups) =>
+      _$this._usergroupSelectGroups = usergroupSelectGroups;
+
+  bool? _showUserStatus;
+  bool? get showUserStatus => _$this._showUserStatus;
+  set showUserStatus(covariant bool? showUserStatus) => _$this._showUserStatus = showUserStatus;
+
   ColumnBuilder() {
     Column._defaults(this);
   }
@@ -10735,6 +11779,11 @@ class ColumnBuilder implements Builder<Column, ColumnBuilder>, $ColumnInterfaceB
       _selectionOptions = $v.selectionOptions;
       _selectionDefault = $v.selectionDefault;
       _datetimeDefault = $v.datetimeDefault;
+      _usergroupDefault = $v.usergroupDefault;
+      _usergroupMultipleItems = $v.usergroupMultipleItems;
+      _usergroupSelectUsers = $v.usergroupSelectUsers;
+      _usergroupSelectGroups = $v.usergroupSelectGroups;
+      _showUserStatus = $v.showUserStatus;
       _$v = null;
     }
     return this;
@@ -10782,7 +11831,15 @@ class ColumnBuilder implements Builder<Column, ColumnBuilder>, $ColumnInterfaceB
             textMaxLength: BuiltValueNullFieldError.checkNotNull(textMaxLength, r'Column', 'textMaxLength'),
             selectionOptions: BuiltValueNullFieldError.checkNotNull(selectionOptions, r'Column', 'selectionOptions'),
             selectionDefault: BuiltValueNullFieldError.checkNotNull(selectionDefault, r'Column', 'selectionDefault'),
-            datetimeDefault: BuiltValueNullFieldError.checkNotNull(datetimeDefault, r'Column', 'datetimeDefault'));
+            datetimeDefault: BuiltValueNullFieldError.checkNotNull(datetimeDefault, r'Column', 'datetimeDefault'),
+            usergroupDefault: BuiltValueNullFieldError.checkNotNull(usergroupDefault, r'Column', 'usergroupDefault'),
+            usergroupMultipleItems:
+                BuiltValueNullFieldError.checkNotNull(usergroupMultipleItems, r'Column', 'usergroupMultipleItems'),
+            usergroupSelectUsers:
+                BuiltValueNullFieldError.checkNotNull(usergroupSelectUsers, r'Column', 'usergroupSelectUsers'),
+            usergroupSelectGroups:
+                BuiltValueNullFieldError.checkNotNull(usergroupSelectGroups, r'Column', 'usergroupSelectGroups'),
+            showUserStatus: BuiltValueNullFieldError.checkNotNull(showUserStatus, r'Column', 'showUserStatus'));
     replace(_$result);
     return _$result;
   }
@@ -10842,6 +11899,21 @@ abstract mixin class $Api1CreateTableColumnRequestApplicationJsonInterfaceBuilde
   String? get datetimeDefault;
   set datetimeDefault(String? datetimeDefault);
 
+  String? get usergroupDefault;
+  set usergroupDefault(String? usergroupDefault);
+
+  bool? get usergroupMultipleItems;
+  set usergroupMultipleItems(bool? usergroupMultipleItems);
+
+  bool? get usergroupSelectUsers;
+  set usergroupSelectUsers(bool? usergroupSelectUsers);
+
+  bool? get usergroupSelectGroups;
+  set usergroupSelectGroups(bool? usergroupSelectGroups);
+
+  bool? get usergroupShowUserStatus;
+  set usergroupShowUserStatus(bool? usergroupShowUserStatus);
+
   ListBuilder<int> get selectedViewIds;
   set selectedViewIds(ListBuilder<int>? selectedViewIds);
 }
@@ -10882,6 +11954,16 @@ class _$Api1CreateTableColumnRequestApplicationJson extends Api1CreateTableColum
   @override
   final String? datetimeDefault;
   @override
+  final String? usergroupDefault;
+  @override
+  final bool? usergroupMultipleItems;
+  @override
+  final bool? usergroupSelectUsers;
+  @override
+  final bool? usergroupSelectGroups;
+  @override
+  final bool? usergroupShowUserStatus;
+  @override
   final BuiltList<int>? selectedViewIds;
 
   factory _$Api1CreateTableColumnRequestApplicationJson(
@@ -10906,6 +11988,11 @@ class _$Api1CreateTableColumnRequestApplicationJson extends Api1CreateTableColum
       this.selectionOptions,
       this.selectionDefault,
       this.datetimeDefault,
+      this.usergroupDefault,
+      this.usergroupMultipleItems,
+      this.usergroupSelectUsers,
+      this.usergroupSelectGroups,
+      this.usergroupShowUserStatus,
       this.selectedViewIds})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(title, r'Api1CreateTableColumnRequestApplicationJson', 'title');
@@ -10943,6 +12030,11 @@ class _$Api1CreateTableColumnRequestApplicationJson extends Api1CreateTableColum
         selectionOptions == other.selectionOptions &&
         selectionDefault == other.selectionDefault &&
         datetimeDefault == other.datetimeDefault &&
+        usergroupDefault == other.usergroupDefault &&
+        usergroupMultipleItems == other.usergroupMultipleItems &&
+        usergroupSelectUsers == other.usergroupSelectUsers &&
+        usergroupSelectGroups == other.usergroupSelectGroups &&
+        usergroupShowUserStatus == other.usergroupShowUserStatus &&
         selectedViewIds == other.selectedViewIds;
   }
 
@@ -10966,6 +12058,11 @@ class _$Api1CreateTableColumnRequestApplicationJson extends Api1CreateTableColum
     _$hash = $jc(_$hash, selectionOptions.hashCode);
     _$hash = $jc(_$hash, selectionDefault.hashCode);
     _$hash = $jc(_$hash, datetimeDefault.hashCode);
+    _$hash = $jc(_$hash, usergroupDefault.hashCode);
+    _$hash = $jc(_$hash, usergroupMultipleItems.hashCode);
+    _$hash = $jc(_$hash, usergroupSelectUsers.hashCode);
+    _$hash = $jc(_$hash, usergroupSelectGroups.hashCode);
+    _$hash = $jc(_$hash, usergroupShowUserStatus.hashCode);
     _$hash = $jc(_$hash, selectedViewIds.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -10991,6 +12088,11 @@ class _$Api1CreateTableColumnRequestApplicationJson extends Api1CreateTableColum
           ..add('selectionOptions', selectionOptions)
           ..add('selectionDefault', selectionDefault)
           ..add('datetimeDefault', datetimeDefault)
+          ..add('usergroupDefault', usergroupDefault)
+          ..add('usergroupMultipleItems', usergroupMultipleItems)
+          ..add('usergroupSelectUsers', usergroupSelectUsers)
+          ..add('usergroupSelectGroups', usergroupSelectGroups)
+          ..add('usergroupShowUserStatus', usergroupShowUserStatus)
           ..add('selectedViewIds', selectedViewIds))
         .toString();
   }
@@ -11070,6 +12172,29 @@ class Api1CreateTableColumnRequestApplicationJsonBuilder
   String? get datetimeDefault => _$this._datetimeDefault;
   set datetimeDefault(covariant String? datetimeDefault) => _$this._datetimeDefault = datetimeDefault;
 
+  String? _usergroupDefault;
+  String? get usergroupDefault => _$this._usergroupDefault;
+  set usergroupDefault(covariant String? usergroupDefault) => _$this._usergroupDefault = usergroupDefault;
+
+  bool? _usergroupMultipleItems;
+  bool? get usergroupMultipleItems => _$this._usergroupMultipleItems;
+  set usergroupMultipleItems(covariant bool? usergroupMultipleItems) =>
+      _$this._usergroupMultipleItems = usergroupMultipleItems;
+
+  bool? _usergroupSelectUsers;
+  bool? get usergroupSelectUsers => _$this._usergroupSelectUsers;
+  set usergroupSelectUsers(covariant bool? usergroupSelectUsers) => _$this._usergroupSelectUsers = usergroupSelectUsers;
+
+  bool? _usergroupSelectGroups;
+  bool? get usergroupSelectGroups => _$this._usergroupSelectGroups;
+  set usergroupSelectGroups(covariant bool? usergroupSelectGroups) =>
+      _$this._usergroupSelectGroups = usergroupSelectGroups;
+
+  bool? _usergroupShowUserStatus;
+  bool? get usergroupShowUserStatus => _$this._usergroupShowUserStatus;
+  set usergroupShowUserStatus(covariant bool? usergroupShowUserStatus) =>
+      _$this._usergroupShowUserStatus = usergroupShowUserStatus;
+
   ListBuilder<int>? _selectedViewIds;
   ListBuilder<int> get selectedViewIds => _$this._selectedViewIds ??= ListBuilder<int>();
   set selectedViewIds(covariant ListBuilder<int>? selectedViewIds) => _$this._selectedViewIds = selectedViewIds;
@@ -11098,6 +12223,11 @@ class Api1CreateTableColumnRequestApplicationJsonBuilder
       _selectionOptions = $v.selectionOptions;
       _selectionDefault = $v.selectionDefault;
       _datetimeDefault = $v.datetimeDefault;
+      _usergroupDefault = $v.usergroupDefault;
+      _usergroupMultipleItems = $v.usergroupMultipleItems;
+      _usergroupSelectUsers = $v.usergroupSelectUsers;
+      _usergroupSelectGroups = $v.usergroupSelectGroups;
+      _usergroupShowUserStatus = $v.usergroupShowUserStatus;
       _selectedViewIds = $v.selectedViewIds?.toBuilder();
       _$v = null;
     }
@@ -11143,6 +12273,11 @@ class Api1CreateTableColumnRequestApplicationJsonBuilder
               selectionOptions: selectionOptions,
               selectionDefault: selectionDefault,
               datetimeDefault: datetimeDefault,
+              usergroupDefault: usergroupDefault,
+              usergroupMultipleItems: usergroupMultipleItems,
+              usergroupSelectUsers: usergroupSelectUsers,
+              usergroupSelectGroups: usergroupSelectGroups,
+              usergroupShowUserStatus: usergroupShowUserStatus,
               selectedViewIds: _selectedViewIds?.build());
     } catch (_) {
       late String _$failedField;
@@ -11219,6 +12354,21 @@ abstract mixin class $Api1CreateColumnRequestApplicationJsonInterfaceBuilder {
   String? get datetimeDefault;
   set datetimeDefault(String? datetimeDefault);
 
+  String? get usergroupDefault;
+  set usergroupDefault(String? usergroupDefault);
+
+  bool? get usergroupMultipleItems;
+  set usergroupMultipleItems(bool? usergroupMultipleItems);
+
+  bool? get usergroupSelectUsers;
+  set usergroupSelectUsers(bool? usergroupSelectUsers);
+
+  bool? get usergroupSelectGroups;
+  set usergroupSelectGroups(bool? usergroupSelectGroups);
+
+  bool? get usergroupShowUserStatus;
+  set usergroupShowUserStatus(bool? usergroupShowUserStatus);
+
   ListBuilder<int> get selectedViewIds;
   set selectedViewIds(ListBuilder<int>? selectedViewIds);
 }
@@ -11263,6 +12413,16 @@ class _$Api1CreateColumnRequestApplicationJson extends Api1CreateColumnRequestAp
   @override
   final String? datetimeDefault;
   @override
+  final String? usergroupDefault;
+  @override
+  final bool? usergroupMultipleItems;
+  @override
+  final bool? usergroupSelectUsers;
+  @override
+  final bool? usergroupSelectGroups;
+  @override
+  final bool? usergroupShowUserStatus;
+  @override
   final BuiltList<int>? selectedViewIds;
 
   factory _$Api1CreateColumnRequestApplicationJson(
@@ -11289,6 +12449,11 @@ class _$Api1CreateColumnRequestApplicationJson extends Api1CreateColumnRequestAp
       this.selectionOptions,
       this.selectionDefault,
       this.datetimeDefault,
+      this.usergroupDefault,
+      this.usergroupMultipleItems,
+      this.usergroupSelectUsers,
+      this.usergroupSelectGroups,
+      this.usergroupShowUserStatus,
       this.selectedViewIds})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(title, r'Api1CreateColumnRequestApplicationJson', 'title');
@@ -11328,6 +12493,11 @@ class _$Api1CreateColumnRequestApplicationJson extends Api1CreateColumnRequestAp
         selectionOptions == other.selectionOptions &&
         selectionDefault == other.selectionDefault &&
         datetimeDefault == other.datetimeDefault &&
+        usergroupDefault == other.usergroupDefault &&
+        usergroupMultipleItems == other.usergroupMultipleItems &&
+        usergroupSelectUsers == other.usergroupSelectUsers &&
+        usergroupSelectGroups == other.usergroupSelectGroups &&
+        usergroupShowUserStatus == other.usergroupShowUserStatus &&
         selectedViewIds == other.selectedViewIds;
   }
 
@@ -11353,6 +12523,11 @@ class _$Api1CreateColumnRequestApplicationJson extends Api1CreateColumnRequestAp
     _$hash = $jc(_$hash, selectionOptions.hashCode);
     _$hash = $jc(_$hash, selectionDefault.hashCode);
     _$hash = $jc(_$hash, datetimeDefault.hashCode);
+    _$hash = $jc(_$hash, usergroupDefault.hashCode);
+    _$hash = $jc(_$hash, usergroupMultipleItems.hashCode);
+    _$hash = $jc(_$hash, usergroupSelectUsers.hashCode);
+    _$hash = $jc(_$hash, usergroupSelectGroups.hashCode);
+    _$hash = $jc(_$hash, usergroupShowUserStatus.hashCode);
     _$hash = $jc(_$hash, selectedViewIds.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -11380,6 +12555,11 @@ class _$Api1CreateColumnRequestApplicationJson extends Api1CreateColumnRequestAp
           ..add('selectionOptions', selectionOptions)
           ..add('selectionDefault', selectionDefault)
           ..add('datetimeDefault', datetimeDefault)
+          ..add('usergroupDefault', usergroupDefault)
+          ..add('usergroupMultipleItems', usergroupMultipleItems)
+          ..add('usergroupSelectUsers', usergroupSelectUsers)
+          ..add('usergroupSelectGroups', usergroupSelectGroups)
+          ..add('usergroupShowUserStatus', usergroupShowUserStatus)
           ..add('selectedViewIds', selectedViewIds))
         .toString();
   }
@@ -11467,6 +12647,29 @@ class Api1CreateColumnRequestApplicationJsonBuilder
   String? get datetimeDefault => _$this._datetimeDefault;
   set datetimeDefault(covariant String? datetimeDefault) => _$this._datetimeDefault = datetimeDefault;
 
+  String? _usergroupDefault;
+  String? get usergroupDefault => _$this._usergroupDefault;
+  set usergroupDefault(covariant String? usergroupDefault) => _$this._usergroupDefault = usergroupDefault;
+
+  bool? _usergroupMultipleItems;
+  bool? get usergroupMultipleItems => _$this._usergroupMultipleItems;
+  set usergroupMultipleItems(covariant bool? usergroupMultipleItems) =>
+      _$this._usergroupMultipleItems = usergroupMultipleItems;
+
+  bool? _usergroupSelectUsers;
+  bool? get usergroupSelectUsers => _$this._usergroupSelectUsers;
+  set usergroupSelectUsers(covariant bool? usergroupSelectUsers) => _$this._usergroupSelectUsers = usergroupSelectUsers;
+
+  bool? _usergroupSelectGroups;
+  bool? get usergroupSelectGroups => _$this._usergroupSelectGroups;
+  set usergroupSelectGroups(covariant bool? usergroupSelectGroups) =>
+      _$this._usergroupSelectGroups = usergroupSelectGroups;
+
+  bool? _usergroupShowUserStatus;
+  bool? get usergroupShowUserStatus => _$this._usergroupShowUserStatus;
+  set usergroupShowUserStatus(covariant bool? usergroupShowUserStatus) =>
+      _$this._usergroupShowUserStatus = usergroupShowUserStatus;
+
   ListBuilder<int>? _selectedViewIds;
   ListBuilder<int> get selectedViewIds => _$this._selectedViewIds ??= ListBuilder<int>();
   set selectedViewIds(covariant ListBuilder<int>? selectedViewIds) => _$this._selectedViewIds = selectedViewIds;
@@ -11497,6 +12700,11 @@ class Api1CreateColumnRequestApplicationJsonBuilder
       _selectionOptions = $v.selectionOptions;
       _selectionDefault = $v.selectionDefault;
       _datetimeDefault = $v.datetimeDefault;
+      _usergroupDefault = $v.usergroupDefault;
+      _usergroupMultipleItems = $v.usergroupMultipleItems;
+      _usergroupSelectUsers = $v.usergroupSelectUsers;
+      _usergroupSelectGroups = $v.usergroupSelectGroups;
+      _usergroupShowUserStatus = $v.usergroupShowUserStatus;
       _selectedViewIds = $v.selectedViewIds?.toBuilder();
       _$v = null;
     }
@@ -11543,6 +12751,11 @@ class Api1CreateColumnRequestApplicationJsonBuilder
               selectionOptions: selectionOptions,
               selectionDefault: selectionDefault,
               datetimeDefault: datetimeDefault,
+              usergroupDefault: usergroupDefault,
+              usergroupMultipleItems: usergroupMultipleItems,
+              usergroupSelectUsers: usergroupSelectUsers,
+              usergroupSelectGroups: usergroupSelectGroups,
+              usergroupShowUserStatus: usergroupShowUserStatus,
               selectedViewIds: _selectedViewIds?.build());
     } catch (_) {
       late String _$failedField;
@@ -11609,6 +12822,21 @@ abstract mixin class $Api1UpdateColumnRequestApplicationJsonInterfaceBuilder {
 
   String? get datetimeDefault;
   set datetimeDefault(String? datetimeDefault);
+
+  String? get usergroupDefault;
+  set usergroupDefault(String? usergroupDefault);
+
+  bool? get usergroupMultipleItems;
+  set usergroupMultipleItems(bool? usergroupMultipleItems);
+
+  bool? get usergroupSelectUsers;
+  set usergroupSelectUsers(bool? usergroupSelectUsers);
+
+  bool? get usergroupSelectGroups;
+  set usergroupSelectGroups(bool? usergroupSelectGroups);
+
+  bool? get usergroupShowUserStatus;
+  set usergroupShowUserStatus(bool? usergroupShowUserStatus);
 }
 
 class _$Api1UpdateColumnRequestApplicationJson extends Api1UpdateColumnRequestApplicationJson {
@@ -11644,6 +12872,16 @@ class _$Api1UpdateColumnRequestApplicationJson extends Api1UpdateColumnRequestAp
   final String? selectionDefault;
   @override
   final String? datetimeDefault;
+  @override
+  final String? usergroupDefault;
+  @override
+  final bool? usergroupMultipleItems;
+  @override
+  final bool? usergroupSelectUsers;
+  @override
+  final bool? usergroupSelectGroups;
+  @override
+  final bool? usergroupShowUserStatus;
 
   factory _$Api1UpdateColumnRequestApplicationJson(
           [void Function(Api1UpdateColumnRequestApplicationJsonBuilder)? updates]) =>
@@ -11665,7 +12903,12 @@ class _$Api1UpdateColumnRequestApplicationJson extends Api1UpdateColumnRequestAp
       this.textMaxLength,
       this.selectionOptions,
       this.selectionDefault,
-      this.datetimeDefault})
+      this.datetimeDefault,
+      this.usergroupDefault,
+      this.usergroupMultipleItems,
+      this.usergroupSelectUsers,
+      this.usergroupSelectGroups,
+      this.usergroupShowUserStatus})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(mandatory, r'Api1UpdateColumnRequestApplicationJson', 'mandatory');
   }
@@ -11698,7 +12941,12 @@ class _$Api1UpdateColumnRequestApplicationJson extends Api1UpdateColumnRequestAp
         textMaxLength == other.textMaxLength &&
         selectionOptions == other.selectionOptions &&
         selectionDefault == other.selectionDefault &&
-        datetimeDefault == other.datetimeDefault;
+        datetimeDefault == other.datetimeDefault &&
+        usergroupDefault == other.usergroupDefault &&
+        usergroupMultipleItems == other.usergroupMultipleItems &&
+        usergroupSelectUsers == other.usergroupSelectUsers &&
+        usergroupSelectGroups == other.usergroupSelectGroups &&
+        usergroupShowUserStatus == other.usergroupShowUserStatus;
   }
 
   @override
@@ -11720,6 +12968,11 @@ class _$Api1UpdateColumnRequestApplicationJson extends Api1UpdateColumnRequestAp
     _$hash = $jc(_$hash, selectionOptions.hashCode);
     _$hash = $jc(_$hash, selectionDefault.hashCode);
     _$hash = $jc(_$hash, datetimeDefault.hashCode);
+    _$hash = $jc(_$hash, usergroupDefault.hashCode);
+    _$hash = $jc(_$hash, usergroupMultipleItems.hashCode);
+    _$hash = $jc(_$hash, usergroupSelectUsers.hashCode);
+    _$hash = $jc(_$hash, usergroupSelectGroups.hashCode);
+    _$hash = $jc(_$hash, usergroupShowUserStatus.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -11742,7 +12995,12 @@ class _$Api1UpdateColumnRequestApplicationJson extends Api1UpdateColumnRequestAp
           ..add('textMaxLength', textMaxLength)
           ..add('selectionOptions', selectionOptions)
           ..add('selectionDefault', selectionDefault)
-          ..add('datetimeDefault', datetimeDefault))
+          ..add('datetimeDefault', datetimeDefault)
+          ..add('usergroupDefault', usergroupDefault)
+          ..add('usergroupMultipleItems', usergroupMultipleItems)
+          ..add('usergroupSelectUsers', usergroupSelectUsers)
+          ..add('usergroupSelectGroups', usergroupSelectGroups)
+          ..add('usergroupShowUserStatus', usergroupShowUserStatus))
         .toString();
   }
 }
@@ -11817,6 +13075,29 @@ class Api1UpdateColumnRequestApplicationJsonBuilder
   String? get datetimeDefault => _$this._datetimeDefault;
   set datetimeDefault(covariant String? datetimeDefault) => _$this._datetimeDefault = datetimeDefault;
 
+  String? _usergroupDefault;
+  String? get usergroupDefault => _$this._usergroupDefault;
+  set usergroupDefault(covariant String? usergroupDefault) => _$this._usergroupDefault = usergroupDefault;
+
+  bool? _usergroupMultipleItems;
+  bool? get usergroupMultipleItems => _$this._usergroupMultipleItems;
+  set usergroupMultipleItems(covariant bool? usergroupMultipleItems) =>
+      _$this._usergroupMultipleItems = usergroupMultipleItems;
+
+  bool? _usergroupSelectUsers;
+  bool? get usergroupSelectUsers => _$this._usergroupSelectUsers;
+  set usergroupSelectUsers(covariant bool? usergroupSelectUsers) => _$this._usergroupSelectUsers = usergroupSelectUsers;
+
+  bool? _usergroupSelectGroups;
+  bool? get usergroupSelectGroups => _$this._usergroupSelectGroups;
+  set usergroupSelectGroups(covariant bool? usergroupSelectGroups) =>
+      _$this._usergroupSelectGroups = usergroupSelectGroups;
+
+  bool? _usergroupShowUserStatus;
+  bool? get usergroupShowUserStatus => _$this._usergroupShowUserStatus;
+  set usergroupShowUserStatus(covariant bool? usergroupShowUserStatus) =>
+      _$this._usergroupShowUserStatus = usergroupShowUserStatus;
+
   Api1UpdateColumnRequestApplicationJsonBuilder() {
     Api1UpdateColumnRequestApplicationJson._defaults(this);
   }
@@ -11840,6 +13121,11 @@ class Api1UpdateColumnRequestApplicationJsonBuilder
       _selectionOptions = $v.selectionOptions;
       _selectionDefault = $v.selectionDefault;
       _datetimeDefault = $v.datetimeDefault;
+      _usergroupDefault = $v.usergroupDefault;
+      _usergroupMultipleItems = $v.usergroupMultipleItems;
+      _usergroupSelectUsers = $v.usergroupSelectUsers;
+      _usergroupSelectGroups = $v.usergroupSelectGroups;
+      _usergroupShowUserStatus = $v.usergroupShowUserStatus;
       _$v = null;
     }
     return this;
@@ -11879,7 +13165,12 @@ class Api1UpdateColumnRequestApplicationJsonBuilder
             textMaxLength: textMaxLength,
             selectionOptions: selectionOptions,
             selectionDefault: selectionDefault,
-            datetimeDefault: datetimeDefault);
+            datetimeDefault: datetimeDefault,
+            usergroupDefault: usergroupDefault,
+            usergroupMultipleItems: usergroupMultipleItems,
+            usergroupSelectUsers: usergroupSelectUsers,
+            usergroupSelectGroups: usergroupSelectGroups,
+            usergroupShowUserStatus: usergroupShowUserStatus);
     replace(_$result);
     return _$result;
   }
@@ -15494,6 +16785,522 @@ class ApiColumnsCreateDatetimeColumnResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class $ApiColumnsCreateUsergroupColumnRequestApplicationJsonInterfaceBuilder {
+  void replace($ApiColumnsCreateUsergroupColumnRequestApplicationJsonInterface other);
+  void update(void Function($ApiColumnsCreateUsergroupColumnRequestApplicationJsonInterfaceBuilder) updates);
+  int? get baseNodeId;
+  set baseNodeId(int? baseNodeId);
+
+  String? get title;
+  set title(String? title);
+
+  String? get usergroupDefault;
+  set usergroupDefault(String? usergroupDefault);
+
+  bool? get usergroupMultipleItems;
+  set usergroupMultipleItems(bool? usergroupMultipleItems);
+
+  bool? get usergroupSelectUsers;
+  set usergroupSelectUsers(bool? usergroupSelectUsers);
+
+  bool? get usergroupSelectGroups;
+  set usergroupSelectGroups(bool? usergroupSelectGroups);
+
+  bool? get showUserStatus;
+  set showUserStatus(bool? showUserStatus);
+
+  String? get description;
+  set description(String? description);
+
+  ListBuilder<int> get selectedViewIds;
+  set selectedViewIds(ListBuilder<int>? selectedViewIds);
+
+  bool? get mandatory;
+  set mandatory(bool? mandatory);
+
+  ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType? get baseNodeType;
+  set baseNodeType(ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType? baseNodeType);
+}
+
+class _$ApiColumnsCreateUsergroupColumnRequestApplicationJson
+    extends ApiColumnsCreateUsergroupColumnRequestApplicationJson {
+  @override
+  final int baseNodeId;
+  @override
+  final String title;
+  @override
+  final String? usergroupDefault;
+  @override
+  final bool? usergroupMultipleItems;
+  @override
+  final bool? usergroupSelectUsers;
+  @override
+  final bool? usergroupSelectGroups;
+  @override
+  final bool? showUserStatus;
+  @override
+  final String? description;
+  @override
+  final BuiltList<int>? selectedViewIds;
+  @override
+  final bool mandatory;
+  @override
+  final ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType baseNodeType;
+
+  factory _$ApiColumnsCreateUsergroupColumnRequestApplicationJson(
+          [void Function(ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder)? updates]) =>
+      (ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$ApiColumnsCreateUsergroupColumnRequestApplicationJson._(
+      {required this.baseNodeId,
+      required this.title,
+      this.usergroupDefault,
+      this.usergroupMultipleItems,
+      this.usergroupSelectUsers,
+      this.usergroupSelectGroups,
+      this.showUserStatus,
+      this.description,
+      this.selectedViewIds,
+      required this.mandatory,
+      required this.baseNodeType})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        baseNodeId, r'ApiColumnsCreateUsergroupColumnRequestApplicationJson', 'baseNodeId');
+    BuiltValueNullFieldError.checkNotNull(title, r'ApiColumnsCreateUsergroupColumnRequestApplicationJson', 'title');
+    BuiltValueNullFieldError.checkNotNull(
+        mandatory, r'ApiColumnsCreateUsergroupColumnRequestApplicationJson', 'mandatory');
+    BuiltValueNullFieldError.checkNotNull(
+        baseNodeType, r'ApiColumnsCreateUsergroupColumnRequestApplicationJson', 'baseNodeType');
+  }
+
+  @override
+  ApiColumnsCreateUsergroupColumnRequestApplicationJson rebuild(
+          void Function(ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder toBuilder() =>
+      ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ApiColumnsCreateUsergroupColumnRequestApplicationJson &&
+        baseNodeId == other.baseNodeId &&
+        title == other.title &&
+        usergroupDefault == other.usergroupDefault &&
+        usergroupMultipleItems == other.usergroupMultipleItems &&
+        usergroupSelectUsers == other.usergroupSelectUsers &&
+        usergroupSelectGroups == other.usergroupSelectGroups &&
+        showUserStatus == other.showUserStatus &&
+        description == other.description &&
+        selectedViewIds == other.selectedViewIds &&
+        mandatory == other.mandatory &&
+        baseNodeType == other.baseNodeType;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, baseNodeId.hashCode);
+    _$hash = $jc(_$hash, title.hashCode);
+    _$hash = $jc(_$hash, usergroupDefault.hashCode);
+    _$hash = $jc(_$hash, usergroupMultipleItems.hashCode);
+    _$hash = $jc(_$hash, usergroupSelectUsers.hashCode);
+    _$hash = $jc(_$hash, usergroupSelectGroups.hashCode);
+    _$hash = $jc(_$hash, showUserStatus.hashCode);
+    _$hash = $jc(_$hash, description.hashCode);
+    _$hash = $jc(_$hash, selectedViewIds.hashCode);
+    _$hash = $jc(_$hash, mandatory.hashCode);
+    _$hash = $jc(_$hash, baseNodeType.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ApiColumnsCreateUsergroupColumnRequestApplicationJson')
+          ..add('baseNodeId', baseNodeId)
+          ..add('title', title)
+          ..add('usergroupDefault', usergroupDefault)
+          ..add('usergroupMultipleItems', usergroupMultipleItems)
+          ..add('usergroupSelectUsers', usergroupSelectUsers)
+          ..add('usergroupSelectGroups', usergroupSelectGroups)
+          ..add('showUserStatus', showUserStatus)
+          ..add('description', description)
+          ..add('selectedViewIds', selectedViewIds)
+          ..add('mandatory', mandatory)
+          ..add('baseNodeType', baseNodeType))
+        .toString();
+  }
+}
+
+class ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder
+    implements
+        Builder<ApiColumnsCreateUsergroupColumnRequestApplicationJson,
+            ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder>,
+        $ApiColumnsCreateUsergroupColumnRequestApplicationJsonInterfaceBuilder {
+  _$ApiColumnsCreateUsergroupColumnRequestApplicationJson? _$v;
+
+  int? _baseNodeId;
+  int? get baseNodeId => _$this._baseNodeId;
+  set baseNodeId(covariant int? baseNodeId) => _$this._baseNodeId = baseNodeId;
+
+  String? _title;
+  String? get title => _$this._title;
+  set title(covariant String? title) => _$this._title = title;
+
+  String? _usergroupDefault;
+  String? get usergroupDefault => _$this._usergroupDefault;
+  set usergroupDefault(covariant String? usergroupDefault) => _$this._usergroupDefault = usergroupDefault;
+
+  bool? _usergroupMultipleItems;
+  bool? get usergroupMultipleItems => _$this._usergroupMultipleItems;
+  set usergroupMultipleItems(covariant bool? usergroupMultipleItems) =>
+      _$this._usergroupMultipleItems = usergroupMultipleItems;
+
+  bool? _usergroupSelectUsers;
+  bool? get usergroupSelectUsers => _$this._usergroupSelectUsers;
+  set usergroupSelectUsers(covariant bool? usergroupSelectUsers) => _$this._usergroupSelectUsers = usergroupSelectUsers;
+
+  bool? _usergroupSelectGroups;
+  bool? get usergroupSelectGroups => _$this._usergroupSelectGroups;
+  set usergroupSelectGroups(covariant bool? usergroupSelectGroups) =>
+      _$this._usergroupSelectGroups = usergroupSelectGroups;
+
+  bool? _showUserStatus;
+  bool? get showUserStatus => _$this._showUserStatus;
+  set showUserStatus(covariant bool? showUserStatus) => _$this._showUserStatus = showUserStatus;
+
+  String? _description;
+  String? get description => _$this._description;
+  set description(covariant String? description) => _$this._description = description;
+
+  ListBuilder<int>? _selectedViewIds;
+  ListBuilder<int> get selectedViewIds => _$this._selectedViewIds ??= ListBuilder<int>();
+  set selectedViewIds(covariant ListBuilder<int>? selectedViewIds) => _$this._selectedViewIds = selectedViewIds;
+
+  bool? _mandatory;
+  bool? get mandatory => _$this._mandatory;
+  set mandatory(covariant bool? mandatory) => _$this._mandatory = mandatory;
+
+  ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType? _baseNodeType;
+  ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType? get baseNodeType => _$this._baseNodeType;
+  set baseNodeType(covariant ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType? baseNodeType) =>
+      _$this._baseNodeType = baseNodeType;
+
+  ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder() {
+    ApiColumnsCreateUsergroupColumnRequestApplicationJson._defaults(this);
+  }
+
+  ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _baseNodeId = $v.baseNodeId;
+      _title = $v.title;
+      _usergroupDefault = $v.usergroupDefault;
+      _usergroupMultipleItems = $v.usergroupMultipleItems;
+      _usergroupSelectUsers = $v.usergroupSelectUsers;
+      _usergroupSelectGroups = $v.usergroupSelectGroups;
+      _showUserStatus = $v.showUserStatus;
+      _description = $v.description;
+      _selectedViewIds = $v.selectedViewIds?.toBuilder();
+      _mandatory = $v.mandatory;
+      _baseNodeType = $v.baseNodeType;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ApiColumnsCreateUsergroupColumnRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ApiColumnsCreateUsergroupColumnRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ApiColumnsCreateUsergroupColumnRequestApplicationJson build() => _build();
+
+  _$ApiColumnsCreateUsergroupColumnRequestApplicationJson _build() {
+    ApiColumnsCreateUsergroupColumnRequestApplicationJson._validate(this);
+    _$ApiColumnsCreateUsergroupColumnRequestApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$ApiColumnsCreateUsergroupColumnRequestApplicationJson._(
+              baseNodeId: BuiltValueNullFieldError.checkNotNull(
+                  baseNodeId, r'ApiColumnsCreateUsergroupColumnRequestApplicationJson', 'baseNodeId'),
+              title: BuiltValueNullFieldError.checkNotNull(
+                  title, r'ApiColumnsCreateUsergroupColumnRequestApplicationJson', 'title'),
+              usergroupDefault: usergroupDefault,
+              usergroupMultipleItems: usergroupMultipleItems,
+              usergroupSelectUsers: usergroupSelectUsers,
+              usergroupSelectGroups: usergroupSelectGroups,
+              showUserStatus: showUserStatus,
+              description: description,
+              selectedViewIds: _selectedViewIds?.build(),
+              mandatory: BuiltValueNullFieldError.checkNotNull(
+                  mandatory, r'ApiColumnsCreateUsergroupColumnRequestApplicationJson', 'mandatory'),
+              baseNodeType: BuiltValueNullFieldError.checkNotNull(
+                  baseNodeType, r'ApiColumnsCreateUsergroupColumnRequestApplicationJson', 'baseNodeType'));
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'selectedViewIds';
+        _selectedViewIds?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ApiColumnsCreateUsergroupColumnRequestApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsInterface other);
+  void update(void Function($ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  ColumnBuilder get data;
+  set data(ColumnBuilder? data);
+}
+
+class _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs
+    extends ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final Column data;
+
+  factory _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs(
+          [void Function(ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs rebuild(
+          void Function(ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder toBuilder() =>
+      ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder
+    implements
+        Builder<ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs,
+            ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder>,
+        $ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsInterfaceBuilder {
+  _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  ColumnBuilder? _data;
+  ColumnBuilder get data => _$this._data ??= ColumnBuilder();
+  set data(covariant ColumnBuilder? data) => _$this._data = data;
+
+  ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder() {
+    ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs build() => _build();
+
+  _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs _build() {
+    ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs._validate(this);
+    _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ApiColumnsCreateUsergroupColumnResponseApplicationJsonInterfaceBuilder {
+  void replace($ApiColumnsCreateUsergroupColumnResponseApplicationJsonInterface other);
+  void update(void Function($ApiColumnsCreateUsergroupColumnResponseApplicationJsonInterfaceBuilder) updates);
+  ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$ApiColumnsCreateUsergroupColumnResponseApplicationJson
+    extends ApiColumnsCreateUsergroupColumnResponseApplicationJson {
+  @override
+  final ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs ocs;
+
+  factory _$ApiColumnsCreateUsergroupColumnResponseApplicationJson(
+          [void Function(ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder)? updates]) =>
+      (ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$ApiColumnsCreateUsergroupColumnResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ApiColumnsCreateUsergroupColumnResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  ApiColumnsCreateUsergroupColumnResponseApplicationJson rebuild(
+          void Function(ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder toBuilder() =>
+      ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ApiColumnsCreateUsergroupColumnResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ApiColumnsCreateUsergroupColumnResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder
+    implements
+        Builder<ApiColumnsCreateUsergroupColumnResponseApplicationJson,
+            ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder>,
+        $ApiColumnsCreateUsergroupColumnResponseApplicationJsonInterfaceBuilder {
+  _$ApiColumnsCreateUsergroupColumnResponseApplicationJson? _$v;
+
+  ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder? _ocs;
+  ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder() {
+    ApiColumnsCreateUsergroupColumnResponseApplicationJson._defaults(this);
+  }
+
+  ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ApiColumnsCreateUsergroupColumnResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ApiColumnsCreateUsergroupColumnResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ApiColumnsCreateUsergroupColumnResponseApplicationJson build() => _build();
+
+  _$ApiColumnsCreateUsergroupColumnResponseApplicationJson _build() {
+    ApiColumnsCreateUsergroupColumnResponseApplicationJson._validate(this);
+    _$ApiColumnsCreateUsergroupColumnResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$ApiColumnsCreateUsergroupColumnResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ApiColumnsCreateUsergroupColumnResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $ApiFavoriteCreateResponseApplicationJson_OcsInterfaceBuilder {
   void replace($ApiFavoriteCreateResponseApplicationJson_OcsInterface other);
   void update(void Function($ApiFavoriteCreateResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -17702,6 +19509,650 @@ class ApiTablesDestroyResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'ApiTablesDestroyResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ApiTablesShowSchemeResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ApiTablesShowSchemeResponseApplicationJson_OcsInterface other);
+  void update(void Function($ApiTablesShowSchemeResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  TableBuilder get data;
+  set data(TableBuilder? data);
+}
+
+class _$ApiTablesShowSchemeResponseApplicationJson_Ocs extends ApiTablesShowSchemeResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final Table data;
+
+  factory _$ApiTablesShowSchemeResponseApplicationJson_Ocs(
+          [void Function(ApiTablesShowSchemeResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ApiTablesShowSchemeResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$ApiTablesShowSchemeResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ApiTablesShowSchemeResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ApiTablesShowSchemeResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  ApiTablesShowSchemeResponseApplicationJson_Ocs rebuild(
+          void Function(ApiTablesShowSchemeResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ApiTablesShowSchemeResponseApplicationJson_OcsBuilder toBuilder() =>
+      ApiTablesShowSchemeResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ApiTablesShowSchemeResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ApiTablesShowSchemeResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class ApiTablesShowSchemeResponseApplicationJson_OcsBuilder
+    implements
+        Builder<ApiTablesShowSchemeResponseApplicationJson_Ocs, ApiTablesShowSchemeResponseApplicationJson_OcsBuilder>,
+        $ApiTablesShowSchemeResponseApplicationJson_OcsInterfaceBuilder {
+  _$ApiTablesShowSchemeResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  TableBuilder? _data;
+  TableBuilder get data => _$this._data ??= TableBuilder();
+  set data(covariant TableBuilder? data) => _$this._data = data;
+
+  ApiTablesShowSchemeResponseApplicationJson_OcsBuilder() {
+    ApiTablesShowSchemeResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  ApiTablesShowSchemeResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ApiTablesShowSchemeResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ApiTablesShowSchemeResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(ApiTablesShowSchemeResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ApiTablesShowSchemeResponseApplicationJson_Ocs build() => _build();
+
+  _$ApiTablesShowSchemeResponseApplicationJson_Ocs _build() {
+    ApiTablesShowSchemeResponseApplicationJson_Ocs._validate(this);
+    _$ApiTablesShowSchemeResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ?? _$ApiTablesShowSchemeResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ApiTablesShowSchemeResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ApiTablesShowSchemeResponseApplicationJsonInterfaceBuilder {
+  void replace($ApiTablesShowSchemeResponseApplicationJsonInterface other);
+  void update(void Function($ApiTablesShowSchemeResponseApplicationJsonInterfaceBuilder) updates);
+  ApiTablesShowSchemeResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ApiTablesShowSchemeResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$ApiTablesShowSchemeResponseApplicationJson extends ApiTablesShowSchemeResponseApplicationJson {
+  @override
+  final ApiTablesShowSchemeResponseApplicationJson_Ocs ocs;
+
+  factory _$ApiTablesShowSchemeResponseApplicationJson(
+          [void Function(ApiTablesShowSchemeResponseApplicationJsonBuilder)? updates]) =>
+      (ApiTablesShowSchemeResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$ApiTablesShowSchemeResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ApiTablesShowSchemeResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  ApiTablesShowSchemeResponseApplicationJson rebuild(
+          void Function(ApiTablesShowSchemeResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ApiTablesShowSchemeResponseApplicationJsonBuilder toBuilder() =>
+      ApiTablesShowSchemeResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ApiTablesShowSchemeResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ApiTablesShowSchemeResponseApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class ApiTablesShowSchemeResponseApplicationJsonBuilder
+    implements
+        Builder<ApiTablesShowSchemeResponseApplicationJson, ApiTablesShowSchemeResponseApplicationJsonBuilder>,
+        $ApiTablesShowSchemeResponseApplicationJsonInterfaceBuilder {
+  _$ApiTablesShowSchemeResponseApplicationJson? _$v;
+
+  ApiTablesShowSchemeResponseApplicationJson_OcsBuilder? _ocs;
+  ApiTablesShowSchemeResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ApiTablesShowSchemeResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ApiTablesShowSchemeResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  ApiTablesShowSchemeResponseApplicationJsonBuilder() {
+    ApiTablesShowSchemeResponseApplicationJson._defaults(this);
+  }
+
+  ApiTablesShowSchemeResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ApiTablesShowSchemeResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ApiTablesShowSchemeResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(ApiTablesShowSchemeResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ApiTablesShowSchemeResponseApplicationJson build() => _build();
+
+  _$ApiTablesShowSchemeResponseApplicationJson _build() {
+    ApiTablesShowSchemeResponseApplicationJson._validate(this);
+    _$ApiTablesShowSchemeResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$ApiTablesShowSchemeResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'ApiTablesShowSchemeResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ApiTablesCreateFromSchemeRequestApplicationJsonInterfaceBuilder {
+  void replace($ApiTablesCreateFromSchemeRequestApplicationJsonInterface other);
+  void update(void Function($ApiTablesCreateFromSchemeRequestApplicationJsonInterfaceBuilder) updates);
+  String? get title;
+  set title(String? title);
+
+  String? get emoji;
+  set emoji(String? emoji);
+
+  String? get description;
+  set description(String? description);
+
+  ListBuilder<Column> get columns;
+  set columns(ListBuilder<Column>? columns);
+
+  ListBuilder<View> get views;
+  set views(ListBuilder<View>? views);
+}
+
+class _$ApiTablesCreateFromSchemeRequestApplicationJson extends ApiTablesCreateFromSchemeRequestApplicationJson {
+  @override
+  final String title;
+  @override
+  final String emoji;
+  @override
+  final String description;
+  @override
+  final BuiltList<Column> columns;
+  @override
+  final BuiltList<View> views;
+
+  factory _$ApiTablesCreateFromSchemeRequestApplicationJson(
+          [void Function(ApiTablesCreateFromSchemeRequestApplicationJsonBuilder)? updates]) =>
+      (ApiTablesCreateFromSchemeRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$ApiTablesCreateFromSchemeRequestApplicationJson._(
+      {required this.title, required this.emoji, required this.description, required this.columns, required this.views})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(title, r'ApiTablesCreateFromSchemeRequestApplicationJson', 'title');
+    BuiltValueNullFieldError.checkNotNull(emoji, r'ApiTablesCreateFromSchemeRequestApplicationJson', 'emoji');
+    BuiltValueNullFieldError.checkNotNull(
+        description, r'ApiTablesCreateFromSchemeRequestApplicationJson', 'description');
+    BuiltValueNullFieldError.checkNotNull(columns, r'ApiTablesCreateFromSchemeRequestApplicationJson', 'columns');
+    BuiltValueNullFieldError.checkNotNull(views, r'ApiTablesCreateFromSchemeRequestApplicationJson', 'views');
+  }
+
+  @override
+  ApiTablesCreateFromSchemeRequestApplicationJson rebuild(
+          void Function(ApiTablesCreateFromSchemeRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ApiTablesCreateFromSchemeRequestApplicationJsonBuilder toBuilder() =>
+      ApiTablesCreateFromSchemeRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ApiTablesCreateFromSchemeRequestApplicationJson &&
+        title == other.title &&
+        emoji == other.emoji &&
+        description == other.description &&
+        columns == other.columns &&
+        views == other.views;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, title.hashCode);
+    _$hash = $jc(_$hash, emoji.hashCode);
+    _$hash = $jc(_$hash, description.hashCode);
+    _$hash = $jc(_$hash, columns.hashCode);
+    _$hash = $jc(_$hash, views.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ApiTablesCreateFromSchemeRequestApplicationJson')
+          ..add('title', title)
+          ..add('emoji', emoji)
+          ..add('description', description)
+          ..add('columns', columns)
+          ..add('views', views))
+        .toString();
+  }
+}
+
+class ApiTablesCreateFromSchemeRequestApplicationJsonBuilder
+    implements
+        Builder<ApiTablesCreateFromSchemeRequestApplicationJson,
+            ApiTablesCreateFromSchemeRequestApplicationJsonBuilder>,
+        $ApiTablesCreateFromSchemeRequestApplicationJsonInterfaceBuilder {
+  _$ApiTablesCreateFromSchemeRequestApplicationJson? _$v;
+
+  String? _title;
+  String? get title => _$this._title;
+  set title(covariant String? title) => _$this._title = title;
+
+  String? _emoji;
+  String? get emoji => _$this._emoji;
+  set emoji(covariant String? emoji) => _$this._emoji = emoji;
+
+  String? _description;
+  String? get description => _$this._description;
+  set description(covariant String? description) => _$this._description = description;
+
+  ListBuilder<Column>? _columns;
+  ListBuilder<Column> get columns => _$this._columns ??= ListBuilder<Column>();
+  set columns(covariant ListBuilder<Column>? columns) => _$this._columns = columns;
+
+  ListBuilder<View>? _views;
+  ListBuilder<View> get views => _$this._views ??= ListBuilder<View>();
+  set views(covariant ListBuilder<View>? views) => _$this._views = views;
+
+  ApiTablesCreateFromSchemeRequestApplicationJsonBuilder() {
+    ApiTablesCreateFromSchemeRequestApplicationJson._defaults(this);
+  }
+
+  ApiTablesCreateFromSchemeRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _title = $v.title;
+      _emoji = $v.emoji;
+      _description = $v.description;
+      _columns = $v.columns.toBuilder();
+      _views = $v.views.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ApiTablesCreateFromSchemeRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ApiTablesCreateFromSchemeRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(ApiTablesCreateFromSchemeRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ApiTablesCreateFromSchemeRequestApplicationJson build() => _build();
+
+  _$ApiTablesCreateFromSchemeRequestApplicationJson _build() {
+    ApiTablesCreateFromSchemeRequestApplicationJson._validate(this);
+    _$ApiTablesCreateFromSchemeRequestApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$ApiTablesCreateFromSchemeRequestApplicationJson._(
+              title: BuiltValueNullFieldError.checkNotNull(
+                  title, r'ApiTablesCreateFromSchemeRequestApplicationJson', 'title'),
+              emoji: BuiltValueNullFieldError.checkNotNull(
+                  emoji, r'ApiTablesCreateFromSchemeRequestApplicationJson', 'emoji'),
+              description: BuiltValueNullFieldError.checkNotNull(
+                  description, r'ApiTablesCreateFromSchemeRequestApplicationJson', 'description'),
+              columns: columns.build(),
+              views: views.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'columns';
+        columns.build();
+        _$failedField = 'views';
+        views.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ApiTablesCreateFromSchemeRequestApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ApiTablesCreateFromSchemeResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ApiTablesCreateFromSchemeResponseApplicationJson_OcsInterface other);
+  void update(void Function($ApiTablesCreateFromSchemeResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  TableBuilder get data;
+  set data(TableBuilder? data);
+}
+
+class _$ApiTablesCreateFromSchemeResponseApplicationJson_Ocs
+    extends ApiTablesCreateFromSchemeResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final Table data;
+
+  factory _$ApiTablesCreateFromSchemeResponseApplicationJson_Ocs(
+          [void Function(ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$ApiTablesCreateFromSchemeResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ApiTablesCreateFromSchemeResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ApiTablesCreateFromSchemeResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  ApiTablesCreateFromSchemeResponseApplicationJson_Ocs rebuild(
+          void Function(ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder toBuilder() =>
+      ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ApiTablesCreateFromSchemeResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ApiTablesCreateFromSchemeResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder
+    implements
+        Builder<ApiTablesCreateFromSchemeResponseApplicationJson_Ocs,
+            ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder>,
+        $ApiTablesCreateFromSchemeResponseApplicationJson_OcsInterfaceBuilder {
+  _$ApiTablesCreateFromSchemeResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  TableBuilder? _data;
+  TableBuilder get data => _$this._data ??= TableBuilder();
+  set data(covariant TableBuilder? data) => _$this._data = data;
+
+  ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder() {
+    ApiTablesCreateFromSchemeResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ApiTablesCreateFromSchemeResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ApiTablesCreateFromSchemeResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ApiTablesCreateFromSchemeResponseApplicationJson_Ocs build() => _build();
+
+  _$ApiTablesCreateFromSchemeResponseApplicationJson_Ocs _build() {
+    ApiTablesCreateFromSchemeResponseApplicationJson_Ocs._validate(this);
+    _$ApiTablesCreateFromSchemeResponseApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$ApiTablesCreateFromSchemeResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ApiTablesCreateFromSchemeResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ApiTablesCreateFromSchemeResponseApplicationJsonInterfaceBuilder {
+  void replace($ApiTablesCreateFromSchemeResponseApplicationJsonInterface other);
+  void update(void Function($ApiTablesCreateFromSchemeResponseApplicationJsonInterfaceBuilder) updates);
+  ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$ApiTablesCreateFromSchemeResponseApplicationJson extends ApiTablesCreateFromSchemeResponseApplicationJson {
+  @override
+  final ApiTablesCreateFromSchemeResponseApplicationJson_Ocs ocs;
+
+  factory _$ApiTablesCreateFromSchemeResponseApplicationJson(
+          [void Function(ApiTablesCreateFromSchemeResponseApplicationJsonBuilder)? updates]) =>
+      (ApiTablesCreateFromSchemeResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$ApiTablesCreateFromSchemeResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ApiTablesCreateFromSchemeResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  ApiTablesCreateFromSchemeResponseApplicationJson rebuild(
+          void Function(ApiTablesCreateFromSchemeResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ApiTablesCreateFromSchemeResponseApplicationJsonBuilder toBuilder() =>
+      ApiTablesCreateFromSchemeResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ApiTablesCreateFromSchemeResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ApiTablesCreateFromSchemeResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class ApiTablesCreateFromSchemeResponseApplicationJsonBuilder
+    implements
+        Builder<ApiTablesCreateFromSchemeResponseApplicationJson,
+            ApiTablesCreateFromSchemeResponseApplicationJsonBuilder>,
+        $ApiTablesCreateFromSchemeResponseApplicationJsonInterfaceBuilder {
+  _$ApiTablesCreateFromSchemeResponseApplicationJson? _$v;
+
+  ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder? _ocs;
+  ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  ApiTablesCreateFromSchemeResponseApplicationJsonBuilder() {
+    ApiTablesCreateFromSchemeResponseApplicationJson._defaults(this);
+  }
+
+  ApiTablesCreateFromSchemeResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ApiTablesCreateFromSchemeResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ApiTablesCreateFromSchemeResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(ApiTablesCreateFromSchemeResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ApiTablesCreateFromSchemeResponseApplicationJson build() => _build();
+
+  _$ApiTablesCreateFromSchemeResponseApplicationJson _build() {
+    ApiTablesCreateFromSchemeResponseApplicationJson._validate(this);
+    _$ApiTablesCreateFromSchemeResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$ApiTablesCreateFromSchemeResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ApiTablesCreateFromSchemeResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -20708,6 +23159,329 @@ class ContextUpdateContentOrderResponseApplicationJsonBuilder
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'ContextUpdateContentOrderResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RowocsCreateRowRequestApplicationJsonInterfaceBuilder {
+  void replace($RowocsCreateRowRequestApplicationJsonInterface other);
+  void update(void Function($RowocsCreateRowRequestApplicationJsonInterfaceBuilder) updates);
+  RowocsCreateRowRequestApplicationJson_Data? get data;
+  set data(RowocsCreateRowRequestApplicationJson_Data? data);
+}
+
+class _$RowocsCreateRowRequestApplicationJson extends RowocsCreateRowRequestApplicationJson {
+  @override
+  final RowocsCreateRowRequestApplicationJson_Data data;
+
+  factory _$RowocsCreateRowRequestApplicationJson(
+          [void Function(RowocsCreateRowRequestApplicationJsonBuilder)? updates]) =>
+      (RowocsCreateRowRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$RowocsCreateRowRequestApplicationJson._({required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(data, r'RowocsCreateRowRequestApplicationJson', 'data');
+  }
+
+  @override
+  RowocsCreateRowRequestApplicationJson rebuild(void Function(RowocsCreateRowRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RowocsCreateRowRequestApplicationJsonBuilder toBuilder() =>
+      RowocsCreateRowRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    final dynamic _$dynamicOther = other;
+    return other is RowocsCreateRowRequestApplicationJson && data == _$dynamicOther.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RowocsCreateRowRequestApplicationJson')..add('data', data)).toString();
+  }
+}
+
+class RowocsCreateRowRequestApplicationJsonBuilder
+    implements
+        Builder<RowocsCreateRowRequestApplicationJson, RowocsCreateRowRequestApplicationJsonBuilder>,
+        $RowocsCreateRowRequestApplicationJsonInterfaceBuilder {
+  _$RowocsCreateRowRequestApplicationJson? _$v;
+
+  RowocsCreateRowRequestApplicationJson_Data? _data;
+  RowocsCreateRowRequestApplicationJson_Data? get data => _$this._data;
+  set data(covariant RowocsCreateRowRequestApplicationJson_Data? data) => _$this._data = data;
+
+  RowocsCreateRowRequestApplicationJsonBuilder() {
+    RowocsCreateRowRequestApplicationJson._defaults(this);
+  }
+
+  RowocsCreateRowRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _data = $v.data;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RowocsCreateRowRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$RowocsCreateRowRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(RowocsCreateRowRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RowocsCreateRowRequestApplicationJson build() => _build();
+
+  _$RowocsCreateRowRequestApplicationJson _build() {
+    RowocsCreateRowRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$RowocsCreateRowRequestApplicationJson._(
+            data: BuiltValueNullFieldError.checkNotNull(data, r'RowocsCreateRowRequestApplicationJson', 'data'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RowocsCreateRowResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($RowocsCreateRowResponseApplicationJson_OcsInterface other);
+  void update(void Function($RowocsCreateRowResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  RowBuilder get data;
+  set data(RowBuilder? data);
+}
+
+class _$RowocsCreateRowResponseApplicationJson_Ocs extends RowocsCreateRowResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final Row data;
+
+  factory _$RowocsCreateRowResponseApplicationJson_Ocs(
+          [void Function(RowocsCreateRowResponseApplicationJson_OcsBuilder)? updates]) =>
+      (RowocsCreateRowResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$RowocsCreateRowResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'RowocsCreateRowResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'RowocsCreateRowResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  RowocsCreateRowResponseApplicationJson_Ocs rebuild(
+          void Function(RowocsCreateRowResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RowocsCreateRowResponseApplicationJson_OcsBuilder toBuilder() =>
+      RowocsCreateRowResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RowocsCreateRowResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RowocsCreateRowResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class RowocsCreateRowResponseApplicationJson_OcsBuilder
+    implements
+        Builder<RowocsCreateRowResponseApplicationJson_Ocs, RowocsCreateRowResponseApplicationJson_OcsBuilder>,
+        $RowocsCreateRowResponseApplicationJson_OcsInterfaceBuilder {
+  _$RowocsCreateRowResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  RowBuilder? _data;
+  RowBuilder get data => _$this._data ??= RowBuilder();
+  set data(covariant RowBuilder? data) => _$this._data = data;
+
+  RowocsCreateRowResponseApplicationJson_OcsBuilder() {
+    RowocsCreateRowResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  RowocsCreateRowResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RowocsCreateRowResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$RowocsCreateRowResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(RowocsCreateRowResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RowocsCreateRowResponseApplicationJson_Ocs build() => _build();
+
+  _$RowocsCreateRowResponseApplicationJson_Ocs _build() {
+    RowocsCreateRowResponseApplicationJson_Ocs._validate(this);
+    _$RowocsCreateRowResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ?? _$RowocsCreateRowResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'RowocsCreateRowResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RowocsCreateRowResponseApplicationJsonInterfaceBuilder {
+  void replace($RowocsCreateRowResponseApplicationJsonInterface other);
+  void update(void Function($RowocsCreateRowResponseApplicationJsonInterfaceBuilder) updates);
+  RowocsCreateRowResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(RowocsCreateRowResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$RowocsCreateRowResponseApplicationJson extends RowocsCreateRowResponseApplicationJson {
+  @override
+  final RowocsCreateRowResponseApplicationJson_Ocs ocs;
+
+  factory _$RowocsCreateRowResponseApplicationJson(
+          [void Function(RowocsCreateRowResponseApplicationJsonBuilder)? updates]) =>
+      (RowocsCreateRowResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$RowocsCreateRowResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'RowocsCreateRowResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  RowocsCreateRowResponseApplicationJson rebuild(
+          void Function(RowocsCreateRowResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RowocsCreateRowResponseApplicationJsonBuilder toBuilder() =>
+      RowocsCreateRowResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RowocsCreateRowResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RowocsCreateRowResponseApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class RowocsCreateRowResponseApplicationJsonBuilder
+    implements
+        Builder<RowocsCreateRowResponseApplicationJson, RowocsCreateRowResponseApplicationJsonBuilder>,
+        $RowocsCreateRowResponseApplicationJsonInterfaceBuilder {
+  _$RowocsCreateRowResponseApplicationJson? _$v;
+
+  RowocsCreateRowResponseApplicationJson_OcsBuilder? _ocs;
+  RowocsCreateRowResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= RowocsCreateRowResponseApplicationJson_OcsBuilder();
+  set ocs(covariant RowocsCreateRowResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  RowocsCreateRowResponseApplicationJsonBuilder() {
+    RowocsCreateRowResponseApplicationJson._defaults(this);
+  }
+
+  RowocsCreateRowResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RowocsCreateRowResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$RowocsCreateRowResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(RowocsCreateRowResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RowocsCreateRowResponseApplicationJson build() => _build();
+
+  _$RowocsCreateRowResponseApplicationJson _build() {
+    RowocsCreateRowResponseApplicationJson._validate(this);
+    _$RowocsCreateRowResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$RowocsCreateRowResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'RowocsCreateRowResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

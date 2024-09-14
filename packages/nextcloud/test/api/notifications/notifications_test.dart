@@ -5,10 +5,12 @@ import 'package:nextcloud/notifications.dart' as notifications;
 import 'package:nextcloud/src/utils/date_time.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
+import 'package:version/version.dart';
 
 void main() {
   presets('server', 'notifications', username: 'admin', (tester) {
     Future<void> sendTestNotification() async {
+      // ignore: deprecated_member_use_from_same_package
       await tester.client.notifications.api.generateNotification(
         userId: 'admin',
         $body: notifications.ApiGenerateNotificationRequestApplicationJson(
@@ -48,9 +50,9 @@ void main() {
         expect(response.body.ocs.data[0].subject, '123');
         expect(response.body.ocs.data[0].message, '456');
         expect(response.body.ocs.data[0].link, '');
-        expect(response.body.ocs.data[0].subjectRich, '');
+        expect(response.body.ocs.data[0].subjectRich, tester.version < Version(30, 0, 0) ? '' : '123');
         expect(response.body.ocs.data[0].subjectRichParameters, isEmpty);
-        expect(response.body.ocs.data[0].messageRich, '');
+        expect(response.body.ocs.data[0].messageRich, tester.version < Version(30, 0, 0) ? '' : '456');
         expect(response.body.ocs.data[0].messageRichParameters, isEmpty);
         expect(response.body.ocs.data[0].icon, isNotEmpty);
         expect(response.body.ocs.data[0].actions, hasLength(0));
@@ -80,9 +82,9 @@ void main() {
         expect(response.body.ocs.data.subject, '123');
         expect(response.body.ocs.data.message, '456');
         expect(response.body.ocs.data.link, '');
-        expect(response.body.ocs.data.subjectRich, '');
+        expect(response.body.ocs.data.subjectRich, tester.version < Version(30, 0, 0) ? '' : '123');
         expect(response.body.ocs.data.subjectRichParameters, isEmpty);
-        expect(response.body.ocs.data.messageRich, '');
+        expect(response.body.ocs.data.messageRich, tester.version < Version(30, 0, 0) ? '' : '456');
         expect(response.body.ocs.data.messageRichParameters, isEmpty);
         expect(response.body.ocs.data.icon, isNotEmpty);
         expect(response.body.ocs.data.actions, hasLength(0));

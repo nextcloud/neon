@@ -1819,6 +1819,121 @@ class $ShareapiClient {
     return _i1.ResponseConverter<ShareapiDeleteShareResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
+  /// Builds a serializer to parse the response of [$sendShareEmail_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<ShareapiSendShareEmailResponseApplicationJson, void> $sendShareEmail_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ShareapiSendShareEmailResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {404, 403, 400, 200},
+      );
+
+  /// Send a mail notification again for a share. The mail_send option must be enabled for the given share.
+  ///
+  /// Returns a `DynamiteRequest` backing the [sendShareEmail] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] the share ID.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 404: Share not found
+  ///   * 403: You are not allowed to send mail notifications
+  ///   * 400: Invalid request or wrong password
+  ///   * 200: The email notification was sent successfully
+  ///
+  /// See:
+  ///  * [sendShareEmail] for a method executing this request and parsing the response.
+  ///  * [$sendShareEmail_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $sendShareEmail_Request({
+    required String id,
+    bool? oCSAPIRequest,
+    ShareapiSendShareEmailRequestApplicationJson? $body,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
+    _parameters['id'] = __id;
+
+    final _path = _i6.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}/send-email').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize(
+              $body,
+              specifiedType: const FullType(ShareapiSendShareEmailRequestApplicationJson),
+            ),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              ShareapiSendShareEmailRequestApplicationJson(),
+              specifiedType: const FullType(ShareapiSendShareEmailRequestApplicationJson),
+            ),
+          );
+    return _request;
+  }
+
+  /// Send a mail notification again for a share. The mail_send option must be enabled for the given share.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] the share ID.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 404: Share not found
+  ///   * 403: You are not allowed to send mail notifications
+  ///   * 400: Invalid request or wrong password
+  ///   * 200: The email notification was sent successfully
+  ///
+  /// See:
+  ///  * [$sendShareEmail_Request] for the request send by this method.
+  ///  * [$sendShareEmail_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<ShareapiSendShareEmailResponseApplicationJson, void>> sendShareEmail({
+    required String id,
+    bool? oCSAPIRequest,
+    ShareapiSendShareEmailRequestApplicationJson? $body,
+  }) async {
+    final _request = $sendShareEmail_Request(
+      id: id,
+      oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $sendShareEmail_Serializer();
+    return _i1.ResponseConverter<ShareapiSendShareEmailResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+
   /// Builds a serializer to parse the response of [$acceptShare_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ShareapiAcceptShareResponseApplicationJson, void> $acceptShare_Serializer() =>
@@ -4097,6 +4212,78 @@ abstract class ShareapiGetSharesResponseApplicationJson
   }
 }
 
+/// Send a mail to the recipient.
+class ShareapiCreateShareRequestApplicationJson_SendMail extends EnumClass {
+  const ShareapiCreateShareRequestApplicationJson_SendMail._(super.name);
+
+  /// `false`
+  @BuiltValueEnumConst(wireName: 'false')
+  static const ShareapiCreateShareRequestApplicationJson_SendMail $false =
+      _$shareapiCreateShareRequestApplicationJsonSendMail$false;
+
+  /// `true`
+  @BuiltValueEnumConst(wireName: 'true')
+  static const ShareapiCreateShareRequestApplicationJson_SendMail $true =
+      _$shareapiCreateShareRequestApplicationJsonSendMail$true;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<ShareapiCreateShareRequestApplicationJson_SendMail> get values =>
+      _$shareapiCreateShareRequestApplicationJsonSendMailValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static ShareapiCreateShareRequestApplicationJson_SendMail valueOf(String name) =>
+      _$valueOfShareapiCreateShareRequestApplicationJson_SendMail(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for ShareapiCreateShareRequestApplicationJson_SendMail.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ShareapiCreateShareRequestApplicationJson_SendMail> get serializer =>
+      const _$ShareapiCreateShareRequestApplicationJson_SendMailSerializer();
+}
+
+class _$ShareapiCreateShareRequestApplicationJson_SendMailSerializer
+    implements PrimitiveSerializer<ShareapiCreateShareRequestApplicationJson_SendMail> {
+  const _$ShareapiCreateShareRequestApplicationJson_SendMailSerializer();
+
+  static const Map<ShareapiCreateShareRequestApplicationJson_SendMail, Object> _toWire =
+      <ShareapiCreateShareRequestApplicationJson_SendMail, Object>{
+    ShareapiCreateShareRequestApplicationJson_SendMail.$false: 'false',
+    ShareapiCreateShareRequestApplicationJson_SendMail.$true: 'true',
+  };
+
+  static const Map<Object, ShareapiCreateShareRequestApplicationJson_SendMail> _fromWire =
+      <Object, ShareapiCreateShareRequestApplicationJson_SendMail>{
+    'false': ShareapiCreateShareRequestApplicationJson_SendMail.$false,
+    'true': ShareapiCreateShareRequestApplicationJson_SendMail.$true,
+  };
+
+  @override
+  Iterable<Type> get types => const [ShareapiCreateShareRequestApplicationJson_SendMail];
+
+  @override
+  String get wireName => 'ShareapiCreateShareRequestApplicationJson_SendMail';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ShareapiCreateShareRequestApplicationJson_SendMail object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ShareapiCreateShareRequestApplicationJson_SendMail deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 @BuiltValue(instantiable: false)
 sealed class $ShareapiCreateShareRequestApplicationJsonInterface {
   static final _$shareType = _$jsonSerializers.deserialize(
@@ -4110,11 +4297,6 @@ sealed class $ShareapiCreateShareRequestApplicationJsonInterface {
   )! as String;
 
   static final _$password = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
-
-  static final _$expireDate = _$jsonSerializers.deserialize(
     '',
     specifiedType: const FullType(String),
   )! as String;
@@ -4150,8 +4332,8 @@ sealed class $ShareapiCreateShareRequestApplicationJsonInterface {
   /// Send the password for the share over Talk.
   String? get sendPasswordByTalk;
 
-  /// Expiry date of the share using user timezone at 00:00. It means date in UTC timezone will be used.
-  String get expireDate;
+  /// The expiry date of the share in the user's timezone at 00:00. If $expireDate is not supplied or set to `null`, the system default will be used.
+  String? get expireDate;
 
   /// Note for the share.
   String get note;
@@ -4161,6 +4343,9 @@ sealed class $ShareapiCreateShareRequestApplicationJsonInterface {
 
   /// Additional attributes for the share.
   String? get attributes;
+
+  /// Send a mail to the recipient.
+  ShareapiCreateShareRequestApplicationJson_SendMail? get sendMail;
 
   /// Rebuilds the instance.
   ///
@@ -4177,7 +4362,6 @@ sealed class $ShareapiCreateShareRequestApplicationJsonInterface {
     b.shareType = _$shareType;
     b.publicUpload = _$publicUpload;
     b.password = _$password;
-    b.expireDate = _$expireDate;
     b.note = _$note;
     b.label = _$label;
   }
@@ -4831,6 +5015,9 @@ sealed class $ShareapiUpdateShareRequestApplicationJsonInterface {
   /// New additional attributes.
   String? get attributes;
 
+  /// if the share should be send by mail. Considering the share already exists, no mail will be send after the share is updated. You will have to use the sendMail action to send the mail.
+  String? get sendMail;
+
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
@@ -5141,6 +5328,206 @@ abstract class ShareapiDeleteShareResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(ShareapiDeleteShareResponseApplicationJsonBuilder b) {
     $ShareapiDeleteShareResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ShareapiSendShareEmailRequestApplicationJsonInterface {
+  static final _$password = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  /// the password to check against. Necessary for password protected shares.
+  String get password;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiSendShareEmailRequestApplicationJsonInterfaceBuilder].
+  $ShareapiSendShareEmailRequestApplicationJsonInterface rebuild(
+    void Function($ShareapiSendShareEmailRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiSendShareEmailRequestApplicationJsonInterfaceBuilder].
+  $ShareapiSendShareEmailRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiSendShareEmailRequestApplicationJsonInterfaceBuilder b) {
+    b.password = _$password;
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiSendShareEmailRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ShareapiSendShareEmailRequestApplicationJson
+    implements
+        $ShareapiSendShareEmailRequestApplicationJsonInterface,
+        Built<ShareapiSendShareEmailRequestApplicationJson, ShareapiSendShareEmailRequestApplicationJsonBuilder> {
+  /// Creates a new ShareapiSendShareEmailRequestApplicationJson object using the builder pattern.
+  factory ShareapiSendShareEmailRequestApplicationJson([
+    void Function(ShareapiSendShareEmailRequestApplicationJsonBuilder)? b,
+  ]) = _$ShareapiSendShareEmailRequestApplicationJson;
+
+  // coverage:ignore-start
+  const ShareapiSendShareEmailRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ShareapiSendShareEmailRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ShareapiSendShareEmailRequestApplicationJson.
+  static Serializer<ShareapiSendShareEmailRequestApplicationJson> get serializer =>
+      _$shareapiSendShareEmailRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiSendShareEmailRequestApplicationJsonBuilder b) {
+    $ShareapiSendShareEmailRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiSendShareEmailRequestApplicationJsonBuilder b) {
+    $ShareapiSendShareEmailRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ShareapiSendShareEmailResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  JsonObject get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiSendShareEmailResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareapiSendShareEmailResponseApplicationJson_OcsInterface rebuild(
+    void Function($ShareapiSendShareEmailResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiSendShareEmailResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareapiSendShareEmailResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiSendShareEmailResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiSendShareEmailResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class ShareapiSendShareEmailResponseApplicationJson_Ocs
+    implements
+        $ShareapiSendShareEmailResponseApplicationJson_OcsInterface,
+        Built<ShareapiSendShareEmailResponseApplicationJson_Ocs,
+            ShareapiSendShareEmailResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ShareapiSendShareEmailResponseApplicationJson_Ocs object using the builder pattern.
+  factory ShareapiSendShareEmailResponseApplicationJson_Ocs([
+    void Function(ShareapiSendShareEmailResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$ShareapiSendShareEmailResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const ShareapiSendShareEmailResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ShareapiSendShareEmailResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ShareapiSendShareEmailResponseApplicationJson_Ocs.
+  static Serializer<ShareapiSendShareEmailResponseApplicationJson_Ocs> get serializer =>
+      _$shareapiSendShareEmailResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiSendShareEmailResponseApplicationJson_OcsBuilder b) {
+    $ShareapiSendShareEmailResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiSendShareEmailResponseApplicationJson_OcsBuilder b) {
+    $ShareapiSendShareEmailResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ShareapiSendShareEmailResponseApplicationJsonInterface {
+  ShareapiSendShareEmailResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiSendShareEmailResponseApplicationJsonInterfaceBuilder].
+  $ShareapiSendShareEmailResponseApplicationJsonInterface rebuild(
+    void Function($ShareapiSendShareEmailResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiSendShareEmailResponseApplicationJsonInterfaceBuilder].
+  $ShareapiSendShareEmailResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiSendShareEmailResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiSendShareEmailResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ShareapiSendShareEmailResponseApplicationJson
+    implements
+        $ShareapiSendShareEmailResponseApplicationJsonInterface,
+        Built<ShareapiSendShareEmailResponseApplicationJson, ShareapiSendShareEmailResponseApplicationJsonBuilder> {
+  /// Creates a new ShareapiSendShareEmailResponseApplicationJson object using the builder pattern.
+  factory ShareapiSendShareEmailResponseApplicationJson([
+    void Function(ShareapiSendShareEmailResponseApplicationJsonBuilder)? b,
+  ]) = _$ShareapiSendShareEmailResponseApplicationJson;
+
+  // coverage:ignore-start
+  const ShareapiSendShareEmailResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ShareapiSendShareEmailResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ShareapiSendShareEmailResponseApplicationJson.
+  static Serializer<ShareapiSendShareEmailResponseApplicationJson> get serializer =>
+      _$shareapiSendShareEmailResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiSendShareEmailResponseApplicationJsonBuilder b) {
+    $ShareapiSendShareEmailResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiSendShareEmailResponseApplicationJsonBuilder b) {
+    $ShareapiSendShareEmailResponseApplicationJsonInterface._validate(b);
   }
 }
 
@@ -8049,6 +8436,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ShareapiCreateShareRequestApplicationJsonBuilder.new,
       )
       ..add(ShareapiCreateShareRequestApplicationJson.serializer)
+      ..add(ShareapiCreateShareRequestApplicationJson_SendMail.serializer)
       ..addBuilderFactory(
         const FullType(ShareapiCreateShareResponseApplicationJson),
         ShareapiCreateShareResponseApplicationJsonBuilder.new,
@@ -8115,6 +8503,21 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ShareapiDeleteShareResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ShareapiDeleteShareResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(ShareapiSendShareEmailRequestApplicationJson),
+        ShareapiSendShareEmailRequestApplicationJsonBuilder.new,
+      )
+      ..add(ShareapiSendShareEmailRequestApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(ShareapiSendShareEmailResponseApplicationJson),
+        ShareapiSendShareEmailResponseApplicationJsonBuilder.new,
+      )
+      ..add(ShareapiSendShareEmailResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(ShareapiSendShareEmailResponseApplicationJson_Ocs),
+        ShareapiSendShareEmailResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(ShareapiSendShareEmailResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(ShareapiAcceptShareResponseApplicationJson),
         ShareapiAcceptShareResponseApplicationJsonBuilder.new,

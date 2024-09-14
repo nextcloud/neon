@@ -13,7 +13,7 @@ void main() {
 
         expect(response.body.ocs.data.id, 'admin');
         expect(response.body.ocs.data.displayName, 'admin');
-        expect(response.body.ocs.data.displaynameScope, 'v2-federated');
+        expect(response.body.ocs.data.displaynameScope, UserDetailsScope.v2Federated);
         expect(response.body.ocs.data.language, 'en');
       });
 

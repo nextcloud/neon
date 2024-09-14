@@ -16,17 +16,19 @@
 /// It can be obtained at `https://spdx.org/licenses/AGPL-3.0-only.html`.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'dart:convert';
+
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart' as _i8;
-import 'package:collection/collection.dart' as _i4;
+import 'package:collection/collection.dart' as _i6;
 import 'package:dynamite_runtime/built_value.dart' as _i7;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:dynamite_runtime/utils.dart' as _i5;
+import 'package:dynamite_runtime/utils.dart' as _i4;
 import 'package:http/http.dart' as _i3;
 import 'package:meta/meta.dart' as _i2;
-import 'package:uri/uri.dart' as _i6;
+import 'package:uri/uri.dart' as _i5;
 
 part 'dashboard.openapi.g.dart';
 
@@ -54,87 +56,6 @@ class $DashboardApiClient {
   $DashboardApiClient(this._rootClient);
 
   final $Client _rootClient;
-
-  /// Builds a serializer to parse the response of [$getWidgets_Request].
-  @_i2.experimental
-  _i1.DynamiteSerializer<DashboardApiGetWidgetsResponseApplicationJson, void> $getWidgets_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: const FullType(DashboardApiGetWidgetsResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
-
-  /// Get the widgets.
-  ///
-  /// Returns a `DynamiteRequest` backing the [getWidgets] operation.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Widgets returned
-  ///
-  /// See:
-  ///  * [getWidgets] for a method executing this request and parsing the response.
-  ///  * [$getWidgets_Serializer] for a converter to parse the `Response` from an executed this request.
-  @_i2.experimental
-  _i3.Request $getWidgets_Request({bool? oCSAPIRequest}) {
-    const _path = '/ocs/v2.php/apps/dashboard/api/v1/widgets';
-    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
-    final _request = _i3.Request('get', _uri);
-    _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
-    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    __oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
-
-    return _request;
-  }
-
-  /// Get the widgets.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Widgets returned
-  ///
-  /// See:
-  ///  * [$getWidgets_Request] for the request send by this method.
-  ///  * [$getWidgets_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<DashboardApiGetWidgetsResponseApplicationJson, void>> getWidgets({
-    bool? oCSAPIRequest,
-  }) async {
-    final _request = $getWidgets_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
-    final _streamedResponse = await _rootClient.httpClient.send(_request);
-    final _response = await _i3.Response.fromStream(_streamedResponse);
-
-    final _serializer = $getWidgets_Serializer();
-    return _i1.ResponseConverter<DashboardApiGetWidgetsResponseApplicationJson, void>(_serializer).convert(_response);
-  }
 
   /// Builds a serializer to parse the response of [$getWidgetItems_Request].
   @_i2.experimental
@@ -176,7 +97,7 @@ class $DashboardApiClient {
 
     var __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     __limit ??= 7;
-    _i5.checkNumber(
+    _i4.checkNumber(
       __limit,
       'limit',
       maximum: 30,
@@ -188,13 +109,13 @@ class $DashboardApiClient {
     __widgets ??= const [];
     _parameters['widgets%5B%5D'] = __widgets;
 
-    final _path = _i6.UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
         .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -212,7 +133,7 @@ class $DashboardApiClient {
 // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -294,7 +215,7 @@ class $DashboardApiClient {
 
     var __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     __limit ??= 7;
-    _i5.checkNumber(
+    _i4.checkNumber(
       __limit,
       'limit',
       maximum: 30,
@@ -306,13 +227,13 @@ class $DashboardApiClient {
     __widgets ??= const [];
     _parameters['widgets%5B%5D'] = __widgets;
 
-    final _path = _i6.UriTemplate('/ocs/v2.php/apps/dashboard/api/v2/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/dashboard/api/v2/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
         .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -330,7 +251,7 @@ class $DashboardApiClient {
 // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -369,6 +290,436 @@ class $DashboardApiClient {
 
     final _serializer = $getWidgetItemsV2_Serializer();
     return _i1.ResponseConverter<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void>(_serializer)
+        .convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$getWidgets_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<DashboardApiGetWidgetsResponseApplicationJson, void> $getWidgets_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(DashboardApiGetWidgetsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Get the widgets.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getWidgets] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Widgets returned
+  ///
+  /// See:
+  ///  * [getWidgets] for a method executing this request and parsing the response.
+  ///  * [$getWidgets_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getWidgets_Request({bool? oCSAPIRequest}) {
+    const _path = '/ocs/v2.php/apps/dashboard/api/v1/widgets';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get the widgets.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Widgets returned
+  ///
+  /// See:
+  ///  * [$getWidgets_Request] for the request send by this method.
+  ///  * [$getWidgets_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<DashboardApiGetWidgetsResponseApplicationJson, void>> getWidgets({
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $getWidgets_Request(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $getWidgets_Serializer();
+    return _i1.ResponseConverter<DashboardApiGetWidgetsResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$getLayout_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<DashboardApiGetLayoutResponseApplicationJson, void> $getLayout_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(DashboardApiGetLayoutResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Get the layout.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getLayout] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Layout returned
+  ///
+  /// See:
+  ///  * [getLayout] for a method executing this request and parsing the response.
+  ///  * [$getLayout_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getLayout_Request({bool? oCSAPIRequest}) {
+    const _path = '/ocs/v2.php/apps/dashboard/api/v3/layout';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get the layout.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Layout returned
+  ///
+  /// See:
+  ///  * [$getLayout_Request] for the request send by this method.
+  ///  * [$getLayout_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<DashboardApiGetLayoutResponseApplicationJson, void>> getLayout({
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $getLayout_Request(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $getLayout_Serializer();
+    return _i1.ResponseConverter<DashboardApiGetLayoutResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$updateLayout_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<DashboardApiUpdateLayoutResponseApplicationJson, void> $updateLayout_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(DashboardApiUpdateLayoutResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Update the layout.
+  ///
+  /// Returns a `DynamiteRequest` backing the [updateLayout] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Statuses updated successfully
+  ///
+  /// See:
+  ///  * [updateLayout] for a method executing this request and parsing the response.
+  ///  * [$updateLayout_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $updateLayout_Request({
+    required DashboardApiUpdateLayoutRequestApplicationJson $body,
+    bool? oCSAPIRequest,
+  }) {
+    const _path = '/ocs/v2.php/apps/dashboard/api/v3/layout';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
+
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(DashboardApiUpdateLayoutRequestApplicationJson),
+      ),
+    );
+    return _request;
+  }
+
+  /// Update the layout.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Statuses updated successfully
+  ///
+  /// See:
+  ///  * [$updateLayout_Request] for the request send by this method.
+  ///  * [$updateLayout_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<DashboardApiUpdateLayoutResponseApplicationJson, void>> updateLayout({
+    required DashboardApiUpdateLayoutRequestApplicationJson $body,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $updateLayout_Request(
+      oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $updateLayout_Serializer();
+    return _i1.ResponseConverter<DashboardApiUpdateLayoutResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$getStatuses_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<DashboardApiGetStatusesResponseApplicationJson, void> $getStatuses_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(DashboardApiGetStatusesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Get the statuses.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getStatuses] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Statuses returned
+  ///
+  /// See:
+  ///  * [getStatuses] for a method executing this request and parsing the response.
+  ///  * [$getStatuses_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getStatuses_Request({bool? oCSAPIRequest}) {
+    const _path = '/ocs/v2.php/apps/dashboard/api/v3/statuses';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get the statuses.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Statuses returned
+  ///
+  /// See:
+  ///  * [$getStatuses_Request] for the request send by this method.
+  ///  * [$getStatuses_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<DashboardApiGetStatusesResponseApplicationJson, void>> getStatuses({
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $getStatuses_Request(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $getStatuses_Serializer();
+    return _i1.ResponseConverter<DashboardApiGetStatusesResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$updateStatuses_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<DashboardApiUpdateStatusesResponseApplicationJson, void> $updateStatuses_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(DashboardApiUpdateStatusesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Update the statuses.
+  ///
+  /// Returns a `DynamiteRequest` backing the [updateStatuses] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Statuses updated successfully
+  ///
+  /// See:
+  ///  * [updateStatuses] for a method executing this request and parsing the response.
+  ///  * [$updateStatuses_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $updateStatuses_Request({
+    required DashboardApiUpdateStatusesRequestApplicationJson $body,
+    bool? oCSAPIRequest,
+  }) {
+    const _path = '/ocs/v2.php/apps/dashboard/api/v3/statuses';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
+
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(DashboardApiUpdateStatusesRequestApplicationJson),
+      ),
+    );
+    return _request;
+  }
+
+  /// Update the statuses.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Statuses updated successfully
+  ///
+  /// See:
+  ///  * [$updateStatuses_Request] for the request send by this method.
+  ///  * [$updateStatuses_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<DashboardApiUpdateStatusesResponseApplicationJson, void>> updateStatuses({
+    required DashboardApiUpdateStatusesRequestApplicationJson $body,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $updateStatuses_Request(
+      oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $updateStatuses_Serializer();
+    return _i1.ResponseConverter<DashboardApiUpdateStatusesResponseApplicationJson, void>(_serializer)
         .convert(_response);
   }
 }
@@ -428,259 +779,6 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(OCSMetaBuilder b) {
     $OCSMetaInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-sealed class $Widget_ButtonsInterface {
-  String get type;
-  String get text;
-  String get link;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$Widget_ButtonsInterfaceBuilder].
-  $Widget_ButtonsInterface rebuild(void Function($Widget_ButtonsInterfaceBuilder) updates);
-
-  /// Converts the instance to a builder [$Widget_ButtonsInterfaceBuilder].
-  $Widget_ButtonsInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($Widget_ButtonsInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($Widget_ButtonsInterfaceBuilder b) {}
-}
-
-abstract class Widget_Buttons implements $Widget_ButtonsInterface, Built<Widget_Buttons, Widget_ButtonsBuilder> {
-  /// Creates a new Widget_Buttons object using the builder pattern.
-  factory Widget_Buttons([void Function(Widget_ButtonsBuilder)? b]) = _$Widget_Buttons;
-
-  // coverage:ignore-start
-  const Widget_Buttons._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory Widget_Buttons.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for Widget_Buttons.
-  static Serializer<Widget_Buttons> get serializer => _$widgetButtonsSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(Widget_ButtonsBuilder b) {
-    $Widget_ButtonsInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(Widget_ButtonsBuilder b) {
-    $Widget_ButtonsInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-sealed class $WidgetInterface {
-  String get id;
-  String get title;
-  int get order;
-  @BuiltValueField(wireName: 'icon_class')
-  String get iconClass;
-  @BuiltValueField(wireName: 'icon_url')
-  String get iconUrl;
-  @BuiltValueField(wireName: 'widget_url')
-  String? get widgetUrl;
-  @BuiltValueField(wireName: 'item_icons_round')
-  bool get itemIconsRound;
-  @BuiltValueField(wireName: 'item_api_versions')
-  BuiltList<int> get itemApiVersions;
-  @BuiltValueField(wireName: 'reload_interval')
-  int get reloadInterval;
-  BuiltList<Widget_Buttons>? get buttons;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$WidgetInterfaceBuilder].
-  $WidgetInterface rebuild(void Function($WidgetInterfaceBuilder) updates);
-
-  /// Converts the instance to a builder [$WidgetInterfaceBuilder].
-  $WidgetInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($WidgetInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($WidgetInterfaceBuilder b) {}
-}
-
-abstract class Widget implements $WidgetInterface, Built<Widget, WidgetBuilder> {
-  /// Creates a new Widget object using the builder pattern.
-  factory Widget([void Function(WidgetBuilder)? b]) = _$Widget;
-
-  // coverage:ignore-start
-  const Widget._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory Widget.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for Widget.
-  static Serializer<Widget> get serializer => _$widgetSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(WidgetBuilder b) {
-    $WidgetInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(WidgetBuilder b) {
-    $WidgetInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-sealed class $DashboardApiGetWidgetsResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  BuiltMap<String, Widget> get data;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder].
-  $DashboardApiGetWidgetsResponseApplicationJson_OcsInterface rebuild(
-    void Function($DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder].
-  $DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder b) {}
-}
-
-abstract class DashboardApiGetWidgetsResponseApplicationJson_Ocs
-    implements
-        $DashboardApiGetWidgetsResponseApplicationJson_OcsInterface,
-        Built<DashboardApiGetWidgetsResponseApplicationJson_Ocs,
-            DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder> {
-  /// Creates a new DashboardApiGetWidgetsResponseApplicationJson_Ocs object using the builder pattern.
-  factory DashboardApiGetWidgetsResponseApplicationJson_Ocs([
-    void Function(DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$DashboardApiGetWidgetsResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const DashboardApiGetWidgetsResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory DashboardApiGetWidgetsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for DashboardApiGetWidgetsResponseApplicationJson_Ocs.
-  static Serializer<DashboardApiGetWidgetsResponseApplicationJson_Ocs> get serializer =>
-      _$dashboardApiGetWidgetsResponseApplicationJsonOcsSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder b) {
-    $DashboardApiGetWidgetsResponseApplicationJson_OcsInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder b) {
-    $DashboardApiGetWidgetsResponseApplicationJson_OcsInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-sealed class $DashboardApiGetWidgetsResponseApplicationJsonInterface {
-  DashboardApiGetWidgetsResponseApplicationJson_Ocs get ocs;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder].
-  $DashboardApiGetWidgetsResponseApplicationJsonInterface rebuild(
-    void Function($DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder].
-  $DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class DashboardApiGetWidgetsResponseApplicationJson
-    implements
-        $DashboardApiGetWidgetsResponseApplicationJsonInterface,
-        Built<DashboardApiGetWidgetsResponseApplicationJson, DashboardApiGetWidgetsResponseApplicationJsonBuilder> {
-  /// Creates a new DashboardApiGetWidgetsResponseApplicationJson object using the builder pattern.
-  factory DashboardApiGetWidgetsResponseApplicationJson([
-    void Function(DashboardApiGetWidgetsResponseApplicationJsonBuilder)? b,
-  ]) = _$DashboardApiGetWidgetsResponseApplicationJson;
-
-  // coverage:ignore-start
-  const DashboardApiGetWidgetsResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory DashboardApiGetWidgetsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for DashboardApiGetWidgetsResponseApplicationJson.
-  static Serializer<DashboardApiGetWidgetsResponseApplicationJson> get serializer =>
-      _$dashboardApiGetWidgetsResponseApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(DashboardApiGetWidgetsResponseApplicationJsonBuilder b) {
-    $DashboardApiGetWidgetsResponseApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(DashboardApiGetWidgetsResponseApplicationJsonBuilder b) {
-    $DashboardApiGetWidgetsResponseApplicationJsonInterface._validate(b);
   }
 }
 
@@ -1057,6 +1155,1157 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson
   }
 }
 
+@BuiltValue(instantiable: false)
+sealed class $Widget_ButtonsInterface {
+  String get type;
+  String get text;
+  String get link;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Widget_ButtonsInterfaceBuilder].
+  $Widget_ButtonsInterface rebuild(void Function($Widget_ButtonsInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$Widget_ButtonsInterfaceBuilder].
+  $Widget_ButtonsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Widget_ButtonsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Widget_ButtonsInterfaceBuilder b) {}
+}
+
+abstract class Widget_Buttons implements $Widget_ButtonsInterface, Built<Widget_Buttons, Widget_ButtonsBuilder> {
+  /// Creates a new Widget_Buttons object using the builder pattern.
+  factory Widget_Buttons([void Function(Widget_ButtonsBuilder)? b]) = _$Widget_Buttons;
+
+  // coverage:ignore-start
+  const Widget_Buttons._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory Widget_Buttons.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for Widget_Buttons.
+  static Serializer<Widget_Buttons> get serializer => _$widgetButtonsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Widget_ButtonsBuilder b) {
+    $Widget_ButtonsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Widget_ButtonsBuilder b) {
+    $Widget_ButtonsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $WidgetInterface {
+  String get id;
+  String get title;
+  int get order;
+  @BuiltValueField(wireName: 'icon_class')
+  String get iconClass;
+  @BuiltValueField(wireName: 'icon_url')
+  String get iconUrl;
+  @BuiltValueField(wireName: 'widget_url')
+  String? get widgetUrl;
+  @BuiltValueField(wireName: 'item_icons_round')
+  bool get itemIconsRound;
+  @BuiltValueField(wireName: 'item_api_versions')
+  BuiltList<int> get itemApiVersions;
+  @BuiltValueField(wireName: 'reload_interval')
+  int get reloadInterval;
+  BuiltList<Widget_Buttons>? get buttons;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$WidgetInterfaceBuilder].
+  $WidgetInterface rebuild(void Function($WidgetInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$WidgetInterfaceBuilder].
+  $WidgetInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($WidgetInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($WidgetInterfaceBuilder b) {}
+}
+
+abstract class Widget implements $WidgetInterface, Built<Widget, WidgetBuilder> {
+  /// Creates a new Widget object using the builder pattern.
+  factory Widget([void Function(WidgetBuilder)? b]) = _$Widget;
+
+  // coverage:ignore-start
+  const Widget._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory Widget.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for Widget.
+  static Serializer<Widget> get serializer => _$widgetSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(WidgetBuilder b) {
+    $WidgetInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(WidgetBuilder b) {
+    $WidgetInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $DashboardApiGetWidgetsResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltMap<String, Widget> get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder].
+  $DashboardApiGetWidgetsResponseApplicationJson_OcsInterface rebuild(
+    void Function($DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder].
+  $DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class DashboardApiGetWidgetsResponseApplicationJson_Ocs
+    implements
+        $DashboardApiGetWidgetsResponseApplicationJson_OcsInterface,
+        Built<DashboardApiGetWidgetsResponseApplicationJson_Ocs,
+            DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new DashboardApiGetWidgetsResponseApplicationJson_Ocs object using the builder pattern.
+  factory DashboardApiGetWidgetsResponseApplicationJson_Ocs([
+    void Function(DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$DashboardApiGetWidgetsResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const DashboardApiGetWidgetsResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DashboardApiGetWidgetsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DashboardApiGetWidgetsResponseApplicationJson_Ocs.
+  static Serializer<DashboardApiGetWidgetsResponseApplicationJson_Ocs> get serializer =>
+      _$dashboardApiGetWidgetsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder b) {
+    $DashboardApiGetWidgetsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder b) {
+    $DashboardApiGetWidgetsResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $DashboardApiGetWidgetsResponseApplicationJsonInterface {
+  DashboardApiGetWidgetsResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder].
+  $DashboardApiGetWidgetsResponseApplicationJsonInterface rebuild(
+    void Function($DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder].
+  $DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class DashboardApiGetWidgetsResponseApplicationJson
+    implements
+        $DashboardApiGetWidgetsResponseApplicationJsonInterface,
+        Built<DashboardApiGetWidgetsResponseApplicationJson, DashboardApiGetWidgetsResponseApplicationJsonBuilder> {
+  /// Creates a new DashboardApiGetWidgetsResponseApplicationJson object using the builder pattern.
+  factory DashboardApiGetWidgetsResponseApplicationJson([
+    void Function(DashboardApiGetWidgetsResponseApplicationJsonBuilder)? b,
+  ]) = _$DashboardApiGetWidgetsResponseApplicationJson;
+
+  // coverage:ignore-start
+  const DashboardApiGetWidgetsResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DashboardApiGetWidgetsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DashboardApiGetWidgetsResponseApplicationJson.
+  static Serializer<DashboardApiGetWidgetsResponseApplicationJson> get serializer =>
+      _$dashboardApiGetWidgetsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DashboardApiGetWidgetsResponseApplicationJsonBuilder b) {
+    $DashboardApiGetWidgetsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DashboardApiGetWidgetsResponseApplicationJsonBuilder b) {
+    $DashboardApiGetWidgetsResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $DashboardApiGetLayoutResponseApplicationJson_Ocs_DataInterface {
+  BuiltList<String> get layout;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DashboardApiGetLayoutResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $DashboardApiGetLayoutResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($DashboardApiGetLayoutResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DashboardApiGetLayoutResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $DashboardApiGetLayoutResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DashboardApiGetLayoutResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DashboardApiGetLayoutResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class DashboardApiGetLayoutResponseApplicationJson_Ocs_Data
+    implements
+        $DashboardApiGetLayoutResponseApplicationJson_Ocs_DataInterface,
+        Built<DashboardApiGetLayoutResponseApplicationJson_Ocs_Data,
+            DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new DashboardApiGetLayoutResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory DashboardApiGetLayoutResponseApplicationJson_Ocs_Data([
+    void Function(DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$DashboardApiGetLayoutResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const DashboardApiGetLayoutResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DashboardApiGetLayoutResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DashboardApiGetLayoutResponseApplicationJson_Ocs_Data.
+  static Serializer<DashboardApiGetLayoutResponseApplicationJson_Ocs_Data> get serializer =>
+      _$dashboardApiGetLayoutResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder b) {
+    $DashboardApiGetLayoutResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder b) {
+    $DashboardApiGetLayoutResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $DashboardApiGetLayoutResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  DashboardApiGetLayoutResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DashboardApiGetLayoutResponseApplicationJson_OcsInterfaceBuilder].
+  $DashboardApiGetLayoutResponseApplicationJson_OcsInterface rebuild(
+    void Function($DashboardApiGetLayoutResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DashboardApiGetLayoutResponseApplicationJson_OcsInterfaceBuilder].
+  $DashboardApiGetLayoutResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DashboardApiGetLayoutResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DashboardApiGetLayoutResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class DashboardApiGetLayoutResponseApplicationJson_Ocs
+    implements
+        $DashboardApiGetLayoutResponseApplicationJson_OcsInterface,
+        Built<DashboardApiGetLayoutResponseApplicationJson_Ocs,
+            DashboardApiGetLayoutResponseApplicationJson_OcsBuilder> {
+  /// Creates a new DashboardApiGetLayoutResponseApplicationJson_Ocs object using the builder pattern.
+  factory DashboardApiGetLayoutResponseApplicationJson_Ocs([
+    void Function(DashboardApiGetLayoutResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$DashboardApiGetLayoutResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const DashboardApiGetLayoutResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DashboardApiGetLayoutResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DashboardApiGetLayoutResponseApplicationJson_Ocs.
+  static Serializer<DashboardApiGetLayoutResponseApplicationJson_Ocs> get serializer =>
+      _$dashboardApiGetLayoutResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DashboardApiGetLayoutResponseApplicationJson_OcsBuilder b) {
+    $DashboardApiGetLayoutResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DashboardApiGetLayoutResponseApplicationJson_OcsBuilder b) {
+    $DashboardApiGetLayoutResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $DashboardApiGetLayoutResponseApplicationJsonInterface {
+  DashboardApiGetLayoutResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DashboardApiGetLayoutResponseApplicationJsonInterfaceBuilder].
+  $DashboardApiGetLayoutResponseApplicationJsonInterface rebuild(
+    void Function($DashboardApiGetLayoutResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DashboardApiGetLayoutResponseApplicationJsonInterfaceBuilder].
+  $DashboardApiGetLayoutResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DashboardApiGetLayoutResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DashboardApiGetLayoutResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class DashboardApiGetLayoutResponseApplicationJson
+    implements
+        $DashboardApiGetLayoutResponseApplicationJsonInterface,
+        Built<DashboardApiGetLayoutResponseApplicationJson, DashboardApiGetLayoutResponseApplicationJsonBuilder> {
+  /// Creates a new DashboardApiGetLayoutResponseApplicationJson object using the builder pattern.
+  factory DashboardApiGetLayoutResponseApplicationJson([
+    void Function(DashboardApiGetLayoutResponseApplicationJsonBuilder)? b,
+  ]) = _$DashboardApiGetLayoutResponseApplicationJson;
+
+  // coverage:ignore-start
+  const DashboardApiGetLayoutResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DashboardApiGetLayoutResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DashboardApiGetLayoutResponseApplicationJson.
+  static Serializer<DashboardApiGetLayoutResponseApplicationJson> get serializer =>
+      _$dashboardApiGetLayoutResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DashboardApiGetLayoutResponseApplicationJsonBuilder b) {
+    $DashboardApiGetLayoutResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DashboardApiGetLayoutResponseApplicationJsonBuilder b) {
+    $DashboardApiGetLayoutResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $DashboardApiUpdateLayoutRequestApplicationJsonInterface {
+  /// The new layout.
+  BuiltList<String> get layout;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DashboardApiUpdateLayoutRequestApplicationJsonInterfaceBuilder].
+  $DashboardApiUpdateLayoutRequestApplicationJsonInterface rebuild(
+    void Function($DashboardApiUpdateLayoutRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DashboardApiUpdateLayoutRequestApplicationJsonInterfaceBuilder].
+  $DashboardApiUpdateLayoutRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DashboardApiUpdateLayoutRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DashboardApiUpdateLayoutRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class DashboardApiUpdateLayoutRequestApplicationJson
+    implements
+        $DashboardApiUpdateLayoutRequestApplicationJsonInterface,
+        Built<DashboardApiUpdateLayoutRequestApplicationJson, DashboardApiUpdateLayoutRequestApplicationJsonBuilder> {
+  /// Creates a new DashboardApiUpdateLayoutRequestApplicationJson object using the builder pattern.
+  factory DashboardApiUpdateLayoutRequestApplicationJson([
+    void Function(DashboardApiUpdateLayoutRequestApplicationJsonBuilder)? b,
+  ]) = _$DashboardApiUpdateLayoutRequestApplicationJson;
+
+  // coverage:ignore-start
+  const DashboardApiUpdateLayoutRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DashboardApiUpdateLayoutRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DashboardApiUpdateLayoutRequestApplicationJson.
+  static Serializer<DashboardApiUpdateLayoutRequestApplicationJson> get serializer =>
+      _$dashboardApiUpdateLayoutRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DashboardApiUpdateLayoutRequestApplicationJsonBuilder b) {
+    $DashboardApiUpdateLayoutRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DashboardApiUpdateLayoutRequestApplicationJsonBuilder b) {
+    $DashboardApiUpdateLayoutRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataInterface {
+  BuiltList<String> get layout;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data
+    implements
+        $DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataInterface,
+        Built<DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data,
+            DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data([
+    void Function(DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data.
+  static Serializer<DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data> get serializer =>
+      _$dashboardApiUpdateLayoutResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder b) {
+    $DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder b) {
+    $DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $DashboardApiUpdateLayoutResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DashboardApiUpdateLayoutResponseApplicationJson_OcsInterfaceBuilder].
+  $DashboardApiUpdateLayoutResponseApplicationJson_OcsInterface rebuild(
+    void Function($DashboardApiUpdateLayoutResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DashboardApiUpdateLayoutResponseApplicationJson_OcsInterfaceBuilder].
+  $DashboardApiUpdateLayoutResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DashboardApiUpdateLayoutResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DashboardApiUpdateLayoutResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class DashboardApiUpdateLayoutResponseApplicationJson_Ocs
+    implements
+        $DashboardApiUpdateLayoutResponseApplicationJson_OcsInterface,
+        Built<DashboardApiUpdateLayoutResponseApplicationJson_Ocs,
+            DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder> {
+  /// Creates a new DashboardApiUpdateLayoutResponseApplicationJson_Ocs object using the builder pattern.
+  factory DashboardApiUpdateLayoutResponseApplicationJson_Ocs([
+    void Function(DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const DashboardApiUpdateLayoutResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DashboardApiUpdateLayoutResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DashboardApiUpdateLayoutResponseApplicationJson_Ocs.
+  static Serializer<DashboardApiUpdateLayoutResponseApplicationJson_Ocs> get serializer =>
+      _$dashboardApiUpdateLayoutResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder b) {
+    $DashboardApiUpdateLayoutResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder b) {
+    $DashboardApiUpdateLayoutResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $DashboardApiUpdateLayoutResponseApplicationJsonInterface {
+  DashboardApiUpdateLayoutResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DashboardApiUpdateLayoutResponseApplicationJsonInterfaceBuilder].
+  $DashboardApiUpdateLayoutResponseApplicationJsonInterface rebuild(
+    void Function($DashboardApiUpdateLayoutResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DashboardApiUpdateLayoutResponseApplicationJsonInterfaceBuilder].
+  $DashboardApiUpdateLayoutResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DashboardApiUpdateLayoutResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DashboardApiUpdateLayoutResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class DashboardApiUpdateLayoutResponseApplicationJson
+    implements
+        $DashboardApiUpdateLayoutResponseApplicationJsonInterface,
+        Built<DashboardApiUpdateLayoutResponseApplicationJson, DashboardApiUpdateLayoutResponseApplicationJsonBuilder> {
+  /// Creates a new DashboardApiUpdateLayoutResponseApplicationJson object using the builder pattern.
+  factory DashboardApiUpdateLayoutResponseApplicationJson([
+    void Function(DashboardApiUpdateLayoutResponseApplicationJsonBuilder)? b,
+  ]) = _$DashboardApiUpdateLayoutResponseApplicationJson;
+
+  // coverage:ignore-start
+  const DashboardApiUpdateLayoutResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DashboardApiUpdateLayoutResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DashboardApiUpdateLayoutResponseApplicationJson.
+  static Serializer<DashboardApiUpdateLayoutResponseApplicationJson> get serializer =>
+      _$dashboardApiUpdateLayoutResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DashboardApiUpdateLayoutResponseApplicationJsonBuilder b) {
+    $DashboardApiUpdateLayoutResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DashboardApiUpdateLayoutResponseApplicationJsonBuilder b) {
+    $DashboardApiUpdateLayoutResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $DashboardApiGetStatusesResponseApplicationJson_Ocs_DataInterface {
+  BuiltList<String> get statuses;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DashboardApiGetStatusesResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $DashboardApiGetStatusesResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($DashboardApiGetStatusesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DashboardApiGetStatusesResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $DashboardApiGetStatusesResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DashboardApiGetStatusesResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DashboardApiGetStatusesResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class DashboardApiGetStatusesResponseApplicationJson_Ocs_Data
+    implements
+        $DashboardApiGetStatusesResponseApplicationJson_Ocs_DataInterface,
+        Built<DashboardApiGetStatusesResponseApplicationJson_Ocs_Data,
+            DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new DashboardApiGetStatusesResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory DashboardApiGetStatusesResponseApplicationJson_Ocs_Data([
+    void Function(DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$DashboardApiGetStatusesResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const DashboardApiGetStatusesResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DashboardApiGetStatusesResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DashboardApiGetStatusesResponseApplicationJson_Ocs_Data.
+  static Serializer<DashboardApiGetStatusesResponseApplicationJson_Ocs_Data> get serializer =>
+      _$dashboardApiGetStatusesResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder b) {
+    $DashboardApiGetStatusesResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder b) {
+    $DashboardApiGetStatusesResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $DashboardApiGetStatusesResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  DashboardApiGetStatusesResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DashboardApiGetStatusesResponseApplicationJson_OcsInterfaceBuilder].
+  $DashboardApiGetStatusesResponseApplicationJson_OcsInterface rebuild(
+    void Function($DashboardApiGetStatusesResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DashboardApiGetStatusesResponseApplicationJson_OcsInterfaceBuilder].
+  $DashboardApiGetStatusesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DashboardApiGetStatusesResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DashboardApiGetStatusesResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class DashboardApiGetStatusesResponseApplicationJson_Ocs
+    implements
+        $DashboardApiGetStatusesResponseApplicationJson_OcsInterface,
+        Built<DashboardApiGetStatusesResponseApplicationJson_Ocs,
+            DashboardApiGetStatusesResponseApplicationJson_OcsBuilder> {
+  /// Creates a new DashboardApiGetStatusesResponseApplicationJson_Ocs object using the builder pattern.
+  factory DashboardApiGetStatusesResponseApplicationJson_Ocs([
+    void Function(DashboardApiGetStatusesResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$DashboardApiGetStatusesResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const DashboardApiGetStatusesResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DashboardApiGetStatusesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DashboardApiGetStatusesResponseApplicationJson_Ocs.
+  static Serializer<DashboardApiGetStatusesResponseApplicationJson_Ocs> get serializer =>
+      _$dashboardApiGetStatusesResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DashboardApiGetStatusesResponseApplicationJson_OcsBuilder b) {
+    $DashboardApiGetStatusesResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DashboardApiGetStatusesResponseApplicationJson_OcsBuilder b) {
+    $DashboardApiGetStatusesResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $DashboardApiGetStatusesResponseApplicationJsonInterface {
+  DashboardApiGetStatusesResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DashboardApiGetStatusesResponseApplicationJsonInterfaceBuilder].
+  $DashboardApiGetStatusesResponseApplicationJsonInterface rebuild(
+    void Function($DashboardApiGetStatusesResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DashboardApiGetStatusesResponseApplicationJsonInterfaceBuilder].
+  $DashboardApiGetStatusesResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DashboardApiGetStatusesResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DashboardApiGetStatusesResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class DashboardApiGetStatusesResponseApplicationJson
+    implements
+        $DashboardApiGetStatusesResponseApplicationJsonInterface,
+        Built<DashboardApiGetStatusesResponseApplicationJson, DashboardApiGetStatusesResponseApplicationJsonBuilder> {
+  /// Creates a new DashboardApiGetStatusesResponseApplicationJson object using the builder pattern.
+  factory DashboardApiGetStatusesResponseApplicationJson([
+    void Function(DashboardApiGetStatusesResponseApplicationJsonBuilder)? b,
+  ]) = _$DashboardApiGetStatusesResponseApplicationJson;
+
+  // coverage:ignore-start
+  const DashboardApiGetStatusesResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DashboardApiGetStatusesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DashboardApiGetStatusesResponseApplicationJson.
+  static Serializer<DashboardApiGetStatusesResponseApplicationJson> get serializer =>
+      _$dashboardApiGetStatusesResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DashboardApiGetStatusesResponseApplicationJsonBuilder b) {
+    $DashboardApiGetStatusesResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DashboardApiGetStatusesResponseApplicationJsonBuilder b) {
+    $DashboardApiGetStatusesResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $DashboardApiUpdateStatusesRequestApplicationJsonInterface {
+  /// The new statuses.
+  BuiltList<String> get statuses;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DashboardApiUpdateStatusesRequestApplicationJsonInterfaceBuilder].
+  $DashboardApiUpdateStatusesRequestApplicationJsonInterface rebuild(
+    void Function($DashboardApiUpdateStatusesRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DashboardApiUpdateStatusesRequestApplicationJsonInterfaceBuilder].
+  $DashboardApiUpdateStatusesRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DashboardApiUpdateStatusesRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DashboardApiUpdateStatusesRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class DashboardApiUpdateStatusesRequestApplicationJson
+    implements
+        $DashboardApiUpdateStatusesRequestApplicationJsonInterface,
+        Built<DashboardApiUpdateStatusesRequestApplicationJson,
+            DashboardApiUpdateStatusesRequestApplicationJsonBuilder> {
+  /// Creates a new DashboardApiUpdateStatusesRequestApplicationJson object using the builder pattern.
+  factory DashboardApiUpdateStatusesRequestApplicationJson([
+    void Function(DashboardApiUpdateStatusesRequestApplicationJsonBuilder)? b,
+  ]) = _$DashboardApiUpdateStatusesRequestApplicationJson;
+
+  // coverage:ignore-start
+  const DashboardApiUpdateStatusesRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DashboardApiUpdateStatusesRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DashboardApiUpdateStatusesRequestApplicationJson.
+  static Serializer<DashboardApiUpdateStatusesRequestApplicationJson> get serializer =>
+      _$dashboardApiUpdateStatusesRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DashboardApiUpdateStatusesRequestApplicationJsonBuilder b) {
+    $DashboardApiUpdateStatusesRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DashboardApiUpdateStatusesRequestApplicationJsonBuilder b) {
+    $DashboardApiUpdateStatusesRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataInterface {
+  BuiltList<String> get statuses;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data
+    implements
+        $DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataInterface,
+        Built<DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data,
+            DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data([
+    void Function(DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data.
+  static Serializer<DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data> get serializer =>
+      _$dashboardApiUpdateStatusesResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder b) {
+    $DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder b) {
+    $DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $DashboardApiUpdateStatusesResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DashboardApiUpdateStatusesResponseApplicationJson_OcsInterfaceBuilder].
+  $DashboardApiUpdateStatusesResponseApplicationJson_OcsInterface rebuild(
+    void Function($DashboardApiUpdateStatusesResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DashboardApiUpdateStatusesResponseApplicationJson_OcsInterfaceBuilder].
+  $DashboardApiUpdateStatusesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DashboardApiUpdateStatusesResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DashboardApiUpdateStatusesResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class DashboardApiUpdateStatusesResponseApplicationJson_Ocs
+    implements
+        $DashboardApiUpdateStatusesResponseApplicationJson_OcsInterface,
+        Built<DashboardApiUpdateStatusesResponseApplicationJson_Ocs,
+            DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder> {
+  /// Creates a new DashboardApiUpdateStatusesResponseApplicationJson_Ocs object using the builder pattern.
+  factory DashboardApiUpdateStatusesResponseApplicationJson_Ocs([
+    void Function(DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const DashboardApiUpdateStatusesResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DashboardApiUpdateStatusesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DashboardApiUpdateStatusesResponseApplicationJson_Ocs.
+  static Serializer<DashboardApiUpdateStatusesResponseApplicationJson_Ocs> get serializer =>
+      _$dashboardApiUpdateStatusesResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder b) {
+    $DashboardApiUpdateStatusesResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder b) {
+    $DashboardApiUpdateStatusesResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $DashboardApiUpdateStatusesResponseApplicationJsonInterface {
+  DashboardApiUpdateStatusesResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DashboardApiUpdateStatusesResponseApplicationJsonInterfaceBuilder].
+  $DashboardApiUpdateStatusesResponseApplicationJsonInterface rebuild(
+    void Function($DashboardApiUpdateStatusesResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DashboardApiUpdateStatusesResponseApplicationJsonInterfaceBuilder].
+  $DashboardApiUpdateStatusesResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DashboardApiUpdateStatusesResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DashboardApiUpdateStatusesResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class DashboardApiUpdateStatusesResponseApplicationJson
+    implements
+        $DashboardApiUpdateStatusesResponseApplicationJsonInterface,
+        Built<DashboardApiUpdateStatusesResponseApplicationJson,
+            DashboardApiUpdateStatusesResponseApplicationJsonBuilder> {
+  /// Creates a new DashboardApiUpdateStatusesResponseApplicationJson object using the builder pattern.
+  factory DashboardApiUpdateStatusesResponseApplicationJson([
+    void Function(DashboardApiUpdateStatusesResponseApplicationJsonBuilder)? b,
+  ]) = _$DashboardApiUpdateStatusesResponseApplicationJson;
+
+  // coverage:ignore-start
+  const DashboardApiUpdateStatusesResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DashboardApiUpdateStatusesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DashboardApiUpdateStatusesResponseApplicationJson.
+  static Serializer<DashboardApiUpdateStatusesResponseApplicationJson> get serializer =>
+      _$dashboardApiUpdateStatusesResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DashboardApiUpdateStatusesResponseApplicationJsonBuilder b) {
+    $DashboardApiUpdateStatusesResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DashboardApiUpdateStatusesResponseApplicationJsonBuilder b) {
+    $DashboardApiUpdateStatusesResponseApplicationJsonInterface._validate(b);
+  }
+}
+
 // coverage:ignore-start
 /// Serializer for all values in this library.
 ///
@@ -1065,28 +2314,6 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(
-        const FullType(DashboardApiGetWidgetsResponseApplicationJson),
-        DashboardApiGetWidgetsResponseApplicationJsonBuilder.new,
-      )
-      ..add(DashboardApiGetWidgetsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DashboardApiGetWidgetsResponseApplicationJson_Ocs),
-        DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(DashboardApiGetWidgetsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
-      ..add(OCSMeta.serializer)
-      ..addBuilderFactory(const FullType(Widget), WidgetBuilder.new)
-      ..add(Widget.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
-      ..addBuilderFactory(const FullType(Widget_Buttons), Widget_ButtonsBuilder.new)
-      ..add(Widget_Buttons.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Widget_Buttons)]), ListBuilder<Widget_Buttons>.new)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(Widget)]),
-        MapBuilder<String, Widget>.new,
-      )
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
       ..addBuilderFactory(
         const FullType(DashboardApiGetWidgetItemsResponseApplicationJson),
@@ -1098,6 +2325,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
         DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(DashboardApiGetWidgetItemsResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
+      ..add(OCSMeta.serializer)
       ..addBuilderFactory(const FullType(WidgetItem), WidgetItemBuilder.new)
       ..add(WidgetItem.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(WidgetItem)]), ListBuilder<WidgetItem>.new)
@@ -1123,7 +2352,97 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltMap, [FullType(String), FullType(WidgetItems)]),
         MapBuilder<String, WidgetItems>.new,
-      ))
+      )
+      ..addBuilderFactory(
+        const FullType(DashboardApiGetWidgetsResponseApplicationJson),
+        DashboardApiGetWidgetsResponseApplicationJsonBuilder.new,
+      )
+      ..add(DashboardApiGetWidgetsResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(DashboardApiGetWidgetsResponseApplicationJson_Ocs),
+        DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(DashboardApiGetWidgetsResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(Widget), WidgetBuilder.new)
+      ..add(Widget.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
+      ..addBuilderFactory(const FullType(Widget_Buttons), Widget_ButtonsBuilder.new)
+      ..add(Widget_Buttons.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(Widget_Buttons)]), ListBuilder<Widget_Buttons>.new)
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(Widget)]),
+        MapBuilder<String, Widget>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(DashboardApiGetLayoutResponseApplicationJson),
+        DashboardApiGetLayoutResponseApplicationJsonBuilder.new,
+      )
+      ..add(DashboardApiGetLayoutResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(DashboardApiGetLayoutResponseApplicationJson_Ocs),
+        DashboardApiGetLayoutResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(DashboardApiGetLayoutResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(DashboardApiGetLayoutResponseApplicationJson_Ocs_Data),
+        DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(DashboardApiGetLayoutResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(DashboardApiUpdateLayoutRequestApplicationJson),
+        DashboardApiUpdateLayoutRequestApplicationJsonBuilder.new,
+      )
+      ..add(DashboardApiUpdateLayoutRequestApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(DashboardApiUpdateLayoutResponseApplicationJson),
+        DashboardApiUpdateLayoutResponseApplicationJsonBuilder.new,
+      )
+      ..add(DashboardApiUpdateLayoutResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(DashboardApiUpdateLayoutResponseApplicationJson_Ocs),
+        DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(DashboardApiUpdateLayoutResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data),
+        DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(DashboardApiGetStatusesResponseApplicationJson),
+        DashboardApiGetStatusesResponseApplicationJsonBuilder.new,
+      )
+      ..add(DashboardApiGetStatusesResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(DashboardApiGetStatusesResponseApplicationJson_Ocs),
+        DashboardApiGetStatusesResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(DashboardApiGetStatusesResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(DashboardApiGetStatusesResponseApplicationJson_Ocs_Data),
+        DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(DashboardApiGetStatusesResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(DashboardApiUpdateStatusesRequestApplicationJson),
+        DashboardApiUpdateStatusesRequestApplicationJsonBuilder.new,
+      )
+      ..add(DashboardApiUpdateStatusesRequestApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(DashboardApiUpdateStatusesResponseApplicationJson),
+        DashboardApiUpdateStatusesResponseApplicationJsonBuilder.new,
+      )
+      ..add(DashboardApiUpdateStatusesResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(DashboardApiUpdateStatusesResponseApplicationJson_Ocs),
+        DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(DashboardApiUpdateStatusesResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data),
+        DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data.serializer))
     .build();
 
 /// Serializer for all values in this library.

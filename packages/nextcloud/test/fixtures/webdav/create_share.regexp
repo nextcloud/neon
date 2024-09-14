@@ -10,7 +10,7 @@ accept: application/json
 authorization: Bearer mock
 content-type: application/json; charset=utf-8
 ocs-apirequest: true
-\{"shareType":0,"publicUpload":"false","password":"","expireDate":"","note":"","label":"","path":"/test/share\.png","shareWith":"user2"\}
+\{"shareType":0,"publicUpload":"false","password":"","note":"","label":"","path":"/test/share\.png","shareWith":"user2"\}
 PROPFIND http://localhost/remote\.php/webdav/test/share\.png
 authorization: Bearer mock
 content-type: application/xml

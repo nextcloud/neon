@@ -173,6 +173,113 @@ class $ApiClient {
     final _serializer = $getThumbnail_Serializer();
     return _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of [$getFolderTree_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<BuiltList<FolderTree>, void> $getFolderTree_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(BuiltList, [FullType(FolderTree)]),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Returns the folder tree of the user.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getFolderTree] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [path] The path relative to the user folder. Defaults to `"/"`.
+  ///   * [depth] The depth of the tree. Defaults to `1`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Folder tree returned successfully
+  ///   * 401: Unauthorized
+  ///   * 400: Invalid folder path
+  ///   * 404: Folder not found
+  ///
+  /// See:
+  ///  * [getFolderTree] for a method executing this request and parsing the response.
+  ///  * [$getFolderTree_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getFolderTree_Request({
+    String? path,
+    int? depth,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    var __path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
+    __path ??= '/';
+    _parameters['path'] = __path;
+
+    var __depth = _$jsonSerializers.serialize(depth, specifiedType: const FullType(int));
+    __depth ??= 1;
+    _parameters['depth'] = __depth;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/files/api/v1/folder-tree{?path*,depth*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Returns the folder tree of the user.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [path] The path relative to the user folder. Defaults to `"/"`.
+  ///   * [depth] The depth of the tree. Defaults to `1`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Folder tree returned successfully
+  ///   * 401: Unauthorized
+  ///   * 400: Invalid folder path
+  ///   * 404: Folder not found
+  ///
+  /// See:
+  ///  * [$getFolderTree_Request] for the request send by this method.
+  ///  * [$getFolderTree_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<BuiltList<FolderTree>, void>> getFolderTree({
+    String? path,
+    int? depth,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $getFolderTree_Request(
+      path: path,
+      depth: depth,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $getFolderTree_Serializer();
+    return _i1.ResponseConverter<BuiltList<FolderTree>, void>(_serializer).convert(_response);
+  }
 }
 
 class $DirectEditingClient {
@@ -1321,6 +1428,63 @@ class $TransferOwnershipClient {
 
     final _serializer = $reject_Serializer();
     return _i1.ResponseConverter<TransferOwnershipRejectResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $FolderTreeInterface {
+  int get id;
+  String get basename;
+  String? get displayName;
+  BuiltList<JsonObject> get children;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$FolderTreeInterfaceBuilder].
+  $FolderTreeInterface rebuild(void Function($FolderTreeInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$FolderTreeInterfaceBuilder].
+  $FolderTreeInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($FolderTreeInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($FolderTreeInterfaceBuilder b) {}
+}
+
+abstract class FolderTree implements $FolderTreeInterface, Built<FolderTree, FolderTreeBuilder> {
+  /// Creates a new FolderTree object using the builder pattern.
+  factory FolderTree([void Function(FolderTreeBuilder)? b]) = _$FolderTree;
+
+  // coverage:ignore-start
+  const FolderTree._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory FolderTree.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for FolderTree.
+  static Serializer<FolderTree> get serializer => _$folderTreeSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(FolderTreeBuilder b) {
+    $FolderTreeInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(FolderTreeBuilder b) {
+    $FolderTreeInterface._validate(b);
   }
 }
 
@@ -3205,6 +3369,62 @@ abstract class TemplateListResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $TemplateFieldInterface {
+  String get index;
+  String get content;
+  String get type;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TemplateFieldInterfaceBuilder].
+  $TemplateFieldInterface rebuild(void Function($TemplateFieldInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$TemplateFieldInterfaceBuilder].
+  $TemplateFieldInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TemplateFieldInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TemplateFieldInterfaceBuilder b) {}
+}
+
+abstract class TemplateField implements $TemplateFieldInterface, Built<TemplateField, TemplateFieldBuilder> {
+  /// Creates a new TemplateField object using the builder pattern.
+  factory TemplateField([void Function(TemplateFieldBuilder)? b]) = _$TemplateField;
+
+  // coverage:ignore-start
+  const TemplateField._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TemplateField.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TemplateField.
+  static Serializer<TemplateField> get serializer => _$templateFieldSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TemplateFieldBuilder b) {
+    $TemplateFieldInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TemplateFieldBuilder b) {
+    $TemplateFieldInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $TemplateCreateRequestApplicationJsonInterface {
   static final _$templatePath = _$jsonSerializers.deserialize(
     '',
@@ -3216,6 +3436,11 @@ sealed class $TemplateCreateRequestApplicationJsonInterface {
     specifiedType: const FullType(String),
   )! as String;
 
+  static final _$templateFields = _$jsonSerializers.deserialize(
+    const [],
+    specifiedType: const FullType(BuiltList, [FullType(TemplateField)]),
+  )! as BuiltList<TemplateField>;
+
   /// Path of the file.
   String get filePath;
 
@@ -3224,6 +3449,9 @@ sealed class $TemplateCreateRequestApplicationJsonInterface {
 
   /// Type of the template.
   String get templateType;
+
+  /// Fields of the template.
+  BuiltList<TemplateField> get templateFields;
 
   /// Rebuilds the instance.
   ///
@@ -3239,6 +3467,7 @@ sealed class $TemplateCreateRequestApplicationJsonInterface {
   static void _defaults($TemplateCreateRequestApplicationJsonInterfaceBuilder b) {
     b.templatePath = _$templatePath;
     b.templateType = _$templateType;
+    b.templateFields.replace(_$templateFields);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
@@ -4262,11 +4491,19 @@ abstract class Capabilities_Files_DirectEditing
 
 @BuiltValue(instantiable: false)
 sealed class $Capabilities_FilesInterface {
+  @BuiltValueField(wireName: r'$comment')
+  String? get comment;
   bool get bigfilechunking;
   @BuiltValueField(wireName: 'blacklisted_files')
   BuiltList<JsonObject> get blacklistedFiles;
+  @BuiltValueField(wireName: 'forbidden_filenames')
+  BuiltList<String> get forbiddenFilenames;
+  @BuiltValueField(wireName: 'forbidden_filename_basenames')
+  BuiltList<String> get forbiddenFilenameBasenames;
   @BuiltValueField(wireName: 'forbidden_filename_characters')
   BuiltList<String> get forbiddenFilenameCharacters;
+  @BuiltValueField(wireName: 'forbidden_filename_extensions')
+  BuiltList<String> get forbiddenFilenameExtensions;
   Capabilities_Files_DirectEditing get directEditing;
 
   /// Rebuilds the instance.
@@ -4383,6 +4620,10 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
+      ..addBuilderFactory(const FullType(FolderTree), FolderTreeBuilder.new)
+      ..add(FolderTree.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(FolderTree)]), ListBuilder<FolderTree>.new)
       ..addBuilderFactory(
         const FullType(DirectEditingInfoResponseApplicationJson),
         DirectEditingInfoResponseApplicationJsonBuilder.new,
@@ -4553,6 +4794,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
         TemplateCreateRequestApplicationJsonBuilder.new,
       )
       ..add(TemplateCreateRequestApplicationJson.serializer)
+      ..addBuilderFactory(const FullType(TemplateField), TemplateFieldBuilder.new)
+      ..add(TemplateField.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(TemplateField)]), ListBuilder<TemplateField>.new)
       ..addBuilderFactory(
         const FullType(TemplateCreateResponseApplicationJson),
         TemplateCreateResponseApplicationJsonBuilder.new,
@@ -4624,7 +4868,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(Capabilities.serializer)
       ..addBuilderFactory(const FullType(Capabilities_Files), Capabilities_FilesBuilder.new)
       ..add(Capabilities_Files.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
       ..addBuilderFactory(const FullType(Capabilities_Files_DirectEditing), Capabilities_Files_DirectEditingBuilder.new)
       ..add(Capabilities_Files_DirectEditing.serializer))
     .build();

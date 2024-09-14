@@ -60,6 +60,8 @@ class $Client extends _i1.DynamiteClient {
   late final $ApiTablesClient apiTables = $ApiTablesClient(this);
 
   late final $ContextClient context = $ContextClient(this);
+
+  late final $RowocsClient rowocs = $RowocsClient(this);
 }
 
 class $Api1Client {
@@ -480,6 +482,90 @@ class $Api1Client {
     return _i1.ResponseConverter<Table, void>(_serializer).convert(_response);
   }
 
+  /// Builds a serializer to parse the response of [$showScheme_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<Table, Api1Api1ShowSchemeHeaders> $showScheme_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Table),
+        headersType: const FullType(Api1Api1ShowSchemeHeaders),
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// returns table scheme.
+  ///
+  /// Returns a `DynamiteRequest` backing the [showScheme] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [tableId] Table ID.
+  ///
+  /// Status codes:
+  ///   * 200: Table returned
+  ///   * 403: No permissions
+  ///   * 500
+  ///   * 404: Not found
+  ///
+  /// See:
+  ///  * [showScheme] for a method executing this request and parsing the response.
+  ///  * [$showScheme_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $showScheme_Request({required int tableId}) {
+    final _parameters = <String, Object?>{};
+    final __tableId = _$jsonSerializers.serialize(tableId, specifiedType: const FullType(int));
+    _parameters['tableId'] = __tableId;
+
+    final _path = _i5.UriTemplate('/index.php/apps/tables/api/1/tables/{tableId}/scheme').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for basic_auth');
+    }
+
+// coverage:ignore-end
+    return _request;
+  }
+
+  /// returns table scheme.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [tableId] Table ID.
+  ///
+  /// Status codes:
+  ///   * 200: Table returned
+  ///   * 403: No permissions
+  ///   * 500
+  ///   * 404: Not found
+  ///
+  /// See:
+  ///  * [$showScheme_Request] for the request send by this method.
+  ///  * [$showScheme_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<Table, Api1Api1ShowSchemeHeaders>> showScheme({required int tableId}) async {
+    final _request = $showScheme_Request(
+      tableId: tableId,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $showScheme_Serializer();
+    return _i1.ResponseConverter<Table, Api1Api1ShowSchemeHeaders>(_serializer).convert(_response);
+  }
+
   /// Builds a serializer to parse the response of [$indexViews_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BuiltList<View>, void> $indexViews_Serializer() => _i1.DynamiteSerializer(
@@ -763,6 +849,7 @@ class $Api1Client {
   /// Status codes:
   ///   * 200: View updated
   ///   * 403: No permissions
+  ///   * 400: Invalid data
   ///   * 500
   ///
   /// See:
@@ -816,6 +903,7 @@ class $Api1Client {
   /// Status codes:
   ///   * 200: View updated
   ///   * 403: No permissions
+  ///   * 400: Invalid data
   ///   * 500
   ///
   /// See:
@@ -3911,6 +3999,106 @@ class $ApiColumnsClient {
     return _i1.ResponseConverter<ApiColumnsCreateDatetimeColumnResponseApplicationJson, void>(_serializer)
         .convert(_response);
   }
+
+  /// Builds a serializer to parse the response of [$createUsergroupColumn_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<ApiColumnsCreateUsergroupColumnResponseApplicationJson, void>
+      $createUsergroupColumn_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(ApiColumnsCreateUsergroupColumnResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+            validStatuses: const {200},
+          );
+
+  /// [api v2] Create new usergroup column.
+  ///
+  /// Returns a `DynamiteRequest` backing the [createUsergroupColumn] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Column created
+  ///   * 403: No permission
+  ///   * 500
+  ///   * 404: Not found
+  ///
+  /// See:
+  ///  * [createUsergroupColumn] for a method executing this request and parsing the response.
+  ///  * [$createUsergroupColumn_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $createUsergroupColumn_Request({
+    required ApiColumnsCreateUsergroupColumnRequestApplicationJson $body,
+    bool? oCSAPIRequest,
+  }) {
+    const _path = '/ocs/v2.php/apps/tables/api/2/columns/usergroup';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
+
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(ApiColumnsCreateUsergroupColumnRequestApplicationJson),
+      ),
+    );
+    return _request;
+  }
+
+  /// [api v2] Create new usergroup column.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Column created
+  ///   * 403: No permission
+  ///   * 500
+  ///   * 404: Not found
+  ///
+  /// See:
+  ///  * [$createUsergroupColumn_Request] for the request send by this method.
+  ///  * [$createUsergroupColumn_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<ApiColumnsCreateUsergroupColumnResponseApplicationJson, void>> createUsergroupColumn({
+    required ApiColumnsCreateUsergroupColumnRequestApplicationJson $body,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $createUsergroupColumn_Request(
+      oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $createUsergroupColumn_Serializer();
+    return _i1.ResponseConverter<ApiColumnsCreateUsergroupColumnResponseApplicationJson, void>(_serializer)
+        .convert(_response);
+  }
 }
 
 class $ApiFavoriteClient {
@@ -4702,6 +4890,200 @@ class $ApiTablesClient {
 
     final _serializer = $destroy_Serializer();
     return _i1.ResponseConverter<ApiTablesDestroyResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$showScheme_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<ApiTablesShowSchemeResponseApplicationJson, void> $showScheme_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ApiTablesShowSchemeResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// [api v2] Get a table Scheme.
+  ///
+  /// Returns a `DynamiteRequest` backing the [showScheme] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] Table ID.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Scheme returned
+  ///   * 403: No permissions
+  ///   * 500
+  ///   * 404: Not found
+  ///
+  /// See:
+  ///  * [showScheme] for a method executing this request and parsing the response.
+  ///  * [$showScheme_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $showScheme_Request({
+    required int id,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = __id;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/tables/api/2/tables/scheme/{id}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// [api v2] Get a table Scheme.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] Table ID.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Scheme returned
+  ///   * 403: No permissions
+  ///   * 500
+  ///   * 404: Not found
+  ///
+  /// See:
+  ///  * [$showScheme_Request] for the request send by this method.
+  ///  * [$showScheme_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<ApiTablesShowSchemeResponseApplicationJson, void>> showScheme({
+    required int id,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $showScheme_Request(
+      id: id,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $showScheme_Serializer();
+    return _i1.ResponseConverter<ApiTablesShowSchemeResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$createFromScheme_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<ApiTablesCreateFromSchemeResponseApplicationJson, void> $createFromScheme_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ApiTablesCreateFromSchemeResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// creates table from scheme.
+  ///
+  /// Returns a `DynamiteRequest` backing the [createFromScheme] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Tables returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [createFromScheme] for a method executing this request and parsing the response.
+  ///  * [$createFromScheme_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $createFromScheme_Request({
+    required ApiTablesCreateFromSchemeRequestApplicationJson $body,
+    bool? oCSAPIRequest,
+  }) {
+    const _path = '/ocs/v2.php/apps/tables/api/2/tables/scheme';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
+
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(ApiTablesCreateFromSchemeRequestApplicationJson),
+      ),
+    );
+    return _request;
+  }
+
+  /// creates table from scheme.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Tables returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [$createFromScheme_Request] for the request send by this method.
+  ///  * [$createFromScheme_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<ApiTablesCreateFromSchemeResponseApplicationJson, void>> createFromScheme({
+    required ApiTablesCreateFromSchemeRequestApplicationJson $body,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $createFromScheme_Request(
+      oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $createFromScheme_Serializer();
+    return _i1.ResponseConverter<ApiTablesCreateFromSchemeResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$transfer_Request].
@@ -5527,6 +5909,134 @@ class $ContextClient {
   }
 }
 
+class $RowocsClient {
+  /// Creates a new `DynamiteClient` for rowocs requests.
+  $RowocsClient(this._rootClient);
+
+  final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of [$createRow_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<RowocsCreateRowResponseApplicationJson, void> $createRow_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RowocsCreateRowResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// [api v2] Create a new row in a table or a view.
+  ///
+  /// Returns a `DynamiteRequest` backing the [createRow] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [nodeCollection] Indicates whether to create a row on a table or view.
+  ///   * [nodeId] The identifier of the targeted table or view.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Row returned
+  ///   * 403: No permissions
+  ///   * 400: Invalid request parameters
+  ///   * 404: Not found
+  ///   * 500: Internal error
+  ///
+  /// See:
+  ///  * [createRow] for a method executing this request and parsing the response.
+  ///  * [$createRow_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $createRow_Request({
+    required RowocsCreateRowNodeCollection nodeCollection,
+    required int nodeId,
+    required RowocsCreateRowRequestApplicationJson $body,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __nodeCollection =
+        _$jsonSerializers.serialize(nodeCollection, specifiedType: const FullType(RowocsCreateRowNodeCollection));
+    _i6.checkString(
+      __nodeCollection,
+      'nodeCollection',
+      pattern: RegExp(r'^(tables|views)$'),
+    );
+    _parameters['nodeCollection'] = __nodeCollection;
+
+    final __nodeId = _$jsonSerializers.serialize(nodeId, specifiedType: const FullType(int));
+    _parameters['nodeId'] = __nodeId;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/tables/api/2/{nodeCollection}/{nodeId}/rows').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
+
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(RowocsCreateRowRequestApplicationJson)),
+    );
+    return _request;
+  }
+
+  /// [api v2] Create a new row in a table or a view.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [nodeCollection] Indicates whether to create a row on a table or view.
+  ///   * [nodeId] The identifier of the targeted table or view.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Row returned
+  ///   * 403: No permissions
+  ///   * 400: Invalid request parameters
+  ///   * 404: Not found
+  ///   * 500: Internal error
+  ///
+  /// See:
+  ///  * [$createRow_Request] for the request send by this method.
+  ///  * [$createRow_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<RowocsCreateRowResponseApplicationJson, void>> createRow({
+    required RowocsCreateRowNodeCollection nodeCollection,
+    required int nodeId,
+    required RowocsCreateRowRequestApplicationJson $body,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $createRow_Request(
+      nodeCollection: nodeCollection,
+      nodeId: nodeId,
+      oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $createRow_Serializer();
+    return _i1.ResponseConverter<RowocsCreateRowResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+}
+
 @BuiltValue(instantiable: false)
 sealed class $Table_OnSharePermissionsInterface {
   bool get read;
@@ -6225,6 +6735,63 @@ abstract class Api1UpdateTableRequestApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(Api1UpdateTableRequestApplicationJsonBuilder b) {
     $Api1UpdateTableRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $Api1Api1ShowSchemeHeadersInterface {
+  @BuiltValueField(wireName: 'content-disposition')
+  String? get contentDisposition;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Api1Api1ShowSchemeHeadersInterfaceBuilder].
+  $Api1Api1ShowSchemeHeadersInterface rebuild(void Function($Api1Api1ShowSchemeHeadersInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$Api1Api1ShowSchemeHeadersInterfaceBuilder].
+  $Api1Api1ShowSchemeHeadersInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Api1Api1ShowSchemeHeadersInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Api1Api1ShowSchemeHeadersInterfaceBuilder b) {}
+}
+
+abstract class Api1Api1ShowSchemeHeaders
+    implements $Api1Api1ShowSchemeHeadersInterface, Built<Api1Api1ShowSchemeHeaders, Api1Api1ShowSchemeHeadersBuilder> {
+  /// Creates a new Api1Api1ShowSchemeHeaders object using the builder pattern.
+  factory Api1Api1ShowSchemeHeaders([void Function(Api1Api1ShowSchemeHeadersBuilder)? b]) = _$Api1Api1ShowSchemeHeaders;
+
+  // coverage:ignore-start
+  const Api1Api1ShowSchemeHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory Api1Api1ShowSchemeHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for Api1Api1ShowSchemeHeaders.
+  static Serializer<Api1Api1ShowSchemeHeaders> get serializer => _$api1Api1ShowSchemeHeadersSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Api1Api1ShowSchemeHeadersBuilder b) {
+    $Api1Api1ShowSchemeHeadersInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Api1Api1ShowSchemeHeadersBuilder b) {
+    $Api1Api1ShowSchemeHeadersInterface._validate(b);
   }
 }
 
@@ -8011,6 +8578,11 @@ sealed class $ColumnInterface {
   String get selectionOptions;
   String get selectionDefault;
   String get datetimeDefault;
+  String get usergroupDefault;
+  bool get usergroupMultipleItems;
+  bool get usergroupSelectUsers;
+  bool get usergroupSelectGroups;
+  bool get showUserStatus;
 
   /// Rebuilds the instance.
   ///
@@ -8082,6 +8654,10 @@ class Api1CreateTableColumnRequestApplicationJson_Type extends EnumClass {
   static const Api1CreateTableColumnRequestApplicationJson_Type select =
       _$api1CreateTableColumnRequestApplicationJsonTypeSelect;
 
+  /// `usergroup`
+  static const Api1CreateTableColumnRequestApplicationJson_Type usergroup =
+      _$api1CreateTableColumnRequestApplicationJsonTypeUsergroup;
+
   /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<Api1CreateTableColumnRequestApplicationJson_Type> get values =>
@@ -8111,6 +8687,7 @@ class _$Api1CreateTableColumnRequestApplicationJson_TypeSerializer
     Api1CreateTableColumnRequestApplicationJson_Type.number: 'number',
     Api1CreateTableColumnRequestApplicationJson_Type.datetime: 'datetime',
     Api1CreateTableColumnRequestApplicationJson_Type.select: 'select',
+    Api1CreateTableColumnRequestApplicationJson_Type.usergroup: 'usergroup',
   };
 
   static const Map<Object, Api1CreateTableColumnRequestApplicationJson_Type> _fromWire =
@@ -8119,6 +8696,7 @@ class _$Api1CreateTableColumnRequestApplicationJson_TypeSerializer
     'number': Api1CreateTableColumnRequestApplicationJson_Type.number,
     'datetime': Api1CreateTableColumnRequestApplicationJson_Type.datetime,
     'select': Api1CreateTableColumnRequestApplicationJson_Type.select,
+    'usergroup': Api1CreateTableColumnRequestApplicationJson_Type.usergroup,
   };
 
   @override
@@ -8157,6 +8735,11 @@ sealed class $Api1CreateTableColumnRequestApplicationJsonInterface {
   )! as String;
 
   static final _$datetimeDefault = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  static final _$usergroupDefault = _$jsonSerializers.deserialize(
     '',
     specifiedType: const FullType(String),
   )! as String;
@@ -8217,6 +8800,21 @@ sealed class $Api1CreateTableColumnRequestApplicationJsonInterface {
   /// Default value, if column is datetime.
   String? get datetimeDefault;
 
+  /// Default value, if column is usergroup.
+  String? get usergroupDefault;
+
+  /// Can select multiple users or/and groups, if column is usergroup.
+  bool? get usergroupMultipleItems;
+
+  /// Can select users, if column type is usergroup.
+  bool? get usergroupSelectUsers;
+
+  /// Can select groups, if column type is usergroup.
+  bool? get usergroupSelectGroups;
+
+  /// Whether to show the user's status, if column type is usergroup.
+  bool? get usergroupShowUserStatus;
+
   /// View IDs where this column should be added to be presented.
   BuiltList<int>? get selectedViewIds;
 
@@ -8235,6 +8833,7 @@ sealed class $Api1CreateTableColumnRequestApplicationJsonInterface {
     b.selectionOptions = _$selectionOptions;
     b.selectionDefault = _$selectionDefault;
     b.datetimeDefault = _$datetimeDefault;
+    b.usergroupDefault = _$usergroupDefault;
     b.selectedViewIds.replace(_$selectedViewIds);
   }
 
@@ -8302,6 +8901,10 @@ class Api1CreateColumnRequestApplicationJson_Type extends EnumClass {
   /// `select`
   static const Api1CreateColumnRequestApplicationJson_Type select = _$api1CreateColumnRequestApplicationJsonTypeSelect;
 
+  /// `usergroup`
+  static const Api1CreateColumnRequestApplicationJson_Type usergroup =
+      _$api1CreateColumnRequestApplicationJsonTypeUsergroup;
+
   /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<Api1CreateColumnRequestApplicationJson_Type> get values =>
@@ -8331,6 +8934,7 @@ class _$Api1CreateColumnRequestApplicationJson_TypeSerializer
     Api1CreateColumnRequestApplicationJson_Type.number: 'number',
     Api1CreateColumnRequestApplicationJson_Type.datetime: 'datetime',
     Api1CreateColumnRequestApplicationJson_Type.select: 'select',
+    Api1CreateColumnRequestApplicationJson_Type.usergroup: 'usergroup',
   };
 
   static const Map<Object, Api1CreateColumnRequestApplicationJson_Type> _fromWire =
@@ -8339,6 +8943,7 @@ class _$Api1CreateColumnRequestApplicationJson_TypeSerializer
     'number': Api1CreateColumnRequestApplicationJson_Type.number,
     'datetime': Api1CreateColumnRequestApplicationJson_Type.datetime,
     'select': Api1CreateColumnRequestApplicationJson_Type.select,
+    'usergroup': Api1CreateColumnRequestApplicationJson_Type.usergroup,
   };
 
   @override
@@ -8377,6 +8982,11 @@ sealed class $Api1CreateColumnRequestApplicationJsonInterface {
   )! as String;
 
   static final _$datetimeDefault = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  static final _$usergroupDefault = _$jsonSerializers.deserialize(
     '',
     specifiedType: const FullType(String),
   )! as String;
@@ -8443,6 +9053,21 @@ sealed class $Api1CreateColumnRequestApplicationJsonInterface {
   /// Default value, if column is datetime.
   String? get datetimeDefault;
 
+  /// Default value, if column is usergroup (json array{id: string, type: int}).
+  String? get usergroupDefault;
+
+  /// Can select multiple users or/and groups, if column is usergroup.
+  bool? get usergroupMultipleItems;
+
+  /// Can select users, if column type is usergroup.
+  bool? get usergroupSelectUsers;
+
+  /// Can select groups, if column type is usergroup.
+  bool? get usergroupSelectGroups;
+
+  /// Whether to show the user's status, if column type is usergroup.
+  bool? get usergroupShowUserStatus;
+
   /// View IDs where this column should be added to be presented.
   BuiltList<int>? get selectedViewIds;
 
@@ -8461,6 +9086,7 @@ sealed class $Api1CreateColumnRequestApplicationJsonInterface {
     b.selectionOptions = _$selectionOptions;
     b.selectionDefault = _$selectionDefault;
     b.datetimeDefault = _$datetimeDefault;
+    b.usergroupDefault = _$usergroupDefault;
     b.selectedViewIds.replace(_$selectedViewIds);
   }
 
@@ -8559,6 +9185,21 @@ sealed class $Api1UpdateColumnRequestApplicationJsonInterface {
 
   /// Default value, if column is datetime.
   String? get datetimeDefault;
+
+  /// Default value, if column is usergroup.
+  String? get usergroupDefault;
+
+  /// Can select multiple users or/and groups, if column is usergroup.
+  bool? get usergroupMultipleItems;
+
+  /// Can select users, if column type is usergroup.
+  bool? get usergroupSelectUsers;
+
+  /// Can select groups, if column type is usergroup.
+  bool? get usergroupSelectGroups;
+
+  /// Whether to show the user's status, if column type is usergroup.
+  bool? get usergroupShowUserStatus;
 
   /// Rebuilds the instance.
   ///
@@ -11129,6 +11770,320 @@ abstract class ApiColumnsCreateDatetimeColumnResponseApplicationJson
   }
 }
 
+/// Context type of the column creation.
+class ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType extends EnumClass {
+  const ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType._(super.name);
+
+  /// `table`
+  static const ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType table =
+      _$apiColumnsCreateUsergroupColumnRequestApplicationJsonBaseNodeTypeTable;
+
+  /// `view`
+  static const ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType view =
+      _$apiColumnsCreateUsergroupColumnRequestApplicationJsonBaseNodeTypeView;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType> get values =>
+      _$apiColumnsCreateUsergroupColumnRequestApplicationJsonBaseNodeTypeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType valueOf(String name) =>
+      _$valueOfApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType> get serializer =>
+      const _$ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeTypeSerializer();
+}
+
+class _$ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeTypeSerializer
+    implements PrimitiveSerializer<ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType> {
+  const _$ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeTypeSerializer();
+
+  static const Map<ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType, Object> _toWire =
+      <ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType, Object>{
+    ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType.table: 'table',
+    ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType.view: 'view',
+  };
+
+  static const Map<Object, ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType> _fromWire =
+      <Object, ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType>{
+    'table': ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType.table,
+    'view': ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType.view,
+  };
+
+  @override
+  Iterable<Type> get types => const [ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType];
+
+  @override
+  String get wireName => 'ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ApiColumnsCreateUsergroupColumnRequestApplicationJsonInterface {
+  static final _$selectedViewIds = _$jsonSerializers.deserialize(
+    const [],
+    specifiedType: const FullType(BuiltList, [FullType(int)]),
+  )! as BuiltList<int>;
+
+  static final _$mandatory = _$jsonSerializers.deserialize(
+    false,
+    specifiedType: const FullType(bool),
+  )! as bool;
+
+  static final _$baseNodeType = _$jsonSerializers.deserialize(
+    'table',
+    specifiedType: const FullType(ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType),
+  )! as ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType;
+
+  /// Context of the column creation.
+  int get baseNodeId;
+
+  /// Title.
+  String get title;
+
+  /// Json array{id: string, type: int}, eg [{"id": "admin", "type": 0}, {"id": "user1", "type": 0}].
+  String? get usergroupDefault;
+
+  /// Whether you can select multiple users or/and groups.
+  bool? get usergroupMultipleItems;
+
+  /// Whether you can select users.
+  bool? get usergroupSelectUsers;
+
+  /// Whether you can select groups.
+  bool? get usergroupSelectGroups;
+
+  /// Whether to show the user's status.
+  bool? get showUserStatus;
+
+  /// Description.
+  String? get description;
+
+  /// View IDs where this columns should be added.
+  BuiltList<int>? get selectedViewIds;
+
+  /// Is mandatory.
+  bool get mandatory;
+
+  /// Context type of the column creation.
+  ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType get baseNodeType;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ApiColumnsCreateUsergroupColumnRequestApplicationJsonInterfaceBuilder].
+  $ApiColumnsCreateUsergroupColumnRequestApplicationJsonInterface rebuild(
+    void Function($ApiColumnsCreateUsergroupColumnRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ApiColumnsCreateUsergroupColumnRequestApplicationJsonInterfaceBuilder].
+  $ApiColumnsCreateUsergroupColumnRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiColumnsCreateUsergroupColumnRequestApplicationJsonInterfaceBuilder b) {
+    b.selectedViewIds.replace(_$selectedViewIds);
+    b.mandatory = _$mandatory;
+    b.baseNodeType = _$baseNodeType;
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiColumnsCreateUsergroupColumnRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ApiColumnsCreateUsergroupColumnRequestApplicationJson
+    implements
+        $ApiColumnsCreateUsergroupColumnRequestApplicationJsonInterface,
+        Built<ApiColumnsCreateUsergroupColumnRequestApplicationJson,
+            ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder> {
+  /// Creates a new ApiColumnsCreateUsergroupColumnRequestApplicationJson object using the builder pattern.
+  factory ApiColumnsCreateUsergroupColumnRequestApplicationJson([
+    void Function(ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder)? b,
+  ]) = _$ApiColumnsCreateUsergroupColumnRequestApplicationJson;
+
+  // coverage:ignore-start
+  const ApiColumnsCreateUsergroupColumnRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ApiColumnsCreateUsergroupColumnRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ApiColumnsCreateUsergroupColumnRequestApplicationJson.
+  static Serializer<ApiColumnsCreateUsergroupColumnRequestApplicationJson> get serializer =>
+      _$apiColumnsCreateUsergroupColumnRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder b) {
+    $ApiColumnsCreateUsergroupColumnRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder b) {
+    $ApiColumnsCreateUsergroupColumnRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  Column get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsInterfaceBuilder].
+  $ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsInterface rebuild(
+    void Function($ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsInterfaceBuilder].
+  $ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs
+    implements
+        $ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsInterface,
+        Built<ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs,
+            ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs object using the builder pattern.
+  factory ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs([
+    void Function(ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs.
+  static Serializer<ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs> get serializer =>
+      _$apiColumnsCreateUsergroupColumnResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder b) {
+    $ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder b) {
+    $ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ApiColumnsCreateUsergroupColumnResponseApplicationJsonInterface {
+  ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ApiColumnsCreateUsergroupColumnResponseApplicationJsonInterfaceBuilder].
+  $ApiColumnsCreateUsergroupColumnResponseApplicationJsonInterface rebuild(
+    void Function($ApiColumnsCreateUsergroupColumnResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ApiColumnsCreateUsergroupColumnResponseApplicationJsonInterfaceBuilder].
+  $ApiColumnsCreateUsergroupColumnResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiColumnsCreateUsergroupColumnResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiColumnsCreateUsergroupColumnResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ApiColumnsCreateUsergroupColumnResponseApplicationJson
+    implements
+        $ApiColumnsCreateUsergroupColumnResponseApplicationJsonInterface,
+        Built<ApiColumnsCreateUsergroupColumnResponseApplicationJson,
+            ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder> {
+  /// Creates a new ApiColumnsCreateUsergroupColumnResponseApplicationJson object using the builder pattern.
+  factory ApiColumnsCreateUsergroupColumnResponseApplicationJson([
+    void Function(ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder)? b,
+  ]) = _$ApiColumnsCreateUsergroupColumnResponseApplicationJson;
+
+  // coverage:ignore-start
+  const ApiColumnsCreateUsergroupColumnResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ApiColumnsCreateUsergroupColumnResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ApiColumnsCreateUsergroupColumnResponseApplicationJson.
+  static Serializer<ApiColumnsCreateUsergroupColumnResponseApplicationJson> get serializer =>
+      _$apiColumnsCreateUsergroupColumnResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder b) {
+    $ApiColumnsCreateUsergroupColumnResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder b) {
+    $ApiColumnsCreateUsergroupColumnResponseApplicationJsonInterface._validate(b);
+  }
+}
+
 @BuiltValue(instantiable: false)
 sealed class $ApiFavoriteCreateResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
@@ -12343,6 +13298,338 @@ abstract class ApiTablesDestroyResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(ApiTablesDestroyResponseApplicationJsonBuilder b) {
     $ApiTablesDestroyResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ApiTablesShowSchemeResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  Table get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ApiTablesShowSchemeResponseApplicationJson_OcsInterfaceBuilder].
+  $ApiTablesShowSchemeResponseApplicationJson_OcsInterface rebuild(
+    void Function($ApiTablesShowSchemeResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ApiTablesShowSchemeResponseApplicationJson_OcsInterfaceBuilder].
+  $ApiTablesShowSchemeResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiTablesShowSchemeResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiTablesShowSchemeResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class ApiTablesShowSchemeResponseApplicationJson_Ocs
+    implements
+        $ApiTablesShowSchemeResponseApplicationJson_OcsInterface,
+        Built<ApiTablesShowSchemeResponseApplicationJson_Ocs, ApiTablesShowSchemeResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ApiTablesShowSchemeResponseApplicationJson_Ocs object using the builder pattern.
+  factory ApiTablesShowSchemeResponseApplicationJson_Ocs([
+    void Function(ApiTablesShowSchemeResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$ApiTablesShowSchemeResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const ApiTablesShowSchemeResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ApiTablesShowSchemeResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ApiTablesShowSchemeResponseApplicationJson_Ocs.
+  static Serializer<ApiTablesShowSchemeResponseApplicationJson_Ocs> get serializer =>
+      _$apiTablesShowSchemeResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiTablesShowSchemeResponseApplicationJson_OcsBuilder b) {
+    $ApiTablesShowSchemeResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiTablesShowSchemeResponseApplicationJson_OcsBuilder b) {
+    $ApiTablesShowSchemeResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ApiTablesShowSchemeResponseApplicationJsonInterface {
+  ApiTablesShowSchemeResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ApiTablesShowSchemeResponseApplicationJsonInterfaceBuilder].
+  $ApiTablesShowSchemeResponseApplicationJsonInterface rebuild(
+    void Function($ApiTablesShowSchemeResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ApiTablesShowSchemeResponseApplicationJsonInterfaceBuilder].
+  $ApiTablesShowSchemeResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiTablesShowSchemeResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiTablesShowSchemeResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ApiTablesShowSchemeResponseApplicationJson
+    implements
+        $ApiTablesShowSchemeResponseApplicationJsonInterface,
+        Built<ApiTablesShowSchemeResponseApplicationJson, ApiTablesShowSchemeResponseApplicationJsonBuilder> {
+  /// Creates a new ApiTablesShowSchemeResponseApplicationJson object using the builder pattern.
+  factory ApiTablesShowSchemeResponseApplicationJson([
+    void Function(ApiTablesShowSchemeResponseApplicationJsonBuilder)? b,
+  ]) = _$ApiTablesShowSchemeResponseApplicationJson;
+
+  // coverage:ignore-start
+  const ApiTablesShowSchemeResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ApiTablesShowSchemeResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ApiTablesShowSchemeResponseApplicationJson.
+  static Serializer<ApiTablesShowSchemeResponseApplicationJson> get serializer =>
+      _$apiTablesShowSchemeResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiTablesShowSchemeResponseApplicationJsonBuilder b) {
+    $ApiTablesShowSchemeResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiTablesShowSchemeResponseApplicationJsonBuilder b) {
+    $ApiTablesShowSchemeResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ApiTablesCreateFromSchemeRequestApplicationJsonInterface {
+  /// title of new table.
+  String get title;
+
+  /// emoji.
+  String get emoji;
+
+  /// description.
+  String get description;
+
+  /// columns.
+  BuiltList<Column> get columns;
+
+  /// views.
+  BuiltList<View> get views;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ApiTablesCreateFromSchemeRequestApplicationJsonInterfaceBuilder].
+  $ApiTablesCreateFromSchemeRequestApplicationJsonInterface rebuild(
+    void Function($ApiTablesCreateFromSchemeRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ApiTablesCreateFromSchemeRequestApplicationJsonInterfaceBuilder].
+  $ApiTablesCreateFromSchemeRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiTablesCreateFromSchemeRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiTablesCreateFromSchemeRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ApiTablesCreateFromSchemeRequestApplicationJson
+    implements
+        $ApiTablesCreateFromSchemeRequestApplicationJsonInterface,
+        Built<ApiTablesCreateFromSchemeRequestApplicationJson, ApiTablesCreateFromSchemeRequestApplicationJsonBuilder> {
+  /// Creates a new ApiTablesCreateFromSchemeRequestApplicationJson object using the builder pattern.
+  factory ApiTablesCreateFromSchemeRequestApplicationJson([
+    void Function(ApiTablesCreateFromSchemeRequestApplicationJsonBuilder)? b,
+  ]) = _$ApiTablesCreateFromSchemeRequestApplicationJson;
+
+  // coverage:ignore-start
+  const ApiTablesCreateFromSchemeRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ApiTablesCreateFromSchemeRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ApiTablesCreateFromSchemeRequestApplicationJson.
+  static Serializer<ApiTablesCreateFromSchemeRequestApplicationJson> get serializer =>
+      _$apiTablesCreateFromSchemeRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiTablesCreateFromSchemeRequestApplicationJsonBuilder b) {
+    $ApiTablesCreateFromSchemeRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiTablesCreateFromSchemeRequestApplicationJsonBuilder b) {
+    $ApiTablesCreateFromSchemeRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ApiTablesCreateFromSchemeResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  Table get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ApiTablesCreateFromSchemeResponseApplicationJson_OcsInterfaceBuilder].
+  $ApiTablesCreateFromSchemeResponseApplicationJson_OcsInterface rebuild(
+    void Function($ApiTablesCreateFromSchemeResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ApiTablesCreateFromSchemeResponseApplicationJson_OcsInterfaceBuilder].
+  $ApiTablesCreateFromSchemeResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiTablesCreateFromSchemeResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiTablesCreateFromSchemeResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class ApiTablesCreateFromSchemeResponseApplicationJson_Ocs
+    implements
+        $ApiTablesCreateFromSchemeResponseApplicationJson_OcsInterface,
+        Built<ApiTablesCreateFromSchemeResponseApplicationJson_Ocs,
+            ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ApiTablesCreateFromSchemeResponseApplicationJson_Ocs object using the builder pattern.
+  factory ApiTablesCreateFromSchemeResponseApplicationJson_Ocs([
+    void Function(ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$ApiTablesCreateFromSchemeResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const ApiTablesCreateFromSchemeResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ApiTablesCreateFromSchemeResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ApiTablesCreateFromSchemeResponseApplicationJson_Ocs.
+  static Serializer<ApiTablesCreateFromSchemeResponseApplicationJson_Ocs> get serializer =>
+      _$apiTablesCreateFromSchemeResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder b) {
+    $ApiTablesCreateFromSchemeResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder b) {
+    $ApiTablesCreateFromSchemeResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ApiTablesCreateFromSchemeResponseApplicationJsonInterface {
+  ApiTablesCreateFromSchemeResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ApiTablesCreateFromSchemeResponseApplicationJsonInterfaceBuilder].
+  $ApiTablesCreateFromSchemeResponseApplicationJsonInterface rebuild(
+    void Function($ApiTablesCreateFromSchemeResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ApiTablesCreateFromSchemeResponseApplicationJsonInterfaceBuilder].
+  $ApiTablesCreateFromSchemeResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiTablesCreateFromSchemeResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiTablesCreateFromSchemeResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ApiTablesCreateFromSchemeResponseApplicationJson
+    implements
+        $ApiTablesCreateFromSchemeResponseApplicationJsonInterface,
+        Built<ApiTablesCreateFromSchemeResponseApplicationJson,
+            ApiTablesCreateFromSchemeResponseApplicationJsonBuilder> {
+  /// Creates a new ApiTablesCreateFromSchemeResponseApplicationJson object using the builder pattern.
+  factory ApiTablesCreateFromSchemeResponseApplicationJson([
+    void Function(ApiTablesCreateFromSchemeResponseApplicationJsonBuilder)? b,
+  ]) = _$ApiTablesCreateFromSchemeResponseApplicationJson;
+
+  // coverage:ignore-start
+  const ApiTablesCreateFromSchemeResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ApiTablesCreateFromSchemeResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ApiTablesCreateFromSchemeResponseApplicationJson.
+  static Serializer<ApiTablesCreateFromSchemeResponseApplicationJson> get serializer =>
+      _$apiTablesCreateFromSchemeResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiTablesCreateFromSchemeResponseApplicationJsonBuilder b) {
+    $ApiTablesCreateFromSchemeResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiTablesCreateFromSchemeResponseApplicationJsonBuilder b) {
+    $ApiTablesCreateFromSchemeResponseApplicationJsonInterface._validate(b);
   }
 }
 
@@ -13981,6 +15268,264 @@ abstract class ContextUpdateContentOrderResponseApplicationJson
   }
 }
 
+class RowocsCreateRowNodeCollection extends EnumClass {
+  const RowocsCreateRowNodeCollection._(super.name);
+
+  /// `tables`
+  static const RowocsCreateRowNodeCollection tables = _$rowocsCreateRowNodeCollectionTables;
+
+  /// `views`
+  static const RowocsCreateRowNodeCollection views = _$rowocsCreateRowNodeCollectionViews;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RowocsCreateRowNodeCollection> get values => _$rowocsCreateRowNodeCollectionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RowocsCreateRowNodeCollection valueOf(String name) => _$valueOfRowocsCreateRowNodeCollection(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for RowocsCreateRowNodeCollection.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RowocsCreateRowNodeCollection> get serializer => const _$RowocsCreateRowNodeCollectionSerializer();
+}
+
+class _$RowocsCreateRowNodeCollectionSerializer implements PrimitiveSerializer<RowocsCreateRowNodeCollection> {
+  const _$RowocsCreateRowNodeCollectionSerializer();
+
+  static const Map<RowocsCreateRowNodeCollection, Object> _toWire = <RowocsCreateRowNodeCollection, Object>{
+    RowocsCreateRowNodeCollection.tables: 'tables',
+    RowocsCreateRowNodeCollection.views: 'views',
+  };
+
+  static const Map<Object, RowocsCreateRowNodeCollection> _fromWire = <Object, RowocsCreateRowNodeCollection>{
+    'tables': RowocsCreateRowNodeCollection.tables,
+    'views': RowocsCreateRowNodeCollection.views,
+  };
+
+  @override
+  Iterable<Type> get types => const [RowocsCreateRowNodeCollection];
+
+  @override
+  String get wireName => 'RowocsCreateRowNodeCollection';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RowocsCreateRowNodeCollection object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RowocsCreateRowNodeCollection deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+/// An array containing the column identifiers and their values.
+typedef RowocsCreateRowRequestApplicationJson_Data = ({
+  BuiltMap<String, JsonObject>? builtMapStringJsonObject,
+  String? string
+});
+
+@BuiltValue(instantiable: false)
+sealed class $RowocsCreateRowRequestApplicationJsonInterface {
+  /// An array containing the column identifiers and their values.
+  RowocsCreateRowRequestApplicationJson_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RowocsCreateRowRequestApplicationJsonInterfaceBuilder].
+  $RowocsCreateRowRequestApplicationJsonInterface rebuild(
+    void Function($RowocsCreateRowRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RowocsCreateRowRequestApplicationJsonInterfaceBuilder].
+  $RowocsCreateRowRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RowocsCreateRowRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RowocsCreateRowRequestApplicationJsonInterfaceBuilder b) {
+    b.data?.validateOneOf();
+  }
+}
+
+abstract class RowocsCreateRowRequestApplicationJson
+    implements
+        $RowocsCreateRowRequestApplicationJsonInterface,
+        Built<RowocsCreateRowRequestApplicationJson, RowocsCreateRowRequestApplicationJsonBuilder> {
+  /// Creates a new RowocsCreateRowRequestApplicationJson object using the builder pattern.
+  factory RowocsCreateRowRequestApplicationJson([void Function(RowocsCreateRowRequestApplicationJsonBuilder)? b]) =
+      _$RowocsCreateRowRequestApplicationJson;
+
+  // coverage:ignore-start
+  const RowocsCreateRowRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RowocsCreateRowRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RowocsCreateRowRequestApplicationJson.
+  static Serializer<RowocsCreateRowRequestApplicationJson> get serializer =>
+      _$rowocsCreateRowRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RowocsCreateRowRequestApplicationJsonBuilder b) {
+    $RowocsCreateRowRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RowocsCreateRowRequestApplicationJsonBuilder b) {
+    $RowocsCreateRowRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RowocsCreateRowResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  Row get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RowocsCreateRowResponseApplicationJson_OcsInterfaceBuilder].
+  $RowocsCreateRowResponseApplicationJson_OcsInterface rebuild(
+    void Function($RowocsCreateRowResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RowocsCreateRowResponseApplicationJson_OcsInterfaceBuilder].
+  $RowocsCreateRowResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RowocsCreateRowResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RowocsCreateRowResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class RowocsCreateRowResponseApplicationJson_Ocs
+    implements
+        $RowocsCreateRowResponseApplicationJson_OcsInterface,
+        Built<RowocsCreateRowResponseApplicationJson_Ocs, RowocsCreateRowResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RowocsCreateRowResponseApplicationJson_Ocs object using the builder pattern.
+  factory RowocsCreateRowResponseApplicationJson_Ocs([
+    void Function(RowocsCreateRowResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$RowocsCreateRowResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const RowocsCreateRowResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RowocsCreateRowResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RowocsCreateRowResponseApplicationJson_Ocs.
+  static Serializer<RowocsCreateRowResponseApplicationJson_Ocs> get serializer =>
+      _$rowocsCreateRowResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RowocsCreateRowResponseApplicationJson_OcsBuilder b) {
+    $RowocsCreateRowResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RowocsCreateRowResponseApplicationJson_OcsBuilder b) {
+    $RowocsCreateRowResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RowocsCreateRowResponseApplicationJsonInterface {
+  RowocsCreateRowResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RowocsCreateRowResponseApplicationJsonInterfaceBuilder].
+  $RowocsCreateRowResponseApplicationJsonInterface rebuild(
+    void Function($RowocsCreateRowResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RowocsCreateRowResponseApplicationJsonInterfaceBuilder].
+  $RowocsCreateRowResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RowocsCreateRowResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RowocsCreateRowResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class RowocsCreateRowResponseApplicationJson
+    implements
+        $RowocsCreateRowResponseApplicationJsonInterface,
+        Built<RowocsCreateRowResponseApplicationJson, RowocsCreateRowResponseApplicationJsonBuilder> {
+  /// Creates a new RowocsCreateRowResponseApplicationJson object using the builder pattern.
+  factory RowocsCreateRowResponseApplicationJson([void Function(RowocsCreateRowResponseApplicationJsonBuilder)? b]) =
+      _$RowocsCreateRowResponseApplicationJson;
+
+  // coverage:ignore-start
+  const RowocsCreateRowResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RowocsCreateRowResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RowocsCreateRowResponseApplicationJson.
+  static Serializer<RowocsCreateRowResponseApplicationJson> get serializer =>
+      _$rowocsCreateRowResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RowocsCreateRowResponseApplicationJsonBuilder b) {
+    $RowocsCreateRowResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RowocsCreateRowResponseApplicationJsonBuilder b) {
+    $RowocsCreateRowResponseApplicationJsonInterface._validate(b);
+  }
+}
+
 @BuiltValue(instantiable: false)
 sealed class $Capabilities_TablesInterface {
   bool get enabled;
@@ -14176,6 +15721,20 @@ extension $Api1UpdateRowRequestApplicationJson_DataExtension on Api1UpdateRowReq
   ///
   /// Use `toJson` to serialize it back into json.
   static Api1UpdateRowRequestApplicationJson_Data fromJson(Object? json) =>
+      $3f5057013fe375112018fdacdf7c966aExtension._fromJson(json);
+}
+
+/// Serialization extension for `RowocsCreateRowRequestApplicationJson_Data`.
+extension $RowocsCreateRowRequestApplicationJson_DataExtension on RowocsCreateRowRequestApplicationJson_Data {
+  /// Serializer for RowocsCreateRowRequestApplicationJson_Data.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RowocsCreateRowRequestApplicationJson_Data> get serializer =>
+      $3f5057013fe375112018fdacdf7c966aExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static RowocsCreateRowRequestApplicationJson_Data fromJson(Object? json) =>
       $3f5057013fe375112018fdacdf7c966aExtension._fromJson(json);
 }
 
@@ -14514,6 +16073,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
         Api1UpdateTableRequestApplicationJsonBuilder.new,
       )
       ..add(Api1UpdateTableRequestApplicationJson.serializer)
+      ..addBuilderFactory(const FullType(Api1Api1ShowSchemeHeaders), Api1Api1ShowSchemeHeadersBuilder.new)
+      ..add(Api1Api1ShowSchemeHeaders.serializer)
       ..addBuilderFactory(
         const FullType(Api1CreateViewRequestApplicationJson),
         Api1CreateViewRequestApplicationJsonBuilder.new,
@@ -14741,6 +16302,22 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
+        const FullType(ApiColumnsCreateUsergroupColumnRequestApplicationJson),
+        ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder.new,
+      )
+      ..add(ApiColumnsCreateUsergroupColumnRequestApplicationJson.serializer)
+      ..add(ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType.serializer)
+      ..addBuilderFactory(
+        const FullType(ApiColumnsCreateUsergroupColumnResponseApplicationJson),
+        ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder.new,
+      )
+      ..add(ApiColumnsCreateUsergroupColumnResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs),
+        ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
         const FullType(ApiFavoriteCreateResponseApplicationJson),
         ApiFavoriteCreateResponseApplicationJsonBuilder.new,
       )
@@ -14832,6 +16409,31 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ApiTablesDestroyResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ApiTablesDestroyResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(ApiTablesShowSchemeResponseApplicationJson),
+        ApiTablesShowSchemeResponseApplicationJsonBuilder.new,
+      )
+      ..add(ApiTablesShowSchemeResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(ApiTablesShowSchemeResponseApplicationJson_Ocs),
+        ApiTablesShowSchemeResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(ApiTablesShowSchemeResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(ApiTablesCreateFromSchemeRequestApplicationJson),
+        ApiTablesCreateFromSchemeRequestApplicationJsonBuilder.new,
+      )
+      ..add(ApiTablesCreateFromSchemeRequestApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(ApiTablesCreateFromSchemeResponseApplicationJson),
+        ApiTablesCreateFromSchemeResponseApplicationJsonBuilder.new,
+      )
+      ..add(ApiTablesCreateFromSchemeResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(ApiTablesCreateFromSchemeResponseApplicationJson_Ocs),
+        ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(ApiTablesCreateFromSchemeResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(ApiTablesTransferRequestApplicationJson),
         ApiTablesTransferRequestApplicationJsonBuilder.new,
@@ -14959,6 +16561,22 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ContextUpdateContentOrderResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ContextUpdateContentOrderResponseApplicationJson_Ocs.serializer)
+      ..add(RowocsCreateRowNodeCollection.serializer)
+      ..addBuilderFactory(
+        const FullType(RowocsCreateRowRequestApplicationJson),
+        RowocsCreateRowRequestApplicationJsonBuilder.new,
+      )
+      ..add(RowocsCreateRowRequestApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(RowocsCreateRowResponseApplicationJson),
+        RowocsCreateRowResponseApplicationJsonBuilder.new,
+      )
+      ..add(RowocsCreateRowResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(RowocsCreateRowResponseApplicationJson_Ocs),
+        RowocsCreateRowResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(RowocsCreateRowResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
       ..add(Capabilities.serializer)
       ..addBuilderFactory(const FullType(Capabilities_Tables), Capabilities_TablesBuilder.new)

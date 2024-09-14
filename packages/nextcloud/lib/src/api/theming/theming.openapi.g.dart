@@ -510,7 +510,13 @@ class _$PublicCapabilities_ThemingSerializer implements StructuredSerializer<Pub
       'favicon',
       serializers.serialize(object.favicon, specifiedType: const FullType(String)),
     ];
-
+    Object? value;
+    value = object.backgroundText;
+    if (value != null) {
+      result
+        ..add('background-text')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -554,6 +560,9 @@ class _$PublicCapabilities_ThemingSerializer implements StructuredSerializer<Pub
           break;
         case 'background':
           result.background = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'background-text':
+          result.backgroundText = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'background-plain':
           result.backgroundPlain = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -1622,6 +1631,9 @@ abstract mixin class $PublicCapabilities_ThemingInterfaceBuilder {
   String? get background;
   set background(String? background);
 
+  String? get backgroundText;
+  set backgroundText(String? backgroundText);
+
   bool? get backgroundPlain;
   set backgroundPlain(bool? backgroundPlain);
 
@@ -1657,6 +1669,8 @@ class _$PublicCapabilities_Theming extends PublicCapabilities_Theming {
   @override
   final String background;
   @override
+  final String? backgroundText;
+  @override
   final bool backgroundPlain;
   @override
   final bool backgroundDefault;
@@ -1679,6 +1693,7 @@ class _$PublicCapabilities_Theming extends PublicCapabilities_Theming {
       required this.colorElementDark,
       required this.logo,
       required this.background,
+      this.backgroundText,
       required this.backgroundPlain,
       required this.backgroundDefault,
       required this.logoheader,
@@ -1721,6 +1736,7 @@ class _$PublicCapabilities_Theming extends PublicCapabilities_Theming {
         colorElementDark == other.colorElementDark &&
         logo == other.logo &&
         background == other.background &&
+        backgroundText == other.backgroundText &&
         backgroundPlain == other.backgroundPlain &&
         backgroundDefault == other.backgroundDefault &&
         logoheader == other.logoheader &&
@@ -1740,6 +1756,7 @@ class _$PublicCapabilities_Theming extends PublicCapabilities_Theming {
     _$hash = $jc(_$hash, colorElementDark.hashCode);
     _$hash = $jc(_$hash, logo.hashCode);
     _$hash = $jc(_$hash, background.hashCode);
+    _$hash = $jc(_$hash, backgroundText.hashCode);
     _$hash = $jc(_$hash, backgroundPlain.hashCode);
     _$hash = $jc(_$hash, backgroundDefault.hashCode);
     _$hash = $jc(_$hash, logoheader.hashCode);
@@ -1761,6 +1778,7 @@ class _$PublicCapabilities_Theming extends PublicCapabilities_Theming {
           ..add('colorElementDark', colorElementDark)
           ..add('logo', logo)
           ..add('background', background)
+          ..add('backgroundText', backgroundText)
           ..add('backgroundPlain', backgroundPlain)
           ..add('backgroundDefault', backgroundDefault)
           ..add('logoheader', logoheader)
@@ -1815,6 +1833,10 @@ class PublicCapabilities_ThemingBuilder
   String? get background => _$this._background;
   set background(covariant String? background) => _$this._background = background;
 
+  String? _backgroundText;
+  String? get backgroundText => _$this._backgroundText;
+  set backgroundText(covariant String? backgroundText) => _$this._backgroundText = backgroundText;
+
   bool? _backgroundPlain;
   bool? get backgroundPlain => _$this._backgroundPlain;
   set backgroundPlain(covariant bool? backgroundPlain) => _$this._backgroundPlain = backgroundPlain;
@@ -1848,6 +1870,7 @@ class PublicCapabilities_ThemingBuilder
       _colorElementDark = $v.colorElementDark;
       _logo = $v.logo;
       _background = $v.background;
+      _backgroundText = $v.backgroundText;
       _backgroundPlain = $v.backgroundPlain;
       _backgroundDefault = $v.backgroundDefault;
       _logoheader = $v.logoheader;
@@ -1888,6 +1911,7 @@ class PublicCapabilities_ThemingBuilder
                 colorElementDark, r'PublicCapabilities_Theming', 'colorElementDark'),
             logo: BuiltValueNullFieldError.checkNotNull(logo, r'PublicCapabilities_Theming', 'logo'),
             background: BuiltValueNullFieldError.checkNotNull(background, r'PublicCapabilities_Theming', 'background'),
+            backgroundText: backgroundText,
             backgroundPlain: BuiltValueNullFieldError.checkNotNull(
                 backgroundPlain, r'PublicCapabilities_Theming', 'backgroundPlain'),
             backgroundDefault: BuiltValueNullFieldError.checkNotNull(

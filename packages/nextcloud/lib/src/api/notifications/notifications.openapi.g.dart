@@ -28,6 +28,92 @@ final BuiltSet<ApiGenerateNotificationApiVersion> _$apiGenerateNotificationApiVe
   _$apiGenerateNotificationApiVersionV2,
 ]);
 
+const RichObjectParameter_CallType _$richObjectParameterCallTypeOne2one = RichObjectParameter_CallType._('one2one');
+const RichObjectParameter_CallType _$richObjectParameterCallTypeGroup = RichObjectParameter_CallType._('group');
+const RichObjectParameter_CallType _$richObjectParameterCallTypePublic = RichObjectParameter_CallType._('public');
+
+RichObjectParameter_CallType _$valueOfRichObjectParameter_CallType(String name) {
+  switch (name) {
+    case 'one2one':
+      return _$richObjectParameterCallTypeOne2one;
+    case 'group':
+      return _$richObjectParameterCallTypeGroup;
+    case 'public':
+      return _$richObjectParameterCallTypePublic;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RichObjectParameter_CallType> _$richObjectParameterCallTypeValues =
+    BuiltSet<RichObjectParameter_CallType>(const <RichObjectParameter_CallType>[
+  _$richObjectParameterCallTypeOne2one,
+  _$richObjectParameterCallTypeGroup,
+  _$richObjectParameterCallTypePublic,
+]);
+
+const RichObjectParameter_PreviewAvailable _$richObjectParameterPreviewAvailableYes =
+    RichObjectParameter_PreviewAvailable._('yes');
+const RichObjectParameter_PreviewAvailable _$richObjectParameterPreviewAvailableNo =
+    RichObjectParameter_PreviewAvailable._('no');
+
+RichObjectParameter_PreviewAvailable _$valueOfRichObjectParameter_PreviewAvailable(String name) {
+  switch (name) {
+    case 'yes':
+      return _$richObjectParameterPreviewAvailableYes;
+    case 'no':
+      return _$richObjectParameterPreviewAvailableNo;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RichObjectParameter_PreviewAvailable> _$richObjectParameterPreviewAvailableValues =
+    BuiltSet<RichObjectParameter_PreviewAvailable>(const <RichObjectParameter_PreviewAvailable>[
+  _$richObjectParameterPreviewAvailableYes,
+  _$richObjectParameterPreviewAvailableNo,
+]);
+
+const RichObjectParameter_Visibility _$richObjectParameterVisibility$0 = RichObjectParameter_Visibility._('\$0');
+const RichObjectParameter_Visibility _$richObjectParameterVisibility$1 = RichObjectParameter_Visibility._('\$1');
+
+RichObjectParameter_Visibility _$valueOfRichObjectParameter_Visibility(String name) {
+  switch (name) {
+    case '\$0':
+      return _$richObjectParameterVisibility$0;
+    case '\$1':
+      return _$richObjectParameterVisibility$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RichObjectParameter_Visibility> _$richObjectParameterVisibilityValues =
+    BuiltSet<RichObjectParameter_Visibility>(const <RichObjectParameter_Visibility>[
+  _$richObjectParameterVisibility$0,
+  _$richObjectParameterVisibility$1,
+]);
+
+const RichObjectParameter_Assignable _$richObjectParameterAssignable$0 = RichObjectParameter_Assignable._('\$0');
+const RichObjectParameter_Assignable _$richObjectParameterAssignable$1 = RichObjectParameter_Assignable._('\$1');
+
+RichObjectParameter_Assignable _$valueOfRichObjectParameter_Assignable(String name) {
+  switch (name) {
+    case '\$0':
+      return _$richObjectParameterAssignable$0;
+    case '\$1':
+      return _$richObjectParameterAssignable$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RichObjectParameter_Assignable> _$richObjectParameterAssignableValues =
+    BuiltSet<RichObjectParameter_Assignable>(const <RichObjectParameter_Assignable>[
+  _$richObjectParameterAssignable$0,
+  _$richObjectParameterAssignable$1,
+]);
+
 const EndpointListNotificationsApiVersion _$endpointListNotificationsApiVersionV1 =
     EndpointListNotificationsApiVersion._('v1');
 const EndpointListNotificationsApiVersion _$endpointListNotificationsApiVersionV2 =
@@ -210,6 +296,19 @@ Serializer<ApiGenerateNotificationResponseApplicationJson_Ocs>
     _$ApiGenerateNotificationResponseApplicationJson_OcsSerializer();
 Serializer<ApiGenerateNotificationResponseApplicationJson> _$apiGenerateNotificationResponseApplicationJsonSerializer =
     _$ApiGenerateNotificationResponseApplicationJsonSerializer();
+Serializer<RichObjectParameter> _$richObjectParameterSerializer = _$RichObjectParameterSerializer();
+Serializer<ApiGenerateNotificationV3RequestApplicationJson>
+    _$apiGenerateNotificationV3RequestApplicationJsonSerializer =
+    _$ApiGenerateNotificationV3RequestApplicationJsonSerializer();
+Serializer<ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data>
+    _$apiGenerateNotificationV3ResponseApplicationJsonOcsDataSerializer =
+    _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataSerializer();
+Serializer<ApiGenerateNotificationV3ResponseApplicationJson_Ocs>
+    _$apiGenerateNotificationV3ResponseApplicationJsonOcsSerializer =
+    _$ApiGenerateNotificationV3ResponseApplicationJson_OcsSerializer();
+Serializer<ApiGenerateNotificationV3ResponseApplicationJson>
+    _$apiGenerateNotificationV3ResponseApplicationJsonSerializer =
+    _$ApiGenerateNotificationV3ResponseApplicationJsonSerializer();
 Serializer<NotificationAction> _$notificationActionSerializer = _$NotificationActionSerializer();
 Serializer<Notification> _$notificationSerializer = _$NotificationSerializer();
 Serializer<EndpointListNotificationsResponseApplicationJson_Ocs>
@@ -481,6 +580,475 @@ class _$ApiGenerateNotificationResponseApplicationJsonSerializer
   }
 }
 
+class _$RichObjectParameterSerializer implements StructuredSerializer<RichObjectParameter> {
+  @override
+  final Iterable<Type> types = const [RichObjectParameter, _$RichObjectParameter];
+  @override
+  final String wireName = 'RichObjectParameter';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RichObjectParameter object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'type',
+      serializers.serialize(object.type, specifiedType: const FullType(String)),
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(String)),
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.server;
+    if (value != null) {
+      result
+        ..add('server')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.link;
+    if (value != null) {
+      result
+        ..add('link')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.callType;
+    if (value != null) {
+      result
+        ..add('call-type')
+        ..add(serializers.serialize(value, specifiedType: const FullType(RichObjectParameter_CallType)));
+    }
+    value = object.iconUrl;
+    if (value != null) {
+      result
+        ..add('icon-url')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.messageId;
+    if (value != null) {
+      result
+        ..add('message-id')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.boardname;
+    if (value != null) {
+      result
+        ..add('boardname')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.stackname;
+    if (value != null) {
+      result
+        ..add('stackname')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.size;
+    if (value != null) {
+      result
+        ..add('size')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.path;
+    if (value != null) {
+      result
+        ..add('path')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.mimetype;
+    if (value != null) {
+      result
+        ..add('mimetype')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.previewAvailable;
+    if (value != null) {
+      result
+        ..add('preview-available')
+        ..add(serializers.serialize(value, specifiedType: const FullType(RichObjectParameter_PreviewAvailable)));
+    }
+    value = object.mtime;
+    if (value != null) {
+      result
+        ..add('mtime')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.latitude;
+    if (value != null) {
+      result
+        ..add('latitude')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.longitude;
+    if (value != null) {
+      result
+        ..add('longitude')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.description;
+    if (value != null) {
+      result
+        ..add('description')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.thumb;
+    if (value != null) {
+      result
+        ..add('thumb')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.website;
+    if (value != null) {
+      result
+        ..add('website')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.visibility;
+    if (value != null) {
+      result
+        ..add('visibility')
+        ..add(serializers.serialize(value, specifiedType: const FullType(RichObjectParameter_Visibility)));
+    }
+    value = object.assignable;
+    if (value != null) {
+      result
+        ..add('assignable')
+        ..add(serializers.serialize(value, specifiedType: const FullType(RichObjectParameter_Assignable)));
+    }
+    value = object.conversation;
+    if (value != null) {
+      result
+        ..add('conversation')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.etag;
+    if (value != null) {
+      result
+        ..add('etag')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.permissions;
+    if (value != null) {
+      result
+        ..add('permissions')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.width;
+    if (value != null) {
+      result
+        ..add('width')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.height;
+    if (value != null) {
+      result
+        ..add('height')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  RichObjectParameter deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RichObjectParameterBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'type':
+          result.type = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'name':
+          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'server':
+          result.server = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'link':
+          result.link = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'call-type':
+          result.callType = serializers.deserialize(value, specifiedType: const FullType(RichObjectParameter_CallType))
+              as RichObjectParameter_CallType?;
+          break;
+        case 'icon-url':
+          result.iconUrl = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'message-id':
+          result.messageId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'boardname':
+          result.boardname = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'stackname':
+          result.stackname = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'size':
+          result.size = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'path':
+          result.path = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'mimetype':
+          result.mimetype = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'preview-available':
+          result.previewAvailable =
+              serializers.deserialize(value, specifiedType: const FullType(RichObjectParameter_PreviewAvailable))
+                  as RichObjectParameter_PreviewAvailable?;
+          break;
+        case 'mtime':
+          result.mtime = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'latitude':
+          result.latitude = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'longitude':
+          result.longitude = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'description':
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'thumb':
+          result.thumb = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'website':
+          result.website = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'visibility':
+          result.visibility = serializers.deserialize(value,
+              specifiedType: const FullType(RichObjectParameter_Visibility)) as RichObjectParameter_Visibility?;
+          break;
+        case 'assignable':
+          result.assignable = serializers.deserialize(value,
+              specifiedType: const FullType(RichObjectParameter_Assignable)) as RichObjectParameter_Assignable?;
+          break;
+        case 'conversation':
+          result.conversation = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'etag':
+          result.etag = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'permissions':
+          result.permissions = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'width':
+          result.width = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'height':
+          result.height = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ApiGenerateNotificationV3RequestApplicationJsonSerializer
+    implements StructuredSerializer<ApiGenerateNotificationV3RequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ApiGenerateNotificationV3RequestApplicationJson,
+    _$ApiGenerateNotificationV3RequestApplicationJson
+  ];
+  @override
+  final String wireName = 'ApiGenerateNotificationV3RequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ApiGenerateNotificationV3RequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'subject',
+      serializers.serialize(object.subject, specifiedType: const FullType(String)),
+      'message',
+      serializers.serialize(object.message, specifiedType: const FullType(String)),
+      'subjectParameters',
+      serializers.serialize(object.subjectParameters,
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(RichObjectParameter)])),
+      'messageParameters',
+      serializers.serialize(object.messageParameters,
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(RichObjectParameter)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  ApiGenerateNotificationV3RequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiGenerateNotificationV3RequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'subject':
+          result.subject = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'message':
+          result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'subjectParameters':
+          result.subjectParameters.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(RichObjectParameter)]))!);
+          break;
+        case 'messageParameters':
+          result.messageParameters.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(RichObjectParameter)]))!);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data,
+    _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ApiGenerateNotificationV3ResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ApiGenerateNotificationV3ResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    ApiGenerateNotificationV3ResponseApplicationJson_Ocs,
+    _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'ApiGenerateNotificationV3ResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ApiGenerateNotificationV3ResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ApiGenerateNotificationV3ResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data))!
+              as ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ApiGenerateNotificationV3ResponseApplicationJsonSerializer
+    implements StructuredSerializer<ApiGenerateNotificationV3ResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ApiGenerateNotificationV3ResponseApplicationJson,
+    _$ApiGenerateNotificationV3ResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'ApiGenerateNotificationV3ResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ApiGenerateNotificationV3ResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(ApiGenerateNotificationV3ResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ApiGenerateNotificationV3ResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiGenerateNotificationV3ResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ApiGenerateNotificationV3ResponseApplicationJson_Ocs))!
+              as ApiGenerateNotificationV3ResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$NotificationActionSerializer implements StructuredSerializer<NotificationAction> {
   @override
   final Iterable<Type> types = const [NotificationAction, _$NotificationAction];
@@ -577,7 +1145,7 @@ class _$NotificationSerializer implements StructuredSerializer<Notification> {
       result
         ..add('subjectRichParameters')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)])));
+            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(RichObjectParameter)])));
     }
     value = object.messageRich;
     if (value != null) {
@@ -590,7 +1158,7 @@ class _$NotificationSerializer implements StructuredSerializer<Notification> {
       result
         ..add('messageRichParameters')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)])));
+            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(RichObjectParameter)])));
     }
     value = object.icon;
     if (value != null) {
@@ -654,14 +1222,14 @@ class _$NotificationSerializer implements StructuredSerializer<Notification> {
           break;
         case 'subjectRichParameters':
           result.subjectRichParameters.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]))!);
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(RichObjectParameter)]))!);
           break;
         case 'messageRich':
           result.messageRich = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'messageRichParameters':
           result.messageRichParameters.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]))!);
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(RichObjectParameter)]))!);
           break;
         case 'icon':
           result.icon = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -2380,6 +2948,998 @@ class ApiGenerateNotificationResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class $RichObjectParameterInterfaceBuilder {
+  void replace($RichObjectParameterInterface other);
+  void update(void Function($RichObjectParameterInterfaceBuilder) updates);
+  String? get type;
+  set type(String? type);
+
+  String? get id;
+  set id(String? id);
+
+  String? get name;
+  set name(String? name);
+
+  String? get server;
+  set server(String? server);
+
+  String? get link;
+  set link(String? link);
+
+  RichObjectParameter_CallType? get callType;
+  set callType(RichObjectParameter_CallType? callType);
+
+  String? get iconUrl;
+  set iconUrl(String? iconUrl);
+
+  String? get messageId;
+  set messageId(String? messageId);
+
+  String? get boardname;
+  set boardname(String? boardname);
+
+  String? get stackname;
+  set stackname(String? stackname);
+
+  String? get size;
+  set size(String? size);
+
+  String? get path;
+  set path(String? path);
+
+  String? get mimetype;
+  set mimetype(String? mimetype);
+
+  RichObjectParameter_PreviewAvailable? get previewAvailable;
+  set previewAvailable(RichObjectParameter_PreviewAvailable? previewAvailable);
+
+  String? get mtime;
+  set mtime(String? mtime);
+
+  String? get latitude;
+  set latitude(String? latitude);
+
+  String? get longitude;
+  set longitude(String? longitude);
+
+  String? get description;
+  set description(String? description);
+
+  String? get thumb;
+  set thumb(String? thumb);
+
+  String? get website;
+  set website(String? website);
+
+  RichObjectParameter_Visibility? get visibility;
+  set visibility(RichObjectParameter_Visibility? visibility);
+
+  RichObjectParameter_Assignable? get assignable;
+  set assignable(RichObjectParameter_Assignable? assignable);
+
+  String? get conversation;
+  set conversation(String? conversation);
+
+  String? get etag;
+  set etag(String? etag);
+
+  String? get permissions;
+  set permissions(String? permissions);
+
+  String? get width;
+  set width(String? width);
+
+  String? get height;
+  set height(String? height);
+}
+
+class _$RichObjectParameter extends RichObjectParameter {
+  @override
+  final String type;
+  @override
+  final String id;
+  @override
+  final String name;
+  @override
+  final String? server;
+  @override
+  final String? link;
+  @override
+  final RichObjectParameter_CallType? callType;
+  @override
+  final String? iconUrl;
+  @override
+  final String? messageId;
+  @override
+  final String? boardname;
+  @override
+  final String? stackname;
+  @override
+  final String? size;
+  @override
+  final String? path;
+  @override
+  final String? mimetype;
+  @override
+  final RichObjectParameter_PreviewAvailable? previewAvailable;
+  @override
+  final String? mtime;
+  @override
+  final String? latitude;
+  @override
+  final String? longitude;
+  @override
+  final String? description;
+  @override
+  final String? thumb;
+  @override
+  final String? website;
+  @override
+  final RichObjectParameter_Visibility? visibility;
+  @override
+  final RichObjectParameter_Assignable? assignable;
+  @override
+  final String? conversation;
+  @override
+  final String? etag;
+  @override
+  final String? permissions;
+  @override
+  final String? width;
+  @override
+  final String? height;
+
+  factory _$RichObjectParameter([void Function(RichObjectParameterBuilder)? updates]) =>
+      (RichObjectParameterBuilder()..update(updates))._build();
+
+  _$RichObjectParameter._(
+      {required this.type,
+      required this.id,
+      required this.name,
+      this.server,
+      this.link,
+      this.callType,
+      this.iconUrl,
+      this.messageId,
+      this.boardname,
+      this.stackname,
+      this.size,
+      this.path,
+      this.mimetype,
+      this.previewAvailable,
+      this.mtime,
+      this.latitude,
+      this.longitude,
+      this.description,
+      this.thumb,
+      this.website,
+      this.visibility,
+      this.assignable,
+      this.conversation,
+      this.etag,
+      this.permissions,
+      this.width,
+      this.height})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(type, r'RichObjectParameter', 'type');
+    BuiltValueNullFieldError.checkNotNull(id, r'RichObjectParameter', 'id');
+    BuiltValueNullFieldError.checkNotNull(name, r'RichObjectParameter', 'name');
+  }
+
+  @override
+  RichObjectParameter rebuild(void Function(RichObjectParameterBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RichObjectParameterBuilder toBuilder() => RichObjectParameterBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RichObjectParameter &&
+        type == other.type &&
+        id == other.id &&
+        name == other.name &&
+        server == other.server &&
+        link == other.link &&
+        callType == other.callType &&
+        iconUrl == other.iconUrl &&
+        messageId == other.messageId &&
+        boardname == other.boardname &&
+        stackname == other.stackname &&
+        size == other.size &&
+        path == other.path &&
+        mimetype == other.mimetype &&
+        previewAvailable == other.previewAvailable &&
+        mtime == other.mtime &&
+        latitude == other.latitude &&
+        longitude == other.longitude &&
+        description == other.description &&
+        thumb == other.thumb &&
+        website == other.website &&
+        visibility == other.visibility &&
+        assignable == other.assignable &&
+        conversation == other.conversation &&
+        etag == other.etag &&
+        permissions == other.permissions &&
+        width == other.width &&
+        height == other.height;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, type.hashCode);
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, server.hashCode);
+    _$hash = $jc(_$hash, link.hashCode);
+    _$hash = $jc(_$hash, callType.hashCode);
+    _$hash = $jc(_$hash, iconUrl.hashCode);
+    _$hash = $jc(_$hash, messageId.hashCode);
+    _$hash = $jc(_$hash, boardname.hashCode);
+    _$hash = $jc(_$hash, stackname.hashCode);
+    _$hash = $jc(_$hash, size.hashCode);
+    _$hash = $jc(_$hash, path.hashCode);
+    _$hash = $jc(_$hash, mimetype.hashCode);
+    _$hash = $jc(_$hash, previewAvailable.hashCode);
+    _$hash = $jc(_$hash, mtime.hashCode);
+    _$hash = $jc(_$hash, latitude.hashCode);
+    _$hash = $jc(_$hash, longitude.hashCode);
+    _$hash = $jc(_$hash, description.hashCode);
+    _$hash = $jc(_$hash, thumb.hashCode);
+    _$hash = $jc(_$hash, website.hashCode);
+    _$hash = $jc(_$hash, visibility.hashCode);
+    _$hash = $jc(_$hash, assignable.hashCode);
+    _$hash = $jc(_$hash, conversation.hashCode);
+    _$hash = $jc(_$hash, etag.hashCode);
+    _$hash = $jc(_$hash, permissions.hashCode);
+    _$hash = $jc(_$hash, width.hashCode);
+    _$hash = $jc(_$hash, height.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RichObjectParameter')
+          ..add('type', type)
+          ..add('id', id)
+          ..add('name', name)
+          ..add('server', server)
+          ..add('link', link)
+          ..add('callType', callType)
+          ..add('iconUrl', iconUrl)
+          ..add('messageId', messageId)
+          ..add('boardname', boardname)
+          ..add('stackname', stackname)
+          ..add('size', size)
+          ..add('path', path)
+          ..add('mimetype', mimetype)
+          ..add('previewAvailable', previewAvailable)
+          ..add('mtime', mtime)
+          ..add('latitude', latitude)
+          ..add('longitude', longitude)
+          ..add('description', description)
+          ..add('thumb', thumb)
+          ..add('website', website)
+          ..add('visibility', visibility)
+          ..add('assignable', assignable)
+          ..add('conversation', conversation)
+          ..add('etag', etag)
+          ..add('permissions', permissions)
+          ..add('width', width)
+          ..add('height', height))
+        .toString();
+  }
+}
+
+class RichObjectParameterBuilder
+    implements Builder<RichObjectParameter, RichObjectParameterBuilder>, $RichObjectParameterInterfaceBuilder {
+  _$RichObjectParameter? _$v;
+
+  String? _type;
+  String? get type => _$this._type;
+  set type(covariant String? type) => _$this._type = type;
+
+  String? _id;
+  String? get id => _$this._id;
+  set id(covariant String? id) => _$this._id = id;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(covariant String? name) => _$this._name = name;
+
+  String? _server;
+  String? get server => _$this._server;
+  set server(covariant String? server) => _$this._server = server;
+
+  String? _link;
+  String? get link => _$this._link;
+  set link(covariant String? link) => _$this._link = link;
+
+  RichObjectParameter_CallType? _callType;
+  RichObjectParameter_CallType? get callType => _$this._callType;
+  set callType(covariant RichObjectParameter_CallType? callType) => _$this._callType = callType;
+
+  String? _iconUrl;
+  String? get iconUrl => _$this._iconUrl;
+  set iconUrl(covariant String? iconUrl) => _$this._iconUrl = iconUrl;
+
+  String? _messageId;
+  String? get messageId => _$this._messageId;
+  set messageId(covariant String? messageId) => _$this._messageId = messageId;
+
+  String? _boardname;
+  String? get boardname => _$this._boardname;
+  set boardname(covariant String? boardname) => _$this._boardname = boardname;
+
+  String? _stackname;
+  String? get stackname => _$this._stackname;
+  set stackname(covariant String? stackname) => _$this._stackname = stackname;
+
+  String? _size;
+  String? get size => _$this._size;
+  set size(covariant String? size) => _$this._size = size;
+
+  String? _path;
+  String? get path => _$this._path;
+  set path(covariant String? path) => _$this._path = path;
+
+  String? _mimetype;
+  String? get mimetype => _$this._mimetype;
+  set mimetype(covariant String? mimetype) => _$this._mimetype = mimetype;
+
+  RichObjectParameter_PreviewAvailable? _previewAvailable;
+  RichObjectParameter_PreviewAvailable? get previewAvailable => _$this._previewAvailable;
+  set previewAvailable(covariant RichObjectParameter_PreviewAvailable? previewAvailable) =>
+      _$this._previewAvailable = previewAvailable;
+
+  String? _mtime;
+  String? get mtime => _$this._mtime;
+  set mtime(covariant String? mtime) => _$this._mtime = mtime;
+
+  String? _latitude;
+  String? get latitude => _$this._latitude;
+  set latitude(covariant String? latitude) => _$this._latitude = latitude;
+
+  String? _longitude;
+  String? get longitude => _$this._longitude;
+  set longitude(covariant String? longitude) => _$this._longitude = longitude;
+
+  String? _description;
+  String? get description => _$this._description;
+  set description(covariant String? description) => _$this._description = description;
+
+  String? _thumb;
+  String? get thumb => _$this._thumb;
+  set thumb(covariant String? thumb) => _$this._thumb = thumb;
+
+  String? _website;
+  String? get website => _$this._website;
+  set website(covariant String? website) => _$this._website = website;
+
+  RichObjectParameter_Visibility? _visibility;
+  RichObjectParameter_Visibility? get visibility => _$this._visibility;
+  set visibility(covariant RichObjectParameter_Visibility? visibility) => _$this._visibility = visibility;
+
+  RichObjectParameter_Assignable? _assignable;
+  RichObjectParameter_Assignable? get assignable => _$this._assignable;
+  set assignable(covariant RichObjectParameter_Assignable? assignable) => _$this._assignable = assignable;
+
+  String? _conversation;
+  String? get conversation => _$this._conversation;
+  set conversation(covariant String? conversation) => _$this._conversation = conversation;
+
+  String? _etag;
+  String? get etag => _$this._etag;
+  set etag(covariant String? etag) => _$this._etag = etag;
+
+  String? _permissions;
+  String? get permissions => _$this._permissions;
+  set permissions(covariant String? permissions) => _$this._permissions = permissions;
+
+  String? _width;
+  String? get width => _$this._width;
+  set width(covariant String? width) => _$this._width = width;
+
+  String? _height;
+  String? get height => _$this._height;
+  set height(covariant String? height) => _$this._height = height;
+
+  RichObjectParameterBuilder() {
+    RichObjectParameter._defaults(this);
+  }
+
+  RichObjectParameterBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _type = $v.type;
+      _id = $v.id;
+      _name = $v.name;
+      _server = $v.server;
+      _link = $v.link;
+      _callType = $v.callType;
+      _iconUrl = $v.iconUrl;
+      _messageId = $v.messageId;
+      _boardname = $v.boardname;
+      _stackname = $v.stackname;
+      _size = $v.size;
+      _path = $v.path;
+      _mimetype = $v.mimetype;
+      _previewAvailable = $v.previewAvailable;
+      _mtime = $v.mtime;
+      _latitude = $v.latitude;
+      _longitude = $v.longitude;
+      _description = $v.description;
+      _thumb = $v.thumb;
+      _website = $v.website;
+      _visibility = $v.visibility;
+      _assignable = $v.assignable;
+      _conversation = $v.conversation;
+      _etag = $v.etag;
+      _permissions = $v.permissions;
+      _width = $v.width;
+      _height = $v.height;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RichObjectParameter other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$RichObjectParameter;
+  }
+
+  @override
+  void update(void Function(RichObjectParameterBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RichObjectParameter build() => _build();
+
+  _$RichObjectParameter _build() {
+    RichObjectParameter._validate(this);
+    final _$result = _$v ??
+        _$RichObjectParameter._(
+            type: BuiltValueNullFieldError.checkNotNull(type, r'RichObjectParameter', 'type'),
+            id: BuiltValueNullFieldError.checkNotNull(id, r'RichObjectParameter', 'id'),
+            name: BuiltValueNullFieldError.checkNotNull(name, r'RichObjectParameter', 'name'),
+            server: server,
+            link: link,
+            callType: callType,
+            iconUrl: iconUrl,
+            messageId: messageId,
+            boardname: boardname,
+            stackname: stackname,
+            size: size,
+            path: path,
+            mimetype: mimetype,
+            previewAvailable: previewAvailable,
+            mtime: mtime,
+            latitude: latitude,
+            longitude: longitude,
+            description: description,
+            thumb: thumb,
+            website: website,
+            visibility: visibility,
+            assignable: assignable,
+            conversation: conversation,
+            etag: etag,
+            permissions: permissions,
+            width: width,
+            height: height);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ApiGenerateNotificationV3RequestApplicationJsonInterfaceBuilder {
+  void replace($ApiGenerateNotificationV3RequestApplicationJsonInterface other);
+  void update(void Function($ApiGenerateNotificationV3RequestApplicationJsonInterfaceBuilder) updates);
+  String? get subject;
+  set subject(String? subject);
+
+  String? get message;
+  set message(String? message);
+
+  MapBuilder<String, RichObjectParameter> get subjectParameters;
+  set subjectParameters(MapBuilder<String, RichObjectParameter>? subjectParameters);
+
+  MapBuilder<String, RichObjectParameter> get messageParameters;
+  set messageParameters(MapBuilder<String, RichObjectParameter>? messageParameters);
+}
+
+class _$ApiGenerateNotificationV3RequestApplicationJson extends ApiGenerateNotificationV3RequestApplicationJson {
+  @override
+  final String subject;
+  @override
+  final String message;
+  @override
+  final BuiltMap<String, RichObjectParameter> subjectParameters;
+  @override
+  final BuiltMap<String, RichObjectParameter> messageParameters;
+
+  factory _$ApiGenerateNotificationV3RequestApplicationJson(
+          [void Function(ApiGenerateNotificationV3RequestApplicationJsonBuilder)? updates]) =>
+      (ApiGenerateNotificationV3RequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$ApiGenerateNotificationV3RequestApplicationJson._(
+      {required this.subject, required this.message, required this.subjectParameters, required this.messageParameters})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(subject, r'ApiGenerateNotificationV3RequestApplicationJson', 'subject');
+    BuiltValueNullFieldError.checkNotNull(message, r'ApiGenerateNotificationV3RequestApplicationJson', 'message');
+    BuiltValueNullFieldError.checkNotNull(
+        subjectParameters, r'ApiGenerateNotificationV3RequestApplicationJson', 'subjectParameters');
+    BuiltValueNullFieldError.checkNotNull(
+        messageParameters, r'ApiGenerateNotificationV3RequestApplicationJson', 'messageParameters');
+  }
+
+  @override
+  ApiGenerateNotificationV3RequestApplicationJson rebuild(
+          void Function(ApiGenerateNotificationV3RequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ApiGenerateNotificationV3RequestApplicationJsonBuilder toBuilder() =>
+      ApiGenerateNotificationV3RequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ApiGenerateNotificationV3RequestApplicationJson &&
+        subject == other.subject &&
+        message == other.message &&
+        subjectParameters == other.subjectParameters &&
+        messageParameters == other.messageParameters;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, subject.hashCode);
+    _$hash = $jc(_$hash, message.hashCode);
+    _$hash = $jc(_$hash, subjectParameters.hashCode);
+    _$hash = $jc(_$hash, messageParameters.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ApiGenerateNotificationV3RequestApplicationJson')
+          ..add('subject', subject)
+          ..add('message', message)
+          ..add('subjectParameters', subjectParameters)
+          ..add('messageParameters', messageParameters))
+        .toString();
+  }
+}
+
+class ApiGenerateNotificationV3RequestApplicationJsonBuilder
+    implements
+        Builder<ApiGenerateNotificationV3RequestApplicationJson,
+            ApiGenerateNotificationV3RequestApplicationJsonBuilder>,
+        $ApiGenerateNotificationV3RequestApplicationJsonInterfaceBuilder {
+  _$ApiGenerateNotificationV3RequestApplicationJson? _$v;
+
+  String? _subject;
+  String? get subject => _$this._subject;
+  set subject(covariant String? subject) => _$this._subject = subject;
+
+  String? _message;
+  String? get message => _$this._message;
+  set message(covariant String? message) => _$this._message = message;
+
+  MapBuilder<String, RichObjectParameter>? _subjectParameters;
+  MapBuilder<String, RichObjectParameter> get subjectParameters =>
+      _$this._subjectParameters ??= MapBuilder<String, RichObjectParameter>();
+  set subjectParameters(covariant MapBuilder<String, RichObjectParameter>? subjectParameters) =>
+      _$this._subjectParameters = subjectParameters;
+
+  MapBuilder<String, RichObjectParameter>? _messageParameters;
+  MapBuilder<String, RichObjectParameter> get messageParameters =>
+      _$this._messageParameters ??= MapBuilder<String, RichObjectParameter>();
+  set messageParameters(covariant MapBuilder<String, RichObjectParameter>? messageParameters) =>
+      _$this._messageParameters = messageParameters;
+
+  ApiGenerateNotificationV3RequestApplicationJsonBuilder() {
+    ApiGenerateNotificationV3RequestApplicationJson._defaults(this);
+  }
+
+  ApiGenerateNotificationV3RequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _subject = $v.subject;
+      _message = $v.message;
+      _subjectParameters = $v.subjectParameters.toBuilder();
+      _messageParameters = $v.messageParameters.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ApiGenerateNotificationV3RequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ApiGenerateNotificationV3RequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(ApiGenerateNotificationV3RequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ApiGenerateNotificationV3RequestApplicationJson build() => _build();
+
+  _$ApiGenerateNotificationV3RequestApplicationJson _build() {
+    ApiGenerateNotificationV3RequestApplicationJson._validate(this);
+    _$ApiGenerateNotificationV3RequestApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$ApiGenerateNotificationV3RequestApplicationJson._(
+              subject: BuiltValueNullFieldError.checkNotNull(
+                  subject, r'ApiGenerateNotificationV3RequestApplicationJson', 'subject'),
+              message: BuiltValueNullFieldError.checkNotNull(
+                  message, r'ApiGenerateNotificationV3RequestApplicationJson', 'message'),
+              subjectParameters: subjectParameters.build(),
+              messageParameters: messageParameters.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'subjectParameters';
+        subjectParameters.build();
+        _$failedField = 'messageParameters';
+        messageParameters.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ApiGenerateNotificationV3RequestApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  int? get id;
+  set id(int? id);
+}
+
+class _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data
+    extends ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data {
+  @override
+  final int id;
+
+  factory _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data(
+          [void Function(ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data._({required this.id}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(id, r'ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data', 'id');
+  }
+
+  @override
+  ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data rebuild(
+          void Function(ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data && id == other.id;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data')..add('id', id))
+        .toString();
+  }
+}
+
+class ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data,
+            ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder>,
+        $ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data? _$v;
+
+  int? _id;
+  int? get id => _$this._id;
+  set id(covariant int? id) => _$this._id = id;
+
+  ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder() {
+    ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data _build() {
+    ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data._validate(this);
+    final _$result = _$v ??
+        _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data._(
+            id: BuiltValueNullFieldError.checkNotNull(
+                id, r'ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data', 'id'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ApiGenerateNotificationV3ResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ApiGenerateNotificationV3ResponseApplicationJson_OcsInterface other);
+  void update(void Function($ApiGenerateNotificationV3ResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs
+    extends ApiGenerateNotificationV3ResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data data;
+
+  factory _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs(
+          [void Function(ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ApiGenerateNotificationV3ResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ApiGenerateNotificationV3ResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  ApiGenerateNotificationV3ResponseApplicationJson_Ocs rebuild(
+          void Function(ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder toBuilder() =>
+      ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ApiGenerateNotificationV3ResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ApiGenerateNotificationV3ResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder
+    implements
+        Builder<ApiGenerateNotificationV3ResponseApplicationJson_Ocs,
+            ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder>,
+        $ApiGenerateNotificationV3ResponseApplicationJson_OcsInterfaceBuilder {
+  _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder? _data;
+  ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder() {
+    ApiGenerateNotificationV3ResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ApiGenerateNotificationV3ResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ApiGenerateNotificationV3ResponseApplicationJson_Ocs build() => _build();
+
+  _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs _build() {
+    ApiGenerateNotificationV3ResponseApplicationJson_Ocs._validate(this);
+    _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ApiGenerateNotificationV3ResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ApiGenerateNotificationV3ResponseApplicationJsonInterfaceBuilder {
+  void replace($ApiGenerateNotificationV3ResponseApplicationJsonInterface other);
+  void update(void Function($ApiGenerateNotificationV3ResponseApplicationJsonInterfaceBuilder) updates);
+  ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$ApiGenerateNotificationV3ResponseApplicationJson extends ApiGenerateNotificationV3ResponseApplicationJson {
+  @override
+  final ApiGenerateNotificationV3ResponseApplicationJson_Ocs ocs;
+
+  factory _$ApiGenerateNotificationV3ResponseApplicationJson(
+          [void Function(ApiGenerateNotificationV3ResponseApplicationJsonBuilder)? updates]) =>
+      (ApiGenerateNotificationV3ResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$ApiGenerateNotificationV3ResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ApiGenerateNotificationV3ResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  ApiGenerateNotificationV3ResponseApplicationJson rebuild(
+          void Function(ApiGenerateNotificationV3ResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ApiGenerateNotificationV3ResponseApplicationJsonBuilder toBuilder() =>
+      ApiGenerateNotificationV3ResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ApiGenerateNotificationV3ResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ApiGenerateNotificationV3ResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class ApiGenerateNotificationV3ResponseApplicationJsonBuilder
+    implements
+        Builder<ApiGenerateNotificationV3ResponseApplicationJson,
+            ApiGenerateNotificationV3ResponseApplicationJsonBuilder>,
+        $ApiGenerateNotificationV3ResponseApplicationJsonInterfaceBuilder {
+  _$ApiGenerateNotificationV3ResponseApplicationJson? _$v;
+
+  ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder? _ocs;
+  ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  ApiGenerateNotificationV3ResponseApplicationJsonBuilder() {
+    ApiGenerateNotificationV3ResponseApplicationJson._defaults(this);
+  }
+
+  ApiGenerateNotificationV3ResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ApiGenerateNotificationV3ResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ApiGenerateNotificationV3ResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(ApiGenerateNotificationV3ResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ApiGenerateNotificationV3ResponseApplicationJson build() => _build();
+
+  _$ApiGenerateNotificationV3ResponseApplicationJson _build() {
+    ApiGenerateNotificationV3ResponseApplicationJson._validate(this);
+    _$ApiGenerateNotificationV3ResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$ApiGenerateNotificationV3ResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ApiGenerateNotificationV3ResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $NotificationActionInterfaceBuilder {
   void replace($NotificationActionInterface other);
   void update(void Function($NotificationActionInterfaceBuilder) updates);
@@ -2555,14 +4115,14 @@ abstract mixin class $NotificationInterfaceBuilder {
   String? get subjectRich;
   set subjectRich(String? subjectRich);
 
-  MapBuilder<String, JsonObject> get subjectRichParameters;
-  set subjectRichParameters(MapBuilder<String, JsonObject>? subjectRichParameters);
+  MapBuilder<String, RichObjectParameter> get subjectRichParameters;
+  set subjectRichParameters(MapBuilder<String, RichObjectParameter>? subjectRichParameters);
 
   String? get messageRich;
   set messageRich(String? messageRich);
 
-  MapBuilder<String, JsonObject> get messageRichParameters;
-  set messageRichParameters(MapBuilder<String, JsonObject>? messageRichParameters);
+  MapBuilder<String, RichObjectParameter> get messageRichParameters;
+  set messageRichParameters(MapBuilder<String, RichObjectParameter>? messageRichParameters);
 
   String? get icon;
   set icon(String? icon);
@@ -2595,11 +4155,11 @@ class _$Notification extends Notification {
   @override
   final String? subjectRich;
   @override
-  final BuiltMap<String, JsonObject>? subjectRichParameters;
+  final BuiltMap<String, RichObjectParameter>? subjectRichParameters;
   @override
   final String? messageRich;
   @override
-  final BuiltMap<String, JsonObject>? messageRichParameters;
+  final BuiltMap<String, RichObjectParameter>? messageRichParameters;
   @override
   final String? icon;
   @override
@@ -2759,20 +4319,20 @@ class NotificationBuilder implements Builder<Notification, NotificationBuilder>,
   String? get subjectRich => _$this._subjectRich;
   set subjectRich(covariant String? subjectRich) => _$this._subjectRich = subjectRich;
 
-  MapBuilder<String, JsonObject>? _subjectRichParameters;
-  MapBuilder<String, JsonObject> get subjectRichParameters =>
-      _$this._subjectRichParameters ??= MapBuilder<String, JsonObject>();
-  set subjectRichParameters(covariant MapBuilder<String, JsonObject>? subjectRichParameters) =>
+  MapBuilder<String, RichObjectParameter>? _subjectRichParameters;
+  MapBuilder<String, RichObjectParameter> get subjectRichParameters =>
+      _$this._subjectRichParameters ??= MapBuilder<String, RichObjectParameter>();
+  set subjectRichParameters(covariant MapBuilder<String, RichObjectParameter>? subjectRichParameters) =>
       _$this._subjectRichParameters = subjectRichParameters;
 
   String? _messageRich;
   String? get messageRich => _$this._messageRich;
   set messageRich(covariant String? messageRich) => _$this._messageRich = messageRich;
 
-  MapBuilder<String, JsonObject>? _messageRichParameters;
-  MapBuilder<String, JsonObject> get messageRichParameters =>
-      _$this._messageRichParameters ??= MapBuilder<String, JsonObject>();
-  set messageRichParameters(covariant MapBuilder<String, JsonObject>? messageRichParameters) =>
+  MapBuilder<String, RichObjectParameter>? _messageRichParameters;
+  MapBuilder<String, RichObjectParameter> get messageRichParameters =>
+      _$this._messageRichParameters ??= MapBuilder<String, RichObjectParameter>();
+  set messageRichParameters(covariant MapBuilder<String, RichObjectParameter>? messageRichParameters) =>
       _$this._messageRichParameters = messageRichParameters;
 
   String? _icon;

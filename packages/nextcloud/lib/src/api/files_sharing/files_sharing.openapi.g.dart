@@ -83,6 +83,30 @@ final BuiltSet<Share_MailSend> _$shareMailSendValues = BuiltSet<Share_MailSend>(
   _$shareMailSend$1,
 ]);
 
+const ShareapiCreateShareRequestApplicationJson_SendMail _$shareapiCreateShareRequestApplicationJsonSendMail$false =
+    ShareapiCreateShareRequestApplicationJson_SendMail._('\$false');
+const ShareapiCreateShareRequestApplicationJson_SendMail _$shareapiCreateShareRequestApplicationJsonSendMail$true =
+    ShareapiCreateShareRequestApplicationJson_SendMail._('\$true');
+
+ShareapiCreateShareRequestApplicationJson_SendMail _$valueOfShareapiCreateShareRequestApplicationJson_SendMail(
+    String name) {
+  switch (name) {
+    case '\$false':
+      return _$shareapiCreateShareRequestApplicationJsonSendMail$false;
+    case '\$true':
+      return _$shareapiCreateShareRequestApplicationJsonSendMail$true;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<ShareapiCreateShareRequestApplicationJson_SendMail>
+    _$shareapiCreateShareRequestApplicationJsonSendMailValues = BuiltSet<
+        ShareapiCreateShareRequestApplicationJson_SendMail>(const <ShareapiCreateShareRequestApplicationJson_SendMail>[
+  _$shareapiCreateShareRequestApplicationJsonSendMail$false,
+  _$shareapiCreateShareRequestApplicationJsonSendMail$true,
+]);
+
 const ShareapiGetShareIncludeTags _$shareapiGetShareIncludeTags$0 = ShareapiGetShareIncludeTags._('\$0');
 const ShareapiGetShareIncludeTags _$shareapiGetShareIncludeTags$1 = ShareapiGetShareIncludeTags._('\$1');
 
@@ -199,6 +223,13 @@ Serializer<ShareapiDeleteShareResponseApplicationJson_Ocs> _$shareapiDeleteShare
     _$ShareapiDeleteShareResponseApplicationJson_OcsSerializer();
 Serializer<ShareapiDeleteShareResponseApplicationJson> _$shareapiDeleteShareResponseApplicationJsonSerializer =
     _$ShareapiDeleteShareResponseApplicationJsonSerializer();
+Serializer<ShareapiSendShareEmailRequestApplicationJson> _$shareapiSendShareEmailRequestApplicationJsonSerializer =
+    _$ShareapiSendShareEmailRequestApplicationJsonSerializer();
+Serializer<ShareapiSendShareEmailResponseApplicationJson_Ocs>
+    _$shareapiSendShareEmailResponseApplicationJsonOcsSerializer =
+    _$ShareapiSendShareEmailResponseApplicationJson_OcsSerializer();
+Serializer<ShareapiSendShareEmailResponseApplicationJson> _$shareapiSendShareEmailResponseApplicationJsonSerializer =
+    _$ShareapiSendShareEmailResponseApplicationJsonSerializer();
 Serializer<ShareapiAcceptShareResponseApplicationJson_Ocs> _$shareapiAcceptShareResponseApplicationJsonOcsSerializer =
     _$ShareapiAcceptShareResponseApplicationJson_OcsSerializer();
 Serializer<ShareapiAcceptShareResponseApplicationJson> _$shareapiAcceptShareResponseApplicationJsonSerializer =
@@ -1994,8 +2025,6 @@ class _$ShareapiCreateShareRequestApplicationJsonSerializer
       serializers.serialize(object.publicUpload, specifiedType: const FullType(String)),
       'password',
       serializers.serialize(object.password, specifiedType: const FullType(String)),
-      'expireDate',
-      serializers.serialize(object.expireDate, specifiedType: const FullType(String)),
       'note',
       serializers.serialize(object.note, specifiedType: const FullType(String)),
       'label',
@@ -2026,11 +2055,24 @@ class _$ShareapiCreateShareRequestApplicationJsonSerializer
         ..add('sendPasswordByTalk')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
+    value = object.expireDate;
+    if (value != null) {
+      result
+        ..add('expireDate')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
     value = object.attributes;
     if (value != null) {
       result
         ..add('attributes')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.sendMail;
+    if (value != null) {
+      result
+        ..add('sendMail')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(ShareapiCreateShareRequestApplicationJson_SendMail)));
     }
     return result;
   }
@@ -2068,7 +2110,7 @@ class _$ShareapiCreateShareRequestApplicationJsonSerializer
           result.sendPasswordByTalk = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'expireDate':
-          result.expireDate = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.expireDate = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'note':
           result.note = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -2078,6 +2120,11 @@ class _$ShareapiCreateShareRequestApplicationJsonSerializer
           break;
         case 'attributes':
           result.attributes = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'sendMail':
+          result.sendMail = serializers.deserialize(value,
+                  specifiedType: const FullType(ShareapiCreateShareRequestApplicationJson_SendMail))
+              as ShareapiCreateShareRequestApplicationJson_SendMail?;
           break;
       }
     }
@@ -2524,6 +2571,12 @@ class _$ShareapiUpdateShareRequestApplicationJsonSerializer
         ..add('attributes')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
+    value = object.sendMail;
+    if (value != null) {
+      result
+        ..add('sendMail')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -2564,6 +2617,9 @@ class _$ShareapiUpdateShareRequestApplicationJsonSerializer
           break;
         case 'attributes':
           result.attributes = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'sendMail':
+          result.sendMail = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -2746,6 +2802,140 @@ class _$ShareapiDeleteShareResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(ShareapiDeleteShareResponseApplicationJson_Ocs))!
               as ShareapiDeleteShareResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ShareapiSendShareEmailRequestApplicationJsonSerializer
+    implements StructuredSerializer<ShareapiSendShareEmailRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ShareapiSendShareEmailRequestApplicationJson,
+    _$ShareapiSendShareEmailRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'ShareapiSendShareEmailRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ShareapiSendShareEmailRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'password',
+      serializers.serialize(object.password, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ShareapiSendShareEmailRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ShareapiSendShareEmailRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'password':
+          result.password = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ShareapiSendShareEmailResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ShareapiSendShareEmailResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    ShareapiSendShareEmailResponseApplicationJson_Ocs,
+    _$ShareapiSendShareEmailResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'ShareapiSendShareEmailResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ShareapiSendShareEmailResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ShareapiSendShareEmailResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ShareapiSendShareEmailResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ShareapiSendShareEmailResponseApplicationJsonSerializer
+    implements StructuredSerializer<ShareapiSendShareEmailResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ShareapiSendShareEmailResponseApplicationJson,
+    _$ShareapiSendShareEmailResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'ShareapiSendShareEmailResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ShareapiSendShareEmailResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(ShareapiSendShareEmailResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ShareapiSendShareEmailResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ShareapiSendShareEmailResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ShareapiSendShareEmailResponseApplicationJson_Ocs))!
+              as ShareapiSendShareEmailResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -9347,6 +9537,9 @@ abstract mixin class $ShareapiCreateShareRequestApplicationJsonInterfaceBuilder 
 
   String? get attributes;
   set attributes(String? attributes);
+
+  ShareapiCreateShareRequestApplicationJson_SendMail? get sendMail;
+  set sendMail(ShareapiCreateShareRequestApplicationJson_SendMail? sendMail);
 }
 
 class _$ShareapiCreateShareRequestApplicationJson extends ShareapiCreateShareRequestApplicationJson {
@@ -9365,13 +9558,15 @@ class _$ShareapiCreateShareRequestApplicationJson extends ShareapiCreateShareReq
   @override
   final String? sendPasswordByTalk;
   @override
-  final String expireDate;
+  final String? expireDate;
   @override
   final String note;
   @override
   final String label;
   @override
   final String? attributes;
+  @override
+  final ShareapiCreateShareRequestApplicationJson_SendMail? sendMail;
 
   factory _$ShareapiCreateShareRequestApplicationJson(
           [void Function(ShareapiCreateShareRequestApplicationJsonBuilder)? updates]) =>
@@ -9385,15 +9580,15 @@ class _$ShareapiCreateShareRequestApplicationJson extends ShareapiCreateShareReq
       required this.publicUpload,
       required this.password,
       this.sendPasswordByTalk,
-      required this.expireDate,
+      this.expireDate,
       required this.note,
       required this.label,
-      this.attributes})
+      this.attributes,
+      this.sendMail})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(shareType, r'ShareapiCreateShareRequestApplicationJson', 'shareType');
     BuiltValueNullFieldError.checkNotNull(publicUpload, r'ShareapiCreateShareRequestApplicationJson', 'publicUpload');
     BuiltValueNullFieldError.checkNotNull(password, r'ShareapiCreateShareRequestApplicationJson', 'password');
-    BuiltValueNullFieldError.checkNotNull(expireDate, r'ShareapiCreateShareRequestApplicationJson', 'expireDate');
     BuiltValueNullFieldError.checkNotNull(note, r'ShareapiCreateShareRequestApplicationJson', 'note');
     BuiltValueNullFieldError.checkNotNull(label, r'ShareapiCreateShareRequestApplicationJson', 'label');
   }
@@ -9421,7 +9616,8 @@ class _$ShareapiCreateShareRequestApplicationJson extends ShareapiCreateShareReq
         expireDate == other.expireDate &&
         note == other.note &&
         label == other.label &&
-        attributes == other.attributes;
+        attributes == other.attributes &&
+        sendMail == other.sendMail;
   }
 
   @override
@@ -9438,6 +9634,7 @@ class _$ShareapiCreateShareRequestApplicationJson extends ShareapiCreateShareReq
     _$hash = $jc(_$hash, note.hashCode);
     _$hash = $jc(_$hash, label.hashCode);
     _$hash = $jc(_$hash, attributes.hashCode);
+    _$hash = $jc(_$hash, sendMail.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -9455,7 +9652,8 @@ class _$ShareapiCreateShareRequestApplicationJson extends ShareapiCreateShareReq
           ..add('expireDate', expireDate)
           ..add('note', note)
           ..add('label', label)
-          ..add('attributes', attributes))
+          ..add('attributes', attributes)
+          ..add('sendMail', sendMail))
         .toString();
   }
 }
@@ -9510,6 +9708,10 @@ class ShareapiCreateShareRequestApplicationJsonBuilder
   String? get attributes => _$this._attributes;
   set attributes(covariant String? attributes) => _$this._attributes = attributes;
 
+  ShareapiCreateShareRequestApplicationJson_SendMail? _sendMail;
+  ShareapiCreateShareRequestApplicationJson_SendMail? get sendMail => _$this._sendMail;
+  set sendMail(covariant ShareapiCreateShareRequestApplicationJson_SendMail? sendMail) => _$this._sendMail = sendMail;
+
   ShareapiCreateShareRequestApplicationJsonBuilder() {
     ShareapiCreateShareRequestApplicationJson._defaults(this);
   }
@@ -9528,6 +9730,7 @@ class ShareapiCreateShareRequestApplicationJsonBuilder
       _note = $v.note;
       _label = $v.label;
       _attributes = $v.attributes;
+      _sendMail = $v.sendMail;
       _$v = null;
     }
     return this;
@@ -9561,11 +9764,11 @@ class ShareapiCreateShareRequestApplicationJsonBuilder
             password: BuiltValueNullFieldError.checkNotNull(
                 password, r'ShareapiCreateShareRequestApplicationJson', 'password'),
             sendPasswordByTalk: sendPasswordByTalk,
-            expireDate: BuiltValueNullFieldError.checkNotNull(
-                expireDate, r'ShareapiCreateShareRequestApplicationJson', 'expireDate'),
+            expireDate: expireDate,
             note: BuiltValueNullFieldError.checkNotNull(note, r'ShareapiCreateShareRequestApplicationJson', 'note'),
             label: BuiltValueNullFieldError.checkNotNull(label, r'ShareapiCreateShareRequestApplicationJson', 'label'),
-            attributes: attributes);
+            attributes: attributes,
+            sendMail: sendMail);
     replace(_$result);
     return _$result;
   }
@@ -10522,6 +10725,9 @@ abstract mixin class $ShareapiUpdateShareRequestApplicationJsonInterfaceBuilder 
 
   String? get attributes;
   set attributes(String? attributes);
+
+  String? get sendMail;
+  set sendMail(String? sendMail);
 }
 
 class _$ShareapiUpdateShareRequestApplicationJson extends ShareapiUpdateShareRequestApplicationJson {
@@ -10543,6 +10749,8 @@ class _$ShareapiUpdateShareRequestApplicationJson extends ShareapiUpdateShareReq
   final String? hideDownload;
   @override
   final String? attributes;
+  @override
+  final String? sendMail;
 
   factory _$ShareapiUpdateShareRequestApplicationJson(
           [void Function(ShareapiUpdateShareRequestApplicationJsonBuilder)? updates]) =>
@@ -10557,7 +10765,8 @@ class _$ShareapiUpdateShareRequestApplicationJson extends ShareapiUpdateShareReq
       this.note,
       this.label,
       this.hideDownload,
-      this.attributes})
+      this.attributes,
+      this.sendMail})
       : super._();
 
   @override
@@ -10581,7 +10790,8 @@ class _$ShareapiUpdateShareRequestApplicationJson extends ShareapiUpdateShareReq
         note == other.note &&
         label == other.label &&
         hideDownload == other.hideDownload &&
-        attributes == other.attributes;
+        attributes == other.attributes &&
+        sendMail == other.sendMail;
   }
 
   @override
@@ -10596,6 +10806,7 @@ class _$ShareapiUpdateShareRequestApplicationJson extends ShareapiUpdateShareReq
     _$hash = $jc(_$hash, label.hashCode);
     _$hash = $jc(_$hash, hideDownload.hashCode);
     _$hash = $jc(_$hash, attributes.hashCode);
+    _$hash = $jc(_$hash, sendMail.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -10611,7 +10822,8 @@ class _$ShareapiUpdateShareRequestApplicationJson extends ShareapiUpdateShareReq
           ..add('note', note)
           ..add('label', label)
           ..add('hideDownload', hideDownload)
-          ..add('attributes', attributes))
+          ..add('attributes', attributes)
+          ..add('sendMail', sendMail))
         .toString();
   }
 }
@@ -10658,6 +10870,10 @@ class ShareapiUpdateShareRequestApplicationJsonBuilder
   String? get attributes => _$this._attributes;
   set attributes(covariant String? attributes) => _$this._attributes = attributes;
 
+  String? _sendMail;
+  String? get sendMail => _$this._sendMail;
+  set sendMail(covariant String? sendMail) => _$this._sendMail = sendMail;
+
   ShareapiUpdateShareRequestApplicationJsonBuilder() {
     ShareapiUpdateShareRequestApplicationJson._defaults(this);
   }
@@ -10674,6 +10890,7 @@ class ShareapiUpdateShareRequestApplicationJsonBuilder
       _label = $v.label;
       _hideDownload = $v.hideDownload;
       _attributes = $v.attributes;
+      _sendMail = $v.sendMail;
       _$v = null;
     }
     return this;
@@ -10705,7 +10922,8 @@ class ShareapiUpdateShareRequestApplicationJsonBuilder
             note: note,
             label: label,
             hideDownload: hideDownload,
-            attributes: attributes);
+            attributes: attributes,
+            sendMail: sendMail);
     replace(_$result);
     return _$result;
   }
@@ -11163,6 +11381,335 @@ class ShareapiDeleteShareResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'ShareapiDeleteShareResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ShareapiSendShareEmailRequestApplicationJsonInterfaceBuilder {
+  void replace($ShareapiSendShareEmailRequestApplicationJsonInterface other);
+  void update(void Function($ShareapiSendShareEmailRequestApplicationJsonInterfaceBuilder) updates);
+  String? get password;
+  set password(String? password);
+}
+
+class _$ShareapiSendShareEmailRequestApplicationJson extends ShareapiSendShareEmailRequestApplicationJson {
+  @override
+  final String password;
+
+  factory _$ShareapiSendShareEmailRequestApplicationJson(
+          [void Function(ShareapiSendShareEmailRequestApplicationJsonBuilder)? updates]) =>
+      (ShareapiSendShareEmailRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$ShareapiSendShareEmailRequestApplicationJson._({required this.password}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(password, r'ShareapiSendShareEmailRequestApplicationJson', 'password');
+  }
+
+  @override
+  ShareapiSendShareEmailRequestApplicationJson rebuild(
+          void Function(ShareapiSendShareEmailRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ShareapiSendShareEmailRequestApplicationJsonBuilder toBuilder() =>
+      ShareapiSendShareEmailRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ShareapiSendShareEmailRequestApplicationJson && password == other.password;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, password.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ShareapiSendShareEmailRequestApplicationJson')..add('password', password))
+        .toString();
+  }
+}
+
+class ShareapiSendShareEmailRequestApplicationJsonBuilder
+    implements
+        Builder<ShareapiSendShareEmailRequestApplicationJson, ShareapiSendShareEmailRequestApplicationJsonBuilder>,
+        $ShareapiSendShareEmailRequestApplicationJsonInterfaceBuilder {
+  _$ShareapiSendShareEmailRequestApplicationJson? _$v;
+
+  String? _password;
+  String? get password => _$this._password;
+  set password(covariant String? password) => _$this._password = password;
+
+  ShareapiSendShareEmailRequestApplicationJsonBuilder() {
+    ShareapiSendShareEmailRequestApplicationJson._defaults(this);
+  }
+
+  ShareapiSendShareEmailRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _password = $v.password;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ShareapiSendShareEmailRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ShareapiSendShareEmailRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(ShareapiSendShareEmailRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ShareapiSendShareEmailRequestApplicationJson build() => _build();
+
+  _$ShareapiSendShareEmailRequestApplicationJson _build() {
+    ShareapiSendShareEmailRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$ShareapiSendShareEmailRequestApplicationJson._(
+            password: BuiltValueNullFieldError.checkNotNull(
+                password, r'ShareapiSendShareEmailRequestApplicationJson', 'password'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ShareapiSendShareEmailResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ShareapiSendShareEmailResponseApplicationJson_OcsInterface other);
+  void update(void Function($ShareapiSendShareEmailResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
+}
+
+class _$ShareapiSendShareEmailResponseApplicationJson_Ocs extends ShareapiSendShareEmailResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final JsonObject data;
+
+  factory _$ShareapiSendShareEmailResponseApplicationJson_Ocs(
+          [void Function(ShareapiSendShareEmailResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ShareapiSendShareEmailResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$ShareapiSendShareEmailResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ShareapiSendShareEmailResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ShareapiSendShareEmailResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  ShareapiSendShareEmailResponseApplicationJson_Ocs rebuild(
+          void Function(ShareapiSendShareEmailResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ShareapiSendShareEmailResponseApplicationJson_OcsBuilder toBuilder() =>
+      ShareapiSendShareEmailResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ShareapiSendShareEmailResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ShareapiSendShareEmailResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class ShareapiSendShareEmailResponseApplicationJson_OcsBuilder
+    implements
+        Builder<ShareapiSendShareEmailResponseApplicationJson_Ocs,
+            ShareapiSendShareEmailResponseApplicationJson_OcsBuilder>,
+        $ShareapiSendShareEmailResponseApplicationJson_OcsInterfaceBuilder {
+  _$ShareapiSendShareEmailResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  JsonObject? _data;
+  JsonObject? get data => _$this._data;
+  set data(covariant JsonObject? data) => _$this._data = data;
+
+  ShareapiSendShareEmailResponseApplicationJson_OcsBuilder() {
+    ShareapiSendShareEmailResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  ShareapiSendShareEmailResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ShareapiSendShareEmailResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ShareapiSendShareEmailResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(ShareapiSendShareEmailResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ShareapiSendShareEmailResponseApplicationJson_Ocs build() => _build();
+
+  _$ShareapiSendShareEmailResponseApplicationJson_Ocs _build() {
+    ShareapiSendShareEmailResponseApplicationJson_Ocs._validate(this);
+    _$ShareapiSendShareEmailResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$ShareapiSendShareEmailResponseApplicationJson_Ocs._(
+              meta: meta.build(),
+              data: BuiltValueNullFieldError.checkNotNull(
+                  data, r'ShareapiSendShareEmailResponseApplicationJson_Ocs', 'data'));
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ShareapiSendShareEmailResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ShareapiSendShareEmailResponseApplicationJsonInterfaceBuilder {
+  void replace($ShareapiSendShareEmailResponseApplicationJsonInterface other);
+  void update(void Function($ShareapiSendShareEmailResponseApplicationJsonInterfaceBuilder) updates);
+  ShareapiSendShareEmailResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ShareapiSendShareEmailResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$ShareapiSendShareEmailResponseApplicationJson extends ShareapiSendShareEmailResponseApplicationJson {
+  @override
+  final ShareapiSendShareEmailResponseApplicationJson_Ocs ocs;
+
+  factory _$ShareapiSendShareEmailResponseApplicationJson(
+          [void Function(ShareapiSendShareEmailResponseApplicationJsonBuilder)? updates]) =>
+      (ShareapiSendShareEmailResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$ShareapiSendShareEmailResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ShareapiSendShareEmailResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  ShareapiSendShareEmailResponseApplicationJson rebuild(
+          void Function(ShareapiSendShareEmailResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ShareapiSendShareEmailResponseApplicationJsonBuilder toBuilder() =>
+      ShareapiSendShareEmailResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ShareapiSendShareEmailResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ShareapiSendShareEmailResponseApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class ShareapiSendShareEmailResponseApplicationJsonBuilder
+    implements
+        Builder<ShareapiSendShareEmailResponseApplicationJson, ShareapiSendShareEmailResponseApplicationJsonBuilder>,
+        $ShareapiSendShareEmailResponseApplicationJsonInterfaceBuilder {
+  _$ShareapiSendShareEmailResponseApplicationJson? _$v;
+
+  ShareapiSendShareEmailResponseApplicationJson_OcsBuilder? _ocs;
+  ShareapiSendShareEmailResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ShareapiSendShareEmailResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ShareapiSendShareEmailResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  ShareapiSendShareEmailResponseApplicationJsonBuilder() {
+    ShareapiSendShareEmailResponseApplicationJson._defaults(this);
+  }
+
+  ShareapiSendShareEmailResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ShareapiSendShareEmailResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ShareapiSendShareEmailResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(ShareapiSendShareEmailResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ShareapiSendShareEmailResponseApplicationJson build() => _build();
+
+  _$ShareapiSendShareEmailResponseApplicationJson _build() {
+    ShareapiSendShareEmailResponseApplicationJson._validate(this);
+    _$ShareapiSendShareEmailResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$ShareapiSendShareEmailResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'ShareapiSendShareEmailResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

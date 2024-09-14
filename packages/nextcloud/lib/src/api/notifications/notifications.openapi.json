@@ -112,7 +112,7 @@
                     "subjectRichParameters": {
                         "type": "object",
                         "additionalProperties": {
-                            "type": "object"
+                            "$ref": "#/components/schemas/RichObjectParameter"
                         }
                     },
                     "messageRich": {
@@ -121,7 +121,7 @@
                     "messageRichParameters": {
                         "type": "object",
                         "additionalProperties": {
-                            "type": "object"
+                            "$ref": "#/components/schemas/RichObjectParameter"
                         }
                     },
                     "icon": {
@@ -194,6 +194,114 @@
                         "type": "string"
                     },
                     "signature": {
+                        "type": "string"
+                    }
+                }
+            },
+            "RichObjectParameter": {
+                "type": "object",
+                "required": [
+                    "type",
+                    "id",
+                    "name"
+                ],
+                "properties": {
+                    "type": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "server": {
+                        "type": "string"
+                    },
+                    "link": {
+                        "type": "string"
+                    },
+                    "call-type": {
+                        "type": "string",
+                        "enum": [
+                            "one2one",
+                            "group",
+                            "public"
+                        ]
+                    },
+                    "icon-url": {
+                        "type": "string"
+                    },
+                    "message-id": {
+                        "type": "string"
+                    },
+                    "boardname": {
+                        "type": "string"
+                    },
+                    "stackname": {
+                        "type": "string"
+                    },
+                    "size": {
+                        "type": "string"
+                    },
+                    "path": {
+                        "type": "string"
+                    },
+                    "mimetype": {
+                        "type": "string"
+                    },
+                    "preview-available": {
+                        "type": "string",
+                        "enum": [
+                            "yes",
+                            "no"
+                        ]
+                    },
+                    "mtime": {
+                        "type": "string"
+                    },
+                    "latitude": {
+                        "type": "string"
+                    },
+                    "longitude": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "thumb": {
+                        "type": "string"
+                    },
+                    "website": {
+                        "type": "string"
+                    },
+                    "visibility": {
+                        "type": "string",
+                        "enum": [
+                            "0",
+                            "1"
+                        ]
+                    },
+                    "assignable": {
+                        "type": "string",
+                        "enum": [
+                            "0",
+                            "1"
+                        ]
+                    },
+                    "conversation": {
+                        "type": "string"
+                    },
+                    "etag": {
+                        "type": "string"
+                    },
+                    "permissions": {
+                        "type": "string"
+                    },
+                    "width": {
+                        "type": "string"
+                    },
+                    "height": {
                         "type": "string"
                     }
                 }
@@ -891,8 +999,9 @@
         "/ocs/v2.php/apps/notifications/api/{apiVersion}/admin_notifications/{userId}": {
             "post": {
                 "operationId": "api-generate-notification",
-                "summary": "Generate a notification for a user",
+                "summary": "Generate a notification for a user (deprecated, use v3 instead)",
                 "description": "This endpoint requires admin access",
+                "deprecated": true,
                 "tags": [
                     "api"
                 ],
@@ -1073,6 +1182,171 @@
                                                 },
                                                 "data": {
                                                     "nullable": true
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/ocs/v2.php/apps/notifications/api/{apiVersion3}/admin_notifications/{userId}": {
+            "post": {
+                "operationId": "api-generate-notification-v3",
+                "summary": "Generate a notification with rich object parameters for a user",
+                "description": "This endpoint requires admin access",
+                "tags": [
+                    "api"
+                ],
+                "security": [
+                    {
+                        "bearer_auth": []
+                    },
+                    {
+                        "basic_auth": []
+                    }
+                ],
+                "requestBody": {
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "subject": {
+                                        "type": "string",
+                                        "default": "",
+                                        "description": "Subject of the notification"
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "default": "",
+                                        "description": "Message of the notification"
+                                    },
+                                    "subjectParameters": {
+                                        "type": "object",
+                                        "default": {},
+                                        "description": "Rich objects to fill the subject placeholders, {@see \\OCP\\RichObjectStrings\\Definitions}",
+                                        "additionalProperties": {
+                                            "$ref": "#/components/schemas/RichObjectParameter"
+                                        }
+                                    },
+                                    "messageParameters": {
+                                        "type": "object",
+                                        "default": {},
+                                        "description": "Rich objects to fill the message placeholders, {@see \\OCP\\RichObjectStrings\\Definitions}",
+                                        "additionalProperties": {
+                                            "$ref": "#/components/schemas/RichObjectParameter"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "apiVersion3",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^(v3)$"
+                        }
+                    },
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "ID of the user",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "OCS-APIRequest",
+                        "in": "header",
+                        "description": "Required to be true for the API request to pass",
+                        "required": true,
+                        "schema": {
+                            "type": "boolean",
+                            "default": true
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Notification generated successfully, returned id is the notification ID for future delete requests",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "id"
+                                                    ],
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "format": "int64"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Provided data was invalid, check error field of the response of log file for details",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "error"
+                                                    ],
+                                                    "properties": {
+                                                        "error": {
+                                                            "type": "string"
+                                                        }
+                                                    }
                                                 }
                                             }
                                         }

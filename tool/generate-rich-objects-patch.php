@@ -25,11 +25,6 @@ foreach ($definitions as $type => $object) {
     }
 }
 
-$properties['type']['enum'][] = 'group';
-$properties['etag'] = ['type' => 'string'];
-$properties['width'] = ['type' => 'string'];
-$properties['height'] = ['type' => 'string'];
-
 $patch = [
     [
         'op' => 'replace',

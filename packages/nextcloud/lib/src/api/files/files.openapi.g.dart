@@ -6,6 +6,7 @@ part of 'files.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+Serializer<FolderTree> _$folderTreeSerializer = _$FolderTreeSerializer();
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors>
     _$directEditingInfoResponseApplicationJsonOcsDataEditorsSerializer =
@@ -74,6 +75,7 @@ Serializer<TemplateListResponseApplicationJson_Ocs> _$templateListResponseApplic
     _$TemplateListResponseApplicationJson_OcsSerializer();
 Serializer<TemplateListResponseApplicationJson> _$templateListResponseApplicationJsonSerializer =
     _$TemplateListResponseApplicationJsonSerializer();
+Serializer<TemplateField> _$templateFieldSerializer = _$TemplateFieldSerializer();
 Serializer<TemplateCreateRequestApplicationJson> _$templateCreateRequestApplicationJsonSerializer =
     _$TemplateCreateRequestApplicationJsonSerializer();
 Serializer<TemplateFile> _$templateFileSerializer = _$TemplateFileSerializer();
@@ -112,6 +114,64 @@ Serializer<Capabilities_Files_DirectEditing> _$capabilitiesFilesDirectEditingSer
     _$Capabilities_Files_DirectEditingSerializer();
 Serializer<Capabilities_Files> _$capabilitiesFilesSerializer = _$Capabilities_FilesSerializer();
 Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
+
+class _$FolderTreeSerializer implements StructuredSerializer<FolderTree> {
+  @override
+  final Iterable<Type> types = const [FolderTree, _$FolderTree];
+  @override
+  final String wireName = 'FolderTree';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, FolderTree object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      'basename',
+      serializers.serialize(object.basename, specifiedType: const FullType(String)),
+      'children',
+      serializers.serialize(object.children, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])),
+    ];
+    Object? value;
+    value = object.displayName;
+    if (value != null) {
+      result
+        ..add('displayName')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  FolderTree deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = FolderTreeBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'basename':
+          result.basename = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'displayName':
+          result.displayName = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'children':
+          result.children.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
 
 class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
@@ -1639,6 +1699,54 @@ class _$TemplateListResponseApplicationJsonSerializer
   }
 }
 
+class _$TemplateFieldSerializer implements StructuredSerializer<TemplateField> {
+  @override
+  final Iterable<Type> types = const [TemplateField, _$TemplateField];
+  @override
+  final String wireName = 'TemplateField';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TemplateField object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'index',
+      serializers.serialize(object.index, specifiedType: const FullType(String)),
+      'content',
+      serializers.serialize(object.content, specifiedType: const FullType(String)),
+      'type',
+      serializers.serialize(object.type, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TemplateField deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TemplateFieldBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'index':
+          result.index = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'content':
+          result.content = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'type':
+          result.type = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$TemplateCreateRequestApplicationJsonSerializer
     implements StructuredSerializer<TemplateCreateRequestApplicationJson> {
   @override
@@ -1656,6 +1764,8 @@ class _$TemplateCreateRequestApplicationJsonSerializer
       serializers.serialize(object.templatePath, specifiedType: const FullType(String)),
       'templateType',
       serializers.serialize(object.templateType, specifiedType: const FullType(String)),
+      'templateFields',
+      serializers.serialize(object.templateFields, specifiedType: const FullType(BuiltList, [FullType(TemplateField)])),
     ];
 
     return result;
@@ -1680,6 +1790,10 @@ class _$TemplateCreateRequestApplicationJsonSerializer
           break;
         case 'templateType':
           result.templateType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'templateFields':
+          result.templateFields.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(TemplateField)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -2428,13 +2542,27 @@ class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilitie
       serializers.serialize(object.bigfilechunking, specifiedType: const FullType(bool)),
       'blacklisted_files',
       serializers.serialize(object.blacklistedFiles, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])),
+      'forbidden_filenames',
+      serializers.serialize(object.forbiddenFilenames, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      'forbidden_filename_basenames',
+      serializers.serialize(object.forbiddenFilenameBasenames,
+          specifiedType: const FullType(BuiltList, [FullType(String)])),
       'forbidden_filename_characters',
       serializers.serialize(object.forbiddenFilenameCharacters,
+          specifiedType: const FullType(BuiltList, [FullType(String)])),
+      'forbidden_filename_extensions',
+      serializers.serialize(object.forbiddenFilenameExtensions,
           specifiedType: const FullType(BuiltList, [FullType(String)])),
       'directEditing',
       serializers.serialize(object.directEditing, specifiedType: const FullType(Capabilities_Files_DirectEditing)),
     ];
-
+    Object? value;
+    value = object.comment;
+    if (value != null) {
+      result
+        ..add('\$comment')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -2449,6 +2577,9 @@ class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilitie
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case '\$comment':
+          result.comment = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
         case 'bigfilechunking':
           result.bigfilechunking = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
@@ -2456,8 +2587,20 @@ class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilitie
           result.blacklistedFiles.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
+        case 'forbidden_filenames':
+          result.forbiddenFilenames.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'forbidden_filename_basenames':
+          result.forbiddenFilenameBasenames.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
         case 'forbidden_filename_characters':
           result.forbiddenFilenameCharacters.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'forbidden_filename_extensions':
+          result.forbiddenFilenameExtensions.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
           break;
         case 'directEditing':
@@ -2507,6 +2650,152 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
     }
 
     return result.build();
+  }
+}
+
+abstract mixin class $FolderTreeInterfaceBuilder {
+  void replace($FolderTreeInterface other);
+  void update(void Function($FolderTreeInterfaceBuilder) updates);
+  int? get id;
+  set id(int? id);
+
+  String? get basename;
+  set basename(String? basename);
+
+  String? get displayName;
+  set displayName(String? displayName);
+
+  ListBuilder<JsonObject> get children;
+  set children(ListBuilder<JsonObject>? children);
+}
+
+class _$FolderTree extends FolderTree {
+  @override
+  final int id;
+  @override
+  final String basename;
+  @override
+  final String? displayName;
+  @override
+  final BuiltList<JsonObject> children;
+
+  factory _$FolderTree([void Function(FolderTreeBuilder)? updates]) => (FolderTreeBuilder()..update(updates))._build();
+
+  _$FolderTree._({required this.id, required this.basename, this.displayName, required this.children}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(id, r'FolderTree', 'id');
+    BuiltValueNullFieldError.checkNotNull(basename, r'FolderTree', 'basename');
+    BuiltValueNullFieldError.checkNotNull(children, r'FolderTree', 'children');
+  }
+
+  @override
+  FolderTree rebuild(void Function(FolderTreeBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  FolderTreeBuilder toBuilder() => FolderTreeBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is FolderTree &&
+        id == other.id &&
+        basename == other.basename &&
+        displayName == other.displayName &&
+        children == other.children;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, basename.hashCode);
+    _$hash = $jc(_$hash, displayName.hashCode);
+    _$hash = $jc(_$hash, children.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'FolderTree')
+          ..add('id', id)
+          ..add('basename', basename)
+          ..add('displayName', displayName)
+          ..add('children', children))
+        .toString();
+  }
+}
+
+class FolderTreeBuilder implements Builder<FolderTree, FolderTreeBuilder>, $FolderTreeInterfaceBuilder {
+  _$FolderTree? _$v;
+
+  int? _id;
+  int? get id => _$this._id;
+  set id(covariant int? id) => _$this._id = id;
+
+  String? _basename;
+  String? get basename => _$this._basename;
+  set basename(covariant String? basename) => _$this._basename = basename;
+
+  String? _displayName;
+  String? get displayName => _$this._displayName;
+  set displayName(covariant String? displayName) => _$this._displayName = displayName;
+
+  ListBuilder<JsonObject>? _children;
+  ListBuilder<JsonObject> get children => _$this._children ??= ListBuilder<JsonObject>();
+  set children(covariant ListBuilder<JsonObject>? children) => _$this._children = children;
+
+  FolderTreeBuilder() {
+    FolderTree._defaults(this);
+  }
+
+  FolderTreeBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _basename = $v.basename;
+      _displayName = $v.displayName;
+      _children = $v.children.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant FolderTree other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$FolderTree;
+  }
+
+  @override
+  void update(void Function(FolderTreeBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  FolderTree build() => _build();
+
+  _$FolderTree _build() {
+    FolderTree._validate(this);
+    _$FolderTree _$result;
+    try {
+      _$result = _$v ??
+          _$FolderTree._(
+              id: BuiltValueNullFieldError.checkNotNull(id, r'FolderTree', 'id'),
+              basename: BuiltValueNullFieldError.checkNotNull(basename, r'FolderTree', 'basename'),
+              displayName: displayName,
+              children: children.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'children';
+        children.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'FolderTree', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
   }
 }
 
@@ -6252,6 +6541,124 @@ class TemplateListResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class $TemplateFieldInterfaceBuilder {
+  void replace($TemplateFieldInterface other);
+  void update(void Function($TemplateFieldInterfaceBuilder) updates);
+  String? get index;
+  set index(String? index);
+
+  String? get content;
+  set content(String? content);
+
+  String? get type;
+  set type(String? type);
+}
+
+class _$TemplateField extends TemplateField {
+  @override
+  final String index;
+  @override
+  final String content;
+  @override
+  final String type;
+
+  factory _$TemplateField([void Function(TemplateFieldBuilder)? updates]) =>
+      (TemplateFieldBuilder()..update(updates))._build();
+
+  _$TemplateField._({required this.index, required this.content, required this.type}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(index, r'TemplateField', 'index');
+    BuiltValueNullFieldError.checkNotNull(content, r'TemplateField', 'content');
+    BuiltValueNullFieldError.checkNotNull(type, r'TemplateField', 'type');
+  }
+
+  @override
+  TemplateField rebuild(void Function(TemplateFieldBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  TemplateFieldBuilder toBuilder() => TemplateFieldBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TemplateField && index == other.index && content == other.content && type == other.type;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, index.hashCode);
+    _$hash = $jc(_$hash, content.hashCode);
+    _$hash = $jc(_$hash, type.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TemplateField')
+          ..add('index', index)
+          ..add('content', content)
+          ..add('type', type))
+        .toString();
+  }
+}
+
+class TemplateFieldBuilder implements Builder<TemplateField, TemplateFieldBuilder>, $TemplateFieldInterfaceBuilder {
+  _$TemplateField? _$v;
+
+  String? _index;
+  String? get index => _$this._index;
+  set index(covariant String? index) => _$this._index = index;
+
+  String? _content;
+  String? get content => _$this._content;
+  set content(covariant String? content) => _$this._content = content;
+
+  String? _type;
+  String? get type => _$this._type;
+  set type(covariant String? type) => _$this._type = type;
+
+  TemplateFieldBuilder() {
+    TemplateField._defaults(this);
+  }
+
+  TemplateFieldBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _index = $v.index;
+      _content = $v.content;
+      _type = $v.type;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TemplateField other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TemplateField;
+  }
+
+  @override
+  void update(void Function(TemplateFieldBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TemplateField build() => _build();
+
+  _$TemplateField _build() {
+    TemplateField._validate(this);
+    final _$result = _$v ??
+        _$TemplateField._(
+            index: BuiltValueNullFieldError.checkNotNull(index, r'TemplateField', 'index'),
+            content: BuiltValueNullFieldError.checkNotNull(content, r'TemplateField', 'content'),
+            type: BuiltValueNullFieldError.checkNotNull(type, r'TemplateField', 'type'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $TemplateCreateRequestApplicationJsonInterfaceBuilder {
   void replace($TemplateCreateRequestApplicationJsonInterface other);
   void update(void Function($TemplateCreateRequestApplicationJsonInterfaceBuilder) updates);
@@ -6263,6 +6670,9 @@ abstract mixin class $TemplateCreateRequestApplicationJsonInterfaceBuilder {
 
   String? get templateType;
   set templateType(String? templateType);
+
+  ListBuilder<TemplateField> get templateFields;
+  set templateFields(ListBuilder<TemplateField>? templateFields);
 }
 
 class _$TemplateCreateRequestApplicationJson extends TemplateCreateRequestApplicationJson {
@@ -6272,17 +6682,20 @@ class _$TemplateCreateRequestApplicationJson extends TemplateCreateRequestApplic
   final String templatePath;
   @override
   final String templateType;
+  @override
+  final BuiltList<TemplateField> templateFields;
 
   factory _$TemplateCreateRequestApplicationJson(
           [void Function(TemplateCreateRequestApplicationJsonBuilder)? updates]) =>
       (TemplateCreateRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$TemplateCreateRequestApplicationJson._(
-      {required this.filePath, required this.templatePath, required this.templateType})
+      {required this.filePath, required this.templatePath, required this.templateType, required this.templateFields})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(filePath, r'TemplateCreateRequestApplicationJson', 'filePath');
     BuiltValueNullFieldError.checkNotNull(templatePath, r'TemplateCreateRequestApplicationJson', 'templatePath');
     BuiltValueNullFieldError.checkNotNull(templateType, r'TemplateCreateRequestApplicationJson', 'templateType');
+    BuiltValueNullFieldError.checkNotNull(templateFields, r'TemplateCreateRequestApplicationJson', 'templateFields');
   }
 
   @override
@@ -6299,7 +6712,8 @@ class _$TemplateCreateRequestApplicationJson extends TemplateCreateRequestApplic
     return other is TemplateCreateRequestApplicationJson &&
         filePath == other.filePath &&
         templatePath == other.templatePath &&
-        templateType == other.templateType;
+        templateType == other.templateType &&
+        templateFields == other.templateFields;
   }
 
   @override
@@ -6308,6 +6722,7 @@ class _$TemplateCreateRequestApplicationJson extends TemplateCreateRequestApplic
     _$hash = $jc(_$hash, filePath.hashCode);
     _$hash = $jc(_$hash, templatePath.hashCode);
     _$hash = $jc(_$hash, templateType.hashCode);
+    _$hash = $jc(_$hash, templateFields.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -6317,7 +6732,8 @@ class _$TemplateCreateRequestApplicationJson extends TemplateCreateRequestApplic
     return (newBuiltValueToStringHelper(r'TemplateCreateRequestApplicationJson')
           ..add('filePath', filePath)
           ..add('templatePath', templatePath)
-          ..add('templateType', templateType))
+          ..add('templateType', templateType)
+          ..add('templateFields', templateFields))
         .toString();
   }
 }
@@ -6340,6 +6756,10 @@ class TemplateCreateRequestApplicationJsonBuilder
   String? get templateType => _$this._templateType;
   set templateType(covariant String? templateType) => _$this._templateType = templateType;
 
+  ListBuilder<TemplateField>? _templateFields;
+  ListBuilder<TemplateField> get templateFields => _$this._templateFields ??= ListBuilder<TemplateField>();
+  set templateFields(covariant ListBuilder<TemplateField>? templateFields) => _$this._templateFields = templateFields;
+
   TemplateCreateRequestApplicationJsonBuilder() {
     TemplateCreateRequestApplicationJson._defaults(this);
   }
@@ -6350,6 +6770,7 @@ class TemplateCreateRequestApplicationJsonBuilder
       _filePath = $v.filePath;
       _templatePath = $v.templatePath;
       _templateType = $v.templateType;
+      _templateFields = $v.templateFields.toBuilder();
       _$v = null;
     }
     return this;
@@ -6371,14 +6792,27 @@ class TemplateCreateRequestApplicationJsonBuilder
 
   _$TemplateCreateRequestApplicationJson _build() {
     TemplateCreateRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$TemplateCreateRequestApplicationJson._(
-            filePath:
-                BuiltValueNullFieldError.checkNotNull(filePath, r'TemplateCreateRequestApplicationJson', 'filePath'),
-            templatePath: BuiltValueNullFieldError.checkNotNull(
-                templatePath, r'TemplateCreateRequestApplicationJson', 'templatePath'),
-            templateType: BuiltValueNullFieldError.checkNotNull(
-                templateType, r'TemplateCreateRequestApplicationJson', 'templateType'));
+    _$TemplateCreateRequestApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$TemplateCreateRequestApplicationJson._(
+              filePath:
+                  BuiltValueNullFieldError.checkNotNull(filePath, r'TemplateCreateRequestApplicationJson', 'filePath'),
+              templatePath: BuiltValueNullFieldError.checkNotNull(
+                  templatePath, r'TemplateCreateRequestApplicationJson', 'templatePath'),
+              templateType: BuiltValueNullFieldError.checkNotNull(
+                  templateType, r'TemplateCreateRequestApplicationJson', 'templateType'),
+              templateFields: templateFields.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'templateFields';
+        templateFields.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'TemplateCreateRequestApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
@@ -8245,14 +8679,26 @@ class Capabilities_Files_DirectEditingBuilder
 abstract mixin class $Capabilities_FilesInterfaceBuilder {
   void replace($Capabilities_FilesInterface other);
   void update(void Function($Capabilities_FilesInterfaceBuilder) updates);
+  String? get comment;
+  set comment(String? comment);
+
   bool? get bigfilechunking;
   set bigfilechunking(bool? bigfilechunking);
 
   ListBuilder<JsonObject> get blacklistedFiles;
   set blacklistedFiles(ListBuilder<JsonObject>? blacklistedFiles);
 
+  ListBuilder<String> get forbiddenFilenames;
+  set forbiddenFilenames(ListBuilder<String>? forbiddenFilenames);
+
+  ListBuilder<String> get forbiddenFilenameBasenames;
+  set forbiddenFilenameBasenames(ListBuilder<String>? forbiddenFilenameBasenames);
+
   ListBuilder<String> get forbiddenFilenameCharacters;
   set forbiddenFilenameCharacters(ListBuilder<String>? forbiddenFilenameCharacters);
+
+  ListBuilder<String> get forbiddenFilenameExtensions;
+  set forbiddenFilenameExtensions(ListBuilder<String>? forbiddenFilenameExtensions);
 
   Capabilities_Files_DirectEditingBuilder get directEditing;
   set directEditing(Capabilities_Files_DirectEditingBuilder? directEditing);
@@ -8260,11 +8706,19 @@ abstract mixin class $Capabilities_FilesInterfaceBuilder {
 
 class _$Capabilities_Files extends Capabilities_Files {
   @override
+  final String? comment;
+  @override
   final bool bigfilechunking;
   @override
   final BuiltList<JsonObject> blacklistedFiles;
   @override
+  final BuiltList<String> forbiddenFilenames;
+  @override
+  final BuiltList<String> forbiddenFilenameBasenames;
+  @override
   final BuiltList<String> forbiddenFilenameCharacters;
+  @override
+  final BuiltList<String> forbiddenFilenameExtensions;
   @override
   final Capabilities_Files_DirectEditing directEditing;
 
@@ -8272,15 +8726,24 @@ class _$Capabilities_Files extends Capabilities_Files {
       (Capabilities_FilesBuilder()..update(updates))._build();
 
   _$Capabilities_Files._(
-      {required this.bigfilechunking,
+      {this.comment,
+      required this.bigfilechunking,
       required this.blacklistedFiles,
+      required this.forbiddenFilenames,
+      required this.forbiddenFilenameBasenames,
       required this.forbiddenFilenameCharacters,
+      required this.forbiddenFilenameExtensions,
       required this.directEditing})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(bigfilechunking, r'Capabilities_Files', 'bigfilechunking');
     BuiltValueNullFieldError.checkNotNull(blacklistedFiles, r'Capabilities_Files', 'blacklistedFiles');
+    BuiltValueNullFieldError.checkNotNull(forbiddenFilenames, r'Capabilities_Files', 'forbiddenFilenames');
+    BuiltValueNullFieldError.checkNotNull(
+        forbiddenFilenameBasenames, r'Capabilities_Files', 'forbiddenFilenameBasenames');
     BuiltValueNullFieldError.checkNotNull(
         forbiddenFilenameCharacters, r'Capabilities_Files', 'forbiddenFilenameCharacters');
+    BuiltValueNullFieldError.checkNotNull(
+        forbiddenFilenameExtensions, r'Capabilities_Files', 'forbiddenFilenameExtensions');
     BuiltValueNullFieldError.checkNotNull(directEditing, r'Capabilities_Files', 'directEditing');
   }
 
@@ -8295,18 +8758,26 @@ class _$Capabilities_Files extends Capabilities_Files {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is Capabilities_Files &&
+        comment == other.comment &&
         bigfilechunking == other.bigfilechunking &&
         blacklistedFiles == other.blacklistedFiles &&
+        forbiddenFilenames == other.forbiddenFilenames &&
+        forbiddenFilenameBasenames == other.forbiddenFilenameBasenames &&
         forbiddenFilenameCharacters == other.forbiddenFilenameCharacters &&
+        forbiddenFilenameExtensions == other.forbiddenFilenameExtensions &&
         directEditing == other.directEditing;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, comment.hashCode);
     _$hash = $jc(_$hash, bigfilechunking.hashCode);
     _$hash = $jc(_$hash, blacklistedFiles.hashCode);
+    _$hash = $jc(_$hash, forbiddenFilenames.hashCode);
+    _$hash = $jc(_$hash, forbiddenFilenameBasenames.hashCode);
     _$hash = $jc(_$hash, forbiddenFilenameCharacters.hashCode);
+    _$hash = $jc(_$hash, forbiddenFilenameExtensions.hashCode);
     _$hash = $jc(_$hash, directEditing.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -8315,9 +8786,13 @@ class _$Capabilities_Files extends Capabilities_Files {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'Capabilities_Files')
+          ..add('comment', comment)
           ..add('bigfilechunking', bigfilechunking)
           ..add('blacklistedFiles', blacklistedFiles)
+          ..add('forbiddenFilenames', forbiddenFilenames)
+          ..add('forbiddenFilenameBasenames', forbiddenFilenameBasenames)
           ..add('forbiddenFilenameCharacters', forbiddenFilenameCharacters)
+          ..add('forbiddenFilenameExtensions', forbiddenFilenameExtensions)
           ..add('directEditing', directEditing))
         .toString();
   }
@@ -8326,6 +8801,10 @@ class _$Capabilities_Files extends Capabilities_Files {
 class Capabilities_FilesBuilder
     implements Builder<Capabilities_Files, Capabilities_FilesBuilder>, $Capabilities_FilesInterfaceBuilder {
   _$Capabilities_Files? _$v;
+
+  String? _comment;
+  String? get comment => _$this._comment;
+  set comment(covariant String? comment) => _$this._comment = comment;
 
   bool? _bigfilechunking;
   bool? get bigfilechunking => _$this._bigfilechunking;
@@ -8336,10 +8815,25 @@ class Capabilities_FilesBuilder
   set blacklistedFiles(covariant ListBuilder<JsonObject>? blacklistedFiles) =>
       _$this._blacklistedFiles = blacklistedFiles;
 
+  ListBuilder<String>? _forbiddenFilenames;
+  ListBuilder<String> get forbiddenFilenames => _$this._forbiddenFilenames ??= ListBuilder<String>();
+  set forbiddenFilenames(covariant ListBuilder<String>? forbiddenFilenames) =>
+      _$this._forbiddenFilenames = forbiddenFilenames;
+
+  ListBuilder<String>? _forbiddenFilenameBasenames;
+  ListBuilder<String> get forbiddenFilenameBasenames => _$this._forbiddenFilenameBasenames ??= ListBuilder<String>();
+  set forbiddenFilenameBasenames(covariant ListBuilder<String>? forbiddenFilenameBasenames) =>
+      _$this._forbiddenFilenameBasenames = forbiddenFilenameBasenames;
+
   ListBuilder<String>? _forbiddenFilenameCharacters;
   ListBuilder<String> get forbiddenFilenameCharacters => _$this._forbiddenFilenameCharacters ??= ListBuilder<String>();
   set forbiddenFilenameCharacters(covariant ListBuilder<String>? forbiddenFilenameCharacters) =>
       _$this._forbiddenFilenameCharacters = forbiddenFilenameCharacters;
+
+  ListBuilder<String>? _forbiddenFilenameExtensions;
+  ListBuilder<String> get forbiddenFilenameExtensions => _$this._forbiddenFilenameExtensions ??= ListBuilder<String>();
+  set forbiddenFilenameExtensions(covariant ListBuilder<String>? forbiddenFilenameExtensions) =>
+      _$this._forbiddenFilenameExtensions = forbiddenFilenameExtensions;
 
   Capabilities_Files_DirectEditingBuilder? _directEditing;
   Capabilities_Files_DirectEditingBuilder get directEditing =>
@@ -8354,9 +8848,13 @@ class Capabilities_FilesBuilder
   Capabilities_FilesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _comment = $v.comment;
       _bigfilechunking = $v.bigfilechunking;
       _blacklistedFiles = $v.blacklistedFiles.toBuilder();
+      _forbiddenFilenames = $v.forbiddenFilenames.toBuilder();
+      _forbiddenFilenameBasenames = $v.forbiddenFilenameBasenames.toBuilder();
       _forbiddenFilenameCharacters = $v.forbiddenFilenameCharacters.toBuilder();
+      _forbiddenFilenameExtensions = $v.forbiddenFilenameExtensions.toBuilder();
       _directEditing = $v.directEditing.toBuilder();
       _$v = null;
     }
@@ -8383,18 +8881,28 @@ class Capabilities_FilesBuilder
     try {
       _$result = _$v ??
           _$Capabilities_Files._(
+              comment: comment,
               bigfilechunking:
                   BuiltValueNullFieldError.checkNotNull(bigfilechunking, r'Capabilities_Files', 'bigfilechunking'),
               blacklistedFiles: blacklistedFiles.build(),
+              forbiddenFilenames: forbiddenFilenames.build(),
+              forbiddenFilenameBasenames: forbiddenFilenameBasenames.build(),
               forbiddenFilenameCharacters: forbiddenFilenameCharacters.build(),
+              forbiddenFilenameExtensions: forbiddenFilenameExtensions.build(),
               directEditing: directEditing.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'blacklistedFiles';
         blacklistedFiles.build();
+        _$failedField = 'forbiddenFilenames';
+        forbiddenFilenames.build();
+        _$failedField = 'forbiddenFilenameBasenames';
+        forbiddenFilenameBasenames.build();
         _$failedField = 'forbiddenFilenameCharacters';
         forbiddenFilenameCharacters.build();
+        _$failedField = 'forbiddenFilenameExtensions';
+        forbiddenFilenameExtensions.build();
         _$failedField = 'directEditing';
         directEditing.build();
       } catch (e) {

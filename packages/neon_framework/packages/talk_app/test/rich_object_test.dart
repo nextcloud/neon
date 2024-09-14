@@ -168,64 +168,59 @@ void main() {
       );
     });
 
-    for (final type in [
-      spreed.RichObjectParameter_Type.userGroup,
-      spreed.RichObjectParameter_Type.group,
-    ]) {
-      testWidgets(type.value, (tester) async {
-        final userDetails = MockUserDetails();
-        when(() => userDetails.groups).thenReturn(BuiltList(['group']));
+    testWidgets('user-group', (tester) async {
+      final userDetails = MockUserDetails();
+      when(() => userDetails.groups).thenReturn(BuiltList(['group']));
 
-        final userDetailsBloc = MockUserDetailsBloc();
-        when(() => userDetailsBloc.userDetails).thenAnswer((_) => BehaviorSubject.seeded(Result.success(userDetails)));
+      final userDetailsBloc = MockUserDetailsBloc();
+      when(() => userDetailsBloc.userDetails).thenAnswer((_) => BehaviorSubject.seeded(Result.success(userDetails)));
 
-        await tester.pumpWidgetWithAccessibility(
-          TestApp(
-            providers: [
-              NeonProvider<UserDetailsBloc>.value(value: userDetailsBloc),
-            ],
-            child: TalkRichObjectMention(
-              parameter: spreed.RichObjectParameter(
-                (b) => b
-                  ..type = type
-                  ..id = 'group'
-                  ..name = 'name',
-              ),
-              textStyle: null,
+      await tester.pumpWidgetWithAccessibility(
+        TestApp(
+          providers: [
+            NeonProvider<UserDetailsBloc>.value(value: userDetailsBloc),
+          ],
+          child: TalkRichObjectMention(
+            parameter: spreed.RichObjectParameter(
+              (b) => b
+                ..type = spreed.RichObjectParameter_Type.userGroup
+                ..id = 'group'
+                ..name = 'name',
             ),
+            textStyle: null,
           ),
-        );
-        expect(find.byIcon(AdaptiveIcons.group), findsOne);
-        expect(find.text('name'), findsOne);
-        await expectLater(
-          find.byType(TalkRichObjectMention),
-          matchesGoldenFile('goldens/rich_object_mention_${type.value}_highlight.png'),
-        );
+        ),
+      );
+      expect(find.byIcon(AdaptiveIcons.group), findsOne);
+      expect(find.text('name'), findsOne);
+      await expectLater(
+        find.byType(TalkRichObjectMention),
+        matchesGoldenFile('goldens/rich_object_mention_user-group_highlight.png'),
+      );
 
-        await tester.pumpWidgetWithAccessibility(
-          TestApp(
-            providers: [
-              NeonProvider<UserDetailsBloc>.value(value: userDetailsBloc),
-            ],
-            child: TalkRichObjectMention(
-              parameter: spreed.RichObjectParameter(
-                (b) => b
-                  ..type = type
-                  ..id = 'other'
-                  ..name = 'name',
-              ),
-              textStyle: null,
+      await tester.pumpWidgetWithAccessibility(
+        TestApp(
+          providers: [
+            NeonProvider<UserDetailsBloc>.value(value: userDetailsBloc),
+          ],
+          child: TalkRichObjectMention(
+            parameter: spreed.RichObjectParameter(
+              (b) => b
+                ..type = spreed.RichObjectParameter_Type.userGroup
+                ..id = 'other'
+                ..name = 'name',
             ),
+            textStyle: null,
           ),
-        );
-        expect(find.byIcon(AdaptiveIcons.group), findsOne);
-        expect(find.text('name'), findsOne);
-        await expectLater(
-          find.byType(TalkRichObjectMention),
-          matchesGoldenFile('goldens/rich_object_mention_${type.value}_other.png'),
-        );
-      });
-    }
+        ),
+      );
+      expect(find.byIcon(AdaptiveIcons.group), findsOne);
+      expect(find.text('name'), findsOne);
+      await expectLater(
+        find.byType(TalkRichObjectMention),
+        matchesGoldenFile('goldens/rich_object_mention_user-group_other.png'),
+      );
+    });
   });
 
   group('File', () {
