@@ -97,6 +97,7 @@ class TalkRichObjectFile extends StatelessWidget {
         }
 
         return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             image,
             Text(
