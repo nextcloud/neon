@@ -2119,6 +2119,175 @@
                         }
                     }
                 }
+            },
+            "RichObjectParameter": {
+                "type": "object",
+                "required": [
+                    "type",
+                    "id",
+                    "name"
+                ],
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "addressbook",
+                            "addressbook-contact",
+                            "announcement",
+                            "app",
+                            "calendar",
+                            "calendar-event",
+                            "call",
+                            "circle",
+                            "deck-board",
+                            "deck-card",
+                            "email",
+                            "file",
+                            "forms-form",
+                            "guest",
+                            "highlight",
+                            "geo-location",
+                            "open-graph",
+                            "pending-federated-share",
+                            "systemtag",
+                            "talk-attachment",
+                            "talk-poll",
+                            "user",
+                            "user-group"
+                        ]
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "link": {
+                        "type": "string",
+                        "description": "The full URL to the file",
+                        "example": "http://localhost/index.php/apps/announcements/#23"
+                    },
+                    "call-type": {
+                        "type": "string",
+                        "description": "The type of the call: one2one, group or public",
+                        "example": "one2one"
+                    },
+                    "icon-url": {
+                        "type": "string",
+                        "description": "The icon url to use as avatar",
+                        "example": "https://localhost/ocs/v2.php/apps/spreed/api/v1/room/R4nd0mToken/avatar"
+                    },
+                    "message-id": {
+                        "type": "string",
+                        "description": "The id of a message that was referred to",
+                        "example": "12345"
+                    },
+                    "boardname": {
+                        "type": "string",
+                        "description": "The display name of board which contains the card",
+                        "example": "Personal"
+                    },
+                    "stackname": {
+                        "type": "string",
+                        "description": "The display name of the stack which contains the card in the board",
+                        "example": "To do"
+                    },
+                    "size": {
+                        "type": "string",
+                        "description": "The file size in bytes",
+                        "example": "3145728"
+                    },
+                    "path": {
+                        "type": "string",
+                        "description": "The full path of the file for the user, should not start with a slash",
+                        "example": "path/to/file.txt"
+                    },
+                    "mimetype": {
+                        "type": "string",
+                        "description": "The mimetype of the file/folder to allow clients to show a placeholder",
+                        "example": "text/plain"
+                    },
+                    "preview-available": {
+                        "type": "string",
+                        "description": "Whether or not a preview is available. If `no` the mimetype icon should be used",
+                        "example": "yes"
+                    },
+                    "mtime": {
+                        "type": "string",
+                        "description": "The mtime of the file/folder as unix timestamp",
+                        "example": "1661854213"
+                    },
+                    "etag": {
+                        "type": "string",
+                        "description": "The ETag of the file/folder",
+                        "example": "abcdefghi"
+                    },
+                    "permissions": {
+                        "type": "string",
+                        "description": "The permissions on the file/folder",
+                        "example": "3"
+                    },
+                    "width": {
+                        "type": "string",
+                        "description": "The width in pixels if the file is an image",
+                        "example": "1920"
+                    },
+                    "height": {
+                        "type": "string",
+                        "description": "The height in pixels if the file is an image",
+                        "example": "1080"
+                    },
+                    "blurhash": {
+                        "type": "string",
+                        "description": "The blurhash of the image",
+                        "example": "LEHV9uae2yk8pyo0adR*.7kCMdnj"
+                    },
+                    "latitude": {
+                        "type": "string",
+                        "description": "The latitude of the location MUST be the same as in the id",
+                        "example": "52.5450511"
+                    },
+                    "longitude": {
+                        "type": "string",
+                        "description": "The longitude of the location MUST be the same as in the id",
+                        "example": "13.3741463"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The open graph description from the website",
+                        "example": "This is the description of the website"
+                    },
+                    "thumb": {
+                        "type": "string",
+                        "description": "The full URL of the open graph thumbnail",
+                        "example": "http://localhost/index.php/apps/mood/data/image?url=https%3A%2F%2Fthumb.example.com%2Fimage.png"
+                    },
+                    "website": {
+                        "type": "string",
+                        "description": "The name of the described website",
+                        "example": "Nextcloud - App Store"
+                    },
+                    "visibility": {
+                        "type": "string",
+                        "description": "If the user can see the systemtag",
+                        "example": "1"
+                    },
+                    "assignable": {
+                        "type": "string",
+                        "description": "If the user can assign the systemtag",
+                        "example": "0"
+                    },
+                    "conversation": {
+                        "type": "string",
+                        "description": "The token of the conversation",
+                        "example": "a1b2c3d4"
+                    },
+                    "server": {
+                        "type": "string",
+                        "description": "The URL of the instance the user lives on",
+                        "example": "localhost"
+                    }
+                }
             }
         }
     },

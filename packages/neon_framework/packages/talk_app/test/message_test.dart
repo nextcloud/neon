@@ -1,4 +1,5 @@
 import 'package:built_collection/built_collection.dart';
+import 'package:built_value/json_object.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -1520,10 +1521,10 @@ void main() {
       group(isPreview ? 'As preview' : 'Complete', () {
         group('Mention', () {
           for (final type in [
-            spreed.RichObjectParameter_Type.user,
-            spreed.RichObjectParameter_Type.call,
-            spreed.RichObjectParameter_Type.guest,
-            spreed.RichObjectParameter_Type.userGroup,
+            core.RichObjectParameter_Type.user,
+            core.RichObjectParameter_Type.call,
+            core.RichObjectParameter_Type.guest,
+            core.RichObjectParameter_Type.userGroup,
           ]) {
             testWidgets(type.value, (tester) async {
               final userDetails = MockUserDetails();
@@ -1543,7 +1544,7 @@ void main() {
                   ],
                   child: RichText(
                     text: buildRichObjectParameter(
-                      parameter: spreed.RichObjectParameter(
+                      parameter: core.RichObjectParameter(
                         (b) => b
                           ..type = type
                           ..id = ''
@@ -1573,9 +1574,9 @@ void main() {
               ],
               child: RichText(
                 text: buildRichObjectParameter(
-                  parameter: spreed.RichObjectParameter(
+                  parameter: core.RichObjectParameter(
                     (b) => b
-                      ..type = spreed.RichObjectParameter_Type.file
+                      ..type = core.RichObjectParameter_Type.file
                       ..id = '0'
                       ..name = 'name',
                   ),
@@ -1595,9 +1596,9 @@ void main() {
             TestApp(
               child: RichText(
                 text: buildRichObjectParameter(
-                  parameter: spreed.RichObjectParameter(
+                  parameter: core.RichObjectParameter(
                     (b) => b
-                      ..type = spreed.RichObjectParameter_Type.deckCard
+                      ..type = core.RichObjectParameter_Type.deckCard
                       ..id = ''
                       ..name = 'name'
                       ..boardname = 'boardname'
@@ -1619,9 +1620,9 @@ void main() {
             TestApp(
               child: RichText(
                 text: buildRichObjectParameter(
-                  parameter: spreed.RichObjectParameter(
+                  parameter: core.RichObjectParameter(
                     (b) => b
-                      ..type = spreed.RichObjectParameter_Type.addressbook
+                      ..type = core.RichObjectParameter_Type.addressbook
                       ..id = ''
                       ..name = 'name',
                   ),
@@ -1671,12 +1672,11 @@ void main() {
             when(() => chatMessage.message).thenReturn('test');
             when(() => chatMessage.messageParameters).thenReturn(
               BuiltMap({
-                type: spreed.RichObjectParameter(
-                  (b) => b
-                    ..type = spreed.RichObjectParameter_Type.user
-                    ..id = ''
-                    ..name = '',
-                ),
+                type: BuiltMap<String, JsonObject>({
+                  'type': JsonObject('user'),
+                  'id': JsonObject(''),
+                  'name': JsonObject(''),
+                }),
               }),
             );
 
@@ -1696,12 +1696,11 @@ void main() {
         when(() => chatMessage.message).thenReturn('test');
         when(() => chatMessage.messageParameters).thenReturn(
           BuiltMap({
-            'file': spreed.RichObjectParameter(
-              (b) => b
-                ..type = spreed.RichObjectParameter_Type.file
-                ..id = ''
-                ..name = '',
-            ),
+            'file': BuiltMap<String, JsonObject>({
+              'type': JsonObject('file'),
+              'id': JsonObject(''),
+              'name': JsonObject(''),
+            }),
           }),
         );
 
@@ -1723,18 +1722,16 @@ void main() {
       when(() => chatMessage.message).thenReturn('123 {actor1} 456 {actor2} 789');
       when(() => chatMessage.messageParameters).thenReturn(
         BuiltMap({
-          'actor1': spreed.RichObjectParameter(
-            (b) => b
-              ..type = spreed.RichObjectParameter_Type.user
-              ..id = ''
-              ..name = '',
-          ),
-          'actor2': spreed.RichObjectParameter(
-            (b) => b
-              ..type = spreed.RichObjectParameter_Type.user
-              ..id = ''
-              ..name = '',
-          ),
+          'actor1': BuiltMap<String, JsonObject>({
+            'type': JsonObject('user'),
+            'id': JsonObject(''),
+            'name': JsonObject(''),
+          }),
+          'actor2': BuiltMap<String, JsonObject>({
+            'type': JsonObject('user'),
+            'id': JsonObject(''),
+            'name': JsonObject(''),
+          }),
         }),
       );
 

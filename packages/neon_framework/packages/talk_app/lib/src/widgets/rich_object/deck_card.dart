@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
-import 'package:nextcloud/spreed.dart' as spreed;
+import 'package:nextcloud/core.dart' as core;
 
 /// Widget to display a Deck card from a rich object.
 class TalkRichObjectDeckCard extends StatelessWidget {
@@ -13,7 +13,7 @@ class TalkRichObjectDeckCard extends StatelessWidget {
   });
 
   /// The parameter to display.
-  final spreed.RichObjectParameter parameter;
+  final core.RichObjectParameter parameter;
 
   @override
   Widget build(BuildContext context) {

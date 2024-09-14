@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
-import 'package:nextcloud/spreed.dart' as spreed;
+import 'package:nextcloud/core.dart' as core;
 
 /// Widget used to render rich object parameters with unknown types.
 class TalkRichObjectFallback extends StatelessWidget {
@@ -14,7 +14,7 @@ class TalkRichObjectFallback extends StatelessWidget {
   });
 
   /// The parameter to display.
-  final spreed.RichObjectParameter parameter;
+  final core.RichObjectParameter parameter;
 
   /// The TextStyle to applied to all text elements in this rich object.
   final TextStyle? textStyle;

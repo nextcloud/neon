@@ -5,7 +5,7 @@ import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
-import 'package:nextcloud/spreed.dart' as spreed;
+import 'package:nextcloud/core.dart' as core;
 
 /// Displays a mention chip from a rich object.
 class TalkRichObjectMention extends StatelessWidget {
@@ -17,7 +17,7 @@ class TalkRichObjectMention extends StatelessWidget {
   });
 
   /// The parameter to display.
-  final spreed.RichObjectParameter parameter;
+  final core.RichObjectParameter parameter;
 
   /// The TextStyle to applied to all text elements in this rich object.
   final TextStyle? textStyle;
@@ -28,7 +28,7 @@ class TalkRichObjectMention extends StatelessWidget {
     final bool highlight;
 
     switch (parameter.type) {
-      case spreed.RichObjectParameter_Type.user:
+      case core.RichObjectParameter_Type.user:
         final account = NeonProvider.of<Account>(context);
 
         highlight = account.username == parameter.id;
@@ -37,7 +37,7 @@ class TalkRichObjectMention extends StatelessWidget {
           account: NeonProvider.of<Account>(context),
           userStatusBloc: null,
         );
-      case spreed.RichObjectParameter_Type.call:
+      case core.RichObjectParameter_Type.call:
         highlight = true;
         child = CircleAvatar(
           child: ClipOval(
@@ -47,13 +47,13 @@ class TalkRichObjectMention extends StatelessWidget {
             ),
           ),
         );
-      case spreed.RichObjectParameter_Type.guest:
+      case core.RichObjectParameter_Type.guest:
         // TODO: Add highlighting when the mention is about the current guest user.
         highlight = false;
         child = CircleAvatar(
           child: Icon(AdaptiveIcons.person),
         );
-      case spreed.RichObjectParameter_Type.userGroup:
+      case core.RichObjectParameter_Type.userGroup:
         final userDetailsBloc = NeonProvider.of<UserDetailsBloc>(context);
         final groups = userDetailsBloc.userDetails.valueOrNull?.data?.groups ?? BuiltList();
 

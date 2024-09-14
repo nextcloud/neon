@@ -8,53 +8,5 @@
     "op": "replace",
     "path": "/components/schemas/ChatMentionSuggestion/required",
     "value": ["id", "label", "source"]
-  },
-  {
-    "op": "remove",
-    "path": "/components/schemas/RichObjectParameter/properties/width/type"
-  },
-  {
-    "op": "add",
-    "path": "/components/schemas/RichObjectParameter/properties/width/oneOf",
-    "value": [
-      {
-        "type": "string"
-      },
-      {
-        "type": "integer"
-      }
-    ]
-  },
-  {
-    "op": "remove",
-    "path": "/components/schemas/RichObjectParameter/properties/height/type"
-  },
-  {
-    "op": "add",
-    "path": "/components/schemas/RichObjectParameter/properties/height/oneOf",
-    "value": [
-      {
-        "type": "string"
-      },
-      {
-        "type": "integer"
-      }
-    ]
-  },
-  {
-    "op": "remove",
-    "path": "/components/schemas/RichObjectParameter/properties/size/type"
-  },
-  {
-    "op": "add",
-    "path": "/components/schemas/RichObjectParameter/properties/size/oneOf",
-    "value": [
-      {
-        "type": "string"
-      },
-      {
-        "type": "integer"
-      }
-    ]
   }
 ]

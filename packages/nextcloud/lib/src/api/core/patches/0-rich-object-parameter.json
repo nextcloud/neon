@@ -1,12 +1,5 @@
 [
     {
-        "op": "replace",
-        "path": "/components/schemas/BaseMessage/properties/messageParameters/additionalProperties",
-        "value": {
-            "$ref": "#/components/schemas/RichObjectParameter"
-        }
-    },
-    {
         "op": "add",
         "path": "/components/schemas/RichObjectParameter",
         "value": {

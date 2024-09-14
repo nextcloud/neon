@@ -26696,6 +26696,320 @@ abstract class PublicCapabilities
   }
 }
 
+class RichObjectParameter_Type extends EnumClass {
+  const RichObjectParameter_Type._(super.name);
+
+  /// `addressbook`
+  static const RichObjectParameter_Type addressbook = _$richObjectParameterTypeAddressbook;
+
+  /// `addressbook-contact`
+  @BuiltValueEnumConst(wireName: 'addressbook-contact')
+  static const RichObjectParameter_Type addressbookContact = _$richObjectParameterTypeAddressbookContact;
+
+  /// `announcement`
+  static const RichObjectParameter_Type announcement = _$richObjectParameterTypeAnnouncement;
+
+  /// `app`
+  static const RichObjectParameter_Type app = _$richObjectParameterTypeApp;
+
+  /// `calendar`
+  static const RichObjectParameter_Type calendar = _$richObjectParameterTypeCalendar;
+
+  /// `calendar-event`
+  @BuiltValueEnumConst(wireName: 'calendar-event')
+  static const RichObjectParameter_Type calendarEvent = _$richObjectParameterTypeCalendarEvent;
+
+  /// `call`
+  static const RichObjectParameter_Type call = _$richObjectParameterTypeCall;
+
+  /// `circle`
+  static const RichObjectParameter_Type circle = _$richObjectParameterTypeCircle;
+
+  /// `deck-board`
+  @BuiltValueEnumConst(wireName: 'deck-board')
+  static const RichObjectParameter_Type deckBoard = _$richObjectParameterTypeDeckBoard;
+
+  /// `deck-card`
+  @BuiltValueEnumConst(wireName: 'deck-card')
+  static const RichObjectParameter_Type deckCard = _$richObjectParameterTypeDeckCard;
+
+  /// `email`
+  static const RichObjectParameter_Type email = _$richObjectParameterTypeEmail;
+
+  /// `file`
+  static const RichObjectParameter_Type file = _$richObjectParameterTypeFile;
+
+  /// `forms-form`
+  @BuiltValueEnumConst(wireName: 'forms-form')
+  static const RichObjectParameter_Type formsForm = _$richObjectParameterTypeFormsForm;
+
+  /// `guest`
+  static const RichObjectParameter_Type guest = _$richObjectParameterTypeGuest;
+
+  /// `highlight`
+  static const RichObjectParameter_Type highlight = _$richObjectParameterTypeHighlight;
+
+  /// `geo-location`
+  @BuiltValueEnumConst(wireName: 'geo-location')
+  static const RichObjectParameter_Type geoLocation = _$richObjectParameterTypeGeoLocation;
+
+  /// `open-graph`
+  @BuiltValueEnumConst(wireName: 'open-graph')
+  static const RichObjectParameter_Type openGraph = _$richObjectParameterTypeOpenGraph;
+
+  /// `pending-federated-share`
+  @BuiltValueEnumConst(wireName: 'pending-federated-share')
+  static const RichObjectParameter_Type pendingFederatedShare = _$richObjectParameterTypePendingFederatedShare;
+
+  /// `systemtag`
+  static const RichObjectParameter_Type systemtag = _$richObjectParameterTypeSystemtag;
+
+  /// `talk-attachment`
+  @BuiltValueEnumConst(wireName: 'talk-attachment')
+  static const RichObjectParameter_Type talkAttachment = _$richObjectParameterTypeTalkAttachment;
+
+  /// `talk-poll`
+  @BuiltValueEnumConst(wireName: 'talk-poll')
+  static const RichObjectParameter_Type talkPoll = _$richObjectParameterTypeTalkPoll;
+
+  /// `user`
+  static const RichObjectParameter_Type user = _$richObjectParameterTypeUser;
+
+  /// `user-group`
+  @BuiltValueEnumConst(wireName: 'user-group')
+  static const RichObjectParameter_Type userGroup = _$richObjectParameterTypeUserGroup;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RichObjectParameter_Type> get values => _$richObjectParameterTypeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RichObjectParameter_Type valueOf(String name) => _$valueOfRichObjectParameter_Type(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for RichObjectParameter_Type.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RichObjectParameter_Type> get serializer => const _$RichObjectParameter_TypeSerializer();
+}
+
+class _$RichObjectParameter_TypeSerializer implements PrimitiveSerializer<RichObjectParameter_Type> {
+  const _$RichObjectParameter_TypeSerializer();
+
+  static const Map<RichObjectParameter_Type, Object> _toWire = <RichObjectParameter_Type, Object>{
+    RichObjectParameter_Type.addressbook: 'addressbook',
+    RichObjectParameter_Type.addressbookContact: 'addressbook-contact',
+    RichObjectParameter_Type.announcement: 'announcement',
+    RichObjectParameter_Type.app: 'app',
+    RichObjectParameter_Type.calendar: 'calendar',
+    RichObjectParameter_Type.calendarEvent: 'calendar-event',
+    RichObjectParameter_Type.call: 'call',
+    RichObjectParameter_Type.circle: 'circle',
+    RichObjectParameter_Type.deckBoard: 'deck-board',
+    RichObjectParameter_Type.deckCard: 'deck-card',
+    RichObjectParameter_Type.email: 'email',
+    RichObjectParameter_Type.file: 'file',
+    RichObjectParameter_Type.formsForm: 'forms-form',
+    RichObjectParameter_Type.guest: 'guest',
+    RichObjectParameter_Type.highlight: 'highlight',
+    RichObjectParameter_Type.geoLocation: 'geo-location',
+    RichObjectParameter_Type.openGraph: 'open-graph',
+    RichObjectParameter_Type.pendingFederatedShare: 'pending-federated-share',
+    RichObjectParameter_Type.systemtag: 'systemtag',
+    RichObjectParameter_Type.talkAttachment: 'talk-attachment',
+    RichObjectParameter_Type.talkPoll: 'talk-poll',
+    RichObjectParameter_Type.user: 'user',
+    RichObjectParameter_Type.userGroup: 'user-group',
+  };
+
+  static const Map<Object, RichObjectParameter_Type> _fromWire = <Object, RichObjectParameter_Type>{
+    'addressbook': RichObjectParameter_Type.addressbook,
+    'addressbook-contact': RichObjectParameter_Type.addressbookContact,
+    'announcement': RichObjectParameter_Type.announcement,
+    'app': RichObjectParameter_Type.app,
+    'calendar': RichObjectParameter_Type.calendar,
+    'calendar-event': RichObjectParameter_Type.calendarEvent,
+    'call': RichObjectParameter_Type.call,
+    'circle': RichObjectParameter_Type.circle,
+    'deck-board': RichObjectParameter_Type.deckBoard,
+    'deck-card': RichObjectParameter_Type.deckCard,
+    'email': RichObjectParameter_Type.email,
+    'file': RichObjectParameter_Type.file,
+    'forms-form': RichObjectParameter_Type.formsForm,
+    'guest': RichObjectParameter_Type.guest,
+    'highlight': RichObjectParameter_Type.highlight,
+    'geo-location': RichObjectParameter_Type.geoLocation,
+    'open-graph': RichObjectParameter_Type.openGraph,
+    'pending-federated-share': RichObjectParameter_Type.pendingFederatedShare,
+    'systemtag': RichObjectParameter_Type.systemtag,
+    'talk-attachment': RichObjectParameter_Type.talkAttachment,
+    'talk-poll': RichObjectParameter_Type.talkPoll,
+    'user': RichObjectParameter_Type.user,
+    'user-group': RichObjectParameter_Type.userGroup,
+  };
+
+  @override
+  Iterable<Type> get types => const [RichObjectParameter_Type];
+
+  @override
+  String get wireName => 'RichObjectParameter_Type';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RichObjectParameter_Type object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RichObjectParameter_Type deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RichObjectParameterInterface {
+  RichObjectParameter_Type get type;
+  String get id;
+  String get name;
+
+  /// The full URL to the file.
+  String? get link;
+
+  /// The type of the call: one2one, group or public.
+  @BuiltValueField(wireName: 'call-type')
+  String? get callType;
+
+  /// The icon url to use as avatar.
+  @BuiltValueField(wireName: 'icon-url')
+  String? get iconUrl;
+
+  /// The id of a message that was referred to.
+  @BuiltValueField(wireName: 'message-id')
+  String? get messageId;
+
+  /// The display name of board which contains the card.
+  String? get boardname;
+
+  /// The display name of the stack which contains the card in the board.
+  String? get stackname;
+
+  /// The file size in bytes.
+  String? get size;
+
+  /// The full path of the file for the user, should not start with a slash.
+  String? get path;
+
+  /// The mimetype of the file/folder to allow clients to show a placeholder.
+  String? get mimetype;
+
+  /// Whether or not a preview is available. If `no` the mimetype icon should be used.
+  @BuiltValueField(wireName: 'preview-available')
+  String? get previewAvailable;
+
+  /// The mtime of the file/folder as unix timestamp.
+  String? get mtime;
+
+  /// The ETag of the file/folder.
+  String? get etag;
+
+  /// The permissions on the file/folder.
+  String? get permissions;
+
+  /// The width in pixels if the file is an image.
+  String? get width;
+
+  /// The height in pixels if the file is an image.
+  String? get height;
+
+  /// The blurhash of the image.
+  String? get blurhash;
+
+  /// The latitude of the location MUST be the same as in the id.
+  String? get latitude;
+
+  /// The longitude of the location MUST be the same as in the id.
+  String? get longitude;
+
+  /// The open graph description from the website.
+  String? get description;
+
+  /// The full URL of the open graph thumbnail.
+  String? get thumb;
+
+  /// The name of the described website.
+  String? get website;
+
+  /// If the user can see the systemtag.
+  String? get visibility;
+
+  /// If the user can assign the systemtag.
+  String? get assignable;
+
+  /// The token of the conversation.
+  String? get conversation;
+
+  /// The URL of the instance the user lives on.
+  String? get server;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RichObjectParameterInterfaceBuilder].
+  $RichObjectParameterInterface rebuild(void Function($RichObjectParameterInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$RichObjectParameterInterfaceBuilder].
+  $RichObjectParameterInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RichObjectParameterInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RichObjectParameterInterfaceBuilder b) {}
+}
+
+abstract class RichObjectParameter
+    implements $RichObjectParameterInterface, Built<RichObjectParameter, RichObjectParameterBuilder> {
+  /// Creates a new RichObjectParameter object using the builder pattern.
+  factory RichObjectParameter([void Function(RichObjectParameterBuilder)? b]) = _$RichObjectParameter;
+
+  // coverage:ignore-start
+  const RichObjectParameter._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RichObjectParameter.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RichObjectParameter.
+  static Serializer<RichObjectParameter> get serializer => _$richObjectParameterSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RichObjectParameterBuilder b) {
+    $RichObjectParameterInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RichObjectParameterBuilder b) {
+    $RichObjectParameterInterface._validate(b);
+  }
+}
+
 /// Serialization extension for `AutocompleteResult_Status`.
 extension $AutocompleteResult_StatusExtension on AutocompleteResult_Status {
   /// Serializer for AutocompleteResult_Status.
@@ -29097,7 +29411,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(PublicCapabilities), PublicCapabilitiesBuilder.new)
       ..add(PublicCapabilities.serializer)
       ..addBuilderFactory(const FullType(PublicCapabilities_Bruteforce), PublicCapabilities_BruteforceBuilder.new)
-      ..add(PublicCapabilities_Bruteforce.serializer))
+      ..add(PublicCapabilities_Bruteforce.serializer)
+      ..addBuilderFactory(const FullType(RichObjectParameter), RichObjectParameterBuilder.new)
+      ..add(RichObjectParameter.serializer)
+      ..add(RichObjectParameter_Type.serializer))
     .build();
 
 /// Serializer for all values in this library.

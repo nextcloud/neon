@@ -8,7 +8,7 @@ import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
-import 'package:nextcloud/spreed.dart' as spreed;
+import 'package:nextcloud/core.dart' as core;
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:talk_app/src/widgets/rich_object/deck_card.dart';
@@ -44,9 +44,9 @@ void main() {
           Provider<Account>.value(value: account),
         ],
         child: TalkRichObjectDeckCard(
-          parameter: spreed.RichObjectParameter(
+          parameter: core.RichObjectParameter(
             (b) => b
-              ..type = spreed.RichObjectParameter_Type.deckCard
+              ..type = core.RichObjectParameter_Type.deckCard
               ..id = ''
               ..name = 'name'
               ..boardname = 'boardname'
@@ -76,9 +76,9 @@ void main() {
               Provider<Account>.value(value: account),
             ],
             child: TalkRichObjectMention(
-              parameter: spreed.RichObjectParameter(
+              parameter: core.RichObjectParameter(
                 (b) => b
-                  ..type = spreed.RichObjectParameter_Type.user
+                  ..type = core.RichObjectParameter_Type.user
                   ..id = 'username'
                   ..name = 'name',
               ),
@@ -101,9 +101,9 @@ void main() {
               Provider<Account>.value(value: account),
             ],
             child: TalkRichObjectMention(
-              parameter: spreed.RichObjectParameter(
+              parameter: core.RichObjectParameter(
                 (b) => b
-                  ..type = spreed.RichObjectParameter_Type.user
+                  ..type = core.RichObjectParameter_Type.user
                   ..id = 'other'
                   ..name = 'name',
               ),
@@ -127,9 +127,9 @@ void main() {
             Provider<Account>.value(value: account),
           ],
           child: TalkRichObjectMention(
-            parameter: spreed.RichObjectParameter(
+            parameter: core.RichObjectParameter(
               (b) => b
-                ..type = spreed.RichObjectParameter_Type.call
+                ..type = core.RichObjectParameter_Type.call
                 ..id = ''
                 ..name = 'name'
                 ..iconUrl = '',
@@ -150,9 +150,9 @@ void main() {
       await tester.pumpWidgetWithAccessibility(
         TestApp(
           child: TalkRichObjectMention(
-            parameter: spreed.RichObjectParameter(
+            parameter: core.RichObjectParameter(
               (b) => b
-                ..type = spreed.RichObjectParameter_Type.guest
+                ..type = core.RichObjectParameter_Type.guest
                 ..id = ''
                 ..name = 'name',
             ),
@@ -181,9 +181,9 @@ void main() {
             NeonProvider<UserDetailsBloc>.value(value: userDetailsBloc),
           ],
           child: TalkRichObjectMention(
-            parameter: spreed.RichObjectParameter(
+            parameter: core.RichObjectParameter(
               (b) => b
-                ..type = spreed.RichObjectParameter_Type.userGroup
+                ..type = core.RichObjectParameter_Type.userGroup
                 ..id = 'group'
                 ..name = 'name',
             ),
@@ -204,9 +204,9 @@ void main() {
             NeonProvider<UserDetailsBloc>.value(value: userDetailsBloc),
           ],
           child: TalkRichObjectMention(
-            parameter: spreed.RichObjectParameter(
+            parameter: core.RichObjectParameter(
               (b) => b
-                ..type = spreed.RichObjectParameter_Type.userGroup
+                ..type = core.RichObjectParameter_Type.userGroup
                 ..id = 'other'
                 ..name = 'name',
             ),
@@ -235,9 +235,9 @@ void main() {
             Provider<Account>.value(value: account),
           ],
           child: TalkRichObjectFile(
-            parameter: spreed.RichObjectParameter(
+            parameter: core.RichObjectParameter(
               (b) => b
-                ..type = spreed.RichObjectParameter_Type.file
+                ..type = core.RichObjectParameter_Type.file
                 ..id = '0'
                 ..name = 'name'
                 ..previewAvailable = 'no'
@@ -260,9 +260,9 @@ void main() {
             Provider<Account>.value(value: account),
           ],
           child: TalkRichObjectFile(
-            parameter: spreed.RichObjectParameter(
+            parameter: core.RichObjectParameter(
               (b) => b
-                ..type = spreed.RichObjectParameter_Type.file
+                ..type = core.RichObjectParameter_Type.file
                 ..id = '0'
                 ..name = 'name'
                 ..previewAvailable = 'no'
@@ -284,9 +284,9 @@ void main() {
             Provider<Account>.value(value: account),
           ],
           child: TalkRichObjectFile(
-            parameter: spreed.RichObjectParameter(
+            parameter: core.RichObjectParameter(
               (b) => b
-                ..type = spreed.RichObjectParameter_Type.file
+                ..type = core.RichObjectParameter_Type.file
                 ..id = '0'
                 ..name = 'name'
                 ..previewAvailable = 'yes'
@@ -320,15 +320,15 @@ void main() {
             Provider<Account>.value(value: account),
           ],
           child: TalkRichObjectFile(
-            parameter: spreed.RichObjectParameter(
+            parameter: core.RichObjectParameter(
               (b) => b
-                ..type = spreed.RichObjectParameter_Type.file
+                ..type = core.RichObjectParameter_Type.file
                 ..id = '0'
                 ..name = 'name'
                 ..previewAvailable = 'yes'
                 ..path = 'path'
-                ..width = ($int: width, string: null)
-                ..height = ($int: height, string: null),
+                ..width = width.toString()
+                ..height = height.toString(),
             ),
             textStyle: null,
           ),
@@ -353,15 +353,15 @@ void main() {
             Provider<Account>.value(value: account),
           ],
           child: TalkRichObjectFile(
-            parameter: spreed.RichObjectParameter(
+            parameter: core.RichObjectParameter(
               (b) => b
-                ..type = spreed.RichObjectParameter_Type.file
+                ..type = core.RichObjectParameter_Type.file
                 ..id = '0'
                 ..name = 'name'
                 ..previewAvailable = 'yes'
                 ..path = 'path'
-                ..width = ($int: (maxWidth * widthFactor) * pixelRatio, string: null)
-                ..height = ($int: (maxHeight * heightFactor) * pixelRatio, string: null),
+                ..width = ((maxWidth * widthFactor) * pixelRatio).toString()
+                ..height = ((maxHeight * heightFactor) * pixelRatio).toString(),
             ),
             textStyle: null,
           ),
@@ -387,9 +387,9 @@ void main() {
             Provider<Account>.value(value: account),
           ],
           child: TalkRichObjectFile(
-            parameter: spreed.RichObjectParameter(
+            parameter: core.RichObjectParameter(
               (b) => b
-                ..type = spreed.RichObjectParameter_Type.file
+                ..type = core.RichObjectParameter_Type.file
                 ..id = '0'
                 ..name = 'name'
                 ..previewAvailable = 'yes'
@@ -420,9 +420,9 @@ void main() {
             Provider<Account>.value(value: account),
           ],
           child: TalkRichObjectFallback(
-            parameter: spreed.RichObjectParameter(
+            parameter: core.RichObjectParameter(
               (b) => b
-                ..type = spreed.RichObjectParameter_Type.calendarEvent
+                ..type = core.RichObjectParameter_Type.calendarEvent
                 ..id = ''
                 ..name = 'name'
                 ..link = '/link',
@@ -440,9 +440,9 @@ void main() {
       await tester.pumpWidgetWithAccessibility(
         TestApp(
           child: TalkRichObjectFallback(
-            parameter: spreed.RichObjectParameter(
+            parameter: core.RichObjectParameter(
               (b) => b
-                ..type = spreed.RichObjectParameter_Type.addressbook
+                ..type = core.RichObjectParameter_Type.addressbook
                 ..id = ''
                 ..name = 'name',
             ),
@@ -465,9 +465,9 @@ void main() {
             Provider<Account>.value(value: account),
           ],
           child: TalkRichObjectFallback(
-            parameter: spreed.RichObjectParameter(
+            parameter: core.RichObjectParameter(
               (b) => b
-                ..type = spreed.RichObjectParameter_Type.addressbook
+                ..type = core.RichObjectParameter_Type.addressbook
                 ..id = ''
                 ..name = 'name'
                 ..iconUrl = '',

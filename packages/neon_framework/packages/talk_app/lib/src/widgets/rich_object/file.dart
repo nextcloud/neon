@@ -3,7 +3,6 @@ import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/core.dart' as core;
-import 'package:nextcloud/spreed.dart' as spreed;
 
 /// Displays a file from a rich object.
 class TalkRichObjectFile extends StatelessWidget {
@@ -15,12 +14,10 @@ class TalkRichObjectFile extends StatelessWidget {
   });
 
   /// The parameter to display.
-  final spreed.RichObjectParameter parameter;
+  final core.RichObjectParameter parameter;
 
   /// The TextStyle to applied to all text elements in this rich object.
   final TextStyle? textStyle;
-
-  int _parseDimension(({int? $int, String? string}) dimension) => dimension.$int ?? int.parse(dimension.string!);
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +32,8 @@ class TalkRichObjectFile extends StatelessWidget {
 
         if (parameter.width != null && parameter.height != null) {
           deviceSize = Size(
-            _parseDimension(parameter.width!).toDouble(),
-            _parseDimension(parameter.height!).toDouble(),
+            double.parse(parameter.width!),
+            double.parse(parameter.height!),
           );
 
           // Convert to logical pixels
