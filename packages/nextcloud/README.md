@@ -51,7 +51,7 @@ For an example checkout the [example](https://github.com/nextcloud/neon/blob/mai
 | Component                                                                          | Supported versions (1) |
 |------------------------------------------------------------------------------------|------------------------|
 | [Server](https://github.com/nextcloud/server) (2)                                  | 28 - 30                |
-| [Cookbook app](https://github.com/nextcloud/cookbook)                              | 0.11.1                 |
+| [Cookbook app](https://github.com/nextcloud/cookbook)                              | 0.11.1 - 0.11.2        |
 | [News app](https://github.com/nextcloud/news)                                      | 25                     |
 | [NextPush app](https://codeberg.org/NextPush/uppush)                               | 1.4 - 1.5              |
 | [Notes app](https://github.com/nextcloud/notes)                                    | 4.8 - 4.10             |
