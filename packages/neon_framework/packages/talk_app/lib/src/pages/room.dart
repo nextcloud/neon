@@ -58,7 +58,10 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
       builder: (context, result) {
         final room = result.requireData;
 
-        Widget title = Text(room.displayName);
+        Widget title = Text(
+          room.displayName,
+          overflow: TextOverflow.ellipsis,
+        );
 
         final statusMessage = room.statusMessage;
         if (statusMessage != null) {

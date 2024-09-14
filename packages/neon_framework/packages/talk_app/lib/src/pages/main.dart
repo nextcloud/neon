@@ -151,7 +151,10 @@ class _TalkMainPageState extends State<TalkMainPage> {
       leading: TalkRoomAvatar(
         room: room,
       ),
-      title: Text(room.displayName),
+      title: Text(
+        room.displayName,
+        overflow: TextOverflow.ellipsis,
+      ),
       subtitle: subtitle,
       trailing: trailing,
       onTap: () async {
