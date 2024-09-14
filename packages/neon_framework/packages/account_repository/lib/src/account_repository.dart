@@ -260,7 +260,7 @@ class AccountRepository {
   Future<void> logIn(Account account) async {
     final value = _accounts.value;
 
-    final active = value.active ?? account.credentials.id;
+    final active = account.credentials.id;
     final accounts = value.accounts.rebuild((b) {
       b[account.credentials.id] = account;
     });
