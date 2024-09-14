@@ -108,7 +108,7 @@ class FilesDownloadTaskMemory extends FilesTaskMemory implements FilesDownloadTa
   });
 
   Future<void> execute(NextcloudClient client) async {
-    final stream = client.webdav.getStream(
+    final stream = await client.webdav.getStream(
       uri,
       onProgress: progressController.add,
     );

@@ -55,8 +55,12 @@ class WebDavClient {
   Future<WebDavOptions> options() async {
     final request = options_Request();
 
-    final response = await csrfClient.send(request);
-    return parseWebDavOptions(response.headers);
+    final streamedResponse = await csrfClient.send(request);
+    if (streamedResponse.statusCode != 200) {
+      final response = await http.Response.fromStream(streamedResponse);
+      throw DynamiteStatusCodeException(response);
+    }
+    return parseWebDavOptions(streamedResponse.headers);
   }
 
   /// Returns a request to create a collection at [path].
@@ -91,13 +95,19 @@ class WebDavClient {
   Future<http.StreamedResponse> mkcol(
     PathUri path, {
     WebDavProp? set,
-  }) {
+  }) async {
     final request = mkcol_Request(
       path,
       set: set,
     );
 
-    return csrfClient.send(request);
+    final streamedResponse = await csrfClient.send(request);
+    if (streamedResponse.statusCode != 201) {
+      final response = await http.Response.fromStream(streamedResponse);
+      throw DynamiteStatusCodeException(response);
+    }
+
+    return streamedResponse;
   }
 
   /// Returns a request to delete the resource at [path].
@@ -117,10 +127,16 @@ class WebDavClient {
   /// See:
   ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_DELETE for more information.
   ///   * [delete_Request] for the request sent by this method.
-  Future<http.StreamedResponse> delete(PathUri path) {
+  Future<http.StreamedResponse> delete(PathUri path) async {
     final request = delete_Request(path);
 
-    return csrfClient.send(request);
+    final streamedResponse = await csrfClient.send(request);
+    if (streamedResponse.statusCode != 204) {
+      final response = await http.Response.fromStream(streamedResponse);
+      throw DynamiteStatusCodeException(response);
+    }
+
+    return streamedResponse;
   }
 
   /// Returns a request to put a new file at [path] with [localData] as content.
@@ -167,7 +183,7 @@ class WebDavClient {
     DateTime? lastModified,
     DateTime? created,
     String? checksum,
-  }) {
+  }) async {
     final request = put_Request(
       localData,
       path,
@@ -176,7 +192,13 @@ class WebDavClient {
       checksum: checksum,
     );
 
-    return csrfClient.send(request);
+    final streamedResponse = await csrfClient.send(request);
+    if (streamedResponse.statusCode != 201) {
+      final response = await http.Response.fromStream(streamedResponse);
+      throw DynamiteStatusCodeException(response);
+    }
+
+    return streamedResponse;
   }
 
   /// Returns a request to put a new file at [path] with [localData] as content.
@@ -248,7 +270,7 @@ class WebDavClient {
     DateTime? created,
     String? checksum,
     void Function(double progress)? onProgress,
-  }) {
+  }) async {
     final request = putStream_Request(
       localData,
       path,
@@ -259,7 +281,13 @@ class WebDavClient {
       onProgress: onProgress,
     );
 
-    return csrfClient.send(request);
+    final streamedResponse = await csrfClient.send(request);
+    if (streamedResponse.statusCode != 201) {
+      final response = await http.Response.fromStream(streamedResponse);
+      throw DynamiteStatusCodeException(response);
+    }
+
+    return streamedResponse;
   }
 
   /// Returns a request to put a new file at [path] with [file] as content.
@@ -312,7 +340,7 @@ class WebDavClient {
     DateTime? created,
     String? checksum,
     void Function(double progress)? onProgress,
-  }) {
+  }) async {
     final request = putFile_Request(
       file,
       fileStat,
@@ -323,7 +351,13 @@ class WebDavClient {
       onProgress: onProgress,
     );
 
-    return csrfClient.send(request);
+    final streamedResponse = await csrfClient.send(request);
+    if (streamedResponse.statusCode != 201) {
+      final response = await http.Response.fromStream(streamedResponse);
+      throw DynamiteStatusCodeException(response);
+    }
+
+    return streamedResponse;
   }
 
   /// Returns a request to get the content of the file at [path].
@@ -344,7 +378,8 @@ class WebDavClient {
   Future<Uint8List> get(PathUri path) async {
     final buffer = BytesBuilder(copy: false);
 
-    await getStream(path).forEach(buffer.add);
+    final stream = await getStream(path);
+    await stream.forEach(buffer.add);
 
     return buffer.toBytes();
   }
@@ -355,40 +390,33 @@ class WebDavClient {
   ///
   /// See:
   ///   * [get_Request] for the request sent by this method.
-  Stream<List<int>> getStream(
+  Future<Stream<List<int>>> getStream(
     PathUri path, {
     void Function(double progress)? onProgress,
-  }) {
+  }) async {
     final request = get_Request(path);
-    // ignore: discarded_futures
-    final response = csrfClient.send(request);
+    final streamedResponse = await csrfClient.send(request);
+    if (streamedResponse.statusCode != 200) {
+      final response = await http.Response.fromStream(streamedResponse);
+      throw DynamiteStatusCodeException(response);
+    }
+
     final controller = StreamController<List<int>>();
+    final contentLength = streamedResponse.contentLength;
+    var downloaded = 0;
 
-    unawaited(
-      response.then(
-        (response) {
-          final contentLength = response.contentLength;
-          var downloaded = 0;
-
-          response.stream.listen(
-            (chunk) async {
-              controller.add(chunk);
-              downloaded += chunk.length;
-              if (contentLength != null) {
-                onProgress?.call(downloaded / contentLength);
-              }
-            },
-            onDone: () {
-              onProgress?.call(1);
-              controller.close();
-            },
-          );
-        },
-        // ignore: avoid_types_on_closure_parameters
-        onError: (Object error) {
-          controller.addError(error);
-        },
-      ),
+    streamedResponse.stream.listen(
+      (chunk) async {
+        controller.add(chunk);
+        downloaded += chunk.length;
+        if (contentLength != null) {
+          onProgress?.call(downloaded / contentLength);
+        }
+      },
+      onDone: () {
+        onProgress?.call(1);
+        controller.close();
+      },
     );
 
     return controller.stream;
@@ -408,7 +436,7 @@ class WebDavClient {
     void Function(double progress)? onProgress,
   }) async {
     final sink = file.openWrite();
-    final stream = getStream(
+    final stream = await getStream(
       path,
       onProgress: onProgress,
     );
@@ -461,6 +489,10 @@ class WebDavClient {
 
     final streamedResponse = await csrfClient.send(request);
     final response = await http.Response.fromStream(streamedResponse);
+    if (streamedResponse.statusCode != 207) {
+      throw DynamiteStatusCodeException(response);
+    }
+
     return const WebDavResponseConverter().convert(response);
   }
 
@@ -506,6 +538,10 @@ class WebDavClient {
 
     final streamedResponse = await csrfClient.send(request);
     final response = await http.Response.fromStream(streamedResponse);
+    if (streamedResponse.statusCode != 207) {
+      throw DynamiteStatusCodeException(response);
+    }
+
     return const WebDavResponseConverter().convert(response);
   }
 
@@ -554,6 +590,10 @@ class WebDavClient {
 
     final streamedResponse = await csrfClient.send(request);
     final response = await http.Response.fromStream(streamedResponse);
+    if (streamedResponse.statusCode != 207) {
+      throw DynamiteStatusCodeException(response);
+    }
+
     final data = const WebDavResponseConverter().convert(response);
     for (final a in data.responses) {
       for (final b in a.propstats) {
@@ -599,14 +639,20 @@ class WebDavClient {
     PathUri sourcePath,
     PathUri destinationPath, {
     bool overwrite = false,
-  }) {
+  }) async {
     final request = move_Request(
       sourcePath,
       destinationPath,
       overwrite: overwrite,
     );
 
-    return csrfClient.send(request);
+    final streamedResponse = await csrfClient.send(request);
+    if (streamedResponse.statusCode != 201 && streamedResponse.statusCode != 204) {
+      final response = await http.Response.fromStream(streamedResponse);
+      throw DynamiteStatusCodeException(response);
+    }
+
+    return streamedResponse;
   }
 
   /// Returns a request to copy the resource from [sourcePath] to [destinationPath].
@@ -643,14 +689,20 @@ class WebDavClient {
     PathUri sourcePath,
     PathUri destinationPath, {
     bool overwrite = false,
-  }) {
+  }) async {
     final request = copy_Request(
       sourcePath,
       destinationPath,
       overwrite: overwrite,
     );
 
-    return csrfClient.send(request);
+    final streamedResponse = await csrfClient.send(request);
+    if (streamedResponse.statusCode != 201 && streamedResponse.statusCode != 204) {
+      final response = await http.Response.fromStream(streamedResponse);
+      throw DynamiteStatusCodeException(response);
+    }
+
+    return streamedResponse;
   }
 
   void _addBaseHeaders(http.BaseRequest request) {
