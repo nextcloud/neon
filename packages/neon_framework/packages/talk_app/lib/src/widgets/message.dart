@@ -544,11 +544,6 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
           maxLines: widget.isParent ? 1 : null,
           overflow: widget.isParent ? TextOverflow.ellipsis : TextOverflow.visible,
         );
-        if (!widget.isParent && widget.chatMessage.messageType != spreed.MessageType.commentDeleted) {
-          text = SelectionArea(
-            child: text,
-          );
-        }
         if (widget.chatMessage.messageType == spreed.MessageType.commentDeleted) {
           text = Row(
             children: [
