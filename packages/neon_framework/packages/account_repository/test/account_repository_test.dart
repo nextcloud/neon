@@ -475,19 +475,19 @@ void main() {
         credentials: credentialsList.first,
       );
 
-      test('adds account and sets active if null', () async {
+      test('adds account and sets active', () async {
         await repository.logIn(account);
 
         await expectLater(
           repository.accounts,
           emits(
             isA<_AccountStream>()
-                .having((e) => e.accounts, 'accounts', equals([accountsList.first]))
-                .having((e) => e.active, 'active', equals(accountsList.first)),
+                .having((e) => e.accounts, 'accounts', equals([account]))
+                .having((e) => e.active, 'active', equals(account)),
           ),
         );
-        verify(() => storage.saveCredentials(any(that: contains(credentialsList.first)))).called(1);
-        verify(() => storage.saveLastAccount(credentialsList.first.id)).called(1);
+        verify(() => storage.saveCredentials(any(that: contains(account.credentials)))).called(1);
+        verify(() => storage.saveLastAccount(account.id)).called(1);
       });
     });
 
