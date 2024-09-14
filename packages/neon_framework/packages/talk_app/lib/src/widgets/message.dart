@@ -161,34 +161,36 @@ InlineSpan buildRichObjectParameter({
   required TextStyle? textStyle,
   required bool isPreview,
 }) {
+  if (isPreview) {
+    return TextSpan(
+      text: parameter.name,
+      style: textStyle,
+    );
+  }
+
   return WidgetSpan(
     alignment: PlaceholderAlignment.middle,
-    child: isPreview
-        ? Text(
-            parameter.name,
-            style: textStyle,
-          )
-        : switch (parameter.type) {
-            spreed.RichObjectParameter_Type.user ||
-            spreed.RichObjectParameter_Type.call ||
-            spreed.RichObjectParameter_Type.guest ||
-            spreed.RichObjectParameter_Type.userGroup =>
-              TalkRichObjectMention(
-                parameter: parameter,
-                textStyle: textStyle,
-              ),
-            spreed.RichObjectParameter_Type.file => TalkRichObjectFile(
-                parameter: parameter,
-                textStyle: textStyle,
-              ),
-            spreed.RichObjectParameter_Type.deckCard => TalkRichObjectDeckCard(
-                parameter: parameter,
-              ),
-            _ => TalkRichObjectFallback(
-                parameter: parameter,
-                textStyle: textStyle,
-              ),
-          },
+    child: switch (parameter.type) {
+      spreed.RichObjectParameter_Type.user ||
+      spreed.RichObjectParameter_Type.call ||
+      spreed.RichObjectParameter_Type.guest ||
+      spreed.RichObjectParameter_Type.userGroup =>
+        TalkRichObjectMention(
+          parameter: parameter,
+          textStyle: textStyle,
+        ),
+      spreed.RichObjectParameter_Type.file => TalkRichObjectFile(
+          parameter: parameter,
+          textStyle: textStyle,
+        ),
+      spreed.RichObjectParameter_Type.deckCard => TalkRichObjectDeckCard(
+          parameter: parameter,
+        ),
+      _ => TalkRichObjectFallback(
+          parameter: parameter,
+          textStyle: textStyle,
+        ),
+    },
   );
 }
 
