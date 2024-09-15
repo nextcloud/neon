@@ -13,21 +13,15 @@ abstract class Account implements Built<Account, AccountBuilder> {
   /// The login and server credentials of the account.
   Credentials get credentials;
 
-  /// Url of the server.
-  Uri get serverURL => credentials.serverURL;
-
   /// The user id.
   String get username => credentials.username;
 
-  /// App password.
-  String? get password => credentials.password;
-
   /// The unique ID of the account.
   ///
-  /// Implemented in a primitive way hashing the [username] and [serverURL].
+  /// Implemented in a primitive way hashing the [username] and `serverURL`.
   String get id => credentials.id;
 
-  /// A human readable representation of [username] and [serverURL].
+  /// A human readable representation of [username] and `serverURL`.
   String get humanReadableID => credentials.humanReadableID;
 
   /// An authenticated API client.

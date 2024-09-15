@@ -29,7 +29,7 @@ Account mockServer(
     credentials: createCredentials(
       serverURL: Uri.parse('https://example.com'),
       username: 'test',
-      password: 'test',
+      appPassword: 'test',
     ),
     httpClient: client,
   );

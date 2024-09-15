@@ -24,10 +24,10 @@ class _$CredentialsSerializer implements StructuredSerializer<Credentials> {
       serializers.serialize(object.username, specifiedType: const FullType(String)),
     ];
     Object? value;
-    value = object.password;
+    value = object.appPassword;
     if (value != null) {
       result
-        ..add('password')
+        ..add('appPassword')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     return result;
@@ -50,8 +50,8 @@ class _$CredentialsSerializer implements StructuredSerializer<Credentials> {
         case 'username':
           result.username = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
-        case 'password':
-          result.password = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+        case 'appPassword':
+          result.appPassword = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -66,14 +66,14 @@ class _$Credentials extends Credentials {
   @override
   final String username;
   @override
-  final String? password;
+  final String? appPassword;
   String? __id;
   String? __humanReadableID;
 
   factory _$Credentials([void Function(CredentialsBuilder)? updates]) =>
       (CredentialsBuilder()..update(updates))._build();
 
-  _$Credentials._({required this.serverURL, required this.username, this.password}) : super._() {
+  _$Credentials._({required this.serverURL, required this.username, this.appPassword}) : super._() {
     BuiltValueNullFieldError.checkNotNull(serverURL, r'Credentials', 'serverURL');
     BuiltValueNullFieldError.checkNotNull(username, r'Credentials', 'username');
   }
@@ -96,7 +96,7 @@ class _$Credentials extends Credentials {
     return other is Credentials &&
         serverURL == other.serverURL &&
         username == other.username &&
-        password == other.password;
+        appPassword == other.appPassword;
   }
 
   @override
@@ -104,7 +104,7 @@ class _$Credentials extends Credentials {
     var _$hash = 0;
     _$hash = $jc(_$hash, serverURL.hashCode);
     _$hash = $jc(_$hash, username.hashCode);
-    _$hash = $jc(_$hash, password.hashCode);
+    _$hash = $jc(_$hash, appPassword.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -114,7 +114,7 @@ class _$Credentials extends Credentials {
     return (newBuiltValueToStringHelper(r'Credentials')
           ..add('serverURL', serverURL)
           ..add('username', username)
-          ..add('password', password))
+          ..add('appPassword', appPassword))
         .toString();
   }
 }
@@ -130,9 +130,9 @@ class CredentialsBuilder implements Builder<Credentials, CredentialsBuilder> {
   String? get username => _$this._username;
   set username(String? username) => _$this._username = username;
 
-  String? _password;
-  String? get password => _$this._password;
-  set password(String? password) => _$this._password = password;
+  String? _appPassword;
+  String? get appPassword => _$this._appPassword;
+  set appPassword(String? appPassword) => _$this._appPassword = appPassword;
 
   CredentialsBuilder();
 
@@ -141,7 +141,7 @@ class CredentialsBuilder implements Builder<Credentials, CredentialsBuilder> {
     if ($v != null) {
       _serverURL = $v.serverURL;
       _username = $v.username;
-      _password = $v.password;
+      _appPassword = $v.appPassword;
       _$v = null;
     }
     return this;
@@ -166,7 +166,7 @@ class CredentialsBuilder implements Builder<Credentials, CredentialsBuilder> {
         _$Credentials._(
             serverURL: BuiltValueNullFieldError.checkNotNull(serverURL, r'Credentials', 'serverURL'),
             username: BuiltValueNullFieldError.checkNotNull(username, r'Credentials', 'username'),
-            password: password);
+            appPassword: appPassword);
     replace(_$result);
     return _$result;
   }

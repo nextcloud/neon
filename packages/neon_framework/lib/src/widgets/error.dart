@@ -155,7 +155,7 @@ class NeonError extends StatelessWidget {
 
   static Future<void> _openLoginPage(BuildContext context) async {
     await LoginRoute(
-      serverUrl: NeonProvider.of<Account>(context).serverURL,
+      serverUrl: NeonProvider.of<Account>(context).credentials.serverURL,
     ).push<void>(context);
   }
 }

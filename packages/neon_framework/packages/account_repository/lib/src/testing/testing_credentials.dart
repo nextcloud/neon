@@ -6,12 +6,12 @@ import 'package:meta/meta.dart';
 Credentials createCredentials({
   Uri? serverURL,
   String username = 'username',
-  String? password = 'password',
+  String? appPassword = 'appPassword',
 }) {
   return Credentials((b) {
     b
       ..serverURL = serverURL ?? Uri.https('serverURL')
       ..username = username
-      ..password = password;
+      ..appPassword = appPassword;
   });
 }

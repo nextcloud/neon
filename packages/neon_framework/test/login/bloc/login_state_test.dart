@@ -6,7 +6,6 @@ import 'package:neon_framework/src/login/login.dart';
 
 void main() {
   final url = Uri.https('serverURL');
-
   final credentials = createCredentials(
     serverURL: Uri.https('credentials_serverURL'),
   );

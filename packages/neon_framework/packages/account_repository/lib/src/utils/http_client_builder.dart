@@ -26,8 +26,8 @@ NextcloudClient buildClient({
   return NextcloudClient(
     credentials.serverURL,
     loginName: credentials.username,
-    password: credentials.password,
-    appPassword: credentials.password,
+    password: credentials.appPassword,
+    appPassword: credentials.appPassword,
     httpClient: neonHttpClient,
   );
 }

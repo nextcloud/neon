@@ -12,9 +12,9 @@ extension AccountClientExtension on Account {
   /// In that case an instance hosted at a sub folder will already contain the sub folder part in the [uri].
   @internal
   Uri completeUri(Uri uri) {
-    final result = serverURL.resolveUri(uri);
+    final result = credentials.serverURL.resolveUri(uri);
     if (!uri.hasAbsolutePath) {
-      return result.replace(path: '${serverURL.path}/${uri.path}');
+      return result.replace(path: '${credentials.serverURL.path}/${uri.path}');
     }
     return result;
   }
@@ -23,7 +23,7 @@ extension AccountClientExtension on Account {
   ///
   /// This method ensures no credentials are sent to the wrong server.
   Map<String, String>? getAuthorizationHeaders(Uri uri) {
-    if (uri.toString().startsWith(serverURL.toString())) {
+    if (uri.toString().startsWith(credentials.serverURL.toString())) {
       return client.authentications?.firstOrNull?.headers;
     }
 

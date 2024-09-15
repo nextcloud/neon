@@ -11,7 +11,7 @@ void main() {
         b
           ..serverURL = Uri.parse('example.com')
           ..username = 'JohnDoe'
-          ..password = 'super_secret';
+          ..appPassword = 'super_secret';
       }),
     );
 

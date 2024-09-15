@@ -33,7 +33,7 @@ abstract class Credentials implements Built<Credentials, CredentialsBuilder> {
   String get username;
 
   /// App password.
-  String? get password;
+  String? get appPassword;
 
   /// The unique ID of the account.
   ///

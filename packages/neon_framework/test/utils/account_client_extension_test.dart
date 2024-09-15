@@ -17,7 +17,7 @@ void main() {
             credentials: createCredentials(
               serverURL: Uri.parse(serverURL),
               username: 'example',
-              password: null,
+              appPassword: null,
             ),
           );
 
@@ -43,7 +43,7 @@ void main() {
         credentials: createCredentials(
           serverURL: Uri.parse('https://example.com:443/test'),
           username: 'example',
-          password: 'example',
+          appPassword: 'example',
         ),
       );
 

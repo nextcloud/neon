@@ -84,13 +84,13 @@ void main() {
       b
         ..serverURL = Uri.https('serverUrl')
         ..username = 'username'
-        ..password = 'password';
+        ..appPassword = 'appPassword';
     }),
     Credentials((b) {
       b
         ..serverURL = Uri.https('other-serverUrl')
         ..username = 'username'
-        ..password = 'password';
+        ..appPassword = 'appPassword';
     }),
   ]);
 
@@ -376,7 +376,7 @@ void main() {
             equalsBuilt(
               Credentials((b) {
                 b
-                  ..password = 'appPassword'
+                  ..appPassword = 'appPassword'
                   ..username = 'loginName'
                   ..serverURL = Uri.https('server');
               }),

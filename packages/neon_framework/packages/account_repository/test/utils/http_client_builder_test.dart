@@ -36,7 +36,7 @@ void main() {
     final credentials = Credentials((b) {
       b
         ..username = 'username'
-        ..password = 'password'
+        ..appPassword = 'appPassword'
         ..serverURL = Uri.https('serverURL');
     });
 

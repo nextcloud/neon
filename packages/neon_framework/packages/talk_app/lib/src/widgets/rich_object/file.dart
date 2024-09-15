@@ -60,7 +60,9 @@ class TalkRichObjectFile extends StatelessWidget {
           // Previews for animated GIFs are not animated, so we have to request the full file.
           image = NeonUriImage(
             account: account,
-            uri: Uri.parse('${account.serverURL}/remote.php/dav/files/${account.username}/${parameter.path!}'),
+            uri: Uri.parse(
+              '${account.credentials.serverURL}/remote.php/dav/files/${account.username}/${parameter.path!}',
+            ),
           );
         } else {
           image = NeonApiImage(
