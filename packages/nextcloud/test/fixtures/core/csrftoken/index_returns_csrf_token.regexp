@@ -1,0 +1,3 @@
+GET http://localhost/index\.php/csrftoken
+accept: application/json
+authorization: Bearer mock

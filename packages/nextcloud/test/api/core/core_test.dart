@@ -44,6 +44,16 @@ void main() {
       expect(response.body.extendedSupport, isFalse);
     });
 
+    group('csrfToken', () {
+      test('index returns csrf token', () async {
+        final response = await tester.client.core.csrfToken.index();
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.token, isNotEmpty);
+      });
+    });
+
     group('OCS', () {
       test('Get capabilities', () async {
         final response = await tester.client.core.ocs.getCapabilities();
