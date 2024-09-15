@@ -8,6 +8,7 @@ import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
+import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:talk_app/l10n/localizations.dart';
 import 'package:talk_app/src/blocs/message_bloc.dart';
@@ -55,7 +56,7 @@ TextSpan buildChatMessage({
     message = message.replaceAll('\n', ' ');
   }
 
-  final unusedParameters = <String, spreed.RichObjectParameter>{};
+  final unusedParameters = <String, core.RichObjectParameter>{};
 
   var parts = [message];
   for (final entry in chatMessage.messageParameters.entries) {
@@ -71,7 +72,9 @@ TextSpan buildChatMessage({
     }
 
     if (!found) {
-      unusedParameters[entry.key] = entry.value;
+      unusedParameters[entry.key] = core.RichObjectParameter.fromJson(
+        entry.value.map((key, value) => MapEntry(key, value.toString())).toMap(),
+      );
     }
 
     parts = newParts;
@@ -111,7 +114,9 @@ TextSpan buildChatMessage({
       if ('{${entry.key}}' == part) {
         children.add(
           buildRichObjectParameter(
-            parameter: entry.value,
+            parameter: core.RichObjectParameter.fromJson(
+              entry.value.map((key, value) => MapEntry(key, value.toString())).toMap(),
+            ),
             textStyle: style,
             isPreview: isPreview,
           ),
@@ -157,7 +162,7 @@ TextSpan buildChatMessage({
 
 /// Renders a rich object [parameter] to be interactive.
 InlineSpan buildRichObjectParameter({
-  required spreed.RichObjectParameter parameter,
+  required core.RichObjectParameter parameter,
   required TextStyle? textStyle,
   required bool isPreview,
 }) {
@@ -171,19 +176,19 @@ InlineSpan buildRichObjectParameter({
   return WidgetSpan(
     alignment: PlaceholderAlignment.middle,
     child: switch (parameter.type) {
-      spreed.RichObjectParameter_Type.user ||
-      spreed.RichObjectParameter_Type.call ||
-      spreed.RichObjectParameter_Type.guest ||
-      spreed.RichObjectParameter_Type.userGroup =>
+      core.RichObjectParameter_Type.user ||
+      core.RichObjectParameter_Type.call ||
+      core.RichObjectParameter_Type.guest ||
+      core.RichObjectParameter_Type.userGroup =>
         TalkRichObjectMention(
           parameter: parameter,
           textStyle: textStyle,
         ),
-      spreed.RichObjectParameter_Type.file => TalkRichObjectFile(
+      core.RichObjectParameter_Type.file => TalkRichObjectFile(
           parameter: parameter,
           textStyle: textStyle,
         ),
-      spreed.RichObjectParameter_Type.deckCard => TalkRichObjectDeckCard(
+      core.RichObjectParameter_Type.deckCard => TalkRichObjectDeckCard(
           parameter: parameter,
         ),
       _ => TalkRichObjectFallback(

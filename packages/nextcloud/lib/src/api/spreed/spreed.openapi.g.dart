@@ -105,112 +105,6 @@ final BuiltSet<ActorType> _$actorTypeValues = BuiltSet<ActorType>(const <ActorTy
   _$actorTypePhones,
 ]);
 
-const RichObjectParameter_Type _$richObjectParameterTypeAddressbook = RichObjectParameter_Type._('addressbook');
-const RichObjectParameter_Type _$richObjectParameterTypeAddressbookContact =
-    RichObjectParameter_Type._('addressbookContact');
-const RichObjectParameter_Type _$richObjectParameterTypeAnnouncement = RichObjectParameter_Type._('announcement');
-const RichObjectParameter_Type _$richObjectParameterTypeApp = RichObjectParameter_Type._('app');
-const RichObjectParameter_Type _$richObjectParameterTypeCalendar = RichObjectParameter_Type._('calendar');
-const RichObjectParameter_Type _$richObjectParameterTypeCalendarEvent = RichObjectParameter_Type._('calendarEvent');
-const RichObjectParameter_Type _$richObjectParameterTypeCall = RichObjectParameter_Type._('call');
-const RichObjectParameter_Type _$richObjectParameterTypeCircle = RichObjectParameter_Type._('circle');
-const RichObjectParameter_Type _$richObjectParameterTypeDeckBoard = RichObjectParameter_Type._('deckBoard');
-const RichObjectParameter_Type _$richObjectParameterTypeDeckCard = RichObjectParameter_Type._('deckCard');
-const RichObjectParameter_Type _$richObjectParameterTypeEmail = RichObjectParameter_Type._('email');
-const RichObjectParameter_Type _$richObjectParameterTypeFile = RichObjectParameter_Type._('file');
-const RichObjectParameter_Type _$richObjectParameterTypeFormsForm = RichObjectParameter_Type._('formsForm');
-const RichObjectParameter_Type _$richObjectParameterTypeGuest = RichObjectParameter_Type._('guest');
-const RichObjectParameter_Type _$richObjectParameterTypeHighlight = RichObjectParameter_Type._('highlight');
-const RichObjectParameter_Type _$richObjectParameterTypeGeoLocation = RichObjectParameter_Type._('geoLocation');
-const RichObjectParameter_Type _$richObjectParameterTypeOpenGraph = RichObjectParameter_Type._('openGraph');
-const RichObjectParameter_Type _$richObjectParameterTypePendingFederatedShare =
-    RichObjectParameter_Type._('pendingFederatedShare');
-const RichObjectParameter_Type _$richObjectParameterTypeSystemtag = RichObjectParameter_Type._('systemtag');
-const RichObjectParameter_Type _$richObjectParameterTypeTalkAttachment = RichObjectParameter_Type._('talkAttachment');
-const RichObjectParameter_Type _$richObjectParameterTypeTalkPoll = RichObjectParameter_Type._('talkPoll');
-const RichObjectParameter_Type _$richObjectParameterTypeUser = RichObjectParameter_Type._('user');
-const RichObjectParameter_Type _$richObjectParameterTypeUserGroup = RichObjectParameter_Type._('userGroup');
-
-RichObjectParameter_Type _$valueOfRichObjectParameter_Type(String name) {
-  switch (name) {
-    case 'addressbook':
-      return _$richObjectParameterTypeAddressbook;
-    case 'addressbookContact':
-      return _$richObjectParameterTypeAddressbookContact;
-    case 'announcement':
-      return _$richObjectParameterTypeAnnouncement;
-    case 'app':
-      return _$richObjectParameterTypeApp;
-    case 'calendar':
-      return _$richObjectParameterTypeCalendar;
-    case 'calendarEvent':
-      return _$richObjectParameterTypeCalendarEvent;
-    case 'call':
-      return _$richObjectParameterTypeCall;
-    case 'circle':
-      return _$richObjectParameterTypeCircle;
-    case 'deckBoard':
-      return _$richObjectParameterTypeDeckBoard;
-    case 'deckCard':
-      return _$richObjectParameterTypeDeckCard;
-    case 'email':
-      return _$richObjectParameterTypeEmail;
-    case 'file':
-      return _$richObjectParameterTypeFile;
-    case 'formsForm':
-      return _$richObjectParameterTypeFormsForm;
-    case 'guest':
-      return _$richObjectParameterTypeGuest;
-    case 'highlight':
-      return _$richObjectParameterTypeHighlight;
-    case 'geoLocation':
-      return _$richObjectParameterTypeGeoLocation;
-    case 'openGraph':
-      return _$richObjectParameterTypeOpenGraph;
-    case 'pendingFederatedShare':
-      return _$richObjectParameterTypePendingFederatedShare;
-    case 'systemtag':
-      return _$richObjectParameterTypeSystemtag;
-    case 'talkAttachment':
-      return _$richObjectParameterTypeTalkAttachment;
-    case 'talkPoll':
-      return _$richObjectParameterTypeTalkPoll;
-    case 'user':
-      return _$richObjectParameterTypeUser;
-    case 'userGroup':
-      return _$richObjectParameterTypeUserGroup;
-    default:
-      throw ArgumentError(name);
-  }
-}
-
-final BuiltSet<RichObjectParameter_Type> _$richObjectParameterTypeValues =
-    BuiltSet<RichObjectParameter_Type>(const <RichObjectParameter_Type>[
-  _$richObjectParameterTypeAddressbook,
-  _$richObjectParameterTypeAddressbookContact,
-  _$richObjectParameterTypeAnnouncement,
-  _$richObjectParameterTypeApp,
-  _$richObjectParameterTypeCalendar,
-  _$richObjectParameterTypeCalendarEvent,
-  _$richObjectParameterTypeCall,
-  _$richObjectParameterTypeCircle,
-  _$richObjectParameterTypeDeckBoard,
-  _$richObjectParameterTypeDeckCard,
-  _$richObjectParameterTypeEmail,
-  _$richObjectParameterTypeFile,
-  _$richObjectParameterTypeFormsForm,
-  _$richObjectParameterTypeGuest,
-  _$richObjectParameterTypeHighlight,
-  _$richObjectParameterTypeGeoLocation,
-  _$richObjectParameterTypeOpenGraph,
-  _$richObjectParameterTypePendingFederatedShare,
-  _$richObjectParameterTypeSystemtag,
-  _$richObjectParameterTypeTalkAttachment,
-  _$richObjectParameterTypeTalkPoll,
-  _$richObjectParameterTypeUser,
-  _$richObjectParameterTypeUserGroup,
-]);
-
 const MessageType _$messageTypeComment = MessageType._('comment');
 const MessageType _$messageTypeSystem = MessageType._('system');
 const MessageType _$messageTypeObjectShared = MessageType._('objectShared');
@@ -3166,7 +3060,6 @@ final BuiltSet<SignalingBackendApiVersion> _$signalingBackendApiVersionValues =
 ]);
 
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
-Serializer<RichObjectParameter> _$richObjectParameterSerializer = _$RichObjectParameterSerializer();
 Serializer<BaseMessage> _$baseMessageSerializer = _$BaseMessageSerializer();
 Serializer<ChatMessage> _$chatMessageSerializer = _$ChatMessageSerializer();
 Serializer<Room> _$roomSerializer = _$RoomSerializer();
@@ -4087,283 +3980,6 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   }
 }
 
-class _$RichObjectParameterSerializer implements StructuredSerializer<RichObjectParameter> {
-  @override
-  final Iterable<Type> types = const [RichObjectParameter, _$RichObjectParameter];
-  @override
-  final String wireName = 'RichObjectParameter';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, RichObjectParameter object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'type',
-      serializers.serialize(object.type, specifiedType: const FullType(RichObjectParameter_Type)),
-      'id',
-      serializers.serialize(object.id, specifiedType: const FullType(String)),
-      'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
-    ];
-    Object? value;
-    value = object.link;
-    if (value != null) {
-      result
-        ..add('link')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.callType;
-    if (value != null) {
-      result
-        ..add('call-type')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.iconUrl;
-    if (value != null) {
-      result
-        ..add('icon-url')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.messageId;
-    if (value != null) {
-      result
-        ..add('message-id')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.boardname;
-    if (value != null) {
-      result
-        ..add('boardname')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.stackname;
-    if (value != null) {
-      result
-        ..add('stackname')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.size;
-    if (value != null) {
-      result
-        ..add('size')
-        ..add(serializers.serialize(value, specifiedType: const FullType(RichObjectParameter_Size)));
-    }
-    value = object.path;
-    if (value != null) {
-      result
-        ..add('path')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.mimetype;
-    if (value != null) {
-      result
-        ..add('mimetype')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.previewAvailable;
-    if (value != null) {
-      result
-        ..add('preview-available')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.mtime;
-    if (value != null) {
-      result
-        ..add('mtime')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.etag;
-    if (value != null) {
-      result
-        ..add('etag')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.permissions;
-    if (value != null) {
-      result
-        ..add('permissions')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.width;
-    if (value != null) {
-      result
-        ..add('width')
-        ..add(serializers.serialize(value, specifiedType: const FullType(RichObjectParameter_Width)));
-    }
-    value = object.height;
-    if (value != null) {
-      result
-        ..add('height')
-        ..add(serializers.serialize(value, specifiedType: const FullType(RichObjectParameter_Height)));
-    }
-    value = object.blurhash;
-    if (value != null) {
-      result
-        ..add('blurhash')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.latitude;
-    if (value != null) {
-      result
-        ..add('latitude')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.longitude;
-    if (value != null) {
-      result
-        ..add('longitude')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.description;
-    if (value != null) {
-      result
-        ..add('description')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.thumb;
-    if (value != null) {
-      result
-        ..add('thumb')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.website;
-    if (value != null) {
-      result
-        ..add('website')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.visibility;
-    if (value != null) {
-      result
-        ..add('visibility')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.assignable;
-    if (value != null) {
-      result
-        ..add('assignable')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.conversation;
-    if (value != null) {
-      result
-        ..add('conversation')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.server;
-    if (value != null) {
-      result
-        ..add('server')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    return result;
-  }
-
-  @override
-  RichObjectParameter deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = RichObjectParameterBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'type':
-          result.type = serializers.deserialize(value, specifiedType: const FullType(RichObjectParameter_Type))!
-              as RichObjectParameter_Type;
-          break;
-        case 'id':
-          result.id = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'name':
-          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'link':
-          result.link = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'call-type':
-          result.callType = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'icon-url':
-          result.iconUrl = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'message-id':
-          result.messageId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'boardname':
-          result.boardname = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'stackname':
-          result.stackname = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'size':
-          result.size = serializers.deserialize(value, specifiedType: const FullType(RichObjectParameter_Size))
-              as RichObjectParameter_Size?;
-          break;
-        case 'path':
-          result.path = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'mimetype':
-          result.mimetype = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'preview-available':
-          result.previewAvailable = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'mtime':
-          result.mtime = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'etag':
-          result.etag = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'permissions':
-          result.permissions = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'width':
-          result.width = serializers.deserialize(value, specifiedType: const FullType(RichObjectParameter_Width))
-              as RichObjectParameter_Width?;
-          break;
-        case 'height':
-          result.height = serializers.deserialize(value, specifiedType: const FullType(RichObjectParameter_Height))
-              as RichObjectParameter_Height?;
-          break;
-        case 'blurhash':
-          result.blurhash = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'latitude':
-          result.latitude = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'longitude':
-          result.longitude = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'description':
-          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'thumb':
-          result.thumb = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'website':
-          result.website = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'visibility':
-          result.visibility = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'assignable':
-          result.assignable = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'conversation':
-          result.conversation = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'server':
-          result.server = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$BaseMessageSerializer implements StructuredSerializer<BaseMessage> {
   @override
   final Iterable<Type> types = const [BaseMessage, _$BaseMessage];
@@ -4386,7 +4002,10 @@ class _$BaseMessageSerializer implements StructuredSerializer<BaseMessage> {
       serializers.serialize(object.message, specifiedType: const FullType(String)),
       'messageParameters',
       serializers.serialize(object.messageParameters,
-          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(RichObjectParameter)])),
+          specifiedType: const FullType(BuiltMap, [
+            FullType(String),
+            FullType(BuiltMap, [FullType(String), FullType(JsonObject)])
+          ])),
       'messageType',
       serializers.serialize(object.messageType, specifiedType: const FullType(MessageType)),
       'systemMessage',
@@ -4424,7 +4043,10 @@ class _$BaseMessageSerializer implements StructuredSerializer<BaseMessage> {
           break;
         case 'messageParameters':
           result.messageParameters.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(RichObjectParameter)]))!);
+              specifiedType: const FullType(BuiltMap, [
+                FullType(String),
+                FullType(BuiltMap, [FullType(String), FullType(JsonObject)])
+              ]))!);
           break;
         case 'messageType':
           result.messageType =
@@ -4477,7 +4099,10 @@ class _$ChatMessageSerializer implements StructuredSerializer<ChatMessage> {
       serializers.serialize(object.message, specifiedType: const FullType(String)),
       'messageParameters',
       serializers.serialize(object.messageParameters,
-          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(RichObjectParameter)])),
+          specifiedType: const FullType(BuiltMap, [
+            FullType(String),
+            FullType(BuiltMap, [FullType(String), FullType(JsonObject)])
+          ])),
       'messageType',
       serializers.serialize(object.messageType, specifiedType: const FullType(MessageType)),
       'systemMessage',
@@ -4604,7 +4229,10 @@ class _$ChatMessageSerializer implements StructuredSerializer<ChatMessage> {
           break;
         case 'messageParameters':
           result.messageParameters.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(RichObjectParameter)]))!);
+              specifiedType: const FullType(BuiltMap, [
+                FullType(String),
+                FullType(BuiltMap, [FullType(String), FullType(JsonObject)])
+              ]))!);
           break;
         case 'messageType':
           result.messageType =
@@ -8620,7 +8248,10 @@ class _$ChatMessageWithParentSerializer implements StructuredSerializer<ChatMess
       serializers.serialize(object.message, specifiedType: const FullType(String)),
       'messageParameters',
       serializers.serialize(object.messageParameters,
-          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(RichObjectParameter)])),
+          specifiedType: const FullType(BuiltMap, [
+            FullType(String),
+            FullType(BuiltMap, [FullType(String), FullType(JsonObject)])
+          ])),
       'messageType',
       serializers.serialize(object.messageType, specifiedType: const FullType(MessageType)),
       'systemMessage',
@@ -8757,7 +8388,10 @@ class _$ChatMessageWithParentSerializer implements StructuredSerializer<ChatMess
           break;
         case 'messageParameters':
           result.messageParameters.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(RichObjectParameter)]))!);
+              specifiedType: const FullType(BuiltMap, [
+                FullType(String),
+                FullType(BuiltMap, [FullType(String), FullType(JsonObject)])
+              ]))!);
           break;
         case 'messageType':
           result.messageType =
@@ -23334,509 +22968,6 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   }
 }
 
-abstract mixin class $RichObjectParameterInterfaceBuilder {
-  void replace($RichObjectParameterInterface other);
-  void update(void Function($RichObjectParameterInterfaceBuilder) updates);
-  RichObjectParameter_Type? get type;
-  set type(RichObjectParameter_Type? type);
-
-  String? get id;
-  set id(String? id);
-
-  String? get name;
-  set name(String? name);
-
-  String? get link;
-  set link(String? link);
-
-  String? get callType;
-  set callType(String? callType);
-
-  String? get iconUrl;
-  set iconUrl(String? iconUrl);
-
-  String? get messageId;
-  set messageId(String? messageId);
-
-  String? get boardname;
-  set boardname(String? boardname);
-
-  String? get stackname;
-  set stackname(String? stackname);
-
-  RichObjectParameter_Size? get size;
-  set size(RichObjectParameter_Size? size);
-
-  String? get path;
-  set path(String? path);
-
-  String? get mimetype;
-  set mimetype(String? mimetype);
-
-  String? get previewAvailable;
-  set previewAvailable(String? previewAvailable);
-
-  String? get mtime;
-  set mtime(String? mtime);
-
-  String? get etag;
-  set etag(String? etag);
-
-  String? get permissions;
-  set permissions(String? permissions);
-
-  RichObjectParameter_Width? get width;
-  set width(RichObjectParameter_Width? width);
-
-  RichObjectParameter_Height? get height;
-  set height(RichObjectParameter_Height? height);
-
-  String? get blurhash;
-  set blurhash(String? blurhash);
-
-  String? get latitude;
-  set latitude(String? latitude);
-
-  String? get longitude;
-  set longitude(String? longitude);
-
-  String? get description;
-  set description(String? description);
-
-  String? get thumb;
-  set thumb(String? thumb);
-
-  String? get website;
-  set website(String? website);
-
-  String? get visibility;
-  set visibility(String? visibility);
-
-  String? get assignable;
-  set assignable(String? assignable);
-
-  String? get conversation;
-  set conversation(String? conversation);
-
-  String? get server;
-  set server(String? server);
-}
-
-class _$RichObjectParameter extends RichObjectParameter {
-  @override
-  final RichObjectParameter_Type type;
-  @override
-  final String id;
-  @override
-  final String name;
-  @override
-  final String? link;
-  @override
-  final String? callType;
-  @override
-  final String? iconUrl;
-  @override
-  final String? messageId;
-  @override
-  final String? boardname;
-  @override
-  final String? stackname;
-  @override
-  final RichObjectParameter_Size? size;
-  @override
-  final String? path;
-  @override
-  final String? mimetype;
-  @override
-  final String? previewAvailable;
-  @override
-  final String? mtime;
-  @override
-  final String? etag;
-  @override
-  final String? permissions;
-  @override
-  final RichObjectParameter_Width? width;
-  @override
-  final RichObjectParameter_Height? height;
-  @override
-  final String? blurhash;
-  @override
-  final String? latitude;
-  @override
-  final String? longitude;
-  @override
-  final String? description;
-  @override
-  final String? thumb;
-  @override
-  final String? website;
-  @override
-  final String? visibility;
-  @override
-  final String? assignable;
-  @override
-  final String? conversation;
-  @override
-  final String? server;
-
-  factory _$RichObjectParameter([void Function(RichObjectParameterBuilder)? updates]) =>
-      (RichObjectParameterBuilder()..update(updates))._build();
-
-  _$RichObjectParameter._(
-      {required this.type,
-      required this.id,
-      required this.name,
-      this.link,
-      this.callType,
-      this.iconUrl,
-      this.messageId,
-      this.boardname,
-      this.stackname,
-      this.size,
-      this.path,
-      this.mimetype,
-      this.previewAvailable,
-      this.mtime,
-      this.etag,
-      this.permissions,
-      this.width,
-      this.height,
-      this.blurhash,
-      this.latitude,
-      this.longitude,
-      this.description,
-      this.thumb,
-      this.website,
-      this.visibility,
-      this.assignable,
-      this.conversation,
-      this.server})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(type, r'RichObjectParameter', 'type');
-    BuiltValueNullFieldError.checkNotNull(id, r'RichObjectParameter', 'id');
-    BuiltValueNullFieldError.checkNotNull(name, r'RichObjectParameter', 'name');
-  }
-
-  @override
-  RichObjectParameter rebuild(void Function(RichObjectParameterBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  RichObjectParameterBuilder toBuilder() => RichObjectParameterBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    final dynamic _$dynamicOther = other;
-    return other is RichObjectParameter &&
-        type == other.type &&
-        id == other.id &&
-        name == other.name &&
-        link == other.link &&
-        callType == other.callType &&
-        iconUrl == other.iconUrl &&
-        messageId == other.messageId &&
-        boardname == other.boardname &&
-        stackname == other.stackname &&
-        size == _$dynamicOther.size &&
-        path == other.path &&
-        mimetype == other.mimetype &&
-        previewAvailable == other.previewAvailable &&
-        mtime == other.mtime &&
-        etag == other.etag &&
-        permissions == other.permissions &&
-        width == _$dynamicOther.width &&
-        height == _$dynamicOther.height &&
-        blurhash == other.blurhash &&
-        latitude == other.latitude &&
-        longitude == other.longitude &&
-        description == other.description &&
-        thumb == other.thumb &&
-        website == other.website &&
-        visibility == other.visibility &&
-        assignable == other.assignable &&
-        conversation == other.conversation &&
-        server == other.server;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, type.hashCode);
-    _$hash = $jc(_$hash, id.hashCode);
-    _$hash = $jc(_$hash, name.hashCode);
-    _$hash = $jc(_$hash, link.hashCode);
-    _$hash = $jc(_$hash, callType.hashCode);
-    _$hash = $jc(_$hash, iconUrl.hashCode);
-    _$hash = $jc(_$hash, messageId.hashCode);
-    _$hash = $jc(_$hash, boardname.hashCode);
-    _$hash = $jc(_$hash, stackname.hashCode);
-    _$hash = $jc(_$hash, size.hashCode);
-    _$hash = $jc(_$hash, path.hashCode);
-    _$hash = $jc(_$hash, mimetype.hashCode);
-    _$hash = $jc(_$hash, previewAvailable.hashCode);
-    _$hash = $jc(_$hash, mtime.hashCode);
-    _$hash = $jc(_$hash, etag.hashCode);
-    _$hash = $jc(_$hash, permissions.hashCode);
-    _$hash = $jc(_$hash, width.hashCode);
-    _$hash = $jc(_$hash, height.hashCode);
-    _$hash = $jc(_$hash, blurhash.hashCode);
-    _$hash = $jc(_$hash, latitude.hashCode);
-    _$hash = $jc(_$hash, longitude.hashCode);
-    _$hash = $jc(_$hash, description.hashCode);
-    _$hash = $jc(_$hash, thumb.hashCode);
-    _$hash = $jc(_$hash, website.hashCode);
-    _$hash = $jc(_$hash, visibility.hashCode);
-    _$hash = $jc(_$hash, assignable.hashCode);
-    _$hash = $jc(_$hash, conversation.hashCode);
-    _$hash = $jc(_$hash, server.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'RichObjectParameter')
-          ..add('type', type)
-          ..add('id', id)
-          ..add('name', name)
-          ..add('link', link)
-          ..add('callType', callType)
-          ..add('iconUrl', iconUrl)
-          ..add('messageId', messageId)
-          ..add('boardname', boardname)
-          ..add('stackname', stackname)
-          ..add('size', size)
-          ..add('path', path)
-          ..add('mimetype', mimetype)
-          ..add('previewAvailable', previewAvailable)
-          ..add('mtime', mtime)
-          ..add('etag', etag)
-          ..add('permissions', permissions)
-          ..add('width', width)
-          ..add('height', height)
-          ..add('blurhash', blurhash)
-          ..add('latitude', latitude)
-          ..add('longitude', longitude)
-          ..add('description', description)
-          ..add('thumb', thumb)
-          ..add('website', website)
-          ..add('visibility', visibility)
-          ..add('assignable', assignable)
-          ..add('conversation', conversation)
-          ..add('server', server))
-        .toString();
-  }
-}
-
-class RichObjectParameterBuilder
-    implements Builder<RichObjectParameter, RichObjectParameterBuilder>, $RichObjectParameterInterfaceBuilder {
-  _$RichObjectParameter? _$v;
-
-  RichObjectParameter_Type? _type;
-  RichObjectParameter_Type? get type => _$this._type;
-  set type(covariant RichObjectParameter_Type? type) => _$this._type = type;
-
-  String? _id;
-  String? get id => _$this._id;
-  set id(covariant String? id) => _$this._id = id;
-
-  String? _name;
-  String? get name => _$this._name;
-  set name(covariant String? name) => _$this._name = name;
-
-  String? _link;
-  String? get link => _$this._link;
-  set link(covariant String? link) => _$this._link = link;
-
-  String? _callType;
-  String? get callType => _$this._callType;
-  set callType(covariant String? callType) => _$this._callType = callType;
-
-  String? _iconUrl;
-  String? get iconUrl => _$this._iconUrl;
-  set iconUrl(covariant String? iconUrl) => _$this._iconUrl = iconUrl;
-
-  String? _messageId;
-  String? get messageId => _$this._messageId;
-  set messageId(covariant String? messageId) => _$this._messageId = messageId;
-
-  String? _boardname;
-  String? get boardname => _$this._boardname;
-  set boardname(covariant String? boardname) => _$this._boardname = boardname;
-
-  String? _stackname;
-  String? get stackname => _$this._stackname;
-  set stackname(covariant String? stackname) => _$this._stackname = stackname;
-
-  RichObjectParameter_Size? _size;
-  RichObjectParameter_Size? get size => _$this._size;
-  set size(covariant RichObjectParameter_Size? size) => _$this._size = size;
-
-  String? _path;
-  String? get path => _$this._path;
-  set path(covariant String? path) => _$this._path = path;
-
-  String? _mimetype;
-  String? get mimetype => _$this._mimetype;
-  set mimetype(covariant String? mimetype) => _$this._mimetype = mimetype;
-
-  String? _previewAvailable;
-  String? get previewAvailable => _$this._previewAvailable;
-  set previewAvailable(covariant String? previewAvailable) => _$this._previewAvailable = previewAvailable;
-
-  String? _mtime;
-  String? get mtime => _$this._mtime;
-  set mtime(covariant String? mtime) => _$this._mtime = mtime;
-
-  String? _etag;
-  String? get etag => _$this._etag;
-  set etag(covariant String? etag) => _$this._etag = etag;
-
-  String? _permissions;
-  String? get permissions => _$this._permissions;
-  set permissions(covariant String? permissions) => _$this._permissions = permissions;
-
-  RichObjectParameter_Width? _width;
-  RichObjectParameter_Width? get width => _$this._width;
-  set width(covariant RichObjectParameter_Width? width) => _$this._width = width;
-
-  RichObjectParameter_Height? _height;
-  RichObjectParameter_Height? get height => _$this._height;
-  set height(covariant RichObjectParameter_Height? height) => _$this._height = height;
-
-  String? _blurhash;
-  String? get blurhash => _$this._blurhash;
-  set blurhash(covariant String? blurhash) => _$this._blurhash = blurhash;
-
-  String? _latitude;
-  String? get latitude => _$this._latitude;
-  set latitude(covariant String? latitude) => _$this._latitude = latitude;
-
-  String? _longitude;
-  String? get longitude => _$this._longitude;
-  set longitude(covariant String? longitude) => _$this._longitude = longitude;
-
-  String? _description;
-  String? get description => _$this._description;
-  set description(covariant String? description) => _$this._description = description;
-
-  String? _thumb;
-  String? get thumb => _$this._thumb;
-  set thumb(covariant String? thumb) => _$this._thumb = thumb;
-
-  String? _website;
-  String? get website => _$this._website;
-  set website(covariant String? website) => _$this._website = website;
-
-  String? _visibility;
-  String? get visibility => _$this._visibility;
-  set visibility(covariant String? visibility) => _$this._visibility = visibility;
-
-  String? _assignable;
-  String? get assignable => _$this._assignable;
-  set assignable(covariant String? assignable) => _$this._assignable = assignable;
-
-  String? _conversation;
-  String? get conversation => _$this._conversation;
-  set conversation(covariant String? conversation) => _$this._conversation = conversation;
-
-  String? _server;
-  String? get server => _$this._server;
-  set server(covariant String? server) => _$this._server = server;
-
-  RichObjectParameterBuilder() {
-    RichObjectParameter._defaults(this);
-  }
-
-  RichObjectParameterBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _type = $v.type;
-      _id = $v.id;
-      _name = $v.name;
-      _link = $v.link;
-      _callType = $v.callType;
-      _iconUrl = $v.iconUrl;
-      _messageId = $v.messageId;
-      _boardname = $v.boardname;
-      _stackname = $v.stackname;
-      _size = $v.size;
-      _path = $v.path;
-      _mimetype = $v.mimetype;
-      _previewAvailable = $v.previewAvailable;
-      _mtime = $v.mtime;
-      _etag = $v.etag;
-      _permissions = $v.permissions;
-      _width = $v.width;
-      _height = $v.height;
-      _blurhash = $v.blurhash;
-      _latitude = $v.latitude;
-      _longitude = $v.longitude;
-      _description = $v.description;
-      _thumb = $v.thumb;
-      _website = $v.website;
-      _visibility = $v.visibility;
-      _assignable = $v.assignable;
-      _conversation = $v.conversation;
-      _server = $v.server;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant RichObjectParameter other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$RichObjectParameter;
-  }
-
-  @override
-  void update(void Function(RichObjectParameterBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  RichObjectParameter build() => _build();
-
-  _$RichObjectParameter _build() {
-    RichObjectParameter._validate(this);
-    final _$result = _$v ??
-        _$RichObjectParameter._(
-            type: BuiltValueNullFieldError.checkNotNull(type, r'RichObjectParameter', 'type'),
-            id: BuiltValueNullFieldError.checkNotNull(id, r'RichObjectParameter', 'id'),
-            name: BuiltValueNullFieldError.checkNotNull(name, r'RichObjectParameter', 'name'),
-            link: link,
-            callType: callType,
-            iconUrl: iconUrl,
-            messageId: messageId,
-            boardname: boardname,
-            stackname: stackname,
-            size: size,
-            path: path,
-            mimetype: mimetype,
-            previewAvailable: previewAvailable,
-            mtime: mtime,
-            etag: etag,
-            permissions: permissions,
-            width: width,
-            height: height,
-            blurhash: blurhash,
-            latitude: latitude,
-            longitude: longitude,
-            description: description,
-            thumb: thumb,
-            website: website,
-            visibility: visibility,
-            assignable: assignable,
-            conversation: conversation,
-            server: server);
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $BaseMessageInterfaceBuilder {
   void replace($BaseMessageInterface other);
   void update(void Function($BaseMessageInterfaceBuilder) updates);
@@ -23855,8 +22986,8 @@ abstract mixin class $BaseMessageInterfaceBuilder {
   String? get message;
   set message(String? message);
 
-  MapBuilder<String, RichObjectParameter> get messageParameters;
-  set messageParameters(MapBuilder<String, RichObjectParameter>? messageParameters);
+  MapBuilder<String, BuiltMap<String, JsonObject>> get messageParameters;
+  set messageParameters(MapBuilder<String, BuiltMap<String, JsonObject>>? messageParameters);
 
   MessageType? get messageType;
   set messageType(MessageType? messageType);
@@ -23877,7 +23008,7 @@ class _$BaseMessage extends BaseMessage {
   @override
   final String message;
   @override
-  final BuiltMap<String, RichObjectParameter> messageParameters;
+  final BuiltMap<String, BuiltMap<String, JsonObject>> messageParameters;
   @override
   final MessageType messageType;
   @override
@@ -23979,10 +23110,10 @@ class BaseMessageBuilder implements Builder<BaseMessage, BaseMessageBuilder>, $B
   String? get message => _$this._message;
   set message(covariant String? message) => _$this._message = message;
 
-  MapBuilder<String, RichObjectParameter>? _messageParameters;
-  MapBuilder<String, RichObjectParameter> get messageParameters =>
-      _$this._messageParameters ??= MapBuilder<String, RichObjectParameter>();
-  set messageParameters(covariant MapBuilder<String, RichObjectParameter>? messageParameters) =>
+  MapBuilder<String, BuiltMap<String, JsonObject>>? _messageParameters;
+  MapBuilder<String, BuiltMap<String, JsonObject>> get messageParameters =>
+      _$this._messageParameters ??= MapBuilder<String, BuiltMap<String, JsonObject>>();
+  set messageParameters(covariant MapBuilder<String, BuiltMap<String, JsonObject>>? messageParameters) =>
       _$this._messageParameters = messageParameters;
 
   MessageType? _messageType;
@@ -24118,8 +23249,8 @@ abstract mixin class $ChatMessageInterfaceBuilder implements $BaseMessageInterfa
   String? get message;
   set message(covariant String? message);
 
-  MapBuilder<String, RichObjectParameter> get messageParameters;
-  set messageParameters(covariant MapBuilder<String, RichObjectParameter>? messageParameters);
+  MapBuilder<String, BuiltMap<String, JsonObject>> get messageParameters;
+  set messageParameters(covariant MapBuilder<String, BuiltMap<String, JsonObject>>? messageParameters);
 
   MessageType? get messageType;
   set messageType(covariant MessageType? messageType);
@@ -24168,7 +23299,7 @@ class _$ChatMessage extends ChatMessage {
   @override
   final String message;
   @override
-  final BuiltMap<String, RichObjectParameter> messageParameters;
+  final BuiltMap<String, BuiltMap<String, JsonObject>> messageParameters;
   @override
   final MessageType messageType;
   @override
@@ -24390,10 +23521,10 @@ class ChatMessageBuilder implements Builder<ChatMessage, ChatMessageBuilder>, $C
   String? get message => _$this._message;
   set message(covariant String? message) => _$this._message = message;
 
-  MapBuilder<String, RichObjectParameter>? _messageParameters;
-  MapBuilder<String, RichObjectParameter> get messageParameters =>
-      _$this._messageParameters ??= MapBuilder<String, RichObjectParameter>();
-  set messageParameters(covariant MapBuilder<String, RichObjectParameter>? messageParameters) =>
+  MapBuilder<String, BuiltMap<String, JsonObject>>? _messageParameters;
+  MapBuilder<String, BuiltMap<String, JsonObject>> get messageParameters =>
+      _$this._messageParameters ??= MapBuilder<String, BuiltMap<String, JsonObject>>();
+  set messageParameters(covariant MapBuilder<String, BuiltMap<String, JsonObject>>? messageParameters) =>
       _$this._messageParameters = messageParameters;
 
   MessageType? _messageType;
@@ -34630,8 +33761,8 @@ abstract mixin class $ChatMessageWithParentInterfaceBuilder implements $ChatMess
   String? get message;
   set message(covariant String? message);
 
-  MapBuilder<String, RichObjectParameter> get messageParameters;
-  set messageParameters(covariant MapBuilder<String, RichObjectParameter>? messageParameters);
+  MapBuilder<String, BuiltMap<String, JsonObject>> get messageParameters;
+  set messageParameters(covariant MapBuilder<String, BuiltMap<String, JsonObject>>? messageParameters);
 
   MessageType? get messageType;
   set messageType(covariant MessageType? messageType);
@@ -34682,7 +33813,7 @@ class _$ChatMessageWithParent extends ChatMessageWithParent {
   @override
   final String message;
   @override
-  final BuiltMap<String, RichObjectParameter> messageParameters;
+  final BuiltMap<String, BuiltMap<String, JsonObject>> messageParameters;
   @override
   final MessageType messageType;
   @override
@@ -34915,10 +34046,10 @@ class ChatMessageWithParentBuilder
   String? get message => _$this._message;
   set message(covariant String? message) => _$this._message = message;
 
-  MapBuilder<String, RichObjectParameter>? _messageParameters;
-  MapBuilder<String, RichObjectParameter> get messageParameters =>
-      _$this._messageParameters ??= MapBuilder<String, RichObjectParameter>();
-  set messageParameters(covariant MapBuilder<String, RichObjectParameter>? messageParameters) =>
+  MapBuilder<String, BuiltMap<String, JsonObject>>? _messageParameters;
+  MapBuilder<String, BuiltMap<String, JsonObject>> get messageParameters =>
+      _$this._messageParameters ??= MapBuilder<String, BuiltMap<String, JsonObject>>();
+  set messageParameters(covariant MapBuilder<String, BuiltMap<String, JsonObject>>? messageParameters) =>
       _$this._messageParameters = messageParameters;
 
   MessageType? _messageType;

@@ -27,13 +27,6 @@ foreach ($definitions as $type => $object) {
 
 $patch = [
     [
-        'op' => 'replace',
-        'path' => '/components/schemas/BaseMessage/properties/messageParameters/additionalProperties',
-        'value' => [
-            '$ref' => '#/components/schemas/RichObjectParameter',
-        ],
-    ],
-    [
         'op' => 'add',
         'path' => '/components/schemas/RichObjectParameter',
         'value' => [
@@ -48,7 +41,7 @@ $data = json_encode($patch, JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES | JSON_
 if ($data === false) {
     throw new RuntimeException('Failed to encode JSON');
 }
-$success = file_put_contents('packages/nextcloud/lib/src/api/spreed/patches/1-message-parameters.json', $data);
+$success = file_put_contents('packages/nextcloud/lib/src/api/core/patches/0-rich-object-parameter.json', $data);
 if ($success === false) {
     throw new RuntimeException('Failed to write JSON');
 }

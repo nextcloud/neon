@@ -1,0 +1,19 @@
+[
+  {
+    "op": "remove",
+    "path": "/components/schemas/RichObjectParameter"
+  },
+  {
+    "op": "replace",
+    "path": "/components/schemas/BaseMessage/properties/messageParameters",
+    "value": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "object"
+        }
+      }
+    }
+  }
+]
