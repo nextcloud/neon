@@ -107,6 +107,10 @@ TextSpan buildChatMessage({
   }
 
   for (final part in parts) {
+    if (part.isEmpty) {
+      continue;
+    }
+
     var match = false;
     for (final entry in chatMessage.messageParameters.entries) {
       if ('{${entry.key}}' == part) {

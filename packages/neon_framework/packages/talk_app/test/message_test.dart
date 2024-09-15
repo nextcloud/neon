@@ -1760,5 +1760,28 @@ void main() {
 
       expect((spans[4] as TextSpan).text, ' c');
     });
+
+    test('Skip empty parts', () {
+      final chatMessage = MockChatMessage();
+      when(() => chatMessage.message).thenReturn('{actor}');
+      when(() => chatMessage.messageParameters).thenReturn(
+        BuiltMap({
+          'actor': BuiltMap<String, JsonObject>({
+            'type': JsonObject(core.RichObjectParameter_Type.user.name),
+            'id': JsonObject(''),
+            'name': JsonObject(''),
+          }),
+        }),
+      );
+
+      final spans = buildChatMessage(
+        chatMessage: chatMessage,
+        references: BuiltList(),
+        style: const TextStyle(),
+        onReferenceClicked: (_) {},
+      ).children!;
+      expect(spans, hasLength(1));
+      expect((spans[0] as WidgetSpan).child, isA<TalkRichObjectMention>());
+    });
   });
 }
