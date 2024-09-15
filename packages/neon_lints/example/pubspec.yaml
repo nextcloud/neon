@@ -11,7 +11,7 @@ dependencies:
   nextcloud: ^7.0.0
 
 dev_dependencies:
-  custom_lint: ^0.6.5
+  custom_lint: ^0.6.7
   flutter_test:
     sdk: flutter
   meta: ^1.11.0
