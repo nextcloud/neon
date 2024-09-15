@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:http/http.dart';
 import 'package:http/testing.dart';
 import 'package:mocktail/mocktail.dart';
@@ -56,7 +58,13 @@ void main() {
 
     test('requests and attaches a new token', () async {
       final mockedClient = MockClient((request) async {
-        return Response('{"token":"token"}', 200);
+        return Response(
+          '{"token":"token"}',
+          200,
+          headers: {
+            HttpHeaders.contentTypeHeader: 'application/json',
+          },
+        );
       });
 
       final interceptor = CSRFInterceptor(
