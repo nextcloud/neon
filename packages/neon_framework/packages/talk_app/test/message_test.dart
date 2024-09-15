@@ -1665,56 +1665,36 @@ void main() {
     });
 
     group('Unused parameters', () {
-      group('Discard', () {
-        for (final type in ['actor', 'user']) {
-          test(type, () {
-            final chatMessage = MockChatMessage();
-            when(() => chatMessage.message).thenReturn('test');
-            when(() => chatMessage.messageParameters).thenReturn(
-              BuiltMap({
-                type: BuiltMap<String, JsonObject>({
-                  'type': JsonObject('user'),
-                  'id': JsonObject(''),
-                  'name': JsonObject(''),
-                }),
+      for (final type in core.RichObjectParameter_Type.values) {
+        test(type, () {
+          final chatMessage = MockChatMessage();
+          when(() => chatMessage.message).thenReturn('test');
+          when(() => chatMessage.messageParameters).thenReturn(
+            BuiltMap({
+              type.value: BuiltMap<String, JsonObject>({
+                'type': JsonObject(type.value),
+                'id': JsonObject(1),
+                'name': JsonObject(''),
               }),
-            );
-
-            final spans = buildChatMessage(
-              chatMessage: chatMessage,
-              references: BuiltList(),
-              style: const TextStyle(),
-              onReferenceClicked: (_) {},
-            ).children!;
-            expect((spans.single as TextSpan).text, 'test');
-          });
-        }
-      });
-
-      test('Display', () {
-        final chatMessage = MockChatMessage();
-        when(() => chatMessage.message).thenReturn('test');
-        when(() => chatMessage.messageParameters).thenReturn(
-          BuiltMap({
-            'file': BuiltMap<String, JsonObject>({
-              'type': JsonObject('file'),
-              'id': JsonObject(''),
-              'name': JsonObject(''),
             }),
-          }),
-        );
+          );
 
-        final spans = buildChatMessage(
-          chatMessage: chatMessage,
-          references: BuiltList(),
-          style: const TextStyle(),
-          onReferenceClicked: (_) {},
-        ).children!;
-        expect(spans, hasLength(3));
-        expect((spans[0] as WidgetSpan).child, isA<TalkRichObjectFile>());
-        expect((spans[1] as TextSpan).text, '\n');
-        expect((spans[2] as TextSpan).text, 'test');
-      });
+          final spans = buildChatMessage(
+            chatMessage: chatMessage,
+            references: BuiltList(),
+            style: const TextStyle(),
+            onReferenceClicked: (_) {},
+          ).children!;
+          if (type == core.RichObjectParameter_Type.file) {
+            expect(spans, hasLength(3));
+            expect((spans[0] as WidgetSpan).child, isA<TalkRichObjectFile>());
+            expect((spans[1] as TextSpan).text, '\n');
+            expect((spans[2] as TextSpan).text, 'test');
+          } else {
+            expect((spans.single as TextSpan).text, 'test');
+          }
+        });
+      }
     });
 
     test('Used parameters', () {

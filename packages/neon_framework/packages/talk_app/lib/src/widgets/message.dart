@@ -93,19 +93,17 @@ TextSpan buildChatMessage({
   final children = <InlineSpan>[];
 
   for (final entry in unusedParameters.entries) {
-    if (entry.key == 'actor' || entry.key == 'user') {
-      continue;
+    if (entry.key == core.RichObjectParameter_Type.file.value) {
+      children
+        ..add(
+          buildRichObjectParameter(
+            parameter: entry.value,
+            textStyle: style,
+            isPreview: isPreview,
+          ),
+        )
+        ..add(const TextSpan(text: '\n'));
     }
-
-    children
-      ..add(
-        buildRichObjectParameter(
-          parameter: entry.value,
-          textStyle: style,
-          isPreview: isPreview,
-        ),
-      )
-      ..add(const TextSpan(text: '\n'));
   }
 
   for (final part in parts) {
