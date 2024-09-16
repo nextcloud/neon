@@ -5,9 +5,9 @@ import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/core.dart' as core;
 
 /// Displays a file from a rich object.
-class TalkRichObjectFile extends StatelessWidget {
-  /// Creates a new Talk rich object file.
-  const TalkRichObjectFile({
+class NeonRichObjectFile extends StatelessWidget {
+  /// Creates a new Neon rich object file.
+  const NeonRichObjectFile({
     required this.parameter,
     required this.textStyle,
     super.key,

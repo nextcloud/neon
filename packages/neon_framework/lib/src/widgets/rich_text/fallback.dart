@@ -5,9 +5,9 @@ import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/core.dart' as core;
 
 /// Widget used to render rich object parameters with unknown types.
-class TalkRichObjectFallback extends StatelessWidget {
-  /// Creates a new Talk rich object fallback
-  const TalkRichObjectFallback({
+class NeonRichObjectFallback extends StatelessWidget {
+  /// Creates a new Neon rich object fallback
+  const NeonRichObjectFallback({
     required this.parameter,
     required this.textStyle,
     super.key,

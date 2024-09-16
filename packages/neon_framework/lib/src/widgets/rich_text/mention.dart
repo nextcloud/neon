@@ -8,9 +8,9 @@ import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/core.dart' as core;
 
 /// Displays a mention chip from a rich object.
-class TalkRichObjectMention extends StatelessWidget {
-  /// Create a new Talk rich object mention.
-  const TalkRichObjectMention({
+class NeonRichObjectMention extends StatelessWidget {
+  /// Create a new Neon rich object mention.
+  const NeonRichObjectMention({
     required this.parameter,
     required this.textStyle,
     super.key,

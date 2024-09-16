@@ -1,5 +1,4 @@
 import 'package:built_collection/built_collection.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:intersperse/intersperse.dart';
 import 'package:intl/intl.dart';
@@ -8,7 +7,6 @@ import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
-import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:talk_app/l10n/localizations.dart';
 import 'package:talk_app/src/blocs/message_bloc.dart';
@@ -18,10 +16,6 @@ import 'package:talk_app/src/widgets/actor_avatar.dart';
 import 'package:talk_app/src/widgets/reactions.dart';
 import 'package:talk_app/src/widgets/read_indicator.dart';
 import 'package:talk_app/src/widgets/reference_preview.dart';
-import 'package:talk_app/src/widgets/rich_object/deck_card.dart';
-import 'package:talk_app/src/widgets/rich_object/fallback.dart';
-import 'package:talk_app/src/widgets/rich_object/file.dart';
-import 'package:talk_app/src/widgets/rich_object/mention.dart';
 import 'package:timezone/timezone.dart' as tz;
 
 final _timeFormat = DateFormat.jm();
@@ -41,164 +35,6 @@ String getActorDisplayName(TalkLocalizations localizations, spreed.$ChatMessageI
   }
 
   return actorDisplayName;
-}
-
-/// Renders the [chatMessage] as a rich [TextSpan].
-TextSpan buildChatMessage({
-  required spreed.$ChatMessageInterface chatMessage,
-  required BuiltList<String> references,
-  required TextStyle style,
-  required void Function(String reference) onReferenceClicked,
-  bool isPreview = false,
-}) {
-  var message = chatMessage.message;
-  if (isPreview) {
-    message = message.replaceAll('\n', ' ');
-  }
-
-  final unusedParameters = <String, core.RichObjectParameter>{};
-
-  var parts = [message];
-  for (final entry in chatMessage.messageParameters.entries) {
-    final newParts = <String>[];
-
-    var found = false;
-    for (final part in parts) {
-      final p = part.split('{${entry.key}}');
-      newParts.addAll(p.intersperse('{${entry.key}}'));
-      if (p.length > 1) {
-        found = true;
-      }
-    }
-
-    if (!found) {
-      unusedParameters[entry.key] = core.RichObjectParameter.fromJson(
-        entry.value.map((key, value) => MapEntry(key, value.toString())).toMap(),
-      );
-    }
-
-    parts = newParts;
-  }
-  for (final reference in references) {
-    final newParts = <String>[];
-
-    for (final part in parts) {
-      final p = part.split(reference);
-      newParts.addAll(p.intersperse(reference));
-    }
-
-    parts = newParts;
-  }
-
-  final children = <InlineSpan>[];
-
-  for (final entry in unusedParameters.entries) {
-    if (entry.key == core.RichObjectParameter_Type.file.value) {
-      children
-        ..add(
-          buildRichObjectParameter(
-            parameter: entry.value,
-            textStyle: style,
-            isPreview: isPreview,
-          ),
-        )
-        ..add(const TextSpan(text: '\n'));
-    }
-  }
-
-  for (final part in parts) {
-    if (part.isEmpty) {
-      continue;
-    }
-
-    var match = false;
-    for (final entry in chatMessage.messageParameters.entries) {
-      if ('{${entry.key}}' == part) {
-        children.add(
-          buildRichObjectParameter(
-            parameter: core.RichObjectParameter.fromJson(
-              entry.value.map((key, value) => MapEntry(key, value.toString())).toMap(),
-            ),
-            textStyle: style,
-            isPreview: isPreview,
-          ),
-        );
-        match = true;
-        break;
-      }
-    }
-    for (final reference in references) {
-      if (reference == part) {
-        final gestureRecognizer = TapGestureRecognizer()..onTap = () => onReferenceClicked(reference);
-
-        children.add(
-          TextSpan(
-            text: part,
-            style: style.copyWith(
-              decoration: TextDecoration.underline,
-              decorationThickness: 2,
-            ),
-            recognizer: gestureRecognizer,
-          ),
-        );
-        match = true;
-        break;
-      }
-    }
-
-    if (!match) {
-      children.add(
-        TextSpan(
-          style: style,
-          text: part,
-        ),
-      );
-    }
-  }
-
-  return TextSpan(
-    style: style,
-    children: children,
-  );
-}
-
-/// Renders a rich object [parameter] to be interactive.
-InlineSpan buildRichObjectParameter({
-  required core.RichObjectParameter parameter,
-  required TextStyle? textStyle,
-  required bool isPreview,
-}) {
-  if (isPreview) {
-    return TextSpan(
-      text: parameter.name,
-      style: textStyle,
-    );
-  }
-
-  return WidgetSpan(
-    alignment: PlaceholderAlignment.middle,
-    child: switch (parameter.type) {
-      core.RichObjectParameter_Type.user ||
-      core.RichObjectParameter_Type.call ||
-      core.RichObjectParameter_Type.guest ||
-      core.RichObjectParameter_Type.userGroup =>
-        TalkRichObjectMention(
-          parameter: parameter,
-          textStyle: textStyle,
-        ),
-      core.RichObjectParameter_Type.file => TalkRichObjectFile(
-          parameter: parameter,
-          textStyle: textStyle,
-        ),
-      core.RichObjectParameter_Type.deckCard => TalkRichObjectDeckCard(
-          parameter: parameter,
-        ),
-      _ => TalkRichObjectFallback(
-          parameter: parameter,
-          textStyle: textStyle,
-        ),
-    },
-  );
 }
 
 /// Displays a preview of the [chatMessage] including the display name of the sender.
@@ -246,8 +82,9 @@ class TalkMessagePreview extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-          buildChatMessage(
-            chatMessage: chatMessage,
+          buildRichTextSpan(
+            text: chatMessage.message,
+            parameters: chatMessage.messageParameters,
             references: BuiltList(),
             isPreview: true,
             style: Theme.of(context).textTheme.bodyMedium!,
@@ -336,8 +173,9 @@ class TalkSystemMessage extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: groupMessages ? 2.5 : 10),
       child: Center(
         child: RichText(
-          text: buildChatMessage(
-            chatMessage: chatMessage,
+          text: buildRichTextSpan(
+            text: chatMessage.message,
+            parameters: chatMessage.messageParameters,
             references: BuiltList(),
             style: Theme.of(context).textTheme.labelSmall!,
             onReferenceClicked: (url) async => launchUrl(NeonProvider.of<Account>(context), url),
@@ -538,8 +376,9 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
         }
 
         Widget text = Text.rich(
-          buildChatMessage(
-            chatMessage: widget.chatMessage,
+          buildRichTextSpan(
+            text: widget.chatMessage.message,
+            parameters: widget.chatMessage.messageParameters,
             isPreview: widget.isParent,
             references: references.keys.toBuiltList(),
             style: textTheme.bodyLarge!.copyWith(

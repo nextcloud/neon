@@ -1,4 +1,6 @@
 import 'package:built_collection/built_collection.dart';
+import 'package:built_value/json_object.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -11,11 +13,11 @@ import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:talk_app/src/widgets/rich_object/deck_card.dart';
-import 'package:talk_app/src/widgets/rich_object/fallback.dart';
-import 'package:talk_app/src/widgets/rich_object/file.dart';
-import 'package:talk_app/src/widgets/rich_object/mention.dart';
 import 'package:url_launcher_platform_interface/url_launcher_platform_interface.dart';
+
+class MockOnReferenceClickedCallback extends Mock {
+  void call(String reference);
+}
 
 void main() {
   late MockUrlLauncher urlLauncher;
@@ -43,7 +45,7 @@ void main() {
         providers: [
           Provider<Account>.value(value: account),
         ],
-        child: TalkRichObjectDeckCard(
+        child: NeonRichObjectDeckCard(
           parameter: core.RichObjectParameter(
             (b) => b
               ..type = core.RichObjectParameter_Type.deckCard
@@ -59,11 +61,11 @@ void main() {
     expect(find.text('name'), findsOne);
     expect(find.text('boardname: stackname'), findsOne);
     await expectLater(
-      find.byType(TalkRichObjectDeckCard),
-      matchesGoldenFile('goldens/rich_object_deck_card.png'),
+      find.byType(NeonRichObjectDeckCard),
+      matchesGoldenFile('goldens/rich_text_object_deck_card.png'),
     );
 
-    await tester.tap(find.byType(TalkRichObjectDeckCard));
+    await tester.tap(find.byType(NeonRichObjectDeckCard));
     verify(() => urlLauncher.launchUrl('https://cloud.example.com:8443/link', any())).called(1);
   });
 
@@ -75,7 +77,7 @@ void main() {
             providers: [
               Provider<Account>.value(value: account),
             ],
-            child: TalkRichObjectMention(
+            child: NeonRichObjectMention(
               parameter: core.RichObjectParameter(
                 (b) => b
                   ..type = core.RichObjectParameter_Type.user
@@ -89,8 +91,8 @@ void main() {
         expect(find.byType(NeonUserAvatar), findsOne);
         expect(find.text('name'), findsOne);
         await expectLater(
-          find.byType(TalkRichObjectMention),
-          matchesGoldenFile('goldens/rich_object_mention_user_highlight.png'),
+          find.byType(NeonRichObjectMention),
+          matchesGoldenFile('goldens/rich_text_object_mention_user_highlight.png'),
         );
       });
 
@@ -100,7 +102,7 @@ void main() {
             providers: [
               Provider<Account>.value(value: account),
             ],
-            child: TalkRichObjectMention(
+            child: NeonRichObjectMention(
               parameter: core.RichObjectParameter(
                 (b) => b
                   ..type = core.RichObjectParameter_Type.user
@@ -114,8 +116,8 @@ void main() {
         expect(find.byType(NeonUserAvatar), findsOne);
         expect(find.text('name'), findsOne);
         await expectLater(
-          find.byType(TalkRichObjectMention),
-          matchesGoldenFile('goldens/rich_object_mention_user_other.png'),
+          find.byType(NeonRichObjectMention),
+          matchesGoldenFile('goldens/rich_text_object_mention_user_other.png'),
         );
       });
     });
@@ -126,7 +128,7 @@ void main() {
           providers: [
             Provider<Account>.value(value: account),
           ],
-          child: TalkRichObjectMention(
+          child: NeonRichObjectMention(
             parameter: core.RichObjectParameter(
               (b) => b
                 ..type = core.RichObjectParameter_Type.call
@@ -141,15 +143,15 @@ void main() {
       expect(find.byType(NeonUriImage), findsOne);
       expect(find.text('name'), findsOne);
       await expectLater(
-        find.byType(TalkRichObjectMention),
-        matchesGoldenFile('goldens/rich_object_mention_call.png'),
+        find.byType(NeonRichObjectMention),
+        matchesGoldenFile('goldens/rich_text_object_mention_call.png'),
       );
     });
 
     testWidgets('guest', (tester) async {
       await tester.pumpWidgetWithAccessibility(
         TestApp(
-          child: TalkRichObjectMention(
+          child: NeonRichObjectMention(
             parameter: core.RichObjectParameter(
               (b) => b
                 ..type = core.RichObjectParameter_Type.guest
@@ -163,8 +165,8 @@ void main() {
       expect(find.byIcon(AdaptiveIcons.person), findsOne);
       expect(find.text('name'), findsOne);
       await expectLater(
-        find.byType(TalkRichObjectMention),
-        matchesGoldenFile('goldens/rich_object_mention_guest.png'),
+        find.byType(NeonRichObjectMention),
+        matchesGoldenFile('goldens/rich_text_object_mention_guest.png'),
       );
     });
 
@@ -180,7 +182,7 @@ void main() {
           providers: [
             NeonProvider<UserDetailsBloc>.value(value: userDetailsBloc),
           ],
-          child: TalkRichObjectMention(
+          child: NeonRichObjectMention(
             parameter: core.RichObjectParameter(
               (b) => b
                 ..type = core.RichObjectParameter_Type.userGroup
@@ -194,8 +196,8 @@ void main() {
       expect(find.byIcon(AdaptiveIcons.group), findsOne);
       expect(find.text('name'), findsOne);
       await expectLater(
-        find.byType(TalkRichObjectMention),
-        matchesGoldenFile('goldens/rich_object_mention_user-group_highlight.png'),
+        find.byType(NeonRichObjectMention),
+        matchesGoldenFile('goldens/rich_text_object_mention_user-group_highlight.png'),
       );
 
       await tester.pumpWidgetWithAccessibility(
@@ -203,7 +205,7 @@ void main() {
           providers: [
             NeonProvider<UserDetailsBloc>.value(value: userDetailsBloc),
           ],
-          child: TalkRichObjectMention(
+          child: NeonRichObjectMention(
             parameter: core.RichObjectParameter(
               (b) => b
                 ..type = core.RichObjectParameter_Type.userGroup
@@ -217,8 +219,8 @@ void main() {
       expect(find.byIcon(AdaptiveIcons.group), findsOne);
       expect(find.text('name'), findsOne);
       await expectLater(
-        find.byType(TalkRichObjectMention),
-        matchesGoldenFile('goldens/rich_object_mention_user-group_other.png'),
+        find.byType(NeonRichObjectMention),
+        matchesGoldenFile('goldens/rich_text_object_mention_user-group_other.png'),
       );
     });
   });
@@ -234,7 +236,7 @@ void main() {
           providers: [
             Provider<Account>.value(value: account),
           ],
-          child: TalkRichObjectFile(
+          child: NeonRichObjectFile(
             parameter: core.RichObjectParameter(
               (b) => b
                 ..type = core.RichObjectParameter_Type.file
@@ -249,7 +251,7 @@ void main() {
         ),
       );
 
-      await tester.tap(find.byType(TalkRichObjectFile));
+      await tester.tap(find.byType(NeonRichObjectFile));
       verify(() => urlLauncher.launchUrl('https://cloud.example.com:8443/link', any())).called(1);
     });
 
@@ -259,7 +261,7 @@ void main() {
           providers: [
             Provider<Account>.value(value: account),
           ],
-          child: TalkRichObjectFile(
+          child: NeonRichObjectFile(
             parameter: core.RichObjectParameter(
               (b) => b
                 ..type = core.RichObjectParameter_Type.file
@@ -283,7 +285,7 @@ void main() {
           providers: [
             Provider<Account>.value(value: account),
           ],
-          child: TalkRichObjectFile(
+          child: NeonRichObjectFile(
             parameter: core.RichObjectParameter(
               (b) => b
                 ..type = core.RichObjectParameter_Type.file
@@ -319,7 +321,7 @@ void main() {
           providers: [
             Provider<Account>.value(value: account),
           ],
-          child: TalkRichObjectFile(
+          child: NeonRichObjectFile(
             parameter: core.RichObjectParameter(
               (b) => b
                 ..type = core.RichObjectParameter_Type.file
@@ -352,7 +354,7 @@ void main() {
           providers: [
             Provider<Account>.value(value: account),
           ],
-          child: TalkRichObjectFile(
+          child: NeonRichObjectFile(
             parameter: core.RichObjectParameter(
               (b) => b
                 ..type = core.RichObjectParameter_Type.file
@@ -386,7 +388,7 @@ void main() {
           providers: [
             Provider<Account>.value(value: account),
           ],
-          child: TalkRichObjectFile(
+          child: NeonRichObjectFile(
             parameter: core.RichObjectParameter(
               (b) => b
                 ..type = core.RichObjectParameter_Type.file
@@ -419,7 +421,7 @@ void main() {
           providers: [
             Provider<Account>.value(value: account),
           ],
-          child: TalkRichObjectFallback(
+          child: NeonRichObjectFallback(
             parameter: core.RichObjectParameter(
               (b) => b
                 ..type = core.RichObjectParameter_Type.calendarEvent
@@ -432,14 +434,14 @@ void main() {
         ),
       );
 
-      await tester.tap(find.byType(TalkRichObjectFallback));
+      await tester.tap(find.byType(NeonRichObjectFallback));
       verify(() => urlLauncher.launchUrl('https://cloud.example.com:8443/link', any())).called(1);
     });
 
     testWidgets('Without icon', (tester) async {
       await tester.pumpWidgetWithAccessibility(
         TestApp(
-          child: TalkRichObjectFallback(
+          child: NeonRichObjectFallback(
             parameter: core.RichObjectParameter(
               (b) => b
                 ..type = core.RichObjectParameter_Type.addressbook
@@ -453,8 +455,8 @@ void main() {
       expect(find.byType(NeonUriImage), findsNothing);
       expect(find.text('name'), findsOne);
       await expectLater(
-        find.byType(TalkRichObjectFallback),
-        matchesGoldenFile('goldens/rich_object_fallback_without_icon.png'),
+        find.byType(NeonRichObjectFallback),
+        matchesGoldenFile('goldens/rich_text_object_fallback_without_icon.png'),
       );
     });
 
@@ -464,7 +466,7 @@ void main() {
           providers: [
             Provider<Account>.value(value: account),
           ],
-          child: TalkRichObjectFallback(
+          child: NeonRichObjectFallback(
             parameter: core.RichObjectParameter(
               (b) => b
                 ..type = core.RichObjectParameter_Type.addressbook
@@ -479,9 +481,258 @@ void main() {
       expect(find.byType(NeonUriImage), findsOne);
       expect(find.text('name'), findsOne);
       await expectLater(
-        find.byType(TalkRichObjectFallback),
-        matchesGoldenFile('goldens/rich_object_fallback_with_icon.png'),
+        find.byType(NeonRichObjectFallback),
+        matchesGoldenFile('goldens/rich_text_object_fallback_with_icon.png'),
       );
+    });
+  });
+
+  group('buildRichObjectParameter', () {
+    for (final isPreview in [true, false]) {
+      group(isPreview ? 'As preview' : 'Complete', () {
+        group('Mention', () {
+          for (final type in [
+            core.RichObjectParameter_Type.user,
+            core.RichObjectParameter_Type.call,
+            core.RichObjectParameter_Type.guest,
+            core.RichObjectParameter_Type.userGroup,
+          ]) {
+            testWidgets(type.value, (tester) async {
+              final userDetails = MockUserDetails();
+              when(() => userDetails.groups).thenReturn(BuiltList());
+
+              final userDetailsBloc = MockUserDetailsBloc();
+              when(() => userDetailsBloc.userDetails)
+                  .thenAnswer((_) => BehaviorSubject.seeded(Result.success(userDetails)));
+
+              final account = MockAccount();
+
+              await tester.pumpWidgetWithAccessibility(
+                TestApp(
+                  providers: [
+                    Provider<Account>.value(value: account),
+                    NeonProvider<UserDetailsBloc>.value(value: userDetailsBloc),
+                  ],
+                  child: RichText(
+                    text: buildRichObjectParameter(
+                      parameter: core.RichObjectParameter(
+                        (b) => b
+                          ..type = type
+                          ..id = ''
+                          ..name = 'name'
+                          ..iconUrl = '',
+                      ),
+                      textStyle: null,
+                      isPreview: isPreview,
+                    ),
+                  ),
+                ),
+              );
+
+              expect(find.byType(NeonRichObjectMention), isPreview ? findsNothing : findsOne);
+              expect(find.text('name', findRichText: true), findsOne);
+            });
+          }
+        });
+
+        testWidgets('File', (tester) async {
+          final account = MockAccount();
+
+          await tester.pumpWidgetWithAccessibility(
+            TestApp(
+              providers: [
+                Provider<Account>.value(value: account),
+              ],
+              child: RichText(
+                text: buildRichObjectParameter(
+                  parameter: core.RichObjectParameter(
+                    (b) => b
+                      ..type = core.RichObjectParameter_Type.file
+                      ..id = '0'
+                      ..name = 'name',
+                  ),
+                  textStyle: null,
+                  isPreview: isPreview,
+                ),
+              ),
+            ),
+          );
+
+          expect(find.byType(NeonRichObjectFile), isPreview ? findsNothing : findsOne);
+          expect(find.text('name', findRichText: true), findsOne);
+        });
+
+        testWidgets('Deck card', (tester) async {
+          await tester.pumpWidgetWithAccessibility(
+            TestApp(
+              child: RichText(
+                text: buildRichObjectParameter(
+                  parameter: core.RichObjectParameter(
+                    (b) => b
+                      ..type = core.RichObjectParameter_Type.deckCard
+                      ..id = ''
+                      ..name = 'name'
+                      ..boardname = 'boardname'
+                      ..stackname = 'stackname',
+                  ),
+                  textStyle: null,
+                  isPreview: isPreview,
+                ),
+              ),
+            ),
+          );
+
+          expect(find.byType(NeonRichObjectDeckCard), isPreview ? findsNothing : findsOne);
+          expect(find.text('name', findRichText: true), findsOne);
+        });
+
+        testWidgets('Fallback', (tester) async {
+          await tester.pumpWidgetWithAccessibility(
+            TestApp(
+              child: RichText(
+                text: buildRichObjectParameter(
+                  parameter: core.RichObjectParameter(
+                    (b) => b
+                      ..type = core.RichObjectParameter_Type.addressbook
+                      ..id = ''
+                      ..name = 'name',
+                  ),
+                  textStyle: null,
+                  isPreview: isPreview,
+                ),
+              ),
+            ),
+          );
+
+          expect(find.byType(NeonRichObjectFallback), isPreview ? findsNothing : findsOne);
+          expect(find.text('name', findRichText: true), findsOne);
+        });
+      });
+    }
+  });
+
+  group('buildRichTextSpan', () {
+    test('Preview without newlines', () {
+      var span = buildRichTextSpan(
+        text: '123\n456',
+        parameters: BuiltMap(),
+        references: BuiltList(),
+        style: const TextStyle(),
+        onReferenceClicked: (_) {},
+      ).children!.single as TextSpan;
+      expect(span.text, '123\n456');
+
+      span = buildRichTextSpan(
+        text: '123\n456',
+        parameters: BuiltMap(),
+        references: BuiltList(),
+        style: const TextStyle(),
+        onReferenceClicked: (_) {},
+        isPreview: true,
+      ).children!.single as TextSpan;
+      expect(span.text, '123 456');
+    });
+
+    group('Unused parameters', () {
+      for (final type in core.RichObjectParameter_Type.values) {
+        test(type, () {
+          final spans = buildRichTextSpan(
+            text: 'test',
+            parameters: BuiltMap({
+              type.value: BuiltMap<String, JsonObject>({
+                'type': JsonObject(type.value),
+                'id': JsonObject(1),
+                'name': JsonObject(''),
+              }),
+            }),
+            references: BuiltList(),
+            style: const TextStyle(),
+            onReferenceClicked: (_) {},
+          ).children!;
+          if (type == core.RichObjectParameter_Type.file) {
+            expect(spans, hasLength(3));
+            expect((spans[0] as WidgetSpan).child, isA<NeonRichObjectFile>());
+            expect((spans[1] as TextSpan).text, '\n');
+            expect((spans[2] as TextSpan).text, 'test');
+          } else {
+            expect((spans.single as TextSpan).text, 'test');
+          }
+        });
+      }
+    });
+
+    test('Used parameters', () {
+      final spans = buildRichTextSpan(
+        text: '123 {actor1} 456 {actor2} 789',
+        parameters: BuiltMap({
+          'actor1': BuiltMap<String, JsonObject>({
+            'type': JsonObject('user'),
+            'id': JsonObject(''),
+            'name': JsonObject(''),
+          }),
+          'actor2': BuiltMap<String, JsonObject>({
+            'type': JsonObject('user'),
+            'id': JsonObject(''),
+            'name': JsonObject(''),
+          }),
+        }),
+        references: BuiltList(),
+        style: const TextStyle(),
+        onReferenceClicked: (_) {},
+      ).children!;
+      expect(spans, hasLength(5));
+      expect((spans[0] as TextSpan).text, '123 ');
+      expect((spans[1] as WidgetSpan).child, isA<NeonRichObjectMention>());
+      expect((spans[2] as TextSpan).text, ' 456 ');
+      expect((spans[3] as WidgetSpan).child, isA<NeonRichObjectMention>());
+      expect((spans[4] as TextSpan).text, ' 789');
+    });
+
+    test('References', () {
+      final callback = MockOnReferenceClickedCallback();
+
+      final spans = buildRichTextSpan(
+        text: 'a 123 b 456 c',
+        parameters: BuiltMap(),
+        references: BuiltList(['123', '456']),
+        style: const TextStyle(),
+        onReferenceClicked: callback.call,
+      ).children!;
+      expect(spans, hasLength(5));
+
+      expect((spans[0] as TextSpan).text, 'a ');
+
+      final link1 = spans[1] as TextSpan;
+      expect(link1.text, '123');
+      (link1.recognizer! as TapGestureRecognizer).onTap!();
+      verify(() => callback('123')).called(1);
+
+      expect((spans[2] as TextSpan).text, ' b ');
+
+      final link2 = spans[3] as TextSpan;
+      expect(link2.text, '456');
+      (link2.recognizer! as TapGestureRecognizer).onTap!();
+      verify(() => callback('456')).called(1);
+
+      expect((spans[4] as TextSpan).text, ' c');
+    });
+
+    test('Skip empty parts', () {
+      final spans = buildRichTextSpan(
+        text: '{actor}',
+        parameters: BuiltMap({
+          'actor': BuiltMap<String, JsonObject>({
+            'type': JsonObject(core.RichObjectParameter_Type.user.name),
+            'id': JsonObject(''),
+            'name': JsonObject(''),
+          }),
+        }),
+        references: BuiltList(),
+        style: const TextStyle(),
+        onReferenceClicked: (_) {},
+      ).children!;
+      expect(spans, hasLength(1));
+      expect((spans[0] as WidgetSpan).child, isA<NeonRichObjectMention>());
     });
   });
 }
