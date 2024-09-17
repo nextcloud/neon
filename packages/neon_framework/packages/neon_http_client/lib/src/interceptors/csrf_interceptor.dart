@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:http/http.dart' as http;
 import 'package:interceptor_http_client/interceptor_http_client.dart';
@@ -39,9 +38,6 @@ final class CSRFInterceptor implements HttpInterceptor {
 
   static final _log = Logger('CSRFInterceptor');
 
-  // ignore: do_not_use_environment
-  static const bool _kIsWeb = bool.fromEnvironment('dart.library.js_util');
-
   @override
   bool shouldInterceptRequest(http.BaseRequest request) {
     if (request.url.host != _baseURL.host || !request.url.path.startsWith('${_baseURL.path}${webdav.webdavBase}')) {
@@ -57,10 +53,6 @@ final class CSRFInterceptor implements HttpInterceptor {
       shouldInterceptRequest(request),
       'Request should not be intercepted.',
     );
-
-    if (!_kIsWeb) {
-      return request..headers.remove(HttpHeaders.cookieHeader);
-    }
 
     if (token == null) {
       _log.fine('Acquiring new CSRF token for WebDAV');
@@ -83,7 +75,7 @@ final class CSRFInterceptor implements HttpInterceptor {
 
   @override
   bool shouldInterceptResponse(http.StreamedResponse response) {
-    return _kIsWeb && response.statusCode == 401;
+    return response.statusCode == 401;
   }
 
   @override

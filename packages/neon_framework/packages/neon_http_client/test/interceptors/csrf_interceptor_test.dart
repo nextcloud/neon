@@ -54,199 +54,107 @@ void main() {
       expect(interceptor.shouldInterceptRequest(request), isFalse);
     });
 
-    test(
-      'removes cookie header on dart vm',
-      () async {
-        final interceptor = CSRFInterceptor(
-          client: _FakeClient(),
-          baseURL: Uri.https('example.com', '/nextcloud'),
-        );
+    test('requests and attaches a new token', () async {
+      final mockedClient = MockClient((request) async {
+        return Response('{"token":"token"}', 200);
+      });
 
-        final request = Request('GET', Uri.https('example.com', '/nextcloud/remote.php/webdav'))
-          ..headers['cookie'] = 'key=value';
+      final interceptor = CSRFInterceptor(
+        client: mockedClient,
+        baseURL: Uri.https('example.com', '/nextcloud'),
+      );
 
-        expect(
-          interceptor.interceptRequest(request: request),
-          completion(
-            isA<Request>().having(
-              (r) => r.headers,
-              'headers',
-              isNot(contains('cookie')),
-            ),
-          ),
-        );
+      final request = Request('GET', Uri.https('example.com', '/nextcloud/remote.php/webdav'));
 
-        expect(interceptor.token, isNull);
-      },
-      onPlatform: const {
-        'browser': [Skip()],
-      },
-    );
+      await interceptor.interceptRequest(request: request);
 
-    test(
-      'requests and attaches a new token on web ',
-      () async {
-        final mockedClient = MockClient((request) async {
-          return Response('{"token":"token"}', 200);
-        });
+      expect(
+        request.headers,
+        equals({
+          'OCS-APIRequest': 'true',
+          'requesttoken': 'token',
+        }),
+      );
+      expect(interceptor.token, equals('token'));
+    });
 
-        final interceptor = CSRFInterceptor(
-          client: mockedClient,
-          baseURL: Uri.https('example.com', '/nextcloud'),
-        );
+    test('attaches cached token', () async {
+      final interceptor = CSRFInterceptor(
+        client: _FakeClient(),
+        baseURL: Uri.https('example.com', '/nextcloud'),
+      )..token = 'token';
 
-        final request = Request('GET', Uri.https('example.com', '/nextcloud/remote.php/webdav'));
+      final request = Request('GET', Uri.https('example.com', '/nextcloud/remote.php/webdav'));
 
-        await interceptor.interceptRequest(request: request);
+      await interceptor.interceptRequest(request: request);
 
-        expect(
-          request.headers,
-          equals({
-            'OCS-APIRequest': 'true',
-            'requesttoken': 'token',
-          }),
-        );
-        expect(interceptor.token, equals('token'));
-      },
-      onPlatform: const {
-        'dart-vm': [Skip()],
-      },
-    );
+      expect(
+        request.headers,
+        equals({
+          'OCS-APIRequest': 'true',
+          'requesttoken': 'token',
+        }),
+      );
+      expect(interceptor.token, equals('token'));
+    });
 
-    test(
-      'attaches cached token on web',
-      () async {
-        final interceptor = CSRFInterceptor(
-          client: _FakeClient(),
-          baseURL: Uri.https('example.com', '/nextcloud'),
-        )..token = 'token';
+    test('throws DynamiteStatusCodeException when token request status code >=300', () async {
+      final mockedClient = MockClient((request) async {
+        return Response('', 404);
+      });
 
-        final request = Request('GET', Uri.https('example.com', '/nextcloud/remote.php/webdav'));
+      final interceptor = CSRFInterceptor(
+        client: mockedClient,
+        baseURL: Uri.https('example.com', '/nextcloud'),
+      );
 
-        await interceptor.interceptRequest(request: request);
+      final request = Request('GET', Uri.https('example.com', '/nextcloud/remote.php/webdav'));
 
-        expect(
-          request.headers,
-          equals({
-            'OCS-APIRequest': 'true',
-            'requesttoken': 'token',
-          }),
-        );
-        expect(interceptor.token, equals('token'));
-      },
-      onPlatform: const {
-        'dart-vm': [Skip()],
-      },
-    );
+      expect(
+        interceptor.interceptRequest(request: request),
+        throwsA(isA<DynamiteStatusCodeException>()),
+      );
+    });
 
-    test(
-      'throws DynamiteStatusCodeException when token request status code >=300',
-      () async {
-        final mockedClient = MockClient((request) async {
-          return Response('', 404);
-        });
+    test('does intercept response with 401 response', () async {
+      final interceptor = CSRFInterceptor(
+        client: _FakeClient(),
+        baseURL: Uri.https('example.com', '/nextcloud'),
+      );
 
-        final interceptor = CSRFInterceptor(
-          client: mockedClient,
-          baseURL: Uri.https('example.com', '/nextcloud'),
-        );
+      final response = StreamedResponse(const Stream.empty(), 401);
+      expect(interceptor.shouldInterceptResponse(response), isTrue);
+    });
 
-        final request = Request('GET', Uri.https('example.com', '/nextcloud/remote.php/webdav'));
+    test('does not intercept response with non 401 response', () {
+      final interceptor = CSRFInterceptor(
+        client: _FakeClient(),
+        baseURL: Uri.https('example.com', '/nextcloud'),
+      );
 
-        expect(
-          interceptor.interceptRequest(request: request),
-          throwsA(isA<DynamiteStatusCodeException>()),
-        );
-      },
-      onPlatform: const {
-        'dart-vm': [Skip()],
-      },
-    );
+      final response = StreamedResponse(const Stream.empty(), 200);
+      expect(interceptor.shouldInterceptResponse(response), isFalse);
+      expect(
+        () => interceptor.interceptResponse(response: response, url: Uri()),
+        throwsA(isA<AssertionError>()),
+      );
+    });
 
-    test(
-      'does intercept response on web with 401 response',
-      () async {
-        final interceptor = CSRFInterceptor(
-          client: _FakeClient(),
-          baseURL: Uri.https('example.com', '/nextcloud'),
-        );
+    test('clears token on with a 401 ', () {
+      final interceptor = CSRFInterceptor(
+        client: _FakeClient(),
+        baseURL: Uri.https('example.com', '/nextcloud'),
+      );
 
-        final response = StreamedResponse(const Stream.empty(), 401);
-        expect(interceptor.shouldInterceptResponse(response), isTrue);
-      },
-      onPlatform: const {
-        'dart-vm': [Skip()],
-      },
-    );
-
-    test(
-      'does not intercept response on web with non 401 response',
-      () {
-        final interceptor = CSRFInterceptor(
-          client: _FakeClient(),
-          baseURL: Uri.https('example.com', '/nextcloud'),
-        );
-
-        final response = StreamedResponse(const Stream.empty(), 200);
-        expect(interceptor.shouldInterceptResponse(response), isFalse);
-        expect(
-          () => interceptor.interceptResponse(response: response, url: Uri()),
-          throwsA(isA<AssertionError>()),
-        );
-      },
-      onPlatform: const {
-        'dart-vm': [Skip()],
-      },
-    );
-
-    test(
-      'does not intercept response on vm',
-      () {
-        final interceptor = CSRFInterceptor(
-          client: _FakeClient(),
-          baseURL: Uri.https('example.com', '/nextcloud'),
-        );
-
-        var response = StreamedResponse(const Stream.empty(), 401);
-        expect(interceptor.shouldInterceptResponse(response), isFalse);
-        expect(
-          () => interceptor.interceptResponse(response: response, url: Uri()),
-          throwsA(isA<AssertionError>()),
-        );
-
-        response = StreamedResponse(const Stream.empty(), 200);
-        expect(interceptor.shouldInterceptResponse(response), isFalse);
-        expect(
-          () => interceptor.interceptResponse(response: response, url: Uri()),
-          throwsA(isA<AssertionError>()),
-        );
-      },
-      onPlatform: const {
-        'browser': [Skip()],
-      },
-    );
-
-    test(
-      'clears token on web with a 401 ',
-      () {
-        final interceptor = CSRFInterceptor(
-          client: _FakeClient(),
-          baseURL: Uri.https('example.com', '/nextcloud'),
-        );
-
-        final response = StreamedResponse(const Stream.empty(), 401);
-        expect(
-          interceptor.interceptResponse(response: response, url: Uri()),
-          equals(response),
-        );
-        expect(
-          interceptor.token,
-          isNull,
-        );
-      },
-      onPlatform: const {
-        'dart-vm': [Skip()],
-      },
-    );
+      final response = StreamedResponse(const Stream.empty(), 401);
+      expect(
+        interceptor.interceptResponse(response: response, url: Uri()),
+        equals(response),
+      );
+      expect(
+        interceptor.token,
+        isNull,
+      );
+    });
   });
 }
