@@ -54,7 +54,7 @@ For an example checkout the [example](https://github.com/nextcloud/neon/blob/mai
 | [Cookbook app](https://github.com/nextcloud/cookbook)                              | 0.11.1 - 0.11.2        |
 | [News app](https://github.com/nextcloud/news)                                      | 25                     |
 | [NextPush app](https://codeberg.org/NextPush/uppush)                               | 1.4 - 1.5              |
-| [Notes app](https://github.com/nextcloud/notes)                                    | 4.8 - 4.10             |
+| [Notes app](https://github.com/nextcloud/notes)                                    | 4.8 - 4.11             |
 | [Notifications app](https://github.com/nextcloud/notifications)                    | 28 - 30                |
 | [Tables app](https://github.com/nextcloud/tables)                                  | 0.6 - 0.8              |
 | [Talk app](https://github.com/nextcloud/spreed)                                    | 18 - 20                |
