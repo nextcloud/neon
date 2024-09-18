@@ -21,18 +21,26 @@ final checksumPattern = RegExp(
   caseSensitive: false,
 );
 
-/// WebDavClient class
+/// WebDavClient class.
 class WebDavClient extends DynamiteClient {
   /// Creates a new `WebDavClient`.
+  ///
+  /// The [httpClient] parameter specifies whether requests should attach a
+  /// CSRF-Token to sent requests.
+  /// Until Nextcloud 30 this is required to work around an authorization bug
+  /// triggered, when cookies are also sent.
   WebDavClient(
     super.baseURL, {
     http.Client? httpClient,
     super.authentications,
+    bool useCSRFClient = true,
   }) : super(
-          httpClient: WebDavCSRFClient(
-            baseURL,
-            httpClient: httpClient,
-          ),
+          httpClient: useCSRFClient
+              ? WebDavCSRFClient(
+                  baseURL,
+                  httpClient: httpClient,
+                )
+              : httpClient,
         );
 
   /// Creates a new [WebDavClient] from another [client].
