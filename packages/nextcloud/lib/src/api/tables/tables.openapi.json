@@ -370,19 +370,22 @@
                         "type": "string"
                     },
                     "data": {
-                        "type": "object",
-                        "nullable": true,
-                        "required": [
-                            "columnId",
-                            "value"
-                        ],
-                        "properties": {
-                            "columnId": {
-                                "type": "integer",
-                                "format": "int64"
-                            },
-                            "value": {
-                                "type": "object"
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "nullable": true,
+                            "required": [
+                                "columnId",
+                                "value"
+                            ],
+                            "properties": {
+                                "columnId": {
+                                    "type": "integer",
+                                    "format": "int64"
+                                },
+                                "value": {
+                                    "type": "object"
+                                }
                             }
                         }
                     }
@@ -3843,7 +3846,10 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "type": "string"
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object"
+                                        }
                                     }
                                 }
                             }

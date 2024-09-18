@@ -1,5 +1,6 @@
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/tables.dart' as tables;
+import 'package:nextcloud_test/matchers.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 import 'package:timezone/timezone.dart' as tz;
@@ -72,6 +73,76 @@ void main() {
           expect(deleteResponse.body.rowsCount, 0);
           expect(deleteResponse.body.views, isEmpty);
           expect(deleteResponse.body.columnsCount, 0);
+        });
+      });
+
+      group('index', () {
+        test('retrieves a list of all tables', () async {
+          final response = await tester.client.tables.api1.index();
+          expect(response.statusCode, 200);
+          expect(() => response.headers, isA<void>());
+          expect(response.body, hasLength(1));
+
+          expect(
+            response.body.single,
+            isA<tables.Table>()
+                .having((t) => t.id, 'id', 1)
+                .having((t) => t.title, 'title', 'Tutorial')
+                .having((t) => t.emoji, 'emoji', '🚀')
+                .having((t) => t.ownership, 'ownership', 'user1')
+                .having((t) => t.ownerDisplayName, 'ownerDisplayName', 'User One')
+                .having((t) => t.createdBy, 'createdBy', 'user1')
+                .having(
+                  (t) => t.createdAt,
+                  'createdAt',
+                  closeToDate(DateTime.timestamp(), const Duration(seconds: 30)),
+                )
+                .having((t) => t.lastEditBy, 'lastEditBy', 'user1')
+                .having(
+                  (t) => t.lastEditAt,
+                  'lastEditAt',
+                  closeToDate(DateTime.timestamp(), const Duration(seconds: 30)),
+                )
+                .having((t) => t.archived, 'archived', tester.version < Version(0, 7, 0) ? isNull : isFalse)
+                .having((t) => t.favorite, 'favorite', tester.version < Version(0, 7, 0) ? isNull : isFalse)
+                .having((t) => t.isShared, 'isShared', isFalse)
+                .having((t) => t.hasShares, 'hasShares', isFalse)
+                .having((t) => t.rowsCount, 'rowsCount', 5)
+                .having((t) => t.columnsCount, 'columnsCount', 4),
+          );
+        });
+      });
+
+      group('indexTableRowsSimple', () {
+        setUp(() async {
+          await tester.client.tables.api1.index();
+          resetFixture();
+        });
+
+        test('retrieves all rows of a table', () async {
+          final response = await tester.client.tables.api1.indexTableRowsSimple(
+            tableId: 1,
+          );
+          expect(response.statusCode, 200);
+          expect(() => response.headers, isA<void>());
+          expect(response.body, hasLength(6));
+        });
+      });
+
+      group('indexTableRows', () {
+        setUp(() async {
+          await tester.client.tables.api1.index();
+          resetFixture();
+        });
+
+        test('retrieves all rows of a table', () async {
+          final response = await tester.client.tables.api1.indexTableRows(
+            tableId: 1,
+          );
+          expect(response.statusCode, 200);
+          expect(() => response.headers, isA<void>());
+
+          expect(response.body, hasLength(5));
         });
       });
     });

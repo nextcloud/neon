@@ -2324,8 +2324,11 @@ class $Api1Client {
 
   /// Builds a serializer to parse the response of [$indexTableRowsSimple_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<BuiltList<String>, void> $indexTableRowsSimple_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BuiltList, [FullType(String)]),
+  _i1.DynamiteSerializer<BuiltList<BuiltList<JsonObject>>, void> $indexTableRowsSimple_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(BuiltList, [
+          FullType(BuiltList, [FullType(JsonObject)]),
+        ]),
         headersType: null,
         serializers: _$jsonSerializers,
         validStatuses: const {200},
@@ -2410,7 +2413,7 @@ class $Api1Client {
   /// See:
   ///  * [$indexTableRowsSimple_Request] for the request send by this method.
   ///  * [$indexTableRowsSimple_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<BuiltList<String>, void>> indexTableRowsSimple({
+  Future<_i1.DynamiteResponse<BuiltList<BuiltList<JsonObject>>, void>> indexTableRowsSimple({
     required int tableId,
     int? limit,
     int? offset,
@@ -2424,7 +2427,7 @@ class $Api1Client {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $indexTableRowsSimple_Serializer();
-    return _i1.ResponseConverter<BuiltList<String>, void>(_serializer).convert(_response);
+    return _i1.ResponseConverter<BuiltList<BuiltList<JsonObject>>, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$indexTableRows_Request].
@@ -9322,7 +9325,7 @@ sealed class $RowInterface {
   String get createdAt;
   String get lastEditBy;
   String get lastEditAt;
-  Row_Data? get data;
+  BuiltList<Row_Data?> get data;
 
   /// Rebuilds the instance.
   ///
@@ -16171,11 +16174,18 @@ final Serializers _$serializers = (Serializers().toBuilder()
         Api1UpdateColumnRequestApplicationJsonBuilder.new,
       )
       ..add(Api1UpdateColumnRequestApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [
+          FullType(BuiltList, [FullType(JsonObject)]),
+        ]),
+        ListBuilder<BuiltList<JsonObject>>.new,
+      )
       ..addBuilderFactory(const FullType(Row), RowBuilder.new)
       ..add(Row.serializer)
       ..addBuilderFactory(const FullType(Row_Data), Row_DataBuilder.new)
       ..add(Row_Data.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType.nullable(Row_Data)]), ListBuilder<Row_Data?>.new)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Row)]), ListBuilder<Row>.new)
       ..addBuilderFactory(
         const FullType(Api1CreateRowInTableRequestApplicationJson),
@@ -16580,7 +16590,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
       ..add(Capabilities.serializer)
       ..addBuilderFactory(const FullType(Capabilities_Tables), Capabilities_TablesBuilder.new)
-      ..add(Capabilities_Tables.serializer))
+      ..add(Capabilities_Tables.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new))
     .build();
 
 /// Serializer for all values in this library.

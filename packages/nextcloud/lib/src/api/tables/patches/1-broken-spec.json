@@ -1,0 +1,52 @@
+[
+    {
+        "op": "replace",
+        "path": "/paths/~1index.php~1apps~1tables~1api~11~1tables~1{tableId}~1rows~1simple/get/responses/200/content/application~1json/schema/items/type",
+        "value": "array"
+    },
+    {
+        "op": "add",
+        "path": "/paths/~1index.php~1apps~1tables~1api~11~1tables~1{tableId}~1rows~1simple/get/responses/200/content/application~1json/schema/items/items",
+        "value": {
+            "type": "object"
+        }
+    },
+    {
+        "op": "remove",
+        "path": "/components/schemas/Row/properties/data/properties"
+    },
+    {
+        "op": "remove",
+        "path": "/components/schemas/Row/properties/data/required"
+    },
+    {
+        "op": "remove",
+        "path": "/components/schemas/Row/properties/data/nullable"
+    },
+    {
+        "op": "replace",
+        "path": "/components/schemas/Row/properties/data/type",
+        "value": "array"
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/Row/properties/data/items",
+        "value": {
+            "type": "object",
+            "nullable": true,
+            "required": [
+                "columnId",
+                "value"
+            ],
+            "properties": {
+                "columnId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "value": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+]

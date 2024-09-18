@@ -3364,14 +3364,10 @@ class _$RowSerializer implements StructuredSerializer<Row> {
       serializers.serialize(object.lastEditBy, specifiedType: const FullType(String)),
       'lastEditAt',
       serializers.serialize(object.lastEditAt, specifiedType: const FullType(String)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType.nullable(Row_Data)])),
     ];
-    Object? value;
-    value = object.data;
-    if (value != null) {
-      result
-        ..add('data')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Row_Data)));
-    }
+
     return result;
   }
 
@@ -3405,7 +3401,8 @@ class _$RowSerializer implements StructuredSerializer<Row> {
           result.lastEditAt = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(Row_Data))! as Row_Data);
+          result.data.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType.nullable(Row_Data)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -13300,8 +13297,8 @@ abstract mixin class $RowInterfaceBuilder {
   String? get lastEditAt;
   set lastEditAt(String? lastEditAt);
 
-  Row_DataBuilder get data;
-  set data(Row_DataBuilder? data);
+  ListBuilder<Row_Data?> get data;
+  set data(ListBuilder<Row_Data?>? data);
 }
 
 class _$Row extends Row {
@@ -13318,7 +13315,7 @@ class _$Row extends Row {
   @override
   final String lastEditAt;
   @override
-  final Row_Data? data;
+  final BuiltList<Row_Data?> data;
 
   factory _$Row([void Function(RowBuilder)? updates]) => (RowBuilder()..update(updates))._build();
 
@@ -13329,7 +13326,7 @@ class _$Row extends Row {
       required this.createdAt,
       required this.lastEditBy,
       required this.lastEditAt,
-      this.data})
+      required this.data})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'Row', 'id');
     BuiltValueNullFieldError.checkNotNull(tableId, r'Row', 'tableId');
@@ -13337,6 +13334,7 @@ class _$Row extends Row {
     BuiltValueNullFieldError.checkNotNull(createdAt, r'Row', 'createdAt');
     BuiltValueNullFieldError.checkNotNull(lastEditBy, r'Row', 'lastEditBy');
     BuiltValueNullFieldError.checkNotNull(lastEditAt, r'Row', 'lastEditAt');
+    BuiltValueNullFieldError.checkNotNull(data, r'Row', 'data');
   }
 
   @override
@@ -13413,9 +13411,9 @@ class RowBuilder implements Builder<Row, RowBuilder>, $RowInterfaceBuilder {
   String? get lastEditAt => _$this._lastEditAt;
   set lastEditAt(covariant String? lastEditAt) => _$this._lastEditAt = lastEditAt;
 
-  Row_DataBuilder? _data;
-  Row_DataBuilder get data => _$this._data ??= Row_DataBuilder();
-  set data(covariant Row_DataBuilder? data) => _$this._data = data;
+  ListBuilder<Row_Data?>? _data;
+  ListBuilder<Row_Data?> get data => _$this._data ??= ListBuilder<Row_Data?>();
+  set data(covariant ListBuilder<Row_Data?>? data) => _$this._data = data;
 
   RowBuilder() {
     Row._defaults(this);
@@ -13430,7 +13428,7 @@ class RowBuilder implements Builder<Row, RowBuilder>, $RowInterfaceBuilder {
       _createdAt = $v.createdAt;
       _lastEditBy = $v.lastEditBy;
       _lastEditAt = $v.lastEditAt;
-      _data = $v.data?.toBuilder();
+      _data = $v.data.toBuilder();
       _$v = null;
     }
     return this;
@@ -13462,12 +13460,12 @@ class RowBuilder implements Builder<Row, RowBuilder>, $RowInterfaceBuilder {
               createdAt: BuiltValueNullFieldError.checkNotNull(createdAt, r'Row', 'createdAt'),
               lastEditBy: BuiltValueNullFieldError.checkNotNull(lastEditBy, r'Row', 'lastEditBy'),
               lastEditAt: BuiltValueNullFieldError.checkNotNull(lastEditAt, r'Row', 'lastEditAt'),
-              data: _data?.build());
+              data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'data';
-        _data?.build();
+        data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'Row', _$failedField, e.toString());
       }
