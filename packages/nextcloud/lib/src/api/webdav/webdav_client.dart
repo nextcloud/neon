@@ -24,7 +24,11 @@ final checksumPattern = RegExp(
 /// WebDavClient class
 class WebDavClient {
   // ignore: public_member_api_docs
-  WebDavClient(this.rootClient) : csrfClient = WebDavCSRFClient(rootClient);
+  WebDavClient(this.rootClient)
+      : csrfClient = WebDavCSRFClient(
+          rootClient.baseURL,
+          httpClient: rootClient,
+        );
 
   // ignore: public_member_api_docs
   final NextcloudClient rootClient;

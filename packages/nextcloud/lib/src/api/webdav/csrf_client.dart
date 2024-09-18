@@ -4,7 +4,6 @@ import 'package:dynamite_runtime/http_client.dart';
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
-import 'package:nextcloud/nextcloud.dart';
 
 /// A [http.Client] that sends the Nextcloud CSRF token.
 ///
@@ -16,9 +15,15 @@ import 'package:nextcloud/nextcloud.dart';
 @internal
 final class WebDavCSRFClient with http.BaseClient {
   /// Creates a new CSRF client that executes requests through the given [DynamiteClient].
-  WebDavCSRFClient(this._inner);
+  WebDavCSRFClient(
+    Uri baseURL, {
+    http.Client? httpClient,
+  })  : _baseURL = baseURL,
+        _inner = httpClient ?? http.Client();
 
-  final NextcloudClient _inner;
+  final http.Client _inner;
+
+  final Uri _baseURL;
 
   final _log = Logger('WebDavCSRFClient');
 
@@ -27,15 +32,14 @@ final class WebDavCSRFClient with http.BaseClient {
 
   @override
   Future<http.StreamedResponse> send(http.BaseRequest request) async {
-    if (request.url.host != _inner.baseURL.host || !request.url.path.startsWith(_inner.baseURL.path)) {
+    if (request.url.host != _baseURL.host || !request.url.path.startsWith(_baseURL.path)) {
       return _inner.send(request);
     }
 
     if (_token == null) {
       _log.fine('Acquiring new CSRF token for WebDAV');
 
-      final streamedResponse =
-          await _inner.send(http.Request('GET', Uri.parse('${_inner.baseURL}/index.php/csrftoken')));
+      final streamedResponse = await _inner.send(http.Request('GET', Uri.parse('$_baseURL/index.php/csrftoken')));
       final response = await http.Response.fromStream(streamedResponse);
       if (streamedResponse.statusCode >= 300) {
         throw DynamiteStatusCodeException(response);
