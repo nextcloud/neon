@@ -9,14 +9,18 @@ import 'package:test/test.dart';
 void main() {
   presets('server', 'files_sharing', (tester) {
     group('shareapi', () {
-      test('createShare', () async {
+      setUp(() async {
         final file = File('test/files/test.png');
         await tester.client.webdav.putFile(file, file.statSync(), webdav.PathUri.parse('create-share.png'));
-        addTearDown(() async {
-          closeFixture();
-          await tester.client.webdav.delete(webdav.PathUri.parse('create-share.png'));
-        });
+        resetFixture();
+      });
 
+      tearDown(() async {
+        closeFixture();
+        await tester.client.webdav.delete(webdav.PathUri.parse('create-share.png'));
+      });
+
+      test('createShare', () async {
         final response = await tester.client.filesSharing.shareapi.createShare(
           $body: files_sharing.ShareapiCreateShareRequestApplicationJson(
             (b) => b
@@ -60,24 +64,17 @@ void main() {
       });
 
       test('getShares', () async {
-        final file = File('test/files/test.png');
-        await tester.client.webdav.putFile(file, file.statSync(), webdav.PathUri.parse('list-shares.png'));
-        addTearDown(() async {
-          closeFixture();
-          await tester.client.webdav.delete(webdav.PathUri.parse('list-shares.png'));
-        });
-
         await tester.client.filesSharing.shareapi.createShare(
           $body: files_sharing.ShareapiCreateShareRequestApplicationJson(
             (b) => b
-              ..path = '/list-shares.png'
+              ..path = '/create-share.png'
               ..shareType = core.ShareType.user.index
               ..shareWith = 'user2',
           ),
         );
 
         final response = await tester.client.filesSharing.shareapi.getShares(
-          path: '/list-shares.png',
+          path: '/create-share.png',
           reshares: 'true',
         );
         expect(response.statusCode, 200);
@@ -88,7 +85,7 @@ void main() {
         expect(response.body.ocs.data.single.displaynameOwner, 'User One');
         expect(response.body.ocs.data.single.fileParent, isPositive);
         expect(response.body.ocs.data.single.fileSource, isPositive);
-        expect(response.body.ocs.data.single.fileTarget, '/list-shares.png');
+        expect(response.body.ocs.data.single.fileTarget, '/create-share.png');
         expect(response.body.ocs.data.single.hasPreview, true);
         expect(response.body.ocs.data.single.hideDownload, files_sharing.Share_HideDownload.$0);
         expect(response.body.ocs.data.single.id, isNotEmpty);
@@ -101,7 +98,7 @@ void main() {
         expect(response.body.ocs.data.single.mailSend, files_sharing.Share_MailSend.$0);
         expect(response.body.ocs.data.single.mimetype, 'image/png');
         expect(response.body.ocs.data.single.note, '');
-        expect(response.body.ocs.data.single.path, '/list-shares.png');
+        expect(response.body.ocs.data.single.path, '/create-share.png');
         expect(response.body.ocs.data.single.permissions, 19);
         expect(response.body.ocs.data.single.shareType, core.ShareType.user.index);
         expect(response.body.ocs.data.single.shareWith, 'user2');

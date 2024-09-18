@@ -17,8 +17,7 @@ final class FixtureInterceptor implements HttpInterceptor {
 
   @override
   bool shouldInterceptRequest(http.BaseRequest request) {
-    // TODO: use resetFixture and intercept all requests
-    return request.url.path != '/index.php/csrftoken';
+    return true;
   }
 
   @override

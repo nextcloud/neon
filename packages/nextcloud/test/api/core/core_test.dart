@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:built_collection/built_collection.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
-import 'package:nextcloud/webdav.dart';
+import 'package:nextcloud/webdav.dart' as webdav;
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 
@@ -42,6 +42,16 @@ void main() {
       expect(response.body.edition, '');
       expect(response.body.productname, 'Nextcloud');
       expect(response.body.extendedSupport, isFalse);
+    });
+
+    group('csrfToken', () {
+      test('index returns csrf token', () async {
+        final response = await tester.client.core.csrfToken.index();
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
+
+        expect(response.body.token, isNotEmpty);
+      });
     });
 
     group('OCS', () {
@@ -114,14 +124,18 @@ void main() {
     });
 
     group('Preview', () {
-      test('Get', () async {
+      setUp(() async {
         final file = File('test/files/test.png');
-        await tester.client.webdav.putFile(file, file.statSync(), PathUri.parse('preview.png'));
-        addTearDown(() async {
-          closeFixture();
-          await tester.client.webdav.delete(PathUri.parse('preview.png'));
-        });
+        await tester.client.webdav.putFile(file, file.statSync(), webdav.PathUri.parse('preview.png'));
+        resetFixture();
+      });
 
+      tearDown(() async {
+        closeFixture();
+        await tester.client.webdav.delete(webdav.PathUri.parse('preview.png'));
+      });
+
+      test('Get', () async {
         final response = await tester.client.core.preview.getPreview(
           file: 'preview.png',
         );

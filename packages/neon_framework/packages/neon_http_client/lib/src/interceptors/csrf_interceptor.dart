@@ -1,11 +1,8 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:http/http.dart' as http;
 import 'package:interceptor_http_client/interceptor_http_client.dart';
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/webdav.dart' as webdav;
 
 /// A HttpInterceptor that works around a Nextcloud CSRF bug when cookies are sent.
@@ -26,10 +23,15 @@ final class CSRFInterceptor implements HttpInterceptor {
   CSRFInterceptor({
     required http.Client client,
     required Uri baseURL,
-  })  : _client = client,
+  })  : _client = core
+            .$Client(
+              baseURL,
+              httpClient: client,
+            )
+            .csrfToken,
         _baseURL = baseURL;
 
-  final http.Client _client;
+  final core.$CsrfTokenClient _client;
 
   final Uri _baseURL;
 
@@ -38,9 +40,6 @@ final class CSRFInterceptor implements HttpInterceptor {
   String? token;
 
   static final _log = Logger('CSRFInterceptor');
-
-  // ignore: do_not_use_environment
-  static const bool _kIsWeb = bool.fromEnvironment('dart.library.js_util');
 
   @override
   bool shouldInterceptRequest(http.BaseRequest request) {
@@ -58,19 +57,11 @@ final class CSRFInterceptor implements HttpInterceptor {
       'Request should not be intercepted.',
     );
 
-    if (!_kIsWeb) {
-      return request..headers.remove(HttpHeaders.cookieHeader);
-    }
-
     if (token == null) {
       _log.fine('Acquiring new CSRF token for WebDAV');
 
-      final response = await _client.get(Uri.parse('$_baseURL/index.php/csrftoken'));
-      if (response.statusCode >= 300) {
-        throw DynamiteStatusCodeException(response);
-      }
-
-      token = (json.decode(response.body) as Map<String, dynamic>)['token']! as String;
+      final response = await _client.index();
+      token = response.body.token;
     }
 
     request.headers.addAll({
@@ -83,7 +74,7 @@ final class CSRFInterceptor implements HttpInterceptor {
 
   @override
   bool shouldInterceptResponse(http.StreamedResponse response) {
-    return _kIsWeb && response.statusCode == 401;
+    return response.statusCode == 401;
   }
 
   @override
