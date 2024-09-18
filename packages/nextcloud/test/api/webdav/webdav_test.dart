@@ -4,6 +4,7 @@ import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:http/http.dart';
+import 'package:http/testing.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/files_sharing.dart' as files_sharing;
@@ -18,8 +19,6 @@ class MockCallbackFunction extends Mock {
   void progressCallback(double progress);
 }
 
-class _NextcloudClientMock extends Mock implements NextcloudClient {}
-
 class _FileMock extends Mock implements File {}
 
 class _FileStatMock extends Mock implements FileStat {}
@@ -32,7 +31,10 @@ void main() {
           (_) {},
           onDone: () async {
             if (request.uri.path == '/index.php/csrftoken') {
-              final response = request.response..write('{"token":"token"}');
+              final response = request.response
+                ..headers.contentType = ContentType('application', 'json', charset: 'utf-8')
+                ..write('{"token":"token"}');
+
               await response.close();
 
               return;
@@ -81,11 +83,14 @@ void main() {
     setUpAll(() {
       registerFallbackValue(Request('get', Uri()) as BaseRequest);
 
-      final nextcloudClient = _NextcloudClientMock();
-      when(() => nextcloudClient.baseURL).thenReturn(Uri());
-      // ignore: discarded_futures
-      when(() => nextcloudClient.send(any())).thenAnswer((_) async => StreamedResponse(const Stream.empty(), 400));
-      client = WebDavClient(nextcloudClient);
+      final mockClient = MockClient((request) async {
+        return Response('', 400);
+      });
+
+      client = WebDavClient(
+        Uri(),
+        httpClient: mockClient,
+      );
 
       file = _FileMock();
       when(() => file.openWrite()).thenReturn(IOSink(StreamController()));

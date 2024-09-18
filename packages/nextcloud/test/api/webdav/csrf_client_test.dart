@@ -1,5 +1,4 @@
 import 'package:http_client_conformance_tests/http_client_conformance_tests.dart';
-import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/src/api/webdav/webdav.dart';
 import 'package:test/test.dart';
 
@@ -8,7 +7,7 @@ void main() {
     'Client conformance tests',
     () {
       testAll(
-        () => WebDavCSRFClient(NextcloudClient(Uri())),
+        () => WebDavCSRFClient(Uri()),
         canReceiveSetCookieHeaders: true,
         canSendCookieHeaders: true,
       );
