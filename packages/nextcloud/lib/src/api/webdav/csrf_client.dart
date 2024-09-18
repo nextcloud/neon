@@ -1,9 +1,8 @@
-import 'dart:convert';
-
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
+import 'package:nextcloud/core.dart' as core;
 
 /// A [http.Client] that sends the Nextcloud CSRF token.
 ///
@@ -19,7 +18,15 @@ final class WebDavCSRFClient with http.BaseClient {
     Uri baseURL, {
     http.Client? httpClient,
   })  : _baseURL = baseURL,
-        _inner = httpClient ?? http.Client();
+        _inner = httpClient ??= http.Client(),
+        _csrfTokenClient = core
+            .$Client(
+              baseURL,
+              httpClient: httpClient,
+            )
+            .csrfToken;
+
+  final core.$CsrfTokenClient _csrfTokenClient;
 
   final http.Client _inner;
 
@@ -39,13 +46,8 @@ final class WebDavCSRFClient with http.BaseClient {
     if (_token == null) {
       _log.fine('Acquiring new CSRF token for WebDAV');
 
-      final streamedResponse = await _inner.send(http.Request('GET', Uri.parse('$_baseURL/index.php/csrftoken')));
-      final response = await http.Response.fromStream(streamedResponse);
-      if (streamedResponse.statusCode >= 300) {
-        throw DynamiteStatusCodeException(response);
-      }
-
-      _token = (json.decode(response.body) as Map<String, dynamic>)['token']! as String;
+      final response = await _csrfTokenClient.index();
+      _token = response.body.token;
     }
 
     request.headers.addAll({
@@ -53,21 +55,14 @@ final class WebDavCSRFClient with http.BaseClient {
       'requesttoken': _token!,
     });
 
-    final streamedResponse = await _inner.send(request);
-
-    if (streamedResponse.statusCode >= 300) {
-      if (streamedResponse.statusCode == 401) {
-        // Clear the token just in case it expired and lead to the failure.
-        _log.fine('Clearing CSRF token for WebDAV');
-        _token = null;
-      }
-
-      final response = await http.Response.fromStream(streamedResponse);
-
-      throw DynamiteStatusCodeException(response);
+    final response = await _inner.send(request);
+    if (response.statusCode == 401) {
+      // Clear the token just in case it expired and lead to the failure.
+      _log.fine('Clearing CSRF token for WebDAV');
+      _token = null;
     }
 
-    return streamedResponse;
+    return response;
   }
 
   @override

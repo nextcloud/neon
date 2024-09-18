@@ -31,7 +31,10 @@ void main() {
           (_) {},
           onDone: () async {
             if (request.uri.path == '/index.php/csrftoken') {
-              final response = request.response..write('{"token":"token"}');
+              final response = request.response
+                ..headers.contentType = ContentType('application', 'json', charset: 'utf-8')
+                ..write('{"token":"token"}');
+
               await response.close();
 
               return;
