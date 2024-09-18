@@ -3,8 +3,8 @@
 import 'dart:async';
 import 'dart:typed_data';
 
+import 'package:dynamite_runtime/http_client.dart';
 import 'package:http/http.dart' as http;
-import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/src/api/webdav/webdav.dart';
 import 'package:nextcloud/utils.dart';
 import 'package:universal_io/io.dart' show File, FileStat;
@@ -22,22 +22,28 @@ final checksumPattern = RegExp(
 );
 
 /// WebDavClient class
-class WebDavClient {
-  // ignore: public_member_api_docs
-  WebDavClient(this.rootClient)
-      : csrfClient = WebDavCSRFClient(
-          rootClient.baseURL,
-          httpClient: rootClient,
+class WebDavClient extends DynamiteClient {
+  /// Creates a new `WebDavClient`.
+  WebDavClient(
+    super.baseURL, {
+    http.Client? httpClient,
+    super.authentications,
+  }) : super(
+          httpClient: WebDavCSRFClient(
+            baseURL,
+            httpClient: httpClient,
+          ),
         );
 
-  // ignore: public_member_api_docs
-  final NextcloudClient rootClient;
+  /// Creates a new [WebDavClient] from another [client].
+  WebDavClient.fromClient(DynamiteClient client)
+      : this(
+          client.baseURL,
+          httpClient: client.httpClient,
+          authentications: client.authentications,
+        );
 
-  /// {@macro WebDavCSRFClient}
-  // TODO: Fix this bug in server.
-  final WebDavCSRFClient csrfClient;
-
-  Uri _constructUri([PathUri? path]) => constructUri(rootClient.baseURL, path);
+  Uri _constructUri([PathUri? path]) => constructUri(baseURL, path);
 
   /// Returns a request to query the WebDAV capabilities of the server.
   ///
@@ -59,7 +65,7 @@ class WebDavClient {
   Future<WebDavOptions> options() async {
     final request = options_Request();
 
-    final streamedResponse = await csrfClient.send(request);
+    final streamedResponse = await httpClient.send(request);
     if (streamedResponse.statusCode != 200) {
       final response = await http.Response.fromStream(streamedResponse);
       throw DynamiteStatusCodeException(response);
@@ -105,7 +111,7 @@ class WebDavClient {
       set: set,
     );
 
-    final streamedResponse = await csrfClient.send(request);
+    final streamedResponse = await httpClient.send(request);
     if (streamedResponse.statusCode != 201) {
       final response = await http.Response.fromStream(streamedResponse);
       throw DynamiteStatusCodeException(response);
@@ -134,7 +140,7 @@ class WebDavClient {
   Future<http.StreamedResponse> delete(PathUri path) async {
     final request = delete_Request(path);
 
-    final streamedResponse = await csrfClient.send(request);
+    final streamedResponse = await httpClient.send(request);
     if (streamedResponse.statusCode != 204) {
       final response = await http.Response.fromStream(streamedResponse);
       throw DynamiteStatusCodeException(response);
@@ -196,7 +202,7 @@ class WebDavClient {
       checksum: checksum,
     );
 
-    final streamedResponse = await csrfClient.send(request);
+    final streamedResponse = await httpClient.send(request);
     if (streamedResponse.statusCode != 201) {
       final response = await http.Response.fromStream(streamedResponse);
       throw DynamiteStatusCodeException(response);
@@ -285,7 +291,7 @@ class WebDavClient {
       onProgress: onProgress,
     );
 
-    final streamedResponse = await csrfClient.send(request);
+    final streamedResponse = await httpClient.send(request);
     if (streamedResponse.statusCode != 201) {
       final response = await http.Response.fromStream(streamedResponse);
       throw DynamiteStatusCodeException(response);
@@ -355,7 +361,7 @@ class WebDavClient {
       onProgress: onProgress,
     );
 
-    final streamedResponse = await csrfClient.send(request);
+    final streamedResponse = await httpClient.send(request);
     if (streamedResponse.statusCode != 201) {
       final response = await http.Response.fromStream(streamedResponse);
       throw DynamiteStatusCodeException(response);
@@ -399,7 +405,7 @@ class WebDavClient {
     void Function(double progress)? onProgress,
   }) async {
     final request = get_Request(path);
-    final streamedResponse = await csrfClient.send(request);
+    final streamedResponse = await httpClient.send(request);
     if (streamedResponse.statusCode != 200) {
       final response = await http.Response.fromStream(streamedResponse);
       throw DynamiteStatusCodeException(response);
@@ -491,7 +497,7 @@ class WebDavClient {
       depth: depth,
     );
 
-    final streamedResponse = await csrfClient.send(request);
+    final streamedResponse = await httpClient.send(request);
     final response = await http.Response.fromStream(streamedResponse);
     if (streamedResponse.statusCode != 207) {
       throw DynamiteStatusCodeException(response);
@@ -540,7 +546,7 @@ class WebDavClient {
       prop: prop,
     );
 
-    final streamedResponse = await csrfClient.send(request);
+    final streamedResponse = await httpClient.send(request);
     final response = await http.Response.fromStream(streamedResponse);
     if (streamedResponse.statusCode != 207) {
       throw DynamiteStatusCodeException(response);
@@ -592,7 +598,7 @@ class WebDavClient {
       remove: remove,
     );
 
-    final streamedResponse = await csrfClient.send(request);
+    final streamedResponse = await httpClient.send(request);
     final response = await http.Response.fromStream(streamedResponse);
     if (streamedResponse.statusCode != 207) {
       throw DynamiteStatusCodeException(response);
@@ -650,7 +656,7 @@ class WebDavClient {
       overwrite: overwrite,
     );
 
-    final streamedResponse = await csrfClient.send(request);
+    final streamedResponse = await httpClient.send(request);
     if (streamedResponse.statusCode != 201 && streamedResponse.statusCode != 204) {
       final response = await http.Response.fromStream(streamedResponse);
       throw DynamiteStatusCodeException(response);
@@ -700,7 +706,7 @@ class WebDavClient {
       overwrite: overwrite,
     );
 
-    final streamedResponse = await csrfClient.send(request);
+    final streamedResponse = await httpClient.send(request);
     if (streamedResponse.statusCode != 201 && streamedResponse.statusCode != 204) {
       final response = await http.Response.fromStream(streamedResponse);
       throw DynamiteStatusCodeException(response);
@@ -712,7 +718,7 @@ class WebDavClient {
   void _addBaseHeaders(http.BaseRequest request) {
     request.headers['content-type'] = 'application/xml';
 
-    final authentication = rootClient.authentications?.firstOrNull;
+    final authentication = authentications?.firstOrNull;
     if (authentication != null) {
       request.headers.addAll(
         authentication.headers,

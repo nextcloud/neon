@@ -4,6 +4,7 @@ import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:http/http.dart';
+import 'package:http/testing.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/files_sharing.dart' as files_sharing;
@@ -17,8 +18,6 @@ import 'package:universal_io/io.dart';
 class MockCallbackFunction extends Mock {
   void progressCallback(double progress);
 }
-
-class _NextcloudClientMock extends Mock implements NextcloudClient {}
 
 class _FileMock extends Mock implements File {}
 
@@ -81,11 +80,14 @@ void main() {
     setUpAll(() {
       registerFallbackValue(Request('get', Uri()) as BaseRequest);
 
-      final nextcloudClient = _NextcloudClientMock();
-      when(() => nextcloudClient.baseURL).thenReturn(Uri());
-      // ignore: discarded_futures
-      when(() => nextcloudClient.send(any())).thenAnswer((_) async => StreamedResponse(const Stream.empty(), 400));
-      client = WebDavClient(nextcloudClient);
+      final mockClient = MockClient((request) async {
+        return Response('', 400);
+      });
+
+      client = WebDavClient(
+        Uri(),
+        httpClient: mockClient,
+      );
 
       file = _FileMock();
       when(() => file.openWrite()).thenReturn(IOSink(StreamController()));
