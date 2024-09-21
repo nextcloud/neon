@@ -8,15 +8,12 @@ import 'package:http/http.dart' as http;
 import 'package:neon_framework/src/storage/request_cache.dart';
 import 'package:neon_framework/src/storage/sqlite_cookie_persistence.dart';
 import 'package:neon_framework/src/storage/sqlite_persistence.dart';
-import 'package:neon_framework/testing.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:universal_io/io.dart' show Cookie;
 
 void main() {
   group('Persistences', () {
     group('RequestCache', () {
-      final account = MockAccount();
-
       final cache = DefaultRequestCache();
 
       setUpAll(() {
@@ -35,7 +32,7 @@ void main() {
 
       test('init', () {
         cache.database = null;
-        expect(() async => cache.get(account, http.Request('GET', Uri())), throwsA(isA<StateError>()));
+        expect(() async => cache.get('accountID', http.Request('GET', Uri())), throwsA(isA<StateError>()));
       });
 
       test('RequestCache', () async {
@@ -43,11 +40,11 @@ void main() {
           ..headers.addAll({'a': 'b'})
           ..body = 'c';
 
-        var result = await cache.get(account, request);
+        var result = await cache.get('accountID', request);
         expect(result, isNull);
 
-        await cache.set(account, request, http.Response('value', 200, headers: {'key': 'value'}));
-        result = await cache.get(account, request);
+        await cache.set('accountID', request, http.Response('value', 200, headers: {'key': 'value'}));
+        result = await cache.get('accountID', request);
         expect(result?.statusCode, 200);
         expect(result?.body, 'value');
         expect(result?.headers, {'key': 'value'});
@@ -66,24 +63,24 @@ void main() {
             ..headers.addAll({'a': 'b'})
             ..body = 'e',
         ]) {
-          result = await cache.get(account, modifiedRequest);
+          result = await cache.get('accountID', modifiedRequest);
           expect(result, isNull);
         }
 
-        await cache.set(account, request, http.Response('upsert', 201, headers: {'key': 'updated'}));
-        result = await cache.get(account, request);
+        await cache.set('accountID', request, http.Response('upsert', 201, headers: {'key': 'updated'}));
+        result = await cache.get('accountID', request);
         expect(result?.statusCode, 201);
         expect(result?.body, 'upsert');
         expect(result?.headers, {'key': 'updated'});
 
-        await cache.set(account, request, http.Response('value', 200, headers: {'key': 'value'}));
-        result = await cache.get(account, request);
+        await cache.set('accountID', request, http.Response('value', 200, headers: {'key': 'value'}));
+        result = await cache.get('accountID', request);
         expect(result?.statusCode, 200);
         expect(result?.body, 'value');
         expect(result?.headers, {'key': 'value'});
 
-        await cache.updateHeaders(account, request, {'key': 'updated'});
-        result = await cache.get(account, request);
+        await cache.updateHeaders('accountID', request, {'key': 'updated'});
+        result = await cache.get('accountID', request);
         expect(result?.statusCode, 200);
         expect(result?.body, 'value');
         expect(result?.headers, {'key': 'updated'});

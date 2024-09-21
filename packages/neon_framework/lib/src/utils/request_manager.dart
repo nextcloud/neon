@@ -85,7 +85,7 @@ class RequestManager {
 
     var request = getRequest();
 
-    final cachedResponse = await _cache?.get(account, request);
+    final cachedResponse = await _cache?.get(account.id, request);
     if (subject.isClosed) {
       return;
     }
@@ -126,7 +126,7 @@ class RequestManager {
           if (newParameters.etag == etag) {
             unawaited(
               _cache?.updateHeaders(
-                account,
+                account.id,
                 request,
                 newHeaders,
               ),
@@ -173,7 +173,7 @@ class RequestManager {
         subject.add(Result.success(unwrap(converter.convert(response))));
 
         await _cache?.set(
-          account,
+          account.id,
           request,
           response,
         );

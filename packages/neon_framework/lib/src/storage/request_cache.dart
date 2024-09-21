@@ -5,7 +5,6 @@ import 'dart:typed_data';
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
-import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/platform/platform.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
@@ -16,15 +15,15 @@ final _log = Logger('RequestCache');
 /// A storage used to cache HTTP requests.
 abstract interface class RequestCache {
   /// Gets the cached status code, body and headers for the [request].
-  Future<http.Response?> get(Account account, http.Request request);
+  Future<http.Response?> get(String accountID, http.Request request);
 
   /// Sets the cached [response] for the [request].
   ///
   /// If a request is already present it will be updated with the new one.
-  Future<void> set(Account account, http.Request request, http.Response response);
+  Future<void> set(String accountID, http.Request request, http.Response response);
 
   /// Updates the cache [headers] for the [request] without modifying anything else.
-  Future<void> updateHeaders(Account account, http.Request request, Map<String, String> headers);
+  Future<void> updateHeaders(String accountID, http.Request request, Map<String, String> headers);
 }
 
 /// Default implementation of the [RequestCache].
@@ -105,7 +104,7 @@ CREATE TABLE "cache" (
   }
 
   @override
-  Future<http.Response?> get(Account account, http.Request request) async {
+  Future<http.Response?> get(String accountID, http.Request request) async {
     List<Map<String, Object?>>? result;
     try {
       result = await _requireDatabase.rawQuery(
@@ -121,7 +120,7 @@ WHERE account = ?
   AND request_body = ?
 ''',
         [
-          account.id,
+          accountID,
           request.method.toUpperCase(),
           request.url.toString(),
           json.encode(sanitizeRequestHeaders(request.headers)),
@@ -149,7 +148,7 @@ WHERE account = ?
   }
 
   @override
-  Future<void> set(Account account, http.Request request, http.Response response) async {
+  Future<void> set(String accountID, http.Request request, http.Response response) async {
     final encodedRequestHeaders = json.encode(sanitizeRequestHeaders(request.headers));
     final encodedResponseHeaders = json.encode(response.headers);
 
@@ -160,7 +159,7 @@ WHERE account = ?
         ..update(
           'cache',
           {
-            'account': account.id,
+            'account': accountID,
             'request_method': request.method.toUpperCase(),
             'request_url': request.url.toString(),
             'request_headers': encodedRequestHeaders,
@@ -171,7 +170,7 @@ WHERE account = ?
           },
           where: 'account = ? AND request_method = ? AND request_url = ? AND request_headers = ? AND request_body = ?',
           whereArgs: [
-            account.id,
+            accountID,
             request.method.toUpperCase(),
             request.url.toString(),
             encodedRequestHeaders,
@@ -194,7 +193,7 @@ SELECT ?, ?, ?, ?, ?, ?, ?, ?
 WHERE (SELECT changes() = 0)
 ''',
           [
-            account.id,
+            accountID,
             request.method.toUpperCase(),
             request.url.toString(),
             encodedRequestHeaders,
@@ -215,17 +214,17 @@ WHERE (SELECT changes() = 0)
   }
 
   @override
-  Future<void> updateHeaders(Account account, http.Request request, Map<String, String> headers) async {
+  Future<void> updateHeaders(String accountID, http.Request request, Map<String, String> headers) async {
     try {
       await _requireDatabase.update(
         'cache',
         {
-          'account': account.id,
+          'account': accountID,
           'response_headers': json.encode(headers),
         },
         where: 'account = ? AND request_method = ? AND request_url = ? AND request_headers = ? AND request_body = ?',
         whereArgs: [
-          account.id,
+          accountID,
           request.method.toUpperCase(),
           request.url.toString(),
           json.encode(sanitizeRequestHeaders(request.headers)),
