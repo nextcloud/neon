@@ -1,0 +1,34 @@
+name: neon_storage
+description: Storage management and abstractions for the neon framework.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.0.0
+
+dependencies:
+  built_collection: ^5.0.0
+  cookie_store:
+    git:
+      url: https://github.com/nextcloud/neon
+      path: packages/cookie_store
+  http: ^1.0.0
+  logging: ^1.0.0
+  meta: ^1.0.0
+  nextcloud: ^7.0.0
+  path: ^1.9.0
+  sqflite_common: ^2.0.0
+  sqflite_common_ffi: ^2.3.3
+  sqflite_common_ffi_web: ^0.4.3+1
+
+dev_dependencies:
+  cookie_store_conformance_tests:
+    git:
+      url: https://github.com/nextcloud/neon
+      path: packages/cookie_store_conformance_tests
+  mocktail: ^1.0.4
+  neon_lints:
+    git:
+      url: https://github.com/nextcloud/neon
+      path: packages/neon_lints
+  test: ^1.25.8

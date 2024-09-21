@@ -25,6 +25,7 @@ rules:
       - neon_http_client
       - neon_lints
       - neon_lints_test
+      - neon_storage
       - news_app
       - nextcloud
       - nextcloud_test
