@@ -112,7 +112,7 @@ Future<List<ServerRelease>> _getServerReleases(http.Client httpClient) async {
           continue;
         }
 
-        final version = Version.parse(name);
+        final version = Version.parse(name.substring(0, name.length - 11));
         final normalizedVersion = Version(version.major, version.minor, 0);
 
         if (version < core.minVersion) {

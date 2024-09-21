@@ -2,7 +2,7 @@
 set -eux
 
 ./occ app:enable cookbook "$@"
-./occ app:enable news "$@"
+./occ app:enable news "$@" --force
 ./occ app:enable notes "$@"
 ./occ app:enable uppush "$@"
 ./occ app:enable spreed "$@"

@@ -12,7 +12,7 @@ class ServerRelease implements Comparable<ServerRelease> {
 
   final String dockerImageDigest;
 
-  String get dockerImageTag => '$version@$dockerImageDigest';
+  String get dockerImageTag => '$version-fpm-alpine@$dockerImageDigest';
 
   String get presetVersion => '${version.major}.${version.minor}';
 
