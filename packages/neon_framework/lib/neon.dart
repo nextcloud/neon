@@ -69,6 +69,7 @@ Future<void> runNeon({
     userAgent: buildUserAgent(packageInfo, theme.branding.name),
     httpClient: httpClient ?? http.Client(),
     storage: accountStorage,
+    enableCookieStore: !kIsWeb,
   );
 
   await accountRepository.loadAccounts(

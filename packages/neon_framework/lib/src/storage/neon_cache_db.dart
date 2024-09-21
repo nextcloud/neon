@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:cookie_store/cookie_store.dart';
 import 'package:flutter/foundation.dart';
 import 'package:neon_storage/neon_sqlite.dart';
 import 'package:neon_storage/neon_storage.dart';
@@ -45,23 +44,5 @@ final class NeonCacheDB extends MultiTableDatabase {
     assertInitialized();
 
     return const SQLiteRequestCache();
-  }
-
-  /// Creates a new `CookieStore` scoped to the given [accountID] and [serverURL].
-  ///
-  /// Cookies will only be sent to cookies matching the [serverURL].
-  CookieStore? cookieStore({required String accountID, required Uri serverURL}) {
-    if (kIsWeb) {
-      return null;
-    }
-
-    assertInitialized();
-
-    final persistence = SQLiteCookiePersistence(
-      accountID: accountID,
-      allowedBaseUri: serverURL,
-    );
-
-    return DefaultCookieStore(persistence);
   }
 }

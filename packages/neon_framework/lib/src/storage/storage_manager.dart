@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:cookie_store/cookie_store.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/storage/storage.dart';
 
@@ -85,15 +84,6 @@ class NeonStorage {
 
     final storage = SQLiteCachedPersistence();
     return DefaultSingleValueStore(storage, key);
-  }
-
-  /// Creates a new `CookieStore` scoped to the given [accountID] and [serverURL].
-  ///
-  /// Cookies will only be sent to cookies matching the [serverURL].
-  CookieStore? cookieStore({required String accountID, required Uri serverURL}) {
-    _assertInitialized();
-
-    return _neonCache.cookieStore(accountID: accountID, serverURL: serverURL);
   }
 
   void _assertInitialized() {

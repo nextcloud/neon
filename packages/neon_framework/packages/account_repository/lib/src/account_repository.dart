@@ -79,13 +79,16 @@ class AccountRepository {
     required String userAgent,
     required http.Client httpClient,
     required AccountStorage storage,
+    required bool enableCookieStore,
   })  : _userAgent = userAgent,
         _httpClient = httpClient,
-        _storage = storage;
+        _storage = storage,
+        _enableCookieStore = enableCookieStore;
 
   final String _userAgent;
   final http.Client _httpClient;
   final AccountStorage _storage;
+  final bool _enableCookieStore;
 
   final BehaviorSubject<({String? active, BuiltMap<String, Account> accounts})> _accounts =
       BehaviorSubject.seeded((active: null, accounts: BuiltMap()));
@@ -134,6 +137,7 @@ class AccountRepository {
               httpClient: _httpClient,
               userAgent: _userAgent,
               credentials: credentials,
+              enableCookieStore: _enableCookieStore,
             );
         });
       }
@@ -238,6 +242,7 @@ class AccountRepository {
       credentials: credentials,
       userAgent: _userAgent,
       httpClient: _httpClient,
+      enableCookieStore: _enableCookieStore,
     );
 
     try {

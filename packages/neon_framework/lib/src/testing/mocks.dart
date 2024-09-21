@@ -84,9 +84,6 @@ class FakeNeonStorage extends Fake implements NeonStorage {
 
   @override
   Null get requestCache => null;
-
-  @override
-  Null cookieStore({required String accountID, required Uri serverURL}) => null;
 }
 
 class MockSettingsStore extends Mock implements SettingsStore {}

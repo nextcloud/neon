@@ -76,6 +76,7 @@ void main() {
       userAgent: 'userAgent',
       httpClient: _FakeClient(),
       storage: storage,
+      enableCookieStore: false,
     );
   });
 

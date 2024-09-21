@@ -4,7 +4,6 @@ import 'package:account_repository/testing.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart' as http;
 import 'package:meta/meta.dart';
-import 'package:neon_framework/testing.dart' show MockNeonStorage;
 
 final _mockClient = http.MockClient((request) async {
   throw UnsupportedError('The fake account client can not be used in tests.');
@@ -20,7 +19,6 @@ Account createAccount({
   http.Client? httpClient,
 }) {
   credentials ??= createCredentials();
-  MockNeonStorage();
 
   return Account((b) {
     b
@@ -29,6 +27,7 @@ Account createAccount({
         httpClient: httpClient ?? _mockClient,
         userAgent: 'neon',
         credentials: credentials,
+        enableCookieStore: false,
       );
   });
 }
