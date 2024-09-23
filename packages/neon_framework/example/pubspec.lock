@@ -65,10 +65,10 @@ packages:
     dependency: transitive
     description:
       name: asn1lib
-      sha256: "2ca377ad4d677bbadca278e0ba4da4e057b80a10b927bfc8f7d8bda8fe2ceb75"
+      sha256: "6b151826fcc95ff246cd219a0bf4c753ea14f4081ad71c61939becf3aba27f70"
       url: "https://pub.dev"
     source: hosted
-    version: "1.5.4"
+    version: "1.5.5"
   async:
     dependency: transitive
     description:
@@ -311,10 +311,10 @@ packages:
     dependency: transitive
     description:
       name: dev_build
-      sha256: f526d1fbe68875f6119ffc333f114dfe6aa93ad04439276d53968f7977cc410e
+      sha256: "23677f8577ecd4a438171015d2477ef61fba5d17596c3292faf23bdbba68a316"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.0+11"
+    version: "1.0.0+13"
   dynamic_color:
     dependency: transitive
     description:
@@ -514,10 +514,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_local_notifications
-      sha256: c500d5d9e7e553f06b61877ca6b9c8b92c570a4c8db371038702e8ce57f8a50f
+      sha256: "49eeef364fddb71515bc78d5a8c51435a68bccd6e4d68e25a942c5e47761ae71"
       url: "https://pub.dev"
     source: hosted
-    version: "17.2.2"
+    version: "17.2.3"
   flutter_local_notifications_linux:
     dependency: transitive
     description:
@@ -1349,10 +1349,10 @@ packages:
     dependency: transitive
     description:
       name: sqflite_common
-      sha256: "7b41b6c3507854a159e24ae90a8e3e9cc01eb26a477c118d6dca065b5f55453e"
+      sha256: "4058172e418eb7e7f2058dcb7657d451a8fc264afa0dea4dbd0f304a57131611"
       url: "https://pub.dev"
     source: hosted
-    version: "2.5.4+2"
+    version: "2.5.4+3"
   sqflite_common_ffi:
     dependency: transitive
     description:
@@ -1365,10 +1365,10 @@ packages:
     dependency: transitive
     description:
       name: sqflite_common_ffi_web
-      sha256: "5aa15408f29eca8cc8dcca653c38d66cf9a5fb5a2c1e9826a75ce4ae4938dec1"
+      sha256: f540ad769e5fd31aabe77bfa6e774fdd36145a83e33cdc39239f310c5f8559c3
       url: "https://pub.dev"
     source: hosted
-    version: "0.4.5+2"
+    version: "0.4.5+3"
   sqlite3:
     dependency: transitive
     description:
