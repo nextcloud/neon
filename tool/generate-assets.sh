@@ -74,13 +74,11 @@ icons_dir="packages/neon_framework/assets/icons/server/"
 rm -rf "$icons_dir"
 mkdir -p "$icons_dir"
 
-shopt -s extglob
-for file in external/nextcloud-server/{core/img/*,apps/*/img}/!(app|app-dark).svg; do
+while IFS= read -r -d '' file
+do
   name="$(basename "$file" | sed "s/.svg$//" | sed "s/-dark$//" | sed "s/-white$//").svg"
-  if ! grep "<image " "$file"; then
-    cp -u "$file" "$icons_dir/$name"
-  fi
-done
+  cp -u "$file" "$icons_dir/$name"
+done < <(find external/nextcloud-server/{core/img,apps/*/img} -name "*.svg" -not -name "app.svg" -not -name "app-dark.svg" -print0)
 
 (
   cd packages/neon_framework
