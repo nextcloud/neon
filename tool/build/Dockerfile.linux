@@ -1,4 +1,4 @@
-FROM debian:stable-slim@sha256:aeb68e9a25cefd2c06da1916fa31f12d7db2656ef5599646c593686f0e3340b6
+FROM debian:stable-slim@sha256:4dfa24239890321bcff57f7b60c998a3d890ce97885e0395007bd9ccfe6af0e9
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
