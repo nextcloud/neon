@@ -75,10 +75,12 @@ linter:
     directives_ordering: true
     discarded_futures: true
     do_not_use_environment: true
+    document_ignores: false
     empty_catches: true
     empty_constructor_bodies: true
     empty_statements: true
     eol_at_end_of_file: true
+    erase_dart_type_extension_types: true
     exhaustive_cases: true
     file_names: true
     flutter_style_todos: true
@@ -87,6 +89,7 @@ linter:
     implicit_call_tearoffs: true
     implicit_reopen: true
     invalid_case_patterns: true
+    invalid_runtime_check_with_js_interop_types: true
     join_return_with_assignment: true
     leading_newlines_in_multiline_strings: true
     library_annotations: true
@@ -178,6 +181,7 @@ linter:
     type_init_formals: true
     type_literal_in_constant_pattern: true
     unawaited_futures: true
+    unintended_html_in_doc_comment: true
     unnecessary_await_in_return: true
     unnecessary_brace_in_string_interps: true
     unnecessary_breaks: true

@@ -14,7 +14,7 @@ abstract interface class Exportable {
 
 /// Serialization helpers for a collection of [Option]s.
 extension SerializeOptions on Iterable<Option<dynamic>> {
-  /// Serializes into an [Iterable<JsonEntry>].
+  /// Serializes into an `Iterable<JsonEntry>`.
   ///
   /// Use [Map.fromEntries] to get a json Map.
   Iterable<MapEntry<String, Object?>> serialize() sync* {

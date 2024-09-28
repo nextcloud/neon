@@ -1,4 +1,4 @@
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, unintended_html_in_doc_comment
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
