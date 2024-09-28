@@ -96,7 +96,9 @@ void main() {
               when(() => notification.notificationId).thenReturn(i);
               when(() => notification.app).thenReturn('app');
               when(() => notification.subject).thenReturn('subject');
+              when(() => notification.subjectRichParameters).thenReturn(BuiltMap());
               when(() => notification.message).thenReturn('message');
+              when(() => notification.messageRichParameters).thenReturn(BuiltMap());
               when(() => notification.datetime).thenReturn(tz.TZDateTime.now(tz.UTC).toIso8601String());
               when(() => notification.actions).thenReturn(BuiltList());
               when(() => notification.icon).thenReturn('');

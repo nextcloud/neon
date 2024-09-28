@@ -5,9 +5,9 @@ import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/core.dart' as core;
 
 /// Widget to display a Deck card from a rich object.
-class TalkRichObjectDeckCard extends StatelessWidget {
-  /// Creates a new Talk rich object Deck card.
-  const TalkRichObjectDeckCard({
+class NeonRichObjectDeckCard extends StatelessWidget {
+  /// Creates a new Neon rich object Deck card.
+  const NeonRichObjectDeckCard({
     required this.parameter,
     super.key,
   });
