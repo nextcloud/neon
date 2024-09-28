@@ -3,6 +3,66 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-09-28
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - [`nextcloud` - `v8.0.0`](#nextcloud---v800)
+
+Packages with other changes:
+
+ - [`dynamite` - `v0.5.0+1`](#dynamite---v0501)
+ - [`dynamite_runtime` - `v0.5.0+1`](#dynamite_runtime---v0501)
+
+---
+
+#### `nextcloud` - `v8.0.0`
+
+ - **REFACTOR**(nextcloud): make csrf client wrapping optional. ([13a35819](https://github.com/nextcloud/neon/commit/13a3581975e39e2a355b39193575ffe23bffd5c1))
+ - **REFACTOR**(nextcloud): use nextcloud csrf client to obtain csrf tokens. ([2addc67b](https://github.com/nextcloud/neon/commit/2addc67b2f5313d372e2ef5fef35c64d3ccb96dd))
+ - **REFACTOR**(nextcloud): make csrf client NextcloudClient independent. ([9ebc952a](https://github.com/nextcloud/neon/commit/9ebc952a95505cb3d2cc05afe1f0b61db56ca9fa))
+ - **REFACTOR**(nextcloud_test): validate all fixture requests. ([8711b202](https://github.com/nextcloud/neon/commit/8711b20269f1de0a254e2030b60d27ab72cf2d39))
+ - **REFACTOR**(nextcloud_test): drop dependency on neon_http_client and use fixture interceptor. ([47b3d612](https://github.com/nextcloud/neon/commit/47b3d61266f15e40788355ab984fd3acaf14a4a0))
+ - **REFACTOR**(neon_http_client): split into separate interceptor client package. ([e8b46a0a](https://github.com/nextcloud/neon/commit/e8b46a0a54796abd6dfb1f435780d26f15ea9018))
+ - **REFACTOR**(nextcloud_test_presets): Use full docker image tag as version. ([e73e33ce](https://github.com/nextcloud/neon/commit/e73e33cefea81635ac09ae2aadec28a07412144d))
+ - **REFACTOR**(nextcloud_test): move test presets to a separate package. ([5d052c6c](https://github.com/nextcloud/neon/commit/5d052c6c357b78b380ea5d3d03189947b640ac12))
+ - **REFACTOR**(neon_lints): do not ignore all generated files. ([c1529876](https://github.com/nextcloud/neon/commit/c15298768d0e0dcb0cba8ec9155d7f19f3d5a732))
+ - **REFACTOR**: change package file structure. ([6696e6ea](https://github.com/nextcloud/neon/commit/6696e6ead1751462e233afb5eab22a458e0c9e73))
+ - **PERF**(nextcloud_test_presets): Use docker image digests to improve caching. ([0f72db37](https://github.com/nextcloud/neon/commit/0f72db3706eb37f6d48a19c7cab5a7a5d031bfdb))
+ - **FIX**(nextcloud_test_presets): Force enable news app to work with Nextcloud 30. ([395478fb](https://github.com/nextcloud/neon/commit/395478fb98efcc964664b84c1ee5b0650c9c115d))
+ - **FIX**(tool,nextcloud_test_presets): Fix version parsing considering docker tags as pre-releases. ([82af61a9](https://github.com/nextcloud/neon/commit/82af61a969c4b3ed1005aacf07ba459c86c2d176))
+ - **FIX**(dynamite): Escape HTML in docs. ([063730f4](https://github.com/nextcloud/neon/commit/063730f448be7c9806183a844ad3fab4275e8580))
+ - **FIX**(nextcloud): Use correct WebDAV namespaces for oc:checksum, oc:share-type and oc:tags. ([aa073495](https://github.com/nextcloud/neon/commit/aa073495108204cce571591ddee910c2a20ac75c))
+ - **FEAT**(nextcloud): Implement WebDAV extended MKCOL. ([91752b3f](https://github.com/nextcloud/neon/commit/91752b3f36ca60ccbe4b4ecfa834067ed0b53616))
+ - **FEAT**(nextcloud): Add support for checksums for uploading WebDAV files. ([4380f5ad](https://github.com/nextcloud/neon/commit/4380f5ad268b2723ef885dc398b77285d33803fa))
+ - **DOCS**(nextcloud): Improve method docs of WebDavClient. ([a018df24](https://github.com/nextcloud/neon/commit/a018df247575985ee8b1d486e33d6a09cba2556b))
+ - **BREAKING** **FIX**(nextcloud): Move RichObjectParameter from spreed to core and fix rich parameter typing for broken apps. ([f4fd9cf8](https://github.com/nextcloud/neon/commit/f4fd9cf8c52a43c70d38e2a1572b2b34e6d04d5c))
+ - **BREAKING** **FIX**(nextcloud): Throw DynamiteStatusCodeExceptions for invalid WebDAV status codes. ([801599c5](https://github.com/nextcloud/neon/commit/801599c510041b1d3e142b4e7823aaf6cb6f1d09))
+ - **BREAKING** **FIX**(nextcloud): Make files_sharing Share label nullable. ([8e7a47dd](https://github.com/nextcloud/neon/commit/8e7a47dd437436f99175b406116b72cdd9b596cf))
+ - **BREAKING** **FIX**(nextcloud): Fix deleted parent messages in spreed. ([5f716d1d](https://github.com/nextcloud/neon/commit/5f716d1dc960b9aa6087a7cec2c6a0f7bf08ce0e))
+ - **BREAKING** **FEAT**(nextcloud): make WebdavClient a DynamiteClient. ([bc8b54c8](https://github.com/nextcloud/neon/commit/bc8b54c852b0ddb77d08384d50bc11b951566bb6))
+ - **BREAKING** **FEAT**(nextcloud): Update to tables 0.8. ([13c677d7](https://github.com/nextcloud/neon/commit/13c677d7b7efd13f2c140d6a92567db6675b0fa4))
+ - **BREAKING** **FEAT**(nextcloud): Update to spreed 20. ([afdb4c38](https://github.com/nextcloud/neon/commit/afdb4c38a48cb22264004805b66ef80e68da65d6))
+ - **BREAKING** **FEAT**(nextcloud): Update to notifications 30. ([d9795186](https://github.com/nextcloud/neon/commit/d9795186be62b4c6715c5663f8b8809bfda091a7))
+ - **BREAKING** **FEAT**(nextcloud): Update to server 30. ([16c6272b](https://github.com/nextcloud/neon/commit/16c6272b23cfd0241fa5b22762e0850c5525cd60))
+ - **BREAKING** **CHORE**(nextcloud): Remove deprecated userAgent and cookieJar parameters from NextcloudClient. ([4ce78c1f](https://github.com/nextcloud/neon/commit/4ce78c1f68ac1fb550ba4e41f3cdc6297ccccdc7))
+ - **BREAKING** **CHORE**(nextcloud): Remove deprecated AppIDs. ([ab2fb5a2](https://github.com/nextcloud/neon/commit/ab2fb5a2a1f36b7e5c50facb8b5699ae09185315))
+
+#### `dynamite` - `v0.5.0+1`
+
+ - **REFACTOR**: change package file structure. ([6696e6ea](https://github.com/nextcloud/neon/commit/6696e6ead1751462e233afb5eab22a458e0c9e73))
+ - **FIX**(dynamite): Escape HTML in docs. ([063730f4](https://github.com/nextcloud/neon/commit/063730f448be7c9806183a844ad3fab4275e8580))
+ - **FIX**(dynamite): Escape wireNames. ([5915c570](https://github.com/nextcloud/neon/commit/5915c57035879db20ba7700924dffaf70255b549))
+
+#### `dynamite_runtime` - `v0.5.0+1`
+
+ - **REFACTOR**: change package file structure. ([6696e6ea](https://github.com/nextcloud/neon/commit/6696e6ead1751462e233afb5eab22a458e0c9e73))
+
+
 ## 2024-08-13
 
 ### Changes

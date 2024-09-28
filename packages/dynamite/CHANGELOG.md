@@ -1,3 +1,9 @@
+## 0.5.0+1
+
+ - **REFACTOR**: change package file structure. ([6696e6ea](https://github.com/nextcloud/neon/commit/6696e6ead1751462e233afb5eab22a458e0c9e73))
+ - **FIX**(dynamite): Escape HTML in docs. ([063730f4](https://github.com/nextcloud/neon/commit/063730f448be7c9806183a844ad3fab4275e8580))
+ - **FIX**(dynamite): Escape wireNames. ([5915c570](https://github.com/nextcloud/neon/commit/5915c57035879db20ba7700924dffaf70255b549))
+
 ## 0.5.0
 
 > Note: This release has breaking changes.

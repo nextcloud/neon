@@ -8,7 +8,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  nextcloud: ^7.0.0
+  nextcloud: ^8.0.0
 
 dev_dependencies:
   custom_lint: ^0.6.5
