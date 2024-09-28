@@ -9,7 +9,7 @@ environment:
 dependencies:
   built_collection: ^5.0.0
   collection: ^1.0.0
-  dynamite_runtime: ^0.5.0
+  dynamite_runtime: ^0.5.0+1
   flutter:
     sdk: flutter
   flutter_localizations:
@@ -25,7 +25,7 @@ dependencies:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/neon_framework
-  nextcloud: ^7.0.0
+  nextcloud: ^8.0.0
   rxdart: ^0.28.0
   timezone: ^0.9.4
 
