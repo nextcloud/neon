@@ -16,10 +16,6 @@ dependencies:
   built_collection: ^5.0.0
   built_value: ^8.9.0
   collection: ^1.0.0
-  cookie_store:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/cookie_store
   crypto: ^3.0.0
   crypton: ^2.0.0
   cupertino_icons: ^1.0.0 # Do not remove this, is it needed on iOS/macOS. It will not include icons on other platforms because Apple forbids it.
@@ -50,10 +46,13 @@ dependencies:
   neon_http_client:
     git:
       url: https://github.com/nextcloud/neon
-      path: packages/neon_http_client
+      path: packages/neon_framework/packages/neon_http_client
+  neon_storage:
+    git:
+      url: https://github.com/nextcloud/neon
+      path: packages/neon_framework/packages/neon_storage
   nextcloud: ^8.0.0
   package_info_plus: ^8.0.0
-  path: ^1.0.0
   path_provider: ^2.1.0
   permission_handler: ^11.0.0
   provider: ^6.0.0
@@ -65,9 +64,6 @@ dependencies:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/neon_framework/packages/sort_box
-  sqflite: ^2.3.0
-  sqflite_common_ffi: ^2.3.2
-  sqflite_common_ffi_web: ^0.4.2+3
   timezone: ^0.9.4
   unifiedpush: ^5.0.0
   unifiedpush_android: ^2.0.0

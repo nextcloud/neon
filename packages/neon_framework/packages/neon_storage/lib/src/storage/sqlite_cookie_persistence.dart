@@ -1,85 +1,30 @@
-import 'dart:async';
+import 'dart:io' show Cookie;
 
 import 'package:cookie_store/cookie_store.dart';
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
-import 'package:neon_framework/platform.dart';
-import 'package:nextcloud/utils.dart';
-import 'package:path/path.dart' as p;
-import 'package:path_provider/path_provider.dart';
-import 'package:sqflite/sqflite.dart';
-import 'package:universal_io/io.dart' show Cookie;
+import 'package:neon_storage/neon_sqlite.dart';
+import 'package:nextcloud/utils.dart' show DateTimeUtils;
+import 'package:sqflite_common/sqlite_api.dart';
+
+final _log = Logger('SQLiteCookiePersistence');
 
 const String _unsupportedCookieManagementMessage =
     'The neon project does not plan to support individual cookie management.';
 
 const String _lastAccessMaxDuration = "STRFTIME('%s', 'now', '-1 years')";
 
-/// An SQLite backed cookie persistence.
-///
-/// No maximum cookie age is set as mentioned in [RFC6265 section 7.3](https://httpwg.org/specs/rfc6265.html#rfc.section.7.3).
-///
-/// This persistence does not support cookie management through the [deleteAll]
-/// and [deleteWhere] methods. Calling them will throw a [UnsupportedError].
-@internal
-final class SQLiteCookiePersistence implements CookiePersistence {
-  /// Creates a new SQLite backed cookie persistence for the given account.
-  ///
-  /// Optionally [allowedBaseUri] can be used to restrict storage and loading of cookies to a certain domain and path.
-  SQLiteCookiePersistence({
-    required this.accountID,
-    Uri? allowedBaseUri,
-  }) : allowedBaseUri = switch (allowedBaseUri) {
-          null => null,
-          Uri(:final path) when path.endsWith('/') => Uri(
-              host: allowedBaseUri.host,
-              path: path.substring(0, path.length - 1),
-            ),
-          _ => allowedBaseUri,
-        };
+final class _SQLiteCookiePersistenceTable extends Table {
+  @override
+  String get name => 'cookies';
 
-  final _log = Logger('SQLiteCookiePersistence');
+  @override
+  int get version => 1;
 
-  /// The allowed cookie base uri.
-  ///
-  /// When not null, only cookies  domain and path matching this uri will be
-  /// persisted.
-  ///
-  /// See:
-  ///   * domain matching [RFC6265 section 5.1.3](https://httpwg.org/specs/rfc6265.html#rfc.section.5.1.3)
-  ///   * path matching [RFC6265 section 5.1.4](https://httpwg.org/specs/rfc6265.html#rfc.section.5.1.4)
-  final Uri? allowedBaseUri;
-
-  /// The id of the requesting account.
-  final String accountID;
-
-  @visibleForTesting
-  static Database? database;
-
-  /// Initializes this cookie persistence by setting up the backing SQLite database.
-  ///
-  /// This must called and completed before accessing other methods of the cache.
-  static Future<void> init() async {
-    if (database != null) {
-      return;
-    }
-
-    assert(
-      NeonPlatform.instance.canUsePaths,
-      'Tried to initialize SQLiteCookiePersistence on a platform without support for paths',
-    );
-    final cacheDir = await getApplicationCacheDirectory();
-    database = await openDatabase(
-      p.join(cacheDir.path, 'cookies.db'),
-      version: 1,
-      onCreate: onCreate,
-    );
-  }
-
-  @visibleForTesting
-  static Future<void> onCreate(Database db, int version) async {
+  @override
+  void onCreate(Batch db, int version) {
     // https://httpwg.org/specs/rfc6265.html#storage-model with an extra account key.
-    await db.execute('''
+    db.execute('''
 CREATE TABLE "cookies" (
   "account"           TEXT NOT NULL,
   "name"              TEXT NOT NULL,
@@ -96,7 +41,7 @@ CREATE TABLE "cookies" (
   PRIMARY KEY("account", "name", "domain", "path")
 );
 
-CREATE TRIGGER delete_outdated_cookies
+CREATE TRIGGER cookies_delete_outdated
    AFTER UPDATE
    ON cookies
 BEGIN
@@ -107,16 +52,47 @@ BEGIN
 END;
 ''');
   }
+}
 
-  Database get _requireDatabase {
-    if (database == null) {
-      throw StateError(
-        'Cookie persistence has not been set up yet. Please make sure SQLiteCookiePersistence.init() has been called before and completed.',
-      );
-    }
+/// An SQLite backed cookie persistence.
+///
+/// No maximum cookie age is set as mentioned in [RFC6265 section 7.3](https://httpwg.org/specs/rfc6265.html#rfc.section.7.3).
+///
+/// This persistence does not support cookie management through the [deleteAll]
+/// and [deleteWhere] methods. Calling them will throw a [UnsupportedError].
+final class SQLiteCookiePersistence implements CookiePersistence {
+  /// Creates a new SQLite backed cookie persistence for the given account.
+  ///
+  /// Optionally [allowedBaseUri] can be used to restrict storage and loading of cookies to a certain domain and path.
+  SQLiteCookiePersistence({
+    required this.accountID,
+    Uri? allowedBaseUri,
+  }) : allowedBaseUri = switch (allowedBaseUri) {
+          null => null,
+          Uri(:final path) when path.endsWith('/') => Uri(
+              host: allowedBaseUri.host,
+              path: path.substring(0, path.length - 1),
+            ),
+          _ => allowedBaseUri,
+        };
 
-    return database!;
-  }
+  /// The allowed cookie base uri.
+  ///
+  /// When not null, only cookies  domain and path matching this uri will be
+  /// persisted.
+  ///
+  /// See:
+  ///   * domain matching [RFC6265 section 5.1.3](https://httpwg.org/specs/rfc6265.html#rfc.section.5.1.3)
+  ///   * path matching [RFC6265 section 5.1.4](https://httpwg.org/specs/rfc6265.html#rfc.section.5.1.4)
+  final Uri? allowedBaseUri;
+
+  /// The id of the requesting account.
+  final String accountID;
+
+  /// The sqlite table backing this storage.
+  static final Table table = _SQLiteCookiePersistenceTable();
+
+  static Database get _database => table.controller.database;
 
   @override
   Future<List<Cookie>> loadForRequest(Uri uri) async {
@@ -136,7 +112,7 @@ END;
     // domain and patch matching is error prone in SQL;
     // use the dart helpers for now.
     try {
-      final results = await _requireDatabase.rawQuery(
+      final results = await _database.rawQuery(
         '''
 SELECT "name", "domain", "path", "value"
 FROM "cookies"
@@ -159,7 +135,7 @@ ORDER BY
       );
 
       final list = <Cookie>[];
-      final batch = _requireDatabase.batch();
+      final batch = _database.batch();
 
       for (final result in results) {
         final name = result['name']! as String;
@@ -214,12 +190,12 @@ WHERE "account" = ?
       return true;
     }
 
-    final batch = _requireDatabase.batch();
+    final batch = _database.batch();
 
     for (final cookie in cookies) {
       batch
         ..update(
-          'cookies',
+          table.name,
           {
             '"name"': cookie.name,
             '"value"': cookie.value,
@@ -291,7 +267,7 @@ WHERE (SELECT changes() = 0)
   @override
   Future<bool> endSession() async {
     try {
-      await _requireDatabase.execute(
+      await _database.execute(
         '''
 DELETE FROM cookies
 WHERE
@@ -333,7 +309,7 @@ WHERE
     final list = <Cookie>[];
 
     try {
-      final results = await _requireDatabase.rawQuery(
+      final results = await _database.rawQuery(
         '''
 SELECT "name", "value"
 FROM "cookies"

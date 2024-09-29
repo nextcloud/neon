@@ -264,10 +264,10 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get(account, any())).called(1);
+        verify(() => cache.get(account.id, any())).called(1);
         verify(
           () => cache.set(
-            account,
+            account.id,
             any(),
             any(
               that: isA<http.Response>()
@@ -299,10 +299,10 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get(account, any())).called(1);
+        verify(() => cache.get(account.id, any())).called(1);
         verify(
           () => cache.set(
-            account,
+            account.id,
             any(),
             any(
               that: isA<http.Response>()
@@ -336,7 +336,7 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get(account, any())).called(1);
+        verify(() => cache.get(account.id, any())).called(1);
         verifyNever(() => cache.set(any(), any(), any()));
 
         subject = BehaviorSubject<Result<String>>.seeded(Result.success('Seed value'));
@@ -360,7 +360,7 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get(account, any())).called(1);
+        verify(() => cache.get(account.id, any())).called(1);
         verifyNever(() => cache.set(any(), any(), any()));
       });
 
@@ -397,7 +397,7 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get(account, any())).called(1);
+        verify(() => cache.get(account.id, any())).called(1);
         verifyNever(() => cache.set(any(), any(), any()));
 
         when(() => cache.get(any(), any())).thenAnswer(
@@ -433,7 +433,7 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get(account, any())).called(1);
+        verify(() => cache.get(account.id, any())).called(1);
         verify(() => cache.set(any(), any(), any())).called(1);
       });
 
@@ -486,9 +486,9 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get(account, any())).called(1);
+        verify(() => cache.get(account.id, any())).called(1);
         verify(callback.call).called(1);
-        verify(() => cache.updateHeaders(account, any(), {'etag': 'a', 'expires': newExpires})).called(1);
+        verify(() => cache.updateHeaders(account.id, any(), {'etag': 'a', 'expires': newExpires})).called(1);
         verifyNever(() => cache.set(any(), any(), any()));
 
         when(() => cache.get(any(), any())).thenAnswer(
@@ -531,11 +531,11 @@ void main() {
         );
 
         await subject.close();
-        verify(() => cache.get(account, any())).called(1);
+        verify(() => cache.get(account.id, any())).called(1);
         verify(callback.call).called(1);
         verify(
           () => cache.set(
-            account,
+            account.id,
             any(),
             any(
               that: isA<http.Response>()
@@ -589,10 +589,10 @@ void main() {
           );
 
           await subject.close();
-          verify(() => cache.get(account, any())).called(1);
+          verify(() => cache.get(account.id, any())).called(1);
           verify(
             () => cache.set(
-              account,
+              account.id,
               any(),
               any(
                 that: isA<http.Response>()

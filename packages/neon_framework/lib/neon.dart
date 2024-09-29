@@ -16,7 +16,6 @@ import 'package:neon_framework/src/blocs/push_notifications.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
 import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/platform/platform.dart';
-import 'package:neon_framework/src/storage/keys.dart';
 import 'package:neon_framework/src/theme/neon.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
 import 'package:neon_framework/src/utils/provider.dart';
@@ -53,7 +52,12 @@ Future<void> runNeon({
     tz.setLocalLocation(location);
   }
 
-  await NeonStorage().init();
+  final accountStorage = AccountStorage();
+  await NeonStorage().init(
+    dataTables: [
+      accountStorage,
+    ],
+  );
 
   final packageInfo = await PackageInfo.fromPlatform();
 
@@ -61,15 +65,11 @@ Future<void> runNeon({
     packageInfo,
   );
 
-  final accountStorage = AccountStorage(
-    accountsPersistence: NeonStorage().singleValueStore(StorageKeys.accounts),
-    lastAccountPersistence: NeonStorage().singleValueStore(StorageKeys.lastUsedAccount),
-  );
-
   final accountRepository = AccountRepository(
     userAgent: buildUserAgent(packageInfo, theme.branding.name),
     httpClient: httpClient ?? http.Client(),
     storage: accountStorage,
+    enableCookieStore: !kIsWeb,
   );
 
   await accountRepository.loadAccounts(

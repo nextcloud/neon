@@ -2,16 +2,39 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:flutter/foundation.dart';
 import 'package:logging/logging.dart';
-import 'package:meta/meta.dart' show internal;
-import 'package:neon_framework/platform.dart';
-import 'package:neon_framework/src/storage/persistence.dart';
-import 'package:path/path.dart' as p;
-import 'package:path_provider/path_provider.dart';
-import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'package:meta/meta.dart';
+import 'package:neon_storage/neon_sqlite.dart';
+import 'package:neon_storage/neon_storage.dart';
+import 'package:sqflite_common/sqlite_api.dart';
 
 final _log = Logger('SQLitePersistence');
+
+final class _SQLiteCachedPersistenceTable extends Table {
+  @override
+  String get name => 'preferences';
+
+  @override
+  int get version => 1;
+
+  @override
+  void onCreate(Batch db, int version) {
+    db.execute('''
+CREATE TABLE  IF NOT EXISTS "preferences" (
+	"prefix"  TEXT NOT NULL,
+	"key"     TEXT NOT NULL,
+	"value"   TEXT NOT NULL,
+	PRIMARY KEY("prefix","key"),
+	UNIQUE("key","prefix")
+);
+''');
+  }
+
+  @override
+  Future<void> onOpen() async {
+    await SQLiteCachedPersistence.getAll();
+  }
+}
 
 /// An SQLite backed cached persistence for preferences.
 ///
@@ -22,7 +45,6 @@ final _log = Logger('SQLitePersistence');
 /// The persistence must be initialized with by calling `SQLitePersistence().init()`
 /// and awaiting it's completion. If it has not yet initialized a `StateError`
 /// will be thrown.
-@internal
 final class SQLiteCachedPersistence extends CachedPersistence {
   /// Creates a new sqlite persistence.
   SQLiteCachedPersistence({this.prefix = ''});
@@ -35,64 +57,20 @@ final class SQLiteCachedPersistence extends CachedPersistence {
   @override
   Map<String, Object> get cache => globalCache[prefix] ??= {};
 
+  /// Global cache for all persistences.
   @visibleForTesting
   static final Map<String, Map<String, Object>> globalCache = {};
 
-  @visibleForTesting
-  static Database? database;
+  /// The sqlite table for this persistence.
+  static Table table = _SQLiteCachedPersistenceTable();
 
-  /// Initializes all persistences by setting up the backing SQLite database
-  /// and priming the global cache.
-  ///
-  /// This must be called and completed before accessing any other methods of
-  /// the sqlite persistence.
-  static Future<void> init() async {
-    if (database != null) {
-      return;
-    }
+  static Database get _database => table.controller.database;
 
-    var path = 'preferences.db';
-    if (NeonPlatform.instance.canUsePaths) {
-      final appDir = await getApplicationSupportDirectory();
-      path = p.join(appDir.path, path);
-    }
-
-    database = await openDatabase(
-      path,
-      version: 1,
-      onCreate: onCreate,
-    );
-
-    await getAll();
-  }
-
-  @visibleForTesting
-  static Future<void> onCreate(Database db, int version) async {
-    await db.execute('''
-CREATE TABLE "preferences" (
-	"prefix"  TEXT NOT NULL,
-	"key"     TEXT NOT NULL,
-	"value"   TEXT NOT NULL,
-	PRIMARY KEY("prefix","key"),
-	UNIQUE("key","prefix")
-);
-''');
-  }
-
-  static Database get _requireDatabase {
-    if (database == null) {
-      throw StateError(
-        'Persistence has not been set up yet. Please make sure SQLitePersistence.init() has been called before and completed.',
-      );
-    }
-
-    return database!;
-  }
-
+  /// Loads all saved values into the cache.
   @visibleForTesting
   static Future<void> getAll() async {
     try {
-      final results = await _requireDatabase.rawQuery('''
+      final results = await _database.rawQuery('''
 SELECT prefix, key, value
 FROM preferences
 ''');
@@ -117,7 +95,7 @@ FROM preferences
   @override
   Future<bool> clear() async {
     try {
-      await _requireDatabase.rawDelete(
+      await _database.rawDelete(
         '''
 DELETE FROM preferences
 WHERE prefix = ?
@@ -142,7 +120,7 @@ WHERE prefix = ?
     try {
       final fromSystem = <String, Object>{};
 
-      final results = await _requireDatabase.rawQuery(
+      final results = await _database.rawQuery(
         '''
 SELECT key, value
 FROM preferences
@@ -171,7 +149,7 @@ WHERE prefix = ?
   @override
   Future<bool> remove(String key) async {
     try {
-      await _requireDatabase.rawDelete(
+      await _database.rawDelete(
         '''
 DELETE FROM preferences
 WHERE 
@@ -200,7 +178,7 @@ WHERE
     try {
       // UPSERT is only available since SQLite 3.24.0 (June 4, 2018).
       // Using a manual solution from https://stackoverflow.com/a/38463024
-      final batch = _requireDatabase.batch()
+      final batch = _database.batch()
         ..update(
           'preferences',
           {

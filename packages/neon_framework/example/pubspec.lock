@@ -881,6 +881,13 @@ packages:
       relative: true
     source: path
     version: "1.0.0"
+  neon_storage:
+    dependency: "direct overridden"
+    description:
+      path: "../packages/neon_storage"
+      relative: true
+    source: path
+    version: "0.1.0"
   nested:
     dependency: transitive
     description:
@@ -1337,14 +1344,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.0.0"
-  sqflite:
-    dependency: transitive
-    description:
-      name: sqflite
-      sha256: a43e5a27235518c03ca238e7b4732cf35eabe863a369ceba6cbefa537a66f16d
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.3.3+1"
   sqflite_common:
     dependency: transitive
     description:

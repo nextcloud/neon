@@ -102,11 +102,11 @@ abstract class MultiTableDatabase {
     for (final table in _tables) {
       table.controller = this;
     }
+
+    _database = database;
     await Future.wait(
       _tables.map((t) => t.onOpen()),
     );
-
-    _database = database;
   }
 
   Future<void> _createMetaTable(Database db, int version) async {

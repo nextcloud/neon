@@ -1,16 +1,17 @@
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:account_repository/src/models/models.dart';
 import 'package:account_repository/src/utils/utils.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:equatable/equatable.dart';
 import 'package:http/http.dart' as http;
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
-import 'package:neon_framework/storage.dart';
+import 'package:neon_storage/neon_sqlite.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:sqflite_common/sqlite_api.dart';
 
 part 'account_storage.dart';
 
@@ -79,13 +80,16 @@ class AccountRepository {
     required String userAgent,
     required http.Client httpClient,
     required AccountStorage storage,
+    required bool enableCookieStore,
   })  : _userAgent = userAgent,
         _httpClient = httpClient,
-        _storage = storage;
+        _storage = storage,
+        _enableCookieStore = enableCookieStore;
 
   final String _userAgent;
   final http.Client _httpClient;
   final AccountStorage _storage;
+  final bool _enableCookieStore;
 
   final BehaviorSubject<({String? active, BuiltMap<String, Account> accounts})> _accounts =
       BehaviorSubject.seeded((active: null, accounts: BuiltMap()));
@@ -134,6 +138,7 @@ class AccountRepository {
               httpClient: _httpClient,
               userAgent: _userAgent,
               credentials: credentials,
+              enableCookieStore: _enableCookieStore,
             );
         });
       }
@@ -238,6 +243,7 @@ class AccountRepository {
       credentials: credentials,
       userAgent: _userAgent,
       httpClient: _httpClient,
+      enableCookieStore: _enableCookieStore,
     );
 
     try {
@@ -267,8 +273,8 @@ class AccountRepository {
 
     _accounts.add((active: active, accounts: accounts));
     await Future.wait([
-      _storage.saveCredentials(accounts.values.map((e) => e.credentials)),
-      _storage.saveLastAccount(active),
+      _storage.addCredentials(account.credentials),
+      _storage.saveLastAccount(account.credentials),
     ]);
   }
 
@@ -288,13 +294,16 @@ class AccountRepository {
     }
 
     var active = value.active;
-    if (active == accountID) {
+    if (value.active == accountID) {
       active = accounts.keys.firstOrNull;
     }
 
     await Future.wait([
-      _storage.saveCredentials(accounts.values.map((e) => e.credentials)),
-      _storage.saveLastAccount(active),
+      _storage.removeCredentials(account!.credentials),
+      if (active != null)
+        _storage.saveLastAccount(
+          accountByID(active)!.credentials,
+        ),
     ]);
 
     _accounts.add((active: active, accounts: accounts));
@@ -324,6 +333,7 @@ class AccountRepository {
     }
 
     _accounts.add((active: accountID, accounts: value.accounts));
-    await _storage.saveLastAccount(accountID);
+    final active = value.accounts[accountID]!;
+    await _storage.saveLastAccount(active.credentials);
   }
 }

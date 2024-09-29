@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:typed_data';
 import 'dart:ui';
 
 import 'package:account_repository/account_repository.dart';
 import 'package:crypto/crypto.dart';
 import 'package:crypton/crypton.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_svg/flutter_svg.dart' show SvgBytesLoader, vg;
@@ -15,7 +15,6 @@ import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/models/push_notification.dart';
-import 'package:neon_framework/src/storage/keys.dart';
 import 'package:neon_framework/src/theme/colors.dart';
 import 'package:neon_framework/src/utils/account_client_extension.dart';
 import 'package:neon_framework/src/utils/image_utils.dart';
@@ -95,8 +94,13 @@ class PushUtils {
         }
       },
     );
-    await NeonStorage().init();
 
+    final accountStorage = AccountStorage();
+    await NeonStorage().init(
+      dataTables: [
+        accountStorage,
+      ],
+    );
     final keypair = loadRSAKeypair();
     for (final message in Uri(query: utf8.decode(messages)).queryParameters.values) {
       final data = json.decode(message) as Map<String, dynamic>;
@@ -116,14 +120,11 @@ class PushUtils {
       } else {
         final localizations = await appLocalizationsFromSystem();
         final packageInfo = await PackageInfo.fromPlatform();
-        final accountStorage = AccountStorage(
-          accountsPersistence: NeonStorage().singleValueStore(StorageKeys.accounts),
-          lastAccountPersistence: NeonStorage().singleValueStore(StorageKeys.lastUsedAccount),
-        );
         final accountRepository = AccountRepository(
           userAgent: buildUserAgent(packageInfo),
           httpClient: http.Client(),
           storage: accountStorage,
+          enableCookieStore: !kIsWeb,
         );
 
         await accountRepository.loadAccounts();

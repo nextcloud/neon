@@ -4,81 +4,22 @@ import 'dart:typed_data';
 
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
-import 'package:meta/meta.dart';
-import 'package:neon_framework/models.dart';
-import 'package:neon_framework/src/platform/platform.dart';
-import 'package:path/path.dart' as p;
-import 'package:path_provider/path_provider.dart';
-import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'package:neon_storage/neon_sqlite.dart';
+import 'package:neon_storage/neon_storage.dart';
+import 'package:sqflite_common/sqlite_api.dart';
 
 final _log = Logger('RequestCache');
 
-/// A storage used to cache HTTP requests.
-abstract interface class RequestCache {
-  /// Gets the cached status code, body and headers for the [request].
-  Future<http.Response?> get(Account account, http.Request request);
+final class _SQLiteRequestCacheTable extends Table {
+  @override
+  String get name => 'request_cache';
 
-  /// Sets the cached [response] for the [request].
-  ///
-  /// If a request is already present it will be updated with the new one.
-  Future<void> set(Account account, http.Request request, http.Response response);
+  @override
+  int get version => 7;
 
-  /// Updates the cache [headers] for the [request] without modifying anything else.
-  Future<void> updateHeaders(Account account, http.Request request, Map<String, String> headers);
-}
-
-/// Default implementation of the [RequestCache].
-///
-/// Values are persisted locally in an SQLite database in the application cache
-/// directory.
-///
-/// The database must be initialized with by calling `DefaultRequestCache().init()`
-/// and awaiting it's completion. If the database is not yet initialized a
-/// `StateError` will be thrown.
-@internal
-final class DefaultRequestCache implements RequestCache {
-  /// Creates a new request cache instance.
-  ///
-  /// There should be no need to create multiple instances.
-  DefaultRequestCache();
-
-  @visibleForTesting
-  Database? database;
-
-  /// Initializes this request cache by setting up the backing SQLite database.
-  ///
-  /// This must called and completed before accessing other methods of the cache.
-  Future<void> init() async {
-    if (database != null) {
-      return;
-    }
-
-    assert(
-      NeonPlatform.instance.canUsePaths,
-      'Tried to initialize DefaultRequestCache on a platform without support for paths',
-    );
-    final cacheDir = await getApplicationCacheDirectory();
-    database = await openDatabase(
-      p.join(cacheDir.path, 'cache.db'),
-      version: 7,
-      onCreate: onCreate,
-      onUpgrade: (db, oldVersion, newVersion) async {
-        // We can safely drop the table as it only contains cached data.
-        // Non breaking migrations should not drop the cache. The next
-        // breaking change should remove all non breaking migrations before it.
-        await db.transaction((txn) async {
-          if (oldVersion <= 6) {
-            await txn.execute('DROP TABLE cache');
-            await onCreate(txn);
-          }
-        });
-      },
-    );
-  }
-
-  @visibleForTesting
-  static Future<void> onCreate(DatabaseExecutor db, [int? version]) async {
-    await db.execute('''
+  @override
+  void onCreate(Batch db, int version) {
+    db.execute('''
 CREATE TABLE "cache" (
 	"account"              TEXT NOT NULL,
 	"request_method"       TEXT NOT NULL,
@@ -92,23 +33,32 @@ CREATE TABLE "cache" (
 );
 ''');
   }
+}
 
-  Database get _requireDatabase {
-    final database = this.database;
-    if (database == null) {
-      throw StateError(
-        'Cache has not been set up yet. Please make sure DefaultRequestCache.init() has been called before and completed.',
-      );
-    }
+/// Default implementation of the [RequestCache].
+///
+/// Values are persisted locally in an SQLite table.database in the application cache
+/// directory.
+///
+/// The table.database must be initialized with by calling `DefaultRequestCache().init()`
+/// and awaiting it's completion. If the table.database is not yet initialized a
+/// `StateError` will be thrown.
+final class SQLiteRequestCache implements RequestCache {
+  /// Creates a new request cache instance.
+  ///
+  /// There should be no need to create multiple instances.
+  const SQLiteRequestCache();
 
-    return database;
-  }
+  /// The sqlite table backing this storage.
+  static final Table table = _SQLiteRequestCacheTable();
+
+  static Database get _database => table.controller.database;
 
   @override
-  Future<http.Response?> get(Account account, http.Request request) async {
+  Future<http.Response?> get(String accountID, http.Request request) async {
     List<Map<String, Object?>>? result;
     try {
-      result = await _requireDatabase.rawQuery(
+      result = await _database.rawQuery(
         '''
 SELECT response_status_code,
        response_headers,
@@ -121,7 +71,7 @@ WHERE account = ?
   AND request_body = ?
 ''',
         [
-          account.id,
+          accountID,
           request.method.toUpperCase(),
           request.url.toString(),
           json.encode(sanitizeRequestHeaders(request.headers)),
@@ -149,18 +99,18 @@ WHERE account = ?
   }
 
   @override
-  Future<void> set(Account account, http.Request request, http.Response response) async {
+  Future<void> set(String accountID, http.Request request, http.Response response) async {
     final encodedRequestHeaders = json.encode(sanitizeRequestHeaders(request.headers));
     final encodedResponseHeaders = json.encode(response.headers);
 
     try {
       // UPSERT is only available since SQLite 3.24.0 (June 4, 2018).
       // Using a manual solution from https://stackoverflow.com/a/38463024
-      final batch = _requireDatabase.batch()
+      final batch = _database.batch()
         ..update(
           'cache',
           {
-            'account': account.id,
+            'account': accountID,
             'request_method': request.method.toUpperCase(),
             'request_url': request.url.toString(),
             'request_headers': encodedRequestHeaders,
@@ -171,7 +121,7 @@ WHERE account = ?
           },
           where: 'account = ? AND request_method = ? AND request_url = ? AND request_headers = ? AND request_body = ?',
           whereArgs: [
-            account.id,
+            accountID,
             request.method.toUpperCase(),
             request.url.toString(),
             encodedRequestHeaders,
@@ -194,7 +144,7 @@ SELECT ?, ?, ?, ?, ?, ?, ?, ?
 WHERE (SELECT changes() = 0)
 ''',
           [
-            account.id,
+            accountID,
             request.method.toUpperCase(),
             request.url.toString(),
             encodedRequestHeaders,
@@ -215,17 +165,17 @@ WHERE (SELECT changes() = 0)
   }
 
   @override
-  Future<void> updateHeaders(Account account, http.Request request, Map<String, String> headers) async {
+  Future<void> updateHeaders(String accountID, http.Request request, Map<String, String> headers) async {
     try {
-      await _requireDatabase.update(
+      await _database.update(
         'cache',
         {
-          'account': account.id,
+          'account': accountID,
           'response_headers': json.encode(headers),
         },
         where: 'account = ? AND request_method = ? AND request_url = ? AND request_headers = ? AND request_body = ?',
         whereArgs: [
-          account.id,
+          accountID,
           request.method.toUpperCase(),
           request.url.toString(),
           json.encode(sanitizeRequestHeaders(request.headers)),

@@ -1,7 +1,8 @@
 import 'package:account_repository/src/models/models.dart';
+import 'package:cookie_store/cookie_store.dart';
 import 'package:http/http.dart' as http;
-import 'package:neon_framework/storage.dart';
 import 'package:neon_http_client/neon_http_client.dart';
+import 'package:neon_storage/neon_storage.dart';
 import 'package:nextcloud/nextcloud.dart';
 
 /// Builds a [NextcloudClient] authenticated with the given [credentials].
@@ -9,11 +10,17 @@ NextcloudClient buildClient({
   required http.Client httpClient,
   required String userAgent,
   required Credentials credentials,
+  bool enableCookieStore = true,
 }) {
-  final cookieStore = NeonStorage().cookieStore(
-    accountID: credentials.id,
-    serverURL: credentials.serverURL,
-  );
+  CookieStore? cookieStore;
+  if (enableCookieStore) {
+    final persistence = SQLiteCookiePersistence(
+      accountID: credentials.id,
+      allowedBaseUri: credentials.serverURL,
+    );
+
+    cookieStore = DefaultCookieStore(persistence);
+  }
 
   final neonHttpClient = NeonHttpClient(
     cookieStore: cookieStore,

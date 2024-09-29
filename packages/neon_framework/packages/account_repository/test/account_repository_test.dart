@@ -7,7 +7,6 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value_test/matcher.dart';
 import 'package:http/http.dart' as http;
 import 'package:mocktail/mocktail.dart';
-import 'package:neon_framework/testing.dart' show MockNeonStorage;
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
@@ -18,6 +17,8 @@ class _FakeStatus extends Fake implements core.Status {}
 class _FakeUri extends Fake implements Uri {}
 
 class _FakeClient extends Fake implements http.Client {}
+
+class _FakeCredentials extends Fake implements Credentials {}
 
 class _FakePollRequest extends Fake implements core.ClientFlowLoginV2PollRequestApplicationJson {}
 
@@ -54,7 +55,7 @@ void main() {
   setUpAll(() {
     registerFallbackValue(_FakeUri());
     registerFallbackValue(_FakePollRequest());
-    MockNeonStorage();
+    registerFallbackValue(_FakeCredentials());
   });
 
   setUp(() {
@@ -76,6 +77,7 @@ void main() {
       userAgent: 'userAgent',
       httpClient: _FakeClient(),
       storage: storage,
+      enableCookieStore: false,
     );
   });
 
@@ -467,7 +469,7 @@ void main() {
 
     group('logIn', () {
       setUp(() async {
-        when(() => storage.saveCredentials(any())).thenAnswer((_) async => {});
+        when(() => storage.addCredentials(any())).thenAnswer((_) async => {});
         when(() => storage.saveLastAccount(any())).thenAnswer((_) async => {});
       });
 
@@ -486,8 +488,8 @@ void main() {
                 .having((e) => e.active, 'active', equals(account)),
           ),
         );
-        verify(() => storage.saveCredentials(any(that: contains(account.credentials)))).called(1);
-        verify(() => storage.saveLastAccount(account.id)).called(1);
+        verify(() => storage.addCredentials(account.credentials)).called(1);
+        verify(() => storage.saveLastAccount(account.credentials)).called(1);
       });
     });
 
@@ -495,7 +497,7 @@ void main() {
       setUp(() async {
         when(() => storage.readCredentials()).thenAnswer((_) async => credentialsList);
         when(() => storage.saveLastAccount(any())).thenAnswer((_) async => {});
-        when(() => storage.saveCredentials(any())).thenAnswer((_) async => {});
+        when(() => storage.removeCredentials(any())).thenAnswer((_) async => {});
 
         await repository.loadAccounts();
 
@@ -518,8 +520,8 @@ void main() {
         );
 
         verify(() => appPassword.deleteAppPassword()).called(1);
-        verify(() => storage.saveLastAccount(credentialsList[1].id)).called(1);
-        verify(() => storage.saveCredentials(any(that: equals([credentialsList[1]])))).called(1);
+        verify(() => storage.saveLastAccount(credentialsList[1])).called(1);
+        verify(() => storage.removeCredentials(credentialsList[0])).called(1);
       });
 
       test('tries to remove invalid  account', () async {
@@ -532,7 +534,7 @@ void main() {
 
         verifyNever(() => appPassword.deleteAppPassword());
         verifyNever(() => storage.saveLastAccount(any()));
-        verifyNever(() => storage.saveCredentials(any()));
+        verifyNever(() => storage.removeCredentials(any()));
       });
 
       test('rethrows http exceptions as `DeleteCredentialsFailure`', () async {
@@ -553,8 +555,8 @@ void main() {
         );
 
         verify(() => appPassword.deleteAppPassword()).called(1);
-        verify(() => storage.saveLastAccount(credentialsList[1].id)).called(1);
-        verify(() => storage.saveCredentials(any(that: equals([credentialsList[1]])))).called(1);
+        verify(() => storage.saveLastAccount(credentialsList[1])).called(1);
+        verify(() => storage.removeCredentials(credentialsList[0])).called(1);
       });
     });
 
@@ -595,7 +597,7 @@ void main() {
           ),
         );
 
-        verify(() => storage.saveLastAccount(credentialsList[1].id)).called(1);
+        verify(() => storage.saveLastAccount(credentialsList[1])).called(1);
       });
     });
   });

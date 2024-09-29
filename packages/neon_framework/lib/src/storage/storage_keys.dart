@@ -1,17 +1,8 @@
-import 'package:meta/meta.dart';
-
-/// Interface of a storable element.
-///
-/// Usually used in enhanced enums to ensure uniqueness of the storage keys.
-abstract interface class Storable {
-  /// The key of this storage element.
-  String get value;
-}
+import 'package:neon_framework/src/storage/storage.dart';
 
 /// Unique storage keys.
 ///
 /// Required by the users of the `NeonStorage` storage backend.
-@internal
 enum StorageKeys implements Storable {
   /// The key for the `AppImplementation`s.
   apps._('app'),

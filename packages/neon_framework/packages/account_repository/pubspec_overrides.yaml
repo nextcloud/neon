@@ -1,4 +1,4 @@
-# melos_managed_dependency_overrides: cookie_store,dynamite_runtime,interceptor_http_client,neon_framework,neon_http_client,neon_lints,nextcloud,sort_box
+# melos_managed_dependency_overrides: cookie_store,dynamite_runtime,interceptor_http_client,neon_http_client,neon_lints,neon_storage,nextcloud
 dependency_overrides:
   cookie_store:
     path: ../../../cookie_store
@@ -6,13 +6,11 @@ dependency_overrides:
     path: ../../../dynamite/packages/dynamite_runtime
   interceptor_http_client:
     path: ../../../interceptor_http_client
-  neon_framework:
-    path: ../..
   neon_http_client:
     path: ../neon_http_client
   neon_lints:
     path: ../../../neon_lints
+  neon_storage:
+    path: ../neon_storage
   nextcloud:
     path: ../../../nextcloud
-  sort_box:
-    path: ../sort_box
