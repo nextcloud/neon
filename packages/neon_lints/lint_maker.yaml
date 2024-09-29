@@ -16,11 +16,12 @@ base:
         avoid_as: false
         avoid_catches_without_on_clauses: false
         diagnostic_describe_all_properties: false
+        document_ignores: false
         lines_longer_than_80_chars: false
         no_default_cases: false
         one_member_abstracts: false
         prefer_double_quotes: false
+        prefer_expression_function_bodies: false
+        prefer_final_parameters: false
         prefer_relative_imports: false
         unnecessary_final: false
-        prefer_final_parameters: false
-        prefer_expression_function_bodies: false

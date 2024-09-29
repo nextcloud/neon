@@ -15,7 +15,7 @@ final _log = Logger('Option');
 /// Listenable option that is persisted in the [SettingsStore].
 ///
 /// See:
-///   * [ToggleOption] for an Option<bool>
+///   * [ToggleOption] for an `Option<bool>`
 ///   * [SelectOption] for an Option with multiple values
 sealed class Option<T> extends ChangeNotifier implements ValueListenable<T>, Disposable {
   /// Creates an Option

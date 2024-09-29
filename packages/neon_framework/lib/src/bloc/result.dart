@@ -137,7 +137,7 @@ class Result<T> {
   ///
   /// This can be false even when the asynchronous computation has completed
   /// successfully, if the computation did not return a non-null value. For
-  /// example, a [Future<void>] will complete with the null value even if it
+  /// example, a `Future<void>` will complete with the null value even if it
   /// completes successfully.
   /// A result may both have an error and data.
   bool get hasData => data != null;
@@ -180,7 +180,7 @@ class Result<T> {
 typedef ResultWidgetBuilder<T> = Widget Function(BuildContext context, Result<T> snapshot);
 
 /// Widget that builds itself based on the latest snapshot of interaction with
-/// a [Stream<Result>].
+/// a `Stream<Result>`.
 ///
 /// Widget rebuilding is scheduled by each interaction, using [State.setState],
 /// but is otherwise decoupled from the timing of the stream. The [builder]

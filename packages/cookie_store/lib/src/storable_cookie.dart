@@ -1,3 +1,6 @@
+// Upstream bug: https://github.com/dart-lang/linter/issues/5065
+// ignore_for_file: unintended_html_in_doc_comment
+
 import 'package:meta/meta.dart';
 import 'package:timezone/timezone.dart' as tz;
 

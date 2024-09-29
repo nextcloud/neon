@@ -50,7 +50,7 @@ class SettingsExportHelper {
   /// Imports the [json] data and applies the stored [Option]s.
   ///
   /// See:
-  /// * [applyFromFile] to import data from a [Stream<Uint8List>].
+  /// * [applyFromFile] to import data from a `Stream<Uint8List>`.
   Future<void> applyFromJson(Map<String, Object?> json) async {
     for (final exportable in exportables) {
       await exportable.import(json);
