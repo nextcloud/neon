@@ -513,10 +513,11 @@ packages:
   flutter_local_notifications:
     dependency: transitive
     description:
-      name: flutter_local_notifications
-      sha256: "49eeef364fddb71515bc78d5a8c51435a68bccd6e4d68e25a942c5e47761ae71"
-      url: "https://pub.dev"
-    source: hosted
+      path: flutter_local_notifications
+      ref: d9789d8496545ca2c5a42b78b9f49dc8efe2929b
+      resolved-ref: d9789d8496545ca2c5a42b78b9f49dc8efe2929b
+      url: "https://github.com/MaikuB/flutter_local_notifications"
+    source: git
     version: "17.2.3"
   flutter_local_notifications_linux:
     dependency: transitive
@@ -917,6 +918,13 @@ packages:
       relative: true
     source: path
     version: "1.0.0"
+  notifications_push_repository:
+    dependency: "direct overridden"
+    description:
+      path: "../packages/notifications_push_repository"
+      relative: true
+    source: path
+    version: "0.1.0"
   open_filex:
     dependency: transitive
     description:

@@ -164,6 +164,9 @@ class NeonLocalizationsEn extends NeonLocalizations {
   String get actionDone => 'Done';
 
   @override
+  String get actionOpen => 'Open';
+
+  @override
   String get firstLaunchGoToSettingsToEnablePushNotifications => 'Go to the settings to enable push notifications';
 
   @override
@@ -283,14 +286,10 @@ class NeonLocalizationsEn extends NeonLocalizations {
   String get globalOptionsThemeCustomBackground => 'Custom background';
 
   @override
-  String get globalOptionsPushNotificationsEnabled => 'Enabled';
+  String get globalOptionsPushNotifications => 'UnifiedPush';
 
   @override
-  String get globalOptionsPushNotificationsEnabledDisabledNotice =>
-      'No UnifiedPush distributor could be found or you denied the permission for showing notifications. Please go to the app settings and allow notifications and go to https://unifiedpush.org/users/distributors and setup any of the listed distributors. Then re-open this app and you should be able to enable notifications';
-
-  @override
-  String get globalOptionsPushNotificationsDistributor => 'UnifiedPush Distributor';
+  String get globalOptionsPushNotificationsDisabled => 'Disabled';
 
   @override
   String get globalOptionsPushNotificationsDistributorGotifyUP => 'Gotify-UP (FOSS)';

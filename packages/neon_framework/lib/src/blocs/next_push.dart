@@ -33,15 +33,11 @@ class _NextPushBloc extends Bloc implements NextPushBloc {
     if (disabled) {
       return;
     }
-    changesSubscription = Rx.merge([
-      globalOptions.pushNotificationsEnabled.stream,
+    changesSubscription = Rx.merge<dynamic>([
       globalOptions.pushNotificationsDistributor.stream,
       accountsSubject,
-    ]).debounceTime(const Duration(milliseconds: 100)).listen((_) async {
-      if (!globalOptions.pushNotificationsEnabled.enabled || !globalOptions.pushNotificationsEnabled.value) {
-        return;
-      }
-      if (globalOptions.pushNotificationsDistributor.value != null) {
+    ]).listen((_) async {
+      if (globalOptions.pushNotificationsDistributor.value == null) {
         return;
       }
       if (globalOptions.pushNotificationsDistributor.values.containsKey(unifiedPushNextPushID)) {
