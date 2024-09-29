@@ -66,7 +66,7 @@ class GlobalPopups {
       _subscriptions.addAll([
         firstLaunchBloc.onFirstLaunch.listen((_) {
           assert(context.mounted, 'Context should be mounted');
-          if (!globalOptions.pushNotificationsEnabled.enabled) {
+          if (globalOptions.pushNotificationsDistributor.value != null) {
             return;
           }
 
@@ -84,7 +84,7 @@ class GlobalPopups {
         }),
         nextPushBloc.onNextPushSupported.listen((_) async {
           assert(context.mounted, 'Context should be mounted');
-          if (!globalOptions.pushNotificationsEnabled.enabled) {
+          if (globalOptions.pushNotificationsDistributor.value != null) {
             return;
           }
 

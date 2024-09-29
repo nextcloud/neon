@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/models.dart';
+import 'package:neon_framework/platform.dart';
 import 'package:neon_framework/src/settings/models/option.dart';
 import 'package:neon_framework/src/settings/models/options_collection.dart';
 import 'package:neon_framework/src/storage/keys.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:universal_io/io.dart';
 
 /// The package id of the NextPush UnifiedPush distributor.
@@ -21,8 +21,8 @@ class GlobalOptions extends OptionsCollection {
   /// Creates a new global options collection.
   GlobalOptions(
     this._packageInfo,
+    this._distributors,
   ) : super(NeonStorage().settingsStore(StorageKeys.global)) {
-    pushNotificationsEnabled.addListener(_pushNotificationsEnabledListener);
     rememberLastUsedAccount.addListener(_rememberLastUsedAccountListener);
   }
 
@@ -37,21 +37,8 @@ class GlobalOptions extends OptionsCollection {
     }
   }
 
-  Future<void> _pushNotificationsEnabledListener() async {
-    if (pushNotificationsEnabled.value) {
-      final response = await Permission.notification.request();
-      if (response.isPermanentlyDenied) {
-        pushNotificationsEnabled.enabled = false;
-      }
-      if (!response.isGranted) {
-        pushNotificationsEnabled.value = false;
-      }
-    } else {
-      pushNotificationsDistributor.reset();
-    }
-  }
-
   final PackageInfo _packageInfo;
+  final BuiltList<String> _distributors;
 
   late final _distributorsMap = <String, LabelBuilder>{
     _packageInfo.packageName: (context) =>
@@ -74,7 +61,6 @@ class GlobalOptions extends OptionsCollection {
     themeOLEDAsDark,
     themeUseNextcloudTheme,
     themeCustomBackground,
-    pushNotificationsEnabled,
     pushNotificationsDistributor,
     startupMinimized,
     startupMinimizeInsteadOfExit,
@@ -87,7 +73,6 @@ class GlobalOptions extends OptionsCollection {
   void dispose() {
     super.dispose();
 
-    pushNotificationsEnabled.removeListener(_pushNotificationsEnabledListener);
     rememberLastUsedAccount.removeListener(_rememberLastUsedAccountListener);
   }
 
@@ -100,20 +85,6 @@ class GlobalOptions extends OptionsCollection {
         (account) => MapEntry(account.id, (context) => account.humanReadableID),
       ),
     );
-  }
-
-  /// Updates the values of [pushNotificationsDistributor].
-  ///
-  /// If the new `distributors` does not contain the currently active one
-  /// both [pushNotificationsDistributor] and [pushNotificationsEnabled] will be reset.
-  void updateDistributors(List<String> distributors) {
-    pushNotificationsDistributor.values = Map.fromEntries(
-      distributors.map(
-        (distributor) => MapEntry(distributor, _distributorsMap[distributor] ?? (_) => distributor),
-      ),
-    );
-
-    pushNotificationsEnabled.enabled = pushNotificationsDistributor.values.isNotEmpty;
   }
 
   /// The theme mode of the app implementing the Neon framework.
@@ -162,27 +133,17 @@ class GlobalOptions extends OptionsCollection {
     enabled: themeUseNextcloudTheme,
   );
 
-  /// Whether to enable the push notifications plugin.
-  ///
-  /// Setting this option to true will request the permission to show notifications.
-  /// Disabling this option will reset [pushNotificationsDistributor].
-  ///
-  /// Defaults to `false`.
-  late final pushNotificationsEnabled = ToggleOption(
-    storage: storage,
-    key: GlobalOptionKeys.pushNotificationsEnabled,
-    label: (context) => NeonLocalizations.of(context).globalOptionsPushNotificationsEnabled,
-    defaultValue: false,
-  );
-
   /// The registered distributor for push notifications.
-  late final pushNotificationsDistributor = SelectOption<String?>.depend(
+  late final pushNotificationsDistributor = SelectOption<String?>(
     storage: storage,
     key: GlobalOptionKeys.pushNotificationsDistributor,
-    label: (context) => NeonLocalizations.of(context).globalOptionsPushNotificationsDistributor,
+    label: (context) => NeonLocalizations.of(context).globalOptionsPushNotifications,
     defaultValue: null,
-    values: {},
-    enabled: pushNotificationsEnabled,
+    values: {
+      null: (context) => NeonLocalizations.of(context).globalOptionsPushNotificationsDisabled,
+      for (final distributor in _distributors) distributor: _distributorsMap[distributor] ?? (_) => distributor,
+    },
+    enabled: NeonPlatform.instance.canUsePushNotifications,
   );
 
   /// Whether to start the app minimized.
@@ -259,9 +220,6 @@ enum GlobalOptionKeys implements Storable {
 
   /// The storage key for [GlobalOptions.themeCustomBackground]
   themeCustomBackground._('theme-custom-background'),
-
-  /// The storage key for [GlobalOptions.pushNotificationsEnabled]
-  pushNotificationsEnabled._('push-notifications-enabled'),
 
   /// The storage key for [GlobalOptions.pushNotificationsDistributor]
   pushNotificationsDistributor._('push-notifications-distributor'),

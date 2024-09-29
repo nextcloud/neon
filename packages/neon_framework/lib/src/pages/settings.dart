@@ -16,7 +16,6 @@ import 'package:neon_framework/src/settings/widgets/option_settings_tile.dart';
 import 'package:neon_framework/src/settings/widgets/settings_category.dart';
 import 'package:neon_framework/src/settings/widgets/settings_list.dart';
 import 'package:neon_framework/src/settings/widgets/settings_tile.dart';
-import 'package:neon_framework/src/settings/widgets/text_settings_tile.dart';
 import 'package:neon_framework/src/theme/branding.dart';
 import 'package:neon_framework/src/theme/dialog.dart';
 import 'package:neon_framework/src/theme/icons.dart';
@@ -314,29 +313,14 @@ class SettingsPage extends StatelessWidget {
   Widget buildNotificationsCategory(BuildContext context) {
     final globalOptions = NeonProvider.of<GlobalOptions>(context);
 
-    return ValueListenableBuilder(
-      valueListenable: globalOptions.pushNotificationsEnabled,
-      builder: (context, _, __) => SettingsCategory(
-        title: Text(NeonLocalizations.of(context).optionsCategoryPushNotifications),
-        key: ValueKey(SettingsCategories.pushNotifications.name),
-        tiles: [
-          if (!globalOptions.pushNotificationsEnabled.enabled)
-            TextSettingsTile(
-              text: NeonLocalizations.of(context).globalOptionsPushNotificationsEnabledDisabledNotice,
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontStyle: FontStyle.italic,
-                color: Theme.of(context).colorScheme.error,
-              ),
-            ),
-          ToggleSettingsTile(
-            option: globalOptions.pushNotificationsEnabled,
-          ),
-          SelectSettingsTile(
-            option: globalOptions.pushNotificationsDistributor,
-          ),
-        ],
-      ),
+    return SettingsCategory(
+      title: Text(NeonLocalizations.of(context).optionsCategoryPushNotifications),
+      key: ValueKey(SettingsCategories.pushNotifications.name),
+      tiles: [
+        SelectSettingsTile(
+          option: globalOptions.pushNotificationsDistributor,
+        ),
+      ],
     );
   }
 
