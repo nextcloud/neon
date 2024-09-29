@@ -32,6 +32,7 @@ rules:
       - nextcloud_test_presets
       - notes_app
       - notifications_app
+      - notifications_push_repository
       - release
       - sort_box
       - talk_app
