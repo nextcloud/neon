@@ -21,36 +21,41 @@ ENV PHP_CLI_SERVER_WORKERS=10
 CMD ["php", "-S", "0.0.0.0:80"]
 
 FROM alpine:latest@sha256:beefdbd8a1da6d2915566fde36db9db0b524eb737fc57cd1367effd16dc0d06d AS apps
-RUN apk add curl
-
 
 FROM apps AS cookbook
 ARG COOKBOOK_URL
-RUN curl -L "$COOKBOOK_URL" | tar -xz -C /
+ADD $COOKBOOK_URL /tmp/app.tar.gz
+RUN tar -xzf /tmp/app.tar.gz -C /
 
 FROM apps AS news
 ARG NEWS_URL
-RUN curl -L "$NEWS_URL" | tar -xz -C /
+ADD $NEWS_URL /tmp/app.tar.gz
+RUN tar -xzf /tmp/app.tar.gz -C /
 
 FROM apps AS notes
 ARG NOTES_URL
-RUN curl -L "$NOTES_URL" | tar -xz -C /
+ADD $NOTES_URL /tmp/app.tar.gz
+RUN tar -xzf /tmp/app.tar.gz -C /
 
 FROM apps AS uppush
 ARG UPPUSH_URL
-RUN curl -L "$UPPUSH_URL" | tar -xz -C /
+ADD $UPPUSH_URL /tmp/app.tar.gz
+RUN tar -xzf /tmp/app.tar.gz -C /
 
 FROM apps AS spreed
 ARG SPREED_URL
-RUN curl -L "$SPREED_URL" | tar -xz -C /
+ADD $SPREED_URL /tmp/app.tar.gz
+RUN tar -xzf /tmp/app.tar.gz -C /
 
 FROM apps AS tables
 ARG TABLES_URL
-RUN curl -L "$TABLES_URL" | tar -xz -C /
+ADD $TABLES_URL /tmp/app.tar.gz
+RUN tar -xzf /tmp/app.tar.gz -C /
 
 FROM apps AS drop_account
 ARG DROP_ACCOUNT_URL
-RUN curl -L "$DROP_ACCOUNT_URL" | tar -xz -C /
+ADD $DROP_ACCOUNT_URL /tmp/app.tar.gz
+RUN tar -xzf /tmp/app.tar.gz -C /
 
 FROM nextcloud
 
