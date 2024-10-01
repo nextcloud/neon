@@ -574,6 +574,46 @@ void main() {
       destinationDir.deleteSync(recursive: true);
     });
 
+    group('Upload overwrite', () {
+      test('Data', () async {
+        final data1 = Uint8List.fromList(utf8.encode('123'));
+        await tester.client.webdav.put(
+          data1,
+          PathUri.parse('test/upload_overwrite.png'),
+        );
+        var response = await tester.client.webdav.get(PathUri.parse('test/upload_overwrite.png'));
+        expect(response, data1);
+
+        final data2 = Uint8List.fromList(utf8.encode('456'));
+        await tester.client.webdav.put(
+          data2,
+          PathUri.parse('test/upload_overwrite.png'),
+        );
+        response = await tester.client.webdav.get(PathUri.parse('test/upload_overwrite.png'));
+        expect(response, data2);
+      });
+
+      test('Stream', () async {
+        final data1 = Uint8List.fromList(utf8.encode('123'));
+        await tester.client.webdav.putStream(
+          Stream.value(data1),
+          PathUri.parse('test/upload_overwrite.png'),
+          contentLength: data1.length,
+        );
+        var response = await tester.client.webdav.get(PathUri.parse('test/upload_overwrite.png'));
+        expect(response, data1);
+
+        final data2 = Uint8List.fromList(utf8.encode('456'));
+        await tester.client.webdav.putStream(
+          Stream.value(data2),
+          PathUri.parse('test/upload_overwrite.png'),
+          contentLength: data2.length,
+        );
+        response = await tester.client.webdav.get(PathUri.parse('test/upload_overwrite.png'));
+        expect(response, data2);
+      });
+    });
+
     test('getStream error handling', () async {
       await expectLater(
         () => tester.client.webdav.getStream(PathUri.parse('test/404.txt')),
