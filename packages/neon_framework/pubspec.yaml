@@ -80,7 +80,7 @@ dependencies:
 
 dev_dependencies:
   bloc_test: ^9.1.7
-  build_runner: ^2.4.12
+  build_runner: ^2.4.13
   built_value_generator: ^8.9.2
   cookie_store_conformance_tests:
     git:
