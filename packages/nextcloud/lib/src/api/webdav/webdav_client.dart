@@ -211,7 +211,7 @@ class WebDavClient extends DynamiteClient {
     );
 
     final streamedResponse = await httpClient.send(request);
-    if (streamedResponse.statusCode != 201) {
+    if (streamedResponse.statusCode != 201 && streamedResponse.statusCode != 204) {
       final response = await http.Response.fromStream(streamedResponse);
       throw DynamiteStatusCodeException(response);
     }
@@ -300,7 +300,7 @@ class WebDavClient extends DynamiteClient {
     );
 
     final streamedResponse = await httpClient.send(request);
-    if (streamedResponse.statusCode != 201) {
+    if (streamedResponse.statusCode != 201 && streamedResponse.statusCode != 204) {
       final response = await http.Response.fromStream(streamedResponse);
       throw DynamiteStatusCodeException(response);
     }
