@@ -19,7 +19,7 @@ dependencies:
       path: packages/interceptor_http_client
   logging: ^1.0.0
   meta: ^1.0.0
-  nextcloud: ^8.0.0
+  nextcloud: ^8.0.1
 
 dev_dependencies:
   http_client_conformance_tests:

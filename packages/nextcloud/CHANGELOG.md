@@ -1,3 +1,7 @@
+## 8.0.1
+
+ - **FIX**(nextcloud): Do not throw DynamiteStatusCodeException on WebDAV PUT 204 response. ([9706c1be](https://github.com/nextcloud/neon/commit/9706c1be96c2d271582797d145eed6a01ad2ed4a))
+
 ## 8.0.0
 
 > Note: This release has breaking changes.
