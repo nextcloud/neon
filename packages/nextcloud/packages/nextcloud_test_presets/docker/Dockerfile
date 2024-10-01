@@ -24,37 +24,44 @@ FROM alpine:latest@sha256:beefdbd8a1da6d2915566fde36db9db0b524eb737fc57cd1367eff
 
 FROM apps AS cookbook
 ARG COOKBOOK_URL
-ADD $COOKBOOK_URL /tmp/app.tar.gz
+ARG COOKBOOK_CHECKSUM
+ADD --checksum=$COOKBOOK_CHECKSUM $COOKBOOK_URL /tmp/app.tar.gz
 RUN tar -xzf /tmp/app.tar.gz -C /
 
 FROM apps AS news
 ARG NEWS_URL
-ADD $NEWS_URL /tmp/app.tar.gz
+ARG NEWS_CHECKSUM
+ADD --checksum=$NEWS_CHECKSUM $NEWS_URL /tmp/app.tar.gz
 RUN tar -xzf /tmp/app.tar.gz -C /
 
 FROM apps AS notes
 ARG NOTES_URL
-ADD $NOTES_URL /tmp/app.tar.gz
+ARG NOTES_CHECKSUM
+ADD --checksum=$NOTES_CHECKSUM $NOTES_URL /tmp/app.tar.gz
 RUN tar -xzf /tmp/app.tar.gz -C /
 
 FROM apps AS uppush
 ARG UPPUSH_URL
-ADD $UPPUSH_URL /tmp/app.tar.gz
+ARG UPPUSH_CHECKSUM
+ADD --checksum=$UPPUSH_CHECKSUM $UPPUSH_URL /tmp/app.tar.gz
 RUN tar -xzf /tmp/app.tar.gz -C /
 
 FROM apps AS spreed
 ARG SPREED_URL
-ADD $SPREED_URL /tmp/app.tar.gz
+ARG SPREED_CHECKSUM
+ADD --checksum=$SPREED_CHECKSUM $SPREED_URL /tmp/app.tar.gz
 RUN tar -xzf /tmp/app.tar.gz -C /
 
 FROM apps AS tables
 ARG TABLES_URL
-ADD $TABLES_URL /tmp/app.tar.gz
+ARG TABLES_CHECKSUM
+ADD --checksum=$TABLES_CHECKSUM $TABLES_URL /tmp/app.tar.gz
 RUN tar -xzf /tmp/app.tar.gz -C /
 
 FROM apps AS drop_account
 ARG DROP_ACCOUNT_URL
-ADD $DROP_ACCOUNT_URL /tmp/app.tar.gz
+ARG DROP_ACCOUNT_CHECKSUM
+ADD --checksum=$DROP_ACCOUNT_CHECKSUM $DROP_ACCOUNT_URL /tmp/app.tar.gz
 RUN tar -xzf /tmp/app.tar.gz -C /
 
 FROM nextcloud

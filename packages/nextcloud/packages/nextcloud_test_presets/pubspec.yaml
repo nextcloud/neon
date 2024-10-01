@@ -6,6 +6,7 @@ environment:
   sdk: ^3.0.0
 
 dependencies:
+  crypto: ^3.0.0
   http: ^1.2.0
   meta: ^1.0.0
   nextcloud: ^8.0.1
