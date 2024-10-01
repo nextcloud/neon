@@ -34,6 +34,7 @@ jobs:
       - uses: ilharp/sign-android-release@2034987c31e3959f7c97e88d5e656e52e6e88bd8 # v1
         name: Sign
         with:
+          buildToolsVersion: 35.0.0
           releaseDir: packages/neon_framework/example/build/app/outputs/flutter-apk
           signingKey: ${{ secrets.SIGNING_KEY }}
           keyAlias: ${{ secrets.ALIAS }}
