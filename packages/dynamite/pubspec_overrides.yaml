@@ -1,4 +1,6 @@
-# melos_managed_dependency_overrides: neon_lints
+# melos_managed_dependency_overrides: neon_lints,frontend_server_client,quiver
 dependency_overrides:
   neon_lints:
     path: ../neon_lints
+  frontend_server_client: ^4.0.0
+  quiver: ^3.2.1

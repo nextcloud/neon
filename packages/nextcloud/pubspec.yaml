@@ -57,6 +57,10 @@ dev_dependencies:
   test_api: ^0.7.3
   xml_serializable: ^2.5.2
 
+dependency_overrides:
+  frontend_server_client: ^4.0.0
+  quiver: ^3.2.1
+
 platforms:
   windows:
   linux:
