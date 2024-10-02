@@ -902,7 +902,7 @@ packages:
       path: "../../nextcloud"
       relative: true
     source: path
-    version: "8.0.0"
+    version: "8.0.1"
   notes_app:
     dependency: "direct main"
     description:

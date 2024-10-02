@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-10-01
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`nextcloud` - `v8.0.1`](#nextcloud---v801)
+
+---
+
+#### `nextcloud` - `v8.0.1`
+
+ - **FIX**(nextcloud): Do not throw DynamiteStatusCodeException on WebDAV PUT 204 response. ([9706c1be](https://github.com/nextcloud/neon/commit/9706c1be96c2d271582797d145eed6a01ad2ed4a))
+
+
 ## 2024-09-28
 
 ### Changes
