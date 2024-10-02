@@ -2,7 +2,7 @@ include: package:neon_lints/flutter.yaml
 
 analyzer:
   exclude:
-    - '**/router.g.dart'
+    - 'lib/src/router.g.dart'
 
 custom_lint:
   rules:
