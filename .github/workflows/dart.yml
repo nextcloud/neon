@@ -8,10 +8,16 @@ concurrency:
 
 jobs:
   dart-ci:
-    name: Dart CI
+    name: Dart CI (${{ matrix.dependencies }})
     runs-on: ubuntu-24.04
     permissions:
       packages: write
+    strategy:
+      fail-fast: false
+      matrix:
+        dependencies:
+          - upgrade
+          - downgrade
     steps:
       - name: Checkout
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
@@ -41,6 +47,9 @@ jobs:
             git --no-pager diff
             exit 1
           fi
+      - name: Downgrade dependencies
+        if: ${{ matrix.dependencies == 'downgrade' }}
+        run: melos exec dart pub downgrade
       - name: Check formatting
         run: melos run format:check
       - name: Lint code
@@ -65,6 +74,7 @@ jobs:
           fi
 
       - name: Setup Codecov
+        if: ${{ matrix.dependencies == 'upgrade' }}
         run: |
           cd /tmp
           curl https://keybase.io/codecovsecurity/pgp_keys.asc | gpg --no-default-keyring --keyring trustedkeys.gpg --import
@@ -78,14 +88,9 @@ jobs:
           mkdir /tmp/bin
           mv codecov /tmp/bin
       - name: Upload coverage to Codecov
+        if: ${{ matrix.dependencies == 'upgrade' }}
         run: |
           export PATH="$PATH:/tmp/bin"
           melos exec --file-exists="coverage/lcov.info" --concurrency=1 -- "
             codecov --verbose upload-process --fail-on-error -F MELOS_PACKAGE_NAME -f MELOS_PACKAGE_PATH/coverage/lcov.info -t ${{ secrets.CODECOV_TOKEN }}
           "
-
-      # Run as the last step to avoid running any other steps with downgraded dependencies
-      - name: Lint code with downgraded dependencies
-        run: |
-          melos exec dart pub downgrade
-          melos run analyze
