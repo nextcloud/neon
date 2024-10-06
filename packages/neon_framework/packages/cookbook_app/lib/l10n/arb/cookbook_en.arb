@@ -1,0 +1,40 @@
+{
+  "@@locale": "en",
+  "recipeCreateButton": "Create Recipe",
+  "@recipeCreateButton": {
+    "type": "text",
+    "description": "Button to open the create recipe screen"
+  },
+  "recipeListTitle": "Category: {name}",
+  "@recipeListTitle": {
+    "type": "text",
+    "description": "Title of the category view.",
+    "placeholders": {
+      "name": {
+        "description": "The name of the category.",
+        "type": "String",
+        "example": "Vegan"
+      }
+    }
+  },
+  "noRecipes": "No recipes available.",
+  "errorLoadFailed": "Failed to load Recipe!",
+  "@errorLoadFailed": {
+    "type": "text",
+    "description": "Error message when fetching the recipes failed."
+  },
+  "categoryAll": "All Recipes",
+  "categoryUncategorized": "Uncategorized",
+  "categoryItems": "{count, plural, =0{no items} =1 {1 item} other {{count} items}}",
+  "@categoryItems": {
+    "type": "text",
+    "description": "Number of recipes in a category.",
+    "placeholders": {
+      "count": {
+        "description": "The number of recipes.",
+        "type": "int",
+        "example": "4"
+      }
+    }
+  }
+}

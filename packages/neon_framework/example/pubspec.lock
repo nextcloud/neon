@@ -213,6 +213,20 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.1"
+  cookbook_app:
+    dependency: "direct main"
+    description:
+      path: "../packages/cookbook_app"
+      relative: true
+    source: path
+    version: "1.0.0"
+  cookbook_recipe_repository:
+    dependency: "direct overridden"
+    description:
+      path: "../packages/cookbook_recipe_repository"
+      relative: true
+    source: path
+    version: "1.0.0"
   cookie_store:
     dependency: "direct overridden"
     description:

@@ -9,6 +9,7 @@ rules:
     - always
     - - ci
       - account_repository
+      - cookbook_app
       - cookie_store
       - cookie_store_conformance_tests
       - dashboard_app

@@ -1,0 +1,10 @@
+include: package:neon_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    - lib/l10n/cookbook_*
+    - '**/routes.g.dart'
+
+custom_lint:
+  rules:
+    - avoid_exports: false

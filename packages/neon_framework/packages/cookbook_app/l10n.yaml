@@ -1,0 +1,7 @@
+arb-dir: lib/l10n/arb
+template-arb-file: cookbook_en.arb
+output-localization-file: cookbook_localizations.dart
+synthetic-package: false
+output-class: CookbookLocalizations
+output-dir: lib/l10n
+nullable-getter: false
