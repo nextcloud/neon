@@ -53,14 +53,14 @@ For an example checkout the [example](https://github.com/nextcloud/neon/blob/mai
 | Component                                                                          | Supported versions (1) |
 |------------------------------------------------------------------------------------|------------------------|
 | [Server](https://github.com/nextcloud/server) (2)                                  | 28 - 30                |
-| [Cookbook app](https://github.com/nextcloud/cookbook)                              | 0.11.1 - 0.11.2        |
+| [Cookbook app](https://github.com/nextcloud/cookbook)                              | 0.11                   |
+| [User account deletion app](https://framagit.org/framasoft/nextcloud/drop_account) | 2.4 - 2.6              |
 | [News app](https://github.com/nextcloud/news)                                      | 25                     |
-| [NextPush app](https://codeberg.org/NextPush/uppush)                               | 1.4 - 1.5              |
 | [Notes app](https://github.com/nextcloud/notes)                                    | 4.8 - 4.11             |
 | [Notifications app](https://github.com/nextcloud/notifications)                    | 28 - 30                |
-| [Tables app](https://github.com/nextcloud/tables)                                  | 0.6 - 0.8              |
 | [Talk app](https://github.com/nextcloud/spreed)                                    | 18 - 20                |
-| [User account deletion app](https://framagit.org/framasoft/nextcloud/drop_account) | 2.4 - 2.6              |
+| [Tables app](https://github.com/nextcloud/tables)                                  | 0.6 - 0.8              |
+| [NextPush app](https://codeberg.org/NextPush/uppush)                               | 1.4 - 1.5              |
 
 [Do not edit manually above]: #
 
