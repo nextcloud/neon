@@ -4,8 +4,8 @@ import 'dart:typed_data';
 import 'dart:ui';
 
 import 'package:account_repository/account_repository.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:crypto/crypto.dart';
-import 'package:crypton/crypton.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_svg/flutter_svg.dart' show SvgBytesLoader, vg;
@@ -13,9 +13,10 @@ import 'package:http/http.dart' as http;
 import 'package:image/image.dart' as img;
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
+import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/src/bloc/result.dart';
-import 'package:neon_framework/src/models/push_notification.dart';
 import 'package:neon_framework/src/storage/keys.dart';
+import 'package:neon_framework/src/storage/sqlite_persistence.dart';
 import 'package:neon_framework/src/theme/colors.dart';
 import 'package:neon_framework/src/utils/account_client_extension.dart';
 import 'package:neon_framework/src/utils/image_utils.dart';
@@ -24,47 +25,36 @@ import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:neon_framework/src/utils/user_agent.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/notifications.dart' as notifications;
+import 'package:notifications_push_repository/notifications_push_repository.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:timezone/timezone.dart' as tz;
+
+/// Signature of the callback which called when a new push notification is received.
+typedef OnPushNotificationReceivedCallback = Future<void> Function(String accountID);
+
+/// Signature of the callback which called when the user clicks on a local notification.
+typedef OnLocalNotificationClickedCallback = Future<void> Function(PushNotification notification);
 
 final _log = Logger('PushUtils');
 
 @internal
 @immutable
 class PushUtils {
-  const PushUtils._();
+  const PushUtils._(); // coverage:ignore-line
 
   /// Called when a new push notification was received.
   ///
   /// The callback will only be set if the current flutter engine was opened in the foreground.
-  static Future<void> Function(String accountID)? onPushNotificationReceived;
+  static OnPushNotificationReceivedCallback? onPushNotificationReceived;
 
   /// Called when a local notification was clicked on by the user.
   ///
   /// The callback will only be set if the current flutter engine was opened in the foreground.
-  static Future<void> Function(PushNotification notification)? onLocalNotificationClicked;
-
-  static RSAKeypair loadRSAKeypair() {
-    final storage = NeonStorage().settingsStore(StorageKeys.notifications);
-    const keyDevicePrivateKey = 'device-private-key';
-
-    final RSAKeypair keypair;
-    final privateKey = storage.getString(keyDevicePrivateKey);
-    if (privateKey == null || privateKey.isEmpty) {
-      _log.fine('Generating RSA keys for push notifications');
-      // The key size has to be 2048, other sizes are not accepted by Nextcloud (at the moment at least)
-      // ignore: avoid_redundant_argument_values
-      keypair = RSAKeypair.fromRandom(keySize: 2048);
-      unawaited(storage.setString(keyDevicePrivateKey, keypair.privateKey.toPEM()));
-    } else {
-      keypair = RSAKeypair(RSAPrivateKey.fromPEM(privateKey));
-    }
-
-    return keypair;
-  }
+  static OnLocalNotificationClickedCallback? onLocalNotificationClicked;
 
   static Future<FlutterLocalNotificationsPlugin> initLocalNotifications({
+    required NeonLocalizations localizations,
     DidReceiveNotificationResponseCallback? onDidReceiveNotificationResponse,
   }) async {
     final localNotificationsPlugin = FlutterLocalNotificationsPlugin();
@@ -72,7 +62,7 @@ class PushUtils {
       InitializationSettings(
         android: const AndroidInitializationSettings('@mipmap/ic_launcher'),
         linux: LinuxInitializationSettings(
-          defaultActionName: 'Open',
+          defaultActionName: localizations.actionOpen,
           defaultIcon: AssetsLinuxIcon('assets/logo.svg'),
         ),
       ),
@@ -81,10 +71,19 @@ class PushUtils {
     return localNotificationsPlugin;
   }
 
-  static Future<void> onMessage(Uint8List messages, String instance) async {
+  static Future<void> onMessage(
+    Uint8List encryptedPushNotifications,
+    String accountID, {
+    @visibleForTesting http.Client? httpClient,
+  }) async {
+    await onPushNotificationReceived?.call(accountID);
+
     WidgetsFlutterBinding.ensureInitialized();
 
+    final localizations = await appLocalizationsFromSystem();
+
     final localNotificationsPlugin = await initLocalNotifications(
+      localizations: localizations,
       onDidReceiveNotificationResponse: (notification) async {
         if (onLocalNotificationClicked != null && notification.payload != null) {
           await onLocalNotificationClicked!(
@@ -95,55 +94,52 @@ class PushUtils {
         }
       },
     );
+
     await NeonStorage().init();
+    final storage = NotificationsPushStorage(
+      devicePrivateKeyPersistence: NeonStorage().singleValueStore(StorageKeys.notificationsDevicePrivateKey),
+      pushSubscriptionsPersistence: SQLiteCachedPersistence(
+        prefix: 'notifications-push-subscriptions',
+      ),
+    );
 
-    final keypair = loadRSAKeypair();
-    for (final message in Uri(query: utf8.decode(messages)).queryParameters.values) {
-      final data = json.decode(message) as Map<String, dynamic>;
-      final pushNotification = PushNotification.fromEncrypted(
-        data,
-        instance,
-        keypair.privateKey,
-      );
+    // These are used in the loop, but not every push notification needs them, so we only initialize them when needed.
+    PackageInfo? packageInfo;
+    AccountStorage? accountStorage;
+    AccountRepository? accountRepository;
+    BuiltList<Account>? accounts;
+    Account? account;
 
+    final pushNotifications = await parseEncryptedPushNotifications(storage, encryptedPushNotifications, accountID);
+    for (final pushNotification in pushNotifications) {
       if (pushNotification.subject.delete ?? false) {
-        await localNotificationsPlugin.cancel(_getNotificationID(instance, pushNotification));
+        await localNotificationsPlugin.cancel(_getNotificationID(accountID, pushNotification));
       } else if (pushNotification.subject.deleteAll ?? false) {
         await localNotificationsPlugin.cancelAll();
-        await onPushNotificationReceived?.call(instance);
       } else if (pushNotification.type == 'background') {
         _log.fine('Got unknown background notification ${json.encode(pushNotification.toJson())}');
       } else {
-        final localizations = await appLocalizationsFromSystem();
-        final packageInfo = await PackageInfo.fromPlatform();
-        final accountStorage = AccountStorage(
+        packageInfo ??= await PackageInfo.fromPlatform();
+        accountStorage ??= AccountStorage(
           accountsPersistence: NeonStorage().singleValueStore(StorageKeys.accounts),
           lastAccountPersistence: NeonStorage().singleValueStore(StorageKeys.lastUsedAccount),
         );
-        final accountRepository = AccountRepository(
-          userAgent: buildUserAgent(packageInfo),
-          httpClient: http.Client(),
-          storage: accountStorage,
-        );
+        if (accountRepository == null) {
+          accountRepository = AccountRepository(
+            userAgent: buildUserAgent(packageInfo),
+            httpClient: httpClient ?? http.Client(),
+            storage: accountStorage,
+          );
 
-        await accountRepository.loadAccounts();
-        final accounts = (await accountRepository.accounts.first).accounts;
-        final account = accountRepository.accountByID(instance);
+          await accountRepository.loadAccounts();
+        }
+        accounts ??= (await accountRepository.accounts.first).accounts;
+        account ??= accountRepository.accountByID(accountID);
 
         notifications.Notification? notification;
         AndroidBitmap<Object>? largeIconBitmap;
         if (account != null) {
-          try {
-            final response =
-                await account.client.notifications.endpoint.getNotification(id: pushNotification.subject.nid!);
-            notification = response.body.ocs.data;
-          } on http.ClientException catch (error, stackTrace) {
-            _log.warning(
-              'Error loading notification ${pushNotification.subject.nid}.',
-              error,
-              stackTrace,
-            );
-          }
+          notification = await _fetchNotification(account, pushNotification.subject.nid!);
 
           final icon = notification?.icon;
           // Only SVG icons are supported right now (should be most of them)
@@ -151,7 +147,7 @@ class PushUtils {
             final uri = Uri.parse(icon);
             final rawImage = await _fetchIcon(account, uri);
             if (rawImage != null) {
-              largeIconBitmap = await _decodeIcon(rawImage);
+              largeIconBitmap = await _decodeAndroidBitmap(rawImage);
             }
           }
         }
@@ -168,7 +164,7 @@ class PushUtils {
           final when = notification != null ? tz.TZDateTime.parse(tz.UTC, notification.datetime) : null;
 
           await localNotificationsPlugin.show(
-            _getNotificationID(instance, pushNotification),
+            _getNotificationID(accountID, pushNotification),
             message != null && appName != null ? '$appName: $title' : title,
             message,
             NotificationDetails(
@@ -192,8 +188,24 @@ class PushUtils {
           );
         }
       }
+    }
+  }
 
-      await onPushNotificationReceived?.call(instance);
+  static Future<notifications.Notification?> _fetchNotification(Account account, int id) async {
+    try {
+      final response = await account.client.notifications.endpoint.getNotification(
+        id: id,
+      );
+
+      return response.body.ocs.data;
+    } on http.ClientException catch (error, stackTrace) {
+      _log.warning(
+        'Error loading notification $id.',
+        error,
+        stackTrace,
+      );
+
+      return null;
     }
   }
 
@@ -234,7 +246,7 @@ class PushUtils {
     return rawImage;
   }
 
-  static Future<ByteArrayAndroidBitmap?> _decodeIcon(Uint8List rawImage) async {
+  static Future<ByteArrayAndroidBitmap?> _decodeAndroidBitmap(Uint8List rawImage) async {
     final pictureInfo = await vg.loadPicture(SvgBytesLoader(rawImage), null);
 
     const largeIconSize = 256;
@@ -255,9 +267,7 @@ class PushUtils {
     return ByteArrayAndroidBitmap(img.encodeBmp(img.decodePng(bytes!.buffer.asUint8List())!));
   }
 
-  static int _getNotificationID(
-    String instance,
-    PushNotification notification,
-  ) =>
-      sha256.convert(utf8.encode('$instance${notification.subject.nid}')).bytes.reduce((a, b) => a + b);
+  static int _getNotificationID(String accountID, PushNotification notification) {
+    return sha256.convert(utf8.encode('$accountID${notification.subject.nid}')).bytes.reduce((a, b) => a + b);
+  }
 }

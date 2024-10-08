@@ -28,14 +28,14 @@ enum StorageKeys implements Storable {
   /// The key for the `AccountsBloc` last used account.
   lastUsedAccount._('last-used-account'),
 
-  /// The key used by the `PushNotificationsBloc` to persist the last used endpoint.
-  lastEndpoint._('last-endpoint'),
+  /// The key used by the `PushNotificationsBloc` to persist subscriptions.
+  pushSubscriptions._('push-subscriptions'),
 
   /// The key for the `FirstLaunchBloc`.
   firstLaunch._('first-launch'),
 
-  /// The key for the `PushUtils`.
-  notifications._('notifications');
+  /// The key for the storing the device private key used for push notification encryption.
+  notificationsDevicePrivateKey._('notifications-device-private-key');
 
   const StorageKeys._(this.value);
 

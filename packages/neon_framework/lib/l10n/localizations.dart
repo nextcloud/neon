@@ -337,6 +337,12 @@ abstract class NeonLocalizations {
   /// **'Done'**
   String get actionDone;
 
+  /// No description provided for @actionOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'Open'**
+  String get actionOpen;
+
   /// No description provided for @firstLaunchGoToSettingsToEnablePushNotifications.
   ///
   /// In en, this message translates to:
@@ -559,23 +565,17 @@ abstract class NeonLocalizations {
   /// **'Custom background'**
   String get globalOptionsThemeCustomBackground;
 
-  /// No description provided for @globalOptionsPushNotificationsEnabled.
+  /// No description provided for @globalOptionsPushNotifications.
   ///
   /// In en, this message translates to:
-  /// **'Enabled'**
-  String get globalOptionsPushNotificationsEnabled;
+  /// **'UnifiedPush'**
+  String get globalOptionsPushNotifications;
 
-  /// No description provided for @globalOptionsPushNotificationsEnabledDisabledNotice.
+  /// No description provided for @globalOptionsPushNotificationsDisabled.
   ///
   /// In en, this message translates to:
-  /// **'No UnifiedPush distributor could be found or you denied the permission for showing notifications. Please go to the app settings and allow notifications and go to https://unifiedpush.org/users/distributors and setup any of the listed distributors. Then re-open this app and you should be able to enable notifications'**
-  String get globalOptionsPushNotificationsEnabledDisabledNotice;
-
-  /// No description provided for @globalOptionsPushNotificationsDistributor.
-  ///
-  /// In en, this message translates to:
-  /// **'UnifiedPush Distributor'**
-  String get globalOptionsPushNotificationsDistributor;
+  /// **'Disabled'**
+  String get globalOptionsPushNotificationsDisabled;
 
   /// No description provided for @globalOptionsPushNotificationsDistributorGotifyUP.
   ///
