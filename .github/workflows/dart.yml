@@ -36,11 +36,7 @@ jobs:
         run: ./tool/setup.sh
 
       - name: Check up-to-date pubspec.lock
-        run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            git --no-pager diff
-            exit 1
-          fi
+        run: git --no-pager diff --exit-code
       - name: Check formatting
         run: melos run format:check
       - name: Lint code

@@ -48,26 +48,17 @@ jobs:
       - name: Generate dynamite end to end test
         run: |
           ./tool/generate-dynamite-e2e-test.sh
-          if [ -n "$(git status --porcelain)" ]; then
-            git --no-pager diff
-            exit 1
-          fi
+          git --no-pager diff --exit-code
 
       - name: Generate dynamite petstore example
         run: |
           ./tool/generate-dynamite-petstore-example.sh
-          if [ -n "$(git status --porcelain)" ]; then
-            git --no-pager diff
-            exit 1
-          fi
+          git --no-pager diff --exit-code
 
       - name: Generate nextcloud
         run: |
           ./tool/generate-nextcloud.sh
-          if [ -n "$(git status --porcelain)" ]; then
-            git --no-pager diff
-            exit 1
-          fi
+          git --no-pager diff --exit-code
 
   openapi:
     name: OpenAPI
@@ -95,7 +86,4 @@ jobs:
       - name: Generate specs
         run: |
           ./tool/generate-specs.sh
-          if [ -n "$(git status --porcelain)" ]; then
-            git --no-pager diff
-            exit 1
-          fi
+          git --no-pager diff --exit-code
