@@ -3,7 +3,6 @@ import 'package:interceptor_http_client/interceptor_http_client.dart';
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:nextcloud/core.dart' as core;
-import 'package:nextcloud/webdav.dart' as webdav;
 
 /// A HttpInterceptor that works around a Nextcloud CSRF bug when cookies are sent.
 ///
@@ -43,7 +42,7 @@ final class CSRFInterceptor implements HttpInterceptor {
 
   @override
   bool shouldInterceptRequest(http.BaseRequest request) {
-    if (request.url.host != _baseURL.host || !request.url.path.startsWith('${_baseURL.path}${webdav.webdavBase}')) {
+    if (request.url.host != _baseURL.host || !request.url.path.startsWith('${_baseURL.path}/remote.php/')) {
       return false;
     }
 
