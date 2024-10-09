@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:typed_data';
 
 import 'package:meta/meta.dart';
-import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/webdav.dart' as webdav;
 import 'package:timezone/timezone.dart' as tz;
 import 'package:universal_io/io.dart';
@@ -66,8 +65,8 @@ class FilesDownloadTaskIO extends FilesTaskIO implements FilesDownloadTask {
     required super.file,
   });
 
-  Future<void> execute(NextcloudClient client) async {
-    await client.webdav.getFile(
+  Future<void> execute(webdav.WebDavClient client) async {
+    await client.getFile(
       uri,
       file,
       onProgress: progressController.add,
@@ -90,8 +89,8 @@ class FilesUploadTaskIO extends FilesTaskIO implements FilesUploadTask {
   @override
   late tz.TZDateTime lastModified = tz.TZDateTime.from(_stat.modified, tz.UTC);
 
-  Future<void> execute(NextcloudClient client) async {
-    await client.webdav.putFile(
+  Future<void> execute(webdav.WebDavClient client) async {
+    await client.putFile(
       file,
       _stat,
       uri,
@@ -107,8 +106,8 @@ class FilesDownloadTaskMemory extends FilesTaskMemory implements FilesDownloadTa
     required super.uri,
   });
 
-  Future<void> execute(NextcloudClient client) async {
-    final stream = await client.webdav.getStream(
+  Future<void> execute(webdav.WebDavClient client) async {
+    final stream = await client.getStream(
       uri,
       onProgress: progressController.add,
     );
@@ -133,8 +132,8 @@ class FilesUploadTaskMemory extends FilesTaskMemory implements FilesUploadTask {
   @override
   final tz.TZDateTime? lastModified;
 
-  Future<void> execute(NextcloudClient client) async {
-    await client.webdav.putStream(
+  Future<void> execute(webdav.WebDavClient client) async {
+    await client.putStream(
       _stream.stream,
       uri,
       lastModified: lastModified,

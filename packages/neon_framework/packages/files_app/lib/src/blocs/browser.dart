@@ -81,19 +81,19 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
     await RequestManager.instance.wrap(
       account: account,
       subject: files,
-      getRequest: () => account.client.webdav.propfind_Request(
-        uri,
-        prop: const webdav.WebDavPropWithoutValues.fromBools(
-          davGetcontenttype: true,
-          davGetetag: true,
-          davGetlastmodified: true,
-          ncHasPreview: true,
-          ncMetadataBlurhash: true,
-          ocSize: true,
-          ocFavorite: true,
-        ),
-        depth: webdav.WebDavDepth.one,
-      ),
+      getRequest: () => account.client.webdav(account.username).propfind_Request(
+            uri,
+            prop: const webdav.WebDavPropWithoutValues.fromBools(
+              davGetcontenttype: true,
+              davGetetag: true,
+              davGetlastmodified: true,
+              ncHasPreview: true,
+              ncMetadataBlurhash: true,
+              ocSize: true,
+              ocFavorite: true,
+            ),
+            depth: webdav.WebDavDepth.one,
+          ),
       converter: const webdav.WebDavResponseConverter(),
       unwrap: (response) => BuiltList<webdav.WebDavFile>.build((b) {
         for (final file in response.toWebDavFiles()) {

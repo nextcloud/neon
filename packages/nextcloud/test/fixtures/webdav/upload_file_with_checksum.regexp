@@ -1,4 +1,4 @@
-PUT http://localhost/remote\.php/webdav/test/checksum\.png
+PUT http://localhost/remote\.php/dav/files/user1/test/checksum\.png
 authorization: Bearer mock
 content-length: 8650
 content-type: application/xml
@@ -6,7 +6,7 @@ oc-checksum: md5:abc
 ocs-apirequest: true
 requesttoken: token
 .+
-PROPFIND http://localhost/remote\.php/webdav/test/checksum\.png
+PROPFIND http://localhost/remote\.php/dav/files/user1/test/checksum\.png
 authorization: Bearer mock
 content-type: application/xml
 ocs-apirequest: true
