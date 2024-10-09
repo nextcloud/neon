@@ -21,36 +21,48 @@ ENV PHP_CLI_SERVER_WORKERS=10
 CMD ["php", "-S", "0.0.0.0:80"]
 
 FROM alpine:latest@sha256:beefdbd8a1da6d2915566fde36db9db0b524eb737fc57cd1367effd16dc0d06d AS apps
-RUN apk add curl
-
 
 FROM apps AS cookbook
 ARG COOKBOOK_URL
-RUN curl -L "$COOKBOOK_URL" | tar -xz -C /
+ARG COOKBOOK_CHECKSUM
+ADD --checksum=$COOKBOOK_CHECKSUM $COOKBOOK_URL /tmp/app.tar.gz
+RUN tar -xzf /tmp/app.tar.gz -C /
 
 FROM apps AS news
 ARG NEWS_URL
-RUN curl -L "$NEWS_URL" | tar -xz -C /
+ARG NEWS_CHECKSUM
+ADD --checksum=$NEWS_CHECKSUM $NEWS_URL /tmp/app.tar.gz
+RUN tar -xzf /tmp/app.tar.gz -C /
 
 FROM apps AS notes
 ARG NOTES_URL
-RUN curl -L "$NOTES_URL" | tar -xz -C /
+ARG NOTES_CHECKSUM
+ADD --checksum=$NOTES_CHECKSUM $NOTES_URL /tmp/app.tar.gz
+RUN tar -xzf /tmp/app.tar.gz -C /
 
 FROM apps AS uppush
 ARG UPPUSH_URL
-RUN curl -L "$UPPUSH_URL" | tar -xz -C /
+ARG UPPUSH_CHECKSUM
+ADD --checksum=$UPPUSH_CHECKSUM $UPPUSH_URL /tmp/app.tar.gz
+RUN tar -xzf /tmp/app.tar.gz -C /
 
 FROM apps AS spreed
 ARG SPREED_URL
-RUN curl -L "$SPREED_URL" | tar -xz -C /
+ARG SPREED_CHECKSUM
+ADD --checksum=$SPREED_CHECKSUM $SPREED_URL /tmp/app.tar.gz
+RUN tar -xzf /tmp/app.tar.gz -C /
 
 FROM apps AS tables
 ARG TABLES_URL
-RUN curl -L "$TABLES_URL" | tar -xz -C /
+ARG TABLES_CHECKSUM
+ADD --checksum=$TABLES_CHECKSUM $TABLES_URL /tmp/app.tar.gz
+RUN tar -xzf /tmp/app.tar.gz -C /
 
 FROM apps AS drop_account
 ARG DROP_ACCOUNT_URL
-RUN curl -L "$DROP_ACCOUNT_URL" | tar -xz -C /
+ARG DROP_ACCOUNT_CHECKSUM
+ADD --checksum=$DROP_ACCOUNT_CHECKSUM $DROP_ACCOUNT_URL /tmp/app.tar.gz
+RUN tar -xzf /tmp/app.tar.gz -C /
 
 FROM nextcloud
 

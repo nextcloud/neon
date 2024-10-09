@@ -5,12 +5,14 @@ import 'package:nextcloud_test_presets/src/models/models.dart';
 @internal
 class AppRelease implements Comparable<AppRelease> {
   const AppRelease({
+    required this.app,
     required this.version,
     required this.url,
     required this.minimumServerVersion,
     required this.maximumServerVersion,
   });
 
+  final String app;
   final Version version;
   final String url;
   final Version minimumServerVersion;

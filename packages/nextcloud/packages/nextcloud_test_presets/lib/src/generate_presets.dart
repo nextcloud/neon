@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io' show Directory, File, Link;
 
+import 'package:crypto/crypto.dart';
 import 'package:http/http.dart' as http;
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud_test_presets/src/models/models.dart';
@@ -23,6 +24,8 @@ Future<void> generatePresets() async {
   serverReleases.sort((a, b) => b.compareTo(a));
   final apps = await _getApps(appIDs, httpClient);
 
+  final urlChecksums = <String, String>{};
+
   for (final app in apps) {
     final appPresetsDir = Directory('docker/presets/${app.id}');
     if (appPresetsDir.existsSync()) {
@@ -39,17 +42,30 @@ Future<void> generatePresets() async {
       final buffer = StringBuffer()..writeln('SERVER_VERSION=${serverRelease.dockerImageTag}');
 
       for (final a in apps) {
-        buffer
-          ..write(a.id.toUpperCase())
-          ..write('_URL=');
+        late final AppRelease appRelease;
         if (a == app) {
-          buffer.writeln(release.url);
+          appRelease = release;
         } else {
-          final release = a.findLatestCompatibleRelease(serverRelease) ??
+          appRelease = a.findLatestCompatibleRelease(serverRelease) ??
               a.findLatestCompatibleRelease(serverRelease, allowUnstable: true) ??
               a.findLatestRelease();
-          buffer.writeln(release.url);
         }
+
+        if (urlChecksums[appRelease.url] == null) {
+          final request = http.Request('GET', Uri.parse(appRelease.url));
+
+          final streamedResponse = await httpClient.send(request);
+          if (streamedResponse.statusCode != 200) {
+            throw Exception('Unable to get app, status code: ${streamedResponse.statusCode}');
+          }
+
+          final checksum = await sha256.bind(streamedResponse.stream).first;
+          urlChecksums[appRelease.url] = checksum.toString();
+        }
+
+        buffer
+          ..writeln('${a.id.toUpperCase()}_URL=${appRelease.url}')
+          ..writeln('${a.id.toUpperCase()}_CHECKSUM=sha256:${urlChecksums[appRelease.url]}');
       }
 
       File('${appPresetsDir.path}/${release.presetVersion}').writeAsStringSync(buffer.toString());
@@ -179,6 +195,7 @@ Future<List<App>> _getApps(List<String> appIDs, http.Client httpClient) async {
       final download = release['download'] as String;
 
       final appRelease = AppRelease(
+        app: id,
         version: version,
         url: download,
         minimumServerVersion: minimumServerVersionRequirement,
