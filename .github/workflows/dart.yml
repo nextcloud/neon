@@ -8,10 +8,16 @@ concurrency:
 
 jobs:
   dart-ci:
-    name: Dart CI
+    name: Dart CI (${{ matrix.dependencies }})
     runs-on: ubuntu-24.04
     permissions:
       packages: write
+    strategy:
+      fail-fast: false
+      matrix:
+        dependencies:
+          - upgrade
+          - downgrade
     steps:
       - name: Checkout
         uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
@@ -41,30 +47,20 @@ jobs:
             git --no-pager diff
             exit 1
           fi
+      - name: Downgrade dependencies
+        if: ${{ matrix.dependencies == 'downgrade' }}
+        run: melos exec dart pub downgrade
       - name: Check formatting
         run: melos run format:check
       - name: Lint code
         run: melos run analyze
       - name: Run tests
         run: |
-          mapfile -t packages < <(melos list --parsable --diff=${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }}..${{ github.event.pull_request.head.sha }} --include-dependents | xargs -r -n1 basename)
-          if [ -z "$packages" ]; then exit 0; fi
-          packages_glob="$(printf ",%s" "${packages[@]}")"
-          packages_glob="${packages_glob:1}"
-          if [ -n "$packages_glob" ]; then
-            if [[ "$packages_glob" == *"nextcloud"* ]]; then
-              if [[ "${{ github.event.pull_request.head.repo.full_name }}" == "${{ github.repository }}" ]]; then
-                export PUSH_IMAGES="1"
-              fi
-              ./tool/build-dev-container.sh
-            fi
-            MELOS_PACKAGES="$packages_glob" melos test
-          else
-            ./tool/build-dev-container.sh
-            melos test
-          fi
+          ./tool/build-dev-container.sh
+          melos test
 
       - name: Setup Codecov
+        if: ${{ matrix.dependencies == 'upgrade' }}
         run: |
           cd /tmp
           curl https://keybase.io/codecovsecurity/pgp_keys.asc | gpg --no-default-keyring --keyring trustedkeys.gpg --import
@@ -78,14 +74,9 @@ jobs:
           mkdir /tmp/bin
           mv codecov /tmp/bin
       - name: Upload coverage to Codecov
+        if: ${{ matrix.dependencies == 'upgrade' }}
         run: |
           export PATH="$PATH:/tmp/bin"
           melos exec --file-exists="coverage/lcov.info" --concurrency=1 -- "
             codecov --verbose upload-process --fail-on-error -F MELOS_PACKAGE_NAME -f MELOS_PACKAGE_PATH/coverage/lcov.info -t ${{ secrets.CODECOV_TOKEN }}
           "
-
-      # Run as the last step to avoid running any other steps with downgraded dependencies
-      - name: Lint code with downgraded dependencies
-        run: |
-          melos exec dart pub downgrade
-          melos run analyze

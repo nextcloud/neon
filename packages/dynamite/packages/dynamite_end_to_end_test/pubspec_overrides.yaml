@@ -1,4 +1,4 @@
-# melos_managed_dependency_overrides: dynamite,dynamite_runtime,neon_lints
+# melos_managed_dependency_overrides: dynamite,dynamite_runtime,neon_lints,frontend_server_client,quiver
 dependency_overrides:
   dynamite:
     path: ../..
@@ -6,3 +6,5 @@ dependency_overrides:
     path: ../dynamite_runtime
   neon_lints:
     path: ../../../neon_lints
+  frontend_server_client: ^4.0.0
+  quiver: ^3.2.1

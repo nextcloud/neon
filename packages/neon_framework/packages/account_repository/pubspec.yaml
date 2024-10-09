@@ -37,3 +37,10 @@ dev_dependencies:
       url: https://github.com/nextcloud/neon
       path: packages/neon_lints
   test: ^1.25.2
+
+dependency_overrides:
+  archive: ^3.5.0
+  image_picker: ^0.8.2
+  platform: ^3.1.0
+  quiver: ^3.2.1
+  win32: ^5.5.1

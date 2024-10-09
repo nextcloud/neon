@@ -36,7 +36,7 @@ dependencies:
   flutter_local_notifications: ^17.0.0
   flutter_localizations:
     sdk: flutter
-  flutter_material_design_icons: ^1.0.0
+  flutter_material_design_icons: ^1.1.7296
   flutter_native_splash: ^2.0.0
   flutter_svg: ^2.0.0
   flutter_zxing: ^1.0.0
@@ -100,6 +100,13 @@ dev_dependencies:
   url_launcher_platform_interface: ^2.3.2
   vector_graphics_compiler: ^1.1.11+1
   version: ^3.0.2
+
+dependency_overrides:
+  archive: ^3.5.0
+  image_picker: ^0.8.2
+  platform: ^3.1.0
+  quiver: ^3.2.1
+  win32: ^5.5.1
 
 flutter:
   uses-material-design: true

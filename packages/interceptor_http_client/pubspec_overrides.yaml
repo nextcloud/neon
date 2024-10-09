@@ -1,6 +1,8 @@
-# melos_managed_dependency_overrides: cookie_store,neon_lints
+# melos_managed_dependency_overrides: cookie_store,neon_lints,frontend_server_client,web
 dependency_overrides:
   cookie_store:
     path: ../cookie_store
   neon_lints:
     path: ../neon_lints
+  frontend_server_client: ^4.0.0
+  web: ">=0.5.0 <2.0.0"

@@ -1,4 +1,4 @@
-# melos_managed_dependency_overrides: account_repository,cookie_store,dynamite_runtime,interceptor_http_client,neon_framework,neon_http_client,neon_lints,nextcloud,sort_box
+# melos_managed_dependency_overrides: account_repository,cookie_store,dynamite_runtime,interceptor_http_client,neon_framework,neon_http_client,neon_lints,nextcloud,sort_box,archive,image_picker,platform,pointer_interceptor,quiver,win32
 dependency_overrides:
   account_repository:
     path: ../account_repository
@@ -18,3 +18,9 @@ dependency_overrides:
     path: ../../../nextcloud
   sort_box:
     path: ../sort_box
+  archive: ^3.5.0
+  image_picker: ^0.8.2
+  platform: ^3.1.0
+  pointer_interceptor: ^0.10.1+1
+  quiver: ^3.2.1
+  win32: ^5.5.1
