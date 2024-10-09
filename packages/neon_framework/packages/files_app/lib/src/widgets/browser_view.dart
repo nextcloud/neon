@@ -133,7 +133,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
     );
   }
 
-  Iterable<Widget> buildUploadTasks(BuiltList<FilesTask> tasks, List<webdav.WebDavFile> files) sync* {
+  Iterable<Widget> buildUploadTasks(BuiltList<FilesTask> tasks, List<webdav.WebDavResponse> files) sync* {
     for (final task in tasks) {
       if (task is! FilesUploadTask) {
         continue;
