@@ -11,30 +11,32 @@ void main() {
     ]) {
       final baseURL = Uri.parse(values.$1);
       final sanitizedBaseURL = Uri.parse(values.$2);
+      const username = 'admin';
+      const webdavBase = '/remote.php/dav/files/$username';
 
       test(baseURL, () {
         expect(
-          constructUri(baseURL).toString(),
+          constructUri(username, baseURL).toString(),
           '$sanitizedBaseURL$webdavBase',
         );
         expect(
-          constructUri(baseURL, PathUri.parse('/')).toString(),
+          constructUri(username, baseURL, PathUri.parse('/')).toString(),
           '$sanitizedBaseURL$webdavBase',
         );
         expect(
-          constructUri(baseURL, PathUri.parse('test')).toString(),
+          constructUri(username, baseURL, PathUri.parse('test')).toString(),
           '$sanitizedBaseURL$webdavBase/test',
         );
         expect(
-          constructUri(baseURL, PathUri.parse('test/')).toString(),
+          constructUri(username, baseURL, PathUri.parse('test/')).toString(),
           '$sanitizedBaseURL$webdavBase/test',
         );
         expect(
-          constructUri(baseURL, PathUri.parse('/test')).toString(),
+          constructUri(username, baseURL, PathUri.parse('/test')).toString(),
           '$sanitizedBaseURL$webdavBase/test',
         );
         expect(
-          constructUri(baseURL, PathUri.parse('/test/')).toString(),
+          constructUri(username, baseURL, PathUri.parse('/test/')).toString(),
           '$sanitizedBaseURL$webdavBase/test',
         );
       });
