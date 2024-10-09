@@ -14,6 +14,7 @@ import 'package:nextcloud/webdav.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 import 'package:universal_io/io.dart';
+import 'package:version/version.dart';
 
 class MockCallbackFunction extends Mock {
   void progressCallback(double progress);
@@ -161,7 +162,7 @@ void main() {
       final file = File('test/files/test.png');
       await tester.client.webdav.putFile(file, file.statSync(), PathUri.parse('test/test.png'));
 
-      final result = await tester.client.webdav.propfind(
+      final response = await tester.client.webdav.propfind(
         PathUri.parse('test/test.png'),
         prop: const WebDavPropWithoutValues.fromBools(
           davCreationdate: true,
@@ -224,121 +225,195 @@ void main() {
           ocsSharePermissions: true,
         ),
       );
-      final response = result.toWebDavFiles().single;
 
-      expect(response.path, PathUri.parse('test/test.png'));
-      expect(response.id, isNotEmpty);
-      expect(response.fileId, greaterThan(0));
-      expect(response.isCollection, isFalse);
-      expect(response.mimeType, 'image/png');
-      expect(response.etag, isNotEmpty);
-      expect(response.size, 8650);
-      expect(response.ownerId, 'user1');
-      expect(response.ownerDisplay, 'User One');
-      expect(response.lastModified!.isBefore(DateTime.timestamp()), isTrue);
-      expect(response.isDirectory, isFalse);
-      expect(response.uploadedDate!.isBefore(DateTime.timestamp()), isTrue);
-      expect(response.createdDate!.isBefore(DateTime.timestamp()), isTrue);
-      expect(response.favorite, isFalse);
-      expect(response.hasPreview, isTrue);
-      expect(response.name, 'test.png');
-      expect(response.isDirectory, isFalse);
-
-      expect(response.props.davCreationdate!.isBefore(DateTime.timestamp()), isTrue);
-      expect(response.props.davDisplayname, 'test.png');
-      expect(response.props.davGetcontentlanguage, isNull);
-      expect(response.props.davGetcontentlength, 8650);
-      expect(response.props.davGetcontenttype, 'image/png');
-      expect(response.props.davGetetag, isNotEmpty);
-      expect(response.props.davGetlastmodified!.isBefore(DateTime.timestamp()), isTrue);
-      expect(response.props.davQuotaAvailableBytes, isNull);
-      expect(response.props.davQuotaUsedBytes, isNull);
-      expect(response.props.davResourcetype!.collection, isNull);
-      expect(response.props.ncCreationTime!.isBefore(DateTime.timestamp()), isTrue);
-      expect(response.props.ncAclCanManage, isNull);
-      expect(response.props.ncAclEnabled, isNull);
-      expect(response.props.ncAclList, isNull);
-      expect(response.props.ncContainedFileCount, isNull);
-      expect(response.props.ncContainedFolderCount, isNull);
-      expect(response.props.ncDataFingerprint, isNull);
-      expect(response.props.ncGroupFolderId, isNull);
-      expect(response.props.ncHasPreview, isTrue);
-      expect(response.props.ncHidden, isFalse);
-      expect(response.props.ncInheritedAclList, isNull);
-      expect(response.props.ncIsEncrypted, isNull);
-      expect(response.props.ncIsMountRoot, isFalse);
-      expect(response.props.ncLock, isNull);
-      expect(response.props.ncLockOwner, isNull);
-      expect(response.props.ncLockOwnerDisplayname, isNull);
-      expect(response.props.ncLockOwnerType, isNull);
-      expect(response.props.ncLockTime, isNull);
-      expect(response.props.ncLockTimeout, isNull);
-      expect(response.props.ncLockToken, isNull);
-      expect(response.props.ncMountType, isNull);
-      expect(response.props.ncNote, isNull);
-      expect(response.props.ncReminderDueDate, isNull);
-      expect(response.props.ncRichWorkspace, isNull);
-      expect(response.props.ncRichWorkspaceFile, isNull);
-      expect(json.decode(response.props.ncShareAttributes!), <String>[]);
-      expect(response.props.ncSharees!.sharees, isNull);
-      expect(response.props.ncUploadTime!.isBefore(DateTime.timestamp()), isTrue);
-      expect(response.props.ncVersionAuthor, isNull);
-      expect(response.props.ncVersionLabel, isNull);
-      expect(response.props.ncMetadataBlurhash, isNull);
-      expect(response.props.ocChecksums, isNull);
-      expect(response.props.ocCommentsCount, 0);
-      expect(response.props.ocCommentsHref, isNotEmpty);
-      expect(response.props.ocCommentsUnread, 0);
-      expect(response.props.ocDownloadURL, isNull);
-      expect(response.props.ocFavorite, false);
-      expect(response.props.ocFileid, greaterThan(0));
-      expect(response.props.ocId, isNotEmpty);
-      expect(response.props.ocOwnerDisplayName, 'User One');
-      expect(response.props.ocOwnerId, 'user1');
-      expect(response.props.ocPermissions, 'RGDNVW');
-      expect(response.props.ocShareTypes!.shareTypes, isNull);
-      expect(response.props.ocSize, 8650);
-      expect(response.props.ocTags!.tags, isNull);
-      expect(json.decode(response.props.ocmSharePermissions!), ['share', 'read', 'write']);
-      expect(response.props.ocsSharePermissions, 19);
+      final props = response.responses.first.propstats.first.prop;
+      expect(props.davCreationdate!.isBefore(DateTime.timestamp()), isTrue);
+      expect(props.davDisplayname, 'test.png');
+      expect(props.davGetcontentlanguage, isNull);
+      expect(props.davGetcontentlength, 8650);
+      expect(props.davGetcontenttype, 'image/png');
+      expect(props.davGetetag, isNotEmpty);
+      expect(props.davGetlastmodified!.isBefore(DateTime.timestamp()), isTrue);
+      expect(props.davQuotaAvailableBytes, isNull);
+      expect(props.davQuotaUsedBytes, isNull);
+      expect(props.davResourcetype!.collection, isNull);
+      expect(props.ncCreationTime!.isBefore(DateTime.timestamp()), isTrue);
+      expect(props.ncAclCanManage, isNull);
+      expect(props.ncAclEnabled, isNull);
+      expect(props.ncAclList, isNull);
+      expect(props.ncContainedFileCount, isNull);
+      expect(props.ncContainedFolderCount, isNull);
+      expect(props.ncDataFingerprint, isNull);
+      expect(props.ncGroupFolderId, isNull);
+      expect(props.ncHasPreview, isTrue);
+      expect(props.ncHidden, isFalse);
+      expect(props.ncInheritedAclList, isNull);
+      expect(props.ncIsEncrypted, isNull);
+      expect(props.ncIsMountRoot, isFalse);
+      expect(props.ncLock, isNull);
+      expect(props.ncLockOwner, isNull);
+      expect(props.ncLockOwnerDisplayname, isNull);
+      expect(props.ncLockOwnerType, isNull);
+      expect(props.ncLockTime, isNull);
+      expect(props.ncLockTimeout, isNull);
+      expect(props.ncLockToken, isNull);
+      expect(props.ncMountType, isNull);
+      expect(props.ncNote, isNull);
+      expect(props.ncReminderDueDate, isNull);
+      expect(props.ncRichWorkspace, isNull);
+      expect(props.ncRichWorkspaceFile, isNull);
+      expect(json.decode(props.ncShareAttributes!), <String>[]);
+      expect(props.ncSharees!.sharees, isNull);
+      expect(props.ncUploadTime!.isBefore(DateTime.timestamp()), isTrue);
+      expect(props.ncVersionAuthor, isNull);
+      expect(props.ncVersionLabel, isNull);
+      expect(props.ncMetadataBlurhash, isNull);
+      expect(props.ocChecksums, isNull);
+      expect(props.ocCommentsCount, 0);
+      expect(props.ocCommentsHref, isNotEmpty);
+      expect(props.ocCommentsUnread, 0);
+      expect(props.ocDownloadURL, isNull);
+      expect(props.ocFavorite, false);
+      expect(props.ocFileid, greaterThan(0));
+      expect(props.ocId, isNotEmpty);
+      expect(props.ocOwnerDisplayName, 'User One');
+      expect(props.ocOwnerId, 'user1');
+      expect(props.ocPermissions, 'RGDNVW');
+      expect(props.ocShareTypes!.shareTypes, isNull);
+      expect(props.ocSize, 8650);
+      expect(props.ocTags!.tags, isNull);
+      expect(json.decode(props.ocmSharePermissions!), ['share', 'read', 'write']);
+      expect(props.ocsSharePermissions, 19);
     });
 
     test('Get directory props', () async {
-      final data = utf8.encode('test');
       await tester.client.webdav.mkcol(PathUri.parse('test/dir-props'));
-      await tester.client.webdav.put(data, PathUri.parse('test/dir-props/test.txt'));
+      final file = File('test/files/test.png');
+      await tester.client.webdav.putFile(file, file.statSync(), PathUri.parse('test/dir-props/test.png'));
 
-      final response = (await tester.client.webdav.propfind(
+      final response = await tester.client.webdav.propfind(
         PathUri.parse('test/dir-props'),
         prop: const WebDavPropWithoutValues.fromBools(
+          davCreationdate: true,
+          davDisplayname: true,
+          davGetcontentlanguage: true,
+          davGetcontentlength: true,
           davGetcontenttype: true,
+          davGetetag: true,
           davGetlastmodified: true,
+          davQuotaAvailableBytes: true,
+          davQuotaUsedBytes: true,
           davResourcetype: true,
+          ncAclCanManage: true,
+          ncAclEnabled: true,
+          ncAclList: true,
+          ncContainedFileCount: true,
+          ncContainedFolderCount: true,
+          ncCreationTime: true,
+          ncDataFingerprint: true,
+          ncGroupFolderId: true,
+          ncHasPreview: true,
+          ncHidden: true,
+          ncInheritedAclList: true,
+          ncIsEncrypted: true,
+          ncIsMountRoot: true,
+          ncLock: true,
+          ncLockOwner: true,
+          ncLockOwnerDisplayname: true,
+          ncLockOwnerEditor: true,
+          ncLockOwnerType: true,
+          ncLockTime: true,
+          ncLockTimeout: true,
+          ncLockToken: true,
+          ncMountType: true,
+          ncNote: true,
+          ncReminderDueDate: true,
+          ncRichWorkspace: true,
+          ncRichWorkspaceFile: true,
+          ncShareAttributes: true,
+          ncSharees: true,
+          ncUploadTime: true,
+          ncVersionAuthor: true,
+          ncVersionLabel: true,
+          ncMetadataBlurhash: true,
+          ocChecksums: true,
+          ocCommentsCount: true,
+          ocCommentsHref: true,
+          ocCommentsUnread: true,
+          ocDownloadURL: true,
+          ocFavorite: true,
+          ocFileid: true,
+          ocId: true,
+          ocOwnerDisplayName: true,
+          ocOwnerId: true,
+          ocPermissions: true,
+          ocShareTypes: true,
           ocSize: true,
+          ocTags: true,
+          ocmSharePermissions: true,
+          ocsSharePermissions: true,
         ),
         depth: WebDavDepth.zero,
-      ))
-          .toWebDavFiles()
-          .single;
-
-      expect(response.path, PathUri.parse('test/dir-props/'));
-      expect(response.isCollection, isTrue);
-      expect(response.mimeType, isNull);
-      expect(response.size, data.lengthInBytes);
-      expect(
-        response.lastModified!.secondsSinceEpoch,
-        closeTo(DateTime.timestamp().secondsSinceEpoch, 10),
       );
-      expect(response.name, 'dir-props');
-      expect(response.isDirectory, isTrue);
 
-      expect(response.props.davGetcontenttype, isNull);
-      expect(
-        response.props.davGetlastmodified!.secondsSinceEpoch,
-        closeTo(DateTime.timestamp().secondsSinceEpoch, 10),
-      );
-      expect(response.props.davResourcetype!.collection, isNotNull);
-      expect(response.props.ocSize, data.lengthInBytes);
+      final props = response.responses.first.propstats.first.prop;
+      expect(props.davCreationdate!.isBefore(DateTime.timestamp()), isTrue);
+      expect(props.davDisplayname, 'dir-props');
+      expect(props.davGetcontentlanguage, isNull);
+      expect(props.davGetcontentlength, isNull);
+      expect(props.davGetcontenttype, isNull);
+      expect(props.davGetetag, isNotEmpty);
+      expect(props.davGetlastmodified!.isBefore(DateTime.timestamp()), isTrue);
+      expect(props.davQuotaAvailableBytes, -3);
+      expect(props.davQuotaUsedBytes, 8650);
+      expect(props.davResourcetype!.collection, <dynamic>[]);
+      expect(props.ncCreationTime!.isBefore(DateTime.timestamp()), isTrue);
+      expect(props.ncAclCanManage, isNull);
+      expect(props.ncAclEnabled, isNull);
+      expect(props.ncAclList, isNull);
+      expect(props.ncContainedFileCount, 1);
+      expect(props.ncContainedFolderCount, 0);
+      expect(props.ncDataFingerprint, isNull);
+      expect(props.ncGroupFolderId, isNull);
+      expect(props.ncHasPreview, isFalse);
+      expect(props.ncHidden, isFalse);
+      expect(props.ncInheritedAclList, isNull);
+      expect(props.ncIsEncrypted, tester.version < Version(30, 0, 0) ? isFalse : isNull);
+      expect(props.ncIsMountRoot, isFalse);
+      expect(props.ncLock, isNull);
+      expect(props.ncLockOwner, isNull);
+      expect(props.ncLockOwnerDisplayname, isNull);
+      expect(props.ncLockOwnerType, isNull);
+      expect(props.ncLockTime, isNull);
+      expect(props.ncLockTimeout, isNull);
+      expect(props.ncLockToken, isNull);
+      expect(props.ncMountType, isNull);
+      expect(props.ncNote, isNull);
+      expect(props.ncReminderDueDate, isNull);
+      expect(props.ncRichWorkspace, isNull);
+      expect(props.ncRichWorkspaceFile, isNull);
+      expect(json.decode(props.ncShareAttributes!), <String>[]);
+      expect(props.ncSharees!.sharees, isNull);
+      expect(props.ncUploadTime, isNull);
+      expect(props.ncVersionAuthor, isNull);
+      expect(props.ncVersionLabel, isNull);
+      expect(props.ncMetadataBlurhash, isNull);
+      expect(props.ocChecksums, isNull);
+      expect(props.ocCommentsCount, 0);
+      expect(props.ocCommentsHref, isNotEmpty);
+      expect(props.ocCommentsUnread, 0);
+      expect(props.ocDownloadURL, isNull);
+      expect(props.ocFavorite, false);
+      expect(props.ocFileid, greaterThan(0));
+      expect(props.ocId, isNotEmpty);
+      expect(props.ocOwnerDisplayName, 'User One');
+      expect(props.ocOwnerId, 'user1');
+      expect(props.ocPermissions, 'RGDNVCK');
+      expect(props.ocShareTypes!.shareTypes, isNull);
+      expect(props.ocSize, 8650);
+      expect(props.ocTags!.tags, isNull);
+      expect(json.decode(props.ocmSharePermissions!), ['share', 'read', 'write']);
+      expect(props.ocsSharePermissions, 31);
     });
 
     test('Create share', () async {
