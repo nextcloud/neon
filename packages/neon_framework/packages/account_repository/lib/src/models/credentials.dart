@@ -44,7 +44,6 @@ abstract class Credentials implements Built<Credentials, CredentialsBuilder> {
   /// A human readable representation of [username] and [serverURL].
   @memoized
   String get humanReadableID {
-    // Maybe also show path if it is not '/' ?
     final buffer = StringBuffer()
       ..write(username)
       ..write('@')
@@ -54,6 +53,9 @@ abstract class Credentials implements Built<Credentials, CredentialsBuilder> {
       buffer
         ..write(':')
         ..write(serverURL.port);
+    }
+    if (serverURL.path.isNotEmpty) {
+      buffer.write(serverURL.path);
     }
 
     return buffer.toString();
