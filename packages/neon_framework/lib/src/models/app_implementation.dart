@@ -11,6 +11,8 @@ import 'package:neon_framework/src/models/account_cache.dart';
 import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/settings/models/options_collection.dart';
 import 'package:neon_framework/src/storage/keys.dart';
+import 'package:neon_framework/src/sync/models/implementation.dart';
+import 'package:neon_framework/src/sync/models/mapping.dart';
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/drawer_destination.dart';
@@ -92,6 +94,9 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
   /// Use [getBloc] which also handles caching.
   @protected
   T buildBloc(Account account);
+
+  /// Optional [SyncImplementation] for this [AppImplementation].
+  SyncImplementation<SyncMapping<dynamic, dynamic>, dynamic, dynamic>? get syncImplementation => null;
 
   /// The [Provider] building the bloc [T] the currently active account.
   ///

@@ -16,6 +16,7 @@ class AdaptiveListTile extends StatelessWidget {
     this.leading,
     this.trailing,
     this.onTap,
+    this.onLongPress,
     super.key,
   }) : additionalInfo = null;
 
@@ -30,6 +31,7 @@ class AdaptiveListTile extends StatelessWidget {
     this.leading,
     this.trailing,
     this.onTap,
+    this.onLongPress,
     super.key,
   }) : subtitle = additionalInfo;
 
@@ -75,6 +77,18 @@ class AdaptiveListTile extends StatelessWidget {
   /// only for the duration of invocation.
   /// {@endtemplate}
   final FutureOr<void> Function()? onTap;
+
+  /// {@template neon_framework.AdaptiveListTile.onLongPress}
+  /// The [onLongPress] function is called when a user long presses on the[AdaptiveListTile].
+  /// If left `null`, the [AdaptiveListTile] will not react to long presses.
+  ///
+  /// If the platform is a Cupertino one and this is a `Future<void> Function()`,
+  /// then the [AdaptiveListTile] remains activated until the returned future is
+  /// awaited. This is according to iOS behavior.
+  /// However, if this function is a `void Function()`, then the tile is active
+  /// only for the duration of invocation.
+  /// {@endtemplate}
+  final FutureOr<void> Function()? onLongPress;
 
   /// {@template neon_framework.AdaptiveListTile.enabled}
   /// Whether this list tile is interactive.

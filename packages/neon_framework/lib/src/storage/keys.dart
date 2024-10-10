@@ -22,6 +22,9 @@ enum StorageKeys implements Storable {
   /// The key for the list of logged in `Account`s.
   accounts._('accounts-accounts'),
 
+  /// The key for the `SyncImplementation`s.
+  sync._('sync'),
+
   /// The key for the `GlobalOptions`.
   global._('global'),
 

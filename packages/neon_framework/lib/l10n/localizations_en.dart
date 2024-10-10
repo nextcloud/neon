@@ -164,6 +164,15 @@ class NeonLocalizationsEn extends NeonLocalizations {
   String get actionDone => 'Done';
 
   @override
+  String get actionPrevious => 'Previous';
+
+  @override
+  String get actionNext => 'Next';
+
+  @override
+  String get actionFinish => 'Finish';
+
+  @override
   String get firstLaunchGoToSettingsToEnablePushNotifications => 'Go to the settings to enable push notifications';
 
   @override
@@ -508,4 +517,49 @@ class NeonLocalizationsEn extends NeonLocalizations {
 
   @override
   String get userStatusOnlineStatus => 'Online status';
+
+  @override
+  String get sync => 'Synchronization';
+
+  @override
+  String syncOptionsNoSynchronizations(String type) {
+    return 'No $type synchronizations';
+  }
+
+  @override
+  String syncOptionsAdd(String type) {
+    return 'Add $type synchronization';
+  }
+
+  @override
+  String get syncOptionsRemove => 'Remove synchronization';
+
+  @override
+  String get syncOptionsSyncNow => 'Synchronize now';
+
+  @override
+  String get syncOptionsStatusUnknown => 'Unknown synchronization status';
+
+  @override
+  String get syncOptionsStatusIncomplete => 'Not completely synchronized';
+
+  @override
+  String get syncOptionsStatusComplete => 'Completely synchronized';
+
+  @override
+  String get syncOptionsRemoveConfirmation => 'Do you want to remove the synchronization?';
+
+  @override
+  String get syncOptionsAutomaticSync => 'Sync automatically';
+
+  @override
+  String get syncResolveConflictsLocal => 'Local';
+
+  @override
+  String get syncResolveConflictsRemote => 'Remote';
+
+  @override
+  String syncResolveConflictsTitle(int count, String name) {
+    return 'Found $count conflicts for syncing $name';
+  }
 }

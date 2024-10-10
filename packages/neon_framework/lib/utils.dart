@@ -3,6 +3,7 @@ export 'package:neon_framework/src/utils/adaptive.dart';
 export 'package:neon_framework/src/utils/app_route.dart';
 export 'package:neon_framework/src/utils/dialog.dart';
 export 'package:neon_framework/src/utils/exceptions.dart';
+export 'package:neon_framework/src/utils/file_utils.dart';
 export 'package:neon_framework/src/utils/findable.dart';
 export 'package:neon_framework/src/utils/hex_color.dart';
 export 'package:neon_framework/src/utils/launch_url.dart';
