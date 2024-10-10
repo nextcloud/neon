@@ -71,7 +71,7 @@ class RequestManager {
   Future<void> wrap<T, R>({
     required Account account,
     required BehaviorSubject<Result<T>> subject,
-    required http.Request Function() getRequest,
+    required FutureOr<http.Request> Function() getRequest,
     required Converter<http.Response, R> converter,
     required UnwrapCallback<T, R> unwrap,
     AsyncValueGetter<Map<String, String>>? getCacheHeaders,
@@ -83,7 +83,7 @@ class RequestManager {
       subject.add(Result.loading());
     }
 
-    var request = getRequest();
+    var request = await getRequest();
 
     final cachedResponse = await _cache?.get(account, request);
     if (subject.isClosed) {
@@ -216,7 +216,7 @@ class RequestManager {
           break;
         }
 
-        request = getRequest();
+        request = await getRequest();
 
         _log.info(
           'Error while executing the request. Retrying ...',

@@ -26,7 +26,7 @@ class WebDavFile {
     return PathUri(
       isAbsolute: false,
       isDirectory: href.isDirectory,
-      pathSegments: href.pathSegments.sublist(webdavBase.pathSegments.length),
+      pathSegments: href.pathSegments.sublist(4),
     );
   }();
 
