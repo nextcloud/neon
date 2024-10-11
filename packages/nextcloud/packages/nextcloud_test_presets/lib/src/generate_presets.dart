@@ -24,8 +24,6 @@ Future<void> generatePresets() async {
   serverReleases.sort((a, b) => b.compareTo(a));
   final apps = await _getApps(appIDs, httpClient);
 
-  final urlChecksums = <String, String>{};
-
   for (final app in apps) {
     final appPresetsDir = Directory('docker/presets/${app.id}');
     if (appPresetsDir.existsSync()) {
@@ -51,21 +49,11 @@ Future<void> generatePresets() async {
               a.findLatestRelease();
         }
 
-        if (urlChecksums[appRelease.url] == null) {
-          final request = http.Request('GET', Uri.parse(appRelease.url));
-
-          final streamedResponse = await httpClient.send(request);
-          if (streamedResponse.statusCode != 200) {
-            throw Exception('Unable to get app, status code: ${streamedResponse.statusCode}');
-          }
-
-          final checksum = await sha256.bind(streamedResponse.stream).first;
-          urlChecksums[appRelease.url] = checksum.toString();
-        }
+        final checksum = await _getUrlChecksum(httpClient, appRelease.url);
 
         buffer
           ..writeln('${a.id.toUpperCase()}_URL=${appRelease.url}')
-          ..writeln('${a.id.toUpperCase()}_CHECKSUM=sha256:${urlChecksums[appRelease.url]}');
+          ..writeln('${a.id.toUpperCase()}_CHECKSUM=sha256:$checksum');
       }
 
       File('${appPresetsDir.path}/${release.presetVersion}').writeAsStringSync(buffer.toString());
@@ -85,7 +73,12 @@ Future<void> generatePresets() async {
       final release = app.findLatestCompatibleRelease(serverRelease) ??
           app.findLatestCompatibleRelease(serverRelease, allowUnstable: true) ??
           app.findLatestRelease();
-      buffer.writeln('${app.id.toUpperCase()}_URL=${release.url}');
+
+      final checksum = await _getUrlChecksum(httpClient, release.url);
+
+      buffer
+        ..writeln('${app.id.toUpperCase()}_URL=${release.url}')
+        ..writeln('${app.id.toUpperCase()}_CHECKSUM=sha256:$checksum');
     }
 
     File('${serverPresetsDir.path}/${serverRelease.presetVersion}').writeAsStringSync(buffer.toString());
@@ -99,6 +92,23 @@ Future<void> generatePresets() async {
   }
 
   httpClient.close();
+}
+
+final _urlChecksums = <String, String>{};
+Future<String> _getUrlChecksum(http.Client httpClient, String url) async {
+  if (_urlChecksums[url] == null) {
+    final request = http.Request('GET', Uri.parse(url));
+
+    final streamedResponse = await httpClient.send(request);
+    if (streamedResponse.statusCode != 200) {
+      throw Exception('Unable to get app, status code: ${streamedResponse.statusCode}');
+    }
+
+    final checksum = await sha256.bind(streamedResponse.stream).first;
+    _urlChecksums[url] = checksum.toString();
+  }
+
+  return _urlChecksums[url]!;
 }
 
 Future<List<ServerRelease>> _getServerReleases(http.Client httpClient) async {
