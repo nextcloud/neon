@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:typed_data';
 
+import 'package:dynamite_runtime/http_client.dart';
 import 'package:http/http.dart';
 import 'package:http/testing.dart';
 import 'package:mocktail/mocktail.dart';
@@ -39,6 +40,56 @@ void main() {
 
               return;
             }
+            if (request.uri.path == '/ocs/v2.php/cloud/user') {
+              final response = request.response
+                ..headers.contentType = ContentType('application', 'json', charset: 'utf-8')
+                ..write(
+                  json.encode({
+                    'ocs': {
+                      'meta': {
+                        'status': '',
+                        'statuscode': 0,
+                      },
+                      'data': {
+                        'additional_mail': <dynamic>[],
+                        'address': '',
+                        'backend': '',
+                        'backendCapabilities': {
+                          'setDisplayName': false,
+                          'setPassword': false,
+                        },
+                        'biography': '',
+                        'display-name': '',
+                        'displayname': '',
+                        'fediverse': '',
+                        'groups': <dynamic>[],
+                        'headline': '',
+                        'id': 'admin',
+                        'language': '',
+                        'lastLogin': 0,
+                        'locale': '',
+                        'manager': '',
+                        'organisation': '',
+                        'phone': '',
+                        'profile_enabled': '',
+                        'quota': {
+                          'free': 0,
+                          'relative': 0,
+                          'total': 0,
+                          'used': 0,
+                        },
+                        'role': '',
+                        'subadmin': <dynamic>[],
+                        'twitter': '',
+                        'website': '',
+                      },
+                    },
+                  }),
+                );
+
+              await response.close();
+              return;
+            }
 
             final response = request.response
               ..headers.chunkedTransferEncoding = true
@@ -59,6 +110,8 @@ void main() {
           host: server.address.host,
           port: server.port,
         ),
+        loginName: 'admin',
+        password: 'admin',
       );
 
       final progress = <double>[];
@@ -90,6 +143,12 @@ void main() {
       client = WebDavClient(
         Uri(),
         httpClient: mockClient,
+        authentications: [
+          const DynamiteHttpBasicAuthentication(
+            username: 'admin',
+            password: 'admin',
+          ),
+        ],
       );
 
       file = _FileMock();
@@ -669,7 +728,7 @@ void main() {
           await expectLater(
             () => tester.client.webdav.put(Uint8List(0), PathUri.parse('test/409me/noparent.txt')),
             // https://github.com/nextcloud/server/issues/39625
-            throwsA(predicate<DynamiteStatusCodeException>((e) => e.statusCode == 409)),
+            throwsA(predicate<DynamiteStatusCodeException>((e) => e.statusCode == 404)),
           );
         });
 

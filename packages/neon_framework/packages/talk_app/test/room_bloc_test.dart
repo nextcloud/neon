@@ -322,6 +322,7 @@ void main() {
     expect(
       roomBloc.room.transformResult((e) => e.token),
       emitsInOrder([
+        Result.success('abcd'),
         Result.success('abcd').asLoading(),
         Result.success('abcd'),
         Result.success('abcd'),
@@ -365,6 +366,7 @@ void main() {
     expect(
       roomBloc.room.transformResult((e) => e.lastMessage.chatMessage?.id),
       emitsInOrder([
+        Result.success(null),
         Result<int>.loading(),
         Result.success(null),
         Result.success(2),
@@ -697,6 +699,9 @@ void main() {
       ]),
     );
 
+    // Wait for all events to be processed
+    await Future<void>.delayed(const Duration(milliseconds: 1));
+
     final message = MockChatMessage();
     when(() => message.id).thenReturn(1);
     roomBloc.deleteMessage(message);
@@ -729,6 +734,7 @@ void main() {
     expect(
       roomBloc.room.transformResult((e) => e.lastMessage.chatMessage?.id),
       emitsInOrder([
+        Result.success(null),
         Result<int>.loading(),
         Result.success(null),
         Result.success(2),
