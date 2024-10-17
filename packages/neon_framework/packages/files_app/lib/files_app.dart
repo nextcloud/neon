@@ -8,6 +8,7 @@ import 'package:files_app/src/blocs/files.dart';
 import 'package:files_app/src/options.dart';
 import 'package:files_app/src/pages/main.dart';
 import 'package:files_app/src/routes.dart';
+import 'package:files_app/src/sync/implementation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:neon_framework/models.dart';
@@ -36,6 +37,9 @@ class FilesApp extends AppImplementation<FilesBloc, FilesOptions> {
 
   @override
   final Widget page = const FilesMainPage();
+
+  @override
+  final FilesSync syncImplementation = const FilesSync();
 
   @override
   final RouteBase route = $filesAppRoute;

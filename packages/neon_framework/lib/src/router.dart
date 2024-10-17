@@ -16,6 +16,7 @@ import 'package:neon_framework/src/pages/app_implementation_settings.dart';
 import 'package:neon_framework/src/pages/home.dart';
 import 'package:neon_framework/src/pages/route_not_found.dart';
 import 'package:neon_framework/src/pages/settings.dart';
+import 'package:neon_framework/src/pages/sync.dart';
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 
@@ -99,6 +100,9 @@ class AccountSettingsRoute extends GoRouteData {
           name: 'AccountSettings',
         ),
       ],
+    ),
+    TypedGoRoute<SyncRoute>(
+      path: 'sync',
     ),
   ],
 )
@@ -201,4 +205,16 @@ class SettingsRoute extends GoRouteData {
       initialCategory: initialCategory,
     );
   }
+}
+
+/// {@template AppRoutes.SyncRoute}
+/// Route for the the [SyncPage].
+/// {@endtemplate}
+@immutable
+class SyncRoute extends GoRouteData {
+  /// {@macro AppRoutes.SyncRoute}
+  const SyncRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) => const SyncPage();
 }

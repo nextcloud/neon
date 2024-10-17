@@ -69,15 +69,15 @@ Future<bool> showUploadConfirmationDialog(
 /// Displays a [FilesChooseFolderDialog] to choose a new location for a file with the given [details].
 ///
 /// Returns a future with the new location.
-Future<webdav.PathUri?> showChooseFolderDialog(BuildContext context, FileDetails details) async {
+Future<webdav.PathUri?> showChooseFolderDialog(BuildContext context, FileDetails? details) async {
   final filesBloc = NeonProvider.of<FilesBloc>(context);
 
   final result = await showDialog<webdav.PathUri>(
     context: context,
     builder: (context) => FilesChooseFolderDialog(
       bloc: filesBloc,
-      uri: details.uri.parent!,
-      hideUri: details.uri,
+      uri: details?.uri.parent ?? webdav.PathUri.cwd(),
+      hideUri: details?.uri,
     ),
   );
 
