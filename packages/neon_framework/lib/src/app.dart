@@ -13,7 +13,6 @@ import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/blocs/maintenance_mode.dart';
 import 'package:neon_framework/src/blocs/unified_search.dart';
-import 'package:neon_framework/src/models/push_notification.dart';
 import 'package:neon_framework/src/platform/platform.dart';
 import 'package:neon_framework/src/router.dart';
 import 'package:neon_framework/src/theme/neon.dart';
@@ -27,6 +26,7 @@ import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/utils/push_utils.dart';
 import 'package:neon_framework/src/widgets/options_collection_builder.dart';
 import 'package:nextcloud/notifications.dart' as notifications;
+import 'package:notifications_push_repository/notifications_push_repository.dart';
 import 'package:provider/provider.dart';
 import 'package:quick_actions/quick_actions.dart';
 import 'package:universal_io/io.dart';
@@ -108,7 +108,6 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
       }
 
       if (NeonPlatform.instance.canUsePushNotifications) {
-        final localNotificationsPlugin = await PushUtils.initLocalNotifications();
         PushUtils.onPushNotificationReceived = (accountID) async {
           final account = _accountsBloc.accountByID(accountID);
           if (account == null) {
@@ -149,6 +148,13 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
           await _openAppFromExternal(account, app.id);
         };
 
+        if (!mounted) {
+          return;
+        }
+
+        final localNotificationsPlugin = await PushUtils.initLocalNotifications(
+          localizations: localizations,
+        );
         final details = await localNotificationsPlugin.getNotificationAppLaunchDetails();
         if (details != null && details.didNotificationLaunchApp && details.notificationResponse?.payload != null) {
           await PushUtils.onLocalNotificationClicked!(

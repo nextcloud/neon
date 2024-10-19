@@ -21,7 +21,6 @@ dependencies:
       url: https://github.com/nextcloud/neon
       path: packages/cookie_store
   crypto: ^3.0.0
-  crypton: ^2.0.0
   cupertino_icons: ^1.0.0 # Do not remove this, is it needed on iOS/macOS. It will not include icons on other platforms because Apple forbids it.
   dynamic_color: ^1.0.0
   dynamite_runtime: ^0.5.0+1
@@ -33,7 +32,12 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.1.6
   flutter_blurhash: ^0.8.2
-  flutter_local_notifications: ^17.0.0
+  # https://github.com/MaikuB/flutter_local_notifications/pull/2418
+  flutter_local_notifications:
+    git:
+      url: https://github.com/MaikuB/flutter_local_notifications
+      ref: d9789d8496545ca2c5a42b78b9f49dc8efe2929b
+      path: flutter_local_notifications
   flutter_localizations:
     sdk: flutter
   flutter_material_design_icons: ^1.0.0
@@ -52,6 +56,10 @@ dependencies:
       url: https://github.com/nextcloud/neon
       path: packages/neon_http_client
   nextcloud: ^8.1.0
+  notifications_push_repository:
+    git:
+      url: https://github.com/nextcloud/neon
+      path: packages/neon_framework/packages/notifications_push_repository
   package_info_plus: ^8.0.0
   path: ^1.0.0
   path_provider: ^2.1.0
@@ -69,8 +77,6 @@ dependencies:
   sqflite_common_ffi: ^2.3.2
   sqflite_common_ffi_web: ^0.4.2+3
   timezone: ^0.9.4
-  unifiedpush: ^5.0.0
-  unifiedpush_android: ^2.0.0
   universal_io: ^2.0.0
   url_launcher: ^6.1.4
   vector_graphics: ^1.0.0
@@ -86,7 +92,9 @@ dev_dependencies:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/cookie_store_conformance_tests
+  crypton: ^2.2.1
   custom_lint: ^0.6.8
+  flutter_local_notifications_platform_interface: ^7.2.0
   flutter_test:
     sdk: flutter
   go_router_builder: ^2.7.1
@@ -95,6 +103,8 @@ dev_dependencies:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/neon_lints
+  package_info_plus_platform_interface: ^3.0.1
+  permission_handler_platform_interface: ^4.2.3
   plugin_platform_interface: ^2.1.8
   shared_preferences: ^2.3.2
   url_launcher_platform_interface: ^2.3.2

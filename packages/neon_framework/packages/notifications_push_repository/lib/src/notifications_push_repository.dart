@@ -21,7 +21,7 @@ typedef OnMessageCallback = void Function(Uint8List message, String accountID);
 final _log = Logger('NotificationsPushRepository');
 
 /// A repository for managing push notifications and subscriptions.
-final class NotificationsPushRepository {
+class NotificationsPushRepository {
   /// Creates a new [NotificationsPushRepository].
   NotificationsPushRepository({
     required AccountRepository accountRepository,
