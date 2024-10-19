@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-10-19
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`nextcloud` - `v8.1.0`](#nextcloud---v810)
+
+---
+
+#### `nextcloud` - `v8.1.0`
+
+ - **REFACTOR**(nextcloud_test_presets): Use Docker ADD to download app releases. ([511ded3e](https://github.com/nextcloud/neon/commit/511ded3ed07ed200120d21de3afa9472047b1f55))
+ - **FIX**(nextcloud): Fix WebDav path calculations for instances hosted at subpaths. ([5691380d](https://github.com/nextcloud/neon/commit/5691380d205570885401fe0bbd0671a7321d77a4))
+ - **FIX**(nextcloud_test_presets): Add missing checksums for server presets. ([6649b0b3](https://github.com/nextcloud/neon/commit/6649b0b33b08cfc49a9a1c1080e2e2958b98d88f))
+ - **FEAT**(nextcloud_test_presets): Add and verify app release checksums. ([76fff244](https://github.com/nextcloud/neon/commit/76fff244fa9c832f2d1d7b86e2bcc0a4d64cc1e6))
+ - **FEAT**(nextcloud): Generate support table. ([a188eda6](https://github.com/nextcloud/neon/commit/a188eda6f061505b13e71ca55b098c155eacbead))
+
+
 ## 2024-10-01
 
 ### Changes
