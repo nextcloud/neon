@@ -104,6 +104,9 @@
   "actionContinue": "Continue",
   "actionCancel": "Cancel",
   "actionDone": "Done",
+  "actionPrevious": "Previous",
+  "actionNext": "Next",
+  "actionFinish": "Finish",
   "firstLaunchGoToSettingsToEnablePushNotifications": "Go to the settings to enable push notifications",
   "nextPushSupported": "NextPush is supported!",
   "nextPushSupportedText": "NextPush is a FOSS way of receiving push notifications using the UnifiedPush protocol via a Nextcloud instance.\nYou can install NextPush from the F-Droid app store.",
@@ -294,5 +297,42 @@
   "userStatusClearAtThisWeek": "This week",
   "userStatusActionClear": "Clear status",
   "userStatusStatusMessage": "Status message",
-  "userStatusOnlineStatus": "Online status"
+  "userStatusOnlineStatus": "Online status",
+  "sync": "Synchronization",
+  "syncOptionsNoSynchronizations": "No {type} synchronizations",
+  "@syncOptionsNoSynchronizations": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "syncOptionsAdd": "Add {type} synchronization",
+  "@syncOptionsAdd": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "syncOptionsRemove": "Remove synchronization",
+  "syncOptionsSyncNow": "Synchronize now",
+  "syncOptionsStatusUnknown": "Unknown synchronization status",
+  "syncOptionsStatusIncomplete": "Not completely synchronized",
+  "syncOptionsStatusComplete": "Completely synchronized",
+  "syncOptionsRemoveConfirmation": "Do you want to remove the synchronization?",
+  "syncOptionsAutomaticSync": "Sync automatically",
+  "syncResolveConflictsLocal": "Local",
+  "syncResolveConflictsRemote": "Remote",
+  "syncResolveConflictsTitle": "Found {count} conflicts for syncing {name}",
+  "@syncResolveConflictsTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  }
 }

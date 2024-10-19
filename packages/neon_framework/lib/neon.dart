@@ -13,6 +13,7 @@ import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/blocs/first_launch.dart';
 import 'package:neon_framework/src/blocs/next_push.dart';
 import 'package:neon_framework/src/blocs/push_notifications.dart';
+import 'package:neon_framework/src/blocs/sync.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
 import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/platform/platform.dart';
@@ -91,6 +92,10 @@ Future<void> runNeon({
     accountsSubject: accountsBloc.accounts,
     globalOptions: globalOptions,
   );
+  final syncBloc = SyncBloc(
+    accountsBloc,
+    appImplementations,
+  );
 
   runApp(
     MultiProvider(
@@ -100,6 +105,7 @@ Future<void> runNeon({
         NeonProvider<AccountsBloc>.value(value: accountsBloc),
         NeonProvider<FirstLaunchBloc>.value(value: firstLaunchBloc),
         NeonProvider<NextPushBloc>.value(value: nextPushBloc),
+        NeonProvider<SyncBloc>.value(value: syncBloc),
         Provider<BuiltSet<AppImplementation>>(
           create: (_) => appImplementations,
           dispose: (_, appImplementations) => appImplementations.disposeAll(),

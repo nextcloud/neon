@@ -35,5 +35,6 @@ rules:
       - notifications_push_repository
       - release
       - sort_box
+      - synchronize
       - talk_app
       - tool
