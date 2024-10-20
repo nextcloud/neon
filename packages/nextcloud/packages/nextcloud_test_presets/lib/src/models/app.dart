@@ -23,9 +23,4 @@ class App {
       ..sort((a, b) => b.compareTo(a));
     return compatibleReleases.firstOrNull;
   }
-
-  AppRelease findLatestRelease() {
-    final sortedReleases = releases..sort((a, b) => b.compareTo(a));
-    return sortedReleases.first;
-  }
 }
