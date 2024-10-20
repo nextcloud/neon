@@ -224,6 +224,7 @@ void main() {
           ocsSharePermissions: true,
         ),
       );
+      // ignore: deprecated_member_use_from_same_package
       final response = result.toWebDavFiles().single;
 
       expect(response.path, PathUri.parse('test/test.png'));
@@ -318,6 +319,7 @@ void main() {
         ),
         depth: WebDavDepth.zero,
       ))
+          // ignore: deprecated_member_use_from_same_package
           .toWebDavFiles()
           .single;
 
