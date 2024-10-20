@@ -17,6 +17,11 @@ Future<void> generatePresets() async {
     'uppush',
     'drop_account',
   ];
+  final releaseFallbacks = <String, Map<Version, String>>{
+    'news': {
+      Version(28, 0, 11): 'https://github.com/nextcloud/news/releases/download/25.0.0-alpha9/news.tar.gz',
+    },
+  };
 
   final httpClient = http.Client();
 
@@ -40,19 +45,22 @@ Future<void> generatePresets() async {
       final buffer = StringBuffer()..writeln('SERVER_VERSION=${serverRelease.dockerImageTag}');
 
       for (final a in apps) {
-        late final AppRelease appRelease;
+        final String? url;
         if (a == app) {
-          appRelease = release;
+          url = release.url;
         } else {
-          appRelease = a.findLatestCompatibleRelease(serverRelease) ??
-              a.findLatestCompatibleRelease(serverRelease, allowUnstable: true) ??
-              a.findLatestRelease();
+          url = a.findLatestCompatibleRelease(serverRelease)?.url ??
+              a.findLatestCompatibleRelease(serverRelease, allowUnstable: true)?.url ??
+              releaseFallbacks[a.id]?[serverRelease.version];
+          if (url == null) {
+            throw Exception('Unable to find compatible release for ${a.id} on ${serverRelease.version}');
+          }
         }
 
-        final checksum = await _getUrlChecksum(httpClient, appRelease.url);
+        final checksum = await _getUrlChecksum(httpClient, url);
 
         buffer
-          ..writeln('${a.id.toUpperCase()}_URL=${appRelease.url}')
+          ..writeln('${a.id.toUpperCase()}_URL=$url')
           ..writeln('${a.id.toUpperCase()}_CHECKSUM=sha256:$checksum');
       }
 
@@ -70,14 +78,17 @@ Future<void> generatePresets() async {
     final buffer = StringBuffer()..writeln('SERVER_VERSION=${serverRelease.dockerImageTag}');
 
     for (final app in apps) {
-      final release = app.findLatestCompatibleRelease(serverRelease) ??
-          app.findLatestCompatibleRelease(serverRelease, allowUnstable: true) ??
-          app.findLatestRelease();
+      final url = app.findLatestCompatibleRelease(serverRelease)?.url ??
+          app.findLatestCompatibleRelease(serverRelease, allowUnstable: true)?.url ??
+          releaseFallbacks[app.id]?[serverRelease.version];
+      if (url == null) {
+        throw Exception('Unable to find compatible release for ${app.id} on ${serverRelease.version}');
+      }
 
-      final checksum = await _getUrlChecksum(httpClient, release.url);
+      final checksum = await _getUrlChecksum(httpClient, url);
 
       buffer
-        ..writeln('${app.id.toUpperCase()}_URL=${release.url}')
+        ..writeln('${app.id.toUpperCase()}_URL=$url')
         ..writeln('${app.id.toUpperCase()}_CHECKSUM=sha256:$checksum');
     }
 
