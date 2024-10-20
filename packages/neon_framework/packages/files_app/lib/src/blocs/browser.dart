@@ -31,7 +31,7 @@ sealed class FilesBrowserBloc implements InteractiveBloc {
     webdav.PathUri? hideUri,
   }) = _FilesBrowserBloc;
 
-  BehaviorSubject<Result<BuiltList<webdav.WebDavFile>>> get files;
+  BehaviorSubject<Result<BuiltList<webdav.WebDavResponse>>> get files;
 
   /// Mode to operate the `FilesBrowserView` in.
   FilesBrowserMode get mode;
@@ -95,8 +95,12 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
         depth: webdav.WebDavDepth.one,
       ),
       converter: const webdav.WebDavResponseConverter(),
-      unwrap: (response) => BuiltList<webdav.WebDavFile>.build((b) {
-        for (final file in response.toWebDavFiles()) {
+      unwrap: (response) => BuiltList<webdav.WebDavResponse>.build((b) {
+        for (final file in response.responses) {
+          if (file.href == null) {
+            continue;
+          }
+
           // Do not show itself
           if (uri == file.path) {
             continue;

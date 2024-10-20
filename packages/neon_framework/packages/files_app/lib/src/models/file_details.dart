@@ -16,14 +16,14 @@ class FileDetails {
   }) : task = null;
 
   FileDetails.fromWebDav({
-    required webdav.WebDavFile file,
+    required webdav.WebDavResponse file,
   })  : uri = file.path,
-        size = file.size,
-        etag = file.etag,
-        mimeType = file.mimeType,
-        lastModified = file.lastModified,
-        isFavorite = file.favorite,
-        blurHash = file.blurHash,
+        size = file.props.ocSize,
+        etag = file.props.davGetetag,
+        mimeType = file.props.davGetcontenttype,
+        lastModified = file.props.davGetlastmodified,
+        isFavorite = file.props.ocFavorite,
+        blurHash = file.props.ncMetadataBlurhash,
         task = null;
 
   FileDetails.fromUploadTask({
@@ -38,18 +38,18 @@ class FileDetails {
 
   FileDetails.fromDownloadTask({
     required FilesDownloadTask this.task,
-    required webdav.WebDavFile file,
+    required webdav.WebDavResponse file,
   })  : uri = task.uri,
-        size = file.size,
-        etag = file.etag,
-        mimeType = file.mimeType,
-        lastModified = file.lastModified,
-        isFavorite = file.favorite,
-        blurHash = file.blurHash;
+        size = file.props.ocSize,
+        etag = file.props.davGetetag,
+        mimeType = file.props.davGetcontenttype,
+        lastModified = file.props.davGetlastmodified,
+        isFavorite = file.props.ocFavorite,
+        blurHash = file.props.ncMetadataBlurhash;
 
   factory FileDetails.fromTask({
     required FilesTask task,
-    required webdav.WebDavFile file,
+    required webdav.WebDavResponse file,
   }) {
     switch (task) {
       case FilesUploadTask():
