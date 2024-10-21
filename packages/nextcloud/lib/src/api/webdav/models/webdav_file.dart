@@ -1,16 +1,21 @@
+// ignore_for_file: deprecated_member_use_from_same_package
 import 'package:nextcloud/src/api/webdav/webdav.dart';
 import 'package:timezone/timezone.dart' as tz;
 
+@Deprecated('Use WebDavResponseHelpers instead.')
 // ignore: public_member_api_docs
 extension WebDavMultistatusFile on WebDavMultistatus {
   /// Convert the [WebDavMultistatus] into a [WebDavFile] for easier handling
+  @Deprecated('Use WebDavResponseHelpers instead.')
   List<WebDavFile> toWebDavFiles() =>
       responses.where((response) => response.href != null).map((response) => WebDavFile(response: response)).toList();
 }
 
 /// WebDavFile class
+@Deprecated('Use WebDavResponseHelpers instead.')
 class WebDavFile {
   /// Creates a new WebDavFile object with the given path
+  @Deprecated('Use WebDavResponseHelpers instead.')
   WebDavFile({
     required WebDavResponse response,
   }) : _response = response;

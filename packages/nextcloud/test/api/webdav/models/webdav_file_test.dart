@@ -1,3 +1,4 @@
+// ignore_for_file: deprecated_member_use_from_same_package
 import 'package:nextcloud/src/api/webdav/models/models.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
