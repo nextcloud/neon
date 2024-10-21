@@ -22,6 +22,10 @@ jobs:
 
       - name: Update presets
         run: ./tool/generate-nextcloud-test-presets.sh
+      - name: Update support table
+        run: |
+          cd packages/nextcloud
+          fvm dart run generate_support_table.dart
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@5e914681df9dc83aa4e4905692ca88beb2f9e91f # v7
         with:
@@ -30,6 +34,4 @@ jobs:
           branch: chore/nextcloud_test/update-presets
           delete-branch: true
           title: "chore(nextcloud_test): Update presets"
-          body: |
-            Make sure to update the supported apps table if a new preset is added!
-            `git checkout chore/nextcloud_test/update-presets && git commit --amend -s --no-edit && git push -f` locally to trigger the CI.
+          body: "`git checkout chore/nextcloud_test/update-presets && git commit --amend -s --no-edit && git push -f` locally to trigger the CI."
