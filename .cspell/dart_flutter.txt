@@ -19,3 +19,4 @@ unfocus
 writeln
 xmark
 arrowshape
+autocorrect
