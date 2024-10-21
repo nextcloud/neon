@@ -27,7 +27,7 @@ class WebDavFile {
       isAbsolute: false,
       isDirectory: href.isDirectory,
       // The server might be hosted at a subpath, so we don't have a fixed number of path segments to remove
-      pathSegments: href.pathSegments.sublist(href.pathSegments.indexOf('remote.php') + 2),
+      pathSegments: href.pathSegments.sublist(href.pathSegments.indexOf('remote.php') + 4),
     );
   }();
 

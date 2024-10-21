@@ -11,13 +11,15 @@ void main() {
     group('shareapi', () {
       setUp(() async {
         final file = File('test/files/test.png');
-        await tester.client.webdav.putFile(file, file.statSync(), webdav.PathUri.parse('create-share.png'));
+        await tester.client
+            .webdav(tester.username)
+            .putFile(file, file.statSync(), webdav.PathUri.parse('create-share.png'));
         resetFixture();
       });
 
       tearDown(() async {
         closeFixture();
-        await tester.client.webdav.delete(webdav.PathUri.parse('create-share.png'));
+        await tester.client.webdav(tester.username).delete(webdav.PathUri.parse('create-share.png'));
       });
 
       test('createShare', () async {

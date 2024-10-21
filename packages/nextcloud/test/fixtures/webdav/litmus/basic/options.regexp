@@ -1,4 +1,4 @@
-OPTIONS http://localhost/remote\.php/webdav
+OPTIONS http://localhost/remote\.php/dav/files/user1
 authorization: Bearer mock
 content-type: application/xml
 ocs-apirequest: true

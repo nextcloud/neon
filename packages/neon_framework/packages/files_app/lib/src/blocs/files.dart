@@ -105,7 +105,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
           file: File(localPath),
         );
         tasks.add(tasks.value.rebuild((b) => b.add(task)));
-        await uploadQueue.add(() => task.execute(account.client));
+        await uploadQueue.add(() => task.execute(account.client.webdav(account.username)));
         tasks.add(tasks.value.rebuild((b) => b.remove(task)));
       },
       disableTimeout: true,
@@ -123,7 +123,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
           bytes: bytes,
         );
         tasks.add(tasks.value.rebuild((b) => b.add(task)));
-        await uploadQueue.add(() => task.execute(account.client));
+        await uploadQueue.add(() => task.execute(account.client.webdav(account.username)));
         tasks.add(tasks.value.rebuild((b) => b.remove(task)));
       },
       disableTimeout: true,
@@ -166,52 +166,52 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
 
   @override
   Future<void> delete(webdav.PathUri uri) async {
-    await wrapAction(() async => account.client.webdav.delete(uri));
+    await wrapAction(() async => account.client.webdav(account.username).delete(uri));
   }
 
   @override
   Future<void> rename(webdav.PathUri uri, String name) async {
     await wrapAction(
-      () async => account.client.webdav.move(
-        uri,
-        uri.rename(name),
-      ),
+      () async => account.client.webdav(account.username).move(
+            uri,
+            uri.rename(name),
+          ),
     );
   }
 
   @override
   Future<void> move(webdav.PathUri uri, webdav.PathUri destination) async {
-    await wrapAction(() async => account.client.webdav.move(uri, destination));
+    await wrapAction(() async => account.client.webdav(account.username).move(uri, destination));
   }
 
   @override
   Future<void> copy(webdav.PathUri uri, webdav.PathUri destination) async {
-    await wrapAction(() async => account.client.webdav.copy(uri, destination));
+    await wrapAction(() async => account.client.webdav(account.username).copy(uri, destination));
   }
 
   @override
   Future<void> addFavorite(webdav.PathUri uri) async {
     await wrapAction(
-      () async => account.client.webdav.proppatch(
-        uri,
-        set: const webdav.WebDavProp(ocFavorite: true),
-      ),
+      () async => account.client.webdav(account.username).proppatch(
+            uri,
+            set: const webdav.WebDavProp(ocFavorite: true),
+          ),
     );
   }
 
   @override
   Future<void> removeFavorite(webdav.PathUri uri) async {
     await wrapAction(
-      () async => account.client.webdav.proppatch(
-        uri,
-        set: const webdav.WebDavProp(ocFavorite: false),
-      ),
+      () async => account.client.webdav(account.username).proppatch(
+            uri,
+            set: const webdav.WebDavProp(ocFavorite: false),
+          ),
     );
   }
 
   @override
   Future<void> createFolder(webdav.PathUri uri) async {
-    await wrapAction(() async => account.client.webdav.mkcol(uri));
+    await wrapAction(() async => account.client.webdav(account.username).mkcol(uri));
   }
 
   Future<File> cacheFile(webdav.PathUri uri, String etag) async {
@@ -236,7 +236,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
     );
 
     tasks.add(tasks.value.rebuild((b) => b.add(task)));
-    await downloadQueue.add(() => task.execute(account.client));
+    await downloadQueue.add(() => task.execute(account.client.webdav(account.username)));
     tasks.add(tasks.value.rebuild((b) => b.remove(task)));
   }
 
@@ -248,7 +248,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
     final future = task.stream.forEach(buffer.add);
 
     tasks.add(tasks.value.rebuild((b) => b.add(task)));
-    await downloadQueue.add(() => task.execute(account.client));
+    await downloadQueue.add(() => task.execute(account.client.webdav(account.username)));
     tasks.add(tasks.value.rebuild((b) => b.remove(task)));
 
     await future;
