@@ -119,7 +119,11 @@ void main() {
       FlutterLocalNotificationsPlatform.instance = localNotificationsPlatform;
       when(
         () => localNotificationsPlatform.initialize(
-          any(),
+          any(
+            that: predicate(
+              (s) => s is AndroidInitializationSettings && s.defaultIcon == '@drawable/ic_launcher_outline',
+            ),
+          ),
           onDidReceiveNotificationResponse: any(named: 'onDidReceiveNotificationResponse'),
         ),
       ).thenAnswer((invocation) async {
@@ -286,7 +290,7 @@ void main() {
                     d.channelName == 'app' &&
                     d.subText == null &&
                     d.groupKey == 'app_app' &&
-                    d.icon == '@mipmap/ic_launcher' &&
+                    d.icon == null &&
                     d.largeIcon == null &&
                     d.when == null &&
                     d.color == NcColors.primary &&
@@ -421,7 +425,7 @@ void main() {
                     d.channelName == 'Files' &&
                     d.subText == null &&
                     d.groupKey == 'files_app' &&
-                    d.icon == '@mipmap/ic_launcher' &&
+                    d.icon == null &&
                     d.largeIcon != null &&
                     d.when == notificationDate.millisecondsSinceEpoch &&
                     d.color == NcColors.primary &&
@@ -469,7 +473,7 @@ void main() {
                     d.channelName == 'app' &&
                     d.subText == null &&
                     d.groupKey == 'app_app' &&
-                    d.icon == '@mipmap/ic_launcher' &&
+                    d.icon == null &&
                     d.largeIcon == null &&
                     d.when == null &&
                     d.color == NcColors.primary &&

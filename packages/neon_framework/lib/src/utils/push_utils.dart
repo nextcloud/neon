@@ -60,7 +60,7 @@ class PushUtils {
     final localNotificationsPlugin = FlutterLocalNotificationsPlugin();
     await localNotificationsPlugin.initialize(
       InitializationSettings(
-        android: const AndroidInitializationSettings('@mipmap/ic_launcher'),
+        android: const AndroidInitializationSettings('@drawable/ic_launcher_outline'),
         linux: LinuxInitializationSettings(
           defaultActionName: localizations.actionOpen,
           defaultIcon: AssetsLinuxIcon('assets/logo.svg'),
@@ -173,7 +173,6 @@ class PushUtils {
                 appName ?? appID,
                 subText: accounts.length > 1 && account != null ? account.humanReadableID : null,
                 groupKey: '${appID}_app',
-                icon: '@mipmap/ic_launcher',
                 largeIcon: largeIconBitmap,
                 when: when?.millisecondsSinceEpoch,
                 color: NcColors.primary,
