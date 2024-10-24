@@ -50,6 +50,7 @@ requesttoken
 reshares
 resharing
 rgdnvw
+rgdnvck
 roomid
 rowocs
 setsip
