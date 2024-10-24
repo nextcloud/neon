@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:http/http.dart';
 import 'package:neon_http_client/src/interceptors/authorization_throttling_interceptor.dart';
 import 'package:nextcloud/nextcloud.dart';
@@ -13,8 +15,23 @@ void main() {
       final authorizedRequest = Request('GET', baseURL);
       authorizedRequest.headers['authorization'] = 'test';
       final authorizedResponse = StreamedResponse(
-        const Stream.empty(),
+        Stream.value(
+          utf8.encode(
+            json.encode(
+              {
+                'ocs': {
+                  'meta': {
+                    'statuscode': 997,
+                  },
+                },
+              },
+            ),
+          ),
+        ),
         401,
+        headers: {
+          'content-type': 'application/json; charset=utf-8',
+        },
         request: authorizedRequest,
       );
 
@@ -27,9 +44,9 @@ void main() {
         interceptor.shouldInterceptResponse(authorizedResponse),
         isTrue,
       );
-      expect(
+      await expectLater(
         interceptor.interceptResponse(response: authorizedResponse, url: authorizedRequest.url),
-        isA<StreamedResponse>(),
+        completion(isA<StreamedResponse>()),
       );
 
       expect(
@@ -48,8 +65,23 @@ void main() {
       final authorizedRequest = Request('GET', baseURL);
       authorizedRequest.headers['authorization'] = 'test';
       final authorizedResponse = StreamedResponse(
-        const Stream.empty(),
+        Stream.value(
+          utf8.encode(
+            json.encode(
+              {
+                'ocs': {
+                  'meta': {
+                    'statuscode': 997,
+                  },
+                },
+              },
+            ),
+          ),
+        ),
         401,
+        headers: {
+          'content-type': 'application/json; charset=utf-8',
+        },
         request: authorizedRequest,
       );
 
@@ -72,9 +104,9 @@ void main() {
         interceptor.shouldInterceptResponse(authorizedResponse),
         isTrue,
       );
-      expect(
+      await expectLater(
         interceptor.interceptResponse(response: authorizedResponse, url: authorizedRequest.url),
-        isA<StreamedResponse>(),
+        completion(isA<StreamedResponse>()),
       );
 
       expect(
@@ -94,9 +126,9 @@ void main() {
         interceptor.shouldInterceptResponse(pollResponse),
         isTrue,
       );
-      expect(
+      await expectLater(
         interceptor.interceptResponse(response: pollResponse, url: pollRequest.url),
-        isA<StreamedResponse>(),
+        completion(isA<StreamedResponse>()),
       );
 
       expect(
@@ -111,16 +143,46 @@ void main() {
       final otherServerRequest = Request('GET', Uri.parse('http://example.com'));
       otherServerRequest.headers['authorization'] = 'test';
       final otherServerResponse = StreamedResponse(
-        const Stream.empty(),
+        Stream.value(
+          utf8.encode(
+            json.encode(
+              {
+                'ocs': {
+                  'meta': {
+                    'statuscode': 997,
+                  },
+                },
+              },
+            ),
+          ),
+        ),
         401,
+        headers: {
+          'content-type': 'application/json; charset=utf-8',
+        },
         request: otherServerRequest,
       );
 
       final correctServerRequest = Request('GET', baseURL);
       correctServerRequest.headers['authorization'] = 'test';
       final correctServerResponse = StreamedResponse(
-        const Stream.empty(),
+        Stream.value(
+          utf8.encode(
+            json.encode(
+              {
+                'ocs': {
+                  'meta': {
+                    'statuscode': 997,
+                  },
+                },
+              },
+            ),
+          ),
+        ),
         401,
+        headers: {
+          'content-type': 'application/json; charset=utf-8',
+        },
         request: correctServerRequest,
       );
 
@@ -141,9 +203,9 @@ void main() {
         interceptor.shouldInterceptResponse(correctServerResponse),
         isTrue,
       );
-      expect(
+      await expectLater(
         interceptor.interceptResponse(response: correctServerResponse, url: correctServerRequest.url),
-        isA<StreamedResponse>(),
+        completion(isA<StreamedResponse>()),
       );
       expect(
         interceptor.shouldInterceptRequest(correctServerRequest),
@@ -169,16 +231,46 @@ void main() {
 
       final unauthorizedRequest = Request('GET', baseURL);
       final unauthorizedResponse = StreamedResponse(
-        const Stream.empty(),
+        Stream.value(
+          utf8.encode(
+            json.encode(
+              {
+                'ocs': {
+                  'meta': {
+                    'statuscode': 997,
+                  },
+                },
+              },
+            ),
+          ),
+        ),
         401,
+        headers: {
+          'content-type': 'application/json; charset=utf-8',
+        },
         request: unauthorizedRequest,
       );
 
       final authorizedRequest = Request('GET', baseURL);
       authorizedRequest.headers['authorization'] = 'test';
       final authorizedResponse = StreamedResponse(
-        const Stream.empty(),
+        Stream.value(
+          utf8.encode(
+            json.encode(
+              {
+                'ocs': {
+                  'meta': {
+                    'statuscode': 997,
+                  },
+                },
+              },
+            ),
+          ),
+        ),
         401,
+        headers: {
+          'content-type': 'application/json; charset=utf-8',
+        },
         request: authorizedRequest,
       );
 
@@ -190,9 +282,9 @@ void main() {
         interceptor.shouldInterceptResponse(unauthorizedResponse),
         isTrue,
       );
-      expect(
+      await expectLater(
         interceptor.interceptResponse(response: unauthorizedResponse, url: unauthorizedRequest.url),
-        isA<StreamedResponse>(),
+        completion(isA<StreamedResponse>()),
       );
 
       expect(
@@ -203,9 +295,9 @@ void main() {
         interceptor.shouldInterceptResponse(authorizedResponse),
         isTrue,
       );
-      expect(
+      await expectLater(
         interceptor.interceptResponse(response: authorizedResponse, url: authorizedRequest.url),
-        isA<StreamedResponse>(),
+        completion(isA<StreamedResponse>()),
       );
       expect(
         interceptor.shouldInterceptRequest(authorizedRequest),
@@ -224,9 +316,9 @@ void main() {
         interceptor.shouldInterceptResponse(unauthorizedResponse),
         isTrue,
       );
-      expect(
+      await expectLater(
         interceptor.interceptResponse(response: unauthorizedResponse, url: unauthorizedRequest.url),
-        isA<StreamedResponse>(),
+        completion(isA<StreamedResponse>()),
       );
     });
   });
