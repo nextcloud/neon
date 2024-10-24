@@ -1,4 +1,4 @@
-PROPFIND http://localhost/remote\.php/webdav/test
+PROPFIND http://localhost/remote\.php/dav/files/user1/test
 authorization: Bearer mock
 content-type: application/xml
 ocs-apirequest: true

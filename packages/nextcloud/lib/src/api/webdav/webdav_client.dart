@@ -31,6 +31,7 @@ class WebDavClient extends DynamiteClient {
   /// triggered, when cookies are also sent.
   WebDavClient(
     super.baseURL, {
+    required this.username,
     http.Client? httpClient,
     super.authentications,
     bool useCSRFClient = true,
@@ -44,14 +45,22 @@ class WebDavClient extends DynamiteClient {
         );
 
   /// Creates a new [WebDavClient] from another [client].
-  WebDavClient.fromClient(DynamiteClient client)
-      : this(
+  WebDavClient.fromClient(
+    DynamiteClient client, {
+    required String username,
+  }) : this(
           client.baseURL,
+          username: username,
           httpClient: client.httpClient,
           authentications: client.authentications,
         );
 
-  Uri _constructUri([PathUri? path]) => constructUri(baseURL, path);
+  /// The username of the user used for all requests.
+  final String username;
+
+  Uri _constructUri([PathUri? path]) {
+    return constructUri(username, baseURL, path);
+  }
 
   /// Returns a request to query the WebDAV capabilities of the server.
   ///

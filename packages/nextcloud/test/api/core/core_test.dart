@@ -126,13 +126,13 @@ void main() {
     group('Preview', () {
       setUp(() async {
         final file = File('test/files/test.png');
-        await tester.client.webdav.putFile(file, file.statSync(), webdav.PathUri.parse('preview.png'));
+        await tester.client.webdav(tester.username).putFile(file, file.statSync(), webdav.PathUri.parse('preview.png'));
         resetFixture();
       });
 
       tearDown(() async {
         closeFixture();
-        await tester.client.webdav.delete(webdav.PathUri.parse('preview.png'));
+        await tester.client.webdav(tester.username).delete(webdav.PathUri.parse('preview.png'));
       });
 
       test('Get', () async {

@@ -12,13 +12,13 @@ final class NextcloudTester {
   NextcloudTester({
     required String appName,
     required Version version,
-    String username = defaultTestUsername,
-  })  : _preset = (name: appName, version: version),
-        _username = username;
+    this.username = defaultTestUsername,
+  }) : _preset = (name: appName, version: version);
 
   final Preset _preset;
 
-  final String _username;
+  /// The username of the configured user.
+  final String username;
 
   /// The app version tested.
   Version get version => _preset.version;
@@ -63,7 +63,7 @@ final class NextcloudTester {
   /// Initializes the tester creating the target and default client.
   Future<void> init() async {
     _target = await TestTargetFactory.instance.spawn(_preset);
-    _client = await _target!.createClient(username: _username);
+    _client = await _target!.createClient(username: username);
   }
 
   /// Closes the tester.

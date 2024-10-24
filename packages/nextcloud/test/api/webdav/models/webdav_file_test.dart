@@ -30,7 +30,7 @@ void main() {
         expect(
           WebDavFile(
             response: const WebDavResponse(
-              href: '/remote.php/webdav/abc/def.txt',
+              href: '/remote.php/dav/files/admin/abc/def.txt',
               propstats: [],
             ),
           ).path,
@@ -42,7 +42,7 @@ void main() {
         expect(
           WebDavFile(
             response: const WebDavResponse(
-              href: '/remote.php/webdav/abc/def/',
+              href: '/remote.php/dav/files/admin/abc/def/',
               propstats: [],
             ),
           ).path,
@@ -56,7 +56,7 @@ void main() {
         expect(
           WebDavFile(
             response: const WebDavResponse(
-              href: '/subpath/remote.php/webdav/abc/def.txt',
+              href: '/subpath/remote.php/dav/files/admin/abc/def.txt',
               propstats: [],
             ),
           ).path,
@@ -68,7 +68,7 @@ void main() {
         expect(
           WebDavFile(
             response: const WebDavResponse(
-              href: '/subpath/remote.php/webdav/abc/def/',
+              href: '/subpath/remote.php/dav/files/admin/abc/def/',
               propstats: [],
             ),
           ).path,
@@ -83,7 +83,7 @@ void main() {
       expect(
         WebDavFile(
           response: const WebDavResponse(
-            href: '/remote.php/webdav/abc/def.txt',
+            href: '/remote.php/dav/files/admin/abc/def.txt',
             propstats: [],
           ),
         ).name,
@@ -95,7 +95,7 @@ void main() {
       expect(
         WebDavFile(
           response: const WebDavResponse(
-            href: '/remote.php/webdav/abc/def/',
+            href: '/remote.php/dav/files/admin/abc/def/',
             propstats: [],
           ),
         ).name,
@@ -110,7 +110,7 @@ void main() {
         expect(
           WebDavFile(
             response: const WebDavResponse(
-              href: '/remote.php/webdav/abc/def.txt',
+              href: '/remote.php/dav/files/admin/abc/def.txt',
               propstats: [
                 WebDavPropstat(
                   status: 'HTTP/1.1 200 OK',
@@ -129,7 +129,7 @@ void main() {
         expect(
           WebDavFile(
             response: const WebDavResponse(
-              href: '/remote.php/webdav/abc/def/',
+              href: '/remote.php/dav/files/admin/abc/def/',
               propstats: [
                 WebDavPropstat(
                   status: 'HTTP/1.1 200 OK',
@@ -150,7 +150,7 @@ void main() {
         expect(
           WebDavFile(
             response: const WebDavResponse(
-              href: '/remote.php/webdav/abc/.def.txt',
+              href: '/remote.php/dav/files/admin/abc/.def.txt',
               propstats: [
                 WebDavPropstat(
                   status: 'HTTP/1.1 200 OK',
@@ -167,7 +167,7 @@ void main() {
         expect(
           WebDavFile(
             response: const WebDavResponse(
-              href: '/remote.php/webdav/abc/.def/',
+              href: '/remote.php/dav/files/admin/abc/.def/',
               propstats: [
                 WebDavPropstat(
                   status: 'HTTP/1.1 200 OK',
@@ -188,7 +188,7 @@ void main() {
         expect(
           WebDavFile(
             response: const WebDavResponse(
-              href: '/remote.php/webdav/abc/def.txt',
+              href: '/remote.php/dav/files/admin/abc/def.txt',
               propstats: [
                 WebDavPropstat(
                   status: 'HTTP/1.1 200 OK',
@@ -209,7 +209,7 @@ void main() {
         expect(
           WebDavFile(
             response: const WebDavResponse(
-              href: '/remote.php/webdav/abc/def/',
+              href: '/remote.php/dav/files/admin/abc/def/',
               propstats: [
                 WebDavPropstat(
                   status: 'HTTP/1.1 200 OK',
@@ -232,7 +232,7 @@ void main() {
         expect(
           WebDavFile(
             response: const WebDavResponse(
-              href: '/remote.php/webdav/abc/def.txt',
+              href: '/remote.php/dav/files/admin/abc/def.txt',
               propstats: [
                 WebDavPropstat(
                   status: 'HTTP/1.1 200 OK',
@@ -249,7 +249,7 @@ void main() {
         expect(
           WebDavFile(
             response: const WebDavResponse(
-              href: '/remote.php/webdav/abc/def/',
+              href: '/remote.php/dav/files/admin/abc/def/',
               propstats: [
                 WebDavPropstat(
                   status: 'HTTP/1.1 200 OK',
