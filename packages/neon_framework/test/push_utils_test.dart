@@ -302,6 +302,30 @@ void main() {
             payload: payload,
           ),
         ).called(1);
+        verify(
+          () => localNotificationsPlatform.show(
+            4082,
+            null,
+            null,
+            notificationDetails: any(
+              named: 'notificationDetails',
+              that: predicate<AndroidNotificationDetails>(
+                (d) =>
+                    d.channelId == 'app' &&
+                    d.channelName == 'app' &&
+                    d.subText == null &&
+                    d.groupKey == 'app_app' &&
+                    d.icon == null &&
+                    d.largeIcon == null &&
+                    d.when == null &&
+                    d.color == NcColors.primary &&
+                    d.category == null &&
+                    d.importance == Importance.defaultImportance &&
+                    d.priority == Priority.defaultPriority,
+              ),
+            ),
+          ),
+        ).called(1);
 
         onDidReceiveNotificationResponseCallback(
           NotificationResponse(
@@ -437,6 +461,30 @@ void main() {
             payload: payload,
           ),
         ).called(1);
+        verify(
+          () => localNotificationsPlatform.show(
+            4405,
+            null,
+            null,
+            notificationDetails: any(
+              named: 'notificationDetails',
+              that: predicate<AndroidNotificationDetails>(
+                (d) =>
+                    d.channelId == 'files' &&
+                    d.channelName == 'Files' &&
+                    d.subText == null &&
+                    d.groupKey == 'files_app' &&
+                    d.icon == null &&
+                    d.largeIcon == null &&
+                    d.when == null &&
+                    d.color == NcColors.primary &&
+                    d.category == null &&
+                    d.importance == Importance.defaultImportance &&
+                    d.priority == Priority.defaultPriority,
+              ),
+            ),
+          ),
+        ).called(1);
 
         verify(() => storage.requestCache).called(1);
       });
@@ -483,6 +531,30 @@ void main() {
               ),
             ),
             payload: payload,
+          ),
+        ).called(1);
+        verify(
+          () => localNotificationsPlatform.show(
+            4082,
+            null,
+            null,
+            notificationDetails: any(
+              named: 'notificationDetails',
+              that: predicate<AndroidNotificationDetails>(
+                (d) =>
+                    d.channelId == 'app' &&
+                    d.channelName == 'app' &&
+                    d.subText == null &&
+                    d.groupKey == 'app_app' &&
+                    d.icon == null &&
+                    d.largeIcon == null &&
+                    d.when == null &&
+                    d.color == NcColors.primary &&
+                    d.category == null &&
+                    d.importance == Importance.defaultImportance &&
+                    d.priority == Priority.defaultPriority,
+              ),
+            ),
           ),
         ).called(1);
       });

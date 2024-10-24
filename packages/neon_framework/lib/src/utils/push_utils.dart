@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:typed_data';
 import 'dart:ui';
 
 import 'package:account_repository/account_repository.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:crypto/crypto.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_svg/flutter_svg.dart' show SvgBytesLoader, vg;
@@ -185,6 +185,29 @@ class PushUtils {
             ),
             payload: json.encode(pushNotification.toJson()),
           );
+
+          // Other platforms don't support grouping, so don't send another notification there.
+          if (defaultTargetPlatform == TargetPlatform.android) {
+            // Since we only support Android SDK 24+, we can just generate an empty summary notification as it will not be shown anyway.
+            await localNotificationsPlugin.show(
+              _getGroupSummaryID(accountID, appID),
+              null,
+              null,
+              NotificationDetails(
+                android: AndroidNotificationDetails(
+                  appID,
+                  appName ?? appID,
+                  groupKey: '${appID}_app',
+                  setAsGroupSummary: true,
+                  styleInformation: InboxStyleInformation(
+                    [],
+                    summaryText: appName ?? appID,
+                  ),
+                  color: NcColors.primary,
+                ),
+              ),
+            );
+          }
         }
       }
     }
@@ -268,5 +291,9 @@ class PushUtils {
 
   static int _getNotificationID(String accountID, PushNotification notification) {
     return sha256.convert(utf8.encode('$accountID${notification.subject.nid}')).bytes.reduce((a, b) => a + b);
+  }
+
+  static int _getGroupSummaryID(String accountID, String app) {
+    return sha256.convert(utf8.encode('$accountID$app')).bytes.reduce((a, b) => a + b);
   }
 }
