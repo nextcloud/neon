@@ -44,7 +44,6 @@ jobs:
       - name: Run tests
         run: |
           mapfile -t packages < <(melos list --parsable --diff=${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }}..${{ github.event.pull_request.head.sha }} --include-dependents | xargs -r -n1 basename)
-          if [ -z "$packages" ]; then exit 0; fi
           packages_glob="$(printf ",%s" "${packages[@]}")"
           packages_glob="${packages_glob:1}"
           if [ -n "$packages_glob" ]; then
