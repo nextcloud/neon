@@ -195,7 +195,7 @@ void main() {
     test('Delete', () async {
       final payload = {
         'priority': '',
-        'type': '',
+        'type': 'background',
         'subject': {
           'nid': 1,
           'delete': true,
@@ -210,7 +210,7 @@ void main() {
     test('Delete multiple', () async {
       final payload = {
         'priority': '',
-        'type': '',
+        'type': 'background',
         'subject': {
           'nids': [1, 2],
           'delete-multiple': true,
@@ -226,7 +226,7 @@ void main() {
     test('Delete all', () async {
       final payload = {
         'priority': '',
-        'type': '',
+        'type': 'background',
         'subject': {
           'delete-all': true,
         },

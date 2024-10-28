@@ -112,17 +112,19 @@ class PushUtils {
 
     final pushNotifications = await parseEncryptedPushNotifications(storage, encryptedPushNotifications, accountID);
     for (final pushNotification in pushNotifications) {
-      if (pushNotification.subject.delete ?? false) {
-        await localNotificationsPlugin.cancel(_getNotificationID(accountID, pushNotification.subject.nid!));
-      } else if (pushNotification.subject.deleteMultiple ?? false) {
-        await Future.wait([
-          for (final nid in pushNotification.subject.nids!)
-            localNotificationsPlugin.cancel(_getNotificationID(accountID, nid)),
-        ]);
-      } else if (pushNotification.subject.deleteAll ?? false) {
-        await localNotificationsPlugin.cancelAll();
-      } else if (pushNotification.type == 'background') {
-        _log.fine('Got unknown background notification ${json.encode(pushNotification.toJson())}');
+      if (pushNotification.type == 'background') {
+        if (pushNotification.subject.delete ?? false) {
+          await localNotificationsPlugin.cancel(_getNotificationID(accountID, pushNotification.subject.nid!));
+        } else if (pushNotification.subject.deleteMultiple ?? false) {
+          await Future.wait([
+            for (final nid in pushNotification.subject.nids!)
+              localNotificationsPlugin.cancel(_getNotificationID(accountID, nid)),
+          ]);
+        } else if (pushNotification.subject.deleteAll ?? false) {
+          await localNotificationsPlugin.cancelAll();
+        } else {
+          _log.fine('Got unknown background notification ${json.encode(pushNotification.toJson())}');
+        }
       } else {
         packageInfo ??= await PackageInfo.fromPlatform();
         accountStorage ??= AccountStorage(
