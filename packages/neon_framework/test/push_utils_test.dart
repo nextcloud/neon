@@ -204,7 +204,7 @@ void main() {
 
       await PushUtils.onMessage(_encryptPushNotifications(keypair, [payload]), account.id);
 
-      verify(() => localNotificationsPlatform.cancel(3811)).called(1);
+      verify(() => localNotificationsPlatform.cancel(PushUtils.getNotificationID(account.id, 1))).called(1);
     });
 
     test('Delete multiple', () async {
@@ -219,8 +219,8 @@ void main() {
 
       await PushUtils.onMessage(_encryptPushNotifications(keypair, [payload]), account.id);
 
-      verify(() => localNotificationsPlatform.cancel(3811)).called(1);
-      verify(() => localNotificationsPlatform.cancel(4269)).called(1);
+      verify(() => localNotificationsPlatform.cancel(PushUtils.getNotificationID(account.id, 1))).called(1);
+      verify(() => localNotificationsPlatform.cancel(PushUtils.getNotificationID(account.id, 2))).called(1);
     });
 
     test('Delete all', () async {
@@ -295,7 +295,7 @@ void main() {
 
         verify(
           () => localNotificationsPlatform.show(
-            3811,
+            PushUtils.getNotificationID(account.id, 1),
             'subject',
             null,
             notificationDetails: any(
@@ -320,7 +320,7 @@ void main() {
         ).called(1);
         verify(
           () => localNotificationsPlatform.show(
-            4082,
+            PushUtils.getGroupSummaryID(account.id, 'app'),
             null,
             null,
             notificationDetails: any(
@@ -454,7 +454,7 @@ void main() {
 
         verify(
           () => localNotificationsPlatform.show(
-            3811,
+            PushUtils.getNotificationID(account.id, 1),
             'Files: other subject',
             'message',
             notificationDetails: any(
@@ -479,7 +479,7 @@ void main() {
         ).called(1);
         verify(
           () => localNotificationsPlatform.show(
-            4405,
+            PushUtils.getGroupSummaryID(account.id, 'files'),
             null,
             null,
             notificationDetails: any(
@@ -526,7 +526,7 @@ void main() {
 
         verify(
           () => localNotificationsPlatform.show(
-            3811,
+            PushUtils.getNotificationID(account.id, 1),
             'subject',
             null,
             notificationDetails: any(
@@ -551,7 +551,7 @@ void main() {
         ).called(1);
         verify(
           () => localNotificationsPlatform.show(
-            4082,
+            PushUtils.getGroupSummaryID(account.id, 'app'),
             null,
             null,
             notificationDetails: any(

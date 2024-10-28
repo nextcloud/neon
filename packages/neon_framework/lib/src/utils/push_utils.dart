@@ -114,11 +114,11 @@ class PushUtils {
     for (final pushNotification in pushNotifications) {
       if (pushNotification.type == 'background') {
         if (pushNotification.subject.delete ?? false) {
-          await localNotificationsPlugin.cancel(_getNotificationID(accountID, pushNotification.subject.nid!));
+          await localNotificationsPlugin.cancel(getNotificationID(accountID, pushNotification.subject.nid!));
         } else if (pushNotification.subject.deleteMultiple ?? false) {
           await Future.wait([
             for (final nid in pushNotification.subject.nids!)
-              localNotificationsPlugin.cancel(_getNotificationID(accountID, nid)),
+              localNotificationsPlugin.cancel(getNotificationID(accountID, nid)),
           ]);
         } else if (pushNotification.subject.deleteAll ?? false) {
           await localNotificationsPlugin.cancelAll();
@@ -171,7 +171,7 @@ class PushUtils {
           final when = notification != null ? tz.TZDateTime.parse(tz.UTC, notification.datetime) : null;
 
           await localNotificationsPlugin.show(
-            _getNotificationID(accountID, pushNotification.subject.nid!),
+            getNotificationID(accountID, pushNotification.subject.nid!),
             message != null && appName != null ? '$appName: $title' : title,
             message,
             NotificationDetails(
@@ -197,7 +197,7 @@ class PushUtils {
           if (defaultTargetPlatform == TargetPlatform.android) {
             // Since we only support Android SDK 24+, we can just generate an empty summary notification as it will not be shown anyway.
             await localNotificationsPlugin.show(
-              _getGroupSummaryID(accountID, appID),
+              getGroupSummaryID(accountID, appID),
               null,
               null,
               NotificationDetails(
@@ -296,11 +296,13 @@ class PushUtils {
     return ByteArrayAndroidBitmap(img.encodeBmp(img.decodePng(bytes!.buffer.asUint8List())!));
   }
 
-  static int _getNotificationID(String accountID, int nid) {
+  @visibleForTesting
+  static int getNotificationID(String accountID, int nid) {
     return sha256.convert(utf8.encode('$accountID$nid')).bytes.reduce((a, b) => a + b);
   }
 
-  static int _getGroupSummaryID(String accountID, String app) {
+  @visibleForTesting
+  static int getGroupSummaryID(String accountID, String app) {
     return sha256.convert(utf8.encode('$accountID$app')).bytes.reduce((a, b) => a + b);
   }
 }
