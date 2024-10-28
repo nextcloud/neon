@@ -15,5 +15,3 @@ else
   melos exec -c1 -- flutter pub get
   melos run format
 fi
-
-fvm dart run husky install

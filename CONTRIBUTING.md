@@ -5,7 +5,6 @@ This project uses an assortment of tools for the development.
 Currently included are:
 - [fvm](https://pub.dev/packages/fvm) for managing Flutter versions
 - [melos](https://pub.dev/packages/melos) for managing packages in this monorepo
-- [husky](https://pub.dev/packages/husky) for managing git hooks
 - [commitlint_cli](https://pub.dev/packages/commitlint_cli) for validating commits according to the conventional commits specification
 
 To set up all these tools run the `./tool/setup.sh` script.
