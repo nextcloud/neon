@@ -142,6 +142,7 @@ void main() {
       ).thenAnswer((_) async {});
       when(() => localNotificationsPlatform.cancel(any(), tag: any(named: 'tag'))).thenAnswer((_) async {});
       when(() => localNotificationsPlatform.cancelAll()).thenAnswer((_) async {});
+      when(() => localNotificationsPlatform.getActiveNotifications()).thenAnswer((_) async => []);
 
       keypair = RSAKeypair.fromRandom();
 
@@ -205,6 +206,7 @@ void main() {
       await PushUtils.onMessage(_encryptPushNotifications(keypair, [payload]), account.id);
 
       verify(() => localNotificationsPlatform.cancel(PushUtils.getNotificationID(account.id, 1))).called(1);
+      verify(() => localNotificationsPlatform.getActiveNotifications()).called(1);
     });
 
     test('Delete multiple', () async {
@@ -221,6 +223,7 @@ void main() {
 
       verify(() => localNotificationsPlatform.cancel(PushUtils.getNotificationID(account.id, 1))).called(1);
       verify(() => localNotificationsPlatform.cancel(PushUtils.getNotificationID(account.id, 2))).called(1);
+      verify(() => localNotificationsPlatform.getActiveNotifications()).called(1);
     });
 
     test('Delete all', () async {
@@ -235,6 +238,7 @@ void main() {
       await PushUtils.onMessage(_encryptPushNotifications(keypair, [payload]), account.id);
 
       verify(() => localNotificationsPlatform.cancelAll()).called(1);
+      verify(() => localNotificationsPlatform.getActiveNotifications()).called(1);
     });
 
     test('Background', () async {
@@ -245,6 +249,41 @@ void main() {
       };
 
       await PushUtils.onMessage(_encryptPushNotifications(keypair, [payload]), account.id);
+      verify(() => localNotificationsPlatform.getActiveNotifications()).called(1);
+    });
+
+    test('Cancel summary notification', () async {
+      when(() => localNotificationsPlatform.getActiveNotifications()).thenAnswer(
+        (_) async => [
+          const ActiveNotification(
+            id: 123,
+            groupKey: 'app1',
+          ),
+          const ActiveNotification(
+            id: 456,
+            groupKey: 'app2',
+          ),
+          const ActiveNotification(
+            id: 789,
+            groupKey: 'app2',
+          ),
+        ],
+      );
+
+      final payload = {
+        'priority': '',
+        'type': 'background',
+        'subject': {
+          'nid': 1,
+          'delete': true,
+        },
+      };
+
+      await PushUtils.onMessage(_encryptPushNotifications(keypair, [payload]), account.id);
+
+      verify(() => localNotificationsPlatform.cancel(PushUtils.getNotificationID(account.id, 1))).called(1);
+      verify(() => localNotificationsPlatform.getActiveNotifications()).called(1);
+      verify(() => localNotificationsPlatform.cancel(PushUtils.getGroupSummaryID(account.id, 'app1'))).called(1);
     });
 
     group('Message', () {

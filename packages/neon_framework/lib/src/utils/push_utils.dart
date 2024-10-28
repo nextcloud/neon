@@ -125,6 +125,29 @@ class PushUtils {
         } else {
           _log.fine('Got unknown background notification ${json.encode(pushNotification.toJson())}');
         }
+
+        if (defaultTargetPlatform == TargetPlatform.android) {
+          final groups = <String, List<int>>{};
+
+          // Count how many notifications per group still exist.
+          final activeNotifications = await localNotificationsPlugin.getActiveNotifications();
+          for (final activeNotification in activeNotifications) {
+            final id = activeNotification.id;
+            final groupKey = activeNotification.groupKey;
+            if (id != null && groupKey != null) {
+              groups[groupKey] ??= [];
+              groups[groupKey]!.add(id);
+            }
+          }
+
+          for (final entry in groups.entries) {
+            // If there is only one notification left it has to be the summary,
+            // because the child notifications are automatically canceled when the user cancels the summary notification.
+            if (entry.value.length == 1) {
+              await localNotificationsPlugin.cancel(getGroupSummaryID(accountID, entry.key));
+            }
+          }
+        }
       } else {
         packageInfo ??= await PackageInfo.fromPlatform();
         accountStorage ??= AccountStorage(
