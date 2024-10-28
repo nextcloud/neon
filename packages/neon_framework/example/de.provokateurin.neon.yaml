@@ -32,12 +32,12 @@ modules:
       - cp -r flutter_assets icudtl.dat /app/nextcloud-neon/data/
       - ln -sf /app/nextcloud-neon/nextcloud-neon /app/bin/nextcloud-neon
       - install -Dm644 de.provokateurin.neon.desktop /app/share/applications/de.provokateurin.neon.desktop
-      - install -Dm644 logo.svg /app/share/icons/hicolor/scalable/apps/de.provokateurin.neon.svg
+      - install -Dm644 logo_inverted.svg /app/share/icons/hicolor/scalable/apps/de.provokateurin.neon.svg
     sources:
       - type: file
         path: de.provokateurin.neon.desktop
       - type: file
-        path: assets/logo.svg
+        path: assets/logo_inverted.svg
       - type: file
         only-arches: [x86_64]
         path: build/linux/x64/release/bundle/nextcloud-neon

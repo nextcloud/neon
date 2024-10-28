@@ -119,6 +119,7 @@ copy_app_svg talk external/nextcloud-spreed
   precompile_assets
   # Restore SVG logo
   cp ../../../assets/logo.svg assets/logo.svg
+  cp ../../../assets/logo_inverted.svg assets/logo_inverted.svg
 )
 
 for path in packages/neon_framework/packages/*_app; do
