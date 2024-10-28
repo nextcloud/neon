@@ -305,7 +305,7 @@ void main() {
                     d.channelId == 'app' &&
                     d.channelName == 'app' &&
                     d.subText == null &&
-                    d.groupKey == 'app_app' &&
+                    d.groupKey == 'app' &&
                     d.icon == null &&
                     d.largeIcon == null &&
                     d.when == null &&
@@ -330,7 +330,7 @@ void main() {
                     d.channelId == 'app' &&
                     d.channelName == 'app' &&
                     d.subText == null &&
-                    d.groupKey == 'app_app' &&
+                    d.groupKey == 'app' &&
                     d.icon == null &&
                     d.largeIcon == null &&
                     d.when == null &&
@@ -464,7 +464,7 @@ void main() {
                     d.channelId == 'files' &&
                     d.channelName == 'Files' &&
                     d.subText == null &&
-                    d.groupKey == 'files_app' &&
+                    d.groupKey == 'files' &&
                     d.icon == null &&
                     d.largeIcon != null &&
                     d.when == notificationDate.millisecondsSinceEpoch &&
@@ -489,7 +489,7 @@ void main() {
                     d.channelId == 'files' &&
                     d.channelName == 'Files' &&
                     d.subText == null &&
-                    d.groupKey == 'files_app' &&
+                    d.groupKey == 'files' &&
                     d.icon == null &&
                     d.largeIcon == null &&
                     d.when == null &&
@@ -536,7 +536,7 @@ void main() {
                     d.channelId == 'app' &&
                     d.channelName == 'app' &&
                     d.subText == null &&
-                    d.groupKey == 'app_app' &&
+                    d.groupKey == 'app' &&
                     d.icon == null &&
                     d.largeIcon == null &&
                     d.when == null &&
@@ -561,7 +561,7 @@ void main() {
                     d.channelId == 'app' &&
                     d.channelName == 'app' &&
                     d.subText == null &&
-                    d.groupKey == 'app_app' &&
+                    d.groupKey == 'app' &&
                     d.icon == null &&
                     d.largeIcon == null &&
                     d.when == null &&

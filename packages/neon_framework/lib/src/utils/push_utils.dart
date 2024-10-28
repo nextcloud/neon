@@ -177,7 +177,7 @@ class PushUtils {
                 appID,
                 appName ?? appID,
                 subText: accounts.length > 1 && account != null ? account.humanReadableID : null,
-                groupKey: '${appID}_app',
+                groupKey: appID,
                 largeIcon: largeIconBitmap,
                 when: when?.millisecondsSinceEpoch,
                 color: NcColors.primary,
@@ -202,7 +202,7 @@ class PushUtils {
                 android: AndroidNotificationDetails(
                   appID,
                   appName ?? appID,
-                  groupKey: '${appID}_app',
+                  groupKey: appID,
                   setAsGroupSummary: true,
                   styleInformation: InboxStyleInformation(
                     [],
