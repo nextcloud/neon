@@ -15,7 +15,7 @@ echo "Running development instance on http://localhost. To access it in an Andro
 
 tag="$(preset_image_tag "$preset")"
 volume="nextcloud-neon-dev-$(echo "$tag" | cut -d ":" -f 2)"
-container="$(docker run -d --rm -v "$volume":/usr/src/nextcloud -v "$volume":/var/www/html -p "80:80" --add-host=host.docker.internal:host-gateway "$tag")"
+container="$(docker run -d --rm -v "$volume":/usr/src/nextcloud -v "$volume":/var/www/html --network=host "$tag")"
 function cleanup() {
     docker kill "$container"
 }
