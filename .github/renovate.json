@@ -58,6 +58,13 @@
       "matchPackageNames": ["/^built/"]
     },
     {
+      "groupName": "custom_lint",
+      "matchPackageNames": [
+        "custom_lint",
+        "custom_lint_builder"
+      ]
+    },
+    {
       "groupName": "go_router",
       "matchPackageNames": ["/^go_router/"]
     },
