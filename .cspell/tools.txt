@@ -53,6 +53,7 @@ openrelayprojectsecret
 petstore
 plantuml
 precache
+prgname
 puml
 realpath
 rpath
