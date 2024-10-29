@@ -312,7 +312,8 @@ void main() {
                     d.color == NcColors.primary &&
                     d.category == null &&
                     d.importance == Importance.max &&
-                    d.priority == Priority.defaultPriority,
+                    d.priority == Priority.defaultPriority &&
+                    d.styleInformation == null,
               ),
             ),
             payload: payload,
@@ -337,7 +338,8 @@ void main() {
                     d.color == NcColors.primary &&
                     d.category == null &&
                     d.importance == Importance.defaultImportance &&
-                    d.priority == Priority.defaultPriority,
+                    d.priority == Priority.defaultPriority &&
+                    (d.styleInformation! as InboxStyleInformation).summaryText == 'app',
               ),
             ),
           ),
@@ -471,7 +473,8 @@ void main() {
                     d.color == NcColors.primary &&
                     d.category == null &&
                     d.importance == Importance.max &&
-                    d.priority == Priority.defaultPriority,
+                    d.priority == Priority.defaultPriority &&
+                    (d.styleInformation! as BigTextStyleInformation).bigText == 'message',
               ),
             ),
             payload: payload,
@@ -496,7 +499,8 @@ void main() {
                     d.color == NcColors.primary &&
                     d.category == null &&
                     d.importance == Importance.defaultImportance &&
-                    d.priority == Priority.defaultPriority,
+                    d.priority == Priority.defaultPriority &&
+                    (d.styleInformation! as InboxStyleInformation).summaryText == 'Files',
               ),
             ),
           ),
@@ -543,7 +547,8 @@ void main() {
                     d.color == NcColors.primary &&
                     d.category == AndroidNotificationCategory.call &&
                     d.importance == Importance.max &&
-                    d.priority == Priority.max,
+                    d.priority == Priority.max &&
+                    d.styleInformation == null,
               ),
             ),
             payload: payload,
@@ -568,7 +573,8 @@ void main() {
                     d.color == NcColors.primary &&
                     d.category == null &&
                     d.importance == Importance.defaultImportance &&
-                    d.priority == Priority.defaultPriority,
+                    d.priority == Priority.defaultPriority &&
+                    (d.styleInformation! as InboxStyleInformation).summaryText == 'app',
               ),
             ),
           ),

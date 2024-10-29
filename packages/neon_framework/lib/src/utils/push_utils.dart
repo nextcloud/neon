@@ -76,6 +76,7 @@ class PushUtils {
     String accountID, {
     @visibleForTesting http.Client? httpClient,
   }) async {
+    _log.fine('Received a push notification.');
     await onPushNotificationReceived?.call(accountID);
 
     WidgetsFlutterBinding.ensureInitialized();
@@ -186,6 +187,7 @@ class PushUtils {
                 priority: pushNotification.priority == 'high'
                     ? (pushNotification.type == 'voip' ? Priority.max : Priority.high)
                     : Priority.defaultPriority,
+                styleInformation: message != null ? BigTextStyleInformation(message) : null,
               ),
             ),
             payload: json.encode(pushNotification.toJson()),
