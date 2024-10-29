@@ -93,7 +93,7 @@ dev_dependencies:
       url: https://github.com/nextcloud/neon
       path: packages/cookie_store_conformance_tests
   crypton: ^2.2.1
-  custom_lint: ^0.6.8
+  custom_lint: ^0.7.0
   flutter_local_notifications_platform_interface: ^7.2.0
   flutter_test:
     sdk: flutter
