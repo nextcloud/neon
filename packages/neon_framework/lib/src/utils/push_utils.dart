@@ -113,7 +113,12 @@ class PushUtils {
     final pushNotifications = await parseEncryptedPushNotifications(storage, encryptedPushNotifications, accountID);
     for (final pushNotification in pushNotifications) {
       if (pushNotification.subject.delete ?? false) {
-        await localNotificationsPlugin.cancel(_getNotificationID(accountID, pushNotification));
+        await localNotificationsPlugin.cancel(_getNotificationID(accountID, pushNotification.subject.nid!));
+      } else if (pushNotification.subject.deleteMultiple ?? false) {
+        await Future.wait([
+          for (final nid in pushNotification.subject.nids!)
+            localNotificationsPlugin.cancel(_getNotificationID(accountID, nid)),
+        ]);
       } else if (pushNotification.subject.deleteAll ?? false) {
         await localNotificationsPlugin.cancelAll();
       } else if (pushNotification.type == 'background') {
@@ -164,7 +169,7 @@ class PushUtils {
           final when = notification != null ? tz.TZDateTime.parse(tz.UTC, notification.datetime) : null;
 
           await localNotificationsPlugin.show(
-            _getNotificationID(accountID, pushNotification),
+            _getNotificationID(accountID, pushNotification.subject.nid!),
             message != null && appName != null ? '$appName: $title' : title,
             message,
             NotificationDetails(
@@ -289,8 +294,8 @@ class PushUtils {
     return ByteArrayAndroidBitmap(img.encodeBmp(img.decodePng(bytes!.buffer.asUint8List())!));
   }
 
-  static int _getNotificationID(String accountID, PushNotification notification) {
-    return sha256.convert(utf8.encode('$accountID${notification.subject.nid}')).bytes.reduce((a, b) => a + b);
+  static int _getNotificationID(String accountID, int nid) {
+    return sha256.convert(utf8.encode('$accountID$nid')).bytes.reduce((a, b) => a + b);
   }
 
   static int _getGroupSummaryID(String accountID, String app) {

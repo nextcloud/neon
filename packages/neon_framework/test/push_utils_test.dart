@@ -207,6 +207,22 @@ void main() {
       verify(() => localNotificationsPlatform.cancel(3811)).called(1);
     });
 
+    test('Delete multiple', () async {
+      final payload = {
+        'priority': '',
+        'type': '',
+        'subject': {
+          'nids': [1, 2],
+          'delete-multiple': true,
+        },
+      };
+
+      await PushUtils.onMessage(_encryptPushNotifications(keypair, [payload]), account.id);
+
+      verify(() => localNotificationsPlatform.cancel(3811)).called(1);
+      verify(() => localNotificationsPlatform.cancel(4269)).called(1);
+    });
+
     test('Delete all', () async {
       final payload = {
         'priority': '',

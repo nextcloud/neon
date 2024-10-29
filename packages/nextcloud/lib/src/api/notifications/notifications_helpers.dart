@@ -2,6 +2,7 @@
 
 import 'dart:convert';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
@@ -35,8 +36,11 @@ abstract class DecryptedSubject implements Built<DecryptedSubject, DecryptedSubj
   // ignore: public_member_api_docs
   static Serializer<DecryptedSubject> get serializer => _$decryptedSubjectSerializer;
 
-  /// ID if the notification.
+  /// ID of the notification.
   int? get nid;
+
+  /// IDs of multiple notifications.
+  BuiltList<int>? get nids;
 
   /// App that sent the notification.
   String? get app;
@@ -53,6 +57,10 @@ abstract class DecryptedSubject implements Built<DecryptedSubject, DecryptedSubj
   /// Delete the notification.
   bool? get delete;
 
+  /// Delete multiple notifications.
+  @BuiltValueField(wireName: 'delete-multiple')
+  bool? get deleteMultiple;
+
   /// Delete all notifications.
   @BuiltValueField(wireName: 'delete-all')
   bool? get deleteAll;
@@ -60,5 +68,6 @@ abstract class DecryptedSubject implements Built<DecryptedSubject, DecryptedSubj
 
 final Serializers _serializers = (Serializers().toBuilder()
       ..add(DecryptedSubject.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
       ..addPlugin(StandardJsonPlugin()))
     .build();
