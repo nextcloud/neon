@@ -42,6 +42,7 @@ libapp
 libflutter
 libgtk
 libsqlite
+metaspace
 mipmap
 multimap
 ndebug
