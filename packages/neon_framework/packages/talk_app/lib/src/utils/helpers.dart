@@ -51,3 +51,30 @@ bool hasFeature(BuildContext context, String feature) {
 
   return capabilities.features.contains(feature);
 }
+
+/// Checks whether the user is allowed to send chat messages in a [room].
+bool canSendMessageAndShareAndReact(spreed.Room room) {
+  return room.readOnly == 0 &&
+      spreed.ParticipantPermission.values
+          .byBinary(room.permissions)
+          .contains(spreed.ParticipantPermission.canSendMessageAndShareAndReact);
+}
+
+/// Checks whether the user is allowed to reply to a [chatMessage] in a [room].
+bool canReplyToMessage(spreed.Room room, spreed.$ChatMessageInterface chatMessage) {
+  return canSendMessageAndShareAndReact(room) &&
+      chatMessage.messageType != spreed.MessageType.commentDeleted &&
+      chatMessage.isReplyable;
+}
+
+/// Checks whether the user is allowed to edit a [chatMessage] in a [room].
+bool canEditMessage(BuildContext context, spreed.Room room, spreed.$ChatMessageInterface chatMessage) {
+  return chatMessage.messageType != spreed.MessageType.commentDeleted &&
+      chatMessage.actorId == room.actorId &&
+      hasFeature(context, 'edit-messages');
+}
+
+/// Checks whether the user is allowed to delete a [chatMessage] in a [room].
+bool canDeleteMessage(spreed.Room room, spreed.$ChatMessageInterface chatMessage) {
+  return chatMessage.messageType != spreed.MessageType.commentDeleted && chatMessage.actorId == room.actorId;
+}

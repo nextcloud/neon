@@ -5,6 +5,7 @@ import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:talk_app/l10n/localizations.dart';
 import 'package:talk_app/src/blocs/room.dart';
+import 'package:talk_app/src/utils/helpers.dart';
 import 'package:talk_app/src/widgets/reactions_overview_dialog.dart';
 
 /// Widget for displaying the current reactions on a chat message including the ability to add and remove reactions.
@@ -26,10 +27,7 @@ class TalkReactions extends StatelessWidget {
   Widget build(BuildContext context) {
     final bloc = NeonProvider.of<TalkRoomBloc>(context);
 
-    final canUpdateReactions = room.readOnly == 0 &&
-        spreed.ParticipantPermission.values
-            .byBinary(room.permissions)
-            .contains(spreed.ParticipantPermission.canSendMessageAndShareAndReact);
+    final canUpdateReactions = canSendMessageAndShareAndReact(room);
 
     const shape = RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(50)),
