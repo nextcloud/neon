@@ -236,4 +236,108 @@ void main() {
     expect(find.byType(TalkMessageInput), findsNothing);
     await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/room_page_no_chat_permission.png'));
   });
+
+  group('Swipe-to-reply', () {
+    late spreed.ChatMessageWithParent chatMessage;
+
+    setUp(() {
+      chatMessage = MockChatMessageWithParent();
+      when(() => chatMessage.timestamp).thenReturn(0);
+      when(() => chatMessage.actorId).thenReturn('test');
+      when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+      when(() => chatMessage.actorDisplayName).thenReturn('test');
+      when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
+      when(() => chatMessage.message).thenReturn('abc');
+      when(() => chatMessage.reactions).thenReturn(BuiltMap());
+      when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
+      when(() => chatMessage.id).thenReturn(0);
+      when(() => chatMessage.isReplyable).thenReturn(true);
+
+      when(() => bloc.messages).thenAnswer(
+        (_) => BehaviorSubject.seeded(
+          Result.success(
+            BuiltList<spreed.ChatMessageWithParent>([
+              chatMessage,
+            ]),
+          ),
+        ),
+      );
+
+      when(() => bloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
+    });
+
+    testWidgets('Allowed', (tester) async {
+      final account = MockAccount();
+
+      await tester.pumpWidgetWithAccessibility(
+        TestApp(
+          localizationsDelegates: TalkLocalizations.localizationsDelegates,
+          supportedLocales: TalkLocalizations.supportedLocales,
+          appThemes: const [
+            TalkTheme(),
+          ],
+          providers: [
+            Provider<Account>.value(value: account),
+            NeonProvider<TalkRoomBloc>.value(value: bloc),
+            NeonProvider<ReferencesBloc>.value(value: referencesBloc),
+          ],
+          child: const TalkRoomPage(),
+        ),
+      );
+
+      expect(find.byType(Dismissible), findsOne);
+
+      await tester.drag(find.byType(TalkCommentMessage), const Offset(1000, 0));
+      await tester.pumpAndSettle();
+      verify(() => bloc.setReplyChatMessage(chatMessage)).called(1);
+    });
+
+    testWidgets('Read-only', (tester) async {
+      when(() => room.readOnly).thenReturn(1);
+
+      final account = MockAccount();
+
+      await tester.pumpWidgetWithAccessibility(
+        TestApp(
+          localizationsDelegates: TalkLocalizations.localizationsDelegates,
+          supportedLocales: TalkLocalizations.supportedLocales,
+          appThemes: const [
+            TalkTheme(),
+          ],
+          providers: [
+            Provider<Account>.value(value: account),
+            NeonProvider<TalkRoomBloc>.value(value: bloc),
+            NeonProvider<ReferencesBloc>.value(value: referencesBloc),
+          ],
+          child: const TalkRoomPage(),
+        ),
+      );
+
+      expect(find.byType(Dismissible), findsNothing);
+    });
+
+    testWidgets('No permission', (tester) async {
+      when(() => room.permissions).thenReturn(0);
+
+      final account = MockAccount();
+
+      await tester.pumpWidgetWithAccessibility(
+        TestApp(
+          localizationsDelegates: TalkLocalizations.localizationsDelegates,
+          supportedLocales: TalkLocalizations.supportedLocales,
+          appThemes: const [
+            TalkTheme(),
+          ],
+          providers: [
+            Provider<Account>.value(value: account),
+            NeonProvider<TalkRoomBloc>.value(value: bloc),
+            NeonProvider<ReferencesBloc>.value(value: referencesBloc),
+          ],
+          child: const TalkRoomPage(),
+        ),
+      );
+
+      expect(find.byType(Dismissible), findsNothing);
+    });
+  });
 }

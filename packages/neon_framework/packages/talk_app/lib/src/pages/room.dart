@@ -123,6 +123,19 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
                     previousChatMessage: previousMessage,
                   );
 
+                  if (canReplyToMessage(room, message)) {
+                    child = Dismissible(
+                      key: Key(message.id.toString()),
+                      confirmDismiss: (_) async {
+                        bloc.setReplyChatMessage(message);
+
+                        // We don't use the real dismiss feature as we don't want the widget to be removed from the list
+                        return false;
+                      },
+                      child: child,
+                    );
+                  }
+
                   if (previousMessage == null ||
                       (tz.local.translate(previousMessage.timestamp * 1000) ~/ _millisecondsPerDay) !=
                           (tz.local.translate(message.timestamp * 1000) ~/ _millisecondsPerDay)) {
