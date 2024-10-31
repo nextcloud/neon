@@ -29,11 +29,13 @@ function generate_android_icon_dpi() {
     name="$3"
     dpi="$4"
     inkscape "$source" -o "android/app/src/main/res/mipmap-${dpi}dpi/$name.png" -w "$size" -h "$size" --actions="export-background:$color"
+    mkdir -p "android/app/src/main/res/drawable-${dpi}dpi"
     inkscape "$source" -o "android/app/src/main/res/drawable-${dpi}dpi/${name}_outline.png" -w "$size" -h "$size"
 }
 
 function generate_android_adaptive_icon() {
   icon="$1"
+  mkdir -p "android/app/src/main/res/mipmap-anydpi-v26"
   echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>
 <adaptive-icon xmlns:android=\"http://schemas.android.com/apk/res/android\">
     <background android:drawable=\"@drawable/background_gradient\"/>
