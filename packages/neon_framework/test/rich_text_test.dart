@@ -15,6 +15,8 @@ import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:url_launcher_platform_interface/url_launcher_platform_interface.dart';
 
+const validBlurHash = 'LEHLk~WB2yk8pyo0adR*.7kCMdnj';
+
 class MockOnReferenceClickedCallback extends Mock {
   void call(String reference);
 }
@@ -255,6 +257,35 @@ void main() {
       verify(() => urlLauncher.launchUrl('https://cloud.example.com:8443/link', any())).called(1);
     });
 
+    testWidgets('With blurhash', (tester) async {
+      await tester.pumpWidgetWithAccessibility(
+        TestApp(
+          providers: [
+            Provider<Account>.value(value: account),
+          ],
+          child: NeonRichObjectFile(
+            parameter: core.RichObjectParameter(
+              (b) => b
+                ..type = core.RichObjectParameter_Type.file
+                ..id = '0'
+                ..name = 'name'
+                ..previewAvailable = 'no'
+                ..path = ''
+                ..blurhash = validBlurHash,
+            ),
+            textStyle: null,
+          ),
+        ),
+      );
+
+      expect(
+        find.byWidgetPredicate(
+          (widget) => widget is NeonApiImage && widget.blurHash == validBlurHash,
+        ),
+        findsOne,
+      );
+    });
+
     testWidgets('Without preview', (tester) async {
       await tester.pumpWidgetWithAccessibility(
         TestApp(
@@ -396,7 +427,8 @@ void main() {
                 ..name = 'name'
                 ..previewAvailable = 'yes'
                 ..path = 'path'
-                ..mimetype = 'image/gif',
+                ..mimetype = 'image/gif'
+                ..blurhash = validBlurHash,
             ),
             textStyle: null,
           ),
@@ -407,7 +439,8 @@ void main() {
         find.byWidgetPredicate(
           (widget) =>
               widget is NeonUriImage &&
-              widget.uri.toString() == 'https://cloud.example.com:8443/nextcloud/remote.php/dav/files/username/path',
+              widget.uri.toString() == 'https://cloud.example.com:8443/nextcloud/remote.php/dav/files/username/path' &&
+              widget.blurHash == validBlurHash,
         ),
         findsOne,
       );
