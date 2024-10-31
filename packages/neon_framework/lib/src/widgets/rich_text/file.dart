@@ -57,6 +57,7 @@ class NeonRichObjectFile extends StatelessWidget {
           // Previews for animated GIFs are not animated, so we have to request the full file.
           image = NeonUriImage(
             account: account,
+            blurHash: parameter.blurhash,
             uri: Uri.parse(
               '${account.credentials.serverURL}/remote.php/dav/files/${account.username}/${parameter.path!}',
             ),
@@ -64,6 +65,7 @@ class NeonRichObjectFile extends StatelessWidget {
         } else {
           image = NeonApiImage(
             account: account,
+            blurHash: parameter.blurhash,
             etag: parameter.etag,
             expires: null,
             getRequest: (client) => client.core.preview.$getPreviewByFileId_Request(
