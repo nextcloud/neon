@@ -725,7 +725,7 @@ void main() {
 
       await tester.pumpAndSettle();
 
-      expect(find.byType(TalkReferencePreview), findsExactly(2));
+      expect(find.byType(TalkReferencePreview), findsExactly(3));
       for (final url in ['a', 'b']) {
         expect(
           find.byWidgetPredicate(
@@ -735,6 +735,13 @@ void main() {
           findsOne,
         );
       }
+      expect(
+        find.byWidgetPredicate(
+          (widget) =>
+              widget is TalkReferencePreview && widget.url == 'c' && widget.openGraphObject == brokenOpenGraphObject,
+        ),
+        findsOne,
+      );
 
       await expectLater(
         find.byType(TalkCommentMessage).first,

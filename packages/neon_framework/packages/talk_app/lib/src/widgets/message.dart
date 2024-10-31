@@ -430,11 +430,10 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
             if (parent != null) parent,
             text,
             for (final entry in references.entries.take(3))
-              if (entry.value.data?.openGraphObject.name != entry.key)
-                TalkReferencePreview(
-                  url: entry.key,
-                  openGraphObject: entry.value.data?.openGraphObject,
-                ),
+              TalkReferencePreview(
+                url: entry.key,
+                openGraphObject: entry.value.data?.openGraphObject,
+              ),
             if (!widget.isParent && widget.chatMessage.reactions.isNotEmpty)
               TalkReactions(
                 chatMessage: widget.chatMessage,
