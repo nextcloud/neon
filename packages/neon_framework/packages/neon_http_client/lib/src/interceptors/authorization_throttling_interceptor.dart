@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:http/http.dart';
+import 'package:http_parser/http_parser.dart';
 import 'package:interceptor_http_client/interceptor_http_client.dart';
 import 'package:meta/meta.dart';
 import 'package:nextcloud/nextcloud.dart';
@@ -49,7 +52,7 @@ final class AuthorizationThrottlingInterceptor implements HttpInterceptor {
   }
 
   @override
-  StreamedResponse interceptResponse({required StreamedResponse response, required Uri url}) {
+  Future<StreamedResponse> interceptResponse({required StreamedResponse response, required Uri url}) async {
     assert(
       shouldInterceptResponse(response),
       'Response should not be intercepted.',
@@ -57,7 +60,38 @@ final class AuthorizationThrottlingInterceptor implements HttpInterceptor {
 
     final authorization = response.request!.headers['authorization'];
     if (authorization != null && authorization.isNotEmpty && response.statusCode == 401) {
-      _blocked = true;
+      final contentType = response.headers['content-type'];
+      if (contentType == null) {
+        return response;
+      }
+
+      MediaType? mediaType;
+      try {
+        mediaType = MediaType.parse(contentType);
+      } on FormatException catch (_) {}
+      if (mediaType?.mimeType != 'application/json') {
+        return response;
+      }
+
+      final syncResponse = await Response.fromStream(response);
+      try {
+        final jsonBody = json.decode(syncResponse.body);
+        if (jsonBody case {'ocs': {'meta': {'statuscode': 997}}}) {
+          _blocked = true;
+        }
+      } on FormatException catch (_) {}
+
+      // Create a new StreamedResponse so that the body can be read again.
+      return StreamedResponse(
+        Stream.value(syncResponse.bodyBytes),
+        syncResponse.statusCode,
+        contentLength: syncResponse.contentLength,
+        request: syncResponse.request,
+        headers: syncResponse.headers,
+        isRedirect: syncResponse.isRedirect,
+        persistentConnection: syncResponse.persistentConnection,
+        reasonPhrase: syncResponse.reasonPhrase,
+      );
     } else if (response.statusCode == 200 && response.request!.url.path.endsWith('/index.php/login/v2/poll')) {
       _blocked = false;
     }
