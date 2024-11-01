@@ -148,7 +148,7 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
         } catch (error, stackTrace) {
           if (error case DynamiteStatusCodeException(statusCode: 304)) {
             log.info('Polling returned no new messages');
-          } else {
+          } else if (error is! TimeoutException) {
             log.info(
               'Error while waiting for new chat messages',
               error,
