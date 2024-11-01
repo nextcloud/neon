@@ -116,7 +116,7 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
             final textSelection = controller.selection;
 
             controller
-              ..text = text.replaceRange(textSelection.start, textSelection.end, emoji)
+              ..text = !textSelection.isValid ? emoji : text.replaceRange(textSelection.start, textSelection.end, emoji)
               ..selection = textSelection.copyWith(
                 baseOffset: textSelection.start + emoji.length,
                 extentOffset: textSelection.start + emoji.length,
