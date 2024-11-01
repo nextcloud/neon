@@ -28,3 +28,6 @@
 [submodule "external/nextcloud-tables"]
 	path = external/nextcloud-tables
 	url = https://github.com/nextcloud/tables
+[submodule "external/emoji-metadata"]
+	path = external/emoji-metadata
+	url = https://github.com/googlefonts/emoji-metadata

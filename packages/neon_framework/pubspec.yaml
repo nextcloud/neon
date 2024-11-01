@@ -102,6 +102,7 @@ dev_dependencies:
   permission_handler_platform_interface: ^4.2.3
   plugin_platform_interface: ^2.1.8
   shared_preferences: ^2.3.3
+  string_normalizer: ^0.3.1
   url_launcher_platform_interface: ^2.3.2
   vector_graphics_compiler: ^1.1.15
   version: ^3.0.2
