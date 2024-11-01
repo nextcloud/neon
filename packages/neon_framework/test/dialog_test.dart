@@ -11,7 +11,6 @@ import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:nextcloud/utils.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timezone/timezone.dart' as tz;
 
 void main() {
@@ -189,8 +188,6 @@ void main() {
     });
 
     testWidgets('NeonEmojiPickerDialog', (tester) async {
-      SharedPreferences.setMockInitialValues({});
-
       await tester.pumpWidgetWithAccessibility(const TestApp(child: Placeholder()));
       final BuildContext context = tester.element(find.byType(Placeholder));
 
@@ -200,16 +197,15 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      await tester.tap(find.byIcon(Icons.tag_faces));
+      // Switch a different category
+      await tester.tap(find.text('🐕'));
       await tester.pumpAndSettle();
 
-      await tester.tap(find.text('😀'));
-      expect(await future, '😀');
+      await tester.tap(find.text('🌳'));
+      expect(await future, '🌳');
     });
 
     testWidgets('NeonUserStatusDialog', (tester) async {
-      SharedPreferences.setMockInitialValues({});
-
       final now = tz.TZDateTime.utc(2024, 1, 20);
 
       final status = BehaviorSubject.seeded(
@@ -308,8 +304,6 @@ void main() {
 
       // Set emoji
       await tester.tap(find.byType(IconButton));
-      await tester.pumpAndSettle();
-      await tester.tap(find.byIcon(Icons.tag_faces));
       await tester.pumpAndSettle();
       await tester.tap(find.text('😀'));
       verify(

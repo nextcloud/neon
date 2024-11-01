@@ -870,6 +870,60 @@ abstract class NeonLocalizations {
   /// In en, this message translates to:
   /// **'Online status'**
   String get userStatusOnlineStatus;
+
+  /// No description provided for @emojisCategorySmileysAndEmotions.
+  ///
+  /// In en, this message translates to:
+  /// **'Smileys and emotions'**
+  String get emojisCategorySmileysAndEmotions;
+
+  /// No description provided for @emojisCategoryPeople.
+  ///
+  /// In en, this message translates to:
+  /// **'People'**
+  String get emojisCategoryPeople;
+
+  /// No description provided for @emojisCategoryAnimalsAndNature.
+  ///
+  /// In en, this message translates to:
+  /// **'Animals and nature'**
+  String get emojisCategoryAnimalsAndNature;
+
+  /// No description provided for @emojisCategoryFoodAndDrink.
+  ///
+  /// In en, this message translates to:
+  /// **'Food and drink'**
+  String get emojisCategoryFoodAndDrink;
+
+  /// No description provided for @emojisCategoryTravelAndPlaces.
+  ///
+  /// In en, this message translates to:
+  /// **'Travel and places'**
+  String get emojisCategoryTravelAndPlaces;
+
+  /// No description provided for @emojisCategoryActivitiesAndEvents.
+  ///
+  /// In en, this message translates to:
+  /// **'Activities and events'**
+  String get emojisCategoryActivitiesAndEvents;
+
+  /// No description provided for @emojisCategoryObjects.
+  ///
+  /// In en, this message translates to:
+  /// **'Objects'**
+  String get emojisCategoryObjects;
+
+  /// No description provided for @emojisCategorySymbols.
+  ///
+  /// In en, this message translates to:
+  /// **'Symbols'**
+  String get emojisCategorySymbols;
+
+  /// No description provided for @emojisCategoryFlags.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags'**
+  String get emojisCategoryFlags;
 }
 
 class _NeonLocalizationsDelegate extends LocalizationsDelegate<NeonLocalizations> {

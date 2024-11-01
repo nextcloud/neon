@@ -10,7 +10,6 @@ import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:talk_app/l10n/localizations.dart';
 import 'package:talk_app/src/blocs/room.dart';
 import 'package:talk_app/src/widgets/reactions.dart';
@@ -128,8 +127,6 @@ void main() {
   });
 
   testWidgets('Add new reaction', (tester) async {
-    SharedPreferences.setMockInitialValues({});
-
     await tester.pumpWidgetWithAccessibility(
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
@@ -146,8 +143,6 @@ void main() {
 
     await tester.runAsync(() async {
       await tester.tap(find.byIcon(Icons.add_reaction_outlined), warnIfMissed: false);
-      await tester.pumpAndSettle();
-      await tester.tap(find.byIcon(Icons.tag_faces));
       await tester.pumpAndSettle();
       await tester.tap(find.text('😂'));
       await tester.pumpAndSettle();

@@ -507,4 +507,31 @@ class NeonLocalizationsEn extends NeonLocalizations {
 
   @override
   String get userStatusOnlineStatus => 'Online status';
+
+  @override
+  String get emojisCategorySmileysAndEmotions => 'Smileys and emotions';
+
+  @override
+  String get emojisCategoryPeople => 'People';
+
+  @override
+  String get emojisCategoryAnimalsAndNature => 'Animals and nature';
+
+  @override
+  String get emojisCategoryFoodAndDrink => 'Food and drink';
+
+  @override
+  String get emojisCategoryTravelAndPlaces => 'Travel and places';
+
+  @override
+  String get emojisCategoryActivitiesAndEvents => 'Activities and events';
+
+  @override
+  String get emojisCategoryObjects => 'Objects';
+
+  @override
+  String get emojisCategorySymbols => 'Symbols';
+
+  @override
+  String get emojisCategoryFlags => 'Flags';
 }
