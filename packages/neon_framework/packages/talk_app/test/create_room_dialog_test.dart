@@ -36,7 +36,11 @@ Account mockAutocompleteAccount() {
                     'label': 'Test',
                     'icon': '',
                     'source': source,
-                    'status': '',
+                    'status': source == 'users'
+                        ? {
+                            'status': 'online',
+                          }
+                        : '',
                     'subline': '',
                     'shareWithDisplayNameUnique': '',
                   },
@@ -69,21 +73,24 @@ void main() {
   });
 
   final localizations = TalkLocalizationsEn();
-  for (final (name, type, typeName, iconMatcher, iconCount, source) in [
+  for (final (name, type, typeName, matchers, source) in [
     (
       'One-to-one',
       spreed.RoomType.oneToOne,
       localizations.roomType(spreed.RoomType.oneToOne.name),
-      find.byType(NeonUserAvatar),
-      findsOne,
+      {
+        find.byType(NeonUserAvatar): findsOne,
+        find.byType(NeonUserStatusIcon): findsOne,
+      },
       'users',
     ),
     (
       'Group',
       spreed.RoomType.group,
       localizations.roomType(spreed.RoomType.group.name),
-      find.byIcon(AdaptiveIcons.group),
-      findsExactly(2),
+      {
+        find.byIcon(AdaptiveIcons.group): findsExactly(2),
+      },
       'groups',
     ),
   ]) {
@@ -129,7 +136,9 @@ void main() {
       await tester.enterText(find.byType(TextFormField), 't');
       await tester.pumpAndSettle();
 
-      expect(iconMatcher, iconCount);
+      for (final entry in matchers.entries) {
+        expect(entry.key, entry.value);
+      }
       await tester.tap(find.text('Test'));
       await tester.pumpAndSettle();
 
@@ -147,7 +156,17 @@ void main() {
             ..label = 'Test'
             ..icon = ''
             ..source = source
-            ..status = (autocompleteResultStatus0: null, string: '')
+            ..status = source == 'users'
+                ? (
+                    autocompleteResultStatus0: core.AutocompleteResult_Status0(
+                      (b) => b.status = 'online',
+                    ),
+                    string: null,
+                  )
+                : (
+                    autocompleteResultStatus0: null,
+                    string: '',
+                  )
             ..subline = ''
             ..shareWithDisplayNameUnique = '',
         ),

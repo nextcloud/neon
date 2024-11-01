@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
+import 'package:nextcloud/user_status.dart' as user_status;
 
 /// Displays the avatar of the [room].
 ///
@@ -50,7 +50,16 @@ class TalkRoomAvatar extends StatelessWidget {
       spreed.RoomType.oneToOne => NeonUserAvatar(
           username: room.name,
           account: NeonProvider.of<Account>(context),
-          userStatusBloc: NeonProvider.of<UserStatusBloc>(context),
+          userStatus: room.status != null
+              ? user_status.Public(
+                  (b) => b
+                    ..userId = room.name
+                    ..message = room.statusMessage
+                    ..icon = room.statusIcon
+                    ..clearAt = room.statusClearAt
+                    ..status = user_status.$Type.valueOf(room.status!),
+                )
+              : null,
         ),
       spreed.RoomType.group => _buildIconAvatar(AdaptiveIcons.group),
       // coverage:ignore-start
