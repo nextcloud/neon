@@ -28,7 +28,6 @@ class TalkActorAvatar extends StatelessWidget {
       spreed.ActorType.users => NeonUserAvatar(
           username: actorId,
           account: NeonProvider.of<Account>(context),
-          userStatusBloc: null,
         ),
       spreed.ActorType.groups || spreed.ActorType.circles => CircleAvatar(
           child: Icon(AdaptiveIcons.group),
