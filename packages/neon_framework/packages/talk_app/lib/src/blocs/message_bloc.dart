@@ -35,18 +35,7 @@ class _TalkMessageBloc extends Bloc implements TalkMessageBloc {
           return;
         }
 
-        final matches =
-            referenceRegex.allMatches(chatMessage.message).map((match) => match.group(0)!.trim()).toBuiltList();
-
-        references.add(
-          references.value.rebuild((b) {
-            for (final match in matches) {
-              b[match] ??= Result.loading();
-            }
-
-            b.removeWhere((key, value) => !matches.contains(key));
-          }),
-        );
+        matches = referenceRegex.allMatches(chatMessage.message).map((match) => match.group(0)!.trim()).toBuiltList();
 
         if (matches.isNotEmpty) {
           referencesBloc.loadReferences(matches);
@@ -55,12 +44,9 @@ class _TalkMessageBloc extends Bloc implements TalkMessageBloc {
 
       referencesSubscription = referencesBloc.references.listen((result) {
         references.add(
-          references.value.rebuild((b) {
-            for (final url in references.value.keys) {
-              b[url] = result[url] ?? Result.loading();
-            }
-
-            b.removeWhere((key, value) => !result.keys.contains(key));
+          BuiltMap({
+            for (final entry in result.entries)
+              if (matches.contains(entry.key)) entry.key: entry.value,
           }),
         );
       });
@@ -70,6 +56,7 @@ class _TalkMessageBloc extends Bloc implements TalkMessageBloc {
   final spreed.$ChatMessageInterface chatMessage;
   final ReferencesBloc referencesBloc;
   final bool isParent;
+  BuiltList<String> matches = BuiltList();
   StreamSubscription<Result<RegExp?>>? referenceRegexSubscription;
   StreamSubscription<BuiltMap<String, Result<core.Reference>>>? referencesSubscription;
 

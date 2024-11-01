@@ -51,21 +51,20 @@ void main() {
 
     references.add(
       BuiltMap({
-        for (final key in ['a', 'b']) key: Result.success(reference),
+        'a': Result<core.Reference>.loading(),
+        'b': Result.success(reference),
+        'c': Result<core.Reference>.error('error'),
+        'd': Result.success(reference),
       }),
     );
-
     expect(
       bloc.references,
       emitsInOrder(<BuiltMap<String, Result<core.Reference>>>[
+        BuiltMap(),
         BuiltMap({
           'a': Result<core.Reference>.loading(),
-          'b': Result<core.Reference>.loading(),
-          'c': Result<core.Reference>.loading(),
-        }),
-        BuiltMap({
-          'a': Result.success(reference),
           'b': Result.success(reference),
+          'c': Result<core.Reference>.error('error'),
         }),
       ]),
     );
