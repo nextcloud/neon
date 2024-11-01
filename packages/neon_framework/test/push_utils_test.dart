@@ -142,6 +142,7 @@ void main() {
       ).thenAnswer((_) async {});
       when(() => localNotificationsPlatform.cancel(any(), tag: any(named: 'tag'))).thenAnswer((_) async {});
       when(() => localNotificationsPlatform.cancelAll()).thenAnswer((_) async {});
+      when(() => localNotificationsPlatform.getActiveNotifications()).thenAnswer((_) async => []);
 
       keypair = RSAKeypair.fromRandom();
 
@@ -195,7 +196,7 @@ void main() {
     test('Delete', () async {
       final payload = {
         'priority': '',
-        'type': '',
+        'type': 'background',
         'subject': {
           'nid': 1,
           'delete': true,
@@ -204,13 +205,14 @@ void main() {
 
       await PushUtils.onMessage(_encryptPushNotifications(keypair, [payload]), account.id);
 
-      verify(() => localNotificationsPlatform.cancel(3811)).called(1);
+      verify(() => localNotificationsPlatform.cancel(PushUtils.getNotificationID(account.id, 1))).called(1);
+      verify(() => localNotificationsPlatform.getActiveNotifications()).called(1);
     });
 
     test('Delete multiple', () async {
       final payload = {
         'priority': '',
-        'type': '',
+        'type': 'background',
         'subject': {
           'nids': [1, 2],
           'delete-multiple': true,
@@ -219,14 +221,15 @@ void main() {
 
       await PushUtils.onMessage(_encryptPushNotifications(keypair, [payload]), account.id);
 
-      verify(() => localNotificationsPlatform.cancel(3811)).called(1);
-      verify(() => localNotificationsPlatform.cancel(4269)).called(1);
+      verify(() => localNotificationsPlatform.cancel(PushUtils.getNotificationID(account.id, 1))).called(1);
+      verify(() => localNotificationsPlatform.cancel(PushUtils.getNotificationID(account.id, 2))).called(1);
+      verify(() => localNotificationsPlatform.getActiveNotifications()).called(1);
     });
 
     test('Delete all', () async {
       final payload = {
         'priority': '',
-        'type': '',
+        'type': 'background',
         'subject': {
           'delete-all': true,
         },
@@ -235,6 +238,7 @@ void main() {
       await PushUtils.onMessage(_encryptPushNotifications(keypair, [payload]), account.id);
 
       verify(() => localNotificationsPlatform.cancelAll()).called(1);
+      verify(() => localNotificationsPlatform.getActiveNotifications()).called(1);
     });
 
     test('Background', () async {
@@ -245,6 +249,41 @@ void main() {
       };
 
       await PushUtils.onMessage(_encryptPushNotifications(keypair, [payload]), account.id);
+      verify(() => localNotificationsPlatform.getActiveNotifications()).called(1);
+    });
+
+    test('Cancel summary notification', () async {
+      when(() => localNotificationsPlatform.getActiveNotifications()).thenAnswer(
+        (_) async => [
+          const ActiveNotification(
+            id: 123,
+            groupKey: 'app1',
+          ),
+          const ActiveNotification(
+            id: 456,
+            groupKey: 'app2',
+          ),
+          const ActiveNotification(
+            id: 789,
+            groupKey: 'app2',
+          ),
+        ],
+      );
+
+      final payload = {
+        'priority': '',
+        'type': 'background',
+        'subject': {
+          'nid': 1,
+          'delete': true,
+        },
+      };
+
+      await PushUtils.onMessage(_encryptPushNotifications(keypair, [payload]), account.id);
+
+      verify(() => localNotificationsPlatform.cancel(PushUtils.getNotificationID(account.id, 1))).called(1);
+      verify(() => localNotificationsPlatform.getActiveNotifications()).called(1);
+      verify(() => localNotificationsPlatform.cancel(PushUtils.getGroupSummaryID(account.id, 'app1'))).called(1);
     });
 
     group('Message', () {
@@ -295,7 +334,7 @@ void main() {
 
         verify(
           () => localNotificationsPlatform.show(
-            3811,
+            PushUtils.getNotificationID(account.id, 1),
             'subject',
             null,
             notificationDetails: any(
@@ -305,7 +344,7 @@ void main() {
                     d.channelId == 'app' &&
                     d.channelName == 'app' &&
                     d.subText == null &&
-                    d.groupKey == 'app_app' &&
+                    d.groupKey == 'app' &&
                     d.icon == null &&
                     d.largeIcon == null &&
                     d.when == null &&
@@ -321,7 +360,7 @@ void main() {
         ).called(1);
         verify(
           () => localNotificationsPlatform.show(
-            4082,
+            PushUtils.getGroupSummaryID(account.id, 'app'),
             null,
             null,
             notificationDetails: any(
@@ -331,7 +370,7 @@ void main() {
                     d.channelId == 'app' &&
                     d.channelName == 'app' &&
                     d.subText == null &&
-                    d.groupKey == 'app_app' &&
+                    d.groupKey == 'app' &&
                     d.icon == null &&
                     d.largeIcon == null &&
                     d.when == null &&
@@ -456,7 +495,7 @@ void main() {
 
         verify(
           () => localNotificationsPlatform.show(
-            3811,
+            PushUtils.getNotificationID(account.id, 1),
             'Files: other subject',
             'message',
             notificationDetails: any(
@@ -466,7 +505,7 @@ void main() {
                     d.channelId == 'files' &&
                     d.channelName == 'Files' &&
                     d.subText == null &&
-                    d.groupKey == 'files_app' &&
+                    d.groupKey == 'files' &&
                     d.icon == null &&
                     d.largeIcon != null &&
                     d.when == notificationDate.millisecondsSinceEpoch &&
@@ -482,7 +521,7 @@ void main() {
         ).called(1);
         verify(
           () => localNotificationsPlatform.show(
-            4405,
+            PushUtils.getGroupSummaryID(account.id, 'files'),
             null,
             null,
             notificationDetails: any(
@@ -492,7 +531,7 @@ void main() {
                     d.channelId == 'files' &&
                     d.channelName == 'Files' &&
                     d.subText == null &&
-                    d.groupKey == 'files_app' &&
+                    d.groupKey == 'files' &&
                     d.icon == null &&
                     d.largeIcon == null &&
                     d.when == null &&
@@ -530,7 +569,7 @@ void main() {
 
         verify(
           () => localNotificationsPlatform.show(
-            3811,
+            PushUtils.getNotificationID(account.id, 1),
             'subject',
             null,
             notificationDetails: any(
@@ -540,7 +579,7 @@ void main() {
                     d.channelId == 'app' &&
                     d.channelName == 'app' &&
                     d.subText == null &&
-                    d.groupKey == 'app_app' &&
+                    d.groupKey == 'app' &&
                     d.icon == null &&
                     d.largeIcon == null &&
                     d.when == null &&
@@ -556,7 +595,7 @@ void main() {
         ).called(1);
         verify(
           () => localNotificationsPlatform.show(
-            4082,
+            PushUtils.getGroupSummaryID(account.id, 'app'),
             null,
             null,
             notificationDetails: any(
@@ -566,7 +605,7 @@ void main() {
                     d.channelId == 'app' &&
                     d.channelName == 'app' &&
                     d.subText == null &&
-                    d.groupKey == 'app_app' &&
+                    d.groupKey == 'app' &&
                     d.icon == null &&
                     d.largeIcon == null &&
                     d.when == null &&

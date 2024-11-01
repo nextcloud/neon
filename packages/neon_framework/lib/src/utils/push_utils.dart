@@ -113,17 +113,42 @@ class PushUtils {
 
     final pushNotifications = await parseEncryptedPushNotifications(storage, encryptedPushNotifications, accountID);
     for (final pushNotification in pushNotifications) {
-      if (pushNotification.subject.delete ?? false) {
-        await localNotificationsPlugin.cancel(_getNotificationID(accountID, pushNotification.subject.nid!));
-      } else if (pushNotification.subject.deleteMultiple ?? false) {
-        await Future.wait([
-          for (final nid in pushNotification.subject.nids!)
-            localNotificationsPlugin.cancel(_getNotificationID(accountID, nid)),
-        ]);
-      } else if (pushNotification.subject.deleteAll ?? false) {
-        await localNotificationsPlugin.cancelAll();
-      } else if (pushNotification.type == 'background') {
-        _log.fine('Got unknown background notification ${json.encode(pushNotification.toJson())}');
+      if (pushNotification.type == 'background') {
+        if (pushNotification.subject.delete ?? false) {
+          await localNotificationsPlugin.cancel(getNotificationID(accountID, pushNotification.subject.nid!));
+        } else if (pushNotification.subject.deleteMultiple ?? false) {
+          await Future.wait([
+            for (final nid in pushNotification.subject.nids!)
+              localNotificationsPlugin.cancel(getNotificationID(accountID, nid)),
+          ]);
+        } else if (pushNotification.subject.deleteAll ?? false) {
+          await localNotificationsPlugin.cancelAll();
+        } else {
+          _log.fine('Got unknown background notification ${json.encode(pushNotification.toJson())}');
+        }
+
+        if (defaultTargetPlatform == TargetPlatform.android) {
+          final groups = <String, List<int>>{};
+
+          // Count how many notifications per group still exist.
+          final activeNotifications = await localNotificationsPlugin.getActiveNotifications();
+          for (final activeNotification in activeNotifications) {
+            final id = activeNotification.id;
+            final groupKey = activeNotification.groupKey;
+            if (id != null && groupKey != null) {
+              groups[groupKey] ??= [];
+              groups[groupKey]!.add(id);
+            }
+          }
+
+          for (final entry in groups.entries) {
+            // If there is only one notification left it has to be the summary,
+            // because the child notifications are automatically canceled when the user cancels the summary notification.
+            if (entry.value.length == 1) {
+              await localNotificationsPlugin.cancel(getGroupSummaryID(accountID, entry.key));
+            }
+          }
+        }
       } else {
         packageInfo ??= await PackageInfo.fromPlatform();
         accountStorage ??= AccountStorage(
@@ -170,7 +195,7 @@ class PushUtils {
           final when = notification != null ? tz.TZDateTime.parse(tz.UTC, notification.datetime) : null;
 
           await localNotificationsPlugin.show(
-            _getNotificationID(accountID, pushNotification.subject.nid!),
+            getNotificationID(accountID, pushNotification.subject.nid!),
             message != null && appName != null ? '$appName: $title' : title,
             message,
             NotificationDetails(
@@ -178,7 +203,7 @@ class PushUtils {
                 appID,
                 appName ?? appID,
                 subText: accounts.length > 1 && account != null ? account.humanReadableID : null,
-                groupKey: '${appID}_app',
+                groupKey: appID,
                 largeIcon: largeIconBitmap,
                 when: when?.millisecondsSinceEpoch,
                 color: NcColors.primary,
@@ -197,14 +222,14 @@ class PushUtils {
           if (defaultTargetPlatform == TargetPlatform.android) {
             // Since we only support Android SDK 24+, we can just generate an empty summary notification as it will not be shown anyway.
             await localNotificationsPlugin.show(
-              _getGroupSummaryID(accountID, appID),
+              getGroupSummaryID(accountID, appID),
               null,
               null,
               NotificationDetails(
                 android: AndroidNotificationDetails(
                   appID,
                   appName ?? appID,
-                  groupKey: '${appID}_app',
+                  groupKey: appID,
                   setAsGroupSummary: true,
                   styleInformation: InboxStyleInformation(
                     [],
@@ -296,11 +321,13 @@ class PushUtils {
     return ByteArrayAndroidBitmap(img.encodeBmp(img.decodePng(bytes!.buffer.asUint8List())!));
   }
 
-  static int _getNotificationID(String accountID, int nid) {
+  @visibleForTesting
+  static int getNotificationID(String accountID, int nid) {
     return sha256.convert(utf8.encode('$accountID$nid')).bytes.reduce((a, b) => a + b);
   }
 
-  static int _getGroupSummaryID(String accountID, String app) {
+  @visibleForTesting
+  static int getGroupSummaryID(String accountID, String app) {
     return sha256.convert(utf8.encode('$accountID$app')).bytes.reduce((a, b) => a + b);
   }
 }
