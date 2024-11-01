@@ -154,6 +154,9 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
               error,
               stackTrace,
             );
+
+            // Don't spam the server if the error persists
+            await Future<void>.delayed(const Duration(seconds: 10));
           }
         }
       }
