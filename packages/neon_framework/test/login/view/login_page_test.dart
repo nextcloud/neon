@@ -57,7 +57,8 @@ void main() {
       );
 
       router = MockGoRouter();
-      when(() => router.go(any())).thenAnswer((_) async {});
+      // ignore: discarded_futures
+      when(() => router.pushReplacement(any())).thenAnswer((_) async => null);
 
       loginBloc = _MockLoginBloc();
       when(() => loginBloc.state).thenReturn(
@@ -92,7 +93,7 @@ void main() {
         );
         await tester.pumpWidgetWithAccessibility(buildSubject());
 
-        verify(() => router.go('/')).called(1);
+        verify(() => router.pushReplacement('/')).called(1);
       },
     );
 

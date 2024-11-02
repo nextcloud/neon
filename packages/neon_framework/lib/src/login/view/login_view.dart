@@ -22,7 +22,9 @@ class LoginView extends StatelessWidget {
     return BlocConsumer<LoginBloc, LoginState>(
       listener: (context, state) {
         if (state is LoginStateDone) {
-          const HomeRoute().go(context);
+          // go() will not work as the user already has to the route with the old account in the stack,
+          // so we need to pushReplacement() the route to have everything reload.
+          const HomeRoute().pushReplacement(context);
         }
       },
       builder: (context, state) {
