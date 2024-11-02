@@ -70,6 +70,15 @@ class TalkLocalizationsEn extends TalkLocalizations {
   }
 
   @override
+  String get reactions => 'Reactions';
+
+  @override
+  String get reactionsAll => 'All';
+
+  @override
+  String get reactionsSeeAll => 'See all reactions';
+
+  @override
   String get reactionsAddNew => 'Add a new reaction';
 
   @override

@@ -187,6 +187,24 @@ abstract class TalkLocalizations {
   /// **'Last edited by {name} at {time}'**
   String roomMessageLastEdited(String name, String time);
 
+  /// No description provided for @reactions.
+  ///
+  /// In en, this message translates to:
+  /// **'Reactions'**
+  String get reactions;
+
+  /// No description provided for @reactionsAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get reactionsAll;
+
+  /// No description provided for @reactionsSeeAll.
+  ///
+  /// In en, this message translates to:
+  /// **'See all reactions'**
+  String get reactionsSeeAll;
+
   /// No description provided for @reactionsAddNew.
   ///
   /// In en, this message translates to:

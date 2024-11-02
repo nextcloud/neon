@@ -33,6 +33,12 @@ extension $ChatMessageInterfaceHelpers on spreed.$ChatMessageInterface {
       lastEditTimestamp != null ? DateTimeUtils.fromSecondsSinceEpoch(tz.local, lastEditTimestamp!) : null;
 }
 
+/// Helper extension for [spreed.$ReactionInterface]
+extension $ReactionInterfaceHelpers on spreed.$ReactionInterface {
+  /// Parsed equivalent of [timestamp].
+  tz.TZDateTime get parsedTimestamp => DateTimeUtils.fromSecondsSinceEpoch(tz.local, timestamp);
+}
+
 /// Returns if the Talk [feature] is supported on the instance.
 bool hasFeature(BuildContext context, String feature) {
   final capabilitiesBloc = NeonProvider.of<CapabilitiesBloc>(context);

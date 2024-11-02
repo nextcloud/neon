@@ -31,6 +31,9 @@
       }
     }
   },
+  "reactions": "Reactions",
+  "reactionsAll": "All",
+  "reactionsSeeAll": "See all reactions",
   "reactionsAddNew": "Add a new reaction",
   "reactionsLoading": "Loading reactions",
   "roomsCreateNew": "Create new room"
