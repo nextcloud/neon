@@ -32,12 +32,7 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.1.6
   flutter_blurhash: ^0.8.2
-  # https://github.com/MaikuB/flutter_local_notifications/pull/2418
-  flutter_local_notifications:
-    git:
-      url: https://github.com/MaikuB/flutter_local_notifications
-      ref: d9789d8496545ca2c5a42b78b9f49dc8efe2929b
-      path: flutter_local_notifications
+  flutter_local_notifications: ^18.0.0
   flutter_localizations:
     sdk: flutter
   flutter_material_design_icons: ^1.1.7296
@@ -94,7 +89,7 @@ dev_dependencies:
       path: packages/cookie_store_conformance_tests
   crypton: ^2.2.1
   custom_lint: ^0.7.0
-  flutter_local_notifications_platform_interface: ^7.2.0
+  flutter_local_notifications_platform_interface: ^8.0.0
   flutter_test:
     sdk: flutter
   go_router_builder: ^2.7.1
