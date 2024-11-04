@@ -1,22 +1,31 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
+import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:talk_app/l10n/localizations.dart';
 import 'package:talk_app/src/blocs/room.dart';
 import 'package:talk_app/src/widgets/reactions.dart';
+import 'package:talk_app/src/widgets/reactions_overview_dialog.dart';
+import 'package:timezone/data/latest.dart' as tzdata;
+import 'package:timezone/timezone.dart' as tz;
 
 import 'testing.dart';
 
 spreed.Reaction getReaction() {
   final reaction = MockReaction();
+  when(() => reaction.actorType).thenReturn(spreed.ActorType.users);
+  when(() => reaction.actorId).thenReturn('actorId');
   when(() => reaction.actorDisplayName).thenReturn('actorDisplayName');
+  when(() => reaction.timestamp).thenReturn(0);
 
   return reaction;
 }
@@ -24,6 +33,13 @@ spreed.Reaction getReaction() {
 void main() {
   late spreed.ChatMessage chatMessage;
   late TalkRoomBloc bloc;
+
+  setUpAll(() {
+    tzdata.initializeTimeZones();
+    tz.setLocalLocation(tz.getLocation('Europe/Berlin'));
+
+    FakeNeonStorage.setup();
+  });
 
   setUp(() {
     chatMessage = MockChatMessage();
@@ -153,5 +169,30 @@ void main() {
     await tester.pumpAndSettle();
 
     verify(() => bloc.loadReactions(chatMessage)).called(1);
+  });
+
+  testWidgets('Shows reactions overview dialog', (tester) async {
+    final account = MockAccount();
+
+    await tester.pumpWidgetWithAccessibility(
+      TestApp(
+        localizationsDelegates: TalkLocalizations.localizationsDelegates,
+        supportedLocales: TalkLocalizations.supportedLocales,
+        providers: [
+          NeonProvider<TalkRoomBloc>.value(value: bloc),
+          Provider<Account>.value(value: account),
+        ],
+        child: TalkReactions(
+          chatMessage: chatMessage,
+        ),
+      ),
+    );
+
+    await tester.runAsync(() async {
+      await tester.tap(find.byIcon(MdiIcons.heartOutline), warnIfMissed: false);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(TalkReactionsOverviewDialog), findsOne);
+    });
   });
 }

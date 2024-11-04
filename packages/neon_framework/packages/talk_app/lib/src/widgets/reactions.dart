@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:intersperse/intersperse.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:talk_app/l10n/localizations.dart';
 import 'package:talk_app/src/blocs/room.dart';
+import 'package:talk_app/src/widgets/reactions_overview_dialog.dart';
 
 /// Widget for displaying the current reactions on a chat message including the ability to add and remove reactions.
 class TalkReactions extends StatelessWidget {
@@ -99,6 +101,34 @@ class TalkReactions extends StatelessWidget {
               },
             ),
           );
+
+          if (chatMessage.reactions.isNotEmpty) {
+            children.add(
+              ActionChip(
+                shape: shape,
+                avatar: Icon(
+                  MdiIcons.heartOutline,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  size: 16,
+                ),
+                label: const SizedBox(),
+                padding: EdgeInsets.zero,
+                labelPadding: const EdgeInsets.symmetric(vertical: -2.5),
+                tooltip: TalkLocalizations.of(context).reactionsSeeAll,
+                onPressed: () async {
+                  await showDialog<void>(
+                    context: context,
+                    builder: (context) => NeonProvider.value(
+                      value: bloc,
+                      child: TalkReactionsOverviewDialog(
+                        chatMessage: chatMessage,
+                      ),
+                    ),
+                  );
+                },
+              ),
+            );
+          }
 
           return Row(
             mainAxisSize: MainAxisSize.min,
