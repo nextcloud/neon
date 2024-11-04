@@ -41,14 +41,14 @@ jobs:
       - name: Setup
         run: ./tool/setup.sh
 
+      - name: Check up-to-date pubspec.lock
+        if: ${{ matrix.dependencies == 'upgrade' }}
+        run: git --no-pager diff --exit-code
       - name: Downgrade dependencies
         if: ${{ matrix.dependencies == 'downgrade' }}
         run: |
           git apply .github/workflows/dependency_overrides.patch
-          git add .
           melos exec dart pub downgrade
-      - name: Check up-to-date pubspec.lock
-        run: git --no-pager diff --exit-code
       - name: Check formatting
         run: melos run format:check
       - name: Lint code
