@@ -25,7 +25,7 @@ dependencies:
       path: packages/neon_framework
   nextcloud: ^8.1.0
   rxdart: ^0.28.0
-  timezone: ^0.9.4
+  timezone: ^0.10.0
 
 dev_dependencies:
   build_runner: ^2.4.13

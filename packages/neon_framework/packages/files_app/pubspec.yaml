@@ -33,7 +33,7 @@ dependencies:
   queue: ^3.0.0
   rxdart: ^0.28.0
   share_plus: ^10.0.0
-  timezone: ^0.9.4
+  timezone: ^0.10.0
   universal_io: ^2.0.0
 
 dev_dependencies:
