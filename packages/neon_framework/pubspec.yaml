@@ -103,7 +103,7 @@ dev_dependencies:
   plugin_platform_interface: ^2.1.8
   shared_preferences: ^2.3.2
   url_launcher_platform_interface: ^2.3.2
-  vector_graphics_compiler: ^1.1.14
+  vector_graphics_compiler: ^1.1.15
   version: ^3.0.2
 
 flutter:
