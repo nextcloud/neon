@@ -12,15 +12,11 @@ class NeonRichObjectMention extends StatelessWidget {
   /// Create a new Neon rich object mention.
   const NeonRichObjectMention({
     required this.parameter,
-    required this.textStyle,
     super.key,
   });
 
   /// The parameter to display.
   final core.RichObjectParameter parameter;
-
-  /// The TextStyle to applied to all text elements in this rich object.
-  final TextStyle? textStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +85,6 @@ class NeonRichObjectMention extends StatelessWidget {
         horizontal: VisualDensity.minimumDensity,
         vertical: VisualDensity.minimumDensity,
       ),
-      labelStyle: textStyle,
       label: Text(
         parameter.name,
         style: TextStyle(

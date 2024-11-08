@@ -9,15 +9,11 @@ class NeonRichObjectFallback extends StatelessWidget {
   /// Creates a new Neon rich object fallback
   const NeonRichObjectFallback({
     required this.parameter,
-    required this.textStyle,
     super.key,
   });
 
   /// The parameter to display.
   final core.RichObjectParameter parameter;
-
-  /// The TextStyle to applied to all text elements in this rich object.
-  final TextStyle? textStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -45,10 +41,7 @@ class NeonRichObjectFallback extends StatelessWidget {
       padding: EdgeInsets.zero,
       labelPadding: labelPadding,
       avatar: avatar,
-      label: Text(
-        parameter.name,
-        style: textStyle,
-      ),
+      label: Text(parameter.name),
       onPressed: () async {
         final link = parameter.link;
         if (link != null) {

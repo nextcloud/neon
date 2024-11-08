@@ -52,7 +52,6 @@ void main() {
                 ..path = ''
                 ..link = '/link',
             ),
-            textStyle: null,
           ),
         ),
       );
@@ -77,7 +76,6 @@ void main() {
                 ..path = ''
                 ..blurhash = validBlurHash,
             ),
-            textStyle: null,
           ),
         ),
       );
@@ -105,7 +103,6 @@ void main() {
                 ..previewAvailable = 'no'
                 ..path = 'path',
             ),
-            textStyle: null,
           ),
         ),
       );
@@ -129,7 +126,6 @@ void main() {
                 ..previewAvailable = 'yes'
                 ..path = 'path',
             ),
-            textStyle: null,
           ),
         ),
       );
@@ -167,7 +163,6 @@ void main() {
                 ..width = width.toString()
                 ..height = height.toString(),
             ),
-            textStyle: null,
           ),
         ),
       );
@@ -200,7 +195,6 @@ void main() {
                 ..width = ((maxWidth * widthFactor) * pixelRatio).toString()
                 ..height = ((maxHeight * heightFactor) * pixelRatio).toString(),
             ),
-            textStyle: null,
           ),
         ),
       );
@@ -234,7 +228,6 @@ void main() {
                 ..mimetype = 'image/gif'
                 ..blurhash = validBlurHash,
             ),
-            textStyle: null,
           ),
         ),
       );
