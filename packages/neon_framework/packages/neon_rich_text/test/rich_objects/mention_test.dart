@@ -38,7 +38,6 @@ void main() {
                   ..id = 'username'
                   ..name = 'name',
               ),
-              textStyle: null,
             ),
           ),
         );
@@ -63,7 +62,6 @@ void main() {
                   ..id = 'other'
                   ..name = 'name',
               ),
-              textStyle: null,
             ),
           ),
         );
@@ -90,7 +88,6 @@ void main() {
                 ..name = 'name'
                 ..iconUrl = '',
             ),
-            textStyle: null,
           ),
         ),
       );
@@ -112,7 +109,6 @@ void main() {
                 ..id = ''
                 ..name = 'name',
             ),
-            textStyle: null,
           ),
         ),
       );
@@ -143,7 +139,6 @@ void main() {
                 ..id = 'group'
                 ..name = 'name',
             ),
-            textStyle: null,
           ),
         ),
       );
@@ -166,7 +161,6 @@ void main() {
                 ..id = 'other'
                 ..name = 'name',
             ),
-            textStyle: null,
           ),
         ),
       );

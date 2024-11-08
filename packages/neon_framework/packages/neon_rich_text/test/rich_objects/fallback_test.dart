@@ -43,7 +43,6 @@ void main() {
                 ..name = 'name'
                 ..link = '/link',
             ),
-            textStyle: null,
           ),
         ),
       );
@@ -62,7 +61,6 @@ void main() {
                 ..id = ''
                 ..name = 'name',
             ),
-            textStyle: null,
           ),
         ),
       );
@@ -88,7 +86,6 @@ void main() {
                 ..name = 'name'
                 ..iconUrl = '',
             ),
-            textStyle: null,
           ),
         ),
       );
