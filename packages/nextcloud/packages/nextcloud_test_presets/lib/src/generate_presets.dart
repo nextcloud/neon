@@ -20,6 +20,7 @@ Future<void> generatePresets() async {
   final releaseFallbacks = <String, Map<Version, String>>{
     'news': {
       Version(28, 0, 11): 'https://github.com/nextcloud/news/releases/download/25.0.0-alpha9/news.tar.gz',
+      Version(28, 0, 12): 'https://github.com/nextcloud/news/releases/download/25.0.0-alpha9/news.tar.gz',
     },
   };
 

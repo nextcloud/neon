@@ -5,6 +5,7 @@ import 'package:nextcloud/files_sharing.dart' as files_sharing;
 import 'package:nextcloud/webdav.dart' as webdav;
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
+import 'package:version/version.dart';
 
 void main() {
   presets('server', 'files_sharing', (tester) {
@@ -47,7 +48,10 @@ void main() {
         expect(response.body.ocs.data.itemSource, isPositive);
         expect(response.body.ocs.data.itemType, files_sharing.Share_ItemType.file);
         expect(response.body.ocs.data.label, '');
-        expect(response.body.ocs.data.mailSend, files_sharing.Share_MailSend.$1);
+        expect(
+          response.body.ocs.data.mailSend,
+          tester.version < Version(30, 0, 0) ? files_sharing.Share_MailSend.$1 : files_sharing.Share_MailSend.$0,
+        );
         expect(response.body.ocs.data.mimetype, 'image/png');
         expect(response.body.ocs.data.note, '');
         expect(response.body.ocs.data.path, '/create-share.png');
@@ -94,7 +98,7 @@ void main() {
         expect(response.body.ocs.data.single.itemSize, 8650);
         expect(response.body.ocs.data.single.itemSource, isPositive);
         expect(response.body.ocs.data.single.itemType, files_sharing.Share_ItemType.file);
-        expect(response.body.ocs.data.single.label, null);
+        expect(response.body.ocs.data.single.label, '');
         expect(response.body.ocs.data.single.mailSend, files_sharing.Share_MailSend.$0);
         expect(response.body.ocs.data.single.mimetype, 'image/png');
         expect(response.body.ocs.data.single.note, '');
