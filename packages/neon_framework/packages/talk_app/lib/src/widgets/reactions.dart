@@ -12,9 +12,13 @@ import 'package:talk_app/src/widgets/reactions_overview_dialog.dart';
 class TalkReactions extends StatelessWidget {
   /// Creates new Talk reactions.
   const TalkReactions({
+    required this.room,
     required this.chatMessage,
     super.key,
   });
+
+  /// {@macro TalkMessage.room}
+  final spreed.Room room;
 
   /// The chat message to display the reactions for.
   final spreed.$ChatMessageInterface chatMessage;
@@ -22,6 +26,11 @@ class TalkReactions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = NeonProvider.of<TalkRoomBloc>(context);
+
+    final canUpdateReactions = room.readOnly == 0 &&
+        spreed.ParticipantPermission.values
+            .byBinary(room.permissions)
+            .contains(spreed.ParticipantPermission.canSendMessageAndShareAndReact);
 
     const shape = RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(50)),
@@ -61,46 +70,50 @@ class TalkReactions extends StatelessWidget {
                   bottom: -2.5,
                   right: 10,
                 ),
-                onPressed: () {
-                  if (isSelf) {
-                    bloc.removeReaction(chatMessage, reaction.key);
-                  } else {
-                    bloc.addReaction(chatMessage, reaction.key);
-                  }
-                },
+                onPressed: canUpdateReactions
+                    ? () {
+                        if (isSelf) {
+                          bloc.removeReaction(chatMessage, reaction.key);
+                        } else {
+                          bloc.addReaction(chatMessage, reaction.key);
+                        }
+                      }
+                    : null,
               ),
             );
           }
 
-          children.add(
-            ActionChip(
-              shape: shape,
-              avatar: Icon(
-                Icons.add_reaction_outlined,
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-                size: 16,
+          if (canUpdateReactions) {
+            children.add(
+              ActionChip(
+                shape: shape,
+                avatar: Icon(
+                  Icons.add_reaction_outlined,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  size: 16,
+                ),
+                label: const SizedBox(),
+                padding: EdgeInsets.zero,
+                labelPadding: const EdgeInsets.symmetric(vertical: -2.5),
+                tooltip: TalkLocalizations.of(context).reactionsAddNew,
+                onPressed: () async {
+                  final reaction = await showDialog<String>(
+                    context: context,
+                    builder: (context) => const NeonEmojiPickerDialog(),
+                  );
+                  if (reaction == null) {
+                    return;
+                  }
+
+                  if (!context.mounted) {
+                    return;
+                  }
+
+                  bloc.addReaction(chatMessage, reaction);
+                },
               ),
-              label: const SizedBox(),
-              padding: EdgeInsets.zero,
-              labelPadding: const EdgeInsets.symmetric(vertical: -2.5),
-              tooltip: TalkLocalizations.of(context).reactionsAddNew,
-              onPressed: () async {
-                final reaction = await showDialog<String>(
-                  context: context,
-                  builder: (context) => const NeonEmojiPickerDialog(),
-                );
-                if (reaction == null) {
-                  return;
-                }
-
-                if (!context.mounted) {
-                  return;
-                }
-
-                bloc.addReaction(chatMessage, reaction);
-              },
-            ),
-          );
+            );
+          }
 
           if (chatMessage.reactions.isNotEmpty) {
             children.add(

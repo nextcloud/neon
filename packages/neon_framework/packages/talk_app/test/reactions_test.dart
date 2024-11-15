@@ -31,6 +31,7 @@ spreed.Reaction getReaction() {
 }
 
 void main() {
+  late spreed.Room room;
   late spreed.ChatMessage chatMessage;
   late TalkRoomBloc bloc;
 
@@ -42,6 +43,10 @@ void main() {
   });
 
   setUp(() {
+    room = MockRoom();
+    when(() => room.readOnly).thenReturn(0);
+    when(() => room.permissions).thenReturn(spreed.ParticipantPermission.canSendMessageAndShareAndReact.binary);
+
     chatMessage = MockChatMessage();
     when(() => chatMessage.id).thenReturn(0);
     when(() => chatMessage.reactions).thenReturn(BuiltMap({'😀': 1, '😊': 2}));
@@ -70,6 +75,7 @@ void main() {
           NeonProvider<TalkRoomBloc>.value(value: bloc),
         ],
         child: TalkReactions(
+          room: room,
           chatMessage: chatMessage,
         ),
       ),
@@ -90,6 +96,7 @@ void main() {
           NeonProvider<TalkRoomBloc>.value(value: bloc),
         ],
         child: TalkReactions(
+          room: room,
           chatMessage: chatMessage,
         ),
       ),
@@ -109,6 +116,7 @@ void main() {
           NeonProvider<TalkRoomBloc>.value(value: bloc),
         ],
         child: TalkReactions(
+          room: room,
           chatMessage: chatMessage,
         ),
       ),
@@ -130,6 +138,7 @@ void main() {
           NeonProvider<TalkRoomBloc>.value(value: bloc),
         ],
         child: TalkReactions(
+          room: room,
           chatMessage: chatMessage,
         ),
       ),
@@ -156,6 +165,7 @@ void main() {
           NeonProvider<TalkRoomBloc>.value(value: bloc),
         ],
         child: TalkReactions(
+          room: room,
           chatMessage: chatMessage,
         ),
       ),
@@ -183,6 +193,7 @@ void main() {
           Provider<Account>.value(value: account),
         ],
         child: TalkReactions(
+          room: room,
           chatMessage: chatMessage,
         ),
       ),
@@ -194,5 +205,51 @@ void main() {
 
       expect(find.byType(TalkReactionsOverviewDialog), findsOne);
     });
+  });
+
+  testWidgets('Read-only', (tester) async {
+    when(() => room.readOnly).thenReturn(1);
+
+    await tester.pumpWidgetWithAccessibility(
+      TestApp(
+        localizationsDelegates: TalkLocalizations.localizationsDelegates,
+        supportedLocales: TalkLocalizations.supportedLocales,
+        providers: [
+          NeonProvider<TalkRoomBloc>.value(value: bloc),
+        ],
+        child: TalkReactions(
+          room: room,
+          chatMessage: chatMessage,
+        ),
+      ),
+    );
+
+    expect(find.byIcon(Icons.add_reaction_outlined), findsNothing);
+
+    await tester.tap(find.text('😀'), warnIfMissed: false);
+    verifyNever(() => bloc.addReaction(chatMessage, '😀'));
+  });
+
+  testWidgets('No chat permission', (tester) async {
+    when(() => room.permissions).thenReturn(0);
+
+    await tester.pumpWidgetWithAccessibility(
+      TestApp(
+        localizationsDelegates: TalkLocalizations.localizationsDelegates,
+        supportedLocales: TalkLocalizations.supportedLocales,
+        providers: [
+          NeonProvider<TalkRoomBloc>.value(value: bloc),
+        ],
+        child: TalkReactions(
+          room: room,
+          chatMessage: chatMessage,
+        ),
+      ),
+    );
+
+    expect(find.byIcon(Icons.add_reaction_outlined), findsNothing);
+
+    await tester.tap(find.text('😀'), warnIfMissed: false);
+    verifyNever(() => bloc.addReaction(chatMessage, '😀'));
   });
 }
