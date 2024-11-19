@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
+import 'package:dynamite_runtime/http_client.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -1130,6 +1131,107 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
             )
             .toList(),
       ),
+    );
+  }
+}
+
+@internal
+class NeonPasswordConfirmationDialog extends StatefulWidget {
+  const NeonPasswordConfirmationDialog({
+    required this.account,
+    super.key,
+  });
+
+  final Account account;
+
+  @override
+  State<NeonPasswordConfirmationDialog> createState() => _NeonPasswordConfirmationDialogState();
+}
+
+class _NeonPasswordConfirmationDialogState extends State<NeonPasswordConfirmationDialog> {
+  final formKey = GlobalKey<FormState>();
+  final controller = TextEditingController();
+  final focusNode = FocusNode();
+  bool wrongPassword = false;
+
+  @override
+  void dispose() {
+    controller.dispose();
+    focusNode.dispose();
+
+    super.dispose();
+  }
+
+  Future<void> submit() async {
+    setState(() {
+      wrongPassword = false;
+    });
+
+    if (formKey.currentState!.validate()) {
+      try {
+        await widget.account.client.core.appPassword.confirmUserPassword(
+          $body: core.AppPasswordConfirmUserPasswordRequestApplicationJson(
+            (b) => b.password = controller.text,
+          ),
+        );
+
+        if (mounted) {
+          Navigator.of(context).pop(true);
+        }
+      } on Exception catch (error) {
+        // Do not log here as error messages could contain the user password
+
+        if (error case DynamiteStatusCodeException(statusCode: 403)) {
+          setState(() {
+            wrongPassword = true;
+          });
+
+          controller.clear();
+          focusNode.requestFocus();
+
+          return;
+        }
+
+        if (mounted) {
+          NeonError.showSnackbar(context, error);
+        }
+      }
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return NeonDialog(
+      title: Text(NeonLocalizations.of(context).errorUserPasswordConfirmationRequired),
+      icon: const Icon(Icons.password),
+      content: Form(
+        key: formKey,
+        child: TextFormField(
+          obscureText: true,
+          enableSuggestions: false,
+          autocorrect: false,
+          autofocus: true,
+          controller: controller,
+          focusNode: focusNode,
+          textInputAction: TextInputAction.continueAction,
+          decoration: InputDecoration(
+            hintText: NeonLocalizations.of(context).passwordConfirmationUserPassword,
+            errorText: wrongPassword ? NeonLocalizations.of(context).errorWrongUserPassword : null,
+            suffixIconConstraints: BoxConstraints.tight(const Size(32, 24)),
+          ),
+          validator: (input) => validateNotEmpty(context, input),
+          onFieldSubmitted: (_) async {
+            await submit();
+          },
+        ),
+      ),
+      actions: [
+        NeonDialogAction(
+          onPressed: submit,
+          isDefaultAction: true,
+          child: Text(NeonLocalizations.of(context).actionContinue),
+        ),
+      ],
     );
   }
 }

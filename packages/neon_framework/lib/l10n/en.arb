@@ -94,6 +94,8 @@
       }
     }
   },
+  "errorUserPasswordConfirmationRequired": "You need to confirm your user password",
+  "errorWrongUserPassword": "Wrong user password",
   "errorDialog": "An error has occurred",
   "actionYes": "Yes",
   "actionNo": "No",
@@ -215,6 +217,33 @@
       }
     }
   },
+  "accountOptionsCategoryProfile": "Profile",
+  "accountOptionsProfileDisplayNameLabel": "Full name",
+  "accountOptionsProfileDisplayNameHint": "Your full name",
+  "accountOptionsProfileEmailLabel": "Email",
+  "accountOptionsProfileEmailHint": "Primary email for password reset and notifications",
+  "accountOptionsProfilePhoneLabel": "Phone number",
+  "accountOptionsProfilePhoneHint": "Your phone number",
+  "accountOptionsProfileAddressLabel": "Location",
+  "accountOptionsProfileAddressHint": "Your city",
+  "accountOptionsProfileWebsiteLabel": "Website",
+  "accountOptionsProfileWebsiteHint": "Your website",
+  "accountOptionsProfileTwitterLabel": "X (formerly Twitter)",
+  "accountOptionsProfileTwitterHint": "Your X (formerly Twitter) handle",
+  "accountOptionsProfileFediverseLabel": "Fediverse (e.g. Mastodon)",
+  "accountOptionsProfileFediverseHint": "Your handle",
+  "accountOptionsProfileOrganisationLabel": "Organisation",
+  "accountOptionsProfileOrganisationHint": "Your organisation",
+  "accountOptionsProfileRoleLabel": "Role",
+  "accountOptionsProfileRoleHint": "Your role",
+  "accountOptionsProfileHeadlineLabel": "Headline",
+  "accountOptionsProfileHeadlineHint": "Your headline",
+  "accountOptionsProfileBiographyLabel": "About",
+  "accountOptionsProfileBiographyHint": "Your biography",
+  "accountOptionsProfileScopePrivate": "Only visible to people matched via phone number integration through Talk on mobile",
+  "accountOptionsProfileScopeLocal": "Only visible to people on this instance and guests",
+  "accountOptionsProfileScopeFederated": "Only synchronize to trusted servers",
+  "accountOptionsProfileScopePublished": "Synchronize to trusted servers and the global and public address book",
   "accountOptionsInitialApp": "App to show initially",
   "accountOptionsAutomatic": "Automatic",
   "licenses": "Licenses",
@@ -294,5 +323,6 @@
   "userStatusClearAtThisWeek": "This week",
   "userStatusActionClear": "Clear status",
   "userStatusStatusMessage": "Status message",
-  "userStatusOnlineStatus": "Online status"
+  "userStatusOnlineStatus": "Online status",
+  "passwordConfirmationUserPassword": "Your user password"
 }

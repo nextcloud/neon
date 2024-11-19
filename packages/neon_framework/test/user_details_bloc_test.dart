@@ -7,6 +7,20 @@ import 'package:neon_framework/models.dart';
 import 'package:neon_framework/testing.dart';
 
 Account mockUserDetailsAccount() => mockServer({
+      RegExp(r'/ocs/v2\.php/cloud/users/test'): {
+        'put': (match, bodyBytes) => Response(
+              json.encode(
+                {
+                  'ocs': {
+                    'meta': {'status': '', 'statuscode': 0},
+                    'data': <dynamic, dynamic>{},
+                  },
+                },
+              ),
+              200,
+              headers: {'content-type': 'application/json'},
+            ),
+      },
       RegExp(r'/ocs/v2\.php/cloud/user'): {
         'get': (match, request) => Response(
               json.encode(
@@ -44,7 +58,7 @@ Account mockUserDetailsAccount() => mockServer({
                       'role': '',
                       'subadmin': <dynamic>[],
                       'twitter': '',
-                      'website': '',
+                      'website': 'https://example.com',
                     },
                   },
                 },
@@ -87,5 +101,21 @@ void main() {
     // The delay is necessary to avoid a race condition with loading twice at the same time
     await Future<void>.delayed(const Duration(milliseconds: 1));
     await bloc.refresh();
+  });
+
+  test('updateProperty', () async {
+    expect(
+      bloc.userDetails.transformResult((e) => e.website),
+      emitsInOrder([
+        Result<String>.loading(),
+        Result.success('https://example.com'),
+        Result.success('https://example.com').asLoading(),
+        Result.success('https://example.org'),
+      ]),
+    );
+    // The delay is necessary to avoid a race condition with loading twice at the same time
+    await Future<void>.delayed(const Duration(milliseconds: 1));
+
+    bloc.updateProperty('website', 'https://example.org');
   });
 }
