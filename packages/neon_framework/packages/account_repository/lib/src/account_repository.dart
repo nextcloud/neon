@@ -275,20 +275,15 @@ class AccountRepository {
   /// Logs out the user from the server.
   ///
   /// May throw a [DeleteCredentialsFailure].
-  Future<void> logOut(String accountID) async {
+  Future<void> logOut(Account account) async {
     final value = _accounts.value;
 
-    Account? account;
     final accounts = value.accounts.rebuild((b) {
-      account = b.remove(accountID);
+      b.remove(account.id);
     });
 
-    if (account == null) {
-      return;
-    }
-
     var active = value.active;
-    if (active == accountID) {
+    if (active == account.id) {
       active = accounts.keys.firstOrNull;
     }
 
@@ -300,7 +295,7 @@ class AccountRepository {
     _accounts.add((active: active, accounts: accounts));
 
     try {
-      await account?.client.authentication.appPassword.deleteAppPassword();
+      await account.client.authentication.appPassword.deleteAppPassword();
     } on http.ClientException catch (error, stackTrace) {
       Error.throwWithStackTrace(DeleteCredentialsFailure(error), stackTrace);
     }

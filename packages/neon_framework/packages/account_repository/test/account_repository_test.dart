@@ -506,7 +506,8 @@ void main() {
         when(() => appPassword.deleteAppPassword()).thenAnswer(
           (_) async => _DynamiteResponseMock<core.AppPasswordDeleteAppPasswordResponseApplicationJson, void>(),
         );
-        await repository.logOut(credentialsList.first.id);
+        final accounts = await repository.accounts.first;
+        await repository.logOut(accounts.accounts.first);
 
         await expectLater(
           repository.accounts,
@@ -522,24 +523,12 @@ void main() {
         verify(() => storage.saveCredentials(any(that: equals([credentialsList[1]])))).called(1);
       });
 
-      test('tries to remove invalid  account', () async {
-        when(() => appPassword.deleteAppPassword()).thenThrow(http.ClientException(''));
-
-        await expectLater(
-          repository.logOut('invalid'),
-          completes,
-        );
-
-        verifyNever(() => appPassword.deleteAppPassword());
-        verifyNever(() => storage.saveLastAccount(any()));
-        verifyNever(() => storage.saveCredentials(any()));
-      });
-
       test('rethrows http exceptions as `DeleteCredentialsFailure`', () async {
         when(() => appPassword.deleteAppPassword()).thenThrow(http.ClientException(''));
 
+        final accounts = await repository.accounts.first;
         await expectLater(
-          repository.logOut(credentialsList.first.id),
+          repository.logOut(accounts.accounts.first),
           throwsA(isA<DeleteCredentialsFailure>().having((e) => e.error, 'error', isA<http.ClientException>())),
         );
 

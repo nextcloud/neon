@@ -154,7 +154,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   @override
   Future<void> removeAccount(Account account) async {
     try {
-      await _accountRepository.logOut(account.id);
+      await _accountRepository.logOut(account);
     } on DeleteCredentialsFailure catch (error, stackTrace) {
       log.info(
         'Error deleting the app password.',
