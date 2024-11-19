@@ -85,12 +85,16 @@ class NotificationsNotification extends StatelessWidget {
               )
               .toList(),
         ),
-        leading: NeonUriImage(
-          account: NeonProvider.of<Account>(context),
-          uri: Uri.parse(notification.icon!),
-          size: const Size.square(largeIconSize),
-          svgColorFilter: ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn),
-        ),
+        leading: notification.icon!.isNotEmpty
+            ? NeonUriImage(
+                account: NeonProvider.of<Account>(context),
+                uri: Uri.parse(notification.icon!),
+                size: const Size.square(largeIconSize),
+                svgColorFilter: ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn),
+              )
+            : const SizedBox.square(
+                dimension: largeIconSize,
+              ),
         onTap: notification.link.isNotEmpty
             ? () async => launchUrl(NeonProvider.of<Account>(context), notification.link)
             : null,

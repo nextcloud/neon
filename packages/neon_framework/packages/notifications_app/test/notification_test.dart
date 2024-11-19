@@ -51,7 +51,7 @@ void main() {
     when(() => notification.messageRichParameters).thenReturn(BuiltMap());
     when(() => notification.datetime).thenReturn(tz.TZDateTime.now(tz.UTC).toIso8601String());
     when(() => notification.actions).thenReturn(BuiltList([primaryAction, secondaryAction]));
-    when(() => notification.icon).thenReturn('');
+    when(() => notification.icon).thenReturn('/icon');
     when(() => notification.link).thenReturn('/link');
 
     callback = MockCallbackFunction<void>().call;
@@ -130,5 +130,27 @@ void main() {
 
     expect(find.byType(NeonRichObjectMention), findsExactly(2));
     await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/notification_rich.png'));
+  });
+
+  testWidgets('Without icon', (tester) async {
+    when(() => notification.icon).thenReturn('');
+
+    await tester.pumpWidgetWithAccessibility(
+      TestApp(
+        localizationsDelegates: NotificationsLocalizations.localizationsDelegates,
+        supportedLocales: NotificationsLocalizations.supportedLocales,
+        providers: [
+          Provider<BuiltSet<AppImplementation>>.value(value: BuiltSet()),
+          Provider<Account>.value(value: account),
+        ],
+        child: NotificationsNotification(
+          notification: notification,
+          onDelete: callback,
+        ),
+      ),
+    );
+
+    expect(find.byType(NeonUriImage), findsNothing);
+    await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/notification_without_icon.png'));
   });
 }
