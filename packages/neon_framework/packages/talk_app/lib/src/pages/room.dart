@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
+import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:talk_app/src/blocs/room.dart';
 import 'package:talk_app/src/theme.dart';
 import 'package:talk_app/src/utils/helpers.dart';
@@ -175,7 +176,10 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
           ),
         );
 
-        if (room.readOnly == 0) {
+        if (room.readOnly == 0 &&
+            spreed.ParticipantPermission.values
+                .byBinary(room.permissions)
+                .contains(spreed.ParticipantPermission.canSendMessageAndShareAndReact)) {
           body = Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.end,

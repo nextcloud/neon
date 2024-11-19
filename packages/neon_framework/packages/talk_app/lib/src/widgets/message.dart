@@ -436,6 +436,7 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
               ),
             if (!widget.isParent && widget.chatMessage.reactions.isNotEmpty)
               TalkReactions(
+                room: widget.room,
                 chatMessage: widget.chatMessage,
               ),
           ]

@@ -4,7 +4,6 @@ import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
@@ -18,6 +17,7 @@ import 'package:talk_app/src/blocs/room.dart';
 import 'package:talk_app/src/pages/room.dart';
 import 'package:talk_app/src/theme.dart';
 import 'package:talk_app/src/widgets/message.dart';
+import 'package:talk_app/src/widgets/message_input.dart';
 import 'package:timezone/data/latest.dart' as tzdata;
 import 'package:timezone/timezone.dart' as tz;
 
@@ -215,8 +215,25 @@ void main() {
       ),
     );
 
-    expect(find.byType(TypeAheadField), findsNothing);
-    expect(find.byIcon(Icons.emoji_emotions_outlined), findsNothing);
+    expect(find.byType(TalkMessageInput), findsNothing);
     await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/room_page_read_only.png'));
+  });
+
+  testWidgets('No chat permission', (tester) async {
+    when(() => room.permissions).thenReturn(0);
+
+    await tester.pumpWidgetWithAccessibility(
+      TestApp(
+        localizationsDelegates: TalkLocalizations.localizationsDelegates,
+        supportedLocales: TalkLocalizations.supportedLocales,
+        providers: [
+          NeonProvider<TalkRoomBloc>.value(value: bloc),
+        ],
+        child: const TalkRoomPage(),
+      ),
+    );
+
+    expect(find.byType(TalkMessageInput), findsNothing);
+    await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/room_page_no_chat_permission.png'));
   });
 }
