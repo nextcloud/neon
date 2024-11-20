@@ -102,7 +102,7 @@ dev_dependencies:
   package_info_plus_platform_interface: ^3.0.1
   permission_handler_platform_interface: ^4.2.3
   plugin_platform_interface: ^2.1.8
-  string_normalizer: ^0.3.1
+  string_normalizer: ^0.3.3
   url_launcher_platform_interface: ^2.3.2
   vector_graphics_compiler: ^1.1.15
   version: ^3.0.2
