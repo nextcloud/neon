@@ -1,13 +1,13 @@
 import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
+import 'package:neon_framework/src/utils/emojis.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
 import 'package:neon_framework/src/utils/relative_time.dart';
 import 'package:neon_framework/src/utils/user_status_clear_at.dart';
@@ -722,35 +722,75 @@ class NeonEmojiPickerDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final localizations = NeonLocalizations.of(context);
+    final groups = [
+      (icon: '🙂', name: localizations.emojisCategorySmileysAndEmotions, emojis: smileysAndEmotionsGroup),
+      (icon: '🙇', name: localizations.emojisCategoryPeople, emojis: peopleGroup),
+      (icon: '🐕', name: localizations.emojisCategoryAnimalsAndNature, emojis: animalsAndNatureGroup),
+      (icon: '🍎', name: localizations.emojisCategoryFoodAndDrink, emojis: foodAndDrinkGroup),
+      (icon: '🚙', name: localizations.emojisCategoryTravelAndPlaces, emojis: travelAndPlacesGroup),
+      (icon: '🏀', name: localizations.emojisCategoryActivitiesAndEvents, emojis: activitiesAndEventsGroup),
+      (icon: '💡', name: localizations.emojisCategoryObjects, emojis: objectsGroup),
+      (icon: '🔣', name: localizations.emojisCategorySymbols, emojis: symbolsGroup),
+      (icon: '🏁', name: localizations.emojisCategoryFlags, emojis: flagsGroup),
+    ];
+
     final constraints = NeonDialogTheme.of(context).constraints;
 
     return NeonDialog(
       content: SizedBox(
         width: constraints.maxWidth,
         height: constraints.maxWidth * 1.5,
-        child: EmojiPicker(
-          config: Config(
-            emojiViewConfig: const EmojiViewConfig(
-              emojiSizeMax: 25,
-              backgroundColor: Colors.transparent,
+        child: DefaultTabController(
+          length: groups.length,
+          child: Scaffold(
+            appBar: TabBar(
+              isScrollable: true,
+              tabAlignment: TabAlignment.center,
+              tabs: [
+                for (final group in groups)
+                  Tooltip(
+                    message: group.name,
+                    child: Tab(
+                      icon: Text(
+                        group.icon,
+                        style: const TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
             ),
-            categoryViewConfig: CategoryViewConfig(
-              backgroundColor: Colors.transparent,
-              indicatorColor: theme.colorScheme.primary,
-              iconColorSelected: theme.colorScheme.primary,
-            ),
-            skinToneConfig: SkinToneConfig(
-              dialogBackgroundColor: theme.dialogBackgroundColor,
-              indicatorColor: theme.colorScheme.primary,
-            ),
-            bottomActionBarConfig: const BottomActionBarConfig(
-              enabled: false,
+            body: TabBarView(
+              children: [
+                for (final group in groups)
+                  SingleChildScrollView(
+                    child: Wrap(
+                      children: [
+                        for (final emoji in group.emojis)
+                          SizedBox.square(
+                            dimension: 40,
+                            child: IconButton(
+                              padding: EdgeInsets.zero,
+                              constraints: const BoxConstraints(),
+                              icon: Center(
+                                child: Text(
+                                  emoji.base,
+                                  style: const TextStyle(
+                                    fontSize: 25,
+                                  ),
+                                ),
+                              ),
+                              onPressed: () => Navigator.of(context).pop(emoji.base),
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+              ],
             ),
           ),
-          onEmojiSelected: (category, emoji) {
-            Navigator.of(context).pop(emoji.emoji);
-          },
         ),
       ),
     );

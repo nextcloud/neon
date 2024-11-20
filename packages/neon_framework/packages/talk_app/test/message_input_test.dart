@@ -18,7 +18,6 @@ import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:talk_app/l10n/localizations.dart';
 import 'package:talk_app/src/blocs/room.dart';
 import 'package:talk_app/src/widgets/message.dart';
@@ -127,8 +126,6 @@ void main() {
   });
 
   testWidgets('Emoji button', (tester) async {
-    SharedPreferences.setMockInitialValues({});
-
     await tester.pumpWidgetWithAccessibility(
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
@@ -154,8 +151,6 @@ void main() {
     await tester.runAsync(() async {
       await tester.tap(find.byIcon(Icons.emoji_emotions_outlined));
     });
-    await tester.pumpAndSettle();
-    await tester.tap(find.byIcon(Icons.tag_faces));
     await tester.pumpAndSettle();
     await tester.tap(find.text('😀'));
     await tester.pumpAndSettle();

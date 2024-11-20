@@ -85,6 +85,9 @@ done < <(find external/nextcloud-server/{core/img,apps/*/img} -name "*.svg" -not
 (
   cd packages/neon_framework
   precompile_assets
+
+  fvm dart generate_emojis.dart
+  fvm dart fix --apply lib/src/utils/emojis.dart
 )
 
 copy_app_svg dashboard external/nextcloud-server/apps/dashboard

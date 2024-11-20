@@ -13,7 +13,6 @@ import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:talk_app/l10n/localizations.dart';
 import 'package:talk_app/l10n/localizations_en.dart';
 import 'package:talk_app/src/blocs/room.dart';
@@ -979,8 +978,6 @@ void main() {
       });
 
       testWidgets('Close', (tester) async {
-        SharedPreferences.setMockInitialValues({});
-
         when(() => room.readOnly).thenReturn(0);
         when(() => room.permissions).thenReturn(spreed.ParticipantPermission.canSendMessageAndShareAndReact.binary);
         when(() => room.actorId).thenReturn('test');
@@ -1019,8 +1016,6 @@ void main() {
 
       group('Add reaction', () {
         testWidgets('Allowed', (tester) async {
-          SharedPreferences.setMockInitialValues({});
-
           await tester.pumpWidgetWithAccessibility(
             wrapWidget(
               providers: [
@@ -1048,8 +1043,6 @@ void main() {
           await tester.runAsync(() async {
             await tester.tap(find.byIcon(Icons.add_reaction_outlined));
             await tester.pumpAndSettle();
-            await tester.tap(find.byIcon(Icons.tag_faces));
-            await tester.pumpAndSettle();
             await tester.tap(find.text('😂'));
             await tester.pumpAndSettle();
             verify(() => roomBloc.addReaction(chatMessage, '😂')).called(1);
@@ -1061,8 +1054,6 @@ void main() {
           await tester.runAsync(() async {
             await tester.tap(find.byIcon(Icons.add_reaction_outlined));
             await tester.pumpAndSettle();
-            await tester.tap(find.byIcon(Icons.tag_faces));
-            await tester.pumpAndSettle();
             await tester.tap(find.text('😂'));
             await tester.pumpAndSettle();
             verify(() => roomBloc.addReaction(chatMessage, '😂')).called(1);
@@ -1070,8 +1061,6 @@ void main() {
         });
 
         testWidgets('Read-only', (tester) async {
-          SharedPreferences.setMockInitialValues({});
-
           when(() => room.readOnly).thenReturn(1);
 
           await tester.pumpWidgetWithAccessibility(
@@ -1107,8 +1096,6 @@ void main() {
         });
 
         testWidgets('No permission', (tester) async {
-          SharedPreferences.setMockInitialValues({});
-
           when(() => room.permissions).thenReturn(0);
 
           await tester.pumpWidgetWithAccessibility(

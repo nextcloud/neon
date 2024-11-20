@@ -294,5 +294,14 @@
   "userStatusClearAtThisWeek": "This week",
   "userStatusActionClear": "Clear status",
   "userStatusStatusMessage": "Status message",
-  "userStatusOnlineStatus": "Online status"
+  "userStatusOnlineStatus": "Online status",
+  "emojisCategorySmileysAndEmotions": "Smileys and emotions",
+  "emojisCategoryPeople": "People",
+  "emojisCategoryAnimalsAndNature": "Animals and nature",
+  "emojisCategoryFoodAndDrink": "Food and drink",
+  "emojisCategoryTravelAndPlaces": "Travel and places",
+  "emojisCategoryActivitiesAndEvents": "Activities and events",
+  "emojisCategoryObjects": "Objects",
+  "emojisCategorySymbols": "Symbols",
+  "emojisCategoryFlags": "Flags"
 }

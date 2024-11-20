@@ -16,6 +16,7 @@
     "**/CHANGELOG.md",
     "external",
     "packages/dynamite/example/lib",
+    "packages/neon_framework/lib/src/utils/emojis.dart",
     "packages/neon_framework/example/web/sqflite_sw.js",
     "packages/neon_framework/example/web/sqlite3.wasm",
     "packages/neon_lints/lib",
