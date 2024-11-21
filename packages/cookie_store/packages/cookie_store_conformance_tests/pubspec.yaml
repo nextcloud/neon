@@ -3,8 +3,10 @@ description: >-
   A library that tests whether implementations of package:cookie_store's `CookieStore`
   class behave as expected.
 publish_to: none
+resolution: workspace
+
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.5.0
 
 dependencies:
   cookie_store:

@@ -2,9 +2,10 @@ name: account_repository
 description: Data repository for the neon account management.
 version: 0.1.0
 publish_to: none
+resolution: workspace
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.5.0
   flutter: ^3.22.0
 
 dependencies:
