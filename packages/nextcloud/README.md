@@ -68,8 +68,8 @@ For an example checkout the [example](https://github.com/nextcloud/neon/blob/mai
 2: Server includes the following apps: comments, core, dashboard, dav, files, files_external, files_reminders, files_sharing, files_trashbin, files_versions, provisioning_api, settings, sharebymail, systemtags, theming, updatenotification, user_ldap, user_status, weather_status, webhook_listeners and WebDAV.  
 
 We aim to support all currently maintained server versions and all app versions that support those server versions.
-The currently maintained server versions can be found here: https://github.com/nextcloud/server/wiki/Maintenance-and-Release-Schedule
-Once a server version becomes EOL the support for it will be removed.
+The currently maintained server versions can be found here: https://github.com/nextcloud/server/wiki/Maintenance-and-Release-Schedule.
+Older versions might still be supported and tested, but we do not guarantee anything beyond the EOL date of these versions.
 
 To ensure this package is compatible with the supported server versions we run API unit tests.
 Since we do not cover all endpoints we can not claim compatibility for endpoints we do not test against.
