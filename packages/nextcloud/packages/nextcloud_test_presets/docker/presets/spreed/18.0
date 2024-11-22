@@ -1,4 +1,4 @@
-SERVER_VERSION=28.0.12-fpm-alpine@sha256:ddf1cc381156b336a93c95be281d990020a4c15674af6527e0fdbca511405c96
+SERVER_VERSION=28.0.12-fpm-alpine@sha256:ee1acfd014a8ea6892f5c914d32643800ec9742dff5062a023ab72e6845092a6
 COOKBOOK_URL=https://github.com/christianlupus-nextcloud/cookbook-releases/releases/download/v0.11.2/cookbook-0.11.2.tar.gz
 COOKBOOK_CHECKSUM=sha256:ba96d3773bb5ec11fab5e860094713c41bd354e3b7d4aae2ff7def19de149f2c
 DROP_ACCOUNT_URL=https://packages.framasoft.org/projects/nextcloud-apps/drop-account/drop_account-2.6.1.tar.gz
