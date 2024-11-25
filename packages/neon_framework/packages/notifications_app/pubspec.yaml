@@ -42,7 +42,7 @@ dev_dependencies:
       path: packages/neon_lints
   provider: ^6.1.2
   url_launcher_platform_interface: ^2.3.2
-  vector_graphics_compiler: ^1.1.15
+  vector_graphics_compiler: ^1.1.16
 
 flutter:
   uses-material-design: true

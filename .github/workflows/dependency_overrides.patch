@@ -159,7 +159,7 @@ diff --git a/packages/neon_framework/packages/dashboard_app/pubspec.yaml b/packa
 +++ b/packages/neon_framework/packages/dashboard_app/pubspec.yaml
 @@ -39,6 +39,13 @@ dev_dependencies:
    url_launcher_platform_interface: ^2.3.2
-   vector_graphics_compiler: ^1.1.15
+   vector_graphics_compiler: ^1.1.16
 
 +dependency_overrides:
 +  archive: ^3.5.0
@@ -262,7 +262,7 @@ diff --git a/packages/neon_framework/packages/notifications_app/pubspec.yaml b/p
 +++ b/packages/neon_framework/packages/notifications_app/pubspec.yaml
 @@ -44,6 +44,13 @@ dev_dependencies:
    url_launcher_platform_interface: ^2.3.2
-   vector_graphics_compiler: ^1.1.15
+   vector_graphics_compiler: ^1.1.16
 
 +dependency_overrides:
 +  archive: ^3.5.0
@@ -367,7 +367,7 @@ diff --git a/packages/neon_framework/packages/talk_app/pubspec.yaml b/packages/n
 +++ b/packages/neon_framework/packages/talk_app/pubspec.yaml
 @@ -48,6 +48,14 @@ dev_dependencies:
    url_launcher_platform_interface: ^2.3.2
-   vector_graphics_compiler: ^1.1.15
+   vector_graphics_compiler: ^1.1.16
 
 +dependency_overrides:
 +  archive: ^3.5.0
@@ -412,7 +412,7 @@ diff --git a/packages/neon_framework/pubspec.yaml b/packages/neon_framework/pubs
 --- a/packages/neon_framework/pubspec.yaml
 +++ b/packages/neon_framework/pubspec.yaml
 @@ -111,6 +111,13 @@ dev_dependencies:
-   vector_graphics_compiler: ^1.1.15
+   vector_graphics_compiler: ^1.1.16
    version: ^3.0.2
 
 +dependency_overrides:
