@@ -11,6 +11,7 @@ import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:neon_rich_text/neon_rich_text.dart';
+import 'package:neon_rich_text/src/rich_objects/rich_objects.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
