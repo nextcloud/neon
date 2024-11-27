@@ -3,16 +3,11 @@ import 'package:built_value/json_object.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intersperse/intersperse.dart';
-import 'package:neon_framework/src/widgets/rich_text/deck_card.dart';
-import 'package:neon_framework/src/widgets/rich_text/fallback.dart';
-import 'package:neon_framework/src/widgets/rich_text/file.dart';
-import 'package:neon_framework/src/widgets/rich_text/mention.dart';
+import 'package:neon_rich_text/src/rich_objects/deck_card.dart';
+import 'package:neon_rich_text/src/rich_objects/fallback.dart';
+import 'package:neon_rich_text/src/rich_objects/file.dart';
+import 'package:neon_rich_text/src/rich_objects/mention.dart';
 import 'package:nextcloud/core.dart' as core;
-
-export 'package:neon_framework/src/widgets/rich_text/deck_card.dart';
-export 'package:neon_framework/src/widgets/rich_text/fallback.dart';
-export 'package:neon_framework/src/widgets/rich_text/file.dart';
-export 'package:neon_framework/src/widgets/rich_text/mention.dart';
 
 /// Renders the [text] as a rich [TextSpan].
 TextSpan buildRichTextSpan({

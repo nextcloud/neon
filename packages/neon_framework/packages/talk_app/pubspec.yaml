@@ -25,6 +25,10 @@ dependencies:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/neon_framework
+  neon_rich_text:
+    git:
+      url: https://github.com/nextcloud/neon
+      path: packages/neon_framework/packages/neon_rich_text
   nextcloud: ^8.1.0
   rxdart: ^0.28.0
   timezone: ^0.9.4

@@ -7,6 +7,7 @@ import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
+import 'package:neon_rich_text/neon_rich_text.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:talk_app/l10n/localizations.dart';
 import 'package:talk_app/src/blocs/message_bloc.dart';
