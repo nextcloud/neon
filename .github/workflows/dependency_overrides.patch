@@ -118,10 +118,10 @@ diff --git a/packages/interceptor_http_client/pubspec_overrides.yaml b/packages/
 diff --git a/packages/neon_framework/packages/account_repository/pubspec.yaml b/packages/neon_framework/packages/account_repository/pubspec.yaml
 --- a/packages/neon_framework/packages/account_repository/pubspec.yaml
 +++ b/packages/neon_framework/packages/account_repository/pubspec.yaml
-@@ -37,3 +37,10 @@ dev_dependencies:
+@@ -38,3 +38,10 @@ dev_dependencies:
+     git:
        url: https://github.com/nextcloud/neon
        path: packages/neon_lints
-   test: ^1.25.2
 +
 +dependency_overrides:
 +  archive: ^3.5.0
