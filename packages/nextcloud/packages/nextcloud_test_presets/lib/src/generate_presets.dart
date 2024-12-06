@@ -21,6 +21,7 @@ Future<void> generatePresets() async {
     'news': {
       Version(28, 0, 11): 'https://github.com/nextcloud/news/releases/download/25.0.0-alpha9/news.tar.gz',
       Version(28, 0, 12): 'https://github.com/nextcloud/news/releases/download/25.0.0-alpha9/news.tar.gz',
+      Version(28, 0, 13): 'https://github.com/nextcloud/news/releases/download/25.0.0-alpha9/news.tar.gz',
     },
   };
 
@@ -107,6 +108,7 @@ Future<void> generatePresets() async {
 }
 
 final _urlChecksums = <String, String>{};
+
 Future<String> _getUrlChecksum(http.Client httpClient, String url) async {
   if (_urlChecksums[url] == null) {
     final request = http.Request('GET', Uri.parse(url));

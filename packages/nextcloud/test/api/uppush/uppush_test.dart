@@ -1,6 +1,7 @@
 import 'package:nextcloud/uppush.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
+import 'package:version/version.dart';
 
 void main() {
   presets('uppush', 'uppush', username: 'admin', (tester) {
@@ -13,7 +14,7 @@ void main() {
     });
 
     test('Set keepalive', () async {
-      final response = await tester.client.uppush.setKeepalive(keepalive: 10);
+      final response = await tester.client.uppush.setKeepalive(keepalive: 15);
       expect(response.statusCode, 200);
       expect(() => response.headers, isA<void>());
 
@@ -29,15 +30,19 @@ void main() {
       expect(response.body.deviceId, isNotEmpty);
     });
 
-    test('Delete device', () async {
-      final deviceId = (await tester.client.uppush.createDevice(deviceName: 'Test')).body.deviceId;
+    test(
+      'Delete device',
+      () async {
+        final deviceId = (await tester.client.uppush.createDevice(deviceName: 'Test')).body.deviceId;
 
-      final response = await tester.client.uppush.deleteDevice(deviceId: deviceId);
-      expect(response.statusCode, 200);
-      expect(() => response.headers, isA<void>());
+        final response = await tester.client.uppush.deleteDevice(deviceId: deviceId);
+        expect(response.statusCode, 200);
+        expect(() => response.headers, isA<void>());
 
-      expect(response.body.success, isTrue);
-    });
+        expect(response.body.success, isTrue);
+      },
+      skip: tester.version >= Version(2, 0, 0) ? 'v2 requires redis for deleting device' : null,
+    );
 
     test('Create app', () async {
       final deviceId = (await tester.client.uppush.createDevice(deviceName: 'Test')).body.deviceId;
