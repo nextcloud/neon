@@ -20,7 +20,7 @@ RUN ./occ files:scan --all
 ENV PHP_CLI_SERVER_WORKERS=10
 CMD ["php", "-S", "0.0.0.0:80"]
 
-FROM alpine:latest@sha256:1e42bbe2508154c9126d48c2b8a75420c3544343bf86fd041fb7527e017a4b4a AS apps
+FROM alpine:latest@sha256:21dc6063fd678b478f57c0e13f47560d0ea4eeba26dfc947b2a4f81f686b9f45 AS apps
 
 FROM apps AS cookbook
 ARG COOKBOOK_URL
