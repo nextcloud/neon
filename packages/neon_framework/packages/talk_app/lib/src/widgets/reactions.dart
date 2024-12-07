@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
-import 'package:intersperse/intersperse.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
@@ -143,15 +142,11 @@ class TalkReactions extends StatelessWidget {
             );
           }
 
-          return Row(
-            mainAxisSize: MainAxisSize.min,
-            children: children
-                .intersperse(
-                  const SizedBox(
-                    width: 5,
-                  ),
-                )
-                .toList(),
+          return Wrap(
+            runAlignment: WrapAlignment.center,
+            spacing: 5,
+            runSpacing: 5,
+            children: children,
           );
         },
       ),
