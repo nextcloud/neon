@@ -78,7 +78,9 @@ class _TalkBloc extends InteractiveBloc implements TalkBloc {
     await RequestManager.instance.wrap(
       account: account,
       subject: rooms,
-      getRequest: account.client.spreed.room.$getRooms_Request,
+      getRequest: () => account.client.spreed.room.$getRooms_Request(
+        includeStatus: spreed.RoomGetRoomsIncludeStatus.$1,
+      ),
       converter: ResponseConverter(account.client.spreed.room.$getRooms_Serializer()),
       unwrap: (response) => response.body.ocs.data.rebuild(
         (b) => b.sort((a, b) => b.lastActivity.compareTo(a.lastActivity)),

@@ -35,7 +35,6 @@ class NeonRichObjectMention extends StatelessWidget {
         child = NeonUserAvatar(
           username: parameter.id,
           account: NeonProvider.of<Account>(context),
-          userStatusBloc: null,
         );
       case core.RichObjectParameter_Type.call:
         highlight = true;

@@ -15,7 +15,6 @@ import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
-import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:talk_app/l10n/localizations.dart';
@@ -47,6 +46,7 @@ Account mockTalkAccount() {
                   'id': 'id2',
                   'label': 'label2',
                   'source': 'users',
+                  'status': 'online',
                 },
               ],
             },
@@ -162,27 +162,11 @@ void main() {
   });
 
   testWidgets('Mention suggestions', (tester) async {
-    final userStatusBloc = MockUserStatusBloc();
-    when(() => userStatusBloc.statuses).thenAnswer(
-      (_) => BehaviorSubject.seeded(
-        BuiltMap({
-          'id2': Result.success(
-            user_status.Public(
-              (b) => b
-                ..userId = 'id1'
-                ..status = user_status.$Type.online,
-            ),
-          ),
-        }),
-      ),
-    );
-
     await tester.pumpWidgetWithAccessibility(
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
         providers: [
-          NeonProvider<UserStatusBloc>.value(value: userStatusBloc),
           NeonProvider<TalkRoomBloc>.value(value: bloc),
           Provider<Account>.value(value: account),
         ],
