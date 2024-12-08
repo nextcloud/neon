@@ -1,3 +1,3 @@
-PUT http://localhost/index\.php/apps/uppush/keepalive\?keepalive=10
+PUT http://localhost/index\.php/apps/uppush/keepalive\?keepalive=15
 accept: application/json
 authorization: Basic mock

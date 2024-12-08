@@ -1,4 +1,4 @@
-SERVER_VERSION=30.0.2-fpm-alpine@sha256:95bb7df72a20af7510a5f9f7155a1ea845acdbfbe97fb20437ba3cabf5ef7884
+SERVER_VERSION=30.0.3-fpm-alpine@sha256:36ecddee8c34f8958acdf2f53fb8738aa549a85a913557bb731e2fdfbb49a1f5
 COOKBOOK_URL=https://github.com/christianlupus-nextcloud/cookbook-releases/releases/download/v0.11.2/cookbook-0.11.2.tar.gz
 COOKBOOK_CHECKSUM=sha256:ba96d3773bb5ec11fab5e860094713c41bd354e3b7d4aae2ff7def19de149f2c
 DROP_ACCOUNT_URL=https://packages.framasoft.org/projects/nextcloud-apps/drop-account/drop_account-2.6.1.tar.gz
@@ -11,5 +11,5 @@ SPREED_URL=https://github.com/nextcloud-releases/spreed/releases/download/v20.0.
 SPREED_CHECKSUM=sha256:2d253efa0c3bd79b9be8e199059b4bfcd9cb928cf773ebd1effd838a2dd69cea
 TABLES_URL=https://github.com/nextcloud-releases/tables/releases/download/v0.8.1/tables-v0.8.1.tar.gz
 TABLES_CHECKSUM=sha256:d39dd61f4408fef8618fb2015923b478e33b372467812b1b515722ca466bf05a
-UPPUSH_URL=https://codeberg.org/NextPush/uppush/archive/1.5.1.tar.gz
-UPPUSH_CHECKSUM=sha256:99ab0dbd371db8f4abe1dae2e1af7cba374c814edf644edb949051fa977566e9
+UPPUSH_URL=https://codeberg.org/NextPush/uppush/archive/2.0.2.tar.gz
+UPPUSH_CHECKSUM=sha256:fc318b62aac0987434f3c9ef843602871b20338d6ae5d3da29b141345c651b1e
