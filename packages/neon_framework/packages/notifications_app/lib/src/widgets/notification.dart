@@ -5,6 +5,7 @@ import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
+import 'package:neon_rich_text/neon_rich_text.dart';
 import 'package:nextcloud/notifications.dart' as notifications;
 import 'package:notifications_app/src/widgets/action.dart';
 import 'package:timezone/timezone.dart' as tz;

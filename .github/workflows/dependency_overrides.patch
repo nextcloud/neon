@@ -17,9 +17,9 @@ diff --git a/packages/cookie_store/pubspec_overrides.yaml b/packages/cookie_stor
  dependency_overrides:
    cookie_store_conformance_tests:
      path: packages/cookie_store_conformance_tests
-+  frontend_server_client: ^4.0.0
    neon_lints:
      path: ../neon_lints
++  frontend_server_client: ^4.0.0
 diff --git a/packages/dynamite/packages/dynamite_end_to_end_test/pubspec.yaml b/packages/dynamite/packages/dynamite_end_to_end_test/pubspec.yaml
 --- a/packages/dynamite/packages/dynamite_end_to_end_test/pubspec.yaml
 +++ b/packages/dynamite/packages/dynamite_end_to_end_test/pubspec.yaml
@@ -34,17 +34,17 @@ diff --git a/packages/dynamite/packages/dynamite_end_to_end_test/pubspec.yaml b/
 diff --git a/packages/dynamite/packages/dynamite_end_to_end_test/pubspec_overrides.yaml b/packages/dynamite/packages/dynamite_end_to_end_test/pubspec_overrides.yaml
 --- a/packages/dynamite/packages/dynamite_end_to_end_test/pubspec_overrides.yaml
 +++ b/packages/dynamite/packages/dynamite_end_to_end_test/pubspec_overrides.yaml
-@@ -1,8 +1,10 @@
+@@ -1,4 +1,4 @@
 -# melos_managed_dependency_overrides: dynamite,dynamite_runtime,neon_lints
 +# melos_managed_dependency_overrides: dynamite,dynamite_runtime,neon_lints,frontend_server_client,quiver
  dependency_overrides:
    dynamite:
      path: ../..
-   dynamite_runtime:
+@@ -6,3 +6,5 @@ dependency_overrides:
      path: ../dynamite_runtime
-+  frontend_server_client: ^4.0.0
    neon_lints:
      path: ../../../neon_lints
++  frontend_server_client: ^4.0.0
 +  quiver: ^3.2.1
 diff --git a/packages/dynamite/packages/dynamite_runtime/pubspec.yaml b/packages/dynamite/packages/dynamite_runtime/pubspec.yaml
 --- a/packages/dynamite/packages/dynamite_runtime/pubspec.yaml
@@ -52,7 +52,7 @@ diff --git a/packages/dynamite/packages/dynamite_runtime/pubspec.yaml b/packages
 @@ -29,6 +29,9 @@ dev_dependencies:
        path: packages/neon_lints
    test: ^1.25.8
-
+ 
 +dependency_overrides:
 +  frontend_server_client: ^4.0.0
 +
@@ -66,9 +66,9 @@ diff --git a/packages/dynamite/packages/dynamite_runtime/pubspec_overrides.yaml 
 -# melos_managed_dependency_overrides: neon_lints
 +# melos_managed_dependency_overrides: neon_lints,frontend_server_client
  dependency_overrides:
-+  frontend_server_client: ^4.0.0
    neon_lints:
      path: ../../../neon_lints
++  frontend_server_client: ^4.0.0
 diff --git a/packages/dynamite/pubspec.yaml b/packages/dynamite/pubspec.yaml
 --- a/packages/dynamite/pubspec.yaml
 +++ b/packages/dynamite/pubspec.yaml
@@ -87,9 +87,9 @@ diff --git a/packages/dynamite/pubspec_overrides.yaml b/packages/dynamite/pubspe
 -# melos_managed_dependency_overrides: neon_lints
 +# melos_managed_dependency_overrides: neon_lints,frontend_server_client,quiver
  dependency_overrides:
-+  frontend_server_client: ^4.0.0
    neon_lints:
      path: ../neon_lints
++  frontend_server_client: ^4.0.0
 +  quiver: ^3.2.1
 diff --git a/packages/interceptor_http_client/pubspec.yaml b/packages/interceptor_http_client/pubspec.yaml
 --- a/packages/interceptor_http_client/pubspec.yaml
@@ -111,9 +111,9 @@ diff --git a/packages/interceptor_http_client/pubspec_overrides.yaml b/packages/
  dependency_overrides:
    cookie_store:
      path: ../cookie_store
-+  frontend_server_client: ^4.0.0
    neon_lints:
      path: ../neon_lints
++  frontend_server_client: ^4.0.0
 +  web: ">=0.5.0 <2.0.0"
 diff --git a/packages/neon_framework/packages/account_repository/pubspec.yaml b/packages/neon_framework/packages/account_repository/pubspec.yaml
 --- a/packages/neon_framework/packages/account_repository/pubspec.yaml
@@ -132,27 +132,20 @@ diff --git a/packages/neon_framework/packages/account_repository/pubspec.yaml b/
 diff --git a/packages/neon_framework/packages/account_repository/pubspec_overrides.yaml b/packages/neon_framework/packages/account_repository/pubspec_overrides.yaml
 --- a/packages/neon_framework/packages/account_repository/pubspec_overrides.yaml
 +++ b/packages/neon_framework/packages/account_repository/pubspec_overrides.yaml
-@@ -1,9 +1,11 @@
+@@ -1,4 +1,4 @@
 -# melos_managed_dependency_overrides: cookie_store,dynamite_runtime,interceptor_http_client,neon_framework,neon_http_client,neon_lints,nextcloud,notifications_push_repository,sort_box
 +# melos_managed_dependency_overrides: cookie_store,dynamite_runtime,interceptor_http_client,neon_framework,neon_http_client,neon_lints,nextcloud,notifications_push_repository,sort_box,archive,image_picker,platform,quiver,win32
  dependency_overrides:
-+  archive: ^3.5.0
    cookie_store:
      path: ../../../cookie_store
-   dynamite_runtime:
-     path: ../../../dynamite/packages/dynamite_runtime
-+  image_picker: ^0.8.2
-   interceptor_http_client:
-     path: ../../../interceptor_http_client
-   neon_framework:
-@@ -16,5 +18,8 @@ dependency_overrides:
-     path: ../../../nextcloud
-   notifications_push_repository:
+@@ -18,3 +18,8 @@ dependency_overrides:
      path: ../notifications_push_repository
-+  platform: ^3.1.0
-+  quiver: ^3.2.1
    sort_box:
      path: ../sort_box
++  archive: ^3.5.0
++  image_picker: ^0.8.2
++  platform: ^3.1.0
++  quiver: ^3.2.1
 +  win32: ^5.5.1
 diff --git a/packages/neon_framework/packages/dashboard_app/pubspec.yaml b/packages/neon_framework/packages/dashboard_app/pubspec.yaml
 --- a/packages/neon_framework/packages/dashboard_app/pubspec.yaml
@@ -160,7 +153,7 @@ diff --git a/packages/neon_framework/packages/dashboard_app/pubspec.yaml b/packa
 @@ -39,6 +39,13 @@ dev_dependencies:
    url_launcher_platform_interface: ^2.3.2
    vector_graphics_compiler: ^1.1.16
-
+ 
 +dependency_overrides:
 +  archive: ^3.5.0
 +  image_picker: ^0.8.2
@@ -174,29 +167,20 @@ diff --git a/packages/neon_framework/packages/dashboard_app/pubspec.yaml b/packa
 diff --git a/packages/neon_framework/packages/dashboard_app/pubspec_overrides.yaml b/packages/neon_framework/packages/dashboard_app/pubspec_overrides.yaml
 --- a/packages/neon_framework/packages/dashboard_app/pubspec_overrides.yaml
 +++ b/packages/neon_framework/packages/dashboard_app/pubspec_overrides.yaml
-@@ -1,11 +1,13 @@
+@@ -1,4 +1,4 @@
 -# melos_managed_dependency_overrides: account_repository,cookie_store,dynamite_runtime,interceptor_http_client,neon_framework,neon_http_client,neon_lints,nextcloud,notifications_push_repository,sort_box
 +# melos_managed_dependency_overrides: account_repository,cookie_store,dynamite_runtime,interceptor_http_client,neon_framework,neon_http_client,neon_lints,nextcloud,notifications_push_repository,sort_box,archive,image_picker,platform,quiver,win32
  dependency_overrides:
    account_repository:
      path: ../account_repository
-+  archive: ^3.5.0
-   cookie_store:
-     path: ../../../cookie_store
-   dynamite_runtime:
-     path: ../../../dynamite/packages/dynamite_runtime
-+  image_picker: ^0.8.2
-   interceptor_http_client:
-     path: ../../../interceptor_http_client
-   neon_framework:
-@@ -18,5 +20,8 @@ dependency_overrides:
-     path: ../../../nextcloud
-   notifications_push_repository:
+@@ -20,3 +20,8 @@ dependency_overrides:
      path: ../notifications_push_repository
-+  platform: ^3.1.0
-+  quiver: ^3.2.1
    sort_box:
      path: ../sort_box
++  archive: ^3.5.0
++  image_picker: ^0.8.2
++  platform: ^3.1.0
++  quiver: ^3.2.1
 +  win32: ^5.5.1
 diff --git a/packages/neon_framework/packages/neon_http_client/pubspec.yaml b/packages/neon_framework/packages/neon_http_client/pubspec.yaml
 --- a/packages/neon_framework/packages/neon_http_client/pubspec.yaml
@@ -213,23 +197,53 @@ diff --git a/packages/neon_framework/packages/neon_http_client/pubspec.yaml b/pa
 diff --git a/packages/neon_framework/packages/neon_http_client/pubspec_overrides.yaml b/packages/neon_framework/packages/neon_http_client/pubspec_overrides.yaml
 --- a/packages/neon_framework/packages/neon_http_client/pubspec_overrides.yaml
 +++ b/packages/neon_framework/packages/neon_http_client/pubspec_overrides.yaml
-@@ -1,12 +1,15 @@
+@@ -1,4 +1,4 @@
 -# melos_managed_dependency_overrides: cookie_store,dynamite_runtime,interceptor_http_client,neon_lints,nextcloud
 +# melos_managed_dependency_overrides: cookie_store,dynamite_runtime,interceptor_http_client,neon_lints,nextcloud,frontend_server_client,quiver,web
  dependency_overrides:
    cookie_store:
      path: ../../../cookie_store
-   dynamite_runtime:
-     path: ../../../dynamite/packages/dynamite_runtime
-+  frontend_server_client: ^4.0.0
-   interceptor_http_client:
-     path: ../../../interceptor_http_client
-   neon_lints:
+@@ -10,3 +10,6 @@ dependency_overrides:
      path: ../../../neon_lints
    nextcloud:
      path: ../../../nextcloud
++  frontend_server_client: ^4.0.0
 +  quiver: ^3.2.1
 +  web: ">=0.5.0 <2.0.0"
+diff --git a/packages/neon_framework/packages/neon_rich_text/pubspec.yaml b/packages/neon_framework/packages/neon_rich_text/pubspec.yaml
+--- a/packages/neon_framework/packages/neon_rich_text/pubspec.yaml
++++ b/packages/neon_framework/packages/neon_rich_text/pubspec.yaml
+@@ -34,5 +34,12 @@ dev_dependencies:
+   rxdart: ^0.28.0
+   url_launcher_platform_interface: ^2.3.2
+ 
++dependency_overrides:
++  archive: ^3.5.0
++  image_picker: ^0.8.2
++  platform: ^3.1.0
++  quiver: ^3.2.1
++  win32: ^5.5.1
++
+ flutter:
+   uses-material-design: true
+diff --git a/packages/neon_framework/packages/neon_rich_text/pubspec_overrides.yaml b/packages/neon_framework/packages/neon_rich_text/pubspec_overrides.yaml
+--- a/packages/neon_framework/packages/neon_rich_text/pubspec_overrides.yaml
++++ b/packages/neon_framework/packages/neon_rich_text/pubspec_overrides.yaml
+@@ -1,4 +1,4 @@
+-# melos_managed_dependency_overrides: account_repository,cookie_store,dynamite_runtime,interceptor_http_client,neon_framework,neon_http_client,neon_lints,nextcloud,notifications_push_repository,sort_box
++# melos_managed_dependency_overrides: account_repository,cookie_store,dynamite_runtime,interceptor_http_client,neon_framework,neon_http_client,neon_lints,nextcloud,notifications_push_repository,sort_box,archive,image_picker,platform,quiver,win32
+ dependency_overrides:
+   account_repository:
+     path: ../account_repository
+@@ -20,3 +20,8 @@ dependency_overrides:
+     path: ../notifications_push_repository
+   sort_box:
+     path: ../sort_box
++  archive: ^3.5.0
++  image_picker: ^0.8.2
++  platform: ^3.1.0
++  quiver: ^3.2.1
++  win32: ^5.5.1
 diff --git a/packages/neon_framework/packages/neon_storage/pubspec.yaml b/packages/neon_framework/packages/neon_storage/pubspec.yaml
 --- a/packages/neon_framework/packages/neon_storage/pubspec.yaml
 +++ b/packages/neon_framework/packages/neon_storage/pubspec.yaml
@@ -249,21 +263,18 @@ diff --git a/packages/neon_framework/packages/neon_storage/pubspec_overrides.yam
  dependency_overrides:
    cookie_store:
      path: ../../../cookie_store
-@@ -6,6 +6,7 @@ dependency_overrides:
-     path: ../../../cookie_store/packages/cookie_store_conformance_tests
-   dynamite_runtime:
-     path: ../../../dynamite/packages/dynamite_runtime
-+  frontend_server_client: ^4.0.0
-   neon_lints:
+@@ -10,3 +10,4 @@ dependency_overrides:
      path: ../../../neon_lints
    nextcloud:
+     path: ../../../nextcloud
++  frontend_server_client: ^4.0.0
 diff --git a/packages/neon_framework/packages/notifications_app/pubspec.yaml b/packages/neon_framework/packages/notifications_app/pubspec.yaml
 --- a/packages/neon_framework/packages/notifications_app/pubspec.yaml
 +++ b/packages/neon_framework/packages/notifications_app/pubspec.yaml
-@@ -44,6 +44,13 @@ dev_dependencies:
+@@ -48,6 +48,13 @@ dev_dependencies:
    url_launcher_platform_interface: ^2.3.2
    vector_graphics_compiler: ^1.1.16
-
+ 
 +dependency_overrides:
 +  archive: ^3.5.0
 +  image_picker: ^0.8.2
@@ -277,29 +288,20 @@ diff --git a/packages/neon_framework/packages/notifications_app/pubspec.yaml b/p
 diff --git a/packages/neon_framework/packages/notifications_app/pubspec_overrides.yaml b/packages/neon_framework/packages/notifications_app/pubspec_overrides.yaml
 --- a/packages/neon_framework/packages/notifications_app/pubspec_overrides.yaml
 +++ b/packages/neon_framework/packages/notifications_app/pubspec_overrides.yaml
-@@ -1,11 +1,13 @@
--# melos_managed_dependency_overrides: account_repository,cookie_store,dynamite_runtime,interceptor_http_client,neon_framework,neon_http_client,neon_lints,nextcloud,notifications_push_repository,sort_box
-+# melos_managed_dependency_overrides: account_repository,cookie_store,dynamite_runtime,interceptor_http_client,neon_framework,neon_http_client,neon_lints,nextcloud,notifications_push_repository,sort_box,archive,image_picker,platform,quiver,win32
+@@ -1,4 +1,4 @@
+-# melos_managed_dependency_overrides: account_repository,cookie_store,dynamite_runtime,interceptor_http_client,neon_framework,neon_http_client,neon_lints,neon_rich_text,nextcloud,notifications_push_repository,sort_box
++# melos_managed_dependency_overrides: account_repository,cookie_store,dynamite_runtime,interceptor_http_client,neon_framework,neon_http_client,neon_lints,neon_rich_text,nextcloud,notifications_push_repository,sort_box,archive,image_picker,platform,quiver,win32
  dependency_overrides:
    account_repository:
      path: ../account_repository
-+  archive: ^3.5.0
-   cookie_store:
-     path: ../../../cookie_store
-   dynamite_runtime:
-     path: ../../../dynamite/packages/dynamite_runtime
-+  image_picker: ^0.8.2
-   interceptor_http_client:
-     path: ../../../interceptor_http_client
-   neon_framework:
-@@ -18,5 +20,8 @@ dependency_overrides:
-     path: ../../../nextcloud
-   notifications_push_repository:
+@@ -22,3 +22,8 @@ dependency_overrides:
      path: ../notifications_push_repository
-+  platform: ^3.1.0
-+  quiver: ^3.2.1
    sort_box:
      path: ../sort_box
++  archive: ^3.5.0
++  image_picker: ^0.8.2
++  platform: ^3.1.0
++  quiver: ^3.2.1
 +  win32: ^5.5.1
 diff --git a/packages/neon_framework/packages/notifications_push_repository/pubspec.yaml b/packages/neon_framework/packages/notifications_push_repository/pubspec.yaml
 --- a/packages/neon_framework/packages/notifications_push_repository/pubspec.yaml
@@ -318,29 +320,20 @@ diff --git a/packages/neon_framework/packages/notifications_push_repository/pubs
 diff --git a/packages/neon_framework/packages/notifications_push_repository/pubspec_overrides.yaml b/packages/neon_framework/packages/notifications_push_repository/pubspec_overrides.yaml
 --- a/packages/neon_framework/packages/notifications_push_repository/pubspec_overrides.yaml
 +++ b/packages/neon_framework/packages/notifications_push_repository/pubspec_overrides.yaml
-@@ -1,11 +1,13 @@
+@@ -1,4 +1,4 @@
 -# melos_managed_dependency_overrides: account_repository,cookie_store,dynamite_runtime,interceptor_http_client,neon_framework,neon_http_client,neon_lints,nextcloud,sort_box
 +# melos_managed_dependency_overrides: account_repository,cookie_store,dynamite_runtime,interceptor_http_client,neon_framework,neon_http_client,neon_lints,nextcloud,sort_box,archive,image_picker,platform,quiver,win32
  dependency_overrides:
    account_repository:
      path: ../account_repository
-+  archive: ^3.5.0
-   cookie_store:
-     path: ../../../cookie_store
-   dynamite_runtime:
-     path: ../../../dynamite/packages/dynamite_runtime
-+  image_picker: ^0.8.2
-   interceptor_http_client:
-     path: ../../../interceptor_http_client
-   neon_framework:
-@@ -16,5 +18,8 @@ dependency_overrides:
-     path: ../../../neon_lints
-   nextcloud:
+@@ -18,3 +18,8 @@ dependency_overrides:
      path: ../../../nextcloud
-+  platform: ^3.1.0
-+  quiver: ^3.2.1
    sort_box:
      path: ../sort_box
++  archive: ^3.5.0
++  image_picker: ^0.8.2
++  platform: ^3.1.0
++  quiver: ^3.2.1
 +  win32: ^5.5.1
 diff --git a/packages/neon_framework/packages/sort_box/pubspec.yaml b/packages/neon_framework/packages/sort_box/pubspec.yaml
 --- a/packages/neon_framework/packages/sort_box/pubspec.yaml
@@ -359,16 +352,16 @@ diff --git a/packages/neon_framework/packages/sort_box/pubspec_overrides.yaml b/
 -# melos_managed_dependency_overrides: neon_lints
 +# melos_managed_dependency_overrides: neon_lints,frontend_server_client
  dependency_overrides:
-+  frontend_server_client: ^4.0.0
    neon_lints:
      path: ../../../neon_lints
++  frontend_server_client: ^4.0.0
 diff --git a/packages/neon_framework/packages/talk_app/pubspec.yaml b/packages/neon_framework/packages/talk_app/pubspec.yaml
 --- a/packages/neon_framework/packages/talk_app/pubspec.yaml
 +++ b/packages/neon_framework/packages/talk_app/pubspec.yaml
-@@ -48,6 +48,14 @@ dev_dependencies:
+@@ -51,6 +51,14 @@ dev_dependencies:
    url_launcher_platform_interface: ^2.3.2
    vector_graphics_compiler: ^1.1.16
-
+ 
 +dependency_overrides:
 +  archive: ^3.5.0
 +  image_picker: ^0.8.2
@@ -383,38 +376,29 @@ diff --git a/packages/neon_framework/packages/talk_app/pubspec.yaml b/packages/n
 diff --git a/packages/neon_framework/packages/talk_app/pubspec_overrides.yaml b/packages/neon_framework/packages/talk_app/pubspec_overrides.yaml
 --- a/packages/neon_framework/packages/talk_app/pubspec_overrides.yaml
 +++ b/packages/neon_framework/packages/talk_app/pubspec_overrides.yaml
-@@ -1,11 +1,13 @@
--# melos_managed_dependency_overrides: account_repository,cookie_store,dynamite_runtime,interceptor_http_client,neon_framework,neon_http_client,neon_lints,nextcloud,notifications_push_repository,sort_box
-+# melos_managed_dependency_overrides: account_repository,cookie_store,dynamite_runtime,interceptor_http_client,neon_framework,neon_http_client,neon_lints,nextcloud,notifications_push_repository,sort_box,archive,image_picker,platform,pointer_interceptor,quiver,win32
+@@ -1,4 +1,4 @@
+-# melos_managed_dependency_overrides: account_repository,cookie_store,dynamite_runtime,interceptor_http_client,neon_framework,neon_http_client,neon_lints,neon_rich_text,nextcloud,notifications_push_repository,sort_box
++# melos_managed_dependency_overrides: account_repository,cookie_store,dynamite_runtime,interceptor_http_client,neon_framework,neon_http_client,neon_lints,neon_rich_text,nextcloud,notifications_push_repository,sort_box,archive,image_picker,platform,pointer_interceptor,quiver,win32
  dependency_overrides:
    account_repository:
      path: ../account_repository
-+  archive: ^3.5.0
-   cookie_store:
-     path: ../../../cookie_store
-   dynamite_runtime:
-     path: ../../../dynamite/packages/dynamite_runtime
-+  image_picker: ^0.8.2
-   interceptor_http_client:
-     path: ../../../interceptor_http_client
-   neon_framework:
-@@ -18,5 +20,9 @@ dependency_overrides:
-     path: ../../../nextcloud
-   notifications_push_repository:
+@@ -22,3 +22,9 @@ dependency_overrides:
      path: ../notifications_push_repository
+   sort_box:
+     path: ../sort_box
++  archive: ^3.5.0
++  image_picker: ^0.8.2
 +  platform: ^3.1.0
 +  pointer_interceptor: ^0.10.1+1
 +  quiver: ^3.2.1
-   sort_box:
-     path: ../sort_box
 +  win32: ^5.5.1
 diff --git a/packages/neon_framework/pubspec.yaml b/packages/neon_framework/pubspec.yaml
 --- a/packages/neon_framework/pubspec.yaml
 +++ b/packages/neon_framework/pubspec.yaml
-@@ -111,6 +111,13 @@ dev_dependencies:
+@@ -107,6 +107,13 @@ dev_dependencies:
    vector_graphics_compiler: ^1.1.16
    version: ^3.0.2
-
+ 
 +dependency_overrides:
 +  archive: ^3.5.0
 +  image_picker: ^0.8.2
@@ -428,31 +412,20 @@ diff --git a/packages/neon_framework/pubspec.yaml b/packages/neon_framework/pubs
 diff --git a/packages/neon_framework/pubspec_overrides.yaml b/packages/neon_framework/pubspec_overrides.yaml
 --- a/packages/neon_framework/pubspec_overrides.yaml
 +++ b/packages/neon_framework/pubspec_overrides.yaml
-@@ -1,13 +1,15 @@
+@@ -1,4 +1,4 @@
 -# melos_managed_dependency_overrides: account_repository,cookie_store,cookie_store_conformance_tests,dynamite_runtime,interceptor_http_client,neon_http_client,neon_lints,nextcloud,notifications_push_repository,sort_box
 +# melos_managed_dependency_overrides: account_repository,cookie_store,cookie_store_conformance_tests,dynamite_runtime,interceptor_http_client,neon_http_client,neon_lints,nextcloud,notifications_push_repository,sort_box,archive,image_picker,platform,quiver,win32
  dependency_overrides:
    account_repository:
      path: packages/account_repository
-+  archive: ^3.5.0
-   cookie_store:
-     path: ../cookie_store
-   cookie_store_conformance_tests:
-     path: ../cookie_store/packages/cookie_store_conformance_tests
-   dynamite_runtime:
-     path: ../dynamite/packages/dynamite_runtime
-+  image_picker: ^0.8.2
-   interceptor_http_client:
-     path: ../interceptor_http_client
-   neon_http_client:
-@@ -18,5 +20,8 @@ dependency_overrides:
-     path: ../nextcloud
-   notifications_push_repository:
+@@ -20,3 +20,8 @@ dependency_overrides:
      path: packages/notifications_push_repository
-+  platform: ^3.1.0
-+  quiver: ^3.2.1
    sort_box:
      path: packages/sort_box
++  archive: ^3.5.0
++  image_picker: ^0.8.2
++  platform: ^3.1.0
++  quiver: ^3.2.1
 +  win32: ^5.5.1
 diff --git a/packages/nextcloud/pubspec.yaml b/packages/nextcloud/pubspec.yaml
 --- a/packages/nextcloud/pubspec.yaml
@@ -460,7 +433,7 @@ diff --git a/packages/nextcloud/pubspec.yaml b/packages/nextcloud/pubspec.yaml
 @@ -57,6 +57,10 @@ dev_dependencies:
    test_api: ^0.7.3
    xml_serializable: ^2.5.3
-
+ 
 +dependency_overrides:
 +  frontend_server_client: ^4.0.0
 +  quiver: ^3.2.1
@@ -477,15 +450,9 @@ diff --git a/packages/nextcloud/pubspec_overrides.yaml b/packages/nextcloud/pubs
  dependency_overrides:
    cookie_store:
      path: ../cookie_store
-@@ -6,9 +6,11 @@ dependency_overrides:
-     path: ../dynamite
-   dynamite_runtime:
-     path: ../dynamite/packages/dynamite_runtime
-+  frontend_server_client: ^4.0.0
-   interceptor_http_client:
-     path: ../interceptor_http_client
-   neon_lints:
+@@ -12,3 +12,5 @@ dependency_overrides:
      path: ../neon_lints
    nextcloud_test:
      path: packages/nextcloud_test
++  frontend_server_client: ^4.0.0
 +  quiver: ^3.2.1

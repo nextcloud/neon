@@ -881,6 +881,13 @@ packages:
       relative: true
     source: path
     version: "1.0.0"
+  neon_rich_text:
+    dependency: "direct overridden"
+    description:
+      path: "../packages/neon_rich_text"
+      relative: true
+    source: path
+    version: "0.1.0"
   nested:
     dependency: transitive
     description:

@@ -3,16 +3,8 @@ import 'package:built_value/json_object.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intersperse/intersperse.dart';
-import 'package:neon_framework/src/widgets/rich_text/deck_card.dart';
-import 'package:neon_framework/src/widgets/rich_text/fallback.dart';
-import 'package:neon_framework/src/widgets/rich_text/file.dart';
-import 'package:neon_framework/src/widgets/rich_text/mention.dart';
+import 'package:neon_rich_text/src/rich_objects/rich_objects.dart';
 import 'package:nextcloud/core.dart' as core;
-
-export 'package:neon_framework/src/widgets/rich_text/deck_card.dart';
-export 'package:neon_framework/src/widgets/rich_text/fallback.dart';
-export 'package:neon_framework/src/widgets/rich_text/file.dart';
-export 'package:neon_framework/src/widgets/rich_text/mention.dart';
 
 /// Renders the [text] as a rich [TextSpan].
 TextSpan buildRichTextSpan({
@@ -130,44 +122,5 @@ TextSpan buildRichTextSpan({
   return TextSpan(
     style: style,
     children: children,
-  );
-}
-
-/// Renders a rich object [parameter] to be interactive.
-InlineSpan buildRichObjectParameter({
-  required core.RichObjectParameter parameter,
-  required TextStyle? textStyle,
-  required bool isPreview,
-}) {
-  if (isPreview) {
-    return TextSpan(
-      text: parameter.name,
-      style: textStyle,
-    );
-  }
-
-  return WidgetSpan(
-    alignment: PlaceholderAlignment.middle,
-    child: switch (parameter.type) {
-      core.RichObjectParameter_Type.user ||
-      core.RichObjectParameter_Type.call ||
-      core.RichObjectParameter_Type.guest ||
-      core.RichObjectParameter_Type.userGroup =>
-        NeonRichObjectMention(
-          parameter: parameter,
-          textStyle: textStyle,
-        ),
-      core.RichObjectParameter_Type.file => NeonRichObjectFile(
-          parameter: parameter,
-          textStyle: textStyle,
-        ),
-      core.RichObjectParameter_Type.deckCard => NeonRichObjectDeckCard(
-          parameter: parameter,
-        ),
-      _ => NeonRichObjectFallback(
-          parameter: parameter,
-          textStyle: textStyle,
-        ),
-    },
   );
 }
