@@ -29,18 +29,15 @@ InlineSpan buildRichObjectParameter({
       core.RichObjectParameter_Type.userGroup =>
         NeonRichObjectMention(
           parameter: parameter,
-          textStyle: textStyle,
         ),
       core.RichObjectParameter_Type.file => NeonRichObjectFile(
           parameter: parameter,
-          textStyle: textStyle,
         ),
       core.RichObjectParameter_Type.deckCard => NeonRichObjectDeckCard(
           parameter: parameter,
         ),
       _ => NeonRichObjectFallback(
           parameter: parameter,
-          textStyle: textStyle,
         ),
     },
   );
