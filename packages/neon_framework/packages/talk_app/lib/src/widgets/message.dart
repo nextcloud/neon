@@ -517,15 +517,8 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
     spreed.Room room,
     spreed.$ChatMessageInterface chatMessage,
   ) {
-    final readOnly = room.readOnly == 1;
-    final permissions = spreed.ParticipantPermission.values.byBinary(room.permissions);
-    final hasChatPermission = permissions.contains(spreed.ParticipantPermission.canSendMessageAndShareAndReact);
-
     return [
-      if (widget.chatMessage.messageType != spreed.MessageType.commentDeleted &&
-          chatMessage.isReplyable &&
-          !readOnly &&
-          hasChatPermission)
+      if (canReplyToMessage(room, chatMessage))
         (
           icon: const Icon(Icons.add_reaction_outlined),
           child: Text(TalkLocalizations.of(context).roomMessageReaction),
@@ -546,18 +539,13 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
             NeonProvider.of<TalkRoomBloc>(context).addReaction(chatMessage, reaction);
           },
         ),
-      if (widget.chatMessage.messageType != spreed.MessageType.commentDeleted &&
-          chatMessage.isReplyable &&
-          !readOnly &&
-          hasChatPermission)
+      if (canReplyToMessage(room, chatMessage))
         (
           icon: const Icon(Icons.reply),
           child: Text(TalkLocalizations.of(context).roomMessageReply),
           onPressed: () => NeonProvider.of<TalkRoomBloc>(context).setReplyChatMessage(chatMessage),
         ),
-      if (chatMessage.messageType != spreed.MessageType.commentDeleted &&
-          chatMessage.actorId == room.actorId &&
-          hasFeature(context, 'edit-messages'))
+      if (canEditMessage(context, room, chatMessage))
         (
           icon: const Icon(Icons.edit),
           child: Text(TalkLocalizations.of(context).roomMessageEdit),
