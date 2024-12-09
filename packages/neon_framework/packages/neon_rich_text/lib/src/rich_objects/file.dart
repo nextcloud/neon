@@ -9,15 +9,11 @@ class NeonRichObjectFile extends StatelessWidget {
   /// Creates a new Neon rich object file.
   const NeonRichObjectFile({
     required this.parameter,
-    required this.textStyle,
     super.key,
   });
 
   /// The parameter to display.
   final core.RichObjectParameter parameter;
-
-  /// The TextStyle to applied to all text elements in this rich object.
-  final TextStyle? textStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -101,10 +97,7 @@ class NeonRichObjectFile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             image,
-            Text(
-              parameter.name,
-              style: textStyle,
-            ),
+            Text(parameter.name),
           ],
         );
       },
