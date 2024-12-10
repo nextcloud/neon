@@ -14,11 +14,15 @@ class NeonUserAvatar extends StatefulWidget {
   /// Creates a new Neon user avatar.
   const NeonUserAvatar({
     required this.account,
-    required this.userStatusBloc,
+    this.userStatusBloc,
+    this.userStatus,
     this.username,
     this.size,
     super.key,
-  });
+  }) : assert(
+          userStatusBloc == null || userStatus == null,
+          'One of userStatusBloc and userStatus must be null',
+        );
 
   /// The account used to fetch the image.
   final Account account;
@@ -26,9 +30,14 @@ class NeonUserAvatar extends StatefulWidget {
   /// {@template neon_framework.UserStatus.userStatusBloc}
   /// The user status bloc used for displaying the user status.
   ///
-  /// If `null` no status will be displayed.
+  /// If `null` and [userStatus] is null too no status will be displayed.
   /// {@endtemplate}
   final UserStatusBloc? userStatusBloc;
+
+  /// The displayed user status.
+  ///
+  /// If `null` and [userStatusBloc] is null too no status will be displayed.
+  final user_status.$PublicInterface? userStatus;
 
   /// The user profile to display.
   ///
@@ -84,25 +93,40 @@ class _UserAvatarState extends State<NeonUserAvatar> {
           ),
         );
 
-        if (widget.userStatusBloc == null) {
-          return avatar;
+        final userStatusBloc = widget.userStatusBloc;
+        if (userStatusBloc != null) {
+          return Stack(
+            alignment: Alignment.center,
+            children: [
+              avatar,
+              ResultBuilder(
+                stream: userStatusBloc.statuses.map(
+                  (statuses) => statuses[username] ?? Result<user_status.$PublicInterface>.loading(),
+                ),
+                builder: (context, result) => NeonUserStatusIndicator(
+                  result: result,
+                  size: size,
+                ),
+              ),
+            ],
+          );
         }
 
-        return Stack(
-          alignment: Alignment.center,
-          children: [
-            avatar,
-            ResultBuilder(
-              stream: widget.userStatusBloc!.statuses.map(
-                (statuses) => statuses[username] ?? Result<user_status.$PublicInterface>.loading(),
-              ),
-              builder: (context, result) => NeonUserStatusIndicator(
-                result: result,
+        final userStatus = widget.userStatus;
+        if (userStatus != null) {
+          return Stack(
+            alignment: Alignment.center,
+            children: [
+              avatar,
+              NeonUserStatusIndicator(
+                result: Result.success(userStatus),
                 size: size,
               ),
-            ),
-          ],
-        );
+            ],
+          );
+        }
+
+        return avatar;
       },
     );
   }

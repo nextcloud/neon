@@ -3,12 +3,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
-import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
+import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:talk_app/l10n/localizations.dart';
 import 'package:talk_app/src/blocs/room.dart';
 import 'package:talk_app/src/widgets/message.dart';
@@ -187,6 +187,7 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
           token: bloc.room.value.requireData.token,
           search: matchingPart.substring(1),
           limit: 5,
+          includeStatus: spreed.ChatMentionsIncludeStatus.$1,
         );
 
         return response.body.ocs.data
@@ -257,8 +258,17 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
     final icon = switch (suggestion.mention.source) {
       'users' => NeonUserAvatar(
           account: NeonProvider.of<Account>(context),
-          userStatusBloc: NeonProvider.of<UserStatusBloc>(context),
           username: suggestion.mention.id,
+          userStatus: suggestion.mention.status != null
+              ? user_status.Public(
+                  (b) => b
+                    ..userId = suggestion.mention.id
+                    ..message = suggestion.mention.statusMessage
+                    ..icon = suggestion.mention.statusIcon
+                    ..clearAt = suggestion.mention.statusClearAt
+                    ..status = user_status.$Type.valueOf(suggestion.mention.status!),
+                )
+              : null,
         ),
       'groups' || 'calls' => CircleAvatar(
           child: Icon(

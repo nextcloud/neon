@@ -15,40 +15,73 @@ void main() {
   });
 
   group('NeonUserAvatar', () {
-    for (final (withStatus, matcher) in [(false, findsNothing), (true, findsOne)]) {
-      testWidgets('${withStatus ? 'With' : 'Without'} status', (tester) async {
-        final account = MockAccount();
+    testWidgets('With UserStatusBloc', (tester) async {
+      final account = MockAccount();
 
-        final userStatusBloc = MockUserStatusBloc();
-        when(() => userStatusBloc.statuses).thenAnswer(
-          (_) => BehaviorSubject.seeded(
-            BuiltMap({
-              'test': Result<user_status.$PublicInterface>(
-                user_status.Public(
-                  (b) => b
-                    ..userId = 'test'
-                    ..status = user_status.$Type.online,
-                ),
-                null,
-                isLoading: false,
-                isCached: false,
+      final userStatusBloc = MockUserStatusBloc();
+      when(() => userStatusBloc.statuses).thenAnswer(
+        (_) => BehaviorSubject.seeded(
+          BuiltMap({
+            'test': Result<user_status.$PublicInterface>(
+              user_status.Public(
+                (b) => b
+                  ..userId = 'test'
+                  ..status = user_status.$Type.online,
               ),
-            }),
-          ),
-        );
-
-        await tester.pumpWidgetWithAccessibility(
-          TestApp(
-            child: NeonUserAvatar(
-              account: account,
-              userStatusBloc: withStatus ? userStatusBloc : null,
+              null,
+              isLoading: false,
+              isCached: false,
             ),
-          ),
-        );
+          }),
+        ),
+      );
 
-        expect(find.byType(NeonUserStatusIndicator), matcher);
-      });
-    }
+      await tester.pumpWidgetWithAccessibility(
+        TestApp(
+          child: NeonUserAvatar(
+            account: account,
+            userStatusBloc: userStatusBloc,
+          ),
+        ),
+      );
+
+      expect(find.byType(NeonUserStatusIndicator), findsOne);
+    });
+
+    testWidgets('With user status', (tester) async {
+      final account = MockAccount();
+
+      final userStatus = user_status.Public(
+        (b) => b
+          ..userId = 'test'
+          ..status = user_status.$Type.online,
+      );
+
+      await tester.pumpWidgetWithAccessibility(
+        TestApp(
+          child: NeonUserAvatar(
+            account: account,
+            userStatus: userStatus,
+          ),
+        ),
+      );
+
+      expect(find.byType(NeonUserStatusIndicator), findsOne);
+    });
+
+    testWidgets('Without UserStatusBloc and user status', (tester) async {
+      final account = MockAccount();
+
+      await tester.pumpWidgetWithAccessibility(
+        TestApp(
+          child: NeonUserAvatar(
+            account: account,
+          ),
+        ),
+      );
+
+      expect(find.byType(NeonUserStatusIndicator), findsNothing);
+    });
   });
 
   group('Status indicator', () {

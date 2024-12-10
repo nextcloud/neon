@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/spreed.dart' as spreed;
+import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:talk_app/l10n/localizations.dart';
 
 /// The data that will be returned when the [TalkCreateRoomDialog] is closed.
@@ -165,11 +165,21 @@ class _TalkCreateRoomDialogState extends State<TalkCreateRoomDialog> {
     core.AutocompleteResult result,
     void Function(core.AutocompleteResult)? onSelected,
   ) {
+    final status = result.status.autocompleteResultStatus0;
     final icon = switch (result.source) {
       'users' => NeonUserAvatar(
           username: result.id,
           account: NeonProvider.of<Account>(context),
-          userStatusBloc: NeonProvider.of<UserStatusBloc>(context),
+          userStatus: status != null
+              ? user_status.Public(
+                  (b) => b
+                    ..userId = result.id
+                    ..message = status.message
+                    ..icon = status.icon
+                    ..clearAt = status.clearAt
+                    ..status = user_status.$Type.valueOf(status.status),
+                )
+              : null,
         ),
       'groups' => CircleAvatar(
           child: Icon(

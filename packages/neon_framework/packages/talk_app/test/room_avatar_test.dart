@@ -1,15 +1,11 @@
-import 'package:built_collection/built_collection.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/theme.dart';
-import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:provider/provider.dart';
-import 'package:rxdart/subjects.dart';
 import 'package:talk_app/src/widgets/room_avatar.dart';
 
 import 'testing.dart';
@@ -43,18 +39,15 @@ void main() {
   testWidgets('One to one', (tester) async {
     final account = MockAccount();
 
-    final userStatusBloc = MockUserStatusBloc();
-    when(() => userStatusBloc.statuses).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
-
     final room = MockRoom();
     when(() => room.isCustomAvatar).thenReturn(false);
     when(() => room.type).thenReturn(spreed.RoomType.oneToOne.value);
     when(() => room.name).thenReturn('');
+    when(() => room.status).thenReturn('online');
 
     await tester.pumpWidgetWithAccessibility(
       TestApp(
         providers: [
-          NeonProvider<UserStatusBloc>.value(value: userStatusBloc),
           Provider<Account>.value(value: account),
         ],
         child: TalkRoomAvatar(
@@ -63,6 +56,7 @@ void main() {
       ),
     );
     expect(find.byType(NeonUserAvatar), findsOne);
+    expect(find.byType(NeonUserStatusIcon), findsOne);
   });
 
   testWidgets('Other', (tester) async {
