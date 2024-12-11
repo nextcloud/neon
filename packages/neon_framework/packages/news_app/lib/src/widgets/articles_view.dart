@@ -116,8 +116,6 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                             label = NewsLocalizations.of(context).articlesFilterUnread;
                           case FilterType.starred:
                             label = NewsLocalizations.of(context).articlesFilterStarred;
-                          default:
-                            throw Exception('FilterType $a should not be shown');
                         }
                         return DropdownMenuItem(
                           value: a,

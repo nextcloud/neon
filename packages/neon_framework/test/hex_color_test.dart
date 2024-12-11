@@ -7,25 +7,25 @@ void main() {
     test('White', () {
       final color = HexColor('#ffffffff');
 
-      expect(color.value, equals(Colors.white.value));
+      expect(color.toString(), Colors.white.toString());
     });
 
     test('Without alpha', () {
       final color = HexColor('#ffffff');
 
-      expect(color.value, equals(Colors.white.value));
+      expect(color.toString(), Colors.white.toString());
     });
 
     test('Without #', () {
       final color = HexColor('ffffffff');
 
-      expect(color.value, equals(Colors.white.value));
+      expect(color.toString(), Colors.white.toString());
     });
 
     test('Uppercase', () {
       final color = HexColor('#FFFFFFFF');
 
-      expect(color.value, equals(Colors.white.value));
+      expect(color.toString(), Colors.white.toString());
     });
   });
 }
