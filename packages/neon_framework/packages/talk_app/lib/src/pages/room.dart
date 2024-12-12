@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:intersperse/intersperse.dart';
 import 'package:intl/intl.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/utils.dart';
@@ -79,6 +78,7 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
 
         final appBar = AppBar(
           title: Row(
+            spacing: 10,
             children: <Widget>[
               TalkRoomAvatar(
                 room: room,
@@ -94,13 +94,7 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
                   visible: result.isLoading,
                 ),
               ),
-            ]
-                .intersperse(
-                  const SizedBox(
-                    width: 10,
-                  ),
-                )
-                .toList(),
+            ],
           ),
         );
 

@@ -1,6 +1,5 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
-import 'package:intersperse/intersperse.dart';
 import 'package:intl/intl.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
@@ -420,6 +419,7 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
 
         Widget message = Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          spacing: 5,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -440,13 +440,7 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
                 room: widget.room,
                 chatMessage: widget.chatMessage,
               ),
-          ]
-              .intersperse(
-                const SizedBox(
-                  height: 5,
-                ),
-              )
-              .toList(),
+          ],
         );
 
         if (!widget.isParent) {

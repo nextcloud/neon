@@ -1,6 +1,5 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
-import 'package:intersperse/intersperse.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
@@ -63,6 +62,7 @@ class NotificationsNotification extends StatelessWidget {
         title: subject,
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          spacing: 5,
           children: [
             if (notification.message.isNotEmpty) message,
             RelativeTime(
@@ -78,13 +78,7 @@ class NotificationsNotification extends StatelessWidget {
                     )
                     .toList(),
               ),
-          ]
-              .intersperse(
-                const SizedBox(
-                  height: 5,
-                ),
-              )
-              .toList(),
+          ],
         ),
         leading: notification.icon!.isNotEmpty
             ? NeonUriImage(
