@@ -293,7 +293,7 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
         final references = referencesResult.data ?? BuiltMap();
 
         final textTheme = Theme.of(context).textTheme;
-        final labelColor = Theme.of(context).colorScheme.inverseSurface.withOpacity(0.7);
+        final labelColor = Theme.of(context).colorScheme.inverseSurface.withValues(alpha: 0.7);
 
         final date = widget.chatMessage.parsedTimestamp;
         tz.TZDateTime? previousDate;

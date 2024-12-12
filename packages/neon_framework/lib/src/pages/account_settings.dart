@@ -138,7 +138,7 @@ class AccountSettingsPage extends StatelessWidget {
                     value: value,
                     minHeight: isCupertino(context) ? 15 : null,
                     borderRadius: BorderRadius.circular(isCupertino(context) ? 5 : 3),
-                    backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.3),
+                    backgroundColor: Theme.of(context).colorScheme.primary.withValues(alpha: 0.3),
                   ),
                   subtitle: subtitle,
                 );
