@@ -4,7 +4,7 @@ publish_to: 'none'
 
 environment:
   sdk: ^3.0.0
-  flutter: ^3.22.0
+  flutter: ^3.27.0
 
 dependencies:
   built_collection: ^5.0.0
@@ -14,7 +14,6 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   go_router: ^14.0.0
-  intersperse: ^2.0.0
   logging: ^1.0.0
   neon_framework:
     git:

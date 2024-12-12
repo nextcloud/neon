@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:intersperse/intersperse.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
@@ -52,6 +51,7 @@ class NeonAccountTile extends StatelessWidget {
       title: ResultBuilder.behaviorSubject(
         subject: userDetailsBloc.userDetails,
         builder: (context, userDetails) => Row(
+          spacing: 5,
           children: [
             if (userDetails.hasData)
               Flexible(
@@ -71,7 +71,7 @@ class NeonAccountTile extends StatelessWidget {
                 iconSize: 24,
                 onRetry: userDetailsBloc.refresh,
               ),
-          ].intersperse(const SizedBox(width: 5)).toList(),
+          ],
         ),
       ),
       subtitle: Text(

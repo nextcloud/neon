@@ -8,7 +8,6 @@ import 'package:dashboard_app/src/widgets/widget.dart';
 import 'package:dashboard_app/src/widgets/widget_button.dart';
 import 'package:dashboard_app/src/widgets/widget_item.dart';
 import 'package:flutter/material.dart';
-import 'package:intersperse/intersperse.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
@@ -97,13 +96,8 @@ class DashboardMainPage extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
-                    children: children
-                        .intersperse(
-                          const SizedBox(
-                            height: 40,
-                          ),
-                        )
-                        .toList(),
+                    spacing: 40,
+                    children: children,
                   ),
                 ),
               ),
