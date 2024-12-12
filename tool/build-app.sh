@@ -41,7 +41,7 @@ if [[ "$target" == "linux/arm64" ]] || [[ "$target" == "linux/amd64" ]]; then
   -f "tool/build/Dockerfile.$os" \
   ./tool/build
 
-  paths=(packages/neon_framework/example/{pubspec.lock,linux,build})
+  paths=(pubspec.{yaml,lock} packages/neon_framework/example/{linux,build})
   mapfile -O "${#paths[@]}" -t paths < <(get_mount_paths_dir "lib")
   mapfile -O "${#paths[@]}" -t paths < <(get_mount_paths_dir "assets")
   mapfile -O "${#paths[@]}" -t paths < <(get_mount_paths_file "pubspec.yaml")
