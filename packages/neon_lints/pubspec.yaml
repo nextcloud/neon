@@ -12,4 +12,4 @@ dependencies:
   custom_lint_builder: ^0.7.0
 
 dev_dependencies:
-  lint_maker: ^0.2.2
+  lint_maker: ^0.2.3
