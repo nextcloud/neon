@@ -2,16 +2,16 @@
 set -euxo pipefail
 cd "$(dirname "$0")/.."
 
-for package in $(yq -r ".dev_dependencies | keys | .[]" pubspec.yaml); do
-  version="$(yq -r ".dev_dependencies.$package" pubspec.yaml)"
-  dart pub global activate "$package" "$version"
-done
+dart pub global activate coverage
+dart pub global activate custom_lint
+dart pub global activate fvm
+dart pub global activate melos
 echo "y" | fvm install
 
 if [ ! -v GITHUB_REPOSITORY ]; then
   fvm flutter precache
-  melos bootstrap
+  fvm flutter pub get
 else
-  melos exec -c1 -- flutter pub get
+  fvm flutter pub get
   melos run format
 fi
