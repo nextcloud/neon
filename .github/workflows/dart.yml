@@ -16,7 +16,7 @@ jobs:
       fail-fast: false
       matrix:
         dependencies:
-          - upgrade
+          - current
           - downgrade
     steps:
       - name: Checkout
@@ -42,7 +42,7 @@ jobs:
         run: ./tool/setup.sh
 
       - name: Check up-to-date pubspec.lock
-        if: ${{ matrix.dependencies == 'upgrade' }}
+        if: ${{ matrix.dependencies == 'current' }}
         run: git --no-pager diff --exit-code
       - name: Downgrade dependencies
         if: ${{ matrix.dependencies == 'downgrade' }}
@@ -72,7 +72,7 @@ jobs:
           fi
 
       - name: Setup Codecov
-        if: ${{ matrix.dependencies == 'upgrade' }}
+        if: ${{ matrix.dependencies == 'current' }}
         run: |
           cd /tmp
           curl https://keybase.io/codecovsecurity/pgp_keys.asc | gpg --no-default-keyring --keyring trustedkeys.gpg --import
@@ -86,7 +86,7 @@ jobs:
           mkdir /tmp/bin
           mv codecov /tmp/bin
       - name: Upload coverage to Codecov
-        if: ${{ matrix.dependencies == 'upgrade' }}
+        if: ${{ matrix.dependencies == 'current' }}
         run: |
           export PATH="$PATH:/tmp/bin"
           melos exec --file-exists="coverage/lcov.info" --concurrency=1 -- "
