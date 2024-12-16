@@ -170,12 +170,18 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
       controller: controller,
       focusNode: focusNode,
       suggestionsCallback: (_) async {
-        final cursor = controller.selection.start;
-        if (controller.text.isEmpty || cursor != controller.selection.end) {
+        final selection = controller.selection;
+        if (!selection.isValid) {
           return [];
         }
 
-        var matchingPart = controller.text.substring(0, cursor);
+        final cursor = selection.start;
+        final text = controller.text;
+        if (text.isEmpty || cursor != selection.end) {
+          return [];
+        }
+
+        var matchingPart = text.substring(0, cursor);
         final index = matchingPart.lastIndexOf(' ') + 1;
         matchingPart = matchingPart.substring(index);
         if (!matchingPart.startsWith('@') || matchingPart.isEmpty) {
