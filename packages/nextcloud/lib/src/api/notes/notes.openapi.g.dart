@@ -632,16 +632,17 @@ class NoteBuilder implements Builder<Note, NoteBuilder>, $NoteInterfaceBuilder {
     Note._validate(this);
     final _$result = _$v ??
         _$Note._(
-            id: BuiltValueNullFieldError.checkNotNull(id, r'Note', 'id'),
-            etag: BuiltValueNullFieldError.checkNotNull(etag, r'Note', 'etag'),
-            readonly: BuiltValueNullFieldError.checkNotNull(readonly, r'Note', 'readonly'),
-            content: BuiltValueNullFieldError.checkNotNull(content, r'Note', 'content'),
-            title: BuiltValueNullFieldError.checkNotNull(title, r'Note', 'title'),
-            category: BuiltValueNullFieldError.checkNotNull(category, r'Note', 'category'),
-            favorite: BuiltValueNullFieldError.checkNotNull(favorite, r'Note', 'favorite'),
-            modified: BuiltValueNullFieldError.checkNotNull(modified, r'Note', 'modified'),
-            error: BuiltValueNullFieldError.checkNotNull(error, r'Note', 'error'),
-            errorType: BuiltValueNullFieldError.checkNotNull(errorType, r'Note', 'errorType'));
+          id: BuiltValueNullFieldError.checkNotNull(id, r'Note', 'id'),
+          etag: BuiltValueNullFieldError.checkNotNull(etag, r'Note', 'etag'),
+          readonly: BuiltValueNullFieldError.checkNotNull(readonly, r'Note', 'readonly'),
+          content: BuiltValueNullFieldError.checkNotNull(content, r'Note', 'content'),
+          title: BuiltValueNullFieldError.checkNotNull(title, r'Note', 'title'),
+          category: BuiltValueNullFieldError.checkNotNull(category, r'Note', 'category'),
+          favorite: BuiltValueNullFieldError.checkNotNull(favorite, r'Note', 'favorite'),
+          modified: BuiltValueNullFieldError.checkNotNull(modified, r'Note', 'modified'),
+          error: BuiltValueNullFieldError.checkNotNull(error, r'Note', 'error'),
+          errorType: BuiltValueNullFieldError.checkNotNull(errorType, r'Note', 'errorType'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -759,9 +760,10 @@ class SettingsBuilder implements Builder<Settings, SettingsBuilder>, $SettingsIn
     Settings._validate(this);
     final _$result = _$v ??
         _$Settings._(
-            notesPath: BuiltValueNullFieldError.checkNotNull(notesPath, r'Settings', 'notesPath'),
-            fileSuffix: BuiltValueNullFieldError.checkNotNull(fileSuffix, r'Settings', 'fileSuffix'),
-            noteMode: BuiltValueNullFieldError.checkNotNull(noteMode, r'Settings', 'noteMode'));
+          notesPath: BuiltValueNullFieldError.checkNotNull(notesPath, r'Settings', 'notesPath'),
+          fileSuffix: BuiltValueNullFieldError.checkNotNull(fileSuffix, r'Settings', 'fileSuffix'),
+          noteMode: BuiltValueNullFieldError.checkNotNull(noteMode, r'Settings', 'noteMode'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -863,7 +865,11 @@ class Capabilities_NotesBuilder
     Capabilities_Notes._validate(this);
     _$Capabilities_Notes _$result;
     try {
-      _$result = _$v ?? _$Capabilities_Notes._(apiVersion: _apiVersion?.build(), version: version);
+      _$result = _$v ??
+          _$Capabilities_Notes._(
+            apiVersion: _apiVersion?.build(),
+            version: version,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -961,7 +967,10 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     Capabilities._validate(this);
     _$Capabilities _$result;
     try {
-      _$result = _$v ?? _$Capabilities._(notes: notes.build());
+      _$result = _$v ??
+          _$Capabilities._(
+            notes: notes.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1115,11 +1124,12 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
     OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
-            message: message,
-            totalitems: totalitems,
-            itemsperpage: itemsperpage);
+          status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+          statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+          message: message,
+          totalitems: totalitems,
+          itemsperpage: itemsperpage,
+        );
     replace(_$result);
     return _$result;
   }
@@ -1222,7 +1232,11 @@ class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>,
     EmptyOCS_Ocs._validate(this);
     _$EmptyOCS_Ocs _$result;
     try {
-      _$result = _$v ?? _$EmptyOCS_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$EmptyOCS_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1321,7 +1335,10 @@ class EmptyOCSBuilder implements Builder<EmptyOCS, EmptyOCSBuilder>, $EmptyOCSIn
     EmptyOCS._validate(this);
     _$EmptyOCS _$result;
     try {
-      _$result = _$v ?? _$EmptyOCS._(ocs: ocs.build());
+      _$result = _$v ??
+          _$EmptyOCS._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

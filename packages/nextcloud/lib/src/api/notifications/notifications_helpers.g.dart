@@ -287,15 +287,16 @@ class DecryptedSubjectBuilder implements Builder<DecryptedSubject, DecryptedSubj
     try {
       _$result = _$v ??
           _$DecryptedSubject._(
-              nid: nid,
-              nids: _nids?.build(),
-              app: app,
-              subject: subject,
-              type: type,
-              id: id,
-              delete: delete,
-              deleteMultiple: deleteMultiple,
-              deleteAll: deleteAll);
+            nid: nid,
+            nids: _nids?.build(),
+            app: app,
+            subject: subject,
+            type: type,
+            id: id,
+            delete: delete,
+            deleteMultiple: deleteMultiple,
+            deleteAll: deleteAll,
+          );
     } catch (_) {
       late String _$failedField;
       try {

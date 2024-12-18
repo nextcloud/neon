@@ -176,7 +176,10 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
 
   _$Base _build() {
     Base._validate(this);
-    final _$result = _$v ?? _$Base._(attribute: attribute);
+    final _$result = _$v ??
+        _$Base._(
+          attribute: attribute,
+        );
     replace(_$result);
     return _$result;
   }
@@ -274,7 +277,11 @@ class BaseInterfaceBuilder implements Builder<BaseInterface, BaseInterfaceBuilde
 
   _$BaseInterface _build() {
     BaseInterface._validate(this);
-    final _$result = _$v ?? _$BaseInterface._(attribute: attribute, property: property);
+    final _$result = _$v ??
+        _$BaseInterface._(
+          attribute: attribute,
+          property: property,
+        );
     replace(_$result);
     return _$result;
   }

@@ -323,8 +323,8 @@ class ObjectOneOf0Builder implements Builder<ObjectOneOf0, ObjectOneOf0Builder>,
     ObjectOneOf0._validate(this);
     final _$result = _$v ??
         _$ObjectOneOf0._(
-            attribute1OneOf:
-                BuiltValueNullFieldError.checkNotNull(attribute1OneOf, r'ObjectOneOf0', 'attribute1OneOf'));
+          attribute1OneOf: BuiltValueNullFieldError.checkNotNull(attribute1OneOf, r'ObjectOneOf0', 'attribute1OneOf'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -412,8 +412,8 @@ class ObjectOneOf1Builder implements Builder<ObjectOneOf1, ObjectOneOf1Builder>,
     ObjectOneOf1._validate(this);
     final _$result = _$v ??
         _$ObjectOneOf1._(
-            attribute2OneOf:
-                BuiltValueNullFieldError.checkNotNull(attribute2OneOf, r'ObjectOneOf1', 'attribute2OneOf'));
+          attribute2OneOf: BuiltValueNullFieldError.checkNotNull(attribute2OneOf, r'ObjectOneOf1', 'attribute2OneOf'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -501,7 +501,8 @@ class MixedOneOf1Builder implements Builder<MixedOneOf1, MixedOneOf1Builder>, $M
     MixedOneOf1._validate(this);
     final _$result = _$v ??
         _$MixedOneOf1._(
-            attributeOneOf: BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'MixedOneOf1', 'attributeOneOf'));
+          attributeOneOf: BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'MixedOneOf1', 'attributeOneOf'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -590,8 +591,8 @@ class OneObjectOneOf0Builder
     OneObjectOneOf0._validate(this);
     final _$result = _$v ??
         _$OneObjectOneOf0._(
-            attributeOneOf:
-                BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'OneObjectOneOf0', 'attributeOneOf'));
+          attributeOneOf: BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'OneObjectOneOf0', 'attributeOneOf'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -681,8 +682,9 @@ class OneOfUnspecifiedArray0Builder
     OneOfUnspecifiedArray0._validate(this);
     final _$result = _$v ??
         _$OneOfUnspecifiedArray0._(
-            attributeOneOf:
-                BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'OneOfUnspecifiedArray0', 'attributeOneOf'));
+          attributeOneOf:
+              BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'OneOfUnspecifiedArray0', 'attributeOneOf'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -771,8 +773,8 @@ class OneOfStringArray0Builder
     OneOfStringArray0._validate(this);
     final _$result = _$v ??
         _$OneOfStringArray0._(
-            attributeOneOf:
-                BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'OneOfStringArray0', 'attributeOneOf'));
+          attributeOneOf: BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'OneOfStringArray0', 'attributeOneOf'),
+        );
     replace(_$result);
     return _$result;
   }

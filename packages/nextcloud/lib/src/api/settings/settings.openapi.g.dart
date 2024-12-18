@@ -858,14 +858,14 @@ class DeclarativeSettingsSetValueRequestApplicationJsonBuilder
     DeclarativeSettingsSetValueRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$DeclarativeSettingsSetValueRequestApplicationJson._(
-            app:
-                BuiltValueNullFieldError.checkNotNull(app, r'DeclarativeSettingsSetValueRequestApplicationJson', 'app'),
-            formId: BuiltValueNullFieldError.checkNotNull(
-                formId, r'DeclarativeSettingsSetValueRequestApplicationJson', 'formId'),
-            fieldId: BuiltValueNullFieldError.checkNotNull(
-                fieldId, r'DeclarativeSettingsSetValueRequestApplicationJson', 'fieldId'),
-            value: BuiltValueNullFieldError.checkNotNull(
-                value, r'DeclarativeSettingsSetValueRequestApplicationJson', 'value'));
+          app: BuiltValueNullFieldError.checkNotNull(app, r'DeclarativeSettingsSetValueRequestApplicationJson', 'app'),
+          formId: BuiltValueNullFieldError.checkNotNull(
+              formId, r'DeclarativeSettingsSetValueRequestApplicationJson', 'formId'),
+          fieldId: BuiltValueNullFieldError.checkNotNull(
+              fieldId, r'DeclarativeSettingsSetValueRequestApplicationJson', 'fieldId'),
+          value: BuiltValueNullFieldError.checkNotNull(
+              value, r'DeclarativeSettingsSetValueRequestApplicationJson', 'value'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1009,11 +1009,12 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
     OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
-            message: message,
-            totalitems: totalitems,
-            itemsperpage: itemsperpage);
+          status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+          statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+          message: message,
+          totalitems: totalitems,
+          itemsperpage: itemsperpage,
+        );
     replace(_$result);
     return _$result;
   }
@@ -1124,7 +1125,11 @@ class DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder
     DeclarativeSettingsSetValueResponseApplicationJson_Ocs._validate(this);
     _$DeclarativeSettingsSetValueResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$DeclarativeSettingsSetValueResponseApplicationJson_Ocs._(meta: meta.build(), data: data);
+      _$result = _$v ??
+          _$DeclarativeSettingsSetValueResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1233,7 +1238,10 @@ class DeclarativeSettingsSetValueResponseApplicationJsonBuilder
     DeclarativeSettingsSetValueResponseApplicationJson._validate(this);
     _$DeclarativeSettingsSetValueResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$DeclarativeSettingsSetValueResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$DeclarativeSettingsSetValueResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1351,8 +1359,9 @@ class DeclarativeFormField_Options1Builder
     DeclarativeFormField_Options1._validate(this);
     final _$result = _$v ??
         _$DeclarativeFormField_Options1._(
-            name: BuiltValueNullFieldError.checkNotNull(name, r'DeclarativeFormField_Options1', 'name'),
-            value: BuiltValueNullFieldError.checkNotNull(value, r'DeclarativeFormField_Options1', 'value'));
+          name: BuiltValueNullFieldError.checkNotNull(name, r'DeclarativeFormField_Options1', 'name'),
+          value: BuiltValueNullFieldError.checkNotNull(value, r'DeclarativeFormField_Options1', 'value'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1567,15 +1576,16 @@ class DeclarativeFormFieldBuilder
     try {
       _$result = _$v ??
           _$DeclarativeFormField._(
-              id: BuiltValueNullFieldError.checkNotNull(id, r'DeclarativeFormField', 'id'),
-              title: BuiltValueNullFieldError.checkNotNull(title, r'DeclarativeFormField', 'title'),
-              description: description,
-              type: BuiltValueNullFieldError.checkNotNull(type, r'DeclarativeFormField', 'type'),
-              placeholder: placeholder,
-              label: label,
-              $default: BuiltValueNullFieldError.checkNotNull($default, r'DeclarativeFormField', '\$default'),
-              options: _options?.build(),
-              value: BuiltValueNullFieldError.checkNotNull(value, r'DeclarativeFormField', 'value'));
+            id: BuiltValueNullFieldError.checkNotNull(id, r'DeclarativeFormField', 'id'),
+            title: BuiltValueNullFieldError.checkNotNull(title, r'DeclarativeFormField', 'title'),
+            description: description,
+            type: BuiltValueNullFieldError.checkNotNull(type, r'DeclarativeFormField', 'type'),
+            placeholder: placeholder,
+            label: label,
+            $default: BuiltValueNullFieldError.checkNotNull($default, r'DeclarativeFormField', '\$default'),
+            options: _options?.build(),
+            value: BuiltValueNullFieldError.checkNotNull(value, r'DeclarativeFormField', 'value'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1814,16 +1824,17 @@ class DeclarativeFormBuilder
     try {
       _$result = _$v ??
           _$DeclarativeForm._(
-              id: BuiltValueNullFieldError.checkNotNull(id, r'DeclarativeForm', 'id'),
-              priority: BuiltValueNullFieldError.checkNotNull(priority, r'DeclarativeForm', 'priority'),
-              sectionType: BuiltValueNullFieldError.checkNotNull(sectionType, r'DeclarativeForm', 'sectionType'),
-              sectionId: BuiltValueNullFieldError.checkNotNull(sectionId, r'DeclarativeForm', 'sectionId'),
-              storageType: BuiltValueNullFieldError.checkNotNull(storageType, r'DeclarativeForm', 'storageType'),
-              title: BuiltValueNullFieldError.checkNotNull(title, r'DeclarativeForm', 'title'),
-              description: description,
-              docUrl: docUrl,
-              app: BuiltValueNullFieldError.checkNotNull(app, r'DeclarativeForm', 'app'),
-              fields: fields.build());
+            id: BuiltValueNullFieldError.checkNotNull(id, r'DeclarativeForm', 'id'),
+            priority: BuiltValueNullFieldError.checkNotNull(priority, r'DeclarativeForm', 'priority'),
+            sectionType: BuiltValueNullFieldError.checkNotNull(sectionType, r'DeclarativeForm', 'sectionType'),
+            sectionId: BuiltValueNullFieldError.checkNotNull(sectionId, r'DeclarativeForm', 'sectionId'),
+            storageType: BuiltValueNullFieldError.checkNotNull(storageType, r'DeclarativeForm', 'storageType'),
+            title: BuiltValueNullFieldError.checkNotNull(title, r'DeclarativeForm', 'title'),
+            description: description,
+            docUrl: docUrl,
+            app: BuiltValueNullFieldError.checkNotNull(app, r'DeclarativeForm', 'app'),
+            fields: fields.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1945,8 +1956,11 @@ class DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder
     DeclarativeSettingsGetFormsResponseApplicationJson_Ocs._validate(this);
     _$DeclarativeSettingsGetFormsResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$DeclarativeSettingsGetFormsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$DeclarativeSettingsGetFormsResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2057,7 +2071,10 @@ class DeclarativeSettingsGetFormsResponseApplicationJsonBuilder
     DeclarativeSettingsGetFormsResponseApplicationJson._validate(this);
     _$DeclarativeSettingsGetFormsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$DeclarativeSettingsGetFormsResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$DeclarativeSettingsGetFormsResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2160,7 +2177,10 @@ class LogSettingsLogSettingsDownloadHeadersBuilder
 
   _$LogSettingsLogSettingsDownloadHeaders _build() {
     LogSettingsLogSettingsDownloadHeaders._validate(this);
-    final _$result = _$v ?? _$LogSettingsLogSettingsDownloadHeaders._(contentDisposition: contentDisposition);
+    final _$result = _$v ??
+        _$LogSettingsLogSettingsDownloadHeaders._(
+          contentDisposition: contentDisposition,
+        );
     replace(_$result);
     return _$result;
   }

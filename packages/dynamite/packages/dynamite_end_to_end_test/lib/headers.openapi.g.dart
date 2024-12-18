@@ -211,7 +211,10 @@ class GetHeadersBuilder implements Builder<GetHeaders, GetHeadersBuilder>, $GetH
 
   _$GetHeaders _build() {
     GetHeaders._validate(this);
-    final _$result = _$v ?? _$GetHeaders._(myHeader: myHeader);
+    final _$result = _$v ??
+        _$GetHeaders._(
+          myHeader: myHeader,
+        );
     replace(_$result);
     return _$result;
   }
@@ -299,7 +302,10 @@ class WithContentOperationIdHeadersBuilder
 
   _$WithContentOperationIdHeaders _build() {
     WithContentOperationIdHeaders._validate(this);
-    final _$result = _$v ?? _$WithContentOperationIdHeaders._(myHeader: myHeader);
+    final _$result = _$v ??
+        _$WithContentOperationIdHeaders._(
+          myHeader: myHeader,
+        );
     replace(_$result);
     return _$result;
   }
@@ -385,7 +391,10 @@ class GetWithContentHeadersBuilder
 
   _$GetWithContentHeaders _build() {
     GetWithContentHeaders._validate(this);
-    final _$result = _$v ?? _$GetWithContentHeaders._(myHeader: myHeader);
+    final _$result = _$v ??
+        _$GetWithContentHeaders._(
+          myHeader: myHeader,
+        );
     replace(_$result);
     return _$result;
   }

@@ -392,8 +392,9 @@ class ObjectAllOfBuilder implements Builder<ObjectAllOf, ObjectAllOfBuilder>, $O
     ObjectAllOf._validate(this);
     final _$result = _$v ??
         _$ObjectAllOf._(
-            attribute1AllOf: BuiltValueNullFieldError.checkNotNull(attribute1AllOf, r'ObjectAllOf', 'attribute1AllOf'),
-            attribute2AllOf: BuiltValueNullFieldError.checkNotNull(attribute2AllOf, r'ObjectAllOf', 'attribute2AllOf'));
+          attribute1AllOf: BuiltValueNullFieldError.checkNotNull(attribute1AllOf, r'ObjectAllOf', 'attribute1AllOf'),
+          attribute2AllOf: BuiltValueNullFieldError.checkNotNull(attribute2AllOf, r'ObjectAllOf', 'attribute2AllOf'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -481,7 +482,8 @@ class OneObjectAllOfBuilder implements Builder<OneObjectAllOf, OneObjectAllOfBui
     OneObjectAllOf._validate(this);
     final _$result = _$v ??
         _$OneObjectAllOf._(
-            attributeAllOf: BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'OneObjectAllOf', 'attributeAllOf'));
+          attributeAllOf: BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'OneObjectAllOf', 'attributeAllOf'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -584,8 +586,9 @@ class PrimitiveAllOfBuilder implements Builder<PrimitiveAllOf, PrimitiveAllOfBui
     PrimitiveAllOf._validate(this);
     final _$result = _$v ??
         _$PrimitiveAllOf._(
-            $int: BuiltValueNullFieldError.checkNotNull($int, r'PrimitiveAllOf', '\$int'),
-            string: BuiltValueNullFieldError.checkNotNull(string, r'PrimitiveAllOf', 'string'));
+          $int: BuiltValueNullFieldError.checkNotNull($int, r'PrimitiveAllOf', '\$int'),
+          string: BuiltValueNullFieldError.checkNotNull(string, r'PrimitiveAllOf', 'string'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -687,8 +690,9 @@ class MixedAllOfBuilder implements Builder<MixedAllOf, MixedAllOfBuilder>, $Mixe
     MixedAllOf._validate(this);
     final _$result = _$v ??
         _$MixedAllOf._(
-            string: BuiltValueNullFieldError.checkNotNull(string, r'MixedAllOf', 'string'),
-            attributeAllOf: BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'MixedAllOf', 'attributeAllOf'));
+          string: BuiltValueNullFieldError.checkNotNull(string, r'MixedAllOf', 'string'),
+          attributeAllOf: BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'MixedAllOf', 'attributeAllOf'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -774,8 +778,10 @@ class OneValueAllOfBuilder implements Builder<OneValueAllOf, OneValueAllOfBuilde
 
   _$OneValueAllOf _build() {
     OneValueAllOf._validate(this);
-    final _$result =
-        _$v ?? _$OneValueAllOf._(string: BuiltValueNullFieldError.checkNotNull(string, r'OneValueAllOf', 'string'));
+    final _$result = _$v ??
+        _$OneValueAllOf._(
+          string: BuiltValueNullFieldError.checkNotNull(string, r'OneValueAllOf', 'string'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -861,8 +867,10 @@ class SuperObjectBuilder implements Builder<SuperObject, SuperObjectBuilder>, $S
 
   _$SuperObject _build() {
     SuperObject._validate(this);
-    final _$result =
-        _$v ?? _$SuperObject._(value: BuiltValueNullFieldError.checkNotNull(value, r'SuperObject', 'value'));
+    final _$result = _$v ??
+        _$SuperObject._(
+          value: BuiltValueNullFieldError.checkNotNull(value, r'SuperObject', 'value'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -947,7 +955,10 @@ class SubObjectBuilder implements Builder<SubObject, SubObjectBuilder>, $SubObje
 
   _$SubObject _build() {
     SubObject._validate(this);
-    final _$result = _$v ?? _$SubObject._(value: BuiltValueNullFieldError.checkNotNull(value, r'SubObject', 'value'));
+    final _$result = _$v ??
+        _$SubObject._(
+          value: BuiltValueNullFieldError.checkNotNull(value, r'SubObject', 'value'),
+        );
     replace(_$result);
     return _$result;
   }

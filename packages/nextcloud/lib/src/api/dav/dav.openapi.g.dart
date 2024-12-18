@@ -1385,9 +1385,10 @@ class DirectGetUrlRequestApplicationJsonBuilder
     DirectGetUrlRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$DirectGetUrlRequestApplicationJson._(
-            fileId: BuiltValueNullFieldError.checkNotNull(fileId, r'DirectGetUrlRequestApplicationJson', 'fileId'),
-            expirationTime: BuiltValueNullFieldError.checkNotNull(
-                expirationTime, r'DirectGetUrlRequestApplicationJson', 'expirationTime'));
+          fileId: BuiltValueNullFieldError.checkNotNull(fileId, r'DirectGetUrlRequestApplicationJson', 'fileId'),
+          expirationTime: BuiltValueNullFieldError.checkNotNull(
+              expirationTime, r'DirectGetUrlRequestApplicationJson', 'expirationTime'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1531,11 +1532,12 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
     OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
-            message: message,
-            totalitems: totalitems,
-            itemsperpage: itemsperpage);
+          status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+          statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+          message: message,
+          totalitems: totalitems,
+          itemsperpage: itemsperpage,
+        );
     replace(_$result);
     return _$result;
   }
@@ -1630,7 +1632,8 @@ class DirectGetUrlResponseApplicationJson_Ocs_DataBuilder
     DirectGetUrlResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$DirectGetUrlResponseApplicationJson_Ocs_Data._(
-            url: BuiltValueNullFieldError.checkNotNull(url, r'DirectGetUrlResponseApplicationJson_Ocs_Data', 'url'));
+          url: BuiltValueNullFieldError.checkNotNull(url, r'DirectGetUrlResponseApplicationJson_Ocs_Data', 'url'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1741,7 +1744,11 @@ class DirectGetUrlResponseApplicationJson_OcsBuilder
     DirectGetUrlResponseApplicationJson_Ocs._validate(this);
     _$DirectGetUrlResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$DirectGetUrlResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$DirectGetUrlResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1846,7 +1853,10 @@ class DirectGetUrlResponseApplicationJsonBuilder
     DirectGetUrlResponseApplicationJson._validate(this);
     _$DirectGetUrlResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$DirectGetUrlResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$DirectGetUrlResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1992,10 +2002,11 @@ class OutOfOfficeDataCommonBuilder
     OutOfOfficeDataCommon._validate(this);
     final _$result = _$v ??
         _$OutOfOfficeDataCommon._(
-            userId: BuiltValueNullFieldError.checkNotNull(userId, r'OutOfOfficeDataCommon', 'userId'),
-            message: BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeDataCommon', 'message'),
-            replacementUserId: replacementUserId,
-            replacementUserDisplayName: replacementUserDisplayName);
+          userId: BuiltValueNullFieldError.checkNotNull(userId, r'OutOfOfficeDataCommon', 'userId'),
+          message: BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeDataCommon', 'message'),
+          replacementUserId: replacementUserId,
+          replacementUserDisplayName: replacementUserDisplayName,
+        );
     replace(_$result);
     return _$result;
   }
@@ -2194,15 +2205,15 @@ class CurrentOutOfOfficeDataBuilder
     CurrentOutOfOfficeData._validate(this);
     final _$result = _$v ??
         _$CurrentOutOfOfficeData._(
-            id: BuiltValueNullFieldError.checkNotNull(id, r'CurrentOutOfOfficeData', 'id'),
-            startDate: BuiltValueNullFieldError.checkNotNull(startDate, r'CurrentOutOfOfficeData', 'startDate'),
-            endDate: BuiltValueNullFieldError.checkNotNull(endDate, r'CurrentOutOfOfficeData', 'endDate'),
-            shortMessage:
-                BuiltValueNullFieldError.checkNotNull(shortMessage, r'CurrentOutOfOfficeData', 'shortMessage'),
-            userId: BuiltValueNullFieldError.checkNotNull(userId, r'CurrentOutOfOfficeData', 'userId'),
-            message: BuiltValueNullFieldError.checkNotNull(message, r'CurrentOutOfOfficeData', 'message'),
-            replacementUserId: replacementUserId,
-            replacementUserDisplayName: replacementUserDisplayName);
+          id: BuiltValueNullFieldError.checkNotNull(id, r'CurrentOutOfOfficeData', 'id'),
+          startDate: BuiltValueNullFieldError.checkNotNull(startDate, r'CurrentOutOfOfficeData', 'startDate'),
+          endDate: BuiltValueNullFieldError.checkNotNull(endDate, r'CurrentOutOfOfficeData', 'endDate'),
+          shortMessage: BuiltValueNullFieldError.checkNotNull(shortMessage, r'CurrentOutOfOfficeData', 'shortMessage'),
+          userId: BuiltValueNullFieldError.checkNotNull(userId, r'CurrentOutOfOfficeData', 'userId'),
+          message: BuiltValueNullFieldError.checkNotNull(message, r'CurrentOutOfOfficeData', 'message'),
+          replacementUserId: replacementUserId,
+          replacementUserDisplayName: replacementUserDisplayName,
+        );
     replace(_$result);
     return _$result;
   }
@@ -2320,7 +2331,10 @@ class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder
     _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+          _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2433,7 +2447,10 @@ class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder
     OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson._validate(this);
     _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2642,14 +2659,15 @@ class OutOfOfficeDataBuilder
     OutOfOfficeData._validate(this);
     final _$result = _$v ??
         _$OutOfOfficeData._(
-            id: BuiltValueNullFieldError.checkNotNull(id, r'OutOfOfficeData', 'id'),
-            firstDay: BuiltValueNullFieldError.checkNotNull(firstDay, r'OutOfOfficeData', 'firstDay'),
-            lastDay: BuiltValueNullFieldError.checkNotNull(lastDay, r'OutOfOfficeData', 'lastDay'),
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OutOfOfficeData', 'status'),
-            userId: BuiltValueNullFieldError.checkNotNull(userId, r'OutOfOfficeData', 'userId'),
-            message: BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeData', 'message'),
-            replacementUserId: replacementUserId,
-            replacementUserDisplayName: replacementUserDisplayName);
+          id: BuiltValueNullFieldError.checkNotNull(id, r'OutOfOfficeData', 'id'),
+          firstDay: BuiltValueNullFieldError.checkNotNull(firstDay, r'OutOfOfficeData', 'firstDay'),
+          lastDay: BuiltValueNullFieldError.checkNotNull(lastDay, r'OutOfOfficeData', 'lastDay'),
+          status: BuiltValueNullFieldError.checkNotNull(status, r'OutOfOfficeData', 'status'),
+          userId: BuiltValueNullFieldError.checkNotNull(userId, r'OutOfOfficeData', 'userId'),
+          message: BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeData', 'message'),
+          replacementUserId: replacementUserId,
+          replacementUserDisplayName: replacementUserDisplayName,
+        );
     replace(_$result);
     return _$result;
   }
@@ -2761,8 +2779,11 @@ class OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder
     OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs._validate(this);
     _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2873,7 +2894,10 @@ class OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder
     OutOfOfficeGetOutOfOfficeResponseApplicationJson._validate(this);
     _$OutOfOfficeGetOutOfOfficeResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$OutOfOfficeGetOutOfOfficeResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$OutOfOfficeGetOutOfOfficeResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3059,16 +3083,17 @@ class OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder
     OutOfOfficeSetOutOfOfficeRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$OutOfOfficeSetOutOfOfficeRequestApplicationJson._(
-            firstDay: BuiltValueNullFieldError.checkNotNull(
-                firstDay, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'firstDay'),
-            lastDay: BuiltValueNullFieldError.checkNotNull(
-                lastDay, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'lastDay'),
-            status: BuiltValueNullFieldError.checkNotNull(
-                status, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'status'),
-            message: BuiltValueNullFieldError.checkNotNull(
-                message, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'message'),
-            replacementUserId: replacementUserId,
-            replacementUserDisplayName: replacementUserDisplayName);
+          firstDay: BuiltValueNullFieldError.checkNotNull(
+              firstDay, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'firstDay'),
+          lastDay: BuiltValueNullFieldError.checkNotNull(
+              lastDay, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'lastDay'),
+          status: BuiltValueNullFieldError.checkNotNull(
+              status, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'status'),
+          message: BuiltValueNullFieldError.checkNotNull(
+              message, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'message'),
+          replacementUserId: replacementUserId,
+          replacementUserDisplayName: replacementUserDisplayName,
+        );
     replace(_$result);
     return _$result;
   }
@@ -3180,8 +3205,11 @@ class OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder
     OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs._validate(this);
     _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3292,7 +3320,10 @@ class OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder
     OutOfOfficeSetOutOfOfficeResponseApplicationJson._validate(this);
     _$OutOfOfficeSetOutOfOfficeResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$OutOfOfficeSetOutOfOfficeResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$OutOfOfficeSetOutOfOfficeResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3414,7 +3445,11 @@ class OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder
     OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs._validate(this);
     _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs._(meta: meta.build(), data: data);
+      _$result = _$v ??
+          _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3523,7 +3558,10 @@ class OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder
     OutOfOfficeClearOutOfOfficeResponseApplicationJson._validate(this);
     _$OutOfOfficeClearOutOfOfficeResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$OutOfOfficeClearOutOfOfficeResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$OutOfOfficeClearOutOfOfficeResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3679,11 +3717,12 @@ class UpcomingEventBuilder implements Builder<UpcomingEvent, UpcomingEventBuilde
     UpcomingEvent._validate(this);
     final _$result = _$v ??
         _$UpcomingEvent._(
-            uri: BuiltValueNullFieldError.checkNotNull(uri, r'UpcomingEvent', 'uri'),
-            calendarUri: BuiltValueNullFieldError.checkNotNull(calendarUri, r'UpcomingEvent', 'calendarUri'),
-            start: start,
-            summary: summary,
-            location: location);
+          uri: BuiltValueNullFieldError.checkNotNull(uri, r'UpcomingEvent', 'uri'),
+          calendarUri: BuiltValueNullFieldError.checkNotNull(calendarUri, r'UpcomingEvent', 'calendarUri'),
+          start: start,
+          summary: summary,
+          location: location,
+        );
     replace(_$result);
     return _$result;
   }
@@ -3782,7 +3821,10 @@ class UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder
     UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data._validate(this);
     _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data._(events: events.build());
+      _$result = _$v ??
+          _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data._(
+            events: events.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3905,7 +3947,11 @@ class UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder
     UpcomingEventsGetEventsResponseApplicationJson_Ocs._validate(this);
     _$UpcomingEventsGetEventsResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$UpcomingEventsGetEventsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$UpcomingEventsGetEventsResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4014,7 +4060,10 @@ class UpcomingEventsGetEventsResponseApplicationJsonBuilder
     UpcomingEventsGetEventsResponseApplicationJson._validate(this);
     _$UpcomingEventsGetEventsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UpcomingEventsGetEventsResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UpcomingEventsGetEventsResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4128,8 +4177,9 @@ class Capabilities_DavBuilder
     Capabilities_Dav._validate(this);
     final _$result = _$v ??
         _$Capabilities_Dav._(
-            chunking: BuiltValueNullFieldError.checkNotNull(chunking, r'Capabilities_Dav', 'chunking'),
-            bulkupload: bulkupload);
+          chunking: BuiltValueNullFieldError.checkNotNull(chunking, r'Capabilities_Dav', 'chunking'),
+          bulkupload: bulkupload,
+        );
     replace(_$result);
     return _$result;
   }
@@ -4217,7 +4267,10 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     Capabilities._validate(this);
     _$Capabilities _$result;
     try {
-      _$result = _$v ?? _$Capabilities._(dav: dav.build());
+      _$result = _$v ??
+          _$Capabilities._(
+            dav: dav.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

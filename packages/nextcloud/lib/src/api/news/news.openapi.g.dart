@@ -941,7 +941,10 @@ class SupportedAPIVersionsBuilder
     SupportedAPIVersions._validate(this);
     _$SupportedAPIVersions _$result;
     try {
-      _$result = _$v ?? _$SupportedAPIVersions._(apiLevels: _apiLevels?.build());
+      _$result = _$v ??
+          _$SupportedAPIVersions._(
+            apiLevels: _apiLevels?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1321,26 +1324,27 @@ class ArticleBuilder implements Builder<Article, ArticleBuilder>, $ArticleInterf
     Article._validate(this);
     final _$result = _$v ??
         _$Article._(
-            id: BuiltValueNullFieldError.checkNotNull(id, r'Article', 'id'),
-            guid: BuiltValueNullFieldError.checkNotNull(guid, r'Article', 'guid'),
-            guidHash: BuiltValueNullFieldError.checkNotNull(guidHash, r'Article', 'guidHash'),
-            url: url,
-            title: BuiltValueNullFieldError.checkNotNull(title, r'Article', 'title'),
-            author: author,
-            pubDate: BuiltValueNullFieldError.checkNotNull(pubDate, r'Article', 'pubDate'),
-            updatedDate: updatedDate,
-            body: BuiltValueNullFieldError.checkNotNull(body, r'Article', 'body'),
-            enclosureMime: enclosureMime,
-            enclosureLink: enclosureLink,
-            mediaThumbnail: mediaThumbnail,
-            mediaDescription: mediaDescription,
-            feedId: BuiltValueNullFieldError.checkNotNull(feedId, r'Article', 'feedId'),
-            unread: BuiltValueNullFieldError.checkNotNull(unread, r'Article', 'unread'),
-            starred: BuiltValueNullFieldError.checkNotNull(starred, r'Article', 'starred'),
-            lastModified: BuiltValueNullFieldError.checkNotNull(lastModified, r'Article', 'lastModified'),
-            rtl: BuiltValueNullFieldError.checkNotNull(rtl, r'Article', 'rtl'),
-            fingerprint: BuiltValueNullFieldError.checkNotNull(fingerprint, r'Article', 'fingerprint'),
-            contentHash: BuiltValueNullFieldError.checkNotNull(contentHash, r'Article', 'contentHash'));
+          id: BuiltValueNullFieldError.checkNotNull(id, r'Article', 'id'),
+          guid: BuiltValueNullFieldError.checkNotNull(guid, r'Article', 'guid'),
+          guidHash: BuiltValueNullFieldError.checkNotNull(guidHash, r'Article', 'guidHash'),
+          url: url,
+          title: BuiltValueNullFieldError.checkNotNull(title, r'Article', 'title'),
+          author: author,
+          pubDate: BuiltValueNullFieldError.checkNotNull(pubDate, r'Article', 'pubDate'),
+          updatedDate: updatedDate,
+          body: BuiltValueNullFieldError.checkNotNull(body, r'Article', 'body'),
+          enclosureMime: enclosureMime,
+          enclosureLink: enclosureLink,
+          mediaThumbnail: mediaThumbnail,
+          mediaDescription: mediaDescription,
+          feedId: BuiltValueNullFieldError.checkNotNull(feedId, r'Article', 'feedId'),
+          unread: BuiltValueNullFieldError.checkNotNull(unread, r'Article', 'unread'),
+          starred: BuiltValueNullFieldError.checkNotNull(starred, r'Article', 'starred'),
+          lastModified: BuiltValueNullFieldError.checkNotNull(lastModified, r'Article', 'lastModified'),
+          rtl: BuiltValueNullFieldError.checkNotNull(rtl, r'Article', 'rtl'),
+          fingerprint: BuiltValueNullFieldError.checkNotNull(fingerprint, r'Article', 'fingerprint'),
+          contentHash: BuiltValueNullFieldError.checkNotNull(contentHash, r'Article', 'contentHash'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1609,19 +1613,20 @@ class FeedBuilder implements Builder<Feed, FeedBuilder>, $FeedInterfaceBuilder {
     try {
       _$result = _$v ??
           _$Feed._(
-              id: BuiltValueNullFieldError.checkNotNull(id, r'Feed', 'id'),
-              url: BuiltValueNullFieldError.checkNotNull(url, r'Feed', 'url'),
-              title: BuiltValueNullFieldError.checkNotNull(title, r'Feed', 'title'),
-              faviconLink: faviconLink,
-              added: BuiltValueNullFieldError.checkNotNull(added, r'Feed', 'added'),
-              folderId: folderId,
-              unreadCount: unreadCount,
-              ordering: BuiltValueNullFieldError.checkNotNull(ordering, r'Feed', 'ordering'),
-              link: link,
-              pinned: BuiltValueNullFieldError.checkNotNull(pinned, r'Feed', 'pinned'),
-              updateErrorCount: BuiltValueNullFieldError.checkNotNull(updateErrorCount, r'Feed', 'updateErrorCount'),
-              lastUpdateError: lastUpdateError,
-              items: items.build());
+            id: BuiltValueNullFieldError.checkNotNull(id, r'Feed', 'id'),
+            url: BuiltValueNullFieldError.checkNotNull(url, r'Feed', 'url'),
+            title: BuiltValueNullFieldError.checkNotNull(title, r'Feed', 'title'),
+            faviconLink: faviconLink,
+            added: BuiltValueNullFieldError.checkNotNull(added, r'Feed', 'added'),
+            folderId: folderId,
+            unreadCount: unreadCount,
+            ordering: BuiltValueNullFieldError.checkNotNull(ordering, r'Feed', 'ordering'),
+            link: link,
+            pinned: BuiltValueNullFieldError.checkNotNull(pinned, r'Feed', 'pinned'),
+            updateErrorCount: BuiltValueNullFieldError.checkNotNull(updateErrorCount, r'Feed', 'updateErrorCount'),
+            lastUpdateError: lastUpdateError,
+            items: items.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1747,7 +1752,12 @@ class ListFeedsBuilder implements Builder<ListFeeds, ListFeedsBuilder>, $ListFee
     ListFeeds._validate(this);
     _$ListFeeds _$result;
     try {
-      _$result = _$v ?? _$ListFeeds._(starredCount: starredCount, newestItemId: newestItemId, feeds: feeds.build());
+      _$result = _$v ??
+          _$ListFeeds._(
+            starredCount: starredCount,
+            newestItemId: newestItemId,
+            feeds: feeds.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1887,10 +1897,11 @@ class FolderBuilder implements Builder<Folder, FolderBuilder>, $FolderInterfaceB
     try {
       _$result = _$v ??
           _$Folder._(
-              id: BuiltValueNullFieldError.checkNotNull(id, r'Folder', 'id'),
-              name: BuiltValueNullFieldError.checkNotNull(name, r'Folder', 'name'),
-              opened: BuiltValueNullFieldError.checkNotNull(opened, r'Folder', 'opened'),
-              feeds: feeds.build());
+            id: BuiltValueNullFieldError.checkNotNull(id, r'Folder', 'id'),
+            name: BuiltValueNullFieldError.checkNotNull(name, r'Folder', 'name'),
+            opened: BuiltValueNullFieldError.checkNotNull(opened, r'Folder', 'opened'),
+            feeds: feeds.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1988,7 +1999,10 @@ class ListFoldersBuilder implements Builder<ListFolders, ListFoldersBuilder>, $L
     ListFolders._validate(this);
     _$ListFolders _$result;
     try {
-      _$result = _$v ?? _$ListFolders._(folders: folders.build());
+      _$result = _$v ??
+          _$ListFolders._(
+            folders: folders.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2086,7 +2100,10 @@ class ListArticlesBuilder implements Builder<ListArticles, ListArticlesBuilder>,
     ListArticles._validate(this);
     _$ListArticles _$result;
     try {
-      _$result = _$v ?? _$ListArticles._(items: items.build());
+      _$result = _$v ??
+          _$ListArticles._(
+            items: items.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2192,7 +2209,10 @@ class ReadMultipleArticlesRequestApplicationJsonBuilder
     ReadMultipleArticlesRequestApplicationJson._validate(this);
     _$ReadMultipleArticlesRequestApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ReadMultipleArticlesRequestApplicationJson._(itemIds: itemIds.build());
+      _$result = _$v ??
+          _$ReadMultipleArticlesRequestApplicationJson._(
+            itemIds: itemIds.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2298,7 +2318,10 @@ class UnreadMultipleArticlesRequestApplicationJsonBuilder
     UnreadMultipleArticlesRequestApplicationJson._validate(this);
     _$UnreadMultipleArticlesRequestApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UnreadMultipleArticlesRequestApplicationJson._(itemIds: itemIds.build());
+      _$result = _$v ??
+          _$UnreadMultipleArticlesRequestApplicationJson._(
+            itemIds: itemIds.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2404,7 +2427,10 @@ class StarMultipleArticlesRequestApplicationJsonBuilder
     StarMultipleArticlesRequestApplicationJson._validate(this);
     _$StarMultipleArticlesRequestApplicationJson _$result;
     try {
-      _$result = _$v ?? _$StarMultipleArticlesRequestApplicationJson._(itemIds: itemIds.build());
+      _$result = _$v ??
+          _$StarMultipleArticlesRequestApplicationJson._(
+            itemIds: itemIds.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2510,7 +2536,10 @@ class UnstarMultipleArticlesRequestApplicationJsonBuilder
     UnstarMultipleArticlesRequestApplicationJson._validate(this);
     _$UnstarMultipleArticlesRequestApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UnstarMultipleArticlesRequestApplicationJson._(itemIds: itemIds.build());
+      _$result = _$v ??
+          _$UnstarMultipleArticlesRequestApplicationJson._(
+            itemIds: itemIds.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2664,11 +2693,12 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
     OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
-            message: message,
-            totalitems: totalitems,
-            itemsperpage: itemsperpage);
+          status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+          statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+          message: message,
+          totalitems: totalitems,
+          itemsperpage: itemsperpage,
+        );
     replace(_$result);
     return _$result;
   }
@@ -2771,7 +2801,11 @@ class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>,
     EmptyOCS_Ocs._validate(this);
     _$EmptyOCS_Ocs _$result;
     try {
-      _$result = _$v ?? _$EmptyOCS_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$EmptyOCS_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2870,7 +2904,10 @@ class EmptyOCSBuilder implements Builder<EmptyOCS, EmptyOCSBuilder>, $EmptyOCSIn
     EmptyOCS._validate(this);
     _$EmptyOCS _$result;
     try {
-      _$result = _$v ?? _$EmptyOCS._(ocs: ocs.build());
+      _$result = _$v ??
+          _$EmptyOCS._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

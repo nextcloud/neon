@@ -6018,11 +6018,12 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
     OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
-            message: message,
-            totalitems: totalitems,
-            itemsperpage: itemsperpage);
+          status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+          statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+          message: message,
+          totalitems: totalitems,
+          itemsperpage: itemsperpage,
+        );
     replace(_$result);
     return _$result;
   }
@@ -6119,7 +6120,10 @@ class AppConfigGetAppsResponseApplicationJson_Ocs_DataBuilder
     AppConfigGetAppsResponseApplicationJson_Ocs_Data._validate(this);
     _$AppConfigGetAppsResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$AppConfigGetAppsResponseApplicationJson_Ocs_Data._(data: data.build());
+      _$result = _$v ??
+          _$AppConfigGetAppsResponseApplicationJson_Ocs_Data._(
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -6241,7 +6245,11 @@ class AppConfigGetAppsResponseApplicationJson_OcsBuilder
     AppConfigGetAppsResponseApplicationJson_Ocs._validate(this);
     _$AppConfigGetAppsResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$AppConfigGetAppsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$AppConfigGetAppsResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -6349,7 +6357,10 @@ class AppConfigGetAppsResponseApplicationJsonBuilder
     AppConfigGetAppsResponseApplicationJson._validate(this);
     _$AppConfigGetAppsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$AppConfigGetAppsResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$AppConfigGetAppsResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -6456,7 +6467,10 @@ class AppConfigGetKeysResponseApplicationJson_Ocs_DataBuilder
     AppConfigGetKeysResponseApplicationJson_Ocs_Data._validate(this);
     _$AppConfigGetKeysResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$AppConfigGetKeysResponseApplicationJson_Ocs_Data._(data: data.build());
+      _$result = _$v ??
+          _$AppConfigGetKeysResponseApplicationJson_Ocs_Data._(
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -6578,7 +6592,11 @@ class AppConfigGetKeysResponseApplicationJson_OcsBuilder
     AppConfigGetKeysResponseApplicationJson_Ocs._validate(this);
     _$AppConfigGetKeysResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$AppConfigGetKeysResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$AppConfigGetKeysResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -6686,7 +6704,10 @@ class AppConfigGetKeysResponseApplicationJsonBuilder
     AppConfigGetKeysResponseApplicationJson._validate(this);
     _$AppConfigGetKeysResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$AppConfigGetKeysResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$AppConfigGetKeysResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -6791,7 +6812,8 @@ class AppConfigSetValueRequestApplicationJsonBuilder
     AppConfigSetValueRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$AppConfigSetValueRequestApplicationJson._(
-            value: BuiltValueNullFieldError.checkNotNull(value, r'AppConfigSetValueRequestApplicationJson', 'value'));
+          value: BuiltValueNullFieldError.checkNotNull(value, r'AppConfigSetValueRequestApplicationJson', 'value'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -6903,9 +6925,9 @@ class AppConfigSetValueResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$AppConfigSetValueResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data:
-                  BuiltValueNullFieldError.checkNotNull(data, r'AppConfigSetValueResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(data, r'AppConfigSetValueResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -7011,7 +7033,10 @@ class AppConfigSetValueResponseApplicationJsonBuilder
     AppConfigSetValueResponseApplicationJson._validate(this);
     _$AppConfigSetValueResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$AppConfigSetValueResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$AppConfigSetValueResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -7116,7 +7141,10 @@ class AppsGetAppsResponseApplicationJson_Ocs_DataBuilder
     AppsGetAppsResponseApplicationJson_Ocs_Data._validate(this);
     _$AppsGetAppsResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$AppsGetAppsResponseApplicationJson_Ocs_Data._(apps: apps.build());
+      _$result = _$v ??
+          _$AppsGetAppsResponseApplicationJson_Ocs_Data._(
+            apps: apps.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -7237,7 +7265,11 @@ class AppsGetAppsResponseApplicationJson_OcsBuilder
     AppsGetAppsResponseApplicationJson_Ocs._validate(this);
     _$AppsGetAppsResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$AppsGetAppsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$AppsGetAppsResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -7342,7 +7374,10 @@ class AppsGetAppsResponseApplicationJsonBuilder
     AppsGetAppsResponseApplicationJson._validate(this);
     _$AppsGetAppsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$AppsGetAppsResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$AppsGetAppsResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -7462,7 +7497,11 @@ class AppsGetAppInfoResponseApplicationJson_OcsBuilder
     AppsGetAppInfoResponseApplicationJson_Ocs._validate(this);
     _$AppsGetAppInfoResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$AppsGetAppInfoResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$AppsGetAppInfoResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -7569,7 +7608,10 @@ class AppsGetAppInfoResponseApplicationJsonBuilder
     AppsGetAppInfoResponseApplicationJson._validate(this);
     _$AppsGetAppInfoResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$AppsGetAppInfoResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$AppsGetAppInfoResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -7690,8 +7732,9 @@ class AppsEnableResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$AppsEnableResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(data, r'AppsEnableResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(data, r'AppsEnableResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -7794,7 +7837,10 @@ class AppsEnableResponseApplicationJsonBuilder
     AppsEnableResponseApplicationJson._validate(this);
     _$AppsEnableResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$AppsEnableResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$AppsEnableResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -7916,8 +7962,9 @@ class AppsDisableResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$AppsDisableResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(data, r'AppsDisableResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(data, r'AppsDisableResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -8020,7 +8067,10 @@ class AppsDisableResponseApplicationJsonBuilder
     AppsDisableResponseApplicationJson._validate(this);
     _$AppsDisableResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$AppsDisableResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$AppsDisableResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -8142,8 +8192,11 @@ class GroupsGetSubAdminsOfGroupResponseApplicationJson_OcsBuilder
     GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs._validate(this);
     _$GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -8254,7 +8307,10 @@ class GroupsGetSubAdminsOfGroupResponseApplicationJsonBuilder
     GroupsGetSubAdminsOfGroupResponseApplicationJson._validate(this);
     _$GroupsGetSubAdminsOfGroupResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$GroupsGetSubAdminsOfGroupResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$GroupsGetSubAdminsOfGroupResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -8362,7 +8418,10 @@ class GroupsGetGroupsResponseApplicationJson_Ocs_DataBuilder
     GroupsGetGroupsResponseApplicationJson_Ocs_Data._validate(this);
     _$GroupsGetGroupsResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$GroupsGetGroupsResponseApplicationJson_Ocs_Data._(groups: groups.build());
+      _$result = _$v ??
+          _$GroupsGetGroupsResponseApplicationJson_Ocs_Data._(
+            groups: groups.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -8484,7 +8543,11 @@ class GroupsGetGroupsResponseApplicationJson_OcsBuilder
     GroupsGetGroupsResponseApplicationJson_Ocs._validate(this);
     _$GroupsGetGroupsResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$GroupsGetGroupsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$GroupsGetGroupsResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -8592,7 +8655,10 @@ class GroupsGetGroupsResponseApplicationJsonBuilder
     GroupsGetGroupsResponseApplicationJson._validate(this);
     _$GroupsGetGroupsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$GroupsGetGroupsResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$GroupsGetGroupsResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -8698,7 +8764,10 @@ class GroupsGetGroupResponseApplicationJson_Ocs_DataBuilder
     GroupsGetGroupResponseApplicationJson_Ocs_Data._validate(this);
     _$GroupsGetGroupResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$GroupsGetGroupResponseApplicationJson_Ocs_Data._(users: users.build());
+      _$result = _$v ??
+          _$GroupsGetGroupResponseApplicationJson_Ocs_Data._(
+            users: users.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -8820,7 +8889,11 @@ class GroupsGetGroupResponseApplicationJson_OcsBuilder
     GroupsGetGroupResponseApplicationJson_Ocs._validate(this);
     _$GroupsGetGroupResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$GroupsGetGroupResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$GroupsGetGroupResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -8927,7 +9000,10 @@ class GroupsGetGroupResponseApplicationJsonBuilder
     GroupsGetGroupResponseApplicationJson._validate(this);
     _$GroupsGetGroupResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$GroupsGetGroupResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$GroupsGetGroupResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -9106,12 +9182,13 @@ class GroupDetailsBuilder implements Builder<GroupDetails, GroupDetailsBuilder>,
     GroupDetails._validate(this);
     final _$result = _$v ??
         _$GroupDetails._(
-            id: BuiltValueNullFieldError.checkNotNull(id, r'GroupDetails', 'id'),
-            displayname: BuiltValueNullFieldError.checkNotNull(displayname, r'GroupDetails', 'displayname'),
-            usercount: BuiltValueNullFieldError.checkNotNull(usercount, r'GroupDetails', 'usercount'),
-            disabled: BuiltValueNullFieldError.checkNotNull(disabled, r'GroupDetails', 'disabled'),
-            canAdd: BuiltValueNullFieldError.checkNotNull(canAdd, r'GroupDetails', 'canAdd'),
-            canRemove: BuiltValueNullFieldError.checkNotNull(canRemove, r'GroupDetails', 'canRemove'));
+          id: BuiltValueNullFieldError.checkNotNull(id, r'GroupDetails', 'id'),
+          displayname: BuiltValueNullFieldError.checkNotNull(displayname, r'GroupDetails', 'displayname'),
+          usercount: BuiltValueNullFieldError.checkNotNull(usercount, r'GroupDetails', 'usercount'),
+          disabled: BuiltValueNullFieldError.checkNotNull(disabled, r'GroupDetails', 'disabled'),
+          canAdd: BuiltValueNullFieldError.checkNotNull(canAdd, r'GroupDetails', 'canAdd'),
+          canRemove: BuiltValueNullFieldError.checkNotNull(canRemove, r'GroupDetails', 'canRemove'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -9210,7 +9287,10 @@ class GroupsGetGroupsDetailsResponseApplicationJson_Ocs_DataBuilder
     GroupsGetGroupsDetailsResponseApplicationJson_Ocs_Data._validate(this);
     _$GroupsGetGroupsDetailsResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$GroupsGetGroupsDetailsResponseApplicationJson_Ocs_Data._(groups: groups.build());
+      _$result = _$v ??
+          _$GroupsGetGroupsDetailsResponseApplicationJson_Ocs_Data._(
+            groups: groups.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -9333,7 +9413,11 @@ class GroupsGetGroupsDetailsResponseApplicationJson_OcsBuilder
     GroupsGetGroupsDetailsResponseApplicationJson_Ocs._validate(this);
     _$GroupsGetGroupsDetailsResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$GroupsGetGroupsDetailsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$GroupsGetGroupsDetailsResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -9442,7 +9526,10 @@ class GroupsGetGroupsDetailsResponseApplicationJsonBuilder
     GroupsGetGroupsDetailsResponseApplicationJson._validate(this);
     _$GroupsGetGroupsDetailsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$GroupsGetGroupsDetailsResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$GroupsGetGroupsDetailsResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -9550,7 +9637,10 @@ class GroupsGetGroupUsersResponseApplicationJson_Ocs_DataBuilder
     GroupsGetGroupUsersResponseApplicationJson_Ocs_Data._validate(this);
     _$GroupsGetGroupUsersResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$GroupsGetGroupUsersResponseApplicationJson_Ocs_Data._(users: users.build());
+      _$result = _$v ??
+          _$GroupsGetGroupUsersResponseApplicationJson_Ocs_Data._(
+            users: users.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -9672,7 +9762,11 @@ class GroupsGetGroupUsersResponseApplicationJson_OcsBuilder
     GroupsGetGroupUsersResponseApplicationJson_Ocs._validate(this);
     _$GroupsGetGroupUsersResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$GroupsGetGroupUsersResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$GroupsGetGroupUsersResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -9781,7 +9875,10 @@ class GroupsGetGroupUsersResponseApplicationJsonBuilder
     GroupsGetGroupUsersResponseApplicationJson._validate(this);
     _$GroupsGetGroupUsersResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$GroupsGetGroupUsersResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$GroupsGetGroupUsersResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -9900,10 +9997,11 @@ class UserDetails_BackendCapabilitiesBuilder
     UserDetails_BackendCapabilities._validate(this);
     final _$result = _$v ??
         _$UserDetails_BackendCapabilities._(
-            setDisplayName: BuiltValueNullFieldError.checkNotNull(
-                setDisplayName, r'UserDetails_BackendCapabilities', 'setDisplayName'),
-            setPassword:
-                BuiltValueNullFieldError.checkNotNull(setPassword, r'UserDetails_BackendCapabilities', 'setPassword'));
+          setDisplayName: BuiltValueNullFieldError.checkNotNull(
+              setDisplayName, r'UserDetails_BackendCapabilities', 'setDisplayName'),
+          setPassword:
+              BuiltValueNullFieldError.checkNotNull(setPassword, r'UserDetails_BackendCapabilities', 'setPassword'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -10053,11 +10151,12 @@ class UserDetailsQuotaBuilder
     UserDetailsQuota._validate(this);
     final _$result = _$v ??
         _$UserDetailsQuota._(
-            free: BuiltValueNullFieldError.checkNotNull(free, r'UserDetailsQuota', 'free'),
-            quota: quota,
-            relative: BuiltValueNullFieldError.checkNotNull(relative, r'UserDetailsQuota', 'relative'),
-            total: BuiltValueNullFieldError.checkNotNull(total, r'UserDetailsQuota', 'total'),
-            used: BuiltValueNullFieldError.checkNotNull(used, r'UserDetailsQuota', 'used'));
+          free: BuiltValueNullFieldError.checkNotNull(free, r'UserDetailsQuota', 'free'),
+          quota: quota,
+          relative: BuiltValueNullFieldError.checkNotNull(relative, r'UserDetailsQuota', 'relative'),
+          total: BuiltValueNullFieldError.checkNotNull(total, r'UserDetailsQuota', 'total'),
+          used: BuiltValueNullFieldError.checkNotNull(used, r'UserDetailsQuota', 'used'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -10739,47 +10838,48 @@ class UserDetailsBuilder implements Builder<UserDetails, UserDetailsBuilder>, $U
     try {
       _$result = _$v ??
           _$UserDetails._(
-              additionalMail: additionalMail.build(),
-              additionalMailScope: _additionalMailScope?.build(),
-              address: BuiltValueNullFieldError.checkNotNull(address, r'UserDetails', 'address'),
-              addressScope: addressScope,
-              avatarScope: avatarScope,
-              backend: BuiltValueNullFieldError.checkNotNull(backend, r'UserDetails', 'backend'),
-              backendCapabilities: backendCapabilities.build(),
-              biography: BuiltValueNullFieldError.checkNotNull(biography, r'UserDetails', 'biography'),
-              biographyScope: biographyScope,
-              displayName: BuiltValueNullFieldError.checkNotNull(displayName, r'UserDetails', 'displayName'),
-              displayname: BuiltValueNullFieldError.checkNotNull(displayname, r'UserDetails', 'displayname'),
-              displaynameScope: displaynameScope,
-              email: email,
-              emailScope: emailScope,
-              enabled: enabled,
-              fediverse: BuiltValueNullFieldError.checkNotNull(fediverse, r'UserDetails', 'fediverse'),
-              fediverseScope: fediverseScope,
-              groups: groups.build(),
-              headline: BuiltValueNullFieldError.checkNotNull(headline, r'UserDetails', 'headline'),
-              headlineScope: headlineScope,
-              id: BuiltValueNullFieldError.checkNotNull(id, r'UserDetails', 'id'),
-              language: BuiltValueNullFieldError.checkNotNull(language, r'UserDetails', 'language'),
-              lastLogin: BuiltValueNullFieldError.checkNotNull(lastLogin, r'UserDetails', 'lastLogin'),
-              locale: BuiltValueNullFieldError.checkNotNull(locale, r'UserDetails', 'locale'),
-              manager: BuiltValueNullFieldError.checkNotNull(manager, r'UserDetails', 'manager'),
-              notifyEmail: notifyEmail,
-              organisation: BuiltValueNullFieldError.checkNotNull(organisation, r'UserDetails', 'organisation'),
-              organisationScope: organisationScope,
-              phone: BuiltValueNullFieldError.checkNotNull(phone, r'UserDetails', 'phone'),
-              phoneScope: phoneScope,
-              profileEnabled: BuiltValueNullFieldError.checkNotNull(profileEnabled, r'UserDetails', 'profileEnabled'),
-              profileEnabledScope: profileEnabledScope,
-              quota: quota.build(),
-              role: BuiltValueNullFieldError.checkNotNull(role, r'UserDetails', 'role'),
-              roleScope: roleScope,
-              storageLocation: storageLocation,
-              subadmin: subadmin.build(),
-              twitter: BuiltValueNullFieldError.checkNotNull(twitter, r'UserDetails', 'twitter'),
-              twitterScope: twitterScope,
-              website: BuiltValueNullFieldError.checkNotNull(website, r'UserDetails', 'website'),
-              websiteScope: websiteScope);
+            additionalMail: additionalMail.build(),
+            additionalMailScope: _additionalMailScope?.build(),
+            address: BuiltValueNullFieldError.checkNotNull(address, r'UserDetails', 'address'),
+            addressScope: addressScope,
+            avatarScope: avatarScope,
+            backend: BuiltValueNullFieldError.checkNotNull(backend, r'UserDetails', 'backend'),
+            backendCapabilities: backendCapabilities.build(),
+            biography: BuiltValueNullFieldError.checkNotNull(biography, r'UserDetails', 'biography'),
+            biographyScope: biographyScope,
+            displayName: BuiltValueNullFieldError.checkNotNull(displayName, r'UserDetails', 'displayName'),
+            displayname: BuiltValueNullFieldError.checkNotNull(displayname, r'UserDetails', 'displayname'),
+            displaynameScope: displaynameScope,
+            email: email,
+            emailScope: emailScope,
+            enabled: enabled,
+            fediverse: BuiltValueNullFieldError.checkNotNull(fediverse, r'UserDetails', 'fediverse'),
+            fediverseScope: fediverseScope,
+            groups: groups.build(),
+            headline: BuiltValueNullFieldError.checkNotNull(headline, r'UserDetails', 'headline'),
+            headlineScope: headlineScope,
+            id: BuiltValueNullFieldError.checkNotNull(id, r'UserDetails', 'id'),
+            language: BuiltValueNullFieldError.checkNotNull(language, r'UserDetails', 'language'),
+            lastLogin: BuiltValueNullFieldError.checkNotNull(lastLogin, r'UserDetails', 'lastLogin'),
+            locale: BuiltValueNullFieldError.checkNotNull(locale, r'UserDetails', 'locale'),
+            manager: BuiltValueNullFieldError.checkNotNull(manager, r'UserDetails', 'manager'),
+            notifyEmail: notifyEmail,
+            organisation: BuiltValueNullFieldError.checkNotNull(organisation, r'UserDetails', 'organisation'),
+            organisationScope: organisationScope,
+            phone: BuiltValueNullFieldError.checkNotNull(phone, r'UserDetails', 'phone'),
+            phoneScope: phoneScope,
+            profileEnabled: BuiltValueNullFieldError.checkNotNull(profileEnabled, r'UserDetails', 'profileEnabled'),
+            profileEnabledScope: profileEnabledScope,
+            quota: quota.build(),
+            role: BuiltValueNullFieldError.checkNotNull(role, r'UserDetails', 'role'),
+            roleScope: roleScope,
+            storageLocation: storageLocation,
+            subadmin: subadmin.build(),
+            twitter: BuiltValueNullFieldError.checkNotNull(twitter, r'UserDetails', 'twitter'),
+            twitterScope: twitterScope,
+            website: BuiltValueNullFieldError.checkNotNull(website, r'UserDetails', 'website'),
+            websiteScope: websiteScope,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -10904,8 +11004,9 @@ class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder
     GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1._validate(this);
     final _$result = _$v ??
         _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1._(
-            id: BuiltValueNullFieldError.checkNotNull(
-                id, r'GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1', 'id'));
+          id: BuiltValueNullFieldError.checkNotNull(
+              id, r'GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1', 'id'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -11008,7 +11109,10 @@ class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_DataBuilder
     GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data._validate(this);
     _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data._(users: users.build());
+      _$result = _$v ??
+          _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data._(
+            users: users.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -11132,8 +11236,11 @@ class GroupsGetGroupUsersDetailsResponseApplicationJson_OcsBuilder
     GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs._validate(this);
     _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -11244,7 +11351,10 @@ class GroupsGetGroupUsersDetailsResponseApplicationJsonBuilder
     GroupsGetGroupUsersDetailsResponseApplicationJson._validate(this);
     _$GroupsGetGroupUsersDetailsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$GroupsGetGroupUsersDetailsResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$GroupsGetGroupUsersDetailsResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -11353,8 +11463,9 @@ class PreferencesSetPreferenceRequestApplicationJsonBuilder
     PreferencesSetPreferenceRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$PreferencesSetPreferenceRequestApplicationJson._(
-            configValue: BuiltValueNullFieldError.checkNotNull(
-                configValue, r'PreferencesSetPreferenceRequestApplicationJson', 'configValue'));
+          configValue: BuiltValueNullFieldError.checkNotNull(
+              configValue, r'PreferencesSetPreferenceRequestApplicationJson', 'configValue'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -11468,9 +11579,10 @@ class PreferencesSetPreferenceResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$PreferencesSetPreferenceResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'PreferencesSetPreferenceResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(
+                data, r'PreferencesSetPreferenceResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -11579,7 +11691,10 @@ class PreferencesSetPreferenceResponseApplicationJsonBuilder
     PreferencesSetPreferenceResponseApplicationJson._validate(this);
     _$PreferencesSetPreferenceResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$PreferencesSetPreferenceResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$PreferencesSetPreferenceResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -11704,9 +11819,10 @@ class PreferencesDeletePreferenceResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$PreferencesDeletePreferenceResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'PreferencesDeletePreferenceResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(
+                data, r'PreferencesDeletePreferenceResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -11815,7 +11931,10 @@ class PreferencesDeletePreferenceResponseApplicationJsonBuilder
     PreferencesDeletePreferenceResponseApplicationJson._validate(this);
     _$PreferencesDeletePreferenceResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$PreferencesDeletePreferenceResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$PreferencesDeletePreferenceResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -11926,7 +12045,10 @@ class PreferencesSetMultiplePreferencesRequestApplicationJsonBuilder
     PreferencesSetMultiplePreferencesRequestApplicationJson._validate(this);
     _$PreferencesSetMultiplePreferencesRequestApplicationJson _$result;
     try {
-      _$result = _$v ?? _$PreferencesSetMultiplePreferencesRequestApplicationJson._(configs: configs.build());
+      _$result = _$v ??
+          _$PreferencesSetMultiplePreferencesRequestApplicationJson._(
+            configs: configs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -12056,9 +12178,10 @@ class PreferencesSetMultiplePreferencesResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$PreferencesSetMultiplePreferencesResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'PreferencesSetMultiplePreferencesResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(
+                data, r'PreferencesSetMultiplePreferencesResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -12168,7 +12291,10 @@ class PreferencesSetMultiplePreferencesResponseApplicationJsonBuilder
     PreferencesSetMultiplePreferencesResponseApplicationJson._validate(this);
     _$PreferencesSetMultiplePreferencesResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$PreferencesSetMultiplePreferencesResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$PreferencesSetMultiplePreferencesResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -12298,9 +12424,10 @@ class PreferencesDeleteMultiplePreferenceResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(
+                data, r'PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -12410,7 +12537,10 @@ class PreferencesDeleteMultiplePreferenceResponseApplicationJsonBuilder
     PreferencesDeleteMultiplePreferenceResponseApplicationJson._validate(this);
     _$PreferencesDeleteMultiplePreferenceResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$PreferencesDeleteMultiplePreferenceResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$PreferencesDeleteMultiplePreferenceResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -12521,8 +12651,9 @@ class UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1Builder
     UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1._validate(this);
     final _$result = _$v ??
         _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1._(
-            id: BuiltValueNullFieldError.checkNotNull(
-                id, r'UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1', 'id'));
+          id: BuiltValueNullFieldError.checkNotNull(
+              id, r'UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data_Users1', 'id'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -12624,7 +12755,10 @@ class UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_DataBuilder
     UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data._validate(this);
     _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data._(users: users.build());
+      _$result = _$v ??
+          _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs_Data._(
+            users: users.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -12748,8 +12882,11 @@ class UsersGetLastLoggedInUsersResponseApplicationJson_OcsBuilder
     UsersGetLastLoggedInUsersResponseApplicationJson_Ocs._validate(this);
     _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$UsersGetLastLoggedInUsersResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -12860,7 +12997,10 @@ class UsersGetLastLoggedInUsersResponseApplicationJsonBuilder
     UsersGetLastLoggedInUsersResponseApplicationJson._validate(this);
     _$UsersGetLastLoggedInUsersResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UsersGetLastLoggedInUsersResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UsersGetLastLoggedInUsersResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -12983,8 +13123,11 @@ class UsersGetUserSubAdminGroupsResponseApplicationJson_OcsBuilder
     UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs._validate(this);
     _$UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -13095,7 +13238,10 @@ class UsersGetUserSubAdminGroupsResponseApplicationJsonBuilder
     UsersGetUserSubAdminGroupsResponseApplicationJson._validate(this);
     _$UsersGetUserSubAdminGroupsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UsersGetUserSubAdminGroupsResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UsersGetUserSubAdminGroupsResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -13201,8 +13347,8 @@ class UsersAddSubAdminRequestApplicationJsonBuilder
     UsersAddSubAdminRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$UsersAddSubAdminRequestApplicationJson._(
-            groupid:
-                BuiltValueNullFieldError.checkNotNull(groupid, r'UsersAddSubAdminRequestApplicationJson', 'groupid'));
+          groupid: BuiltValueNullFieldError.checkNotNull(groupid, r'UsersAddSubAdminRequestApplicationJson', 'groupid'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -13314,9 +13460,9 @@ class UsersAddSubAdminResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$UsersAddSubAdminResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data:
-                  BuiltValueNullFieldError.checkNotNull(data, r'UsersAddSubAdminResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(data, r'UsersAddSubAdminResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -13422,7 +13568,10 @@ class UsersAddSubAdminResponseApplicationJsonBuilder
     UsersAddSubAdminResponseApplicationJson._validate(this);
     _$UsersAddSubAdminResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UsersAddSubAdminResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UsersAddSubAdminResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -13544,9 +13693,10 @@ class UsersRemoveSubAdminResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$UsersRemoveSubAdminResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'UsersRemoveSubAdminResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data:
+                BuiltValueNullFieldError.checkNotNull(data, r'UsersRemoveSubAdminResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -13653,7 +13803,10 @@ class UsersRemoveSubAdminResponseApplicationJsonBuilder
     UsersRemoveSubAdminResponseApplicationJson._validate(this);
     _$UsersRemoveSubAdminResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UsersRemoveSubAdminResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UsersRemoveSubAdminResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -13759,7 +13912,10 @@ class UsersGetUsersResponseApplicationJson_Ocs_DataBuilder
     UsersGetUsersResponseApplicationJson_Ocs_Data._validate(this);
     _$UsersGetUsersResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$UsersGetUsersResponseApplicationJson_Ocs_Data._(users: users.build());
+      _$result = _$v ??
+          _$UsersGetUsersResponseApplicationJson_Ocs_Data._(
+            users: users.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -13880,7 +14036,11 @@ class UsersGetUsersResponseApplicationJson_OcsBuilder
     UsersGetUsersResponseApplicationJson_Ocs._validate(this);
     _$UsersGetUsersResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$UsersGetUsersResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$UsersGetUsersResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -13987,7 +14147,10 @@ class UsersGetUsersResponseApplicationJsonBuilder
     UsersGetUsersResponseApplicationJson._validate(this);
     _$UsersGetUsersResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UsersGetUsersResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UsersGetUsersResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -14215,18 +14378,19 @@ class UsersAddUserRequestApplicationJsonBuilder
     try {
       _$result = _$v ??
           _$UsersAddUserRequestApplicationJson._(
-              userid: BuiltValueNullFieldError.checkNotNull(userid, r'UsersAddUserRequestApplicationJson', 'userid'),
-              password:
-                  BuiltValueNullFieldError.checkNotNull(password, r'UsersAddUserRequestApplicationJson', 'password'),
-              displayName: BuiltValueNullFieldError.checkNotNull(
-                  displayName, r'UsersAddUserRequestApplicationJson', 'displayName'),
-              email: BuiltValueNullFieldError.checkNotNull(email, r'UsersAddUserRequestApplicationJson', 'email'),
-              groups: groups.build(),
-              subadmin: subadmin.build(),
-              quota: BuiltValueNullFieldError.checkNotNull(quota, r'UsersAddUserRequestApplicationJson', 'quota'),
-              language:
-                  BuiltValueNullFieldError.checkNotNull(language, r'UsersAddUserRequestApplicationJson', 'language'),
-              manager: manager);
+            userid: BuiltValueNullFieldError.checkNotNull(userid, r'UsersAddUserRequestApplicationJson', 'userid'),
+            password:
+                BuiltValueNullFieldError.checkNotNull(password, r'UsersAddUserRequestApplicationJson', 'password'),
+            displayName: BuiltValueNullFieldError.checkNotNull(
+                displayName, r'UsersAddUserRequestApplicationJson', 'displayName'),
+            email: BuiltValueNullFieldError.checkNotNull(email, r'UsersAddUserRequestApplicationJson', 'email'),
+            groups: groups.build(),
+            subadmin: subadmin.build(),
+            quota: BuiltValueNullFieldError.checkNotNull(quota, r'UsersAddUserRequestApplicationJson', 'quota'),
+            language:
+                BuiltValueNullFieldError.checkNotNull(language, r'UsersAddUserRequestApplicationJson', 'language'),
+            manager: manager,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -14333,7 +14497,8 @@ class UsersAddUserResponseApplicationJson_Ocs_DataBuilder
     UsersAddUserResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$UsersAddUserResponseApplicationJson_Ocs_Data._(
-            id: BuiltValueNullFieldError.checkNotNull(id, r'UsersAddUserResponseApplicationJson_Ocs_Data', 'id'));
+          id: BuiltValueNullFieldError.checkNotNull(id, r'UsersAddUserResponseApplicationJson_Ocs_Data', 'id'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -14444,7 +14609,11 @@ class UsersAddUserResponseApplicationJson_OcsBuilder
     UsersAddUserResponseApplicationJson_Ocs._validate(this);
     _$UsersAddUserResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$UsersAddUserResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$UsersAddUserResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -14549,7 +14718,10 @@ class UsersAddUserResponseApplicationJsonBuilder
     UsersAddUserResponseApplicationJson._validate(this);
     _$UsersAddUserResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UsersAddUserResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UsersAddUserResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -14657,8 +14829,9 @@ class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder
     UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1._validate(this);
     final _$result = _$v ??
         _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1._(
-            id: BuiltValueNullFieldError.checkNotNull(
-                id, r'UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1', 'id'));
+          id: BuiltValueNullFieldError.checkNotNull(
+              id, r'UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1', 'id'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -14759,7 +14932,10 @@ class UsersGetUsersDetailsResponseApplicationJson_Ocs_DataBuilder
     UsersGetUsersDetailsResponseApplicationJson_Ocs_Data._validate(this);
     _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data._(users: users.build());
+      _$result = _$v ??
+          _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data._(
+            users: users.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -14882,7 +15058,11 @@ class UsersGetUsersDetailsResponseApplicationJson_OcsBuilder
     UsersGetUsersDetailsResponseApplicationJson_Ocs._validate(this);
     _$UsersGetUsersDetailsResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$UsersGetUsersDetailsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$UsersGetUsersDetailsResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -14991,7 +15171,10 @@ class UsersGetUsersDetailsResponseApplicationJsonBuilder
     UsersGetUsersDetailsResponseApplicationJson._validate(this);
     _$UsersGetUsersDetailsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UsersGetUsersDetailsResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UsersGetUsersDetailsResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -15102,8 +15285,9 @@ class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder
     UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1._validate(this);
     final _$result = _$v ??
         _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1._(
-            id: BuiltValueNullFieldError.checkNotNull(
-                id, r'UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1', 'id'));
+          id: BuiltValueNullFieldError.checkNotNull(
+              id, r'UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1', 'id'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -15206,7 +15390,10 @@ class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataBuilder
     UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data._validate(this);
     _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data._(users: users.build());
+      _$result = _$v ??
+          _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data._(
+            users: users.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -15330,8 +15517,11 @@ class UsersGetDisabledUsersDetailsResponseApplicationJson_OcsBuilder
     UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs._validate(this);
     _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -15443,7 +15633,10 @@ class UsersGetDisabledUsersDetailsResponseApplicationJsonBuilder
     UsersGetDisabledUsersDetailsResponseApplicationJson._validate(this);
     _$UsersGetDisabledUsersDetailsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UsersGetDisabledUsersDetailsResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UsersGetDisabledUsersDetailsResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -15569,9 +15762,10 @@ class UsersSearchByPhoneNumbersRequestApplicationJsonBuilder
     try {
       _$result = _$v ??
           _$UsersSearchByPhoneNumbersRequestApplicationJson._(
-              location: BuiltValueNullFieldError.checkNotNull(
-                  location, r'UsersSearchByPhoneNumbersRequestApplicationJson', 'location'),
-              search: search.build());
+            location: BuiltValueNullFieldError.checkNotNull(
+                location, r'UsersSearchByPhoneNumbersRequestApplicationJson', 'location'),
+            search: search.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -15694,8 +15888,11 @@ class UsersSearchByPhoneNumbersResponseApplicationJson_OcsBuilder
     UsersSearchByPhoneNumbersResponseApplicationJson_Ocs._validate(this);
     _$UsersSearchByPhoneNumbersResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$UsersSearchByPhoneNumbersResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$UsersSearchByPhoneNumbersResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -15806,7 +16003,10 @@ class UsersSearchByPhoneNumbersResponseApplicationJsonBuilder
     UsersSearchByPhoneNumbersResponseApplicationJson._validate(this);
     _$UsersSearchByPhoneNumbersResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UsersSearchByPhoneNumbersResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UsersSearchByPhoneNumbersResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -15927,7 +16127,11 @@ class UsersGetUserResponseApplicationJson_OcsBuilder
     UsersGetUserResponseApplicationJson_Ocs._validate(this);
     _$UsersGetUserResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$UsersGetUserResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$UsersGetUserResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -16032,7 +16236,10 @@ class UsersGetUserResponseApplicationJsonBuilder
     UsersGetUserResponseApplicationJson._validate(this);
     _$UsersGetUserResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UsersGetUserResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UsersGetUserResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -16149,8 +16356,9 @@ class UsersEditUserRequestApplicationJsonBuilder
     UsersEditUserRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$UsersEditUserRequestApplicationJson._(
-            key: BuiltValueNullFieldError.checkNotNull(key, r'UsersEditUserRequestApplicationJson', 'key'),
-            value: BuiltValueNullFieldError.checkNotNull(value, r'UsersEditUserRequestApplicationJson', 'value'));
+          key: BuiltValueNullFieldError.checkNotNull(key, r'UsersEditUserRequestApplicationJson', 'key'),
+          value: BuiltValueNullFieldError.checkNotNull(value, r'UsersEditUserRequestApplicationJson', 'value'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -16262,8 +16470,9 @@ class UsersEditUserResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$UsersEditUserResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(data, r'UsersEditUserResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(data, r'UsersEditUserResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -16368,7 +16577,10 @@ class UsersEditUserResponseApplicationJsonBuilder
     UsersEditUserResponseApplicationJson._validate(this);
     _$UsersEditUserResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UsersEditUserResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UsersEditUserResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -16490,8 +16702,9 @@ class UsersDeleteUserResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$UsersDeleteUserResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(data, r'UsersDeleteUserResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(data, r'UsersDeleteUserResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -16597,7 +16810,10 @@ class UsersDeleteUserResponseApplicationJsonBuilder
     UsersDeleteUserResponseApplicationJson._validate(this);
     _$UsersDeleteUserResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UsersDeleteUserResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UsersDeleteUserResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -16717,7 +16933,11 @@ class UsersGetCurrentUserResponseApplicationJson_OcsBuilder
     UsersGetCurrentUserResponseApplicationJson_Ocs._validate(this);
     _$UsersGetCurrentUserResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$UsersGetCurrentUserResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$UsersGetCurrentUserResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -16826,7 +17046,10 @@ class UsersGetCurrentUserResponseApplicationJsonBuilder
     UsersGetCurrentUserResponseApplicationJson._validate(this);
     _$UsersGetCurrentUserResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UsersGetCurrentUserResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UsersGetCurrentUserResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -16947,7 +17170,11 @@ class UsersGetEditableFieldsResponseApplicationJson_OcsBuilder
     UsersGetEditableFieldsResponseApplicationJson_Ocs._validate(this);
     _$UsersGetEditableFieldsResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$UsersGetEditableFieldsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$UsersGetEditableFieldsResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -17056,7 +17283,10 @@ class UsersGetEditableFieldsResponseApplicationJsonBuilder
     UsersGetEditableFieldsResponseApplicationJson._validate(this);
     _$UsersGetEditableFieldsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UsersGetEditableFieldsResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UsersGetEditableFieldsResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -17180,8 +17410,11 @@ class UsersGetEditableFieldsForUserResponseApplicationJson_OcsBuilder
     UsersGetEditableFieldsForUserResponseApplicationJson_Ocs._validate(this);
     _$UsersGetEditableFieldsForUserResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$UsersGetEditableFieldsForUserResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$UsersGetEditableFieldsForUserResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -17293,7 +17526,10 @@ class UsersGetEditableFieldsForUserResponseApplicationJsonBuilder
     UsersGetEditableFieldsForUserResponseApplicationJson._validate(this);
     _$UsersGetEditableFieldsForUserResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UsersGetEditableFieldsForUserResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UsersGetEditableFieldsForUserResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -17414,9 +17650,10 @@ class UsersEditUserMultiValueRequestApplicationJsonBuilder
     UsersEditUserMultiValueRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$UsersEditUserMultiValueRequestApplicationJson._(
-            key: BuiltValueNullFieldError.checkNotNull(key, r'UsersEditUserMultiValueRequestApplicationJson', 'key'),
-            value: BuiltValueNullFieldError.checkNotNull(
-                value, r'UsersEditUserMultiValueRequestApplicationJson', 'value'));
+          key: BuiltValueNullFieldError.checkNotNull(key, r'UsersEditUserMultiValueRequestApplicationJson', 'key'),
+          value:
+              BuiltValueNullFieldError.checkNotNull(value, r'UsersEditUserMultiValueRequestApplicationJson', 'value'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -17529,9 +17766,10 @@ class UsersEditUserMultiValueResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$UsersEditUserMultiValueResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'UsersEditUserMultiValueResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(
+                data, r'UsersEditUserMultiValueResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -17638,7 +17876,10 @@ class UsersEditUserMultiValueResponseApplicationJsonBuilder
     UsersEditUserMultiValueResponseApplicationJson._validate(this);
     _$UsersEditUserMultiValueResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UsersEditUserMultiValueResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UsersEditUserMultiValueResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -17762,9 +18003,10 @@ class UsersWipeUserDevicesResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$UsersWipeUserDevicesResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'UsersWipeUserDevicesResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data:
+                BuiltValueNullFieldError.checkNotNull(data, r'UsersWipeUserDevicesResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -17871,7 +18113,10 @@ class UsersWipeUserDevicesResponseApplicationJsonBuilder
     UsersWipeUserDevicesResponseApplicationJson._validate(this);
     _$UsersWipeUserDevicesResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UsersWipeUserDevicesResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UsersWipeUserDevicesResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -17993,8 +18238,9 @@ class UsersEnableUserResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$UsersEnableUserResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(data, r'UsersEnableUserResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(data, r'UsersEnableUserResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -18100,7 +18346,10 @@ class UsersEnableUserResponseApplicationJsonBuilder
     UsersEnableUserResponseApplicationJson._validate(this);
     _$UsersEnableUserResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UsersEnableUserResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UsersEnableUserResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -18222,9 +18471,9 @@ class UsersDisableUserResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$UsersDisableUserResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data:
-                  BuiltValueNullFieldError.checkNotNull(data, r'UsersDisableUserResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(data, r'UsersDisableUserResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -18330,7 +18579,10 @@ class UsersDisableUserResponseApplicationJsonBuilder
     UsersDisableUserResponseApplicationJson._validate(this);
     _$UsersDisableUserResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UsersDisableUserResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UsersDisableUserResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -18438,7 +18690,10 @@ class UsersGetUsersGroupsResponseApplicationJson_Ocs_DataBuilder
     UsersGetUsersGroupsResponseApplicationJson_Ocs_Data._validate(this);
     _$UsersGetUsersGroupsResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$UsersGetUsersGroupsResponseApplicationJson_Ocs_Data._(groups: groups.build());
+      _$result = _$v ??
+          _$UsersGetUsersGroupsResponseApplicationJson_Ocs_Data._(
+            groups: groups.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -18560,7 +18815,11 @@ class UsersGetUsersGroupsResponseApplicationJson_OcsBuilder
     UsersGetUsersGroupsResponseApplicationJson_Ocs._validate(this);
     _$UsersGetUsersGroupsResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$UsersGetUsersGroupsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$UsersGetUsersGroupsResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -18669,7 +18928,10 @@ class UsersGetUsersGroupsResponseApplicationJsonBuilder
     UsersGetUsersGroupsResponseApplicationJson._validate(this);
     _$UsersGetUsersGroupsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UsersGetUsersGroupsResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UsersGetUsersGroupsResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -18773,8 +19035,8 @@ class UsersAddToGroupRequestApplicationJsonBuilder
     UsersAddToGroupRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$UsersAddToGroupRequestApplicationJson._(
-            groupid:
-                BuiltValueNullFieldError.checkNotNull(groupid, r'UsersAddToGroupRequestApplicationJson', 'groupid'));
+          groupid: BuiltValueNullFieldError.checkNotNull(groupid, r'UsersAddToGroupRequestApplicationJson', 'groupid'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -18886,8 +19148,9 @@ class UsersAddToGroupResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$UsersAddToGroupResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(data, r'UsersAddToGroupResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(data, r'UsersAddToGroupResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -18993,7 +19256,10 @@ class UsersAddToGroupResponseApplicationJsonBuilder
     UsersAddToGroupResponseApplicationJson._validate(this);
     _$UsersAddToGroupResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UsersAddToGroupResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UsersAddToGroupResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -19116,9 +19382,10 @@ class UsersRemoveFromGroupResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$UsersRemoveFromGroupResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'UsersRemoveFromGroupResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data:
+                BuiltValueNullFieldError.checkNotNull(data, r'UsersRemoveFromGroupResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -19225,7 +19492,10 @@ class UsersRemoveFromGroupResponseApplicationJsonBuilder
     UsersRemoveFromGroupResponseApplicationJson._validate(this);
     _$UsersRemoveFromGroupResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UsersRemoveFromGroupResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UsersRemoveFromGroupResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -19349,9 +19619,10 @@ class UsersResendWelcomeMessageResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$UsersResendWelcomeMessageResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'UsersResendWelcomeMessageResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(
+                data, r'UsersResendWelcomeMessageResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -19460,7 +19731,10 @@ class UsersResendWelcomeMessageResponseApplicationJsonBuilder
     UsersResendWelcomeMessageResponseApplicationJson._validate(this);
     _$UsersResendWelcomeMessageResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UsersResendWelcomeMessageResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UsersResendWelcomeMessageResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -19619,17 +19893,18 @@ class Capabilities_ProvisioningApiBuilder
     Capabilities_ProvisioningApi._validate(this);
     final _$result = _$v ??
         _$Capabilities_ProvisioningApi._(
-            version: BuiltValueNullFieldError.checkNotNull(version, r'Capabilities_ProvisioningApi', 'version'),
-            accountPropertyScopesVersion: BuiltValueNullFieldError.checkNotNull(
-                accountPropertyScopesVersion, r'Capabilities_ProvisioningApi', 'accountPropertyScopesVersion'),
-            accountPropertyScopesFederatedEnabled: BuiltValueNullFieldError.checkNotNull(
-                accountPropertyScopesFederatedEnabled,
-                r'Capabilities_ProvisioningApi',
-                'accountPropertyScopesFederatedEnabled'),
-            accountPropertyScopesPublishedEnabled: BuiltValueNullFieldError.checkNotNull(
-                accountPropertyScopesPublishedEnabled,
-                r'Capabilities_ProvisioningApi',
-                'accountPropertyScopesPublishedEnabled'));
+          version: BuiltValueNullFieldError.checkNotNull(version, r'Capabilities_ProvisioningApi', 'version'),
+          accountPropertyScopesVersion: BuiltValueNullFieldError.checkNotNull(
+              accountPropertyScopesVersion, r'Capabilities_ProvisioningApi', 'accountPropertyScopesVersion'),
+          accountPropertyScopesFederatedEnabled: BuiltValueNullFieldError.checkNotNull(
+              accountPropertyScopesFederatedEnabled,
+              r'Capabilities_ProvisioningApi',
+              'accountPropertyScopesFederatedEnabled'),
+          accountPropertyScopesPublishedEnabled: BuiltValueNullFieldError.checkNotNull(
+              accountPropertyScopesPublishedEnabled,
+              r'Capabilities_ProvisioningApi',
+              'accountPropertyScopesPublishedEnabled'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -19719,7 +19994,10 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     Capabilities._validate(this);
     _$Capabilities _$result;
     try {
-      _$result = _$v ?? _$Capabilities._(provisioningApi: provisioningApi.build());
+      _$result = _$v ??
+          _$Capabilities._(
+            provisioningApi: provisioningApi.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

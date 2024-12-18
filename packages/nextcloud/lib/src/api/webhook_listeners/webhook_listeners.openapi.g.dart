@@ -1141,11 +1141,12 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
     OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
-            message: message,
-            totalitems: totalitems,
-            itemsperpage: itemsperpage);
+          status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+          statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+          message: message,
+          totalitems: totalitems,
+          itemsperpage: itemsperpage,
+        );
     replace(_$result);
     return _$result;
   }
@@ -1370,16 +1371,17 @@ class WebhookInfoBuilder implements Builder<WebhookInfo, WebhookInfoBuilder>, $W
     try {
       _$result = _$v ??
           _$WebhookInfo._(
-              id: BuiltValueNullFieldError.checkNotNull(id, r'WebhookInfo', 'id'),
-              userId: BuiltValueNullFieldError.checkNotNull(userId, r'WebhookInfo', 'userId'),
-              httpMethod: BuiltValueNullFieldError.checkNotNull(httpMethod, r'WebhookInfo', 'httpMethod'),
-              uri: BuiltValueNullFieldError.checkNotNull(uri, r'WebhookInfo', 'uri'),
-              event: event,
-              eventFilter: _eventFilter?.build(),
-              userIdFilter: userIdFilter,
-              headers: _headers?.build(),
-              authMethod: BuiltValueNullFieldError.checkNotNull(authMethod, r'WebhookInfo', 'authMethod'),
-              authData: _authData?.build());
+            id: BuiltValueNullFieldError.checkNotNull(id, r'WebhookInfo', 'id'),
+            userId: BuiltValueNullFieldError.checkNotNull(userId, r'WebhookInfo', 'userId'),
+            httpMethod: BuiltValueNullFieldError.checkNotNull(httpMethod, r'WebhookInfo', 'httpMethod'),
+            uri: BuiltValueNullFieldError.checkNotNull(uri, r'WebhookInfo', 'uri'),
+            event: event,
+            eventFilter: _eventFilter?.build(),
+            userIdFilter: userIdFilter,
+            headers: _headers?.build(),
+            authMethod: BuiltValueNullFieldError.checkNotNull(authMethod, r'WebhookInfo', 'authMethod'),
+            authData: _authData?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1505,7 +1507,11 @@ class WebhooksIndexResponseApplicationJson_OcsBuilder
     WebhooksIndexResponseApplicationJson_Ocs._validate(this);
     _$WebhooksIndexResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$WebhooksIndexResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$WebhooksIndexResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1612,7 +1618,10 @@ class WebhooksIndexResponseApplicationJsonBuilder
     WebhooksIndexResponseApplicationJson._validate(this);
     _$WebhooksIndexResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$WebhooksIndexResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$WebhooksIndexResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1824,15 +1833,16 @@ class WebhooksCreateRequestApplicationJsonBuilder
     try {
       _$result = _$v ??
           _$WebhooksCreateRequestApplicationJson._(
-              httpMethod: BuiltValueNullFieldError.checkNotNull(
-                  httpMethod, r'WebhooksCreateRequestApplicationJson', 'httpMethod'),
-              uri: BuiltValueNullFieldError.checkNotNull(uri, r'WebhooksCreateRequestApplicationJson', 'uri'),
-              event: BuiltValueNullFieldError.checkNotNull(event, r'WebhooksCreateRequestApplicationJson', 'event'),
-              eventFilter: _eventFilter?.build(),
-              userIdFilter: userIdFilter,
-              headers: _headers?.build(),
-              authMethod: authMethod,
-              authData: _authData?.build());
+            httpMethod: BuiltValueNullFieldError.checkNotNull(
+                httpMethod, r'WebhooksCreateRequestApplicationJson', 'httpMethod'),
+            uri: BuiltValueNullFieldError.checkNotNull(uri, r'WebhooksCreateRequestApplicationJson', 'uri'),
+            event: BuiltValueNullFieldError.checkNotNull(event, r'WebhooksCreateRequestApplicationJson', 'event'),
+            eventFilter: _eventFilter?.build(),
+            userIdFilter: userIdFilter,
+            headers: _headers?.build(),
+            authMethod: authMethod,
+            authData: _authData?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1958,7 +1968,11 @@ class WebhooksCreateResponseApplicationJson_OcsBuilder
     WebhooksCreateResponseApplicationJson_Ocs._validate(this);
     _$WebhooksCreateResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$WebhooksCreateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$WebhooksCreateResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2065,7 +2079,10 @@ class WebhooksCreateResponseApplicationJsonBuilder
     WebhooksCreateResponseApplicationJson._validate(this);
     _$WebhooksCreateResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$WebhooksCreateResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$WebhooksCreateResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2185,7 +2202,11 @@ class WebhooksShowResponseApplicationJson_OcsBuilder
     WebhooksShowResponseApplicationJson_Ocs._validate(this);
     _$WebhooksShowResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$WebhooksShowResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$WebhooksShowResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2290,7 +2311,10 @@ class WebhooksShowResponseApplicationJsonBuilder
     WebhooksShowResponseApplicationJson._validate(this);
     _$WebhooksShowResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$WebhooksShowResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$WebhooksShowResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2502,15 +2526,16 @@ class WebhooksUpdateRequestApplicationJsonBuilder
     try {
       _$result = _$v ??
           _$WebhooksUpdateRequestApplicationJson._(
-              httpMethod: BuiltValueNullFieldError.checkNotNull(
-                  httpMethod, r'WebhooksUpdateRequestApplicationJson', 'httpMethod'),
-              uri: BuiltValueNullFieldError.checkNotNull(uri, r'WebhooksUpdateRequestApplicationJson', 'uri'),
-              event: BuiltValueNullFieldError.checkNotNull(event, r'WebhooksUpdateRequestApplicationJson', 'event'),
-              eventFilter: _eventFilter?.build(),
-              userIdFilter: userIdFilter,
-              headers: _headers?.build(),
-              authMethod: authMethod,
-              authData: _authData?.build());
+            httpMethod: BuiltValueNullFieldError.checkNotNull(
+                httpMethod, r'WebhooksUpdateRequestApplicationJson', 'httpMethod'),
+            uri: BuiltValueNullFieldError.checkNotNull(uri, r'WebhooksUpdateRequestApplicationJson', 'uri'),
+            event: BuiltValueNullFieldError.checkNotNull(event, r'WebhooksUpdateRequestApplicationJson', 'event'),
+            eventFilter: _eventFilter?.build(),
+            userIdFilter: userIdFilter,
+            headers: _headers?.build(),
+            authMethod: authMethod,
+            authData: _authData?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2636,7 +2661,11 @@ class WebhooksUpdateResponseApplicationJson_OcsBuilder
     WebhooksUpdateResponseApplicationJson_Ocs._validate(this);
     _$WebhooksUpdateResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$WebhooksUpdateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$WebhooksUpdateResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2743,7 +2772,10 @@ class WebhooksUpdateResponseApplicationJsonBuilder
     WebhooksUpdateResponseApplicationJson._validate(this);
     _$WebhooksUpdateResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$WebhooksUpdateResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$WebhooksUpdateResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2865,8 +2897,9 @@ class WebhooksDestroyResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$WebhooksDestroyResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(data, r'WebhooksDestroyResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(data, r'WebhooksDestroyResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2972,7 +3005,10 @@ class WebhooksDestroyResponseApplicationJsonBuilder
     WebhooksDestroyResponseApplicationJson._validate(this);
     _$WebhooksDestroyResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$WebhooksDestroyResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$WebhooksDestroyResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3095,9 +3131,10 @@ class WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$WebhooksDeleteByAppIdResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'WebhooksDeleteByAppIdResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(
+                data, r'WebhooksDeleteByAppIdResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3204,7 +3241,10 @@ class WebhooksDeleteByAppIdResponseApplicationJsonBuilder
     WebhooksDeleteByAppIdResponseApplicationJson._validate(this);
     _$WebhooksDeleteByAppIdResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$WebhooksDeleteByAppIdResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$WebhooksDeleteByAppIdResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

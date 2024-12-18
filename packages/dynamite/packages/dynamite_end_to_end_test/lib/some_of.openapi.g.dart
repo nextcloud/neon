@@ -178,9 +178,10 @@ class OneValueSomeOfInObjectBuilder
     OneValueSomeOfInObject._validate(this);
     final _$result = _$v ??
         _$OneValueSomeOfInObject._(
-            oneValue: BuiltValueNullFieldError.checkNotNull(oneValue, r'OneValueSomeOfInObject', 'oneValue'),
-            intDouble: BuiltValueNullFieldError.checkNotNull(intDouble, r'OneValueSomeOfInObject', 'intDouble'),
-            intDoubleString: intDoubleString);
+          oneValue: BuiltValueNullFieldError.checkNotNull(oneValue, r'OneValueSomeOfInObject', 'oneValue'),
+          intDouble: BuiltValueNullFieldError.checkNotNull(intDouble, r'OneValueSomeOfInObject', 'intDouble'),
+          intDoubleString: intDoubleString,
+        );
     replace(_$result);
     return _$result;
   }

@@ -397,8 +397,9 @@ class Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder
     Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop._validate(this);
     final _$result = _$v ??
         _$Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop._(
-            enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop', 'enabled'));
+          enabled: BuiltValueNullFieldError.checkNotNull(
+              enabled, r'Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop', 'enabled'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -511,10 +512,11 @@ class Capabilities0_FilesSharing_Sharebymail_PasswordBuilder
     Capabilities0_FilesSharing_Sharebymail_Password._validate(this);
     final _$result = _$v ??
         _$Capabilities0_FilesSharing_Sharebymail_Password._(
-            enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'Capabilities0_FilesSharing_Sharebymail_Password', 'enabled'),
-            enforced: BuiltValueNullFieldError.checkNotNull(
-                enforced, r'Capabilities0_FilesSharing_Sharebymail_Password', 'enforced'));
+          enabled: BuiltValueNullFieldError.checkNotNull(
+              enabled, r'Capabilities0_FilesSharing_Sharebymail_Password', 'enabled'),
+          enforced: BuiltValueNullFieldError.checkNotNull(
+              enforced, r'Capabilities0_FilesSharing_Sharebymail_Password', 'enforced'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -627,10 +629,11 @@ class Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder
     Capabilities0_FilesSharing_Sharebymail_ExpireDate._validate(this);
     final _$result = _$v ??
         _$Capabilities0_FilesSharing_Sharebymail_ExpireDate._(
-            enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'Capabilities0_FilesSharing_Sharebymail_ExpireDate', 'enabled'),
-            enforced: BuiltValueNullFieldError.checkNotNull(
-                enforced, r'Capabilities0_FilesSharing_Sharebymail_ExpireDate', 'enforced'));
+          enabled: BuiltValueNullFieldError.checkNotNull(
+              enabled, r'Capabilities0_FilesSharing_Sharebymail_ExpireDate', 'enabled'),
+          enforced: BuiltValueNullFieldError.checkNotNull(
+              enforced, r'Capabilities0_FilesSharing_Sharebymail_ExpireDate', 'enforced'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -800,13 +803,14 @@ class Capabilities0_FilesSharing_SharebymailBuilder
     try {
       _$result = _$v ??
           _$Capabilities0_FilesSharing_Sharebymail._(
-              enabled:
-                  BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities0_FilesSharing_Sharebymail', 'enabled'),
-              sendPasswordByMail: BuiltValueNullFieldError.checkNotNull(
-                  sendPasswordByMail, r'Capabilities0_FilesSharing_Sharebymail', 'sendPasswordByMail'),
-              uploadFilesDrop: uploadFilesDrop.build(),
-              password: password.build(),
-              expireDate: expireDate.build());
+            enabled:
+                BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities0_FilesSharing_Sharebymail', 'enabled'),
+            sendPasswordByMail: BuiltValueNullFieldError.checkNotNull(
+                sendPasswordByMail, r'Capabilities0_FilesSharing_Sharebymail', 'sendPasswordByMail'),
+            uploadFilesDrop: uploadFilesDrop.build(),
+            password: password.build(),
+            expireDate: expireDate.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -914,7 +918,10 @@ class Capabilities0_FilesSharingBuilder
     Capabilities0_FilesSharing._validate(this);
     _$Capabilities0_FilesSharing _$result;
     try {
-      _$result = _$v ?? _$Capabilities0_FilesSharing._(sharebymail: sharebymail.build());
+      _$result = _$v ??
+          _$Capabilities0_FilesSharing._(
+            sharebymail: sharebymail.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1012,7 +1019,10 @@ class Capabilities0Builder implements Builder<Capabilities0, Capabilities0Builde
     Capabilities0._validate(this);
     _$Capabilities0 _$result;
     try {
-      _$result = _$v ?? _$Capabilities0._(filesSharing: filesSharing.build());
+      _$result = _$v ??
+          _$Capabilities0._(
+            filesSharing: filesSharing.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

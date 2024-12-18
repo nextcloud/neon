@@ -2780,10 +2780,11 @@ class FolderTreeBuilder implements Builder<FolderTree, FolderTreeBuilder>, $Fold
     try {
       _$result = _$v ??
           _$FolderTree._(
-              id: BuiltValueNullFieldError.checkNotNull(id, r'FolderTree', 'id'),
-              basename: BuiltValueNullFieldError.checkNotNull(basename, r'FolderTree', 'basename'),
-              displayName: displayName,
-              children: children.build());
+            id: BuiltValueNullFieldError.checkNotNull(id, r'FolderTree', 'id'),
+            basename: BuiltValueNullFieldError.checkNotNull(basename, r'FolderTree', 'basename'),
+            displayName: displayName,
+            children: children.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2937,11 +2938,12 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
     OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
-            message: message,
-            totalitems: totalitems,
-            itemsperpage: itemsperpage);
+          status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+          statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+          message: message,
+          totalitems: totalitems,
+          itemsperpage: itemsperpage,
+        );
     replace(_$result);
     return _$result;
   }
@@ -3109,14 +3111,15 @@ class DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder
     try {
       _$result = _$v ??
           _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors._(
-              id: BuiltValueNullFieldError.checkNotNull(
-                  id, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', 'id'),
-              name: BuiltValueNullFieldError.checkNotNull(
-                  name, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', 'name'),
-              mimetypes: mimetypes.build(),
-              optionalMimetypes: optionalMimetypes.build(),
-              secure: BuiltValueNullFieldError.checkNotNull(
-                  secure, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', 'secure'));
+            id: BuiltValueNullFieldError.checkNotNull(
+                id, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', 'id'),
+            name: BuiltValueNullFieldError.checkNotNull(
+                name, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', 'name'),
+            mimetypes: mimetypes.build(),
+            optionalMimetypes: optionalMimetypes.build(),
+            secure: BuiltValueNullFieldError.checkNotNull(
+                secure, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', 'secure'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3312,17 +3315,18 @@ class DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder
     try {
       _$result = _$v ??
           _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators._(
-              id: BuiltValueNullFieldError.checkNotNull(
-                  id, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'id'),
-              editor: BuiltValueNullFieldError.checkNotNull(
-                  editor, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'editor'),
-              name: BuiltValueNullFieldError.checkNotNull(
-                  name, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'name'),
-              $extension: BuiltValueNullFieldError.checkNotNull(
-                  $extension, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', '\$extension'),
-              templates: BuiltValueNullFieldError.checkNotNull(
-                  templates, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'templates'),
-              mimetypes: mimetypes.build());
+            id: BuiltValueNullFieldError.checkNotNull(
+                id, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'id'),
+            editor: BuiltValueNullFieldError.checkNotNull(
+                editor, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'editor'),
+            name: BuiltValueNullFieldError.checkNotNull(
+                name, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'name'),
+            $extension: BuiltValueNullFieldError.checkNotNull(
+                $extension, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', '\$extension'),
+            templates: BuiltValueNullFieldError.checkNotNull(
+                templates, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'templates'),
+            mimetypes: mimetypes.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3451,7 +3455,10 @@ class DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder
     _$DirectEditingInfoResponseApplicationJson_Ocs_Data _$result;
     try {
       _$result = _$v ??
-          _$DirectEditingInfoResponseApplicationJson_Ocs_Data._(editors: editors.build(), creators: creators.build());
+          _$DirectEditingInfoResponseApplicationJson_Ocs_Data._(
+            editors: editors.build(),
+            creators: creators.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3575,7 +3582,11 @@ class DirectEditingInfoResponseApplicationJson_OcsBuilder
     DirectEditingInfoResponseApplicationJson_Ocs._validate(this);
     _$DirectEditingInfoResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$DirectEditingInfoResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$DirectEditingInfoResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3683,7 +3694,10 @@ class DirectEditingInfoResponseApplicationJsonBuilder
     DirectEditingInfoResponseApplicationJson._validate(this);
     _$DirectEditingInfoResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$DirectEditingInfoResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$DirectEditingInfoResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3854,15 +3868,16 @@ class DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder
     DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates._validate(this);
     final _$result = _$v ??
         _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates._(
-            id: BuiltValueNullFieldError.checkNotNull(
-                id, r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', 'id'),
-            title: BuiltValueNullFieldError.checkNotNull(
-                title, r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', 'title'),
-            preview: preview,
-            $extension: BuiltValueNullFieldError.checkNotNull(
-                $extension, r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', '\$extension'),
-            mimetype: BuiltValueNullFieldError.checkNotNull(
-                mimetype, r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', 'mimetype'));
+          id: BuiltValueNullFieldError.checkNotNull(
+              id, r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', 'id'),
+          title: BuiltValueNullFieldError.checkNotNull(
+              title, r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', 'title'),
+          preview: preview,
+          $extension: BuiltValueNullFieldError.checkNotNull(
+              $extension, r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', '\$extension'),
+          mimetype: BuiltValueNullFieldError.checkNotNull(
+              mimetype, r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', 'mimetype'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -3965,7 +3980,10 @@ class DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder
     DirectEditingTemplatesResponseApplicationJson_Ocs_Data._validate(this);
     _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data._(templates: templates.build());
+      _$result = _$v ??
+          _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data._(
+            templates: templates.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4088,7 +4106,11 @@ class DirectEditingTemplatesResponseApplicationJson_OcsBuilder
     DirectEditingTemplatesResponseApplicationJson_Ocs._validate(this);
     _$DirectEditingTemplatesResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$DirectEditingTemplatesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$DirectEditingTemplatesResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4197,7 +4219,10 @@ class DirectEditingTemplatesResponseApplicationJsonBuilder
     DirectEditingTemplatesResponseApplicationJson._validate(this);
     _$DirectEditingTemplatesResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$DirectEditingTemplatesResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$DirectEditingTemplatesResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4331,9 +4356,10 @@ class DirectEditingOpenRequestApplicationJsonBuilder
     DirectEditingOpenRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$DirectEditingOpenRequestApplicationJson._(
-            path: BuiltValueNullFieldError.checkNotNull(path, r'DirectEditingOpenRequestApplicationJson', 'path'),
-            editorId: editorId,
-            fileId: fileId);
+          path: BuiltValueNullFieldError.checkNotNull(path, r'DirectEditingOpenRequestApplicationJson', 'path'),
+          editorId: editorId,
+          fileId: fileId,
+        );
     replace(_$result);
     return _$result;
   }
@@ -4430,8 +4456,8 @@ class DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder
     DirectEditingOpenResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$DirectEditingOpenResponseApplicationJson_Ocs_Data._(
-            url: BuiltValueNullFieldError.checkNotNull(
-                url, r'DirectEditingOpenResponseApplicationJson_Ocs_Data', 'url'));
+          url: BuiltValueNullFieldError.checkNotNull(url, r'DirectEditingOpenResponseApplicationJson_Ocs_Data', 'url'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -4542,7 +4568,11 @@ class DirectEditingOpenResponseApplicationJson_OcsBuilder
     DirectEditingOpenResponseApplicationJson_Ocs._validate(this);
     _$DirectEditingOpenResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$DirectEditingOpenResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$DirectEditingOpenResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4650,7 +4680,10 @@ class DirectEditingOpenResponseApplicationJsonBuilder
     DirectEditingOpenResponseApplicationJson._validate(this);
     _$DirectEditingOpenResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$DirectEditingOpenResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$DirectEditingOpenResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4801,12 +4834,13 @@ class DirectEditingCreateRequestApplicationJsonBuilder
     DirectEditingCreateRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$DirectEditingCreateRequestApplicationJson._(
-            path: BuiltValueNullFieldError.checkNotNull(path, r'DirectEditingCreateRequestApplicationJson', 'path'),
-            editorId: BuiltValueNullFieldError.checkNotNull(
-                editorId, r'DirectEditingCreateRequestApplicationJson', 'editorId'),
-            creatorId: BuiltValueNullFieldError.checkNotNull(
-                creatorId, r'DirectEditingCreateRequestApplicationJson', 'creatorId'),
-            templateId: templateId);
+          path: BuiltValueNullFieldError.checkNotNull(path, r'DirectEditingCreateRequestApplicationJson', 'path'),
+          editorId:
+              BuiltValueNullFieldError.checkNotNull(editorId, r'DirectEditingCreateRequestApplicationJson', 'editorId'),
+          creatorId: BuiltValueNullFieldError.checkNotNull(
+              creatorId, r'DirectEditingCreateRequestApplicationJson', 'creatorId'),
+          templateId: templateId,
+        );
     replace(_$result);
     return _$result;
   }
@@ -4904,8 +4938,9 @@ class DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder
     DirectEditingCreateResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$DirectEditingCreateResponseApplicationJson_Ocs_Data._(
-            url: BuiltValueNullFieldError.checkNotNull(
-                url, r'DirectEditingCreateResponseApplicationJson_Ocs_Data', 'url'));
+          url:
+              BuiltValueNullFieldError.checkNotNull(url, r'DirectEditingCreateResponseApplicationJson_Ocs_Data', 'url'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -5016,7 +5051,11 @@ class DirectEditingCreateResponseApplicationJson_OcsBuilder
     DirectEditingCreateResponseApplicationJson_Ocs._validate(this);
     _$DirectEditingCreateResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$DirectEditingCreateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$DirectEditingCreateResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -5125,7 +5164,10 @@ class DirectEditingCreateResponseApplicationJsonBuilder
     DirectEditingCreateResponseApplicationJson._validate(this);
     _$DirectEditingCreateResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$DirectEditingCreateResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$DirectEditingCreateResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -5230,7 +5272,8 @@ class OpenLocalEditorCreateRequestApplicationJsonBuilder
     OpenLocalEditorCreateRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$OpenLocalEditorCreateRequestApplicationJson._(
-            path: BuiltValueNullFieldError.checkNotNull(path, r'OpenLocalEditorCreateRequestApplicationJson', 'path'));
+          path: BuiltValueNullFieldError.checkNotNull(path, r'OpenLocalEditorCreateRequestApplicationJson', 'path'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -5375,13 +5418,14 @@ class OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder
     OpenLocalEditorCreateResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$OpenLocalEditorCreateResponseApplicationJson_Ocs_Data._(
-            userId: userId,
-            pathHash: BuiltValueNullFieldError.checkNotNull(
-                pathHash, r'OpenLocalEditorCreateResponseApplicationJson_Ocs_Data', 'pathHash'),
-            expirationTime: BuiltValueNullFieldError.checkNotNull(
-                expirationTime, r'OpenLocalEditorCreateResponseApplicationJson_Ocs_Data', 'expirationTime'),
-            token: BuiltValueNullFieldError.checkNotNull(
-                token, r'OpenLocalEditorCreateResponseApplicationJson_Ocs_Data', 'token'));
+          userId: userId,
+          pathHash: BuiltValueNullFieldError.checkNotNull(
+              pathHash, r'OpenLocalEditorCreateResponseApplicationJson_Ocs_Data', 'pathHash'),
+          expirationTime: BuiltValueNullFieldError.checkNotNull(
+              expirationTime, r'OpenLocalEditorCreateResponseApplicationJson_Ocs_Data', 'expirationTime'),
+          token: BuiltValueNullFieldError.checkNotNull(
+              token, r'OpenLocalEditorCreateResponseApplicationJson_Ocs_Data', 'token'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -5493,7 +5537,11 @@ class OpenLocalEditorCreateResponseApplicationJson_OcsBuilder
     OpenLocalEditorCreateResponseApplicationJson_Ocs._validate(this);
     _$OpenLocalEditorCreateResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$OpenLocalEditorCreateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$OpenLocalEditorCreateResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -5602,7 +5650,10 @@ class OpenLocalEditorCreateResponseApplicationJsonBuilder
     OpenLocalEditorCreateResponseApplicationJson._validate(this);
     _$OpenLocalEditorCreateResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$OpenLocalEditorCreateResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$OpenLocalEditorCreateResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -5708,8 +5759,8 @@ class OpenLocalEditorValidateRequestApplicationJsonBuilder
     OpenLocalEditorValidateRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$OpenLocalEditorValidateRequestApplicationJson._(
-            path:
-                BuiltValueNullFieldError.checkNotNull(path, r'OpenLocalEditorValidateRequestApplicationJson', 'path'));
+          path: BuiltValueNullFieldError.checkNotNull(path, r'OpenLocalEditorValidateRequestApplicationJson', 'path'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -5855,14 +5906,15 @@ class OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder
     OpenLocalEditorValidateResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$OpenLocalEditorValidateResponseApplicationJson_Ocs_Data._(
-            userId: BuiltValueNullFieldError.checkNotNull(
-                userId, r'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'userId'),
-            pathHash: BuiltValueNullFieldError.checkNotNull(
-                pathHash, r'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'pathHash'),
-            expirationTime: BuiltValueNullFieldError.checkNotNull(
-                expirationTime, r'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'expirationTime'),
-            token: BuiltValueNullFieldError.checkNotNull(
-                token, r'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'token'));
+          userId: BuiltValueNullFieldError.checkNotNull(
+              userId, r'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'userId'),
+          pathHash: BuiltValueNullFieldError.checkNotNull(
+              pathHash, r'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'pathHash'),
+          expirationTime: BuiltValueNullFieldError.checkNotNull(
+              expirationTime, r'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'expirationTime'),
+          token: BuiltValueNullFieldError.checkNotNull(
+              token, r'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'token'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -5974,7 +6026,11 @@ class OpenLocalEditorValidateResponseApplicationJson_OcsBuilder
     OpenLocalEditorValidateResponseApplicationJson_Ocs._validate(this);
     _$OpenLocalEditorValidateResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$OpenLocalEditorValidateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$OpenLocalEditorValidateResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -6083,7 +6139,10 @@ class OpenLocalEditorValidateResponseApplicationJsonBuilder
     OpenLocalEditorValidateResponseApplicationJson._validate(this);
     _$OpenLocalEditorValidateResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$OpenLocalEditorValidateResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$OpenLocalEditorValidateResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -6293,14 +6352,15 @@ class TemplateFileCreatorBuilder
     try {
       _$result = _$v ??
           _$TemplateFileCreator._(
-              app: BuiltValueNullFieldError.checkNotNull(app, r'TemplateFileCreator', 'app'),
-              label: BuiltValueNullFieldError.checkNotNull(label, r'TemplateFileCreator', 'label'),
-              $extension: BuiltValueNullFieldError.checkNotNull($extension, r'TemplateFileCreator', '\$extension'),
-              iconClass: iconClass,
-              iconSvgInline: iconSvgInline,
-              mimetypes: mimetypes.build(),
-              ratio: ratio,
-              actionLabel: BuiltValueNullFieldError.checkNotNull(actionLabel, r'TemplateFileCreator', 'actionLabel'));
+            app: BuiltValueNullFieldError.checkNotNull(app, r'TemplateFileCreator', 'app'),
+            label: BuiltValueNullFieldError.checkNotNull(label, r'TemplateFileCreator', 'label'),
+            $extension: BuiltValueNullFieldError.checkNotNull($extension, r'TemplateFileCreator', '\$extension'),
+            iconClass: iconClass,
+            iconSvgInline: iconSvgInline,
+            mimetypes: mimetypes.build(),
+            ratio: ratio,
+            actionLabel: BuiltValueNullFieldError.checkNotNull(actionLabel, r'TemplateFileCreator', 'actionLabel'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -6420,7 +6480,11 @@ class TemplateListResponseApplicationJson_OcsBuilder
     TemplateListResponseApplicationJson_Ocs._validate(this);
     _$TemplateListResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$TemplateListResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$TemplateListResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -6525,7 +6589,10 @@ class TemplateListResponseApplicationJsonBuilder
     TemplateListResponseApplicationJson._validate(this);
     _$TemplateListResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TemplateListResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TemplateListResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -6651,9 +6718,10 @@ class TemplateFieldBuilder implements Builder<TemplateField, TemplateFieldBuilde
     TemplateField._validate(this);
     final _$result = _$v ??
         _$TemplateField._(
-            index: BuiltValueNullFieldError.checkNotNull(index, r'TemplateField', 'index'),
-            content: BuiltValueNullFieldError.checkNotNull(content, r'TemplateField', 'content'),
-            type: BuiltValueNullFieldError.checkNotNull(type, r'TemplateField', 'type'));
+          index: BuiltValueNullFieldError.checkNotNull(index, r'TemplateField', 'index'),
+          content: BuiltValueNullFieldError.checkNotNull(content, r'TemplateField', 'content'),
+          type: BuiltValueNullFieldError.checkNotNull(type, r'TemplateField', 'type'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -6796,13 +6864,14 @@ class TemplateCreateRequestApplicationJsonBuilder
     try {
       _$result = _$v ??
           _$TemplateCreateRequestApplicationJson._(
-              filePath:
-                  BuiltValueNullFieldError.checkNotNull(filePath, r'TemplateCreateRequestApplicationJson', 'filePath'),
-              templatePath: BuiltValueNullFieldError.checkNotNull(
-                  templatePath, r'TemplateCreateRequestApplicationJson', 'templatePath'),
-              templateType: BuiltValueNullFieldError.checkNotNull(
-                  templateType, r'TemplateCreateRequestApplicationJson', 'templateType'),
-              templateFields: templateFields.build());
+            filePath:
+                BuiltValueNullFieldError.checkNotNull(filePath, r'TemplateCreateRequestApplicationJson', 'filePath'),
+            templatePath: BuiltValueNullFieldError.checkNotNull(
+                templatePath, r'TemplateCreateRequestApplicationJson', 'templatePath'),
+            templateType: BuiltValueNullFieldError.checkNotNull(
+                templateType, r'TemplateCreateRequestApplicationJson', 'templateType'),
+            templateFields: templateFields.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -7024,15 +7093,16 @@ class TemplateFileBuilder implements Builder<TemplateFile, TemplateFileBuilder>,
     TemplateFile._validate(this);
     final _$result = _$v ??
         _$TemplateFile._(
-            basename: BuiltValueNullFieldError.checkNotNull(basename, r'TemplateFile', 'basename'),
-            etag: BuiltValueNullFieldError.checkNotNull(etag, r'TemplateFile', 'etag'),
-            fileid: BuiltValueNullFieldError.checkNotNull(fileid, r'TemplateFile', 'fileid'),
-            filename: filename,
-            lastmod: BuiltValueNullFieldError.checkNotNull(lastmod, r'TemplateFile', 'lastmod'),
-            mime: BuiltValueNullFieldError.checkNotNull(mime, r'TemplateFile', 'mime'),
-            size: BuiltValueNullFieldError.checkNotNull(size, r'TemplateFile', 'size'),
-            type: BuiltValueNullFieldError.checkNotNull(type, r'TemplateFile', 'type'),
-            hasPreview: BuiltValueNullFieldError.checkNotNull(hasPreview, r'TemplateFile', 'hasPreview'));
+          basename: BuiltValueNullFieldError.checkNotNull(basename, r'TemplateFile', 'basename'),
+          etag: BuiltValueNullFieldError.checkNotNull(etag, r'TemplateFile', 'etag'),
+          fileid: BuiltValueNullFieldError.checkNotNull(fileid, r'TemplateFile', 'fileid'),
+          filename: filename,
+          lastmod: BuiltValueNullFieldError.checkNotNull(lastmod, r'TemplateFile', 'lastmod'),
+          mime: BuiltValueNullFieldError.checkNotNull(mime, r'TemplateFile', 'mime'),
+          size: BuiltValueNullFieldError.checkNotNull(size, r'TemplateFile', 'size'),
+          type: BuiltValueNullFieldError.checkNotNull(type, r'TemplateFile', 'type'),
+          hasPreview: BuiltValueNullFieldError.checkNotNull(hasPreview, r'TemplateFile', 'hasPreview'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -7142,7 +7212,11 @@ class TemplateCreateResponseApplicationJson_OcsBuilder
     TemplateCreateResponseApplicationJson_Ocs._validate(this);
     _$TemplateCreateResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$TemplateCreateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$TemplateCreateResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -7249,7 +7323,10 @@ class TemplateCreateResponseApplicationJsonBuilder
     TemplateCreateResponseApplicationJson._validate(this);
     _$TemplateCreateResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TemplateCreateResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TemplateCreateResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -7369,10 +7446,11 @@ class TemplatePathRequestApplicationJsonBuilder
     TemplatePathRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$TemplatePathRequestApplicationJson._(
-            templatePath: BuiltValueNullFieldError.checkNotNull(
-                templatePath, r'TemplatePathRequestApplicationJson', 'templatePath'),
-            copySystemTemplates: BuiltValueNullFieldError.checkNotNull(
-                copySystemTemplates, r'TemplatePathRequestApplicationJson', 'copySystemTemplates'));
+          templatePath: BuiltValueNullFieldError.checkNotNull(
+              templatePath, r'TemplatePathRequestApplicationJson', 'templatePath'),
+          copySystemTemplates: BuiltValueNullFieldError.checkNotNull(
+              copySystemTemplates, r'TemplatePathRequestApplicationJson', 'copySystemTemplates'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -7487,9 +7565,10 @@ class TemplatePathResponseApplicationJson_Ocs_DataBuilder
     try {
       _$result = _$v ??
           _$TemplatePathResponseApplicationJson_Ocs_Data._(
-              templatePath: BuiltValueNullFieldError.checkNotNull(
-                  templatePath, r'TemplatePathResponseApplicationJson_Ocs_Data', 'templatePath'),
-              templates: templates.build());
+            templatePath: BuiltValueNullFieldError.checkNotNull(
+                templatePath, r'TemplatePathResponseApplicationJson_Ocs_Data', 'templatePath'),
+            templates: templates.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -7610,7 +7689,11 @@ class TemplatePathResponseApplicationJson_OcsBuilder
     TemplatePathResponseApplicationJson_Ocs._validate(this);
     _$TemplatePathResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$TemplatePathResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$TemplatePathResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -7715,7 +7798,10 @@ class TemplatePathResponseApplicationJsonBuilder
     TemplatePathResponseApplicationJson._validate(this);
     _$TemplatePathResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TemplatePathResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TemplatePathResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -7838,10 +7924,10 @@ class TransferOwnershipTransferRequestApplicationJsonBuilder
     TransferOwnershipTransferRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$TransferOwnershipTransferRequestApplicationJson._(
-            recipient: BuiltValueNullFieldError.checkNotNull(
-                recipient, r'TransferOwnershipTransferRequestApplicationJson', 'recipient'),
-            path: BuiltValueNullFieldError.checkNotNull(
-                path, r'TransferOwnershipTransferRequestApplicationJson', 'path'));
+          recipient: BuiltValueNullFieldError.checkNotNull(
+              recipient, r'TransferOwnershipTransferRequestApplicationJson', 'recipient'),
+          path: BuiltValueNullFieldError.checkNotNull(path, r'TransferOwnershipTransferRequestApplicationJson', 'path'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -7955,9 +8041,10 @@ class TransferOwnershipTransferResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$TransferOwnershipTransferResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'TransferOwnershipTransferResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(
+                data, r'TransferOwnershipTransferResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -8066,7 +8153,10 @@ class TransferOwnershipTransferResponseApplicationJsonBuilder
     TransferOwnershipTransferResponseApplicationJson._validate(this);
     _$TransferOwnershipTransferResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TransferOwnershipTransferResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TransferOwnershipTransferResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -8190,9 +8280,10 @@ class TransferOwnershipAcceptResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$TransferOwnershipAcceptResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'TransferOwnershipAcceptResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(
+                data, r'TransferOwnershipAcceptResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -8299,7 +8390,10 @@ class TransferOwnershipAcceptResponseApplicationJsonBuilder
     TransferOwnershipAcceptResponseApplicationJson._validate(this);
     _$TransferOwnershipAcceptResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TransferOwnershipAcceptResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TransferOwnershipAcceptResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -8423,9 +8517,10 @@ class TransferOwnershipRejectResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$TransferOwnershipRejectResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'TransferOwnershipRejectResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(
+                data, r'TransferOwnershipRejectResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -8532,7 +8627,10 @@ class TransferOwnershipRejectResponseApplicationJsonBuilder
     TransferOwnershipRejectResponseApplicationJson._validate(this);
     _$TransferOwnershipRejectResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TransferOwnershipRejectResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TransferOwnershipRejectResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -8667,10 +8765,11 @@ class Capabilities_Files_DirectEditingBuilder
     Capabilities_Files_DirectEditing._validate(this);
     final _$result = _$v ??
         _$Capabilities_Files_DirectEditing._(
-            url: BuiltValueNullFieldError.checkNotNull(url, r'Capabilities_Files_DirectEditing', 'url'),
-            etag: BuiltValueNullFieldError.checkNotNull(etag, r'Capabilities_Files_DirectEditing', 'etag'),
-            supportsFileId: BuiltValueNullFieldError.checkNotNull(
-                supportsFileId, r'Capabilities_Files_DirectEditing', 'supportsFileId'));
+          url: BuiltValueNullFieldError.checkNotNull(url, r'Capabilities_Files_DirectEditing', 'url'),
+          etag: BuiltValueNullFieldError.checkNotNull(etag, r'Capabilities_Files_DirectEditing', 'etag'),
+          supportsFileId: BuiltValueNullFieldError.checkNotNull(
+              supportsFileId, r'Capabilities_Files_DirectEditing', 'supportsFileId'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -8881,15 +8980,16 @@ class Capabilities_FilesBuilder
     try {
       _$result = _$v ??
           _$Capabilities_Files._(
-              comment: comment,
-              bigfilechunking:
-                  BuiltValueNullFieldError.checkNotNull(bigfilechunking, r'Capabilities_Files', 'bigfilechunking'),
-              blacklistedFiles: blacklistedFiles.build(),
-              forbiddenFilenames: forbiddenFilenames.build(),
-              forbiddenFilenameBasenames: forbiddenFilenameBasenames.build(),
-              forbiddenFilenameCharacters: forbiddenFilenameCharacters.build(),
-              forbiddenFilenameExtensions: forbiddenFilenameExtensions.build(),
-              directEditing: directEditing.build());
+            comment: comment,
+            bigfilechunking:
+                BuiltValueNullFieldError.checkNotNull(bigfilechunking, r'Capabilities_Files', 'bigfilechunking'),
+            blacklistedFiles: blacklistedFiles.build(),
+            forbiddenFilenames: forbiddenFilenames.build(),
+            forbiddenFilenameBasenames: forbiddenFilenameBasenames.build(),
+            forbiddenFilenameCharacters: forbiddenFilenameCharacters.build(),
+            forbiddenFilenameExtensions: forbiddenFilenameExtensions.build(),
+            directEditing: directEditing.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -8997,7 +9097,10 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     Capabilities._validate(this);
     _$Capabilities _$result;
     try {
-      _$result = _$v ?? _$Capabilities._(files: files.build());
+      _$result = _$v ??
+          _$Capabilities._(
+            files: files.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

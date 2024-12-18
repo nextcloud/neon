@@ -744,11 +744,11 @@ class ThemingGetManifestResponseApplicationJson_IconsBuilder
     ThemingGetManifestResponseApplicationJson_Icons._validate(this);
     final _$result = _$v ??
         _$ThemingGetManifestResponseApplicationJson_Icons._(
-            src: BuiltValueNullFieldError.checkNotNull(src, r'ThemingGetManifestResponseApplicationJson_Icons', 'src'),
-            type:
-                BuiltValueNullFieldError.checkNotNull(type, r'ThemingGetManifestResponseApplicationJson_Icons', 'type'),
-            sizes: BuiltValueNullFieldError.checkNotNull(
-                sizes, r'ThemingGetManifestResponseApplicationJson_Icons', 'sizes'));
+          src: BuiltValueNullFieldError.checkNotNull(src, r'ThemingGetManifestResponseApplicationJson_Icons', 'src'),
+          type: BuiltValueNullFieldError.checkNotNull(type, r'ThemingGetManifestResponseApplicationJson_Icons', 'type'),
+          sizes:
+              BuiltValueNullFieldError.checkNotNull(sizes, r'ThemingGetManifestResponseApplicationJson_Icons', 'sizes'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -957,20 +957,21 @@ class ThemingGetManifestResponseApplicationJsonBuilder
     try {
       _$result = _$v ??
           _$ThemingGetManifestResponseApplicationJson._(
-              name: BuiltValueNullFieldError.checkNotNull(name, r'ThemingGetManifestResponseApplicationJson', 'name'),
-              shortName: BuiltValueNullFieldError.checkNotNull(
-                  shortName, r'ThemingGetManifestResponseApplicationJson', 'shortName'),
-              startUrl: BuiltValueNullFieldError.checkNotNull(
-                  startUrl, r'ThemingGetManifestResponseApplicationJson', 'startUrl'),
-              themeColor: BuiltValueNullFieldError.checkNotNull(
-                  themeColor, r'ThemingGetManifestResponseApplicationJson', 'themeColor'),
-              backgroundColor: BuiltValueNullFieldError.checkNotNull(
-                  backgroundColor, r'ThemingGetManifestResponseApplicationJson', 'backgroundColor'),
-              description: BuiltValueNullFieldError.checkNotNull(
-                  description, r'ThemingGetManifestResponseApplicationJson', 'description'),
-              icons: icons.build(),
-              display: BuiltValueNullFieldError.checkNotNull(
-                  display, r'ThemingGetManifestResponseApplicationJson', 'display'));
+            name: BuiltValueNullFieldError.checkNotNull(name, r'ThemingGetManifestResponseApplicationJson', 'name'),
+            shortName: BuiltValueNullFieldError.checkNotNull(
+                shortName, r'ThemingGetManifestResponseApplicationJson', 'shortName'),
+            startUrl: BuiltValueNullFieldError.checkNotNull(
+                startUrl, r'ThemingGetManifestResponseApplicationJson', 'startUrl'),
+            themeColor: BuiltValueNullFieldError.checkNotNull(
+                themeColor, r'ThemingGetManifestResponseApplicationJson', 'themeColor'),
+            backgroundColor: BuiltValueNullFieldError.checkNotNull(
+                backgroundColor, r'ThemingGetManifestResponseApplicationJson', 'backgroundColor'),
+            description: BuiltValueNullFieldError.checkNotNull(
+                description, r'ThemingGetManifestResponseApplicationJson', 'description'),
+            icons: icons.build(),
+            display:
+                BuiltValueNullFieldError.checkNotNull(display, r'ThemingGetManifestResponseApplicationJson', 'display'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1124,11 +1125,12 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
     OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
-            message: message,
-            totalitems: totalitems,
-            itemsperpage: itemsperpage);
+          status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+          statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+          message: message,
+          totalitems: totalitems,
+          itemsperpage: itemsperpage,
+        );
     replace(_$result);
     return _$result;
   }
@@ -1241,9 +1243,10 @@ class UserThemeEnableThemeResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$UserThemeEnableThemeResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'UserThemeEnableThemeResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data:
+                BuiltValueNullFieldError.checkNotNull(data, r'UserThemeEnableThemeResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1350,7 +1353,10 @@ class UserThemeEnableThemeResponseApplicationJsonBuilder
     UserThemeEnableThemeResponseApplicationJson._validate(this);
     _$UserThemeEnableThemeResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UserThemeEnableThemeResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UserThemeEnableThemeResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1473,9 +1479,10 @@ class UserThemeDisableThemeResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$UserThemeDisableThemeResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'UserThemeDisableThemeResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(
+                data, r'UserThemeDisableThemeResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1582,7 +1589,10 @@ class UserThemeDisableThemeResponseApplicationJsonBuilder
     UserThemeDisableThemeResponseApplicationJson._validate(this);
     _$UserThemeDisableThemeResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UserThemeDisableThemeResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UserThemeDisableThemeResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1898,26 +1908,27 @@ class PublicCapabilities_ThemingBuilder
     PublicCapabilities_Theming._validate(this);
     final _$result = _$v ??
         _$PublicCapabilities_Theming._(
-            name: BuiltValueNullFieldError.checkNotNull(name, r'PublicCapabilities_Theming', 'name'),
-            url: BuiltValueNullFieldError.checkNotNull(url, r'PublicCapabilities_Theming', 'url'),
-            slogan: BuiltValueNullFieldError.checkNotNull(slogan, r'PublicCapabilities_Theming', 'slogan'),
-            color: BuiltValueNullFieldError.checkNotNull(color, r'PublicCapabilities_Theming', 'color'),
-            colorText: BuiltValueNullFieldError.checkNotNull(colorText, r'PublicCapabilities_Theming', 'colorText'),
-            colorElement:
-                BuiltValueNullFieldError.checkNotNull(colorElement, r'PublicCapabilities_Theming', 'colorElement'),
-            colorElementBright: BuiltValueNullFieldError.checkNotNull(
-                colorElementBright, r'PublicCapabilities_Theming', 'colorElementBright'),
-            colorElementDark: BuiltValueNullFieldError.checkNotNull(
-                colorElementDark, r'PublicCapabilities_Theming', 'colorElementDark'),
-            logo: BuiltValueNullFieldError.checkNotNull(logo, r'PublicCapabilities_Theming', 'logo'),
-            background: BuiltValueNullFieldError.checkNotNull(background, r'PublicCapabilities_Theming', 'background'),
-            backgroundText: backgroundText,
-            backgroundPlain: BuiltValueNullFieldError.checkNotNull(
-                backgroundPlain, r'PublicCapabilities_Theming', 'backgroundPlain'),
-            backgroundDefault: BuiltValueNullFieldError.checkNotNull(
-                backgroundDefault, r'PublicCapabilities_Theming', 'backgroundDefault'),
-            logoheader: BuiltValueNullFieldError.checkNotNull(logoheader, r'PublicCapabilities_Theming', 'logoheader'),
-            favicon: BuiltValueNullFieldError.checkNotNull(favicon, r'PublicCapabilities_Theming', 'favicon'));
+          name: BuiltValueNullFieldError.checkNotNull(name, r'PublicCapabilities_Theming', 'name'),
+          url: BuiltValueNullFieldError.checkNotNull(url, r'PublicCapabilities_Theming', 'url'),
+          slogan: BuiltValueNullFieldError.checkNotNull(slogan, r'PublicCapabilities_Theming', 'slogan'),
+          color: BuiltValueNullFieldError.checkNotNull(color, r'PublicCapabilities_Theming', 'color'),
+          colorText: BuiltValueNullFieldError.checkNotNull(colorText, r'PublicCapabilities_Theming', 'colorText'),
+          colorElement:
+              BuiltValueNullFieldError.checkNotNull(colorElement, r'PublicCapabilities_Theming', 'colorElement'),
+          colorElementBright: BuiltValueNullFieldError.checkNotNull(
+              colorElementBright, r'PublicCapabilities_Theming', 'colorElementBright'),
+          colorElementDark: BuiltValueNullFieldError.checkNotNull(
+              colorElementDark, r'PublicCapabilities_Theming', 'colorElementDark'),
+          logo: BuiltValueNullFieldError.checkNotNull(logo, r'PublicCapabilities_Theming', 'logo'),
+          background: BuiltValueNullFieldError.checkNotNull(background, r'PublicCapabilities_Theming', 'background'),
+          backgroundText: backgroundText,
+          backgroundPlain:
+              BuiltValueNullFieldError.checkNotNull(backgroundPlain, r'PublicCapabilities_Theming', 'backgroundPlain'),
+          backgroundDefault: BuiltValueNullFieldError.checkNotNull(
+              backgroundDefault, r'PublicCapabilities_Theming', 'backgroundDefault'),
+          logoheader: BuiltValueNullFieldError.checkNotNull(logoheader, r'PublicCapabilities_Theming', 'logoheader'),
+          favicon: BuiltValueNullFieldError.checkNotNull(favicon, r'PublicCapabilities_Theming', 'favicon'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -2007,7 +2018,10 @@ class PublicCapabilitiesBuilder
     PublicCapabilities._validate(this);
     _$PublicCapabilities _$result;
     try {
-      _$result = _$v ?? _$PublicCapabilities._(theming: theming.build());
+      _$result = _$v ??
+          _$PublicCapabilities._(
+            theming: theming.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

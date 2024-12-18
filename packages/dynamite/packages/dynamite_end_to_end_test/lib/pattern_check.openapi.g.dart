@@ -483,20 +483,21 @@ class TestObjectBuilder implements Builder<TestObject, TestObjectBuilder>, $Test
     try {
       _$result = _$v ??
           _$TestObject._(
-              onlyNumbers: onlyNumbers,
-              minLength: minLength,
-              maxLength: maxLength,
-              stringMultipleChecks: stringMultipleChecks,
-              minItems: _minItems?.build(),
-              maxItems: _maxItems?.build(),
-              arrayUnique: _arrayUnique?.build(),
-              arrayMultipleChecks: _arrayMultipleChecks?.build(),
-              multipleOf: multipleOf,
-              maximum: maximum,
-              exclusiveMaximum: exclusiveMaximum,
-              minimum: minimum,
-              exclusiveMinimum: exclusiveMinimum,
-              numberMultipleChecks: numberMultipleChecks);
+            onlyNumbers: onlyNumbers,
+            minLength: minLength,
+            maxLength: maxLength,
+            stringMultipleChecks: stringMultipleChecks,
+            minItems: _minItems?.build(),
+            maxItems: _maxItems?.build(),
+            arrayUnique: _arrayUnique?.build(),
+            arrayMultipleChecks: _arrayMultipleChecks?.build(),
+            multipleOf: multipleOf,
+            maximum: maximum,
+            exclusiveMaximum: exclusiveMaximum,
+            minimum: minimum,
+            exclusiveMinimum: exclusiveMinimum,
+            numberMultipleChecks: numberMultipleChecks,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -598,7 +599,10 @@ class TestObjectUnspecifiedBuilder
 
   _$TestObjectUnspecified _build() {
     TestObjectUnspecified._validate(this);
-    final _$result = _$v ?? _$TestObjectUnspecified._(value: value);
+    final _$result = _$v ??
+        _$TestObjectUnspecified._(
+          value: value,
+        );
     replace(_$result);
     return _$result;
   }

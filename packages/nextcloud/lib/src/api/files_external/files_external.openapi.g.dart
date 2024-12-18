@@ -578,11 +578,12 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
     OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
-            message: message,
-            totalitems: totalitems,
-            itemsperpage: itemsperpage);
+          status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+          statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+          message: message,
+          totalitems: totalitems,
+          itemsperpage: itemsperpage,
+        );
     replace(_$result);
     return _$result;
   }
@@ -851,19 +852,20 @@ class StorageConfigBuilder implements Builder<StorageConfig, StorageConfigBuilde
     try {
       _$result = _$v ??
           _$StorageConfig._(
-              applicableGroups: _applicableGroups?.build(),
-              applicableUsers: _applicableUsers?.build(),
-              authMechanism: BuiltValueNullFieldError.checkNotNull(authMechanism, r'StorageConfig', 'authMechanism'),
-              backend: BuiltValueNullFieldError.checkNotNull(backend, r'StorageConfig', 'backend'),
-              backendOptions: backendOptions.build(),
-              id: id,
-              mountOptions: _mountOptions?.build(),
-              mountPoint: BuiltValueNullFieldError.checkNotNull(mountPoint, r'StorageConfig', 'mountPoint'),
-              priority: priority,
-              status: status,
-              statusMessage: statusMessage,
-              type: BuiltValueNullFieldError.checkNotNull(type, r'StorageConfig', 'type'),
-              userProvided: BuiltValueNullFieldError.checkNotNull(userProvided, r'StorageConfig', 'userProvided'));
+            applicableGroups: _applicableGroups?.build(),
+            applicableUsers: _applicableUsers?.build(),
+            authMechanism: BuiltValueNullFieldError.checkNotNull(authMechanism, r'StorageConfig', 'authMechanism'),
+            backend: BuiltValueNullFieldError.checkNotNull(backend, r'StorageConfig', 'backend'),
+            backendOptions: backendOptions.build(),
+            id: id,
+            mountOptions: _mountOptions?.build(),
+            mountPoint: BuiltValueNullFieldError.checkNotNull(mountPoint, r'StorageConfig', 'mountPoint'),
+            priority: priority,
+            status: status,
+            statusMessage: statusMessage,
+            type: BuiltValueNullFieldError.checkNotNull(type, r'StorageConfig', 'type'),
+            userProvided: BuiltValueNullFieldError.checkNotNull(userProvided, r'StorageConfig', 'userProvided'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1095,15 +1097,16 @@ class MountBuilder implements Builder<Mount, MountBuilder>, $MountInterfaceBuild
     try {
       _$result = _$v ??
           _$Mount._(
-              name: BuiltValueNullFieldError.checkNotNull(name, r'Mount', 'name'),
-              path: BuiltValueNullFieldError.checkNotNull(path, r'Mount', 'path'),
-              type: BuiltValueNullFieldError.checkNotNull(type, r'Mount', 'type'),
-              backend: BuiltValueNullFieldError.checkNotNull(backend, r'Mount', 'backend'),
-              scope: BuiltValueNullFieldError.checkNotNull(scope, r'Mount', 'scope'),
-              permissions: BuiltValueNullFieldError.checkNotNull(permissions, r'Mount', 'permissions'),
-              id: BuiltValueNullFieldError.checkNotNull(id, r'Mount', 'id'),
-              $class: BuiltValueNullFieldError.checkNotNull($class, r'Mount', '\$class'),
-              config: config.build());
+            name: BuiltValueNullFieldError.checkNotNull(name, r'Mount', 'name'),
+            path: BuiltValueNullFieldError.checkNotNull(path, r'Mount', 'path'),
+            type: BuiltValueNullFieldError.checkNotNull(type, r'Mount', 'type'),
+            backend: BuiltValueNullFieldError.checkNotNull(backend, r'Mount', 'backend'),
+            scope: BuiltValueNullFieldError.checkNotNull(scope, r'Mount', 'scope'),
+            permissions: BuiltValueNullFieldError.checkNotNull(permissions, r'Mount', 'permissions'),
+            id: BuiltValueNullFieldError.checkNotNull(id, r'Mount', 'id'),
+            $class: BuiltValueNullFieldError.checkNotNull($class, r'Mount', '\$class'),
+            config: config.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1223,7 +1226,11 @@ class ApiGetUserMountsResponseApplicationJson_OcsBuilder
     ApiGetUserMountsResponseApplicationJson_Ocs._validate(this);
     _$ApiGetUserMountsResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$ApiGetUserMountsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ApiGetUserMountsResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1331,7 +1338,10 @@ class ApiGetUserMountsResponseApplicationJsonBuilder
     ApiGetUserMountsResponseApplicationJson._validate(this);
     _$ApiGetUserMountsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ApiGetUserMountsResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ApiGetUserMountsResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

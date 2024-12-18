@@ -562,11 +562,12 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
     OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
-            message: message,
-            totalitems: totalitems,
-            itemsperpage: itemsperpage);
+          status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+          statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+          message: message,
+          totalitems: totalitems,
+          itemsperpage: itemsperpage,
+        );
     replace(_$result);
     return _$result;
   }
@@ -657,7 +658,10 @@ class ApiGetResponseApplicationJson_Ocs_DataBuilder
 
   _$ApiGetResponseApplicationJson_Ocs_Data _build() {
     ApiGetResponseApplicationJson_Ocs_Data._validate(this);
-    final _$result = _$v ?? _$ApiGetResponseApplicationJson_Ocs_Data._(dueDate: dueDate);
+    final _$result = _$v ??
+        _$ApiGetResponseApplicationJson_Ocs_Data._(
+          dueDate: dueDate,
+        );
     replace(_$result);
     return _$result;
   }
@@ -765,7 +769,11 @@ class ApiGetResponseApplicationJson_OcsBuilder
     ApiGetResponseApplicationJson_Ocs._validate(this);
     _$ApiGetResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$ApiGetResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ApiGetResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -869,7 +877,10 @@ class ApiGetResponseApplicationJsonBuilder
     ApiGetResponseApplicationJson._validate(this);
     _$ApiGetResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ApiGetResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ApiGetResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -971,7 +982,8 @@ class ApiSetRequestApplicationJsonBuilder
     ApiSetRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$ApiSetRequestApplicationJson._(
-            dueDate: BuiltValueNullFieldError.checkNotNull(dueDate, r'ApiSetRequestApplicationJson', 'dueDate'));
+          dueDate: BuiltValueNullFieldError.checkNotNull(dueDate, r'ApiSetRequestApplicationJson', 'dueDate'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1080,8 +1092,9 @@ class ApiSetResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$ApiSetResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(data, r'ApiSetResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(data, r'ApiSetResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1183,7 +1196,10 @@ class ApiSetResponseApplicationJsonBuilder
     ApiSetResponseApplicationJson._validate(this);
     _$ApiSetResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ApiSetResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ApiSetResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1304,8 +1320,9 @@ class ApiRemoveResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$ApiRemoveResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(data, r'ApiRemoveResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(data, r'ApiRemoveResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1407,7 +1424,10 @@ class ApiRemoveResponseApplicationJsonBuilder
     ApiRemoveResponseApplicationJson._validate(this);
     _$ApiRemoveResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ApiRemoveResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ApiRemoveResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

@@ -301,8 +301,9 @@ class WrappedEnumBuilder implements Builder<WrappedEnum, WrappedEnumBuilder>, $W
     WrappedEnum._validate(this);
     final _$result = _$v ??
         _$WrappedEnum._(
-            string: BuiltValueNullFieldError.checkNotNull(string, r'WrappedEnum', 'string'),
-            integer: BuiltValueNullFieldError.checkNotNull(integer, r'WrappedEnum', 'integer'));
+          string: BuiltValueNullFieldError.checkNotNull(string, r'WrappedEnum', 'string'),
+          integer: BuiltValueNullFieldError.checkNotNull(integer, r'WrappedEnum', 'integer'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -388,8 +389,10 @@ class EnumReferenceBuilder implements Builder<EnumReference, EnumReferenceBuilde
 
   _$EnumReference _build() {
     EnumReference._validate(this);
-    final _$result =
-        _$v ?? _$EnumReference._(string: BuiltValueNullFieldError.checkNotNull(string, r'EnumReference', 'string'));
+    final _$result = _$v ??
+        _$EnumReference._(
+          string: BuiltValueNullFieldError.checkNotNull(string, r'EnumReference', 'string'),
+        );
     replace(_$result);
     return _$result;
   }
