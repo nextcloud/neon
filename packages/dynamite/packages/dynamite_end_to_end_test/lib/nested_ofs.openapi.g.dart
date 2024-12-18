@@ -365,8 +365,9 @@ class BaseAllOfBuilder implements Builder<BaseAllOf, BaseAllOfBuilder>, $BaseAll
     BaseAllOf._validate(this);
     final _$result = _$v ??
         _$BaseAllOf._(
-            string: BuiltValueNullFieldError.checkNotNull(string, r'BaseAllOf', 'string'),
-            attributeAllOf: BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'BaseAllOf', 'attributeAllOf'));
+          string: BuiltValueNullFieldError.checkNotNull(string, r'BaseAllOf', 'string'),
+          attributeAllOf: BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'BaseAllOf', 'attributeAllOf'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -453,7 +454,8 @@ class BaseOneOf1Builder implements Builder<BaseOneOf1, BaseOneOf1Builder>, $Base
     BaseOneOf1._validate(this);
     final _$result = _$v ??
         _$BaseOneOf1._(
-            attributeOneOf: BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'BaseOneOf1', 'attributeOneOf'));
+          attributeOneOf: BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'BaseOneOf1', 'attributeOneOf'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -540,7 +542,8 @@ class BaseAnyOf1Builder implements Builder<BaseAnyOf1, BaseAnyOf1Builder>, $Base
     BaseAnyOf1._validate(this);
     final _$result = _$v ??
         _$BaseAnyOf1._(
-            attributeAnyOf: BuiltValueNullFieldError.checkNotNull(attributeAnyOf, r'BaseAnyOf1', 'attributeAnyOf'));
+          attributeAnyOf: BuiltValueNullFieldError.checkNotNull(attributeAnyOf, r'BaseAnyOf1', 'attributeAnyOf'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -696,13 +699,13 @@ class BaseNestedAllOfBuilder
     BaseNestedAllOf._validate(this);
     final _$result = _$v ??
         _$BaseNestedAllOf._(
-            baseOneOf: BuiltValueNullFieldError.checkNotNull(baseOneOf, r'BaseNestedAllOf', 'baseOneOf'),
-            baseAnyOf: BuiltValueNullFieldError.checkNotNull(baseAnyOf, r'BaseNestedAllOf', 'baseAnyOf'),
-            attributeNestedAllOf:
-                BuiltValueNullFieldError.checkNotNull(attributeNestedAllOf, r'BaseNestedAllOf', 'attributeNestedAllOf'),
-            string: BuiltValueNullFieldError.checkNotNull(string, r'BaseNestedAllOf', 'string'),
-            attributeAllOf:
-                BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'BaseNestedAllOf', 'attributeAllOf'));
+          baseOneOf: BuiltValueNullFieldError.checkNotNull(baseOneOf, r'BaseNestedAllOf', 'baseOneOf'),
+          baseAnyOf: BuiltValueNullFieldError.checkNotNull(baseAnyOf, r'BaseNestedAllOf', 'baseAnyOf'),
+          attributeNestedAllOf:
+              BuiltValueNullFieldError.checkNotNull(attributeNestedAllOf, r'BaseNestedAllOf', 'attributeNestedAllOf'),
+          string: BuiltValueNullFieldError.checkNotNull(string, r'BaseNestedAllOf', 'string'),
+          attributeAllOf: BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'BaseNestedAllOf', 'attributeAllOf'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -793,8 +796,9 @@ class BaseNestedOneOf3Builder
     BaseNestedOneOf3._validate(this);
     final _$result = _$v ??
         _$BaseNestedOneOf3._(
-            attributeNestedOneOf: BuiltValueNullFieldError.checkNotNull(
-                attributeNestedOneOf, r'BaseNestedOneOf3', 'attributeNestedOneOf'));
+          attributeNestedOneOf:
+              BuiltValueNullFieldError.checkNotNull(attributeNestedOneOf, r'BaseNestedOneOf3', 'attributeNestedOneOf'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -885,8 +889,9 @@ class BaseNestedAnyOf3Builder
     BaseNestedAnyOf3._validate(this);
     final _$result = _$v ??
         _$BaseNestedAnyOf3._(
-            attributeNestedAnyOf: BuiltValueNullFieldError.checkNotNull(
-                attributeNestedAnyOf, r'BaseNestedAnyOf3', 'attributeNestedAnyOf'));
+          attributeNestedAnyOf:
+              BuiltValueNullFieldError.checkNotNull(attributeNestedAnyOf, r'BaseNestedAnyOf3', 'attributeNestedAnyOf'),
+        );
     replace(_$result);
     return _$result;
   }

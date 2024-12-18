@@ -242,7 +242,11 @@ class NewPetBuilder implements Builder<NewPet, NewPetBuilder>, $NewPetInterfaceB
 
   _$NewPet _build() {
     NewPet._validate(this);
-    final _$result = _$v ?? _$NewPet._(name: BuiltValueNullFieldError.checkNotNull(name, r'NewPet', 'name'), tag: tag);
+    final _$result = _$v ??
+        _$NewPet._(
+          name: BuiltValueNullFieldError.checkNotNull(name, r'NewPet', 'name'),
+          tag: tag,
+        );
     replace(_$result);
     return _$result;
   }
@@ -356,9 +360,10 @@ class PetBuilder implements Builder<Pet, PetBuilder>, $PetInterfaceBuilder {
     Pet._validate(this);
     final _$result = _$v ??
         _$Pet._(
-            id: BuiltValueNullFieldError.checkNotNull(id, r'Pet', 'id'),
-            name: BuiltValueNullFieldError.checkNotNull(name, r'Pet', 'name'),
-            tag: tag);
+          id: BuiltValueNullFieldError.checkNotNull(id, r'Pet', 'id'),
+          name: BuiltValueNullFieldError.checkNotNull(name, r'Pet', 'name'),
+          tag: tag,
+        );
     replace(_$result);
     return _$result;
   }
@@ -460,8 +465,9 @@ class ErrorBuilder implements Builder<Error, ErrorBuilder>, $ErrorInterfaceBuild
     Error._validate(this);
     final _$result = _$v ??
         _$Error._(
-            code: BuiltValueNullFieldError.checkNotNull(code, r'Error', 'code'),
-            message: BuiltValueNullFieldError.checkNotNull(message, r'Error', 'message'));
+          code: BuiltValueNullFieldError.checkNotNull(code, r'Error', 'code'),
+          message: BuiltValueNullFieldError.checkNotNull(message, r'Error', 'message'),
+        );
     replace(_$result);
     return _$result;
   }

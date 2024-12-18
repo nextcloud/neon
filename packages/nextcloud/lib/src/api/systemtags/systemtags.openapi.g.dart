@@ -190,7 +190,8 @@ class Capabilities_SystemtagsBuilder
     Capabilities_Systemtags._validate(this);
     final _$result = _$v ??
         _$Capabilities_Systemtags._(
-            enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_Systemtags', 'enabled'));
+          enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_Systemtags', 'enabled'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -278,7 +279,10 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     Capabilities._validate(this);
     _$Capabilities _$result;
     try {
-      _$result = _$v ?? _$Capabilities._(systemtags: systemtags.build());
+      _$result = _$v ??
+          _$Capabilities._(
+            systemtags: systemtags.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

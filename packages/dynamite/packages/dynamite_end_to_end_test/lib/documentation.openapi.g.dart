@@ -345,8 +345,11 @@ class Object2Builder implements Builder<Object2, Object2Builder>, $Object2Interf
 
   _$Object2 _build() {
     Object2._validate(this);
-    final _$result =
-        _$v ?? _$Object2._(name: BuiltValueNullFieldError.checkNotNull(name, r'Object2', 'name'), tag: tag);
+    final _$result = _$v ??
+        _$Object2._(
+          name: BuiltValueNullFieldError.checkNotNull(name, r'Object2', 'name'),
+          tag: tag,
+        );
     replace(_$result);
     return _$result;
   }
@@ -460,9 +463,10 @@ class Object1Builder implements Builder<Object1, Object1Builder>, $Object1Interf
     Object1._validate(this);
     final _$result = _$v ??
         _$Object1._(
-            id: BuiltValueNullFieldError.checkNotNull(id, r'Object1', 'id'),
-            name: BuiltValueNullFieldError.checkNotNull(name, r'Object1', 'name'),
-            tag: tag);
+          id: BuiltValueNullFieldError.checkNotNull(id, r'Object1', 'id'),
+          name: BuiltValueNullFieldError.checkNotNull(name, r'Object1', 'name'),
+          tag: tag,
+        );
     replace(_$result);
     return _$result;
   }
@@ -553,7 +557,10 @@ class NonRootClientSetModeRequestApplicationJsonBuilder
 
   _$NonRootClientSetModeRequestApplicationJson _build() {
     NonRootClientSetModeRequestApplicationJson._validate(this);
-    final _$result = _$v ?? _$NonRootClientSetModeRequestApplicationJson._(test: test);
+    final _$result = _$v ??
+        _$NonRootClientSetModeRequestApplicationJson._(
+          test: test,
+        );
     replace(_$result);
     return _$result;
   }
@@ -682,10 +689,11 @@ class Object4Builder implements Builder<Object4, Object4Builder>, $Object4Interf
     Object4._validate(this);
     final _$result = _$v ??
         _$Object4._(
-            html: html,
-            htmlInCodeblock: htmlInCodeblock,
-            htmlAfterCodeBlock: htmlAfterCodeBlock,
-            htmlInCodeBlockAfterCodeBlock: htmlInCodeBlockAfterCodeBlock);
+          html: html,
+          htmlInCodeblock: htmlInCodeblock,
+          htmlAfterCodeBlock: htmlAfterCodeBlock,
+          htmlInCodeBlockAfterCodeBlock: htmlInCodeBlockAfterCodeBlock,
+        );
     replace(_$result);
     return _$result;
   }

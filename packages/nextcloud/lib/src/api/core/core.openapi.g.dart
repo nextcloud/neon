@@ -15828,14 +15828,15 @@ class StatusBuilder implements Builder<Status, StatusBuilder>, $StatusInterfaceB
     Status._validate(this);
     final _$result = _$v ??
         _$Status._(
-            installed: BuiltValueNullFieldError.checkNotNull(installed, r'Status', 'installed'),
-            maintenance: BuiltValueNullFieldError.checkNotNull(maintenance, r'Status', 'maintenance'),
-            needsDbUpgrade: BuiltValueNullFieldError.checkNotNull(needsDbUpgrade, r'Status', 'needsDbUpgrade'),
-            version: BuiltValueNullFieldError.checkNotNull(version, r'Status', 'version'),
-            versionstring: BuiltValueNullFieldError.checkNotNull(versionstring, r'Status', 'versionstring'),
-            edition: BuiltValueNullFieldError.checkNotNull(edition, r'Status', 'edition'),
-            productname: BuiltValueNullFieldError.checkNotNull(productname, r'Status', 'productname'),
-            extendedSupport: BuiltValueNullFieldError.checkNotNull(extendedSupport, r'Status', 'extendedSupport'));
+          installed: BuiltValueNullFieldError.checkNotNull(installed, r'Status', 'installed'),
+          maintenance: BuiltValueNullFieldError.checkNotNull(maintenance, r'Status', 'maintenance'),
+          needsDbUpgrade: BuiltValueNullFieldError.checkNotNull(needsDbUpgrade, r'Status', 'needsDbUpgrade'),
+          version: BuiltValueNullFieldError.checkNotNull(version, r'Status', 'version'),
+          versionstring: BuiltValueNullFieldError.checkNotNull(versionstring, r'Status', 'versionstring'),
+          edition: BuiltValueNullFieldError.checkNotNull(edition, r'Status', 'edition'),
+          productname: BuiltValueNullFieldError.checkNotNull(productname, r'Status', 'productname'),
+          extendedSupport: BuiltValueNullFieldError.checkNotNull(extendedSupport, r'Status', 'extendedSupport'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -15979,11 +15980,12 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
     OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
-            message: message,
-            totalitems: totalitems,
-            itemsperpage: itemsperpage);
+          status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+          statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+          message: message,
+          totalitems: totalitems,
+          itemsperpage: itemsperpage,
+        );
     replace(_$result);
     return _$result;
   }
@@ -16083,8 +16085,9 @@ class AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder
     AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data._(
-            apppassword: BuiltValueNullFieldError.checkNotNull(
-                apppassword, r'AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data', 'apppassword'));
+          apppassword: BuiltValueNullFieldError.checkNotNull(
+              apppassword, r'AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data', 'apppassword'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -16197,8 +16200,11 @@ class AppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder
     AppPasswordGetAppPasswordResponseApplicationJson_Ocs._validate(this);
     _$AppPasswordGetAppPasswordResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$AppPasswordGetAppPasswordResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$AppPasswordGetAppPasswordResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -16309,7 +16315,10 @@ class AppPasswordGetAppPasswordResponseApplicationJsonBuilder
     AppPasswordGetAppPasswordResponseApplicationJson._validate(this);
     _$AppPasswordGetAppPasswordResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$AppPasswordGetAppPasswordResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$AppPasswordGetAppPasswordResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -16434,9 +16443,10 @@ class AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(
+                data, r'AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -16546,7 +16556,10 @@ class AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder
     AppPasswordDeleteAppPasswordResponseApplicationJson._validate(this);
     _$AppPasswordDeleteAppPasswordResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$AppPasswordDeleteAppPasswordResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$AppPasswordDeleteAppPasswordResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -16657,8 +16670,9 @@ class AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder
     AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data._(
-            apppassword: BuiltValueNullFieldError.checkNotNull(
-                apppassword, r'AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data', 'apppassword'));
+          apppassword: BuiltValueNullFieldError.checkNotNull(
+              apppassword, r'AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data', 'apppassword'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -16771,8 +16785,11 @@ class AppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder
     AppPasswordRotateAppPasswordResponseApplicationJson_Ocs._validate(this);
     _$AppPasswordRotateAppPasswordResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$AppPasswordRotateAppPasswordResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$AppPasswordRotateAppPasswordResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -16884,7 +16901,10 @@ class AppPasswordRotateAppPasswordResponseApplicationJsonBuilder
     AppPasswordRotateAppPasswordResponseApplicationJson._validate(this);
     _$AppPasswordRotateAppPasswordResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$AppPasswordRotateAppPasswordResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$AppPasswordRotateAppPasswordResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -16995,8 +17015,9 @@ class AppPasswordConfirmUserPasswordRequestApplicationJsonBuilder
     AppPasswordConfirmUserPasswordRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$AppPasswordConfirmUserPasswordRequestApplicationJson._(
-            password: BuiltValueNullFieldError.checkNotNull(
-                password, r'AppPasswordConfirmUserPasswordRequestApplicationJson', 'password'));
+          password: BuiltValueNullFieldError.checkNotNull(
+              password, r'AppPasswordConfirmUserPasswordRequestApplicationJson', 'password'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -17096,8 +17117,9 @@ class AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder
     AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data._(
-            lastLogin: BuiltValueNullFieldError.checkNotNull(
-                lastLogin, r'AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data', 'lastLogin'));
+          lastLogin: BuiltValueNullFieldError.checkNotNull(
+              lastLogin, r'AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data', 'lastLogin'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -17213,8 +17235,11 @@ class AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder
     AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs._validate(this);
     _$AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -17326,7 +17351,10 @@ class AppPasswordConfirmUserPasswordResponseApplicationJsonBuilder
     AppPasswordConfirmUserPasswordResponseApplicationJson._validate(this);
     _$AppPasswordConfirmUserPasswordResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$AppPasswordConfirmUserPasswordResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$AppPasswordConfirmUserPasswordResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -17471,10 +17499,11 @@ class AutocompleteResult_Status0Builder
     AutocompleteResult_Status0._validate(this);
     final _$result = _$v ??
         _$AutocompleteResult_Status0._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'AutocompleteResult_Status0', 'status'),
-            message: message,
-            icon: icon,
-            clearAt: clearAt);
+          status: BuiltValueNullFieldError.checkNotNull(status, r'AutocompleteResult_Status0', 'status'),
+          message: message,
+          icon: icon,
+          clearAt: clearAt,
+        );
     replace(_$result);
     return _$result;
   }
@@ -17662,14 +17691,15 @@ class AutocompleteResultBuilder
     AutocompleteResult._validate(this);
     final _$result = _$v ??
         _$AutocompleteResult._(
-            id: BuiltValueNullFieldError.checkNotNull(id, r'AutocompleteResult', 'id'),
-            label: BuiltValueNullFieldError.checkNotNull(label, r'AutocompleteResult', 'label'),
-            icon: BuiltValueNullFieldError.checkNotNull(icon, r'AutocompleteResult', 'icon'),
-            source: BuiltValueNullFieldError.checkNotNull(source, r'AutocompleteResult', 'source'),
-            status: BuiltValueNullFieldError.checkNotNull(status, r'AutocompleteResult', 'status'),
-            subline: BuiltValueNullFieldError.checkNotNull(subline, r'AutocompleteResult', 'subline'),
-            shareWithDisplayNameUnique: BuiltValueNullFieldError.checkNotNull(
-                shareWithDisplayNameUnique, r'AutocompleteResult', 'shareWithDisplayNameUnique'));
+          id: BuiltValueNullFieldError.checkNotNull(id, r'AutocompleteResult', 'id'),
+          label: BuiltValueNullFieldError.checkNotNull(label, r'AutocompleteResult', 'label'),
+          icon: BuiltValueNullFieldError.checkNotNull(icon, r'AutocompleteResult', 'icon'),
+          source: BuiltValueNullFieldError.checkNotNull(source, r'AutocompleteResult', 'source'),
+          status: BuiltValueNullFieldError.checkNotNull(status, r'AutocompleteResult', 'status'),
+          subline: BuiltValueNullFieldError.checkNotNull(subline, r'AutocompleteResult', 'subline'),
+          shareWithDisplayNameUnique: BuiltValueNullFieldError.checkNotNull(
+              shareWithDisplayNameUnique, r'AutocompleteResult', 'shareWithDisplayNameUnique'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -17779,7 +17809,11 @@ class AutoCompleteGetResponseApplicationJson_OcsBuilder
     AutoCompleteGetResponseApplicationJson_Ocs._validate(this);
     _$AutoCompleteGetResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$AutoCompleteGetResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$AutoCompleteGetResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -17887,7 +17921,10 @@ class AutoCompleteGetResponseApplicationJsonBuilder
     AutoCompleteGetResponseApplicationJson._validate(this);
     _$AutoCompleteGetResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$AutoCompleteGetResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$AutoCompleteGetResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -17990,7 +18027,10 @@ class AvatarAvatarGetAvatarDarkHeadersBuilder
     AvatarAvatarGetAvatarDarkHeaders._validate(this);
     _$AvatarAvatarGetAvatarDarkHeaders _$result;
     try {
-      _$result = _$v ?? _$AvatarAvatarGetAvatarDarkHeaders._(xNcIscustomavatar: _xNcIscustomavatar?.build());
+      _$result = _$v ??
+          _$AvatarAvatarGetAvatarDarkHeaders._(
+            xNcIscustomavatar: _xNcIscustomavatar?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -18092,7 +18132,10 @@ class AvatarAvatarGetAvatarHeadersBuilder
     AvatarAvatarGetAvatarHeaders._validate(this);
     _$AvatarAvatarGetAvatarHeaders _$result;
     try {
-      _$result = _$v ?? _$AvatarAvatarGetAvatarHeaders._(xNcIscustomavatar: _xNcIscustomavatar?.build());
+      _$result = _$v ??
+          _$AvatarAvatarGetAvatarHeaders._(
+            xNcIscustomavatar: _xNcIscustomavatar?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -18198,8 +18241,8 @@ class ClientFlowLoginV2PollRequestApplicationJsonBuilder
     ClientFlowLoginV2PollRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$ClientFlowLoginV2PollRequestApplicationJson._(
-            token:
-                BuiltValueNullFieldError.checkNotNull(token, r'ClientFlowLoginV2PollRequestApplicationJson', 'token'));
+          token: BuiltValueNullFieldError.checkNotNull(token, r'ClientFlowLoginV2PollRequestApplicationJson', 'token'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -18320,9 +18363,10 @@ class LoginFlowV2CredentialsBuilder
     LoginFlowV2Credentials._validate(this);
     final _$result = _$v ??
         _$LoginFlowV2Credentials._(
-            server: BuiltValueNullFieldError.checkNotNull(server, r'LoginFlowV2Credentials', 'server'),
-            loginName: BuiltValueNullFieldError.checkNotNull(loginName, r'LoginFlowV2Credentials', 'loginName'),
-            appPassword: BuiltValueNullFieldError.checkNotNull(appPassword, r'LoginFlowV2Credentials', 'appPassword'));
+          server: BuiltValueNullFieldError.checkNotNull(server, r'LoginFlowV2Credentials', 'server'),
+          loginName: BuiltValueNullFieldError.checkNotNull(loginName, r'LoginFlowV2Credentials', 'loginName'),
+          appPassword: BuiltValueNullFieldError.checkNotNull(appPassword, r'LoginFlowV2Credentials', 'appPassword'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -18426,8 +18470,9 @@ class LoginFlowV2_PollBuilder
     LoginFlowV2_Poll._validate(this);
     final _$result = _$v ??
         _$LoginFlowV2_Poll._(
-            token: BuiltValueNullFieldError.checkNotNull(token, r'LoginFlowV2_Poll', 'token'),
-            endpoint: BuiltValueNullFieldError.checkNotNull(endpoint, r'LoginFlowV2_Poll', 'endpoint'));
+          token: BuiltValueNullFieldError.checkNotNull(token, r'LoginFlowV2_Poll', 'token'),
+          endpoint: BuiltValueNullFieldError.checkNotNull(endpoint, r'LoginFlowV2_Poll', 'endpoint'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -18532,7 +18577,9 @@ class LoginFlowV2Builder implements Builder<LoginFlowV2, LoginFlowV2Builder>, $L
     try {
       _$result = _$v ??
           _$LoginFlowV2._(
-              poll: poll.build(), login: BuiltValueNullFieldError.checkNotNull(login, r'LoginFlowV2', 'login'));
+            poll: poll.build(),
+            login: BuiltValueNullFieldError.checkNotNull(login, r'LoginFlowV2', 'login'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -18689,11 +18736,12 @@ class OpenGraphObjectBuilder
     OpenGraphObject._validate(this);
     final _$result = _$v ??
         _$OpenGraphObject._(
-            id: BuiltValueNullFieldError.checkNotNull(id, r'OpenGraphObject', 'id'),
-            name: BuiltValueNullFieldError.checkNotNull(name, r'OpenGraphObject', 'name'),
-            description: description,
-            thumb: thumb,
-            link: BuiltValueNullFieldError.checkNotNull(link, r'OpenGraphObject', 'link'));
+          id: BuiltValueNullFieldError.checkNotNull(id, r'OpenGraphObject', 'id'),
+          name: BuiltValueNullFieldError.checkNotNull(name, r'OpenGraphObject', 'name'),
+          description: description,
+          thumb: thumb,
+          link: BuiltValueNullFieldError.checkNotNull(link, r'OpenGraphObject', 'link'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -18829,10 +18877,11 @@ class ResourceBuilder implements Builder<Resource, ResourceBuilder>, $ResourceIn
     try {
       _$result = _$v ??
           _$Resource._(
-              richObjectType: BuiltValueNullFieldError.checkNotNull(richObjectType, r'Resource', 'richObjectType'),
-              richObject: richObject.build(),
-              openGraphObject: openGraphObject.build(),
-              accessible: BuiltValueNullFieldError.checkNotNull(accessible, r'Resource', 'accessible'));
+            richObjectType: BuiltValueNullFieldError.checkNotNull(richObjectType, r'Resource', 'richObjectType'),
+            richObject: richObject.build(),
+            openGraphObject: openGraphObject.build(),
+            accessible: BuiltValueNullFieldError.checkNotNull(accessible, r'Resource', 'accessible'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -18961,9 +19010,10 @@ class CollectionBuilder implements Builder<Collection, CollectionBuilder>, $Coll
     try {
       _$result = _$v ??
           _$Collection._(
-              id: BuiltValueNullFieldError.checkNotNull(id, r'Collection', 'id'),
-              name: BuiltValueNullFieldError.checkNotNull(name, r'Collection', 'name'),
-              resources: resources.build());
+            id: BuiltValueNullFieldError.checkNotNull(id, r'Collection', 'id'),
+            name: BuiltValueNullFieldError.checkNotNull(name, r'Collection', 'name'),
+            resources: resources.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -19091,7 +19141,10 @@ class CollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder
     _$CollaborationResourcesListCollectionResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$CollaborationResourcesListCollectionResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+          _$CollaborationResourcesListCollectionResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -19204,7 +19257,10 @@ class CollaborationResourcesListCollectionResponseApplicationJsonBuilder
     CollaborationResourcesListCollectionResponseApplicationJson._validate(this);
     _$CollaborationResourcesListCollectionResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CollaborationResourcesListCollectionResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$CollaborationResourcesListCollectionResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -19316,8 +19372,9 @@ class CollaborationResourcesRenameCollectionRequestApplicationJsonBuilder
     CollaborationResourcesRenameCollectionRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$CollaborationResourcesRenameCollectionRequestApplicationJson._(
-            collectionName: BuiltValueNullFieldError.checkNotNull(
-                collectionName, r'CollaborationResourcesRenameCollectionRequestApplicationJson', 'collectionName'));
+          collectionName: BuiltValueNullFieldError.checkNotNull(
+              collectionName, r'CollaborationResourcesRenameCollectionRequestApplicationJson', 'collectionName'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -19436,7 +19493,10 @@ class CollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder
     _$CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+          _$CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -19549,7 +19609,10 @@ class CollaborationResourcesRenameCollectionResponseApplicationJsonBuilder
     CollaborationResourcesRenameCollectionResponseApplicationJson._validate(this);
     _$CollaborationResourcesRenameCollectionResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CollaborationResourcesRenameCollectionResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$CollaborationResourcesRenameCollectionResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -19677,10 +19740,11 @@ class CollaborationResourcesAddResourceRequestApplicationJsonBuilder
     CollaborationResourcesAddResourceRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$CollaborationResourcesAddResourceRequestApplicationJson._(
-            resourceType: BuiltValueNullFieldError.checkNotNull(
-                resourceType, r'CollaborationResourcesAddResourceRequestApplicationJson', 'resourceType'),
-            resourceId: BuiltValueNullFieldError.checkNotNull(
-                resourceId, r'CollaborationResourcesAddResourceRequestApplicationJson', 'resourceId'));
+          resourceType: BuiltValueNullFieldError.checkNotNull(
+              resourceType, r'CollaborationResourcesAddResourceRequestApplicationJson', 'resourceType'),
+          resourceId: BuiltValueNullFieldError.checkNotNull(
+              resourceId, r'CollaborationResourcesAddResourceRequestApplicationJson', 'resourceId'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -19798,7 +19862,10 @@ class CollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder
     _$CollaborationResourcesAddResourceResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$CollaborationResourcesAddResourceResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+          _$CollaborationResourcesAddResourceResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -19910,7 +19977,10 @@ class CollaborationResourcesAddResourceResponseApplicationJsonBuilder
     CollaborationResourcesAddResourceResponseApplicationJson._validate(this);
     _$CollaborationResourcesAddResourceResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CollaborationResourcesAddResourceResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$CollaborationResourcesAddResourceResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -20039,7 +20109,10 @@ class CollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder
     _$CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+          _$CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -20152,7 +20225,10 @@ class CollaborationResourcesRemoveResourceResponseApplicationJsonBuilder
     CollaborationResourcesRemoveResourceResponseApplicationJson._validate(this);
     _$CollaborationResourcesRemoveResourceResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CollaborationResourcesRemoveResourceResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$CollaborationResourcesRemoveResourceResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -20283,7 +20359,9 @@ class CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs._(
-              meta: meta.build(), data: data.build());
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -20398,7 +20476,10 @@ class CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder
     CollaborationResourcesSearchCollectionsResponseApplicationJson._validate(this);
     _$CollaborationResourcesSearchCollectionsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CollaborationResourcesSearchCollectionsResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$CollaborationResourcesSearchCollectionsResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -20532,7 +20613,9 @@ class CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsB
     try {
       _$result = _$v ??
           _$CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs._(
-              meta: meta.build(), data: data.build());
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -20648,7 +20731,10 @@ class CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuild
     CollaborationResourcesGetCollectionsByResourceResponseApplicationJson._validate(this);
     _$CollaborationResourcesGetCollectionsByResourceResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CollaborationResourcesGetCollectionsByResourceResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$CollaborationResourcesGetCollectionsByResourceResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -20760,8 +20846,9 @@ class CollaborationResourcesCreateCollectionOnResourceRequestApplicationJsonBuil
     CollaborationResourcesCreateCollectionOnResourceRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$CollaborationResourcesCreateCollectionOnResourceRequestApplicationJson._(
-            name: BuiltValueNullFieldError.checkNotNull(
-                name, r'CollaborationResourcesCreateCollectionOnResourceRequestApplicationJson', 'name'));
+          name: BuiltValueNullFieldError.checkNotNull(
+              name, r'CollaborationResourcesCreateCollectionOnResourceRequestApplicationJson', 'name'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -20885,7 +20972,9 @@ class CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Oc
     try {
       _$result = _$v ??
           _$CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs._(
-              meta: meta.build(), data: data.build());
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -21001,7 +21090,10 @@ class CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBui
     CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson._validate(this);
     _$CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -21106,7 +21198,8 @@ class CsrfTokenIndexResponseApplicationJsonBuilder
     CsrfTokenIndexResponseApplicationJson._validate(this);
     final _$result = _$v ??
         _$CsrfTokenIndexResponseApplicationJson._(
-            token: BuiltValueNullFieldError.checkNotNull(token, r'CsrfTokenIndexResponseApplicationJson', 'token'));
+          token: BuiltValueNullFieldError.checkNotNull(token, r'CsrfTokenIndexResponseApplicationJson', 'token'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -21202,7 +21295,10 @@ class GuestAvatarGuestAvatarGetAvatarHeadersBuilder
     GuestAvatarGuestAvatarGetAvatarHeaders._validate(this);
     _$GuestAvatarGuestAvatarGetAvatarHeaders _$result;
     try {
-      _$result = _$v ?? _$GuestAvatarGuestAvatarGetAvatarHeaders._(xNcIscustomavatar: _xNcIscustomavatar?.build());
+      _$result = _$v ??
+          _$GuestAvatarGuestAvatarGetAvatarHeaders._(
+            xNcIscustomavatar: _xNcIscustomavatar?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -21308,7 +21404,10 @@ class GuestAvatarGuestAvatarGetAvatarDarkHeadersBuilder
     GuestAvatarGuestAvatarGetAvatarDarkHeaders._validate(this);
     _$GuestAvatarGuestAvatarGetAvatarDarkHeaders _$result;
     try {
-      _$result = _$v ?? _$GuestAvatarGuestAvatarGetAvatarDarkHeaders._(xNcIscustomavatar: _xNcIscustomavatar?.build());
+      _$result = _$v ??
+          _$GuestAvatarGuestAvatarGetAvatarDarkHeaders._(
+            xNcIscustomavatar: _xNcIscustomavatar?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -21452,10 +21551,11 @@ class ContactsActionBuilder implements Builder<ContactsAction, ContactsActionBui
     ContactsAction._validate(this);
     final _$result = _$v ??
         _$ContactsAction._(
-            title: BuiltValueNullFieldError.checkNotNull(title, r'ContactsAction', 'title'),
-            icon: BuiltValueNullFieldError.checkNotNull(icon, r'ContactsAction', 'icon'),
-            hyperlink: BuiltValueNullFieldError.checkNotNull(hyperlink, r'ContactsAction', 'hyperlink'),
-            appId: BuiltValueNullFieldError.checkNotNull(appId, r'ContactsAction', 'appId'));
+          title: BuiltValueNullFieldError.checkNotNull(title, r'ContactsAction', 'title'),
+          icon: BuiltValueNullFieldError.checkNotNull(icon, r'ContactsAction', 'icon'),
+          hyperlink: BuiltValueNullFieldError.checkNotNull(hyperlink, r'ContactsAction', 'hyperlink'),
+          appId: BuiltValueNullFieldError.checkNotNull(appId, r'ContactsAction', 'appId'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -21587,11 +21687,12 @@ class HoverCardGetUserResponseApplicationJson_Ocs_DataBuilder
     try {
       _$result = _$v ??
           _$HoverCardGetUserResponseApplicationJson_Ocs_Data._(
-              userId: BuiltValueNullFieldError.checkNotNull(
-                  userId, r'HoverCardGetUserResponseApplicationJson_Ocs_Data', 'userId'),
-              displayName: BuiltValueNullFieldError.checkNotNull(
-                  displayName, r'HoverCardGetUserResponseApplicationJson_Ocs_Data', 'displayName'),
-              actions: actions.build());
+            userId: BuiltValueNullFieldError.checkNotNull(
+                userId, r'HoverCardGetUserResponseApplicationJson_Ocs_Data', 'userId'),
+            displayName: BuiltValueNullFieldError.checkNotNull(
+                displayName, r'HoverCardGetUserResponseApplicationJson_Ocs_Data', 'displayName'),
+            actions: actions.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -21713,7 +21814,11 @@ class HoverCardGetUserResponseApplicationJson_OcsBuilder
     HoverCardGetUserResponseApplicationJson_Ocs._validate(this);
     _$HoverCardGetUserResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$HoverCardGetUserResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$HoverCardGetUserResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -21821,7 +21926,10 @@ class HoverCardGetUserResponseApplicationJsonBuilder
     HoverCardGetUserResponseApplicationJson._validate(this);
     _$HoverCardGetUserResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$HoverCardGetUserResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$HoverCardGetUserResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -21927,8 +22035,9 @@ class LoginConfirmPasswordRequestApplicationJsonBuilder
     LoginConfirmPasswordRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$LoginConfirmPasswordRequestApplicationJson._(
-            password: BuiltValueNullFieldError.checkNotNull(
-                password, r'LoginConfirmPasswordRequestApplicationJson', 'password'));
+          password: BuiltValueNullFieldError.checkNotNull(
+              password, r'LoginConfirmPasswordRequestApplicationJson', 'password'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -22024,8 +22133,9 @@ class LoginConfirmPasswordResponseApplicationJsonBuilder
     LoginConfirmPasswordResponseApplicationJson._validate(this);
     final _$result = _$v ??
         _$LoginConfirmPasswordResponseApplicationJson._(
-            lastLogin: BuiltValueNullFieldError.checkNotNull(
-                lastLogin, r'LoginConfirmPasswordResponseApplicationJson', 'lastLogin'));
+          lastLogin: BuiltValueNullFieldError.checkNotNull(
+              lastLogin, r'LoginConfirmPasswordResponseApplicationJson', 'lastLogin'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -22267,17 +22377,18 @@ class NavigationEntryBuilder
     NavigationEntry._validate(this);
     final _$result = _$v ??
         _$NavigationEntry._(
-            id: BuiltValueNullFieldError.checkNotNull(id, r'NavigationEntry', 'id'),
-            order: order,
-            href: BuiltValueNullFieldError.checkNotNull(href, r'NavigationEntry', 'href'),
-            icon: BuiltValueNullFieldError.checkNotNull(icon, r'NavigationEntry', 'icon'),
-            type: BuiltValueNullFieldError.checkNotNull(type, r'NavigationEntry', 'type'),
-            name: BuiltValueNullFieldError.checkNotNull(name, r'NavigationEntry', 'name'),
-            app: app,
-            $default: $default,
-            active: BuiltValueNullFieldError.checkNotNull(active, r'NavigationEntry', 'active'),
-            classes: BuiltValueNullFieldError.checkNotNull(classes, r'NavigationEntry', 'classes'),
-            unread: BuiltValueNullFieldError.checkNotNull(unread, r'NavigationEntry', 'unread'));
+          id: BuiltValueNullFieldError.checkNotNull(id, r'NavigationEntry', 'id'),
+          order: order,
+          href: BuiltValueNullFieldError.checkNotNull(href, r'NavigationEntry', 'href'),
+          icon: BuiltValueNullFieldError.checkNotNull(icon, r'NavigationEntry', 'icon'),
+          type: BuiltValueNullFieldError.checkNotNull(type, r'NavigationEntry', 'type'),
+          name: BuiltValueNullFieldError.checkNotNull(name, r'NavigationEntry', 'name'),
+          app: app,
+          $default: $default,
+          active: BuiltValueNullFieldError.checkNotNull(active, r'NavigationEntry', 'active'),
+          classes: BuiltValueNullFieldError.checkNotNull(classes, r'NavigationEntry', 'classes'),
+          unread: BuiltValueNullFieldError.checkNotNull(unread, r'NavigationEntry', 'unread'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -22389,8 +22500,11 @@ class NavigationGetAppsNavigationResponseApplicationJson_OcsBuilder
     NavigationGetAppsNavigationResponseApplicationJson_Ocs._validate(this);
     _$NavigationGetAppsNavigationResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$NavigationGetAppsNavigationResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$NavigationGetAppsNavigationResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -22501,7 +22615,10 @@ class NavigationGetAppsNavigationResponseApplicationJsonBuilder
     NavigationGetAppsNavigationResponseApplicationJson._validate(this);
     _$NavigationGetAppsNavigationResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$NavigationGetAppsNavigationResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$NavigationGetAppsNavigationResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -22626,8 +22743,11 @@ class NavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder
     NavigationGetSettingsNavigationResponseApplicationJson_Ocs._validate(this);
     _$NavigationGetSettingsNavigationResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$NavigationGetSettingsNavigationResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$NavigationGetSettingsNavigationResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -22739,7 +22859,10 @@ class NavigationGetSettingsNavigationResponseApplicationJsonBuilder
     NavigationGetSettingsNavigationResponseApplicationJson._validate(this);
     _$NavigationGetSettingsNavigationResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$NavigationGetSettingsNavigationResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$NavigationGetSettingsNavigationResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -22850,8 +22973,9 @@ class OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder
     OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols._validate(this);
     final _$result = _$v ??
         _$OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols._(
-            webdav: BuiltValueNullFieldError.checkNotNull(
-                webdav, r'OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols', 'webdav'));
+          webdav: BuiltValueNullFieldError.checkNotNull(
+              webdav, r'OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols', 'webdav'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -22985,10 +23109,11 @@ class OcmDiscoveryResponseApplicationJson_ResourceTypesBuilder
     try {
       _$result = _$v ??
           _$OcmDiscoveryResponseApplicationJson_ResourceTypes._(
-              name: BuiltValueNullFieldError.checkNotNull(
-                  name, r'OcmDiscoveryResponseApplicationJson_ResourceTypes', 'name'),
-              shareTypes: shareTypes.build(),
-              protocols: protocols.build());
+            name: BuiltValueNullFieldError.checkNotNull(
+                name, r'OcmDiscoveryResponseApplicationJson_ResourceTypes', 'name'),
+            shareTypes: shareTypes.build(),
+            protocols: protocols.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -23144,13 +23269,13 @@ class OcmDiscoveryResponseApplicationJsonBuilder
     try {
       _$result = _$v ??
           _$OcmDiscoveryResponseApplicationJson._(
-              enabled:
-                  BuiltValueNullFieldError.checkNotNull(enabled, r'OcmDiscoveryResponseApplicationJson', 'enabled'),
-              apiVersion: BuiltValueNullFieldError.checkNotNull(
-                  apiVersion, r'OcmDiscoveryResponseApplicationJson', 'apiVersion'),
-              endPoint:
-                  BuiltValueNullFieldError.checkNotNull(endPoint, r'OcmDiscoveryResponseApplicationJson', 'endPoint'),
-              resourceTypes: resourceTypes.build());
+            enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'OcmDiscoveryResponseApplicationJson', 'enabled'),
+            apiVersion:
+                BuiltValueNullFieldError.checkNotNull(apiVersion, r'OcmDiscoveryResponseApplicationJson', 'apiVersion'),
+            endPoint:
+                BuiltValueNullFieldError.checkNotNull(endPoint, r'OcmDiscoveryResponseApplicationJson', 'endPoint'),
+            resourceTypes: resourceTypes.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -23253,7 +23378,10 @@ class OcmOcmDiscoveryHeadersBuilder
     OcmOcmDiscoveryHeaders._validate(this);
     _$OcmOcmDiscoveryHeaders _$result;
     try {
-      _$result = _$v ?? _$OcmOcmDiscoveryHeaders._(xNextcloudOcmProviders: _xNextcloudOcmProviders?.build());
+      _$result = _$v ??
+          _$OcmOcmDiscoveryHeaders._(
+            xNextcloudOcmProviders: _xNextcloudOcmProviders?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -23446,18 +23574,19 @@ class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder
     OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version._validate(this);
     final _$result = _$v ??
         _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version._(
-            major: BuiltValueNullFieldError.checkNotNull(
-                major, r'OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version', 'major'),
-            minor: BuiltValueNullFieldError.checkNotNull(
-                minor, r'OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version', 'minor'),
-            micro: BuiltValueNullFieldError.checkNotNull(
-                micro, r'OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version', 'micro'),
-            string: BuiltValueNullFieldError.checkNotNull(
-                string, r'OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version', 'string'),
-            edition: BuiltValueNullFieldError.checkNotNull(
-                edition, r'OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version', 'edition'),
-            extendedSupport: BuiltValueNullFieldError.checkNotNull(
-                extendedSupport, r'OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version', 'extendedSupport'));
+          major: BuiltValueNullFieldError.checkNotNull(
+              major, r'OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version', 'major'),
+          minor: BuiltValueNullFieldError.checkNotNull(
+              minor, r'OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version', 'minor'),
+          micro: BuiltValueNullFieldError.checkNotNull(
+              micro, r'OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version', 'micro'),
+          string: BuiltValueNullFieldError.checkNotNull(
+              string, r'OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version', 'string'),
+          edition: BuiltValueNullFieldError.checkNotNull(
+              edition, r'OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version', 'edition'),
+          extendedSupport: BuiltValueNullFieldError.checkNotNull(
+              extendedSupport, r'OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version', 'extendedSupport'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -23611,12 +23740,13 @@ class CoreCapabilities_CoreBuilder
     CoreCapabilities_Core._validate(this);
     final _$result = _$v ??
         _$CoreCapabilities_Core._(
-            pollinterval: BuiltValueNullFieldError.checkNotNull(pollinterval, r'CoreCapabilities_Core', 'pollinterval'),
-            webdavRoot: BuiltValueNullFieldError.checkNotNull(webdavRoot, r'CoreCapabilities_Core', 'webdavRoot'),
-            referenceApi: BuiltValueNullFieldError.checkNotNull(referenceApi, r'CoreCapabilities_Core', 'referenceApi'),
-            referenceRegex:
-                BuiltValueNullFieldError.checkNotNull(referenceRegex, r'CoreCapabilities_Core', 'referenceRegex'),
-            modRewriteWorking: modRewriteWorking);
+          pollinterval: BuiltValueNullFieldError.checkNotNull(pollinterval, r'CoreCapabilities_Core', 'pollinterval'),
+          webdavRoot: BuiltValueNullFieldError.checkNotNull(webdavRoot, r'CoreCapabilities_Core', 'webdavRoot'),
+          referenceApi: BuiltValueNullFieldError.checkNotNull(referenceApi, r'CoreCapabilities_Core', 'referenceApi'),
+          referenceRegex:
+              BuiltValueNullFieldError.checkNotNull(referenceRegex, r'CoreCapabilities_Core', 'referenceRegex'),
+          modRewriteWorking: modRewriteWorking,
+        );
     replace(_$result);
     return _$result;
   }
@@ -23705,7 +23835,10 @@ class CoreCapabilitiesBuilder
     CoreCapabilities._validate(this);
     _$CoreCapabilities _$result;
     try {
-      _$result = _$v ?? _$CoreCapabilities._(core: core.build());
+      _$result = _$v ??
+          _$CoreCapabilities._(
+            core: core.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -23822,9 +23955,10 @@ class CorePublicCapabilities_BruteforceBuilder
     CorePublicCapabilities_Bruteforce._validate(this);
     final _$result = _$v ??
         _$CorePublicCapabilities_Bruteforce._(
-            delay: BuiltValueNullFieldError.checkNotNull(delay, r'CorePublicCapabilities_Bruteforce', 'delay'),
-            allowListed: BuiltValueNullFieldError.checkNotNull(
-                allowListed, r'CorePublicCapabilities_Bruteforce', 'allowListed'));
+          delay: BuiltValueNullFieldError.checkNotNull(delay, r'CorePublicCapabilities_Bruteforce', 'delay'),
+          allowListed:
+              BuiltValueNullFieldError.checkNotNull(allowListed, r'CorePublicCapabilities_Bruteforce', 'allowListed'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -23915,7 +24049,10 @@ class CorePublicCapabilitiesBuilder
     CorePublicCapabilities._validate(this);
     _$CorePublicCapabilities _$result;
     try {
-      _$result = _$v ?? _$CorePublicCapabilities._(bruteforce: bruteforce.build());
+      _$result = _$v ??
+          _$CorePublicCapabilities._(
+            bruteforce: bruteforce.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -24017,7 +24154,8 @@ class CommentsCapabilities_FilesBuilder
     CommentsCapabilities_Files._validate(this);
     final _$result = _$v ??
         _$CommentsCapabilities_Files._(
-            comments: BuiltValueNullFieldError.checkNotNull(comments, r'CommentsCapabilities_Files', 'comments'));
+          comments: BuiltValueNullFieldError.checkNotNull(comments, r'CommentsCapabilities_Files', 'comments'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -24107,7 +24245,10 @@ class CommentsCapabilitiesBuilder
     CommentsCapabilities._validate(this);
     _$CommentsCapabilities _$result;
     try {
-      _$result = _$v ?? _$CommentsCapabilities._(files: files.build());
+      _$result = _$v ??
+          _$CommentsCapabilities._(
+            files: files.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -24221,8 +24362,9 @@ class DavCapabilities_DavBuilder
     DavCapabilities_Dav._validate(this);
     final _$result = _$v ??
         _$DavCapabilities_Dav._(
-            chunking: BuiltValueNullFieldError.checkNotNull(chunking, r'DavCapabilities_Dav', 'chunking'),
-            bulkupload: bulkupload);
+          chunking: BuiltValueNullFieldError.checkNotNull(chunking, r'DavCapabilities_Dav', 'chunking'),
+          bulkupload: bulkupload,
+        );
     replace(_$result);
     return _$result;
   }
@@ -24311,7 +24453,10 @@ class DavCapabilitiesBuilder
     DavCapabilities._validate(this);
     _$DavCapabilities _$result;
     try {
-      _$result = _$v ?? _$DavCapabilities._(dav: dav.build());
+      _$result = _$v ??
+          _$DavCapabilities._(
+            dav: dav.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -24431,9 +24576,10 @@ class DropAccountCapabilities_DropAccount_DelayBuilder
     DropAccountCapabilities_DropAccount_Delay._validate(this);
     final _$result = _$v ??
         _$DropAccountCapabilities_DropAccount_Delay._(
-            enabled:
-                BuiltValueNullFieldError.checkNotNull(enabled, r'DropAccountCapabilities_DropAccount_Delay', 'enabled'),
-            hours: BuiltValueNullFieldError.checkNotNull(hours, r'DropAccountCapabilities_DropAccount_Delay', 'hours'));
+          enabled:
+              BuiltValueNullFieldError.checkNotNull(enabled, r'DropAccountCapabilities_DropAccount_Delay', 'enabled'),
+          hours: BuiltValueNullFieldError.checkNotNull(hours, r'DropAccountCapabilities_DropAccount_Delay', 'hours'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -24574,12 +24720,12 @@ class DropAccountCapabilities_DropAccountBuilder
     try {
       _$result = _$v ??
           _$DropAccountCapabilities_DropAccount._(
-              enabled:
-                  BuiltValueNullFieldError.checkNotNull(enabled, r'DropAccountCapabilities_DropAccount', 'enabled'),
-              apiVersion: BuiltValueNullFieldError.checkNotNull(
-                  apiVersion, r'DropAccountCapabilities_DropAccount', 'apiVersion'),
-              delay: delay.build(),
-              details: details);
+            enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'DropAccountCapabilities_DropAccount', 'enabled'),
+            apiVersion:
+                BuiltValueNullFieldError.checkNotNull(apiVersion, r'DropAccountCapabilities_DropAccount', 'apiVersion'),
+            delay: delay.build(),
+            details: details,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -24683,7 +24829,10 @@ class DropAccountCapabilitiesBuilder
     DropAccountCapabilities._validate(this);
     _$DropAccountCapabilities _$result;
     try {
-      _$result = _$v ?? _$DropAccountCapabilities._(dropAccount: dropAccount.build());
+      _$result = _$v ??
+          _$DropAccountCapabilities._(
+            dropAccount: dropAccount.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -24819,10 +24968,11 @@ class FilesCapabilities_Files_DirectEditingBuilder
     FilesCapabilities_Files_DirectEditing._validate(this);
     final _$result = _$v ??
         _$FilesCapabilities_Files_DirectEditing._(
-            url: BuiltValueNullFieldError.checkNotNull(url, r'FilesCapabilities_Files_DirectEditing', 'url'),
-            etag: BuiltValueNullFieldError.checkNotNull(etag, r'FilesCapabilities_Files_DirectEditing', 'etag'),
-            supportsFileId: BuiltValueNullFieldError.checkNotNull(
-                supportsFileId, r'FilesCapabilities_Files_DirectEditing', 'supportsFileId'));
+          url: BuiltValueNullFieldError.checkNotNull(url, r'FilesCapabilities_Files_DirectEditing', 'url'),
+          etag: BuiltValueNullFieldError.checkNotNull(etag, r'FilesCapabilities_Files_DirectEditing', 'etag'),
+          supportsFileId: BuiltValueNullFieldError.checkNotNull(
+              supportsFileId, r'FilesCapabilities_Files_DirectEditing', 'supportsFileId'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -25035,15 +25185,16 @@ class FilesCapabilities_FilesBuilder
     try {
       _$result = _$v ??
           _$FilesCapabilities_Files._(
-              comment: comment,
-              bigfilechunking:
-                  BuiltValueNullFieldError.checkNotNull(bigfilechunking, r'FilesCapabilities_Files', 'bigfilechunking'),
-              blacklistedFiles: blacklistedFiles.build(),
-              forbiddenFilenames: forbiddenFilenames.build(),
-              forbiddenFilenameBasenames: forbiddenFilenameBasenames.build(),
-              forbiddenFilenameCharacters: forbiddenFilenameCharacters.build(),
-              forbiddenFilenameExtensions: forbiddenFilenameExtensions.build(),
-              directEditing: directEditing.build());
+            comment: comment,
+            bigfilechunking:
+                BuiltValueNullFieldError.checkNotNull(bigfilechunking, r'FilesCapabilities_Files', 'bigfilechunking'),
+            blacklistedFiles: blacklistedFiles.build(),
+            forbiddenFilenames: forbiddenFilenames.build(),
+            forbiddenFilenameBasenames: forbiddenFilenameBasenames.build(),
+            forbiddenFilenameCharacters: forbiddenFilenameCharacters.build(),
+            forbiddenFilenameExtensions: forbiddenFilenameExtensions.build(),
+            directEditing: directEditing.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -25152,7 +25303,10 @@ class FilesCapabilitiesBuilder
     FilesCapabilities._validate(this);
     _$FilesCapabilities _$result;
     try {
-      _$result = _$v ?? _$FilesCapabilities._(files: files.build());
+      _$result = _$v ??
+          _$FilesCapabilities._(
+            files: files.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -25281,10 +25435,11 @@ class FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder
     FilesSharingCapabilities_FilesSharing_Public_Password._validate(this);
     final _$result = _$v ??
         _$FilesSharingCapabilities_FilesSharing_Public_Password._(
-            enforced: BuiltValueNullFieldError.checkNotNull(
-                enforced, r'FilesSharingCapabilities_FilesSharing_Public_Password', 'enforced'),
-            askForOptionalPassword: BuiltValueNullFieldError.checkNotNull(askForOptionalPassword,
-                r'FilesSharingCapabilities_FilesSharing_Public_Password', 'askForOptionalPassword'));
+          enforced: BuiltValueNullFieldError.checkNotNull(
+              enforced, r'FilesSharingCapabilities_FilesSharing_Public_Password', 'enforced'),
+          askForOptionalPassword: BuiltValueNullFieldError.checkNotNull(askForOptionalPassword,
+              r'FilesSharingCapabilities_FilesSharing_Public_Password', 'askForOptionalPassword'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -25412,10 +25567,11 @@ class FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder
     FilesSharingCapabilities_FilesSharing_Public_ExpireDate._validate(this);
     final _$result = _$v ??
         _$FilesSharingCapabilities_FilesSharing_Public_ExpireDate._(
-            enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'FilesSharingCapabilities_FilesSharing_Public_ExpireDate', 'enabled'),
-            days: days,
-            enforced: enforced);
+          enabled: BuiltValueNullFieldError.checkNotNull(
+              enabled, r'FilesSharingCapabilities_FilesSharing_Public_ExpireDate', 'enabled'),
+          days: days,
+          enforced: enforced,
+        );
     replace(_$result);
     return _$result;
   }
@@ -25543,10 +25699,11 @@ class FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder
     FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal._validate(this);
     final _$result = _$v ??
         _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal._(
-            enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal', 'enabled'),
-            days: days,
-            enforced: enforced);
+          enabled: BuiltValueNullFieldError.checkNotNull(
+              enabled, r'FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal', 'enabled'),
+          days: days,
+          enforced: enforced,
+        );
     replace(_$result);
     return _$result;
   }
@@ -25674,10 +25831,11 @@ class FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder
     FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote._validate(this);
     final _$result = _$v ??
         _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote._(
-            enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote', 'enabled'),
-            days: days,
-            enforced: enforced);
+          enabled: BuiltValueNullFieldError.checkNotNull(
+              enabled, r'FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote', 'enabled'),
+          days: days,
+          enforced: enforced,
+        );
     replace(_$result);
     return _$result;
   }
@@ -25901,16 +26059,17 @@ class FilesSharingCapabilities_FilesSharing_PublicBuilder
     try {
       _$result = _$v ??
           _$FilesSharingCapabilities_FilesSharing_Public._(
-              enabled: BuiltValueNullFieldError.checkNotNull(
-                  enabled, r'FilesSharingCapabilities_FilesSharing_Public', 'enabled'),
-              password: _password?.build(),
-              multipleLinks: multipleLinks,
-              expireDate: _expireDate?.build(),
-              expireDateInternal: _expireDateInternal?.build(),
-              expireDateRemote: _expireDateRemote?.build(),
-              sendMail: sendMail,
-              upload: upload,
-              uploadFilesDrop: uploadFilesDrop);
+            enabled: BuiltValueNullFieldError.checkNotNull(
+                enabled, r'FilesSharingCapabilities_FilesSharing_Public', 'enabled'),
+            password: _password?.build(),
+            multipleLinks: multipleLinks,
+            expireDate: _expireDate?.build(),
+            expireDateInternal: _expireDateInternal?.build(),
+            expireDateRemote: _expireDateRemote?.build(),
+            sendMail: sendMail,
+            upload: upload,
+            uploadFilesDrop: uploadFilesDrop,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -26026,8 +26185,9 @@ class FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder
     FilesSharingCapabilities_FilesSharing_User_ExpireDate._validate(this);
     final _$result = _$v ??
         _$FilesSharingCapabilities_FilesSharing_User_ExpireDate._(
-            enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'FilesSharingCapabilities_FilesSharing_User_ExpireDate', 'enabled'));
+          enabled: BuiltValueNullFieldError.checkNotNull(
+              enabled, r'FilesSharingCapabilities_FilesSharing_User_ExpireDate', 'enabled'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -26142,9 +26302,10 @@ class FilesSharingCapabilities_FilesSharing_UserBuilder
     try {
       _$result = _$v ??
           _$FilesSharingCapabilities_FilesSharing_User._(
-              sendMail: BuiltValueNullFieldError.checkNotNull(
-                  sendMail, r'FilesSharingCapabilities_FilesSharing_User', 'sendMail'),
-              expireDate: _expireDate?.build());
+            sendMail: BuiltValueNullFieldError.checkNotNull(
+                sendMail, r'FilesSharingCapabilities_FilesSharing_User', 'sendMail'),
+            expireDate: _expireDate?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -26254,8 +26415,9 @@ class FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder
     FilesSharingCapabilities_FilesSharing_Group_ExpireDate._validate(this);
     final _$result = _$v ??
         _$FilesSharingCapabilities_FilesSharing_Group_ExpireDate._(
-            enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'FilesSharingCapabilities_FilesSharing_Group_ExpireDate', 'enabled'));
+          enabled: BuiltValueNullFieldError.checkNotNull(
+              enabled, r'FilesSharingCapabilities_FilesSharing_Group_ExpireDate', 'enabled'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -26370,9 +26532,10 @@ class FilesSharingCapabilities_FilesSharing_GroupBuilder
     try {
       _$result = _$v ??
           _$FilesSharingCapabilities_FilesSharing_Group._(
-              enabled: BuiltValueNullFieldError.checkNotNull(
-                  enabled, r'FilesSharingCapabilities_FilesSharing_Group', 'enabled'),
-              expireDate: _expireDate?.build());
+            enabled: BuiltValueNullFieldError.checkNotNull(
+                enabled, r'FilesSharingCapabilities_FilesSharing_Group', 'enabled'),
+            expireDate: _expireDate?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -26482,8 +26645,9 @@ class FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder
     FilesSharingCapabilities_FilesSharing_Federation_ExpireDate._validate(this);
     final _$result = _$v ??
         _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDate._(
-            enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'FilesSharingCapabilities_FilesSharing_Federation_ExpireDate', 'enabled'));
+          enabled: BuiltValueNullFieldError.checkNotNull(
+              enabled, r'FilesSharingCapabilities_FilesSharing_Federation_ExpireDate', 'enabled'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -26584,8 +26748,9 @@ class FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilde
     FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported._validate(this);
     final _$result = _$v ??
         _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported._(
-            enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported', 'enabled'));
+          enabled: BuiltValueNullFieldError.checkNotNull(
+              enabled, r'FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported', 'enabled'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -26738,12 +26903,13 @@ class FilesSharingCapabilities_FilesSharing_FederationBuilder
     try {
       _$result = _$v ??
           _$FilesSharingCapabilities_FilesSharing_Federation._(
-              outgoing: BuiltValueNullFieldError.checkNotNull(
-                  outgoing, r'FilesSharingCapabilities_FilesSharing_Federation', 'outgoing'),
-              incoming: BuiltValueNullFieldError.checkNotNull(
-                  incoming, r'FilesSharingCapabilities_FilesSharing_Federation', 'incoming'),
-              expireDate: expireDate.build(),
-              expireDateSupported: expireDateSupported.build());
+            outgoing: BuiltValueNullFieldError.checkNotNull(
+                outgoing, r'FilesSharingCapabilities_FilesSharing_Federation', 'outgoing'),
+            incoming: BuiltValueNullFieldError.checkNotNull(
+                incoming, r'FilesSharingCapabilities_FilesSharing_Federation', 'incoming'),
+            expireDate: expireDate.build(),
+            expireDateSupported: expireDateSupported.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -26871,10 +27037,11 @@ class FilesSharingCapabilities_FilesSharing_ShareeBuilder
     FilesSharingCapabilities_FilesSharing_Sharee._validate(this);
     final _$result = _$v ??
         _$FilesSharingCapabilities_FilesSharing_Sharee._(
-            queryLookupDefault: BuiltValueNullFieldError.checkNotNull(
-                queryLookupDefault, r'FilesSharingCapabilities_FilesSharing_Sharee', 'queryLookupDefault'),
-            alwaysShowUnique: BuiltValueNullFieldError.checkNotNull(
-                alwaysShowUnique, r'FilesSharingCapabilities_FilesSharing_Sharee', 'alwaysShowUnique'));
+          queryLookupDefault: BuiltValueNullFieldError.checkNotNull(
+              queryLookupDefault, r'FilesSharingCapabilities_FilesSharing_Sharee', 'queryLookupDefault'),
+          alwaysShowUnique: BuiltValueNullFieldError.checkNotNull(
+              alwaysShowUnique, r'FilesSharingCapabilities_FilesSharing_Sharee', 'alwaysShowUnique'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -27098,17 +27265,18 @@ class FilesSharingCapabilities_FilesSharingBuilder
     try {
       _$result = _$v ??
           _$FilesSharingCapabilities_FilesSharing._(
-              apiEnabled: BuiltValueNullFieldError.checkNotNull(
-                  apiEnabled, r'FilesSharingCapabilities_FilesSharing', 'apiEnabled'),
-              public: public.build(),
-              user: user.build(),
-              resharing: BuiltValueNullFieldError.checkNotNull(
-                  resharing, r'FilesSharingCapabilities_FilesSharing', 'resharing'),
-              groupSharing: groupSharing,
-              group: _group?.build(),
-              defaultPermissions: defaultPermissions,
-              federation: federation.build(),
-              sharee: sharee.build());
+            apiEnabled: BuiltValueNullFieldError.checkNotNull(
+                apiEnabled, r'FilesSharingCapabilities_FilesSharing', 'apiEnabled'),
+            public: public.build(),
+            user: user.build(),
+            resharing:
+                BuiltValueNullFieldError.checkNotNull(resharing, r'FilesSharingCapabilities_FilesSharing', 'resharing'),
+            groupSharing: groupSharing,
+            group: _group?.build(),
+            defaultPermissions: defaultPermissions,
+            federation: federation.build(),
+            sharee: sharee.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -27222,7 +27390,10 @@ class FilesSharingCapabilitiesBuilder
     FilesSharingCapabilities._validate(this);
     _$FilesSharingCapabilities _$result;
     try {
-      _$result = _$v ?? _$FilesSharingCapabilities._(filesSharing: filesSharing.build());
+      _$result = _$v ??
+          _$FilesSharingCapabilities._(
+            filesSharing: filesSharing.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -27324,7 +27495,8 @@ class FilesTrashbinCapabilities_FilesBuilder
     FilesTrashbinCapabilities_Files._validate(this);
     final _$result = _$v ??
         _$FilesTrashbinCapabilities_Files._(
-            undelete: BuiltValueNullFieldError.checkNotNull(undelete, r'FilesTrashbinCapabilities_Files', 'undelete'));
+          undelete: BuiltValueNullFieldError.checkNotNull(undelete, r'FilesTrashbinCapabilities_Files', 'undelete'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -27416,7 +27588,10 @@ class FilesTrashbinCapabilitiesBuilder
     FilesTrashbinCapabilities._validate(this);
     _$FilesTrashbinCapabilities _$result;
     try {
-      _$result = _$v ?? _$FilesTrashbinCapabilities._(files: files.build());
+      _$result = _$v ??
+          _$FilesTrashbinCapabilities._(
+            files: files.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -27551,12 +27726,13 @@ class FilesVersionsCapabilities_FilesBuilder
     FilesVersionsCapabilities_Files._validate(this);
     final _$result = _$v ??
         _$FilesVersionsCapabilities_Files._(
-            versioning:
-                BuiltValueNullFieldError.checkNotNull(versioning, r'FilesVersionsCapabilities_Files', 'versioning'),
-            versionLabeling: BuiltValueNullFieldError.checkNotNull(
-                versionLabeling, r'FilesVersionsCapabilities_Files', 'versionLabeling'),
-            versionDeletion: BuiltValueNullFieldError.checkNotNull(
-                versionDeletion, r'FilesVersionsCapabilities_Files', 'versionDeletion'));
+          versioning:
+              BuiltValueNullFieldError.checkNotNull(versioning, r'FilesVersionsCapabilities_Files', 'versioning'),
+          versionLabeling: BuiltValueNullFieldError.checkNotNull(
+              versionLabeling, r'FilesVersionsCapabilities_Files', 'versionLabeling'),
+          versionDeletion: BuiltValueNullFieldError.checkNotNull(
+              versionDeletion, r'FilesVersionsCapabilities_Files', 'versionDeletion'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -27648,7 +27824,10 @@ class FilesVersionsCapabilitiesBuilder
     FilesVersionsCapabilities._validate(this);
     _$FilesVersionsCapabilities _$result;
     try {
-      _$result = _$v ?? _$FilesVersionsCapabilities._(files: files.build());
+      _$result = _$v ??
+          _$FilesVersionsCapabilities._(
+            files: files.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -27790,7 +27969,10 @@ class NotificationsCapabilities_NotificationsBuilder
     try {
       _$result = _$v ??
           _$NotificationsCapabilities_Notifications._(
-              ocsEndpoints: ocsEndpoints.build(), push: push.build(), adminNotifications: adminNotifications.build());
+            ocsEndpoints: ocsEndpoints.build(),
+            push: push.build(),
+            adminNotifications: adminNotifications.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -27898,7 +28080,10 @@ class NotificationsCapabilitiesBuilder
     NotificationsCapabilities._validate(this);
     _$NotificationsCapabilities _$result;
     try {
-      _$result = _$v ?? _$NotificationsCapabilities._(notifications: notifications.build());
+      _$result = _$v ??
+          _$NotificationsCapabilities._(
+            notifications: notifications.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -28059,18 +28244,19 @@ class ProvisioningApiCapabilities_ProvisioningApiBuilder
     ProvisioningApiCapabilities_ProvisioningApi._validate(this);
     final _$result = _$v ??
         _$ProvisioningApiCapabilities_ProvisioningApi._(
-            version: BuiltValueNullFieldError.checkNotNull(
-                version, r'ProvisioningApiCapabilities_ProvisioningApi', 'version'),
-            accountPropertyScopesVersion: BuiltValueNullFieldError.checkNotNull(accountPropertyScopesVersion,
-                r'ProvisioningApiCapabilities_ProvisioningApi', 'accountPropertyScopesVersion'),
-            accountPropertyScopesFederatedEnabled: BuiltValueNullFieldError.checkNotNull(
-                accountPropertyScopesFederatedEnabled,
-                r'ProvisioningApiCapabilities_ProvisioningApi',
-                'accountPropertyScopesFederatedEnabled'),
-            accountPropertyScopesPublishedEnabled: BuiltValueNullFieldError.checkNotNull(
-                accountPropertyScopesPublishedEnabled,
-                r'ProvisioningApiCapabilities_ProvisioningApi',
-                'accountPropertyScopesPublishedEnabled'));
+          version:
+              BuiltValueNullFieldError.checkNotNull(version, r'ProvisioningApiCapabilities_ProvisioningApi', 'version'),
+          accountPropertyScopesVersion: BuiltValueNullFieldError.checkNotNull(accountPropertyScopesVersion,
+              r'ProvisioningApiCapabilities_ProvisioningApi', 'accountPropertyScopesVersion'),
+          accountPropertyScopesFederatedEnabled: BuiltValueNullFieldError.checkNotNull(
+              accountPropertyScopesFederatedEnabled,
+              r'ProvisioningApiCapabilities_ProvisioningApi',
+              'accountPropertyScopesFederatedEnabled'),
+          accountPropertyScopesPublishedEnabled: BuiltValueNullFieldError.checkNotNull(
+              accountPropertyScopesPublishedEnabled,
+              r'ProvisioningApiCapabilities_ProvisioningApi',
+              'accountPropertyScopesPublishedEnabled'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -28165,7 +28351,10 @@ class ProvisioningApiCapabilitiesBuilder
     ProvisioningApiCapabilities._validate(this);
     _$ProvisioningApiCapabilities _$result;
     try {
-      _$result = _$v ?? _$ProvisioningApiCapabilities._(provisioningApi: provisioningApi.build());
+      _$result = _$v ??
+          _$ProvisioningApiCapabilities._(
+            provisioningApi: provisioningApi.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -28276,8 +28465,9 @@ class SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder
     SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop._validate(this);
     final _$result = _$v ??
         _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop._(
-            enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop', 'enabled'));
+          enabled: BuiltValueNullFieldError.checkNotNull(
+              enabled, r'SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop', 'enabled'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -28394,10 +28584,11 @@ class SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder
     SharebymailCapabilities0_FilesSharing_Sharebymail_Password._validate(this);
     final _$result = _$v ??
         _$SharebymailCapabilities0_FilesSharing_Sharebymail_Password._(
-            enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'SharebymailCapabilities0_FilesSharing_Sharebymail_Password', 'enabled'),
-            enforced: BuiltValueNullFieldError.checkNotNull(
-                enforced, r'SharebymailCapabilities0_FilesSharing_Sharebymail_Password', 'enforced'));
+          enabled: BuiltValueNullFieldError.checkNotNull(
+              enabled, r'SharebymailCapabilities0_FilesSharing_Sharebymail_Password', 'enabled'),
+          enforced: BuiltValueNullFieldError.checkNotNull(
+              enforced, r'SharebymailCapabilities0_FilesSharing_Sharebymail_Password', 'enforced'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -28514,10 +28705,11 @@ class SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder
     SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate._validate(this);
     final _$result = _$v ??
         _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate._(
-            enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate', 'enabled'),
-            enforced: BuiltValueNullFieldError.checkNotNull(
-                enforced, r'SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate', 'enforced'));
+          enabled: BuiltValueNullFieldError.checkNotNull(
+              enabled, r'SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate', 'enabled'),
+          enforced: BuiltValueNullFieldError.checkNotNull(
+              enforced, r'SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate', 'enforced'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -28690,13 +28882,14 @@ class SharebymailCapabilities0_FilesSharing_SharebymailBuilder
     try {
       _$result = _$v ??
           _$SharebymailCapabilities0_FilesSharing_Sharebymail._(
-              enabled: BuiltValueNullFieldError.checkNotNull(
-                  enabled, r'SharebymailCapabilities0_FilesSharing_Sharebymail', 'enabled'),
-              sendPasswordByMail: BuiltValueNullFieldError.checkNotNull(
-                  sendPasswordByMail, r'SharebymailCapabilities0_FilesSharing_Sharebymail', 'sendPasswordByMail'),
-              uploadFilesDrop: uploadFilesDrop.build(),
-              password: password.build(),
-              expireDate: expireDate.build());
+            enabled: BuiltValueNullFieldError.checkNotNull(
+                enabled, r'SharebymailCapabilities0_FilesSharing_Sharebymail', 'enabled'),
+            sendPasswordByMail: BuiltValueNullFieldError.checkNotNull(
+                sendPasswordByMail, r'SharebymailCapabilities0_FilesSharing_Sharebymail', 'sendPasswordByMail'),
+            uploadFilesDrop: uploadFilesDrop.build(),
+            password: password.build(),
+            expireDate: expireDate.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -28808,7 +29001,10 @@ class SharebymailCapabilities0_FilesSharingBuilder
     SharebymailCapabilities0_FilesSharing._validate(this);
     _$SharebymailCapabilities0_FilesSharing _$result;
     try {
-      _$result = _$v ?? _$SharebymailCapabilities0_FilesSharing._(sharebymail: sharebymail.build());
+      _$result = _$v ??
+          _$SharebymailCapabilities0_FilesSharing._(
+            sharebymail: sharebymail.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -28912,7 +29108,10 @@ class SharebymailCapabilities0Builder
     SharebymailCapabilities0._validate(this);
     _$SharebymailCapabilities0 _$result;
     try {
-      _$result = _$v ?? _$SharebymailCapabilities0._(filesSharing: filesSharing.build());
+      _$result = _$v ??
+          _$SharebymailCapabilities0._(
+            filesSharing: filesSharing.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -29030,9 +29229,9 @@ class SpreedCapabilities_Config_AttachmentsBuilder
     SpreedCapabilities_Config_Attachments._validate(this);
     final _$result = _$v ??
         _$SpreedCapabilities_Config_Attachments._(
-            allowed:
-                BuiltValueNullFieldError.checkNotNull(allowed, r'SpreedCapabilities_Config_Attachments', 'allowed'),
-            folder: folder);
+          allowed: BuiltValueNullFieldError.checkNotNull(allowed, r'SpreedCapabilities_Config_Attachments', 'allowed'),
+          folder: folder,
+        );
     replace(_$result);
     return _$result;
   }
@@ -29270,23 +29469,23 @@ class SpreedCapabilities_Config_CallBuilder
     try {
       _$result = _$v ??
           _$SpreedCapabilities_Config_Call._(
-              enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'SpreedCapabilities_Config_Call', 'enabled'),
-              breakoutRooms: BuiltValueNullFieldError.checkNotNull(
-                  breakoutRooms, r'SpreedCapabilities_Config_Call', 'breakoutRooms'),
-              recording:
-                  BuiltValueNullFieldError.checkNotNull(recording, r'SpreedCapabilities_Config_Call', 'recording'),
-              recordingConsent: BuiltValueNullFieldError.checkNotNull(
-                  recordingConsent, r'SpreedCapabilities_Config_Call', 'recordingConsent'),
-              supportedReactions: supportedReactions.build(),
-              predefinedBackgrounds: predefinedBackgrounds.build(),
-              canUploadBackground: BuiltValueNullFieldError.checkNotNull(
-                  canUploadBackground, r'SpreedCapabilities_Config_Call', 'canUploadBackground'),
-              sipEnabled:
-                  BuiltValueNullFieldError.checkNotNull(sipEnabled, r'SpreedCapabilities_Config_Call', 'sipEnabled'),
-              sipDialoutEnabled: BuiltValueNullFieldError.checkNotNull(
-                  sipDialoutEnabled, r'SpreedCapabilities_Config_Call', 'sipDialoutEnabled'),
-              canEnableSip: BuiltValueNullFieldError.checkNotNull(
-                  canEnableSip, r'SpreedCapabilities_Config_Call', 'canEnableSip'));
+            enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'SpreedCapabilities_Config_Call', 'enabled'),
+            breakoutRooms: BuiltValueNullFieldError.checkNotNull(
+                breakoutRooms, r'SpreedCapabilities_Config_Call', 'breakoutRooms'),
+            recording: BuiltValueNullFieldError.checkNotNull(recording, r'SpreedCapabilities_Config_Call', 'recording'),
+            recordingConsent: BuiltValueNullFieldError.checkNotNull(
+                recordingConsent, r'SpreedCapabilities_Config_Call', 'recordingConsent'),
+            supportedReactions: supportedReactions.build(),
+            predefinedBackgrounds: predefinedBackgrounds.build(),
+            canUploadBackground: BuiltValueNullFieldError.checkNotNull(
+                canUploadBackground, r'SpreedCapabilities_Config_Call', 'canUploadBackground'),
+            sipEnabled:
+                BuiltValueNullFieldError.checkNotNull(sipEnabled, r'SpreedCapabilities_Config_Call', 'sipEnabled'),
+            sipDialoutEnabled: BuiltValueNullFieldError.checkNotNull(
+                sipDialoutEnabled, r'SpreedCapabilities_Config_Call', 'sipDialoutEnabled'),
+            canEnableSip:
+                BuiltValueNullFieldError.checkNotNull(canEnableSip, r'SpreedCapabilities_Config_Call', 'canEnableSip'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -29442,13 +29641,14 @@ class SpreedCapabilities_Config_ChatBuilder
     SpreedCapabilities_Config_Chat._validate(this);
     final _$result = _$v ??
         _$SpreedCapabilities_Config_Chat._(
-            maxLength: BuiltValueNullFieldError.checkNotNull(maxLength, r'SpreedCapabilities_Config_Chat', 'maxLength'),
-            readPrivacy:
-                BuiltValueNullFieldError.checkNotNull(readPrivacy, r'SpreedCapabilities_Config_Chat', 'readPrivacy'),
-            hasTranslationProviders: BuiltValueNullFieldError.checkNotNull(
-                hasTranslationProviders, r'SpreedCapabilities_Config_Chat', 'hasTranslationProviders'),
-            typingPrivacy: BuiltValueNullFieldError.checkNotNull(
-                typingPrivacy, r'SpreedCapabilities_Config_Chat', 'typingPrivacy'));
+          maxLength: BuiltValueNullFieldError.checkNotNull(maxLength, r'SpreedCapabilities_Config_Chat', 'maxLength'),
+          readPrivacy:
+              BuiltValueNullFieldError.checkNotNull(readPrivacy, r'SpreedCapabilities_Config_Chat', 'readPrivacy'),
+          hasTranslationProviders: BuiltValueNullFieldError.checkNotNull(
+              hasTranslationProviders, r'SpreedCapabilities_Config_Chat', 'hasTranslationProviders'),
+          typingPrivacy:
+              BuiltValueNullFieldError.checkNotNull(typingPrivacy, r'SpreedCapabilities_Config_Chat', 'typingPrivacy'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -29544,8 +29744,9 @@ class SpreedCapabilities_Config_ConversationsBuilder
     SpreedCapabilities_Config_Conversations._validate(this);
     final _$result = _$v ??
         _$SpreedCapabilities_Config_Conversations._(
-            canCreate: BuiltValueNullFieldError.checkNotNull(
-                canCreate, r'SpreedCapabilities_Config_Conversations', 'canCreate'));
+          canCreate:
+              BuiltValueNullFieldError.checkNotNull(canCreate, r'SpreedCapabilities_Config_Conversations', 'canCreate'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -29690,13 +29891,14 @@ class SpreedCapabilities_Config_FederationBuilder
     SpreedCapabilities_Config_Federation._validate(this);
     final _$result = _$v ??
         _$SpreedCapabilities_Config_Federation._(
-            enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'SpreedCapabilities_Config_Federation', 'enabled'),
-            incomingEnabled: BuiltValueNullFieldError.checkNotNull(
-                incomingEnabled, r'SpreedCapabilities_Config_Federation', 'incomingEnabled'),
-            outgoingEnabled: BuiltValueNullFieldError.checkNotNull(
-                outgoingEnabled, r'SpreedCapabilities_Config_Federation', 'outgoingEnabled'),
-            onlyTrustedServers: BuiltValueNullFieldError.checkNotNull(
-                onlyTrustedServers, r'SpreedCapabilities_Config_Federation', 'onlyTrustedServers'));
+          enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'SpreedCapabilities_Config_Federation', 'enabled'),
+          incomingEnabled: BuiltValueNullFieldError.checkNotNull(
+              incomingEnabled, r'SpreedCapabilities_Config_Federation', 'incomingEnabled'),
+          outgoingEnabled: BuiltValueNullFieldError.checkNotNull(
+              outgoingEnabled, r'SpreedCapabilities_Config_Federation', 'outgoingEnabled'),
+          onlyTrustedServers: BuiltValueNullFieldError.checkNotNull(
+              onlyTrustedServers, r'SpreedCapabilities_Config_Federation', 'onlyTrustedServers'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -29789,8 +29991,9 @@ class SpreedCapabilities_Config_PreviewsBuilder
     SpreedCapabilities_Config_Previews._validate(this);
     final _$result = _$v ??
         _$SpreedCapabilities_Config_Previews._(
-            maxGifSize:
-                BuiltValueNullFieldError.checkNotNull(maxGifSize, r'SpreedCapabilities_Config_Previews', 'maxGifSize'));
+          maxGifSize:
+              BuiltValueNullFieldError.checkNotNull(maxGifSize, r'SpreedCapabilities_Config_Previews', 'maxGifSize'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -29898,9 +30101,10 @@ class SpreedCapabilities_Config_SignalingBuilder
     SpreedCapabilities_Config_Signaling._validate(this);
     final _$result = _$v ??
         _$SpreedCapabilities_Config_Signaling._(
-            sessionPingLimit: BuiltValueNullFieldError.checkNotNull(
-                sessionPingLimit, r'SpreedCapabilities_Config_Signaling', 'sessionPingLimit'),
-            helloV2TokenKey: helloV2TokenKey);
+          sessionPingLimit: BuiltValueNullFieldError.checkNotNull(
+              sessionPingLimit, r'SpreedCapabilities_Config_Signaling', 'sessionPingLimit'),
+          helloV2TokenKey: helloV2TokenKey,
+        );
     replace(_$result);
     return _$result;
   }
@@ -30095,13 +30299,14 @@ class SpreedCapabilities_ConfigBuilder
     try {
       _$result = _$v ??
           _$SpreedCapabilities_Config._(
-              attachments: attachments.build(),
-              call: call.build(),
-              chat: chat.build(),
-              conversations: conversations.build(),
-              federation: _federation?.build(),
-              previews: previews.build(),
-              signaling: signaling.build());
+            attachments: attachments.build(),
+            call: call.build(),
+            chat: chat.build(),
+            conversations: conversations.build(),
+            federation: _federation?.build(),
+            previews: previews.build(),
+            signaling: signaling.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -30281,11 +30486,12 @@ class SpreedCapabilitiesBuilder
     try {
       _$result = _$v ??
           _$SpreedCapabilities._(
-              features: features.build(),
-              featuresLocal: featuresLocal.build(),
-              config: config.build(),
-              configLocal: configLocal.build(),
-              version: BuiltValueNullFieldError.checkNotNull(version, r'SpreedCapabilities', 'version'));
+            features: features.build(),
+            featuresLocal: featuresLocal.build(),
+            config: config.build(),
+            configLocal: configLocal.build(),
+            version: BuiltValueNullFieldError.checkNotNull(version, r'SpreedCapabilities', 'version'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -30393,7 +30599,10 @@ class SpreedPublicCapabilities0Builder
     SpreedPublicCapabilities0._validate(this);
     _$SpreedPublicCapabilities0 _$result;
     try {
-      _$result = _$v ?? _$SpreedPublicCapabilities0._(spreed: spreed.build());
+      _$result = _$v ??
+          _$SpreedPublicCapabilities0._(
+            spreed: spreed.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -30495,7 +30704,8 @@ class SystemtagsCapabilities_SystemtagsBuilder
     SystemtagsCapabilities_Systemtags._validate(this);
     final _$result = _$v ??
         _$SystemtagsCapabilities_Systemtags._(
-            enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'SystemtagsCapabilities_Systemtags', 'enabled'));
+          enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'SystemtagsCapabilities_Systemtags', 'enabled'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -30586,7 +30796,10 @@ class SystemtagsCapabilitiesBuilder
     SystemtagsCapabilities._validate(this);
     _$SystemtagsCapabilities _$result;
     try {
-      _$result = _$v ?? _$SystemtagsCapabilities._(systemtags: systemtags.build());
+      _$result = _$v ??
+          _$SystemtagsCapabilities._(
+            systemtags: systemtags.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -30755,11 +30968,12 @@ class TablesCapabilities_TablesBuilder
     try {
       _$result = _$v ??
           _$TablesCapabilities_Tables._(
-              enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'TablesCapabilities_Tables', 'enabled'),
-              version: BuiltValueNullFieldError.checkNotNull(version, r'TablesCapabilities_Tables', 'version'),
-              apiVersions: apiVersions.build(),
-              features: features.build(),
-              columnTypes: columnTypes.build());
+            enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'TablesCapabilities_Tables', 'enabled'),
+            version: BuiltValueNullFieldError.checkNotNull(version, r'TablesCapabilities_Tables', 'version'),
+            apiVersions: apiVersions.build(),
+            features: features.build(),
+            columnTypes: columnTypes.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -30863,7 +31077,10 @@ class TablesCapabilitiesBuilder
     TablesCapabilities._validate(this);
     _$TablesCapabilities _$result;
     try {
-      _$result = _$v ?? _$TablesCapabilities._(tables: tables.build());
+      _$result = _$v ??
+          _$TablesCapabilities._(
+            tables: tables.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -31180,29 +31397,30 @@ class ThemingPublicCapabilities_ThemingBuilder
     ThemingPublicCapabilities_Theming._validate(this);
     final _$result = _$v ??
         _$ThemingPublicCapabilities_Theming._(
-            name: BuiltValueNullFieldError.checkNotNull(name, r'ThemingPublicCapabilities_Theming', 'name'),
-            url: BuiltValueNullFieldError.checkNotNull(url, r'ThemingPublicCapabilities_Theming', 'url'),
-            slogan: BuiltValueNullFieldError.checkNotNull(slogan, r'ThemingPublicCapabilities_Theming', 'slogan'),
-            color: BuiltValueNullFieldError.checkNotNull(color, r'ThemingPublicCapabilities_Theming', 'color'),
-            colorText:
-                BuiltValueNullFieldError.checkNotNull(colorText, r'ThemingPublicCapabilities_Theming', 'colorText'),
-            colorElement: BuiltValueNullFieldError.checkNotNull(
-                colorElement, r'ThemingPublicCapabilities_Theming', 'colorElement'),
-            colorElementBright: BuiltValueNullFieldError.checkNotNull(
-                colorElementBright, r'ThemingPublicCapabilities_Theming', 'colorElementBright'),
-            colorElementDark: BuiltValueNullFieldError.checkNotNull(
-                colorElementDark, r'ThemingPublicCapabilities_Theming', 'colorElementDark'),
-            logo: BuiltValueNullFieldError.checkNotNull(logo, r'ThemingPublicCapabilities_Theming', 'logo'),
-            background:
-                BuiltValueNullFieldError.checkNotNull(background, r'ThemingPublicCapabilities_Theming', 'background'),
-            backgroundText: backgroundText,
-            backgroundPlain: BuiltValueNullFieldError.checkNotNull(
-                backgroundPlain, r'ThemingPublicCapabilities_Theming', 'backgroundPlain'),
-            backgroundDefault: BuiltValueNullFieldError.checkNotNull(
-                backgroundDefault, r'ThemingPublicCapabilities_Theming', 'backgroundDefault'),
-            logoheader:
-                BuiltValueNullFieldError.checkNotNull(logoheader, r'ThemingPublicCapabilities_Theming', 'logoheader'),
-            favicon: BuiltValueNullFieldError.checkNotNull(favicon, r'ThemingPublicCapabilities_Theming', 'favicon'));
+          name: BuiltValueNullFieldError.checkNotNull(name, r'ThemingPublicCapabilities_Theming', 'name'),
+          url: BuiltValueNullFieldError.checkNotNull(url, r'ThemingPublicCapabilities_Theming', 'url'),
+          slogan: BuiltValueNullFieldError.checkNotNull(slogan, r'ThemingPublicCapabilities_Theming', 'slogan'),
+          color: BuiltValueNullFieldError.checkNotNull(color, r'ThemingPublicCapabilities_Theming', 'color'),
+          colorText:
+              BuiltValueNullFieldError.checkNotNull(colorText, r'ThemingPublicCapabilities_Theming', 'colorText'),
+          colorElement:
+              BuiltValueNullFieldError.checkNotNull(colorElement, r'ThemingPublicCapabilities_Theming', 'colorElement'),
+          colorElementBright: BuiltValueNullFieldError.checkNotNull(
+              colorElementBright, r'ThemingPublicCapabilities_Theming', 'colorElementBright'),
+          colorElementDark: BuiltValueNullFieldError.checkNotNull(
+              colorElementDark, r'ThemingPublicCapabilities_Theming', 'colorElementDark'),
+          logo: BuiltValueNullFieldError.checkNotNull(logo, r'ThemingPublicCapabilities_Theming', 'logo'),
+          background:
+              BuiltValueNullFieldError.checkNotNull(background, r'ThemingPublicCapabilities_Theming', 'background'),
+          backgroundText: backgroundText,
+          backgroundPlain: BuiltValueNullFieldError.checkNotNull(
+              backgroundPlain, r'ThemingPublicCapabilities_Theming', 'backgroundPlain'),
+          backgroundDefault: BuiltValueNullFieldError.checkNotNull(
+              backgroundDefault, r'ThemingPublicCapabilities_Theming', 'backgroundDefault'),
+          logoheader:
+              BuiltValueNullFieldError.checkNotNull(logoheader, r'ThemingPublicCapabilities_Theming', 'logoheader'),
+          favicon: BuiltValueNullFieldError.checkNotNull(favicon, r'ThemingPublicCapabilities_Theming', 'favicon'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -31295,7 +31513,10 @@ class ThemingPublicCapabilitiesBuilder
     ThemingPublicCapabilities._validate(this);
     _$ThemingPublicCapabilities _$result;
     try {
-      _$result = _$v ?? _$ThemingPublicCapabilities._(theming: theming.build());
+      _$result = _$v ??
+          _$ThemingPublicCapabilities._(
+            theming: theming.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -31429,10 +31650,11 @@ class UserStatusCapabilities_UserStatusBuilder
     UserStatusCapabilities_UserStatus._validate(this);
     final _$result = _$v ??
         _$UserStatusCapabilities_UserStatus._(
-            enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'UserStatusCapabilities_UserStatus', 'enabled'),
-            restore: BuiltValueNullFieldError.checkNotNull(restore, r'UserStatusCapabilities_UserStatus', 'restore'),
-            supportsEmoji: BuiltValueNullFieldError.checkNotNull(
-                supportsEmoji, r'UserStatusCapabilities_UserStatus', 'supportsEmoji'));
+          enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'UserStatusCapabilities_UserStatus', 'enabled'),
+          restore: BuiltValueNullFieldError.checkNotNull(restore, r'UserStatusCapabilities_UserStatus', 'restore'),
+          supportsEmoji: BuiltValueNullFieldError.checkNotNull(
+              supportsEmoji, r'UserStatusCapabilities_UserStatus', 'supportsEmoji'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -31523,7 +31745,10 @@ class UserStatusCapabilitiesBuilder
     UserStatusCapabilities._validate(this);
     _$UserStatusCapabilities _$result;
     try {
-      _$result = _$v ?? _$UserStatusCapabilities._(userStatus: userStatus.build());
+      _$result = _$v ??
+          _$UserStatusCapabilities._(
+            userStatus: userStatus.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -31629,8 +31854,9 @@ class WeatherStatusCapabilities_WeatherStatusBuilder
     WeatherStatusCapabilities_WeatherStatus._validate(this);
     final _$result = _$v ??
         _$WeatherStatusCapabilities_WeatherStatus._(
-            enabled:
-                BuiltValueNullFieldError.checkNotNull(enabled, r'WeatherStatusCapabilities_WeatherStatus', 'enabled'));
+          enabled:
+              BuiltValueNullFieldError.checkNotNull(enabled, r'WeatherStatusCapabilities_WeatherStatus', 'enabled'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -31724,7 +31950,10 @@ class WeatherStatusCapabilitiesBuilder
     WeatherStatusCapabilities._validate(this);
     _$WeatherStatusCapabilities _$result;
     try {
-      _$result = _$v ?? _$WeatherStatusCapabilities._(weatherStatus: weatherStatus.build());
+      _$result = _$v ??
+          _$WeatherStatusCapabilities._(
+            weatherStatus: weatherStatus.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -31838,7 +32067,11 @@ class NotesCapabilities_NotesBuilder
     NotesCapabilities_Notes._validate(this);
     _$NotesCapabilities_Notes _$result;
     try {
-      _$result = _$v ?? _$NotesCapabilities_Notes._(apiVersion: _apiVersion?.build(), version: version);
+      _$result = _$v ??
+          _$NotesCapabilities_Notes._(
+            apiVersion: _apiVersion?.build(),
+            version: version,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -31937,7 +32170,10 @@ class NotesCapabilitiesBuilder
     NotesCapabilities._validate(this);
     _$NotesCapabilities _$result;
     try {
-      _$result = _$v ?? _$NotesCapabilities._(notes: notes.build());
+      _$result = _$v ??
+          _$NotesCapabilities._(
+            notes: notes.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -32068,9 +32304,10 @@ class OcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder
     try {
       _$result = _$v ??
           _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data._(
-              version: version.build(),
-              capabilities: BuiltValueNullFieldError.checkNotNull(
-                  capabilities, r'OcsGetCapabilitiesResponseApplicationJson_Ocs_Data', 'capabilities'));
+            version: version.build(),
+            capabilities: BuiltValueNullFieldError.checkNotNull(
+                capabilities, r'OcsGetCapabilitiesResponseApplicationJson_Ocs_Data', 'capabilities'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -32192,7 +32429,11 @@ class OcsGetCapabilitiesResponseApplicationJson_OcsBuilder
     OcsGetCapabilitiesResponseApplicationJson_Ocs._validate(this);
     _$OcsGetCapabilitiesResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$OcsGetCapabilitiesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$OcsGetCapabilitiesResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -32300,7 +32541,10 @@ class OcsGetCapabilitiesResponseApplicationJsonBuilder
     OcsGetCapabilitiesResponseApplicationJson._validate(this);
     _$OcsGetCapabilitiesResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$OcsGetCapabilitiesResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$OcsGetCapabilitiesResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -32422,10 +32666,11 @@ class ProfileApiSetVisibilityRequestApplicationJsonBuilder
     ProfileApiSetVisibilityRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$ProfileApiSetVisibilityRequestApplicationJson._(
-            paramId: BuiltValueNullFieldError.checkNotNull(
-                paramId, r'ProfileApiSetVisibilityRequestApplicationJson', 'paramId'),
-            visibility: BuiltValueNullFieldError.checkNotNull(
-                visibility, r'ProfileApiSetVisibilityRequestApplicationJson', 'visibility'));
+          paramId: BuiltValueNullFieldError.checkNotNull(
+              paramId, r'ProfileApiSetVisibilityRequestApplicationJson', 'paramId'),
+          visibility: BuiltValueNullFieldError.checkNotNull(
+              visibility, r'ProfileApiSetVisibilityRequestApplicationJson', 'visibility'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -32538,9 +32783,10 @@ class ProfileApiSetVisibilityResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$ProfileApiSetVisibilityResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'ProfileApiSetVisibilityResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(
+                data, r'ProfileApiSetVisibilityResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -32647,7 +32893,10 @@ class ProfileApiSetVisibilityResponseApplicationJsonBuilder
     ProfileApiSetVisibilityResponseApplicationJson._validate(this);
     _$ProfileApiSetVisibilityResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ProfileApiSetVisibilityResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ProfileApiSetVisibilityResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -32785,10 +33034,11 @@ class ReferenceApiExtractRequestApplicationJsonBuilder
     ReferenceApiExtractRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$ReferenceApiExtractRequestApplicationJson._(
-            text: BuiltValueNullFieldError.checkNotNull(text, r'ReferenceApiExtractRequestApplicationJson', 'text'),
-            resolve:
-                BuiltValueNullFieldError.checkNotNull(resolve, r'ReferenceApiExtractRequestApplicationJson', 'resolve'),
-            limit: BuiltValueNullFieldError.checkNotNull(limit, r'ReferenceApiExtractRequestApplicationJson', 'limit'));
+          text: BuiltValueNullFieldError.checkNotNull(text, r'ReferenceApiExtractRequestApplicationJson', 'text'),
+          resolve:
+              BuiltValueNullFieldError.checkNotNull(resolve, r'ReferenceApiExtractRequestApplicationJson', 'resolve'),
+          limit: BuiltValueNullFieldError.checkNotNull(limit, r'ReferenceApiExtractRequestApplicationJson', 'limit'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -32924,10 +33174,11 @@ class ReferenceBuilder implements Builder<Reference, ReferenceBuilder>, $Referen
     try {
       _$result = _$v ??
           _$Reference._(
-              richObjectType: BuiltValueNullFieldError.checkNotNull(richObjectType, r'Reference', 'richObjectType'),
-              richObject: richObject.build(),
-              openGraphObject: openGraphObject.build(),
-              accessible: BuiltValueNullFieldError.checkNotNull(accessible, r'Reference', 'accessible'));
+            richObjectType: BuiltValueNullFieldError.checkNotNull(richObjectType, r'Reference', 'richObjectType'),
+            richObject: richObject.build(),
+            openGraphObject: openGraphObject.build(),
+            accessible: BuiltValueNullFieldError.checkNotNull(accessible, r'Reference', 'accessible'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -33039,7 +33290,10 @@ class ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder
     ReferenceApiExtractResponseApplicationJson_Ocs_Data._validate(this);
     _$ReferenceApiExtractResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$ReferenceApiExtractResponseApplicationJson_Ocs_Data._(references: references.build());
+      _$result = _$v ??
+          _$ReferenceApiExtractResponseApplicationJson_Ocs_Data._(
+            references: references.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -33161,7 +33415,11 @@ class ReferenceApiExtractResponseApplicationJson_OcsBuilder
     ReferenceApiExtractResponseApplicationJson_Ocs._validate(this);
     _$ReferenceApiExtractResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$ReferenceApiExtractResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ReferenceApiExtractResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -33270,7 +33528,10 @@ class ReferenceApiExtractResponseApplicationJsonBuilder
     ReferenceApiExtractResponseApplicationJson._validate(this);
     _$ReferenceApiExtractResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ReferenceApiExtractResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ReferenceApiExtractResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -33424,14 +33685,14 @@ class ReferenceApiExtractPublicRequestApplicationJsonBuilder
     ReferenceApiExtractPublicRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$ReferenceApiExtractPublicRequestApplicationJson._(
-            text:
-                BuiltValueNullFieldError.checkNotNull(text, r'ReferenceApiExtractPublicRequestApplicationJson', 'text'),
-            sharingToken: BuiltValueNullFieldError.checkNotNull(
-                sharingToken, r'ReferenceApiExtractPublicRequestApplicationJson', 'sharingToken'),
-            resolve: BuiltValueNullFieldError.checkNotNull(
-                resolve, r'ReferenceApiExtractPublicRequestApplicationJson', 'resolve'),
-            limit: BuiltValueNullFieldError.checkNotNull(
-                limit, r'ReferenceApiExtractPublicRequestApplicationJson', 'limit'));
+          text: BuiltValueNullFieldError.checkNotNull(text, r'ReferenceApiExtractPublicRequestApplicationJson', 'text'),
+          sharingToken: BuiltValueNullFieldError.checkNotNull(
+              sharingToken, r'ReferenceApiExtractPublicRequestApplicationJson', 'sharingToken'),
+          resolve: BuiltValueNullFieldError.checkNotNull(
+              resolve, r'ReferenceApiExtractPublicRequestApplicationJson', 'resolve'),
+          limit:
+              BuiltValueNullFieldError.checkNotNull(limit, r'ReferenceApiExtractPublicRequestApplicationJson', 'limit'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -33531,7 +33792,10 @@ class ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder
     ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data._validate(this);
     _$ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data._(references: references.build());
+      _$result = _$v ??
+          _$ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data._(
+            references: references.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -33655,8 +33919,11 @@ class ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder
     ReferenceApiExtractPublicResponseApplicationJson_Ocs._validate(this);
     _$ReferenceApiExtractPublicResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$ReferenceApiExtractPublicResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ReferenceApiExtractPublicResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -33767,7 +34034,10 @@ class ReferenceApiExtractPublicResponseApplicationJsonBuilder
     ReferenceApiExtractPublicResponseApplicationJson._validate(this);
     _$ReferenceApiExtractPublicResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ReferenceApiExtractPublicResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ReferenceApiExtractPublicResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -33878,7 +34148,10 @@ class ReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder
     ReferenceApiResolveOneResponseApplicationJson_Ocs_Data._validate(this);
     _$ReferenceApiResolveOneResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$ReferenceApiResolveOneResponseApplicationJson_Ocs_Data._(references: references.build());
+      _$result = _$v ??
+          _$ReferenceApiResolveOneResponseApplicationJson_Ocs_Data._(
+            references: references.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -34001,7 +34274,11 @@ class ReferenceApiResolveOneResponseApplicationJson_OcsBuilder
     ReferenceApiResolveOneResponseApplicationJson_Ocs._validate(this);
     _$ReferenceApiResolveOneResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$ReferenceApiResolveOneResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ReferenceApiResolveOneResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -34110,7 +34387,10 @@ class ReferenceApiResolveOneResponseApplicationJsonBuilder
     ReferenceApiResolveOneResponseApplicationJson._validate(this);
     _$ReferenceApiResolveOneResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ReferenceApiResolveOneResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ReferenceApiResolveOneResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -34232,9 +34512,9 @@ class ReferenceApiResolveRequestApplicationJsonBuilder
     try {
       _$result = _$v ??
           _$ReferenceApiResolveRequestApplicationJson._(
-              references: references.build(),
-              limit:
-                  BuiltValueNullFieldError.checkNotNull(limit, r'ReferenceApiResolveRequestApplicationJson', 'limit'));
+            references: references.build(),
+            limit: BuiltValueNullFieldError.checkNotNull(limit, r'ReferenceApiResolveRequestApplicationJson', 'limit'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -34344,7 +34624,10 @@ class ReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder
     ReferenceApiResolveResponseApplicationJson_Ocs_Data._validate(this);
     _$ReferenceApiResolveResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$ReferenceApiResolveResponseApplicationJson_Ocs_Data._(references: references.build());
+      _$result = _$v ??
+          _$ReferenceApiResolveResponseApplicationJson_Ocs_Data._(
+            references: references.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -34466,7 +34749,11 @@ class ReferenceApiResolveResponseApplicationJson_OcsBuilder
     ReferenceApiResolveResponseApplicationJson_Ocs._validate(this);
     _$ReferenceApiResolveResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$ReferenceApiResolveResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ReferenceApiResolveResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -34575,7 +34862,10 @@ class ReferenceApiResolveResponseApplicationJsonBuilder
     ReferenceApiResolveResponseApplicationJson._validate(this);
     _$ReferenceApiResolveResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ReferenceApiResolveResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ReferenceApiResolveResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -34685,8 +34975,10 @@ class ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder
     ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data._validate(this);
     _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result =
-          _$v ?? _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data._(references: references.build());
+      _$result = _$v ??
+          _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data._(
+            references: references.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -34810,8 +35102,11 @@ class ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder
     ReferenceApiResolveOnePublicResponseApplicationJson_Ocs._validate(this);
     _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ReferenceApiResolveOnePublicResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -34923,7 +35218,10 @@ class ReferenceApiResolveOnePublicResponseApplicationJsonBuilder
     ReferenceApiResolveOnePublicResponseApplicationJson._validate(this);
     _$ReferenceApiResolveOnePublicResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ReferenceApiResolveOnePublicResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ReferenceApiResolveOnePublicResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -35066,11 +35364,12 @@ class ReferenceApiResolvePublicRequestApplicationJsonBuilder
     try {
       _$result = _$v ??
           _$ReferenceApiResolvePublicRequestApplicationJson._(
-              references: references.build(),
-              sharingToken: BuiltValueNullFieldError.checkNotNull(
-                  sharingToken, r'ReferenceApiResolvePublicRequestApplicationJson', 'sharingToken'),
-              limit: BuiltValueNullFieldError.checkNotNull(
-                  limit, r'ReferenceApiResolvePublicRequestApplicationJson', 'limit'));
+            references: references.build(),
+            sharingToken: BuiltValueNullFieldError.checkNotNull(
+                sharingToken, r'ReferenceApiResolvePublicRequestApplicationJson', 'sharingToken'),
+            limit: BuiltValueNullFieldError.checkNotNull(
+                limit, r'ReferenceApiResolvePublicRequestApplicationJson', 'limit'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -35181,7 +35480,10 @@ class ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder
     ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data._validate(this);
     _$ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data._(references: references.build());
+      _$result = _$v ??
+          _$ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data._(
+            references: references.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -35305,8 +35607,11 @@ class ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder
     ReferenceApiResolvePublicResponseApplicationJson_Ocs._validate(this);
     _$ReferenceApiResolvePublicResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$ReferenceApiResolvePublicResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ReferenceApiResolvePublicResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -35417,7 +35722,10 @@ class ReferenceApiResolvePublicResponseApplicationJsonBuilder
     ReferenceApiResolvePublicResponseApplicationJson._validate(this);
     _$ReferenceApiResolvePublicResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ReferenceApiResolvePublicResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ReferenceApiResolvePublicResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -35580,11 +35888,12 @@ class ReferenceProviderBuilder
     try {
       _$result = _$v ??
           _$ReferenceProvider._(
-              id: BuiltValueNullFieldError.checkNotNull(id, r'ReferenceProvider', 'id'),
-              title: BuiltValueNullFieldError.checkNotNull(title, r'ReferenceProvider', 'title'),
-              iconUrl: BuiltValueNullFieldError.checkNotNull(iconUrl, r'ReferenceProvider', 'iconUrl'),
-              order: BuiltValueNullFieldError.checkNotNull(order, r'ReferenceProvider', 'order'),
-              searchProvidersIds: _searchProvidersIds?.build());
+            id: BuiltValueNullFieldError.checkNotNull(id, r'ReferenceProvider', 'id'),
+            title: BuiltValueNullFieldError.checkNotNull(title, r'ReferenceProvider', 'title'),
+            iconUrl: BuiltValueNullFieldError.checkNotNull(iconUrl, r'ReferenceProvider', 'iconUrl'),
+            order: BuiltValueNullFieldError.checkNotNull(order, r'ReferenceProvider', 'order'),
+            searchProvidersIds: _searchProvidersIds?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -35706,8 +36015,11 @@ class ReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder
     ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs._validate(this);
     _$ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -35819,7 +36131,10 @@ class ReferenceApiGetProvidersInfoResponseApplicationJsonBuilder
     ReferenceApiGetProvidersInfoResponseApplicationJson._validate(this);
     _$ReferenceApiGetProvidersInfoResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ReferenceApiGetProvidersInfoResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ReferenceApiGetProvidersInfoResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -35924,7 +36239,10 @@ class ReferenceApiTouchProviderRequestApplicationJsonBuilder
 
   _$ReferenceApiTouchProviderRequestApplicationJson _build() {
     ReferenceApiTouchProviderRequestApplicationJson._validate(this);
-    final _$result = _$v ?? _$ReferenceApiTouchProviderRequestApplicationJson._(timestamp: timestamp);
+    final _$result = _$v ??
+        _$ReferenceApiTouchProviderRequestApplicationJson._(
+          timestamp: timestamp,
+        );
     replace(_$result);
     return _$result;
   }
@@ -36024,8 +36342,9 @@ class ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder
     ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data._(
-            success: BuiltValueNullFieldError.checkNotNull(
-                success, r'ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data', 'success'));
+          success: BuiltValueNullFieldError.checkNotNull(
+              success, r'ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data', 'success'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -36138,8 +36457,11 @@ class ReferenceApiTouchProviderResponseApplicationJson_OcsBuilder
     ReferenceApiTouchProviderResponseApplicationJson_Ocs._validate(this);
     _$ReferenceApiTouchProviderResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$ReferenceApiTouchProviderResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ReferenceApiTouchProviderResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -36250,7 +36572,10 @@ class ReferenceApiTouchProviderResponseApplicationJsonBuilder
     ReferenceApiTouchProviderResponseApplicationJson._validate(this);
     _$ReferenceApiTouchProviderResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ReferenceApiTouchProviderResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ReferenceApiTouchProviderResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -36379,9 +36704,10 @@ class TaskProcessingShapeBuilder
     TaskProcessingShape._validate(this);
     final _$result = _$v ??
         _$TaskProcessingShape._(
-            name: BuiltValueNullFieldError.checkNotNull(name, r'TaskProcessingShape', 'name'),
-            description: BuiltValueNullFieldError.checkNotNull(description, r'TaskProcessingShape', 'description'),
-            type: BuiltValueNullFieldError.checkNotNull(type, r'TaskProcessingShape', 'type'));
+          name: BuiltValueNullFieldError.checkNotNull(name, r'TaskProcessingShape', 'name'),
+          description: BuiltValueNullFieldError.checkNotNull(description, r'TaskProcessingShape', 'description'),
+          type: BuiltValueNullFieldError.checkNotNull(type, r'TaskProcessingShape', 'type'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -36491,9 +36817,9 @@ class TaskProcessingTaskType_InputShapeEnumValuesBuilder
     TaskProcessingTaskType_InputShapeEnumValues._validate(this);
     final _$result = _$v ??
         _$TaskProcessingTaskType_InputShapeEnumValues._(
-            name: BuiltValueNullFieldError.checkNotNull(name, r'TaskProcessingTaskType_InputShapeEnumValues', 'name'),
-            value:
-                BuiltValueNullFieldError.checkNotNull(value, r'TaskProcessingTaskType_InputShapeEnumValues', 'value'));
+          name: BuiltValueNullFieldError.checkNotNull(name, r'TaskProcessingTaskType_InputShapeEnumValues', 'name'),
+          value: BuiltValueNullFieldError.checkNotNull(value, r'TaskProcessingTaskType_InputShapeEnumValues', 'value'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -36605,10 +36931,11 @@ class TaskProcessingTaskType_OptionalInputShapeEnumValuesBuilder
     TaskProcessingTaskType_OptionalInputShapeEnumValues._validate(this);
     final _$result = _$v ??
         _$TaskProcessingTaskType_OptionalInputShapeEnumValues._(
-            name: BuiltValueNullFieldError.checkNotNull(
-                name, r'TaskProcessingTaskType_OptionalInputShapeEnumValues', 'name'),
-            value: BuiltValueNullFieldError.checkNotNull(
-                value, r'TaskProcessingTaskType_OptionalInputShapeEnumValues', 'value'));
+          name: BuiltValueNullFieldError.checkNotNull(
+              name, r'TaskProcessingTaskType_OptionalInputShapeEnumValues', 'name'),
+          value: BuiltValueNullFieldError.checkNotNull(
+              value, r'TaskProcessingTaskType_OptionalInputShapeEnumValues', 'value'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -36718,9 +37045,9 @@ class TaskProcessingTaskType_OutputShapeEnumValuesBuilder
     TaskProcessingTaskType_OutputShapeEnumValues._validate(this);
     final _$result = _$v ??
         _$TaskProcessingTaskType_OutputShapeEnumValues._(
-            name: BuiltValueNullFieldError.checkNotNull(name, r'TaskProcessingTaskType_OutputShapeEnumValues', 'name'),
-            value:
-                BuiltValueNullFieldError.checkNotNull(value, r'TaskProcessingTaskType_OutputShapeEnumValues', 'value'));
+          name: BuiltValueNullFieldError.checkNotNull(name, r'TaskProcessingTaskType_OutputShapeEnumValues', 'name'),
+          value: BuiltValueNullFieldError.checkNotNull(value, r'TaskProcessingTaskType_OutputShapeEnumValues', 'value'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -36832,10 +37159,11 @@ class TaskProcessingTaskType_OptionalOutputShapeEnumValuesBuilder
     TaskProcessingTaskType_OptionalOutputShapeEnumValues._validate(this);
     final _$result = _$v ??
         _$TaskProcessingTaskType_OptionalOutputShapeEnumValues._(
-            name: BuiltValueNullFieldError.checkNotNull(
-                name, r'TaskProcessingTaskType_OptionalOutputShapeEnumValues', 'name'),
-            value: BuiltValueNullFieldError.checkNotNull(
-                value, r'TaskProcessingTaskType_OptionalOutputShapeEnumValues', 'value'));
+          name: BuiltValueNullFieldError.checkNotNull(
+              name, r'TaskProcessingTaskType_OptionalOutputShapeEnumValues', 'name'),
+          value: BuiltValueNullFieldError.checkNotNull(
+              value, r'TaskProcessingTaskType_OptionalOutputShapeEnumValues', 'value'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -37131,18 +37459,19 @@ class TaskProcessingTaskTypeBuilder
     try {
       _$result = _$v ??
           _$TaskProcessingTaskType._(
-              name: BuiltValueNullFieldError.checkNotNull(name, r'TaskProcessingTaskType', 'name'),
-              description: BuiltValueNullFieldError.checkNotNull(description, r'TaskProcessingTaskType', 'description'),
-              inputShape: inputShape.build(),
-              inputShapeEnumValues: inputShapeEnumValues.build(),
-              inputShapeDefaults: inputShapeDefaults.build(),
-              optionalInputShape: optionalInputShape.build(),
-              optionalInputShapeEnumValues: optionalInputShapeEnumValues.build(),
-              optionalInputShapeDefaults: optionalInputShapeDefaults.build(),
-              outputShape: outputShape.build(),
-              outputShapeEnumValues: outputShapeEnumValues.build(),
-              optionalOutputShape: optionalOutputShape.build(),
-              optionalOutputShapeEnumValues: optionalOutputShapeEnumValues.build());
+            name: BuiltValueNullFieldError.checkNotNull(name, r'TaskProcessingTaskType', 'name'),
+            description: BuiltValueNullFieldError.checkNotNull(description, r'TaskProcessingTaskType', 'description'),
+            inputShape: inputShape.build(),
+            inputShapeEnumValues: inputShapeEnumValues.build(),
+            inputShapeDefaults: inputShapeDefaults.build(),
+            optionalInputShape: optionalInputShape.build(),
+            optionalInputShapeEnumValues: optionalInputShapeEnumValues.build(),
+            optionalInputShapeDefaults: optionalInputShapeDefaults.build(),
+            outputShape: outputShape.build(),
+            outputShapeEnumValues: outputShapeEnumValues.build(),
+            optionalOutputShape: optionalOutputShape.build(),
+            optionalOutputShapeEnumValues: optionalOutputShapeEnumValues.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -37271,7 +37600,10 @@ class TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder
     TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data._validate(this);
     _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data._(types: types.build());
+      _$result = _$v ??
+          _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data._(
+            types: types.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -37395,8 +37727,11 @@ class TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder
     TaskProcessingApiTaskTypesResponseApplicationJson_Ocs._validate(this);
     _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$TaskProcessingApiTaskTypesResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -37507,7 +37842,10 @@ class TaskProcessingApiTaskTypesResponseApplicationJsonBuilder
     TaskProcessingApiTaskTypesResponseApplicationJson._validate(this);
     _$TaskProcessingApiTaskTypesResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TaskProcessingApiTaskTypesResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TaskProcessingApiTaskTypesResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -37694,15 +38032,16 @@ class TaskProcessingApiScheduleRequestApplicationJsonBuilder
     try {
       _$result = _$v ??
           _$TaskProcessingApiScheduleRequestApplicationJson._(
-              input: input.build(),
-              type: BuiltValueNullFieldError.checkNotNull(
-                  type, r'TaskProcessingApiScheduleRequestApplicationJson', 'type'),
-              appId: BuiltValueNullFieldError.checkNotNull(
-                  appId, r'TaskProcessingApiScheduleRequestApplicationJson', 'appId'),
-              customId: BuiltValueNullFieldError.checkNotNull(
-                  customId, r'TaskProcessingApiScheduleRequestApplicationJson', 'customId'),
-              webhookUri: webhookUri,
-              webhookMethod: webhookMethod);
+            input: input.build(),
+            type:
+                BuiltValueNullFieldError.checkNotNull(type, r'TaskProcessingApiScheduleRequestApplicationJson', 'type'),
+            appId: BuiltValueNullFieldError.checkNotNull(
+                appId, r'TaskProcessingApiScheduleRequestApplicationJson', 'appId'),
+            customId: BuiltValueNullFieldError.checkNotNull(
+                customId, r'TaskProcessingApiScheduleRequestApplicationJson', 'customId'),
+            webhookUri: webhookUri,
+            webhookMethod: webhookMethod,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -37956,17 +38295,18 @@ class TaskProcessingTaskBuilder
     try {
       _$result = _$v ??
           _$TaskProcessingTask._(
-              id: BuiltValueNullFieldError.checkNotNull(id, r'TaskProcessingTask', 'id'),
-              lastUpdated: BuiltValueNullFieldError.checkNotNull(lastUpdated, r'TaskProcessingTask', 'lastUpdated'),
-              type: BuiltValueNullFieldError.checkNotNull(type, r'TaskProcessingTask', 'type'),
-              status: BuiltValueNullFieldError.checkNotNull(status, r'TaskProcessingTask', 'status'),
-              userId: userId,
-              appId: BuiltValueNullFieldError.checkNotNull(appId, r'TaskProcessingTask', 'appId'),
-              input: input.build(),
-              output: _output?.build(),
-              customId: customId,
-              completionExpectedAt: completionExpectedAt,
-              progress: progress);
+            id: BuiltValueNullFieldError.checkNotNull(id, r'TaskProcessingTask', 'id'),
+            lastUpdated: BuiltValueNullFieldError.checkNotNull(lastUpdated, r'TaskProcessingTask', 'lastUpdated'),
+            type: BuiltValueNullFieldError.checkNotNull(type, r'TaskProcessingTask', 'type'),
+            status: BuiltValueNullFieldError.checkNotNull(status, r'TaskProcessingTask', 'status'),
+            userId: userId,
+            appId: BuiltValueNullFieldError.checkNotNull(appId, r'TaskProcessingTask', 'appId'),
+            input: input.build(),
+            output: _output?.build(),
+            customId: customId,
+            completionExpectedAt: completionExpectedAt,
+            progress: progress,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -38077,7 +38417,10 @@ class TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder
     TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data._validate(this);
     _$TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data._(task: task.build());
+      _$result = _$v ??
+          _$TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data._(
+            task: task.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -38201,8 +38544,11 @@ class TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder
     TaskProcessingApiScheduleResponseApplicationJson_Ocs._validate(this);
     _$TaskProcessingApiScheduleResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$TaskProcessingApiScheduleResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$TaskProcessingApiScheduleResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -38313,7 +38659,10 @@ class TaskProcessingApiScheduleResponseApplicationJsonBuilder
     TaskProcessingApiScheduleResponseApplicationJson._validate(this);
     _$TaskProcessingApiScheduleResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TaskProcessingApiScheduleResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TaskProcessingApiScheduleResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -38422,7 +38771,10 @@ class TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder
     TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data._validate(this);
     _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data._(task: task.build());
+      _$result = _$v ??
+          _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data._(
+            task: task.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -38546,7 +38898,11 @@ class TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder
     TaskProcessingApiGetTaskResponseApplicationJson_Ocs._validate(this);
     _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$TaskProcessingApiGetTaskResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -38657,7 +39013,10 @@ class TaskProcessingApiGetTaskResponseApplicationJsonBuilder
     TaskProcessingApiGetTaskResponseApplicationJson._validate(this);
     _$TaskProcessingApiGetTaskResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TaskProcessingApiGetTaskResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TaskProcessingApiGetTaskResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -38779,7 +39138,11 @@ class TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder
     TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs._validate(this);
     _$TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs._(meta: meta.build(), data: data);
+      _$result = _$v ??
+          _$TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -38888,7 +39251,10 @@ class TaskProcessingApiDeleteTaskResponseApplicationJsonBuilder
     TaskProcessingApiDeleteTaskResponseApplicationJson._validate(this);
     _$TaskProcessingApiDeleteTaskResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TaskProcessingApiDeleteTaskResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TaskProcessingApiDeleteTaskResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -38999,7 +39365,10 @@ class TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder
     TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data._validate(this);
     _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data._(tasks: tasks.build());
+      _$result = _$v ??
+          _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data._(
+            tasks: tasks.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -39126,8 +39495,11 @@ class TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder
     TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs._validate(this);
     _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -39239,7 +39611,10 @@ class TaskProcessingApiListTasksByAppResponseApplicationJsonBuilder
     TaskProcessingApiListTasksByAppResponseApplicationJson._validate(this);
     _$TaskProcessingApiListTasksByAppResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TaskProcessingApiListTasksByAppResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TaskProcessingApiListTasksByAppResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -39350,7 +39725,10 @@ class TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder
     TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data._validate(this);
     _$TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data._(tasks: tasks.build());
+      _$result = _$v ??
+          _$TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data._(
+            tasks: tasks.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -39474,8 +39852,11 @@ class TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder
     TaskProcessingApiListTasksResponseApplicationJson_Ocs._validate(this);
     _$TaskProcessingApiListTasksResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$TaskProcessingApiListTasksResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$TaskProcessingApiListTasksResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -39586,7 +39967,10 @@ class TaskProcessingApiListTasksResponseApplicationJsonBuilder
     TaskProcessingApiListTasksResponseApplicationJson._validate(this);
     _$TaskProcessingApiListTasksResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TaskProcessingApiListTasksResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TaskProcessingApiListTasksResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -39696,7 +40080,10 @@ class TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder
     TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data._validate(this);
     _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data._(task: task.build());
+      _$result = _$v ??
+          _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data._(
+            task: task.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -39820,8 +40207,11 @@ class TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder
     TaskProcessingApiCancelTaskResponseApplicationJson_Ocs._validate(this);
     _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$TaskProcessingApiCancelTaskResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -39932,7 +40322,10 @@ class TaskProcessingApiCancelTaskResponseApplicationJsonBuilder
     TaskProcessingApiCancelTaskResponseApplicationJson._validate(this);
     _$TaskProcessingApiCancelTaskResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TaskProcessingApiCancelTaskResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TaskProcessingApiCancelTaskResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -40044,8 +40437,9 @@ class TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuild
     TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data._(
-            fileId: BuiltValueNullFieldError.checkNotNull(
-                fileId, r'TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data', 'fileId'));
+          fileId: BuiltValueNullFieldError.checkNotNull(
+              fileId, r'TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data', 'fileId'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -40165,7 +40559,10 @@ class TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder
     _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+          _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -40278,7 +40675,10 @@ class TaskProcessingApiSetFileContentsExAppResponseApplicationJsonBuilder
     TaskProcessingApiSetFileContentsExAppResponseApplicationJson._validate(this);
     _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TaskProcessingApiSetFileContentsExAppResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -40387,8 +40787,9 @@ class TaskProcessingApiSetProgressRequestApplicationJsonBuilder
     TaskProcessingApiSetProgressRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$TaskProcessingApiSetProgressRequestApplicationJson._(
-            progress: BuiltValueNullFieldError.checkNotNull(
-                progress, r'TaskProcessingApiSetProgressRequestApplicationJson', 'progress'));
+          progress: BuiltValueNullFieldError.checkNotNull(
+              progress, r'TaskProcessingApiSetProgressRequestApplicationJson', 'progress'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -40488,7 +40889,10 @@ class TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder
     TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data._validate(this);
     _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data._(task: task.build());
+      _$result = _$v ??
+          _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data._(
+            task: task.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -40612,8 +41016,11 @@ class TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder
     TaskProcessingApiSetProgressResponseApplicationJson_Ocs._validate(this);
     _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$TaskProcessingApiSetProgressResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -40725,7 +41132,10 @@ class TaskProcessingApiSetProgressResponseApplicationJsonBuilder
     TaskProcessingApiSetProgressResponseApplicationJson._validate(this);
     _$TaskProcessingApiSetProgressResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TaskProcessingApiSetProgressResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TaskProcessingApiSetProgressResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -40847,7 +41257,10 @@ class TaskProcessingApiSetResultRequestApplicationJsonBuilder
     _$TaskProcessingApiSetResultRequestApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$TaskProcessingApiSetResultRequestApplicationJson._(output: _output?.build(), errorMessage: errorMessage);
+          _$TaskProcessingApiSetResultRequestApplicationJson._(
+            output: _output?.build(),
+            errorMessage: errorMessage,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -40957,7 +41370,10 @@ class TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder
     TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data._validate(this);
     _$TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data._(task: task.build());
+      _$result = _$v ??
+          _$TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data._(
+            task: task.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -41081,8 +41497,11 @@ class TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder
     TaskProcessingApiSetResultResponseApplicationJson_Ocs._validate(this);
     _$TaskProcessingApiSetResultResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$TaskProcessingApiSetResultResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$TaskProcessingApiSetResultResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -41193,7 +41612,10 @@ class TaskProcessingApiSetResultResponseApplicationJsonBuilder
     TaskProcessingApiSetResultResponseApplicationJson._validate(this);
     _$TaskProcessingApiSetResultResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TaskProcessingApiSetResultResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TaskProcessingApiSetResultResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -41312,8 +41734,9 @@ class TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Prov
     TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider._validate(this);
     final _$result = _$v ??
         _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider._(
-            name: BuiltValueNullFieldError.checkNotNull(
-                name, r'TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider', 'name'));
+          name: BuiltValueNullFieldError.checkNotNull(
+              name, r'TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider', 'name'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -41437,7 +41860,9 @@ class TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuild
     try {
       _$result = _$v ??
           _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data._(
-              task: task.build(), provider: provider.build());
+            task: task.build(),
+            provider: provider.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -41570,7 +41995,10 @@ class TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder
     _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+          _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -41683,7 +42111,10 @@ class TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonBuilder
     TaskProcessingApiGetNextScheduledTaskResponseApplicationJson._validate(this);
     _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -41854,12 +42285,13 @@ class TeamResourceBuilder implements Builder<TeamResource, TeamResourceBuilder>,
     TeamResource._validate(this);
     final _$result = _$v ??
         _$TeamResource._(
-            id: BuiltValueNullFieldError.checkNotNull(id, r'TeamResource', 'id'),
-            label: BuiltValueNullFieldError.checkNotNull(label, r'TeamResource', 'label'),
-            url: BuiltValueNullFieldError.checkNotNull(url, r'TeamResource', 'url'),
-            iconSvg: iconSvg,
-            iconURL: iconURL,
-            iconEmoji: iconEmoji);
+          id: BuiltValueNullFieldError.checkNotNull(id, r'TeamResource', 'id'),
+          label: BuiltValueNullFieldError.checkNotNull(label, r'TeamResource', 'label'),
+          url: BuiltValueNullFieldError.checkNotNull(url, r'TeamResource', 'url'),
+          iconSvg: iconSvg,
+          iconURL: iconURL,
+          iconEmoji: iconEmoji,
+        );
     replace(_$result);
     return _$result;
   }
@@ -41958,7 +42390,10 @@ class TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder
     TeamsApiResolveOneResponseApplicationJson_Ocs_Data._validate(this);
     _$TeamsApiResolveOneResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$TeamsApiResolveOneResponseApplicationJson_Ocs_Data._(resources: resources.build());
+      _$result = _$v ??
+          _$TeamsApiResolveOneResponseApplicationJson_Ocs_Data._(
+            resources: resources.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -42080,7 +42515,11 @@ class TeamsApiResolveOneResponseApplicationJson_OcsBuilder
     TeamsApiResolveOneResponseApplicationJson_Ocs._validate(this);
     _$TeamsApiResolveOneResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$TeamsApiResolveOneResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$TeamsApiResolveOneResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -42188,7 +42627,10 @@ class TeamsApiResolveOneResponseApplicationJsonBuilder
     TeamsApiResolveOneResponseApplicationJson._validate(this);
     _$TeamsApiResolveOneResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TeamsApiResolveOneResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TeamsApiResolveOneResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -42313,9 +42755,10 @@ class TeamBuilder implements Builder<Team, TeamBuilder>, $TeamInterfaceBuilder {
     Team._validate(this);
     final _$result = _$v ??
         _$Team._(
-            id: BuiltValueNullFieldError.checkNotNull(id, r'Team', 'id'),
-            name: BuiltValueNullFieldError.checkNotNull(name, r'Team', 'name'),
-            icon: BuiltValueNullFieldError.checkNotNull(icon, r'Team', 'icon'));
+          id: BuiltValueNullFieldError.checkNotNull(id, r'Team', 'id'),
+          name: BuiltValueNullFieldError.checkNotNull(name, r'Team', 'name'),
+          icon: BuiltValueNullFieldError.checkNotNull(icon, r'Team', 'icon'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -42412,7 +42855,10 @@ class TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder
     TeamsApiListTeamsResponseApplicationJson_Ocs_Data._validate(this);
     _$TeamsApiListTeamsResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$TeamsApiListTeamsResponseApplicationJson_Ocs_Data._(teams: teams.build());
+      _$result = _$v ??
+          _$TeamsApiListTeamsResponseApplicationJson_Ocs_Data._(
+            teams: teams.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -42534,7 +42980,11 @@ class TeamsApiListTeamsResponseApplicationJson_OcsBuilder
     TeamsApiListTeamsResponseApplicationJson_Ocs._validate(this);
     _$TeamsApiListTeamsResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$TeamsApiListTeamsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$TeamsApiListTeamsResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -42642,7 +43092,10 @@ class TeamsApiListTeamsResponseApplicationJsonBuilder
     TeamsApiListTeamsResponseApplicationJson._validate(this);
     _$TeamsApiListTeamsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TeamsApiListTeamsResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TeamsApiListTeamsResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -42785,12 +43238,13 @@ class TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesBuilder
     TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types._validate(this);
     final _$result = _$v ??
         _$TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types._(
-            id: BuiltValueNullFieldError.checkNotNull(
-                id, r'TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types', 'id'),
-            name: BuiltValueNullFieldError.checkNotNull(
-                name, r'TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types', 'name'),
-            description: BuiltValueNullFieldError.checkNotNull(
-                description, r'TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types', 'description'));
+          id: BuiltValueNullFieldError.checkNotNull(
+              id, r'TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types', 'id'),
+          name: BuiltValueNullFieldError.checkNotNull(
+              name, r'TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types', 'name'),
+          description: BuiltValueNullFieldError.checkNotNull(
+              description, r'TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types', 'description'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -42892,7 +43346,10 @@ class TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder
     TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data._validate(this);
     _$TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data._(types: types.build());
+      _$result = _$v ??
+          _$TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data._(
+            types: types.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -43016,8 +43473,11 @@ class TextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder
     TextProcessingApiTaskTypesResponseApplicationJson_Ocs._validate(this);
     _$TextProcessingApiTaskTypesResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$TextProcessingApiTaskTypesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$TextProcessingApiTaskTypesResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -43128,7 +43588,10 @@ class TextProcessingApiTaskTypesResponseApplicationJsonBuilder
     TextProcessingApiTaskTypesResponseApplicationJson._validate(this);
     _$TextProcessingApiTaskTypesResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TextProcessingApiTaskTypesResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TextProcessingApiTaskTypesResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -43282,14 +43745,14 @@ class TextProcessingApiScheduleRequestApplicationJsonBuilder
     TextProcessingApiScheduleRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$TextProcessingApiScheduleRequestApplicationJson._(
-            input: BuiltValueNullFieldError.checkNotNull(
-                input, r'TextProcessingApiScheduleRequestApplicationJson', 'input'),
-            type:
-                BuiltValueNullFieldError.checkNotNull(type, r'TextProcessingApiScheduleRequestApplicationJson', 'type'),
-            appId: BuiltValueNullFieldError.checkNotNull(
-                appId, r'TextProcessingApiScheduleRequestApplicationJson', 'appId'),
-            identifier: BuiltValueNullFieldError.checkNotNull(
-                identifier, r'TextProcessingApiScheduleRequestApplicationJson', 'identifier'));
+          input:
+              BuiltValueNullFieldError.checkNotNull(input, r'TextProcessingApiScheduleRequestApplicationJson', 'input'),
+          type: BuiltValueNullFieldError.checkNotNull(type, r'TextProcessingApiScheduleRequestApplicationJson', 'type'),
+          appId:
+              BuiltValueNullFieldError.checkNotNull(appId, r'TextProcessingApiScheduleRequestApplicationJson', 'appId'),
+          identifier: BuiltValueNullFieldError.checkNotNull(
+              identifier, r'TextProcessingApiScheduleRequestApplicationJson', 'identifier'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -43500,15 +43963,16 @@ class TextProcessingTaskBuilder
     TextProcessingTask._validate(this);
     final _$result = _$v ??
         _$TextProcessingTask._(
-            id: id,
-            type: BuiltValueNullFieldError.checkNotNull(type, r'TextProcessingTask', 'type'),
-            status: BuiltValueNullFieldError.checkNotNull(status, r'TextProcessingTask', 'status'),
-            userId: userId,
-            appId: BuiltValueNullFieldError.checkNotNull(appId, r'TextProcessingTask', 'appId'),
-            input: BuiltValueNullFieldError.checkNotNull(input, r'TextProcessingTask', 'input'),
-            output: output,
-            identifier: BuiltValueNullFieldError.checkNotNull(identifier, r'TextProcessingTask', 'identifier'),
-            completionExpectedAt: completionExpectedAt);
+          id: id,
+          type: BuiltValueNullFieldError.checkNotNull(type, r'TextProcessingTask', 'type'),
+          status: BuiltValueNullFieldError.checkNotNull(status, r'TextProcessingTask', 'status'),
+          userId: userId,
+          appId: BuiltValueNullFieldError.checkNotNull(appId, r'TextProcessingTask', 'appId'),
+          input: BuiltValueNullFieldError.checkNotNull(input, r'TextProcessingTask', 'input'),
+          output: output,
+          identifier: BuiltValueNullFieldError.checkNotNull(identifier, r'TextProcessingTask', 'identifier'),
+          completionExpectedAt: completionExpectedAt,
+        );
     replace(_$result);
     return _$result;
   }
@@ -43607,7 +44071,10 @@ class TextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder
     TextProcessingApiScheduleResponseApplicationJson_Ocs_Data._validate(this);
     _$TextProcessingApiScheduleResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$TextProcessingApiScheduleResponseApplicationJson_Ocs_Data._(task: task.build());
+      _$result = _$v ??
+          _$TextProcessingApiScheduleResponseApplicationJson_Ocs_Data._(
+            task: task.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -43731,8 +44198,11 @@ class TextProcessingApiScheduleResponseApplicationJson_OcsBuilder
     TextProcessingApiScheduleResponseApplicationJson_Ocs._validate(this);
     _$TextProcessingApiScheduleResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$TextProcessingApiScheduleResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$TextProcessingApiScheduleResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -43843,7 +44313,10 @@ class TextProcessingApiScheduleResponseApplicationJsonBuilder
     TextProcessingApiScheduleResponseApplicationJson._validate(this);
     _$TextProcessingApiScheduleResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TextProcessingApiScheduleResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TextProcessingApiScheduleResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -43952,7 +44425,10 @@ class TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder
     TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data._validate(this);
     _$TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data._(task: task.build());
+      _$result = _$v ??
+          _$TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data._(
+            task: task.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -44076,7 +44552,11 @@ class TextProcessingApiGetTaskResponseApplicationJson_OcsBuilder
     TextProcessingApiGetTaskResponseApplicationJson_Ocs._validate(this);
     _$TextProcessingApiGetTaskResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$TextProcessingApiGetTaskResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$TextProcessingApiGetTaskResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -44187,7 +44667,10 @@ class TextProcessingApiGetTaskResponseApplicationJsonBuilder
     TextProcessingApiGetTaskResponseApplicationJson._validate(this);
     _$TextProcessingApiGetTaskResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TextProcessingApiGetTaskResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TextProcessingApiGetTaskResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -44297,7 +44780,10 @@ class TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder
     TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data._validate(this);
     _$TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data._(task: task.build());
+      _$result = _$v ??
+          _$TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data._(
+            task: task.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -44421,8 +44907,11 @@ class TextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder
     TextProcessingApiDeleteTaskResponseApplicationJson_Ocs._validate(this);
     _$TextProcessingApiDeleteTaskResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$TextProcessingApiDeleteTaskResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$TextProcessingApiDeleteTaskResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -44533,7 +45022,10 @@ class TextProcessingApiDeleteTaskResponseApplicationJsonBuilder
     TextProcessingApiDeleteTaskResponseApplicationJson._validate(this);
     _$TextProcessingApiDeleteTaskResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TextProcessingApiDeleteTaskResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TextProcessingApiDeleteTaskResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -44644,7 +45136,10 @@ class TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder
     TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data._validate(this);
     _$TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data._(tasks: tasks.build());
+      _$result = _$v ??
+          _$TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data._(
+            tasks: tasks.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -44771,8 +45266,11 @@ class TextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder
     TextProcessingApiListTasksByAppResponseApplicationJson_Ocs._validate(this);
     _$TextProcessingApiListTasksByAppResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$TextProcessingApiListTasksByAppResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$TextProcessingApiListTasksByAppResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -44884,7 +45382,10 @@ class TextProcessingApiListTasksByAppResponseApplicationJsonBuilder
     TextProcessingApiListTasksByAppResponseApplicationJson._validate(this);
     _$TextProcessingApiListTasksByAppResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TextProcessingApiListTasksByAppResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TextProcessingApiListTasksByAppResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -44995,8 +45496,9 @@ class TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder
     TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data._(
-            isAvailable: BuiltValueNullFieldError.checkNotNull(
-                isAvailable, r'TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data', 'isAvailable'));
+          isAvailable: BuiltValueNullFieldError.checkNotNull(
+              isAvailable, r'TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data', 'isAvailable'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -45109,8 +45611,11 @@ class TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder
     TextToImageApiIsAvailableResponseApplicationJson_Ocs._validate(this);
     _$TextToImageApiIsAvailableResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$TextToImageApiIsAvailableResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$TextToImageApiIsAvailableResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -45221,7 +45726,10 @@ class TextToImageApiIsAvailableResponseApplicationJsonBuilder
     TextToImageApiIsAvailableResponseApplicationJson._validate(this);
     _$TextToImageApiIsAvailableResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TextToImageApiIsAvailableResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TextToImageApiIsAvailableResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -45375,14 +45883,13 @@ class TextToImageApiScheduleRequestApplicationJsonBuilder
     TextToImageApiScheduleRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$TextToImageApiScheduleRequestApplicationJson._(
-            input:
-                BuiltValueNullFieldError.checkNotNull(input, r'TextToImageApiScheduleRequestApplicationJson', 'input'),
-            appId:
-                BuiltValueNullFieldError.checkNotNull(appId, r'TextToImageApiScheduleRequestApplicationJson', 'appId'),
-            identifier: BuiltValueNullFieldError.checkNotNull(
-                identifier, r'TextToImageApiScheduleRequestApplicationJson', 'identifier'),
-            numberOfImages: BuiltValueNullFieldError.checkNotNull(
-                numberOfImages, r'TextToImageApiScheduleRequestApplicationJson', 'numberOfImages'));
+          input: BuiltValueNullFieldError.checkNotNull(input, r'TextToImageApiScheduleRequestApplicationJson', 'input'),
+          appId: BuiltValueNullFieldError.checkNotNull(appId, r'TextToImageApiScheduleRequestApplicationJson', 'appId'),
+          identifier: BuiltValueNullFieldError.checkNotNull(
+              identifier, r'TextToImageApiScheduleRequestApplicationJson', 'identifier'),
+          numberOfImages: BuiltValueNullFieldError.checkNotNull(
+              numberOfImages, r'TextToImageApiScheduleRequestApplicationJson', 'numberOfImages'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -45577,14 +46084,15 @@ class TextToImageTaskBuilder
     TextToImageTask._validate(this);
     final _$result = _$v ??
         _$TextToImageTask._(
-            id: id,
-            status: BuiltValueNullFieldError.checkNotNull(status, r'TextToImageTask', 'status'),
-            userId: userId,
-            appId: BuiltValueNullFieldError.checkNotNull(appId, r'TextToImageTask', 'appId'),
-            input: BuiltValueNullFieldError.checkNotNull(input, r'TextToImageTask', 'input'),
-            identifier: identifier,
-            numberOfImages: BuiltValueNullFieldError.checkNotNull(numberOfImages, r'TextToImageTask', 'numberOfImages'),
-            completionExpectedAt: completionExpectedAt);
+          id: id,
+          status: BuiltValueNullFieldError.checkNotNull(status, r'TextToImageTask', 'status'),
+          userId: userId,
+          appId: BuiltValueNullFieldError.checkNotNull(appId, r'TextToImageTask', 'appId'),
+          input: BuiltValueNullFieldError.checkNotNull(input, r'TextToImageTask', 'input'),
+          identifier: identifier,
+          numberOfImages: BuiltValueNullFieldError.checkNotNull(numberOfImages, r'TextToImageTask', 'numberOfImages'),
+          completionExpectedAt: completionExpectedAt,
+        );
     replace(_$result);
     return _$result;
   }
@@ -45682,7 +46190,10 @@ class TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder
     TextToImageApiScheduleResponseApplicationJson_Ocs_Data._validate(this);
     _$TextToImageApiScheduleResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$TextToImageApiScheduleResponseApplicationJson_Ocs_Data._(task: task.build());
+      _$result = _$v ??
+          _$TextToImageApiScheduleResponseApplicationJson_Ocs_Data._(
+            task: task.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -45805,7 +46316,11 @@ class TextToImageApiScheduleResponseApplicationJson_OcsBuilder
     TextToImageApiScheduleResponseApplicationJson_Ocs._validate(this);
     _$TextToImageApiScheduleResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$TextToImageApiScheduleResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$TextToImageApiScheduleResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -45914,7 +46429,10 @@ class TextToImageApiScheduleResponseApplicationJsonBuilder
     TextToImageApiScheduleResponseApplicationJson._validate(this);
     _$TextToImageApiScheduleResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TextToImageApiScheduleResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TextToImageApiScheduleResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -46022,7 +46540,10 @@ class TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder
     TextToImageApiGetTaskResponseApplicationJson_Ocs_Data._validate(this);
     _$TextToImageApiGetTaskResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$TextToImageApiGetTaskResponseApplicationJson_Ocs_Data._(task: task.build());
+      _$result = _$v ??
+          _$TextToImageApiGetTaskResponseApplicationJson_Ocs_Data._(
+            task: task.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -46145,7 +46666,11 @@ class TextToImageApiGetTaskResponseApplicationJson_OcsBuilder
     TextToImageApiGetTaskResponseApplicationJson_Ocs._validate(this);
     _$TextToImageApiGetTaskResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$TextToImageApiGetTaskResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$TextToImageApiGetTaskResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -46254,7 +46779,10 @@ class TextToImageApiGetTaskResponseApplicationJsonBuilder
     TextToImageApiGetTaskResponseApplicationJson._validate(this);
     _$TextToImageApiGetTaskResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TextToImageApiGetTaskResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TextToImageApiGetTaskResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -46362,7 +46890,10 @@ class TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder
     TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data._validate(this);
     _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data._(task: task.build());
+      _$result = _$v ??
+          _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data._(
+            task: task.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -46486,7 +47017,11 @@ class TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder
     TextToImageApiDeleteTaskResponseApplicationJson_Ocs._validate(this);
     _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -46597,7 +47132,10 @@ class TextToImageApiDeleteTaskResponseApplicationJsonBuilder
     TextToImageApiDeleteTaskResponseApplicationJson._validate(this);
     _$TextToImageApiDeleteTaskResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TextToImageApiDeleteTaskResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TextToImageApiDeleteTaskResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -46708,7 +47246,10 @@ class TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder
     TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data._validate(this);
     _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data._(tasks: tasks.build());
+      _$result = _$v ??
+          _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data._(
+            tasks: tasks.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -46832,8 +47373,11 @@ class TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder
     TextToImageApiListTasksByAppResponseApplicationJson_Ocs._validate(this);
     _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -46945,7 +47489,10 @@ class TextToImageApiListTasksByAppResponseApplicationJsonBuilder
     TextToImageApiListTasksByAppResponseApplicationJson._validate(this);
     _$TextToImageApiListTasksByAppResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TextToImageApiListTasksByAppResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TextToImageApiListTasksByAppResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -47105,14 +47652,15 @@ class TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesBuilder
     TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages._validate(this);
     final _$result = _$v ??
         _$TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages._(
-            from: BuiltValueNullFieldError.checkNotNull(
-                from, r'TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages', 'from'),
-            fromLabel: BuiltValueNullFieldError.checkNotNull(
-                fromLabel, r'TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages', 'fromLabel'),
-            to: BuiltValueNullFieldError.checkNotNull(
-                to, r'TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages', 'to'),
-            toLabel: BuiltValueNullFieldError.checkNotNull(
-                toLabel, r'TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages', 'toLabel'));
+          from: BuiltValueNullFieldError.checkNotNull(
+              from, r'TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages', 'from'),
+          fromLabel: BuiltValueNullFieldError.checkNotNull(
+              fromLabel, r'TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages', 'fromLabel'),
+          to: BuiltValueNullFieldError.checkNotNull(
+              to, r'TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages', 'to'),
+          toLabel: BuiltValueNullFieldError.checkNotNull(
+              toLabel, r'TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages', 'toLabel'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -47234,9 +47782,10 @@ class TranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder
     try {
       _$result = _$v ??
           _$TranslationApiLanguagesResponseApplicationJson_Ocs_Data._(
-              languages: languages.build(),
-              languageDetection: BuiltValueNullFieldError.checkNotNull(
-                  languageDetection, r'TranslationApiLanguagesResponseApplicationJson_Ocs_Data', 'languageDetection'));
+            languages: languages.build(),
+            languageDetection: BuiltValueNullFieldError.checkNotNull(
+                languageDetection, r'TranslationApiLanguagesResponseApplicationJson_Ocs_Data', 'languageDetection'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -47359,7 +47908,11 @@ class TranslationApiLanguagesResponseApplicationJson_OcsBuilder
     TranslationApiLanguagesResponseApplicationJson_Ocs._validate(this);
     _$TranslationApiLanguagesResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$TranslationApiLanguagesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$TranslationApiLanguagesResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -47468,7 +48021,10 @@ class TranslationApiLanguagesResponseApplicationJsonBuilder
     TranslationApiLanguagesResponseApplicationJson._validate(this);
     _$TranslationApiLanguagesResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TranslationApiLanguagesResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TranslationApiLanguagesResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -47605,10 +48161,11 @@ class TranslationApiTranslateRequestApplicationJsonBuilder
     TranslationApiTranslateRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$TranslationApiTranslateRequestApplicationJson._(
-            text: BuiltValueNullFieldError.checkNotNull(text, r'TranslationApiTranslateRequestApplicationJson', 'text'),
-            fromLanguage: fromLanguage,
-            toLanguage: BuiltValueNullFieldError.checkNotNull(
-                toLanguage, r'TranslationApiTranslateRequestApplicationJson', 'toLanguage'));
+          text: BuiltValueNullFieldError.checkNotNull(text, r'TranslationApiTranslateRequestApplicationJson', 'text'),
+          fromLanguage: fromLanguage,
+          toLanguage: BuiltValueNullFieldError.checkNotNull(
+              toLanguage, r'TranslationApiTranslateRequestApplicationJson', 'toLanguage'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -47719,9 +48276,10 @@ class TranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder
     TranslationApiTranslateResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$TranslationApiTranslateResponseApplicationJson_Ocs_Data._(
-            text: BuiltValueNullFieldError.checkNotNull(
-                text, r'TranslationApiTranslateResponseApplicationJson_Ocs_Data', 'text'),
-            from: from);
+          text: BuiltValueNullFieldError.checkNotNull(
+              text, r'TranslationApiTranslateResponseApplicationJson_Ocs_Data', 'text'),
+          from: from,
+        );
     replace(_$result);
     return _$result;
   }
@@ -47833,7 +48391,11 @@ class TranslationApiTranslateResponseApplicationJson_OcsBuilder
     TranslationApiTranslateResponseApplicationJson_Ocs._validate(this);
     _$TranslationApiTranslateResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$TranslationApiTranslateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$TranslationApiTranslateResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -47942,7 +48504,10 @@ class TranslationApiTranslateResponseApplicationJsonBuilder
     TranslationApiTranslateResponseApplicationJson._validate(this);
     _$TranslationApiTranslateResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$TranslationApiTranslateResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$TranslationApiTranslateResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -48155,14 +48720,15 @@ class UnifiedSearchProviderBuilder
     try {
       _$result = _$v ??
           _$UnifiedSearchProvider._(
-              id: BuiltValueNullFieldError.checkNotNull(id, r'UnifiedSearchProvider', 'id'),
-              appId: BuiltValueNullFieldError.checkNotNull(appId, r'UnifiedSearchProvider', 'appId'),
-              name: BuiltValueNullFieldError.checkNotNull(name, r'UnifiedSearchProvider', 'name'),
-              icon: BuiltValueNullFieldError.checkNotNull(icon, r'UnifiedSearchProvider', 'icon'),
-              order: BuiltValueNullFieldError.checkNotNull(order, r'UnifiedSearchProvider', 'order'),
-              triggers: triggers.build(),
-              filters: filters.build(),
-              inAppSearch: BuiltValueNullFieldError.checkNotNull(inAppSearch, r'UnifiedSearchProvider', 'inAppSearch'));
+            id: BuiltValueNullFieldError.checkNotNull(id, r'UnifiedSearchProvider', 'id'),
+            appId: BuiltValueNullFieldError.checkNotNull(appId, r'UnifiedSearchProvider', 'appId'),
+            name: BuiltValueNullFieldError.checkNotNull(name, r'UnifiedSearchProvider', 'name'),
+            icon: BuiltValueNullFieldError.checkNotNull(icon, r'UnifiedSearchProvider', 'icon'),
+            order: BuiltValueNullFieldError.checkNotNull(order, r'UnifiedSearchProvider', 'order'),
+            triggers: triggers.build(),
+            filters: filters.build(),
+            inAppSearch: BuiltValueNullFieldError.checkNotNull(inAppSearch, r'UnifiedSearchProvider', 'inAppSearch'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -48286,8 +48852,11 @@ class UnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder
     UnifiedSearchGetProvidersResponseApplicationJson_Ocs._validate(this);
     _$UnifiedSearchGetProvidersResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$UnifiedSearchGetProvidersResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$UnifiedSearchGetProvidersResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -48398,7 +48967,10 @@ class UnifiedSearchGetProvidersResponseApplicationJsonBuilder
     UnifiedSearchGetProvidersResponseApplicationJson._validate(this);
     _$UnifiedSearchGetProvidersResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UnifiedSearchGetProvidersResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UnifiedSearchGetProvidersResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -48598,15 +49170,15 @@ class UnifiedSearchResultEntryBuilder
     try {
       _$result = _$v ??
           _$UnifiedSearchResultEntry._(
-              thumbnailUrl:
-                  BuiltValueNullFieldError.checkNotNull(thumbnailUrl, r'UnifiedSearchResultEntry', 'thumbnailUrl'),
-              title: BuiltValueNullFieldError.checkNotNull(title, r'UnifiedSearchResultEntry', 'title'),
-              subline: BuiltValueNullFieldError.checkNotNull(subline, r'UnifiedSearchResultEntry', 'subline'),
-              resourceUrl:
-                  BuiltValueNullFieldError.checkNotNull(resourceUrl, r'UnifiedSearchResultEntry', 'resourceUrl'),
-              icon: BuiltValueNullFieldError.checkNotNull(icon, r'UnifiedSearchResultEntry', 'icon'),
-              rounded: BuiltValueNullFieldError.checkNotNull(rounded, r'UnifiedSearchResultEntry', 'rounded'),
-              attributes: attributes.build());
+            thumbnailUrl:
+                BuiltValueNullFieldError.checkNotNull(thumbnailUrl, r'UnifiedSearchResultEntry', 'thumbnailUrl'),
+            title: BuiltValueNullFieldError.checkNotNull(title, r'UnifiedSearchResultEntry', 'title'),
+            subline: BuiltValueNullFieldError.checkNotNull(subline, r'UnifiedSearchResultEntry', 'subline'),
+            resourceUrl: BuiltValueNullFieldError.checkNotNull(resourceUrl, r'UnifiedSearchResultEntry', 'resourceUrl'),
+            icon: BuiltValueNullFieldError.checkNotNull(icon, r'UnifiedSearchResultEntry', 'icon'),
+            rounded: BuiltValueNullFieldError.checkNotNull(rounded, r'UnifiedSearchResultEntry', 'rounded'),
+            attributes: attributes.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -48754,10 +49326,11 @@ class UnifiedSearchResultBuilder
     try {
       _$result = _$v ??
           _$UnifiedSearchResult._(
-              name: BuiltValueNullFieldError.checkNotNull(name, r'UnifiedSearchResult', 'name'),
-              isPaginated: BuiltValueNullFieldError.checkNotNull(isPaginated, r'UnifiedSearchResult', 'isPaginated'),
-              entries: entries.build(),
-              cursor: cursor);
+            name: BuiltValueNullFieldError.checkNotNull(name, r'UnifiedSearchResult', 'name'),
+            isPaginated: BuiltValueNullFieldError.checkNotNull(isPaginated, r'UnifiedSearchResult', 'isPaginated'),
+            entries: entries.build(),
+            cursor: cursor,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -48877,7 +49450,11 @@ class UnifiedSearchSearchResponseApplicationJson_OcsBuilder
     UnifiedSearchSearchResponseApplicationJson_Ocs._validate(this);
     _$UnifiedSearchSearchResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$UnifiedSearchSearchResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$UnifiedSearchSearchResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -48986,7 +49563,10 @@ class UnifiedSearchSearchResponseApplicationJsonBuilder
     UnifiedSearchSearchResponseApplicationJson._validate(this);
     _$UnifiedSearchSearchResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UnifiedSearchSearchResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UnifiedSearchSearchResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -49111,7 +49691,10 @@ class WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder
     _$WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew _$result;
     try {
       _$result = _$v ??
-          _$WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew._(regular: regular.build(), admin: admin.build());
+          _$WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew._(
+            regular: regular.build(),
+            admin: admin.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -49269,13 +49852,14 @@ class WhatsNewGetResponseApplicationJson_Ocs_DataBuilder
     try {
       _$result = _$v ??
           _$WhatsNewGetResponseApplicationJson_Ocs_Data._(
-              changelogURL: BuiltValueNullFieldError.checkNotNull(
-                  changelogURL, r'WhatsNewGetResponseApplicationJson_Ocs_Data', 'changelogURL'),
-              product: BuiltValueNullFieldError.checkNotNull(
-                  product, r'WhatsNewGetResponseApplicationJson_Ocs_Data', 'product'),
-              version: BuiltValueNullFieldError.checkNotNull(
-                  version, r'WhatsNewGetResponseApplicationJson_Ocs_Data', 'version'),
-              whatsNew: _whatsNew?.build());
+            changelogURL: BuiltValueNullFieldError.checkNotNull(
+                changelogURL, r'WhatsNewGetResponseApplicationJson_Ocs_Data', 'changelogURL'),
+            product: BuiltValueNullFieldError.checkNotNull(
+                product, r'WhatsNewGetResponseApplicationJson_Ocs_Data', 'product'),
+            version: BuiltValueNullFieldError.checkNotNull(
+                version, r'WhatsNewGetResponseApplicationJson_Ocs_Data', 'version'),
+            whatsNew: _whatsNew?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -49396,7 +49980,11 @@ class WhatsNewGetResponseApplicationJson_OcsBuilder
     WhatsNewGetResponseApplicationJson_Ocs._validate(this);
     _$WhatsNewGetResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$WhatsNewGetResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$WhatsNewGetResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -49501,7 +50089,10 @@ class WhatsNewGetResponseApplicationJsonBuilder
     WhatsNewGetResponseApplicationJson._validate(this);
     _$WhatsNewGetResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$WhatsNewGetResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$WhatsNewGetResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -49605,8 +50196,8 @@ class WhatsNewDismissRequestApplicationJsonBuilder
     WhatsNewDismissRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$WhatsNewDismissRequestApplicationJson._(
-            version:
-                BuiltValueNullFieldError.checkNotNull(version, r'WhatsNewDismissRequestApplicationJson', 'version'));
+          version: BuiltValueNullFieldError.checkNotNull(version, r'WhatsNewDismissRequestApplicationJson', 'version'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -49718,8 +50309,9 @@ class WhatsNewDismissResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$WhatsNewDismissResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(data, r'WhatsNewDismissResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(data, r'WhatsNewDismissResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -49825,7 +50417,10 @@ class WhatsNewDismissResponseApplicationJsonBuilder
     WhatsNewDismissResponseApplicationJson._validate(this);
     _$WhatsNewDismissResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$WhatsNewDismissResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$WhatsNewDismissResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -49927,7 +50522,8 @@ class WipeCheckWipeRequestApplicationJsonBuilder
     WipeCheckWipeRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$WipeCheckWipeRequestApplicationJson._(
-            token: BuiltValueNullFieldError.checkNotNull(token, r'WipeCheckWipeRequestApplicationJson', 'token'));
+          token: BuiltValueNullFieldError.checkNotNull(token, r'WipeCheckWipeRequestApplicationJson', 'token'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -50021,7 +50617,8 @@ class WipeCheckWipeResponseApplicationJsonBuilder
     WipeCheckWipeResponseApplicationJson._validate(this);
     final _$result = _$v ??
         _$WipeCheckWipeResponseApplicationJson._(
-            wipe: BuiltValueNullFieldError.checkNotNull(wipe, r'WipeCheckWipeResponseApplicationJson', 'wipe'));
+          wipe: BuiltValueNullFieldError.checkNotNull(wipe, r'WipeCheckWipeResponseApplicationJson', 'wipe'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -50113,7 +50710,8 @@ class WipeWipeDoneRequestApplicationJsonBuilder
     WipeWipeDoneRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$WipeWipeDoneRequestApplicationJson._(
-            token: BuiltValueNullFieldError.checkNotNull(token, r'WipeWipeDoneRequestApplicationJson', 'token'));
+          token: BuiltValueNullFieldError.checkNotNull(token, r'WipeWipeDoneRequestApplicationJson', 'token'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -50267,13 +50865,13 @@ class Capabilities_CoreBuilder
     Capabilities_Core._validate(this);
     final _$result = _$v ??
         _$Capabilities_Core._(
-            pollinterval: BuiltValueNullFieldError.checkNotNull(pollinterval, r'Capabilities_Core', 'pollinterval'),
-            webdavRoot: BuiltValueNullFieldError.checkNotNull(webdavRoot, r'Capabilities_Core', 'webdavRoot'),
-            referenceApi: BuiltValueNullFieldError.checkNotNull(referenceApi, r'Capabilities_Core', 'referenceApi'),
-            referenceRegex:
-                BuiltValueNullFieldError.checkNotNull(referenceRegex, r'Capabilities_Core', 'referenceRegex'),
-            modRewriteWorking:
-                BuiltValueNullFieldError.checkNotNull(modRewriteWorking, r'Capabilities_Core', 'modRewriteWorking'));
+          pollinterval: BuiltValueNullFieldError.checkNotNull(pollinterval, r'Capabilities_Core', 'pollinterval'),
+          webdavRoot: BuiltValueNullFieldError.checkNotNull(webdavRoot, r'Capabilities_Core', 'webdavRoot'),
+          referenceApi: BuiltValueNullFieldError.checkNotNull(referenceApi, r'Capabilities_Core', 'referenceApi'),
+          referenceRegex: BuiltValueNullFieldError.checkNotNull(referenceRegex, r'Capabilities_Core', 'referenceRegex'),
+          modRewriteWorking:
+              BuiltValueNullFieldError.checkNotNull(modRewriteWorking, r'Capabilities_Core', 'modRewriteWorking'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -50361,7 +50959,10 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     Capabilities._validate(this);
     _$Capabilities _$result;
     try {
-      _$result = _$v ?? _$Capabilities._(core: core.build());
+      _$result = _$v ??
+          _$Capabilities._(
+            core: core.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -50478,9 +51079,10 @@ class PublicCapabilities_BruteforceBuilder
     PublicCapabilities_Bruteforce._validate(this);
     final _$result = _$v ??
         _$PublicCapabilities_Bruteforce._(
-            delay: BuiltValueNullFieldError.checkNotNull(delay, r'PublicCapabilities_Bruteforce', 'delay'),
-            allowListed:
-                BuiltValueNullFieldError.checkNotNull(allowListed, r'PublicCapabilities_Bruteforce', 'allowListed'));
+          delay: BuiltValueNullFieldError.checkNotNull(delay, r'PublicCapabilities_Bruteforce', 'delay'),
+          allowListed:
+              BuiltValueNullFieldError.checkNotNull(allowListed, r'PublicCapabilities_Bruteforce', 'allowListed'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -50570,7 +51172,10 @@ class PublicCapabilitiesBuilder
     PublicCapabilities._validate(this);
     _$PublicCapabilities _$result;
     try {
-      _$result = _$v ?? _$PublicCapabilities._(bruteforce: bruteforce.build());
+      _$result = _$v ??
+          _$PublicCapabilities._(
+            bruteforce: bruteforce.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -51055,34 +51660,35 @@ class RichObjectParameterBuilder
     RichObjectParameter._validate(this);
     final _$result = _$v ??
         _$RichObjectParameter._(
-            type: BuiltValueNullFieldError.checkNotNull(type, r'RichObjectParameter', 'type'),
-            id: BuiltValueNullFieldError.checkNotNull(id, r'RichObjectParameter', 'id'),
-            name: BuiltValueNullFieldError.checkNotNull(name, r'RichObjectParameter', 'name'),
-            link: link,
-            callType: callType,
-            iconUrl: iconUrl,
-            messageId: messageId,
-            boardname: boardname,
-            stackname: stackname,
-            size: size,
-            path: path,
-            mimetype: mimetype,
-            previewAvailable: previewAvailable,
-            mtime: mtime,
-            etag: etag,
-            permissions: permissions,
-            width: width,
-            height: height,
-            blurhash: blurhash,
-            latitude: latitude,
-            longitude: longitude,
-            description: description,
-            thumb: thumb,
-            website: website,
-            visibility: visibility,
-            assignable: assignable,
-            conversation: conversation,
-            server: server);
+          type: BuiltValueNullFieldError.checkNotNull(type, r'RichObjectParameter', 'type'),
+          id: BuiltValueNullFieldError.checkNotNull(id, r'RichObjectParameter', 'id'),
+          name: BuiltValueNullFieldError.checkNotNull(name, r'RichObjectParameter', 'name'),
+          link: link,
+          callType: callType,
+          iconUrl: iconUrl,
+          messageId: messageId,
+          boardname: boardname,
+          stackname: stackname,
+          size: size,
+          path: path,
+          mimetype: mimetype,
+          previewAvailable: previewAvailable,
+          mtime: mtime,
+          etag: etag,
+          permissions: permissions,
+          width: width,
+          height: height,
+          blurhash: blurhash,
+          latitude: latitude,
+          longitude: longitude,
+          description: description,
+          thumb: thumb,
+          website: website,
+          visibility: visibility,
+          assignable: assignable,
+          conversation: conversation,
+          server: server,
+        );
     replace(_$result);
     return _$result;
   }

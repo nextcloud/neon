@@ -696,11 +696,12 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
     OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
-            message: message,
-            totalitems: totalitems,
-            itemsperpage: itemsperpage);
+          status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+          statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+          message: message,
+          totalitems: totalitems,
+          itemsperpage: itemsperpage,
+        );
     replace(_$result);
     return _$result;
   }
@@ -797,8 +798,9 @@ class ConfigapiCreateResponseApplicationJson_Ocs_DataBuilder
     ConfigapiCreateResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$ConfigapiCreateResponseApplicationJson_Ocs_Data._(
-            configID: BuiltValueNullFieldError.checkNotNull(
-                configID, r'ConfigapiCreateResponseApplicationJson_Ocs_Data', 'configID'));
+          configID: BuiltValueNullFieldError.checkNotNull(
+              configID, r'ConfigapiCreateResponseApplicationJson_Ocs_Data', 'configID'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -909,7 +911,11 @@ class ConfigapiCreateResponseApplicationJson_OcsBuilder
     ConfigapiCreateResponseApplicationJson_Ocs._validate(this);
     _$ConfigapiCreateResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$ConfigapiCreateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ConfigapiCreateResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1017,7 +1023,10 @@ class ConfigapiCreateResponseApplicationJsonBuilder
     ConfigapiCreateResponseApplicationJson._validate(this);
     _$ConfigapiCreateResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ConfigapiCreateResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ConfigapiCreateResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1137,7 +1146,11 @@ class ConfigapiShowResponseApplicationJson_OcsBuilder
     ConfigapiShowResponseApplicationJson_Ocs._validate(this);
     _$ConfigapiShowResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$ConfigapiShowResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ConfigapiShowResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1244,7 +1257,10 @@ class ConfigapiShowResponseApplicationJsonBuilder
     ConfigapiShowResponseApplicationJson._validate(this);
     _$ConfigapiShowResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ConfigapiShowResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ConfigapiShowResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1349,7 +1365,10 @@ class ConfigapiModifyRequestApplicationJsonBuilder
     ConfigapiModifyRequestApplicationJson._validate(this);
     _$ConfigapiModifyRequestApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ConfigapiModifyRequestApplicationJson._(configData: configData.build());
+      _$result = _$v ??
+          _$ConfigapiModifyRequestApplicationJson._(
+            configData: configData.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1471,8 +1490,9 @@ class ConfigapiModifyResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$ConfigapiModifyResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(data, r'ConfigapiModifyResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(data, r'ConfigapiModifyResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1578,7 +1598,10 @@ class ConfigapiModifyResponseApplicationJsonBuilder
     ConfigapiModifyResponseApplicationJson._validate(this);
     _$ConfigapiModifyResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ConfigapiModifyResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ConfigapiModifyResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1700,8 +1723,9 @@ class ConfigapiDeleteResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$ConfigapiDeleteResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(data, r'ConfigapiDeleteResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(data, r'ConfigapiDeleteResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1807,7 +1831,10 @@ class ConfigapiDeleteResponseApplicationJsonBuilder
     ConfigapiDeleteResponseApplicationJson._validate(this);
     _$ConfigapiDeleteResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ConfigapiDeleteResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ConfigapiDeleteResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

@@ -1462,11 +1462,12 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
     OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
-            message: message,
-            totalitems: totalitems,
-            itemsperpage: itemsperpage);
+          status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+          statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+          message: message,
+          totalitems: totalitems,
+          itemsperpage: itemsperpage,
+        );
     replace(_$result);
     return _$result;
   }
@@ -1633,12 +1634,13 @@ class WidgetItemBuilder implements Builder<WidgetItem, WidgetItemBuilder>, $Widg
     WidgetItem._validate(this);
     final _$result = _$v ??
         _$WidgetItem._(
-            subtitle: BuiltValueNullFieldError.checkNotNull(subtitle, r'WidgetItem', 'subtitle'),
-            title: BuiltValueNullFieldError.checkNotNull(title, r'WidgetItem', 'title'),
-            link: BuiltValueNullFieldError.checkNotNull(link, r'WidgetItem', 'link'),
-            iconUrl: BuiltValueNullFieldError.checkNotNull(iconUrl, r'WidgetItem', 'iconUrl'),
-            overlayIconUrl: BuiltValueNullFieldError.checkNotNull(overlayIconUrl, r'WidgetItem', 'overlayIconUrl'),
-            sinceId: BuiltValueNullFieldError.checkNotNull(sinceId, r'WidgetItem', 'sinceId'));
+          subtitle: BuiltValueNullFieldError.checkNotNull(subtitle, r'WidgetItem', 'subtitle'),
+          title: BuiltValueNullFieldError.checkNotNull(title, r'WidgetItem', 'title'),
+          link: BuiltValueNullFieldError.checkNotNull(link, r'WidgetItem', 'link'),
+          iconUrl: BuiltValueNullFieldError.checkNotNull(iconUrl, r'WidgetItem', 'iconUrl'),
+          overlayIconUrl: BuiltValueNullFieldError.checkNotNull(overlayIconUrl, r'WidgetItem', 'overlayIconUrl'),
+          sinceId: BuiltValueNullFieldError.checkNotNull(sinceId, r'WidgetItem', 'sinceId'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1750,8 +1752,11 @@ class DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder
     DashboardApiGetWidgetItemsResponseApplicationJson_Ocs._validate(this);
     _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1862,7 +1867,10 @@ class DashboardApiGetWidgetItemsResponseApplicationJsonBuilder
     DashboardApiGetWidgetItemsResponseApplicationJson._validate(this);
     _$DashboardApiGetWidgetItemsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$DashboardApiGetWidgetItemsResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$DashboardApiGetWidgetItemsResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1996,11 +2004,12 @@ class WidgetItemsBuilder implements Builder<WidgetItems, WidgetItemsBuilder>, $W
     try {
       _$result = _$v ??
           _$WidgetItems._(
-              items: items.build(),
-              emptyContentMessage:
-                  BuiltValueNullFieldError.checkNotNull(emptyContentMessage, r'WidgetItems', 'emptyContentMessage'),
-              halfEmptyContentMessage: BuiltValueNullFieldError.checkNotNull(
-                  halfEmptyContentMessage, r'WidgetItems', 'halfEmptyContentMessage'));
+            items: items.build(),
+            emptyContentMessage:
+                BuiltValueNullFieldError.checkNotNull(emptyContentMessage, r'WidgetItems', 'emptyContentMessage'),
+            halfEmptyContentMessage: BuiltValueNullFieldError.checkNotNull(
+                halfEmptyContentMessage, r'WidgetItems', 'halfEmptyContentMessage'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2122,8 +2131,11 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder
     DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs._validate(this);
     _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2235,7 +2247,10 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder
     DashboardApiGetWidgetItemsV2ResponseApplicationJson._validate(this);
     _$DashboardApiGetWidgetItemsV2ResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$DashboardApiGetWidgetItemsV2ResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$DashboardApiGetWidgetItemsV2ResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2362,9 +2377,10 @@ class Widget_ButtonsBuilder implements Builder<Widget_Buttons, Widget_ButtonsBui
     Widget_Buttons._validate(this);
     final _$result = _$v ??
         _$Widget_Buttons._(
-            type: BuiltValueNullFieldError.checkNotNull(type, r'Widget_Buttons', 'type'),
-            text: BuiltValueNullFieldError.checkNotNull(text, r'Widget_Buttons', 'text'),
-            link: BuiltValueNullFieldError.checkNotNull(link, r'Widget_Buttons', 'link'));
+          type: BuiltValueNullFieldError.checkNotNull(type, r'Widget_Buttons', 'type'),
+          text: BuiltValueNullFieldError.checkNotNull(text, r'Widget_Buttons', 'text'),
+          link: BuiltValueNullFieldError.checkNotNull(link, r'Widget_Buttons', 'link'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -2591,16 +2607,17 @@ class WidgetBuilder implements Builder<Widget, WidgetBuilder>, $WidgetInterfaceB
     try {
       _$result = _$v ??
           _$Widget._(
-              id: BuiltValueNullFieldError.checkNotNull(id, r'Widget', 'id'),
-              title: BuiltValueNullFieldError.checkNotNull(title, r'Widget', 'title'),
-              order: BuiltValueNullFieldError.checkNotNull(order, r'Widget', 'order'),
-              iconClass: BuiltValueNullFieldError.checkNotNull(iconClass, r'Widget', 'iconClass'),
-              iconUrl: BuiltValueNullFieldError.checkNotNull(iconUrl, r'Widget', 'iconUrl'),
-              widgetUrl: widgetUrl,
-              itemIconsRound: BuiltValueNullFieldError.checkNotNull(itemIconsRound, r'Widget', 'itemIconsRound'),
-              itemApiVersions: itemApiVersions.build(),
-              reloadInterval: BuiltValueNullFieldError.checkNotNull(reloadInterval, r'Widget', 'reloadInterval'),
-              buttons: _buttons?.build());
+            id: BuiltValueNullFieldError.checkNotNull(id, r'Widget', 'id'),
+            title: BuiltValueNullFieldError.checkNotNull(title, r'Widget', 'title'),
+            order: BuiltValueNullFieldError.checkNotNull(order, r'Widget', 'order'),
+            iconClass: BuiltValueNullFieldError.checkNotNull(iconClass, r'Widget', 'iconClass'),
+            iconUrl: BuiltValueNullFieldError.checkNotNull(iconUrl, r'Widget', 'iconUrl'),
+            widgetUrl: widgetUrl,
+            itemIconsRound: BuiltValueNullFieldError.checkNotNull(itemIconsRound, r'Widget', 'itemIconsRound'),
+            itemApiVersions: itemApiVersions.build(),
+            reloadInterval: BuiltValueNullFieldError.checkNotNull(reloadInterval, r'Widget', 'reloadInterval'),
+            buttons: _buttons?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2724,7 +2741,11 @@ class DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder
     DashboardApiGetWidgetsResponseApplicationJson_Ocs._validate(this);
     _$DashboardApiGetWidgetsResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$DashboardApiGetWidgetsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$DashboardApiGetWidgetsResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2833,7 +2854,10 @@ class DashboardApiGetWidgetsResponseApplicationJsonBuilder
     DashboardApiGetWidgetsResponseApplicationJson._validate(this);
     _$DashboardApiGetWidgetsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$DashboardApiGetWidgetsResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$DashboardApiGetWidgetsResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2942,7 +2966,10 @@ class DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder
     DashboardApiGetLayoutResponseApplicationJson_Ocs_Data._validate(this);
     _$DashboardApiGetLayoutResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$DashboardApiGetLayoutResponseApplicationJson_Ocs_Data._(layout: layout.build());
+      _$result = _$v ??
+          _$DashboardApiGetLayoutResponseApplicationJson_Ocs_Data._(
+            layout: layout.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3065,7 +3092,11 @@ class DashboardApiGetLayoutResponseApplicationJson_OcsBuilder
     DashboardApiGetLayoutResponseApplicationJson_Ocs._validate(this);
     _$DashboardApiGetLayoutResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$DashboardApiGetLayoutResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$DashboardApiGetLayoutResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3174,7 +3205,10 @@ class DashboardApiGetLayoutResponseApplicationJsonBuilder
     DashboardApiGetLayoutResponseApplicationJson._validate(this);
     _$DashboardApiGetLayoutResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$DashboardApiGetLayoutResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$DashboardApiGetLayoutResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3280,7 +3314,10 @@ class DashboardApiUpdateLayoutRequestApplicationJsonBuilder
     DashboardApiUpdateLayoutRequestApplicationJson._validate(this);
     _$DashboardApiUpdateLayoutRequestApplicationJson _$result;
     try {
-      _$result = _$v ?? _$DashboardApiUpdateLayoutRequestApplicationJson._(layout: layout.build());
+      _$result = _$v ??
+          _$DashboardApiUpdateLayoutRequestApplicationJson._(
+            layout: layout.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3391,7 +3428,10 @@ class DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder
     DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data._validate(this);
     _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data._(layout: layout.build());
+      _$result = _$v ??
+          _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data._(
+            layout: layout.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3515,7 +3555,11 @@ class DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder
     DashboardApiUpdateLayoutResponseApplicationJson_Ocs._validate(this);
     _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3626,7 +3670,10 @@ class DashboardApiUpdateLayoutResponseApplicationJsonBuilder
     DashboardApiUpdateLayoutResponseApplicationJson._validate(this);
     _$DashboardApiUpdateLayoutResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$DashboardApiUpdateLayoutResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$DashboardApiUpdateLayoutResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3737,7 +3784,10 @@ class DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder
     DashboardApiGetStatusesResponseApplicationJson_Ocs_Data._validate(this);
     _$DashboardApiGetStatusesResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$DashboardApiGetStatusesResponseApplicationJson_Ocs_Data._(statuses: statuses.build());
+      _$result = _$v ??
+          _$DashboardApiGetStatusesResponseApplicationJson_Ocs_Data._(
+            statuses: statuses.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3860,7 +3910,11 @@ class DashboardApiGetStatusesResponseApplicationJson_OcsBuilder
     DashboardApiGetStatusesResponseApplicationJson_Ocs._validate(this);
     _$DashboardApiGetStatusesResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$DashboardApiGetStatusesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$DashboardApiGetStatusesResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3969,7 +4023,10 @@ class DashboardApiGetStatusesResponseApplicationJsonBuilder
     DashboardApiGetStatusesResponseApplicationJson._validate(this);
     _$DashboardApiGetStatusesResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$DashboardApiGetStatusesResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$DashboardApiGetStatusesResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4077,7 +4134,10 @@ class DashboardApiUpdateStatusesRequestApplicationJsonBuilder
     DashboardApiUpdateStatusesRequestApplicationJson._validate(this);
     _$DashboardApiUpdateStatusesRequestApplicationJson _$result;
     try {
-      _$result = _$v ?? _$DashboardApiUpdateStatusesRequestApplicationJson._(statuses: statuses.build());
+      _$result = _$v ??
+          _$DashboardApiUpdateStatusesRequestApplicationJson._(
+            statuses: statuses.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4188,7 +4248,10 @@ class DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder
     DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data._validate(this);
     _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ?? _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data._(statuses: statuses.build());
+      _$result = _$v ??
+          _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data._(
+            statuses: statuses.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4312,8 +4375,11 @@ class DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder
     DashboardApiUpdateStatusesResponseApplicationJson_Ocs._validate(this);
     _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4424,7 +4490,10 @@ class DashboardApiUpdateStatusesResponseApplicationJsonBuilder
     DashboardApiUpdateStatusesResponseApplicationJson._validate(this);
     _$DashboardApiUpdateStatusesResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$DashboardApiUpdateStatusesResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$DashboardApiUpdateStatusesResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

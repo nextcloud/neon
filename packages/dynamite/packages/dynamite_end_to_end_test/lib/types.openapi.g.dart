@@ -678,16 +678,17 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
     try {
       _$result = _$v ??
           _$Base._(
-              $bool: $bool,
-              integer: integer,
-              $double: $double,
-              $num: $num,
-              string: string,
-              contentString: _contentString?.build(),
-              stringBinary: stringBinary,
-              list: _list?.build(),
-              listNever: _listNever?.build(),
-              listString: _listString?.build());
+            $bool: $bool,
+            integer: integer,
+            $double: $double,
+            $num: $num,
+            string: string,
+            contentString: _contentString?.build(),
+            stringBinary: stringBinary,
+            list: _list?.build(),
+            listNever: _listNever?.build(),
+            listString: _listString?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -977,19 +978,20 @@ class DefaultsBuilder implements Builder<Defaults, DefaultsBuilder>, $DefaultsIn
     try {
       _$result = _$v ??
           _$Defaults._(
-              $bool: BuiltValueNullFieldError.checkNotNull($bool, r'Defaults', '\$bool'),
-              integer: BuiltValueNullFieldError.checkNotNull(integer, r'Defaults', 'integer'),
-              $double: BuiltValueNullFieldError.checkNotNull($double, r'Defaults', '\$double'),
-              $num: BuiltValueNullFieldError.checkNotNull($num, r'Defaults', '\$num'),
-              string: BuiltValueNullFieldError.checkNotNull(string, r'Defaults', 'string'),
-              contentString: _contentString?.build(),
-              stringBinary: BuiltValueNullFieldError.checkNotNull(stringBinary, r'Defaults', 'stringBinary'),
-              list: list.build(),
-              listNever: listNever.build(),
-              listString: listString.build(),
-              objectMap: BuiltValueNullFieldError.checkNotNull(objectMap, r'Defaults', 'objectMap'),
-              objectArray: BuiltValueNullFieldError.checkNotNull(objectArray, r'Defaults', 'objectArray'),
-              objectBool: BuiltValueNullFieldError.checkNotNull(objectBool, r'Defaults', 'objectBool'));
+            $bool: BuiltValueNullFieldError.checkNotNull($bool, r'Defaults', '\$bool'),
+            integer: BuiltValueNullFieldError.checkNotNull(integer, r'Defaults', 'integer'),
+            $double: BuiltValueNullFieldError.checkNotNull($double, r'Defaults', '\$double'),
+            $num: BuiltValueNullFieldError.checkNotNull($num, r'Defaults', '\$num'),
+            string: BuiltValueNullFieldError.checkNotNull(string, r'Defaults', 'string'),
+            contentString: _contentString?.build(),
+            stringBinary: BuiltValueNullFieldError.checkNotNull(stringBinary, r'Defaults', 'stringBinary'),
+            list: list.build(),
+            listNever: listNever.build(),
+            listString: listString.build(),
+            objectMap: BuiltValueNullFieldError.checkNotNull(objectMap, r'Defaults', 'objectMap'),
+            objectArray: BuiltValueNullFieldError.checkNotNull(objectArray, r'Defaults', 'objectArray'),
+            objectBool: BuiltValueNullFieldError.checkNotNull(objectBool, r'Defaults', 'objectBool'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1303,21 +1305,22 @@ class AdditionalPropertiesBuilder
     try {
       _$result = _$v ??
           _$AdditionalProperties._(
-              emptySchemaBool: _emptySchemaBool?.build(),
-              emptySchema: _emptySchema?.build(),
-              nested: _nested?.build(),
-              object: _object?.build(),
-              objectNullable: _objectNullable?.build(),
-              $bool: _$bool?.build(),
-              integer: _integer?.build(),
-              $double: _$double?.build(),
-              $num: _$num?.build(),
-              string: _string?.build(),
-              contentString: _contentString?.build(),
-              stringBinary: _stringBinary?.build(),
-              list: _list?.build(),
-              listNever: _listNever?.build(),
-              listString: _listString?.build());
+            emptySchemaBool: _emptySchemaBool?.build(),
+            emptySchema: _emptySchema?.build(),
+            nested: _nested?.build(),
+            object: _object?.build(),
+            objectNullable: _objectNullable?.build(),
+            $bool: _$bool?.build(),
+            integer: _integer?.build(),
+            $double: _$double?.build(),
+            $num: _$num?.build(),
+            string: _string?.build(),
+            contentString: _contentString?.build(),
+            stringBinary: _stringBinary?.build(),
+            list: _list?.build(),
+            listNever: _listNever?.build(),
+            listString: _listString?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

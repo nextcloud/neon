@@ -259,7 +259,10 @@ class GetObjectRequestApplicationJsonBuilder
 
   _$GetObjectRequestApplicationJson _build() {
     GetObjectRequestApplicationJson._validate(this);
-    final _$result = _$v ?? _$GetObjectRequestApplicationJson._(test: test);
+    final _$result = _$v ??
+        _$GetObjectRequestApplicationJson._(
+          test: test,
+        );
     replace(_$result);
     return _$result;
   }
@@ -351,7 +354,8 @@ class PutObjectRequestApplicationJsonBuilder
     PutObjectRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$PutObjectRequestApplicationJson._(
-            test: BuiltValueNullFieldError.checkNotNull(test, r'PutObjectRequestApplicationJson', 'test'));
+          test: BuiltValueNullFieldError.checkNotNull(test, r'PutObjectRequestApplicationJson', 'test'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -439,7 +443,10 @@ class PostObjectRequestApplicationJsonBuilder
 
   _$PostObjectRequestApplicationJson _build() {
     PostObjectRequestApplicationJson._validate(this);
-    final _$result = _$v ?? _$PostObjectRequestApplicationJson._(test: test);
+    final _$result = _$v ??
+        _$PostObjectRequestApplicationJson._(
+          test: test,
+        );
     replace(_$result);
     return _$result;
   }
@@ -527,7 +534,10 @@ class DeleteObjectRequestApplicationJsonBuilder
 
   _$DeleteObjectRequestApplicationJson _build() {
     DeleteObjectRequestApplicationJson._validate(this);
-    final _$result = _$v ?? _$DeleteObjectRequestApplicationJson._(test: test);
+    final _$result = _$v ??
+        _$DeleteObjectRequestApplicationJson._(
+          test: test,
+        );
     replace(_$result);
     return _$result;
   }

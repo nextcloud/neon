@@ -5454,11 +5454,12 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
     OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
-            message: message,
-            totalitems: totalitems,
-            itemsperpage: itemsperpage);
+          status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+          statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+          message: message,
+          totalitems: totalitems,
+          itemsperpage: itemsperpage,
+        );
     replace(_$result);
     return _$result;
   }
@@ -5834,28 +5835,29 @@ class DeletedShareBuilder implements Builder<DeletedShare, DeletedShareBuilder>,
     DeletedShare._validate(this);
     final _$result = _$v ??
         _$DeletedShare._(
-            id: BuiltValueNullFieldError.checkNotNull(id, r'DeletedShare', 'id'),
-            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'DeletedShare', 'shareType'),
-            uidOwner: BuiltValueNullFieldError.checkNotNull(uidOwner, r'DeletedShare', 'uidOwner'),
-            displaynameOwner:
-                BuiltValueNullFieldError.checkNotNull(displaynameOwner, r'DeletedShare', 'displaynameOwner'),
-            permissions: BuiltValueNullFieldError.checkNotNull(permissions, r'DeletedShare', 'permissions'),
-            stime: BuiltValueNullFieldError.checkNotNull(stime, r'DeletedShare', 'stime'),
-            uidFileOwner: BuiltValueNullFieldError.checkNotNull(uidFileOwner, r'DeletedShare', 'uidFileOwner'),
-            displaynameFileOwner:
-                BuiltValueNullFieldError.checkNotNull(displaynameFileOwner, r'DeletedShare', 'displaynameFileOwner'),
-            path: BuiltValueNullFieldError.checkNotNull(path, r'DeletedShare', 'path'),
-            itemType: BuiltValueNullFieldError.checkNotNull(itemType, r'DeletedShare', 'itemType'),
-            mimetype: BuiltValueNullFieldError.checkNotNull(mimetype, r'DeletedShare', 'mimetype'),
-            storage: BuiltValueNullFieldError.checkNotNull(storage, r'DeletedShare', 'storage'),
-            itemSource: BuiltValueNullFieldError.checkNotNull(itemSource, r'DeletedShare', 'itemSource'),
-            fileSource: BuiltValueNullFieldError.checkNotNull(fileSource, r'DeletedShare', 'fileSource'),
-            fileParent: BuiltValueNullFieldError.checkNotNull(fileParent, r'DeletedShare', 'fileParent'),
-            fileTarget: BuiltValueNullFieldError.checkNotNull(fileTarget, r'DeletedShare', 'fileTarget'),
-            expiration: expiration,
-            shareWith: shareWith,
-            shareWithDisplayname: shareWithDisplayname,
-            shareWithLink: shareWithLink);
+          id: BuiltValueNullFieldError.checkNotNull(id, r'DeletedShare', 'id'),
+          shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'DeletedShare', 'shareType'),
+          uidOwner: BuiltValueNullFieldError.checkNotNull(uidOwner, r'DeletedShare', 'uidOwner'),
+          displaynameOwner:
+              BuiltValueNullFieldError.checkNotNull(displaynameOwner, r'DeletedShare', 'displaynameOwner'),
+          permissions: BuiltValueNullFieldError.checkNotNull(permissions, r'DeletedShare', 'permissions'),
+          stime: BuiltValueNullFieldError.checkNotNull(stime, r'DeletedShare', 'stime'),
+          uidFileOwner: BuiltValueNullFieldError.checkNotNull(uidFileOwner, r'DeletedShare', 'uidFileOwner'),
+          displaynameFileOwner:
+              BuiltValueNullFieldError.checkNotNull(displaynameFileOwner, r'DeletedShare', 'displaynameFileOwner'),
+          path: BuiltValueNullFieldError.checkNotNull(path, r'DeletedShare', 'path'),
+          itemType: BuiltValueNullFieldError.checkNotNull(itemType, r'DeletedShare', 'itemType'),
+          mimetype: BuiltValueNullFieldError.checkNotNull(mimetype, r'DeletedShare', 'mimetype'),
+          storage: BuiltValueNullFieldError.checkNotNull(storage, r'DeletedShare', 'storage'),
+          itemSource: BuiltValueNullFieldError.checkNotNull(itemSource, r'DeletedShare', 'itemSource'),
+          fileSource: BuiltValueNullFieldError.checkNotNull(fileSource, r'DeletedShare', 'fileSource'),
+          fileParent: BuiltValueNullFieldError.checkNotNull(fileParent, r'DeletedShare', 'fileParent'),
+          fileTarget: BuiltValueNullFieldError.checkNotNull(fileTarget, r'DeletedShare', 'fileTarget'),
+          expiration: expiration,
+          shareWith: shareWith,
+          shareWithDisplayname: shareWithDisplayname,
+          shareWithLink: shareWithLink,
+        );
     replace(_$result);
     return _$result;
   }
@@ -5966,7 +5968,11 @@ class DeletedShareapiIndexResponseApplicationJson_OcsBuilder
     DeletedShareapiIndexResponseApplicationJson_Ocs._validate(this);
     _$DeletedShareapiIndexResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$DeletedShareapiIndexResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$DeletedShareapiIndexResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -6075,7 +6081,10 @@ class DeletedShareapiIndexResponseApplicationJsonBuilder
     DeletedShareapiIndexResponseApplicationJson._validate(this);
     _$DeletedShareapiIndexResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$DeletedShareapiIndexResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$DeletedShareapiIndexResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -6198,9 +6207,10 @@ class DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$DeletedShareapiUndeleteResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'DeletedShareapiUndeleteResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(
+                data, r'DeletedShareapiUndeleteResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -6307,7 +6317,10 @@ class DeletedShareapiUndeleteResponseApplicationJsonBuilder
     DeletedShareapiUndeleteResponseApplicationJson._validate(this);
     _$DeletedShareapiUndeleteResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$DeletedShareapiUndeleteResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$DeletedShareapiUndeleteResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -6630,22 +6643,23 @@ class RemoteShareBuilder implements Builder<RemoteShare, RemoteShareBuilder>, $R
     RemoteShare._validate(this);
     final _$result = _$v ??
         _$RemoteShare._(
-            accepted: BuiltValueNullFieldError.checkNotNull(accepted, r'RemoteShare', 'accepted'),
-            fileId: fileId,
-            id: BuiltValueNullFieldError.checkNotNull(id, r'RemoteShare', 'id'),
-            mimetype: mimetype,
-            mountpoint: BuiltValueNullFieldError.checkNotNull(mountpoint, r'RemoteShare', 'mountpoint'),
-            mtime: mtime,
-            name: BuiltValueNullFieldError.checkNotNull(name, r'RemoteShare', 'name'),
-            owner: BuiltValueNullFieldError.checkNotNull(owner, r'RemoteShare', 'owner'),
-            parent: parent,
-            permissions: permissions,
-            remote: BuiltValueNullFieldError.checkNotNull(remote, r'RemoteShare', 'remote'),
-            remoteId: BuiltValueNullFieldError.checkNotNull(remoteId, r'RemoteShare', 'remoteId'),
-            shareToken: BuiltValueNullFieldError.checkNotNull(shareToken, r'RemoteShare', 'shareToken'),
-            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'RemoteShare', 'shareType'),
-            type: type,
-            user: BuiltValueNullFieldError.checkNotNull(user, r'RemoteShare', 'user'));
+          accepted: BuiltValueNullFieldError.checkNotNull(accepted, r'RemoteShare', 'accepted'),
+          fileId: fileId,
+          id: BuiltValueNullFieldError.checkNotNull(id, r'RemoteShare', 'id'),
+          mimetype: mimetype,
+          mountpoint: BuiltValueNullFieldError.checkNotNull(mountpoint, r'RemoteShare', 'mountpoint'),
+          mtime: mtime,
+          name: BuiltValueNullFieldError.checkNotNull(name, r'RemoteShare', 'name'),
+          owner: BuiltValueNullFieldError.checkNotNull(owner, r'RemoteShare', 'owner'),
+          parent: parent,
+          permissions: permissions,
+          remote: BuiltValueNullFieldError.checkNotNull(remote, r'RemoteShare', 'remote'),
+          remoteId: BuiltValueNullFieldError.checkNotNull(remoteId, r'RemoteShare', 'remoteId'),
+          shareToken: BuiltValueNullFieldError.checkNotNull(shareToken, r'RemoteShare', 'shareToken'),
+          shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'RemoteShare', 'shareType'),
+          type: type,
+          user: BuiltValueNullFieldError.checkNotNull(user, r'RemoteShare', 'user'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -6755,7 +6769,11 @@ class RemoteGetSharesResponseApplicationJson_OcsBuilder
     RemoteGetSharesResponseApplicationJson_Ocs._validate(this);
     _$RemoteGetSharesResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$RemoteGetSharesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$RemoteGetSharesResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -6863,7 +6881,10 @@ class RemoteGetSharesResponseApplicationJsonBuilder
     RemoteGetSharesResponseApplicationJson._validate(this);
     _$RemoteGetSharesResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$RemoteGetSharesResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$RemoteGetSharesResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -6983,7 +7004,11 @@ class RemoteGetOpenSharesResponseApplicationJson_OcsBuilder
     RemoteGetOpenSharesResponseApplicationJson_Ocs._validate(this);
     _$RemoteGetOpenSharesResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$RemoteGetOpenSharesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$RemoteGetOpenSharesResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -7092,7 +7117,10 @@ class RemoteGetOpenSharesResponseApplicationJsonBuilder
     RemoteGetOpenSharesResponseApplicationJson._validate(this);
     _$RemoteGetOpenSharesResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$RemoteGetOpenSharesResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$RemoteGetOpenSharesResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -7214,9 +7242,9 @@ class RemoteAcceptShareResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$RemoteAcceptShareResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data:
-                  BuiltValueNullFieldError.checkNotNull(data, r'RemoteAcceptShareResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(data, r'RemoteAcceptShareResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -7322,7 +7350,10 @@ class RemoteAcceptShareResponseApplicationJsonBuilder
     RemoteAcceptShareResponseApplicationJson._validate(this);
     _$RemoteAcceptShareResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$RemoteAcceptShareResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$RemoteAcceptShareResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -7444,9 +7475,9 @@ class RemoteDeclineShareResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$RemoteDeclineShareResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'RemoteDeclineShareResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(data, r'RemoteDeclineShareResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -7552,7 +7583,10 @@ class RemoteDeclineShareResponseApplicationJsonBuilder
     RemoteDeclineShareResponseApplicationJson._validate(this);
     _$RemoteDeclineShareResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$RemoteDeclineShareResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$RemoteDeclineShareResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -7672,7 +7706,11 @@ class RemoteGetShareResponseApplicationJson_OcsBuilder
     RemoteGetShareResponseApplicationJson_Ocs._validate(this);
     _$RemoteGetShareResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$RemoteGetShareResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$RemoteGetShareResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -7779,7 +7817,10 @@ class RemoteGetShareResponseApplicationJsonBuilder
     RemoteGetShareResponseApplicationJson._validate(this);
     _$RemoteGetShareResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$RemoteGetShareResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$RemoteGetShareResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -7901,8 +7942,9 @@ class RemoteUnshareResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$RemoteUnshareResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(data, r'RemoteUnshareResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(data, r'RemoteUnshareResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -8007,7 +8049,10 @@ class RemoteUnshareResponseApplicationJsonBuilder
     RemoteUnshareResponseApplicationJson._validate(this);
     _$RemoteUnshareResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$RemoteUnshareResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$RemoteUnshareResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -8152,10 +8197,11 @@ class ShareInfoInfoRequestApplicationJsonBuilder
     ShareInfoInfoRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$ShareInfoInfoRequestApplicationJson._(
-            t: BuiltValueNullFieldError.checkNotNull(t, r'ShareInfoInfoRequestApplicationJson', 't'),
-            password: password,
-            dir: dir,
-            depth: BuiltValueNullFieldError.checkNotNull(depth, r'ShareInfoInfoRequestApplicationJson', 'depth'));
+          t: BuiltValueNullFieldError.checkNotNull(t, r'ShareInfoInfoRequestApplicationJson', 't'),
+          password: password,
+          dir: dir,
+          depth: BuiltValueNullFieldError.checkNotNull(depth, r'ShareInfoInfoRequestApplicationJson', 'depth'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -8384,16 +8430,17 @@ class ShareInfoBuilder implements Builder<ShareInfo, ShareInfoBuilder>, $ShareIn
     try {
       _$result = _$v ??
           _$ShareInfo._(
-              id: BuiltValueNullFieldError.checkNotNull(id, r'ShareInfo', 'id'),
-              parentId: BuiltValueNullFieldError.checkNotNull(parentId, r'ShareInfo', 'parentId'),
-              mtime: BuiltValueNullFieldError.checkNotNull(mtime, r'ShareInfo', 'mtime'),
-              name: BuiltValueNullFieldError.checkNotNull(name, r'ShareInfo', 'name'),
-              permissions: BuiltValueNullFieldError.checkNotNull(permissions, r'ShareInfo', 'permissions'),
-              mimetype: BuiltValueNullFieldError.checkNotNull(mimetype, r'ShareInfo', 'mimetype'),
-              size: BuiltValueNullFieldError.checkNotNull(size, r'ShareInfo', 'size'),
-              type: BuiltValueNullFieldError.checkNotNull(type, r'ShareInfo', 'type'),
-              etag: BuiltValueNullFieldError.checkNotNull(etag, r'ShareInfo', 'etag'),
-              children: _children?.build());
+            id: BuiltValueNullFieldError.checkNotNull(id, r'ShareInfo', 'id'),
+            parentId: BuiltValueNullFieldError.checkNotNull(parentId, r'ShareInfo', 'parentId'),
+            mtime: BuiltValueNullFieldError.checkNotNull(mtime, r'ShareInfo', 'mtime'),
+            name: BuiltValueNullFieldError.checkNotNull(name, r'ShareInfo', 'name'),
+            permissions: BuiltValueNullFieldError.checkNotNull(permissions, r'ShareInfo', 'permissions'),
+            mimetype: BuiltValueNullFieldError.checkNotNull(mimetype, r'ShareInfo', 'mimetype'),
+            size: BuiltValueNullFieldError.checkNotNull(size, r'ShareInfo', 'size'),
+            type: BuiltValueNullFieldError.checkNotNull(type, r'ShareInfo', 'type'),
+            etag: BuiltValueNullFieldError.checkNotNull(etag, r'ShareInfo', 'etag'),
+            children: _children?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -8533,10 +8580,11 @@ class Share_StatusBuilder implements Builder<Share_Status, Share_StatusBuilder>,
     Share_Status._validate(this);
     final _$result = _$v ??
         _$Share_Status._(
-            clearAt: clearAt,
-            icon: icon,
-            message: message,
-            status: BuiltValueNullFieldError.checkNotNull(status, r'Share_Status', 'status'));
+          clearAt: clearAt,
+          icon: icon,
+          message: message,
+          status: BuiltValueNullFieldError.checkNotNull(status, r'Share_Status', 'status'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -9217,48 +9265,49 @@ class ShareBuilder implements Builder<Share, ShareBuilder>, $ShareInterfaceBuild
     try {
       _$result = _$v ??
           _$Share._(
-              attributes: attributes,
-              canDelete: BuiltValueNullFieldError.checkNotNull(canDelete, r'Share', 'canDelete'),
-              canEdit: BuiltValueNullFieldError.checkNotNull(canEdit, r'Share', 'canEdit'),
-              displaynameFileOwner:
-                  BuiltValueNullFieldError.checkNotNull(displaynameFileOwner, r'Share', 'displaynameFileOwner'),
-              displaynameOwner: BuiltValueNullFieldError.checkNotNull(displaynameOwner, r'Share', 'displaynameOwner'),
-              expiration: expiration,
-              fileParent: BuiltValueNullFieldError.checkNotNull(fileParent, r'Share', 'fileParent'),
-              fileSource: BuiltValueNullFieldError.checkNotNull(fileSource, r'Share', 'fileSource'),
-              fileTarget: BuiltValueNullFieldError.checkNotNull(fileTarget, r'Share', 'fileTarget'),
-              hasPreview: BuiltValueNullFieldError.checkNotNull(hasPreview, r'Share', 'hasPreview'),
-              hideDownload: BuiltValueNullFieldError.checkNotNull(hideDownload, r'Share', 'hideDownload'),
-              id: BuiltValueNullFieldError.checkNotNull(id, r'Share', 'id'),
-              itemMtime: BuiltValueNullFieldError.checkNotNull(itemMtime, r'Share', 'itemMtime'),
-              itemPermissions: itemPermissions,
-              itemSize: BuiltValueNullFieldError.checkNotNull(itemSize, r'Share', 'itemSize'),
-              itemSource: BuiltValueNullFieldError.checkNotNull(itemSource, r'Share', 'itemSource'),
-              itemType: BuiltValueNullFieldError.checkNotNull(itemType, r'Share', 'itemType'),
-              label: label,
-              mailSend: BuiltValueNullFieldError.checkNotNull(mailSend, r'Share', 'mailSend'),
-              mimetype: BuiltValueNullFieldError.checkNotNull(mimetype, r'Share', 'mimetype'),
-              note: BuiltValueNullFieldError.checkNotNull(note, r'Share', 'note'),
-              parent: parent,
-              password: password,
-              passwordExpirationTime: passwordExpirationTime,
-              path: path,
-              permissions: BuiltValueNullFieldError.checkNotNull(permissions, r'Share', 'permissions'),
-              sendPasswordByTalk: sendPasswordByTalk,
-              shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'Share', 'shareType'),
-              shareWith: shareWith,
-              shareWithAvatar: shareWithAvatar,
-              shareWithDisplayname: shareWithDisplayname,
-              shareWithDisplaynameUnique: shareWithDisplaynameUnique,
-              shareWithLink: shareWithLink,
-              status: _status?.build(),
-              stime: BuiltValueNullFieldError.checkNotNull(stime, r'Share', 'stime'),
-              storage: BuiltValueNullFieldError.checkNotNull(storage, r'Share', 'storage'),
-              storageId: BuiltValueNullFieldError.checkNotNull(storageId, r'Share', 'storageId'),
-              token: token,
-              uidFileOwner: BuiltValueNullFieldError.checkNotNull(uidFileOwner, r'Share', 'uidFileOwner'),
-              uidOwner: BuiltValueNullFieldError.checkNotNull(uidOwner, r'Share', 'uidOwner'),
-              url: url);
+            attributes: attributes,
+            canDelete: BuiltValueNullFieldError.checkNotNull(canDelete, r'Share', 'canDelete'),
+            canEdit: BuiltValueNullFieldError.checkNotNull(canEdit, r'Share', 'canEdit'),
+            displaynameFileOwner:
+                BuiltValueNullFieldError.checkNotNull(displaynameFileOwner, r'Share', 'displaynameFileOwner'),
+            displaynameOwner: BuiltValueNullFieldError.checkNotNull(displaynameOwner, r'Share', 'displaynameOwner'),
+            expiration: expiration,
+            fileParent: BuiltValueNullFieldError.checkNotNull(fileParent, r'Share', 'fileParent'),
+            fileSource: BuiltValueNullFieldError.checkNotNull(fileSource, r'Share', 'fileSource'),
+            fileTarget: BuiltValueNullFieldError.checkNotNull(fileTarget, r'Share', 'fileTarget'),
+            hasPreview: BuiltValueNullFieldError.checkNotNull(hasPreview, r'Share', 'hasPreview'),
+            hideDownload: BuiltValueNullFieldError.checkNotNull(hideDownload, r'Share', 'hideDownload'),
+            id: BuiltValueNullFieldError.checkNotNull(id, r'Share', 'id'),
+            itemMtime: BuiltValueNullFieldError.checkNotNull(itemMtime, r'Share', 'itemMtime'),
+            itemPermissions: itemPermissions,
+            itemSize: BuiltValueNullFieldError.checkNotNull(itemSize, r'Share', 'itemSize'),
+            itemSource: BuiltValueNullFieldError.checkNotNull(itemSource, r'Share', 'itemSource'),
+            itemType: BuiltValueNullFieldError.checkNotNull(itemType, r'Share', 'itemType'),
+            label: label,
+            mailSend: BuiltValueNullFieldError.checkNotNull(mailSend, r'Share', 'mailSend'),
+            mimetype: BuiltValueNullFieldError.checkNotNull(mimetype, r'Share', 'mimetype'),
+            note: BuiltValueNullFieldError.checkNotNull(note, r'Share', 'note'),
+            parent: parent,
+            password: password,
+            passwordExpirationTime: passwordExpirationTime,
+            path: path,
+            permissions: BuiltValueNullFieldError.checkNotNull(permissions, r'Share', 'permissions'),
+            sendPasswordByTalk: sendPasswordByTalk,
+            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'Share', 'shareType'),
+            shareWith: shareWith,
+            shareWithAvatar: shareWithAvatar,
+            shareWithDisplayname: shareWithDisplayname,
+            shareWithDisplaynameUnique: shareWithDisplaynameUnique,
+            shareWithLink: shareWithLink,
+            status: _status?.build(),
+            stime: BuiltValueNullFieldError.checkNotNull(stime, r'Share', 'stime'),
+            storage: BuiltValueNullFieldError.checkNotNull(storage, r'Share', 'storage'),
+            storageId: BuiltValueNullFieldError.checkNotNull(storageId, r'Share', 'storageId'),
+            token: token,
+            uidFileOwner: BuiltValueNullFieldError.checkNotNull(uidFileOwner, r'Share', 'uidFileOwner'),
+            uidOwner: BuiltValueNullFieldError.checkNotNull(uidOwner, r'Share', 'uidOwner'),
+            url: url,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -9378,7 +9427,11 @@ class ShareapiGetSharesResponseApplicationJson_OcsBuilder
     ShareapiGetSharesResponseApplicationJson_Ocs._validate(this);
     _$ShareapiGetSharesResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$ShareapiGetSharesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ShareapiGetSharesResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -9486,7 +9539,10 @@ class ShareapiGetSharesResponseApplicationJsonBuilder
     ShareapiGetSharesResponseApplicationJson._validate(this);
     _$ShareapiGetSharesResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ShareapiGetSharesResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ShareapiGetSharesResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -9754,21 +9810,22 @@ class ShareapiCreateShareRequestApplicationJsonBuilder
     ShareapiCreateShareRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$ShareapiCreateShareRequestApplicationJson._(
-            path: path,
-            permissions: permissions,
-            shareType: BuiltValueNullFieldError.checkNotNull(
-                shareType, r'ShareapiCreateShareRequestApplicationJson', 'shareType'),
-            shareWith: shareWith,
-            publicUpload: BuiltValueNullFieldError.checkNotNull(
-                publicUpload, r'ShareapiCreateShareRequestApplicationJson', 'publicUpload'),
-            password: BuiltValueNullFieldError.checkNotNull(
-                password, r'ShareapiCreateShareRequestApplicationJson', 'password'),
-            sendPasswordByTalk: sendPasswordByTalk,
-            expireDate: expireDate,
-            note: BuiltValueNullFieldError.checkNotNull(note, r'ShareapiCreateShareRequestApplicationJson', 'note'),
-            label: BuiltValueNullFieldError.checkNotNull(label, r'ShareapiCreateShareRequestApplicationJson', 'label'),
-            attributes: attributes,
-            sendMail: sendMail);
+          path: path,
+          permissions: permissions,
+          shareType: BuiltValueNullFieldError.checkNotNull(
+              shareType, r'ShareapiCreateShareRequestApplicationJson', 'shareType'),
+          shareWith: shareWith,
+          publicUpload: BuiltValueNullFieldError.checkNotNull(
+              publicUpload, r'ShareapiCreateShareRequestApplicationJson', 'publicUpload'),
+          password:
+              BuiltValueNullFieldError.checkNotNull(password, r'ShareapiCreateShareRequestApplicationJson', 'password'),
+          sendPasswordByTalk: sendPasswordByTalk,
+          expireDate: expireDate,
+          note: BuiltValueNullFieldError.checkNotNull(note, r'ShareapiCreateShareRequestApplicationJson', 'note'),
+          label: BuiltValueNullFieldError.checkNotNull(label, r'ShareapiCreateShareRequestApplicationJson', 'label'),
+          attributes: attributes,
+          sendMail: sendMail,
+        );
     replace(_$result);
     return _$result;
   }
@@ -9878,7 +9935,11 @@ class ShareapiCreateShareResponseApplicationJson_OcsBuilder
     ShareapiCreateShareResponseApplicationJson_Ocs._validate(this);
     _$ShareapiCreateShareResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$ShareapiCreateShareResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ShareapiCreateShareResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -9987,7 +10048,10 @@ class ShareapiCreateShareResponseApplicationJsonBuilder
     ShareapiCreateShareResponseApplicationJson._validate(this);
     _$ShareapiCreateShareResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ShareapiCreateShareResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ShareapiCreateShareResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -10109,8 +10173,11 @@ class ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder
     ShareapiGetInheritedSharesResponseApplicationJson_Ocs._validate(this);
     _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -10221,7 +10288,10 @@ class ShareapiGetInheritedSharesResponseApplicationJsonBuilder
     ShareapiGetInheritedSharesResponseApplicationJson._validate(this);
     _$ShareapiGetInheritedSharesResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ShareapiGetInheritedSharesResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ShareapiGetInheritedSharesResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -10343,7 +10413,11 @@ class ShareapiPendingSharesResponseApplicationJson_OcsBuilder
     ShareapiPendingSharesResponseApplicationJson_Ocs._validate(this);
     _$ShareapiPendingSharesResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$ShareapiPendingSharesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ShareapiPendingSharesResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -10452,7 +10526,10 @@ class ShareapiPendingSharesResponseApplicationJsonBuilder
     ShareapiPendingSharesResponseApplicationJson._validate(this);
     _$ShareapiPendingSharesResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ShareapiPendingSharesResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ShareapiPendingSharesResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -10572,7 +10649,11 @@ class ShareapiGetShareResponseApplicationJson_OcsBuilder
     ShareapiGetShareResponseApplicationJson_Ocs._validate(this);
     _$ShareapiGetShareResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$ShareapiGetShareResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ShareapiGetShareResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -10680,7 +10761,10 @@ class ShareapiGetShareResponseApplicationJsonBuilder
     ShareapiGetShareResponseApplicationJson._validate(this);
     _$ShareapiGetShareResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ShareapiGetShareResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ShareapiGetShareResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -10914,16 +10998,17 @@ class ShareapiUpdateShareRequestApplicationJsonBuilder
     ShareapiUpdateShareRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$ShareapiUpdateShareRequestApplicationJson._(
-            permissions: permissions,
-            password: password,
-            sendPasswordByTalk: sendPasswordByTalk,
-            publicUpload: publicUpload,
-            expireDate: expireDate,
-            note: note,
-            label: label,
-            hideDownload: hideDownload,
-            attributes: attributes,
-            sendMail: sendMail);
+          permissions: permissions,
+          password: password,
+          sendPasswordByTalk: sendPasswordByTalk,
+          publicUpload: publicUpload,
+          expireDate: expireDate,
+          note: note,
+          label: label,
+          hideDownload: hideDownload,
+          attributes: attributes,
+          sendMail: sendMail,
+        );
     replace(_$result);
     return _$result;
   }
@@ -11033,7 +11118,11 @@ class ShareapiUpdateShareResponseApplicationJson_OcsBuilder
     ShareapiUpdateShareResponseApplicationJson_Ocs._validate(this);
     _$ShareapiUpdateShareResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$ShareapiUpdateShareResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ShareapiUpdateShareResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -11142,7 +11231,10 @@ class ShareapiUpdateShareResponseApplicationJsonBuilder
     ShareapiUpdateShareResponseApplicationJson._validate(this);
     _$ShareapiUpdateShareResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ShareapiUpdateShareResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ShareapiUpdateShareResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -11264,9 +11356,10 @@ class ShareapiDeleteShareResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$ShareapiDeleteShareResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'ShareapiDeleteShareResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data:
+                BuiltValueNullFieldError.checkNotNull(data, r'ShareapiDeleteShareResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -11373,7 +11466,10 @@ class ShareapiDeleteShareResponseApplicationJsonBuilder
     ShareapiDeleteShareResponseApplicationJson._validate(this);
     _$ShareapiDeleteShareResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ShareapiDeleteShareResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ShareapiDeleteShareResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -11479,8 +11575,9 @@ class ShareapiSendShareEmailRequestApplicationJsonBuilder
     ShareapiSendShareEmailRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$ShareapiSendShareEmailRequestApplicationJson._(
-            password: BuiltValueNullFieldError.checkNotNull(
-                password, r'ShareapiSendShareEmailRequestApplicationJson', 'password'));
+          password: BuiltValueNullFieldError.checkNotNull(
+              password, r'ShareapiSendShareEmailRequestApplicationJson', 'password'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -11593,9 +11690,10 @@ class ShareapiSendShareEmailResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$ShareapiSendShareEmailResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'ShareapiSendShareEmailResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(
+                data, r'ShareapiSendShareEmailResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -11702,7 +11800,10 @@ class ShareapiSendShareEmailResponseApplicationJsonBuilder
     ShareapiSendShareEmailResponseApplicationJson._validate(this);
     _$ShareapiSendShareEmailResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ShareapiSendShareEmailResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ShareapiSendShareEmailResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -11824,9 +11925,10 @@ class ShareapiAcceptShareResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$ShareapiAcceptShareResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'ShareapiAcceptShareResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data:
+                BuiltValueNullFieldError.checkNotNull(data, r'ShareapiAcceptShareResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -11933,7 +12035,10 @@ class ShareapiAcceptShareResponseApplicationJsonBuilder
     ShareapiAcceptShareResponseApplicationJson._validate(this);
     _$ShareapiAcceptShareResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ShareapiAcceptShareResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ShareapiAcceptShareResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -12042,8 +12147,11 @@ class ShareeBuilder implements Builder<Sharee, ShareeBuilder>, $ShareeInterfaceB
 
   _$Sharee _build() {
     Sharee._validate(this);
-    final _$result =
-        _$v ?? _$Sharee._(count: count, label: BuiltValueNullFieldError.checkNotNull(label, r'Sharee', 'label'));
+    final _$result = _$v ??
+        _$Sharee._(
+          count: count,
+          label: BuiltValueNullFieldError.checkNotNull(label, r'Sharee', 'label'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -12146,8 +12254,9 @@ class ShareeValueBuilder implements Builder<ShareeValue, ShareeValueBuilder>, $S
     ShareeValue._validate(this);
     final _$result = _$v ??
         _$ShareeValue._(
-            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeValue', 'shareType'),
-            shareWith: BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeValue', 'shareWith'));
+          shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeValue', 'shareType'),
+          shareWith: BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeValue', 'shareWith'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -12268,9 +12377,10 @@ class ShareeCircle_ValueBuilder
     ShareeCircle_Value._validate(this);
     final _$result = _$v ??
         _$ShareeCircle_Value._(
-            circle: BuiltValueNullFieldError.checkNotNull(circle, r'ShareeCircle_Value', 'circle'),
-            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeCircle_Value', 'shareType'),
-            shareWith: BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeCircle_Value', 'shareWith'));
+          circle: BuiltValueNullFieldError.checkNotNull(circle, r'ShareeCircle_Value', 'circle'),
+          shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeCircle_Value', 'shareType'),
+          shareWith: BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeCircle_Value', 'shareWith'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -12406,11 +12516,12 @@ class ShareeCircleBuilder implements Builder<ShareeCircle, ShareeCircleBuilder>,
     try {
       _$result = _$v ??
           _$ShareeCircle._(
-              shareWithDescription:
-                  BuiltValueNullFieldError.checkNotNull(shareWithDescription, r'ShareeCircle', 'shareWithDescription'),
-              value: value.build(),
-              count: count,
-              label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeCircle', 'label'));
+            shareWithDescription:
+                BuiltValueNullFieldError.checkNotNull(shareWithDescription, r'ShareeCircle', 'shareWithDescription'),
+            value: value.build(),
+            count: count,
+            label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeCircle', 'label'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -12605,14 +12716,15 @@ class ShareeEmailBuilder implements Builder<ShareeEmail, ShareeEmailBuilder>, $S
     try {
       _$result = _$v ??
           _$ShareeEmail._(
-              uuid: BuiltValueNullFieldError.checkNotNull(uuid, r'ShareeEmail', 'uuid'),
-              name: BuiltValueNullFieldError.checkNotNull(name, r'ShareeEmail', 'name'),
-              type: BuiltValueNullFieldError.checkNotNull(type, r'ShareeEmail', 'type'),
-              shareWithDisplayNameUnique: BuiltValueNullFieldError.checkNotNull(
-                  shareWithDisplayNameUnique, r'ShareeEmail', 'shareWithDisplayNameUnique'),
-              value: value.build(),
-              count: count,
-              label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeEmail', 'label'));
+            uuid: BuiltValueNullFieldError.checkNotNull(uuid, r'ShareeEmail', 'uuid'),
+            name: BuiltValueNullFieldError.checkNotNull(name, r'ShareeEmail', 'name'),
+            type: BuiltValueNullFieldError.checkNotNull(type, r'ShareeEmail', 'type'),
+            shareWithDisplayNameUnique: BuiltValueNullFieldError.checkNotNull(
+                shareWithDisplayNameUnique, r'ShareeEmail', 'shareWithDisplayNameUnique'),
+            value: value.build(),
+            count: count,
+            label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeEmail', 'label'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -12745,9 +12857,10 @@ class ShareeRemoteGroup_ValueBuilder
     ShareeRemoteGroup_Value._validate(this);
     final _$result = _$v ??
         _$ShareeRemoteGroup_Value._(
-            server: BuiltValueNullFieldError.checkNotNull(server, r'ShareeRemoteGroup_Value', 'server'),
-            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeRemoteGroup_Value', 'shareType'),
-            shareWith: BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeRemoteGroup_Value', 'shareWith'));
+          server: BuiltValueNullFieldError.checkNotNull(server, r'ShareeRemoteGroup_Value', 'server'),
+          shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeRemoteGroup_Value', 'shareType'),
+          shareWith: BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeRemoteGroup_Value', 'shareWith'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -12897,11 +13010,12 @@ class ShareeRemoteGroupBuilder
     try {
       _$result = _$v ??
           _$ShareeRemoteGroup._(
-              guid: BuiltValueNullFieldError.checkNotNull(guid, r'ShareeRemoteGroup', 'guid'),
-              name: BuiltValueNullFieldError.checkNotNull(name, r'ShareeRemoteGroup', 'name'),
-              value: value.build(),
-              count: count,
-              label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeRemoteGroup', 'label'));
+            guid: BuiltValueNullFieldError.checkNotNull(guid, r'ShareeRemoteGroup', 'guid'),
+            name: BuiltValueNullFieldError.checkNotNull(name, r'ShareeRemoteGroup', 'name'),
+            value: value.build(),
+            count: count,
+            label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeRemoteGroup', 'label'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -13032,9 +13146,10 @@ class ShareeRemote_ValueBuilder
     ShareeRemote_Value._validate(this);
     final _$result = _$v ??
         _$ShareeRemote_Value._(
-            server: BuiltValueNullFieldError.checkNotNull(server, r'ShareeRemote_Value', 'server'),
-            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeRemote_Value', 'shareType'),
-            shareWith: BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeRemote_Value', 'shareWith'));
+          server: BuiltValueNullFieldError.checkNotNull(server, r'ShareeRemote_Value', 'server'),
+          shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeRemote_Value', 'shareType'),
+          shareWith: BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeRemote_Value', 'shareWith'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -13203,12 +13318,13 @@ class ShareeRemoteBuilder implements Builder<ShareeRemote, ShareeRemoteBuilder>,
     try {
       _$result = _$v ??
           _$ShareeRemote._(
-              uuid: BuiltValueNullFieldError.checkNotNull(uuid, r'ShareeRemote', 'uuid'),
-              name: BuiltValueNullFieldError.checkNotNull(name, r'ShareeRemote', 'name'),
-              type: BuiltValueNullFieldError.checkNotNull(type, r'ShareeRemote', 'type'),
-              value: value.build(),
-              count: count,
-              label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeRemote', 'label'));
+            uuid: BuiltValueNullFieldError.checkNotNull(uuid, r'ShareeRemote', 'uuid'),
+            name: BuiltValueNullFieldError.checkNotNull(name, r'ShareeRemote', 'name'),
+            type: BuiltValueNullFieldError.checkNotNull(type, r'ShareeRemote', 'type'),
+            value: value.build(),
+            count: count,
+            label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeRemote', 'label'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -13351,10 +13467,11 @@ class ShareeUser_StatusBuilder
     ShareeUser_Status._validate(this);
     final _$result = _$v ??
         _$ShareeUser_Status._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'ShareeUser_Status', 'status'),
-            message: BuiltValueNullFieldError.checkNotNull(message, r'ShareeUser_Status', 'message'),
-            icon: BuiltValueNullFieldError.checkNotNull(icon, r'ShareeUser_Status', 'icon'),
-            clearAt: clearAt);
+          status: BuiltValueNullFieldError.checkNotNull(status, r'ShareeUser_Status', 'status'),
+          message: BuiltValueNullFieldError.checkNotNull(message, r'ShareeUser_Status', 'message'),
+          icon: BuiltValueNullFieldError.checkNotNull(icon, r'ShareeUser_Status', 'icon'),
+          clearAt: clearAt,
+        );
     replace(_$result);
     return _$result;
   }
@@ -13538,14 +13655,15 @@ class ShareeUserBuilder implements Builder<ShareeUser, ShareeUserBuilder>, $Shar
     try {
       _$result = _$v ??
           _$ShareeUser._(
-              subline: BuiltValueNullFieldError.checkNotNull(subline, r'ShareeUser', 'subline'),
-              icon: BuiltValueNullFieldError.checkNotNull(icon, r'ShareeUser', 'icon'),
-              shareWithDisplayNameUnique: BuiltValueNullFieldError.checkNotNull(
-                  shareWithDisplayNameUnique, r'ShareeUser', 'shareWithDisplayNameUnique'),
-              status: status.build(),
-              value: value.build(),
-              count: count,
-              label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeUser', 'label'));
+            subline: BuiltValueNullFieldError.checkNotNull(subline, r'ShareeUser', 'subline'),
+            icon: BuiltValueNullFieldError.checkNotNull(icon, r'ShareeUser', 'icon'),
+            shareWithDisplayNameUnique: BuiltValueNullFieldError.checkNotNull(
+                shareWithDisplayNameUnique, r'ShareeUser', 'shareWithDisplayNameUnique'),
+            status: status.build(),
+            value: value.build(),
+            count: count,
+            label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeUser', 'label'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -13746,13 +13864,14 @@ class ShareesSearchResult_ExactBuilder
     try {
       _$result = _$v ??
           _$ShareesSearchResult_Exact._(
-              circles: circles.build(),
-              emails: emails.build(),
-              groups: groups.build(),
-              remoteGroups: remoteGroups.build(),
-              remotes: remotes.build(),
-              rooms: rooms.build(),
-              users: users.build());
+            circles: circles.build(),
+            emails: emails.build(),
+            groups: groups.build(),
+            remoteGroups: remoteGroups.build(),
+            remotes: remotes.build(),
+            rooms: rooms.build(),
+            users: users.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -13876,8 +13995,9 @@ class LookupBuilder implements Builder<Lookup, LookupBuilder>, $LookupInterfaceB
     Lookup._validate(this);
     final _$result = _$v ??
         _$Lookup._(
-            value: BuiltValueNullFieldError.checkNotNull(value, r'Lookup', 'value'),
-            verified: BuiltValueNullFieldError.checkNotNull(verified, r'Lookup', 'verified'));
+          value: BuiltValueNullFieldError.checkNotNull(value, r'Lookup', 'value'),
+          verified: BuiltValueNullFieldError.checkNotNull(verified, r'Lookup', 'verified'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -14100,16 +14220,17 @@ class ShareeLookup_ExtraBuilder
     try {
       _$result = _$v ??
           _$ShareeLookup_Extra._(
-              federationId: BuiltValueNullFieldError.checkNotNull(federationId, r'ShareeLookup_Extra', 'federationId'),
-              name: _name?.build(),
-              email: _email?.build(),
-              address: _address?.build(),
-              website: _website?.build(),
-              twitter: _twitter?.build(),
-              phone: _phone?.build(),
-              twitterSignature: _twitterSignature?.build(),
-              websiteSignature: _websiteSignature?.build(),
-              userid: _userid?.build());
+            federationId: BuiltValueNullFieldError.checkNotNull(federationId, r'ShareeLookup_Extra', 'federationId'),
+            name: _name?.build(),
+            email: _email?.build(),
+            address: _address?.build(),
+            website: _website?.build(),
+            twitter: _twitter?.build(),
+            phone: _phone?.build(),
+            twitterSignature: _twitterSignature?.build(),
+            websiteSignature: _websiteSignature?.build(),
+            userid: _userid?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -14256,9 +14377,10 @@ class ShareeLookup_ValueBuilder
     ShareeLookup_Value._validate(this);
     final _$result = _$v ??
         _$ShareeLookup_Value._(
-            globalScale: BuiltValueNullFieldError.checkNotNull(globalScale, r'ShareeLookup_Value', 'globalScale'),
-            shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeLookup_Value', 'shareType'),
-            shareWith: BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeLookup_Value', 'shareWith'));
+          globalScale: BuiltValueNullFieldError.checkNotNull(globalScale, r'ShareeLookup_Value', 'globalScale'),
+          shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeLookup_Value', 'shareType'),
+          shareWith: BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeLookup_Value', 'shareWith'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -14392,10 +14514,11 @@ class ShareeLookupBuilder implements Builder<ShareeLookup, ShareeLookupBuilder>,
     try {
       _$result = _$v ??
           _$ShareeLookup._(
-              extra: extra.build(),
-              value: value.build(),
-              count: count,
-              label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeLookup', 'label'));
+            extra: extra.build(),
+            value: value.build(),
+            count: count,
+            label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeLookup', 'label'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -14639,17 +14762,18 @@ class ShareesSearchResultBuilder
     try {
       _$result = _$v ??
           _$ShareesSearchResult._(
-              exact: exact.build(),
-              circles: circles.build(),
-              emails: emails.build(),
-              groups: groups.build(),
-              lookup: lookup.build(),
-              remoteGroups: remoteGroups.build(),
-              remotes: remotes.build(),
-              rooms: rooms.build(),
-              users: users.build(),
-              lookupEnabled:
-                  BuiltValueNullFieldError.checkNotNull(lookupEnabled, r'ShareesSearchResult', 'lookupEnabled'));
+            exact: exact.build(),
+            circles: circles.build(),
+            emails: emails.build(),
+            groups: groups.build(),
+            lookup: lookup.build(),
+            remoteGroups: remoteGroups.build(),
+            remotes: remotes.build(),
+            rooms: rooms.build(),
+            users: users.build(),
+            lookupEnabled:
+                BuiltValueNullFieldError.checkNotNull(lookupEnabled, r'ShareesSearchResult', 'lookupEnabled'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -14785,7 +14909,11 @@ class ShareesapiSearchResponseApplicationJson_OcsBuilder
     ShareesapiSearchResponseApplicationJson_Ocs._validate(this);
     _$ShareesapiSearchResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$ShareesapiSearchResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ShareesapiSearchResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -14893,7 +15021,10 @@ class ShareesapiSearchResponseApplicationJsonBuilder
     ShareesapiSearchResponseApplicationJson._validate(this);
     _$ShareesapiSearchResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ShareesapiSearchResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ShareesapiSearchResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -14991,7 +15122,10 @@ class ShareesapiShareesapiSearchHeadersBuilder
 
   _$ShareesapiShareesapiSearchHeaders _build() {
     ShareesapiShareesapiSearchHeaders._validate(this);
-    final _$result = _$v ?? _$ShareesapiShareesapiSearchHeaders._(link: link);
+    final _$result = _$v ??
+        _$ShareesapiShareesapiSearchHeaders._(
+          link: link,
+        );
     replace(_$result);
     return _$result;
   }
@@ -15150,11 +15284,12 @@ class ShareesRecommendedResult_ExactBuilder
     try {
       _$result = _$v ??
           _$ShareesRecommendedResult_Exact._(
-              emails: emails.build(),
-              groups: groups.build(),
-              remoteGroups: remoteGroups.build(),
-              remotes: remotes.build(),
-              users: users.build());
+            emails: emails.build(),
+            groups: groups.build(),
+            remoteGroups: remoteGroups.build(),
+            remotes: remotes.build(),
+            users: users.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -15346,12 +15481,13 @@ class ShareesRecommendedResultBuilder
     try {
       _$result = _$v ??
           _$ShareesRecommendedResult._(
-              exact: exact.build(),
-              emails: emails.build(),
-              groups: groups.build(),
-              remoteGroups: remoteGroups.build(),
-              remotes: remotes.build(),
-              users: users.build());
+            exact: exact.build(),
+            emails: emails.build(),
+            groups: groups.build(),
+            remoteGroups: remoteGroups.build(),
+            remotes: remotes.build(),
+            users: users.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -15483,8 +15619,11 @@ class ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder
     ShareesapiFindRecommendedResponseApplicationJson_Ocs._validate(this);
     _$ShareesapiFindRecommendedResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$ShareesapiFindRecommendedResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ShareesapiFindRecommendedResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -15595,7 +15734,10 @@ class ShareesapiFindRecommendedResponseApplicationJsonBuilder
     ShareesapiFindRecommendedResponseApplicationJson._validate(this);
     _$ShareesapiFindRecommendedResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ShareesapiFindRecommendedResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ShareesapiFindRecommendedResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -15721,10 +15863,11 @@ class Capabilities_FilesSharing_Public_PasswordBuilder
     Capabilities_FilesSharing_Public_Password._validate(this);
     final _$result = _$v ??
         _$Capabilities_FilesSharing_Public_Password._(
-            enforced: BuiltValueNullFieldError.checkNotNull(
-                enforced, r'Capabilities_FilesSharing_Public_Password', 'enforced'),
-            askForOptionalPassword: BuiltValueNullFieldError.checkNotNull(
-                askForOptionalPassword, r'Capabilities_FilesSharing_Public_Password', 'askForOptionalPassword'));
+          enforced:
+              BuiltValueNullFieldError.checkNotNull(enforced, r'Capabilities_FilesSharing_Public_Password', 'enforced'),
+          askForOptionalPassword: BuiltValueNullFieldError.checkNotNull(
+              askForOptionalPassword, r'Capabilities_FilesSharing_Public_Password', 'askForOptionalPassword'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -15848,10 +15991,11 @@ class Capabilities_FilesSharing_Public_ExpireDateBuilder
     Capabilities_FilesSharing_Public_ExpireDate._validate(this);
     final _$result = _$v ??
         _$Capabilities_FilesSharing_Public_ExpireDate._(
-            enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'Capabilities_FilesSharing_Public_ExpireDate', 'enabled'),
-            days: days,
-            enforced: enforced);
+          enabled:
+              BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_FilesSharing_Public_ExpireDate', 'enabled'),
+          days: days,
+          enforced: enforced,
+        );
     replace(_$result);
     return _$result;
   }
@@ -15978,10 +16122,11 @@ class Capabilities_FilesSharing_Public_ExpireDateInternalBuilder
     Capabilities_FilesSharing_Public_ExpireDateInternal._validate(this);
     final _$result = _$v ??
         _$Capabilities_FilesSharing_Public_ExpireDateInternal._(
-            enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'Capabilities_FilesSharing_Public_ExpireDateInternal', 'enabled'),
-            days: days,
-            enforced: enforced);
+          enabled: BuiltValueNullFieldError.checkNotNull(
+              enabled, r'Capabilities_FilesSharing_Public_ExpireDateInternal', 'enabled'),
+          days: days,
+          enforced: enforced,
+        );
     replace(_$result);
     return _$result;
   }
@@ -16106,10 +16251,11 @@ class Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder
     Capabilities_FilesSharing_Public_ExpireDateRemote._validate(this);
     final _$result = _$v ??
         _$Capabilities_FilesSharing_Public_ExpireDateRemote._(
-            enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'Capabilities_FilesSharing_Public_ExpireDateRemote', 'enabled'),
-            days: days,
-            enforced: enforced);
+          enabled: BuiltValueNullFieldError.checkNotNull(
+              enabled, r'Capabilities_FilesSharing_Public_ExpireDateRemote', 'enabled'),
+          days: days,
+          enforced: enforced,
+        );
     replace(_$result);
     return _$result;
   }
@@ -16327,15 +16473,16 @@ class Capabilities_FilesSharing_PublicBuilder
     try {
       _$result = _$v ??
           _$Capabilities_FilesSharing_Public._(
-              enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_FilesSharing_Public', 'enabled'),
-              password: _password?.build(),
-              multipleLinks: multipleLinks,
-              expireDate: _expireDate?.build(),
-              expireDateInternal: _expireDateInternal?.build(),
-              expireDateRemote: _expireDateRemote?.build(),
-              sendMail: sendMail,
-              upload: upload,
-              uploadFilesDrop: uploadFilesDrop);
+            enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_FilesSharing_Public', 'enabled'),
+            password: _password?.build(),
+            multipleLinks: multipleLinks,
+            expireDate: _expireDate?.build(),
+            expireDateInternal: _expireDateInternal?.build(),
+            expireDateRemote: _expireDateRemote?.build(),
+            sendMail: sendMail,
+            upload: upload,
+            uploadFilesDrop: uploadFilesDrop,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -16448,8 +16595,9 @@ class Capabilities_FilesSharing_User_ExpireDateBuilder
     Capabilities_FilesSharing_User_ExpireDate._validate(this);
     final _$result = _$v ??
         _$Capabilities_FilesSharing_User_ExpireDate._(
-            enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'Capabilities_FilesSharing_User_ExpireDate', 'enabled'));
+          enabled:
+              BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_FilesSharing_User_ExpireDate', 'enabled'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -16559,8 +16707,9 @@ class Capabilities_FilesSharing_UserBuilder
     try {
       _$result = _$v ??
           _$Capabilities_FilesSharing_User._(
-              sendMail: BuiltValueNullFieldError.checkNotNull(sendMail, r'Capabilities_FilesSharing_User', 'sendMail'),
-              expireDate: _expireDate?.build());
+            sendMail: BuiltValueNullFieldError.checkNotNull(sendMail, r'Capabilities_FilesSharing_User', 'sendMail'),
+            expireDate: _expireDate?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -16666,8 +16815,9 @@ class Capabilities_FilesSharing_Group_ExpireDateBuilder
     Capabilities_FilesSharing_Group_ExpireDate._validate(this);
     final _$result = _$v ??
         _$Capabilities_FilesSharing_Group_ExpireDate._(
-            enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'Capabilities_FilesSharing_Group_ExpireDate', 'enabled'));
+          enabled:
+              BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_FilesSharing_Group_ExpireDate', 'enabled'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -16777,8 +16927,9 @@ class Capabilities_FilesSharing_GroupBuilder
     try {
       _$result = _$v ??
           _$Capabilities_FilesSharing_Group._(
-              enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_FilesSharing_Group', 'enabled'),
-              expireDate: _expireDate?.build());
+            enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_FilesSharing_Group', 'enabled'),
+            expireDate: _expireDate?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -16885,8 +17036,9 @@ class Capabilities_FilesSharing_Federation_ExpireDateBuilder
     Capabilities_FilesSharing_Federation_ExpireDate._validate(this);
     final _$result = _$v ??
         _$Capabilities_FilesSharing_Federation_ExpireDate._(
-            enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'Capabilities_FilesSharing_Federation_ExpireDate', 'enabled'));
+          enabled: BuiltValueNullFieldError.checkNotNull(
+              enabled, r'Capabilities_FilesSharing_Federation_ExpireDate', 'enabled'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -16986,8 +17138,9 @@ class Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder
     Capabilities_FilesSharing_Federation_ExpireDateSupported._validate(this);
     final _$result = _$v ??
         _$Capabilities_FilesSharing_Federation_ExpireDateSupported._(
-            enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'Capabilities_FilesSharing_Federation_ExpireDateSupported', 'enabled'));
+          enabled: BuiltValueNullFieldError.checkNotNull(
+              enabled, r'Capabilities_FilesSharing_Federation_ExpireDateSupported', 'enabled'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -17136,12 +17289,13 @@ class Capabilities_FilesSharing_FederationBuilder
     try {
       _$result = _$v ??
           _$Capabilities_FilesSharing_Federation._(
-              outgoing:
-                  BuiltValueNullFieldError.checkNotNull(outgoing, r'Capabilities_FilesSharing_Federation', 'outgoing'),
-              incoming:
-                  BuiltValueNullFieldError.checkNotNull(incoming, r'Capabilities_FilesSharing_Federation', 'incoming'),
-              expireDate: expireDate.build(),
-              expireDateSupported: expireDateSupported.build());
+            outgoing:
+                BuiltValueNullFieldError.checkNotNull(outgoing, r'Capabilities_FilesSharing_Federation', 'outgoing'),
+            incoming:
+                BuiltValueNullFieldError.checkNotNull(incoming, r'Capabilities_FilesSharing_Federation', 'incoming'),
+            expireDate: expireDate.build(),
+            expireDateSupported: expireDateSupported.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -17263,10 +17417,11 @@ class Capabilities_FilesSharing_ShareeBuilder
     Capabilities_FilesSharing_Sharee._validate(this);
     final _$result = _$v ??
         _$Capabilities_FilesSharing_Sharee._(
-            queryLookupDefault: BuiltValueNullFieldError.checkNotNull(
-                queryLookupDefault, r'Capabilities_FilesSharing_Sharee', 'queryLookupDefault'),
-            alwaysShowUnique: BuiltValueNullFieldError.checkNotNull(
-                alwaysShowUnique, r'Capabilities_FilesSharing_Sharee', 'alwaysShowUnique'));
+          queryLookupDefault: BuiltValueNullFieldError.checkNotNull(
+              queryLookupDefault, r'Capabilities_FilesSharing_Sharee', 'queryLookupDefault'),
+          alwaysShowUnique: BuiltValueNullFieldError.checkNotNull(
+              alwaysShowUnique, r'Capabilities_FilesSharing_Sharee', 'alwaysShowUnique'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -17483,15 +17638,16 @@ class Capabilities_FilesSharingBuilder
     try {
       _$result = _$v ??
           _$Capabilities_FilesSharing._(
-              apiEnabled: BuiltValueNullFieldError.checkNotNull(apiEnabled, r'Capabilities_FilesSharing', 'apiEnabled'),
-              public: public.build(),
-              user: user.build(),
-              resharing: BuiltValueNullFieldError.checkNotNull(resharing, r'Capabilities_FilesSharing', 'resharing'),
-              groupSharing: groupSharing,
-              group: _group?.build(),
-              defaultPermissions: defaultPermissions,
-              federation: federation.build(),
-              sharee: sharee.build());
+            apiEnabled: BuiltValueNullFieldError.checkNotNull(apiEnabled, r'Capabilities_FilesSharing', 'apiEnabled'),
+            public: public.build(),
+            user: user.build(),
+            resharing: BuiltValueNullFieldError.checkNotNull(resharing, r'Capabilities_FilesSharing', 'resharing'),
+            groupSharing: groupSharing,
+            group: _group?.build(),
+            defaultPermissions: defaultPermissions,
+            federation: federation.build(),
+            sharee: sharee.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -17599,7 +17755,10 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     Capabilities._validate(this);
     _$Capabilities _$result;
     try {
-      _$result = _$v ?? _$Capabilities._(filesSharing: filesSharing.build());
+      _$result = _$v ??
+          _$Capabilities._(
+            filesSharing: filesSharing.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

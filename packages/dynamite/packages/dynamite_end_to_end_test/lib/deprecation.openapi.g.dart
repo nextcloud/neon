@@ -228,8 +228,11 @@ class Object2Builder implements Builder<Object2, Object2Builder>, $Object2Interf
 
   _$Object2 _build() {
     Object2._validate(this);
-    final _$result =
-        _$v ?? _$Object2._(name: BuiltValueNullFieldError.checkNotNull(name, r'Object2', 'name'), tag: tag);
+    final _$result = _$v ??
+        _$Object2._(
+          name: BuiltValueNullFieldError.checkNotNull(name, r'Object2', 'name'),
+          tag: tag,
+        );
     replace(_$result);
     return _$result;
   }
@@ -343,9 +346,10 @@ class Object1Builder implements Builder<Object1, Object1Builder>, $Object1Interf
     Object1._validate(this);
     final _$result = _$v ??
         _$Object1._(
-            id: BuiltValueNullFieldError.checkNotNull(id, r'Object1', 'id'),
-            name: BuiltValueNullFieldError.checkNotNull(name, r'Object1', 'name'),
-            tag: tag);
+          id: BuiltValueNullFieldError.checkNotNull(id, r'Object1', 'id'),
+          name: BuiltValueNullFieldError.checkNotNull(name, r'Object1', 'name'),
+          tag: tag,
+        );
     replace(_$result);
     return _$result;
   }

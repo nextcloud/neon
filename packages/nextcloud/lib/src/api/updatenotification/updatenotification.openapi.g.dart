@@ -593,11 +593,12 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
     OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
-            message: message,
-            totalitems: totalitems,
-            itemsperpage: itemsperpage);
+          status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+          statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+          message: message,
+          totalitems: totalitems,
+          itemsperpage: itemsperpage,
+        );
     replace(_$result);
     return _$result;
   }
@@ -699,8 +700,9 @@ class AppBuilder implements Builder<App, AppBuilder>, $AppInterfaceBuilder {
     App._validate(this);
     final _$result = _$v ??
         _$App._(
-            appId: BuiltValueNullFieldError.checkNotNull(appId, r'App', 'appId'),
-            appName: BuiltValueNullFieldError.checkNotNull(appName, r'App', 'appName'));
+          appId: BuiltValueNullFieldError.checkNotNull(appId, r'App', 'appId'),
+          appName: BuiltValueNullFieldError.checkNotNull(appName, r'App', 'appName'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -813,7 +815,10 @@ class ApiGetAppListResponseApplicationJson_Ocs_DataBuilder
     _$ApiGetAppListResponseApplicationJson_Ocs_Data _$result;
     try {
       _$result = _$v ??
-          _$ApiGetAppListResponseApplicationJson_Ocs_Data._(missing: missing.build(), available: available.build());
+          _$ApiGetAppListResponseApplicationJson_Ocs_Data._(
+            missing: missing.build(),
+            available: available.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -936,7 +941,11 @@ class ApiGetAppListResponseApplicationJson_OcsBuilder
     ApiGetAppListResponseApplicationJson_Ocs._validate(this);
     _$ApiGetAppListResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$ApiGetAppListResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ApiGetAppListResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1043,7 +1052,10 @@ class ApiGetAppListResponseApplicationJsonBuilder
     ApiGetAppListResponseApplicationJson._validate(this);
     _$ApiGetAppListResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ApiGetAppListResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ApiGetAppListResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1186,12 +1198,13 @@ class ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder
     ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data._(
-            appName: BuiltValueNullFieldError.checkNotNull(
-                appName, r'ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data', 'appName'),
-            content: BuiltValueNullFieldError.checkNotNull(
-                content, r'ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data', 'content'),
-            version: BuiltValueNullFieldError.checkNotNull(
-                version, r'ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data', 'version'));
+          appName: BuiltValueNullFieldError.checkNotNull(
+              appName, r'ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data', 'appName'),
+          content: BuiltValueNullFieldError.checkNotNull(
+              content, r'ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data', 'content'),
+          version: BuiltValueNullFieldError.checkNotNull(
+              version, r'ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data', 'version'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1303,7 +1316,11 @@ class ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder
     ApiGetAppChangelogEntryResponseApplicationJson_Ocs._validate(this);
     _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1412,7 +1429,10 @@ class ApiGetAppChangelogEntryResponseApplicationJsonBuilder
     ApiGetAppChangelogEntryResponseApplicationJson._validate(this);
     _$ApiGetAppChangelogEntryResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ApiGetAppChangelogEntryResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ApiGetAppChangelogEntryResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

@@ -1099,8 +1099,9 @@ class CategoryInformationBuilder
     CategoryInformation._validate(this);
     final _$result = _$v ??
         _$CategoryInformation._(
-            name: BuiltValueNullFieldError.checkNotNull(name, r'CategoryInformation', 'name'),
-            recipeCount: BuiltValueNullFieldError.checkNotNull(recipeCount, r'CategoryInformation', 'recipeCount'));
+          name: BuiltValueNullFieldError.checkNotNull(name, r'CategoryInformation', 'name'),
+          recipeCount: BuiltValueNullFieldError.checkNotNull(recipeCount, r'CategoryInformation', 'recipeCount'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1202,8 +1203,9 @@ class CategoryBuilder implements Builder<Category, CategoryBuilder>, $CategoryIn
     Category._validate(this);
     final _$result = _$v ??
         _$Category._(
-            name: BuiltValueNullFieldError.checkNotNull(name, r'Category', 'name'),
-            recipeCount: BuiltValueNullFieldError.checkNotNull(recipeCount, r'Category', 'recipeCount'));
+          name: BuiltValueNullFieldError.checkNotNull(name, r'Category', 'name'),
+          recipeCount: BuiltValueNullFieldError.checkNotNull(recipeCount, r'Category', 'recipeCount'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1372,13 +1374,14 @@ class RecipeStubInformationBuilder
     RecipeStubInformation._validate(this);
     final _$result = _$v ??
         _$RecipeStubInformation._(
-            name: BuiltValueNullFieldError.checkNotNull(name, r'RecipeStubInformation', 'name'),
-            keywords: BuiltValueNullFieldError.checkNotNull(keywords, r'RecipeStubInformation', 'keywords'),
-            dateCreated: BuiltValueNullFieldError.checkNotNull(dateCreated, r'RecipeStubInformation', 'dateCreated'),
-            dateModified: dateModified,
-            imageUrl: BuiltValueNullFieldError.checkNotNull(imageUrl, r'RecipeStubInformation', 'imageUrl'),
-            imagePlaceholderUrl: BuiltValueNullFieldError.checkNotNull(
-                imagePlaceholderUrl, r'RecipeStubInformation', 'imagePlaceholderUrl'));
+          name: BuiltValueNullFieldError.checkNotNull(name, r'RecipeStubInformation', 'name'),
+          keywords: BuiltValueNullFieldError.checkNotNull(keywords, r'RecipeStubInformation', 'keywords'),
+          dateCreated: BuiltValueNullFieldError.checkNotNull(dateCreated, r'RecipeStubInformation', 'dateCreated'),
+          dateModified: dateModified,
+          imageUrl: BuiltValueNullFieldError.checkNotNull(imageUrl, r'RecipeStubInformation', 'imageUrl'),
+          imagePlaceholderUrl: BuiltValueNullFieldError.checkNotNull(
+              imagePlaceholderUrl, r'RecipeStubInformation', 'imagePlaceholderUrl'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1574,15 +1577,16 @@ class RecipeStubBuilder implements Builder<RecipeStub, RecipeStubBuilder>, $Reci
     RecipeStub._validate(this);
     final _$result = _$v ??
         _$RecipeStub._(
-            recipeId: BuiltValueNullFieldError.checkNotNull(recipeId, r'RecipeStub', 'recipeId'),
-            id: BuiltValueNullFieldError.checkNotNull(id, r'RecipeStub', 'id'),
-            name: BuiltValueNullFieldError.checkNotNull(name, r'RecipeStub', 'name'),
-            keywords: BuiltValueNullFieldError.checkNotNull(keywords, r'RecipeStub', 'keywords'),
-            dateCreated: BuiltValueNullFieldError.checkNotNull(dateCreated, r'RecipeStub', 'dateCreated'),
-            dateModified: dateModified,
-            imageUrl: BuiltValueNullFieldError.checkNotNull(imageUrl, r'RecipeStub', 'imageUrl'),
-            imagePlaceholderUrl:
-                BuiltValueNullFieldError.checkNotNull(imagePlaceholderUrl, r'RecipeStub', 'imagePlaceholderUrl'));
+          recipeId: BuiltValueNullFieldError.checkNotNull(recipeId, r'RecipeStub', 'recipeId'),
+          id: BuiltValueNullFieldError.checkNotNull(id, r'RecipeStub', 'id'),
+          name: BuiltValueNullFieldError.checkNotNull(name, r'RecipeStub', 'name'),
+          keywords: BuiltValueNullFieldError.checkNotNull(keywords, r'RecipeStub', 'keywords'),
+          dateCreated: BuiltValueNullFieldError.checkNotNull(dateCreated, r'RecipeStub', 'dateCreated'),
+          dateModified: dateModified,
+          imageUrl: BuiltValueNullFieldError.checkNotNull(imageUrl, r'RecipeStub', 'imageUrl'),
+          imagePlaceholderUrl:
+              BuiltValueNullFieldError.checkNotNull(imagePlaceholderUrl, r'RecipeStub', 'imagePlaceholderUrl'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1676,7 +1680,8 @@ class RenameCategoryRequestApplicationJsonBuilder
     RenameCategoryRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$RenameCategoryRequestApplicationJson._(
-            name: BuiltValueNullFieldError.checkNotNull(name, r'RenameCategoryRequestApplicationJson', 'name'));
+          name: BuiltValueNullFieldError.checkNotNull(name, r'RenameCategoryRequestApplicationJson', 'name'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1791,9 +1796,10 @@ class APIVersionBuilder implements Builder<APIVersion, APIVersionBuilder>, $APIV
     APIVersion._validate(this);
     final _$result = _$v ??
         _$APIVersion._(
-            epoch: BuiltValueNullFieldError.checkNotNull(epoch, r'APIVersion', 'epoch'),
-            major: BuiltValueNullFieldError.checkNotNull(major, r'APIVersion', 'major'),
-            minor: BuiltValueNullFieldError.checkNotNull(minor, r'APIVersion', 'minor'));
+          epoch: BuiltValueNullFieldError.checkNotNull(epoch, r'APIVersion', 'epoch'),
+          major: BuiltValueNullFieldError.checkNotNull(major, r'APIVersion', 'major'),
+          minor: BuiltValueNullFieldError.checkNotNull(minor, r'APIVersion', 'minor'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1892,7 +1898,11 @@ class VersionBuilder implements Builder<Version, VersionBuilder>, $VersionInterf
     Version._validate(this);
     _$Version _$result;
     try {
-      _$result = _$v ?? _$Version._(cookbookVersion: _cookbookVersion?.build(), apiVersion: _apiVersion?.build());
+      _$result = _$v ??
+          _$Version._(
+            cookbookVersion: _cookbookVersion?.build(),
+            apiVersion: _apiVersion?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2047,11 +2057,12 @@ class VisibleInfoBlocksBuilder
     VisibleInfoBlocks._validate(this);
     final _$result = _$v ??
         _$VisibleInfoBlocks._(
-            preparationTime: preparationTime,
-            cookingTime: cookingTime,
-            totalTime: totalTime,
-            nutritionInformation: nutritionInformation,
-            tools: tools);
+          preparationTime: preparationTime,
+          cookingTime: cookingTime,
+          totalTime: totalTime,
+          nutritionInformation: nutritionInformation,
+          tools: tools,
+        );
     replace(_$result);
     return _$result;
   }
@@ -2181,10 +2192,11 @@ class ConfigBuilder implements Builder<Config, ConfigBuilder>, $ConfigInterfaceB
     try {
       _$result = _$v ??
           _$Config._(
-              folder: folder,
-              updateInterval: updateInterval,
-              printImage: printImage,
-              visibleInfoBlocks: _visibleInfoBlocks?.build());
+            folder: folder,
+            updateInterval: updateInterval,
+            printImage: printImage,
+            visibleInfoBlocks: _visibleInfoBlocks?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2279,7 +2291,10 @@ class UrlBuilder implements Builder<Url, UrlBuilder>, $UrlInterfaceBuilder {
 
   _$Url _build() {
     Url._validate(this);
-    final _$result = _$v ?? _$Url._(url: BuiltValueNullFieldError.checkNotNull(url, r'Url', 'url'));
+    final _$result = _$v ??
+        _$Url._(
+          url: BuiltValueNullFieldError.checkNotNull(url, r'Url', 'url'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -2540,19 +2555,20 @@ class NutritionBuilder implements Builder<Nutrition, NutritionBuilder>, $Nutriti
     Nutrition._validate(this);
     final _$result = _$v ??
         _$Nutrition._(
-            type: BuiltValueNullFieldError.checkNotNull(type, r'Nutrition', 'type'),
-            calories: calories,
-            carbohydrateContent: carbohydrateContent,
-            cholesterolContent: cholesterolContent,
-            fatContent: fatContent,
-            fiberContent: fiberContent,
-            proteinContent: proteinContent,
-            saturatedFatContent: saturatedFatContent,
-            servingSize: servingSize,
-            sodiumContent: sodiumContent,
-            sugarContent: sugarContent,
-            transFatContent: transFatContent,
-            unsaturatedFatContent: unsaturatedFatContent);
+          type: BuiltValueNullFieldError.checkNotNull(type, r'Nutrition', 'type'),
+          calories: calories,
+          carbohydrateContent: carbohydrateContent,
+          cholesterolContent: cholesterolContent,
+          fatContent: fatContent,
+          fiberContent: fiberContent,
+          proteinContent: proteinContent,
+          saturatedFatContent: saturatedFatContent,
+          servingSize: servingSize,
+          sodiumContent: sodiumContent,
+          sugarContent: sugarContent,
+          transFatContent: transFatContent,
+          unsaturatedFatContent: unsaturatedFatContent,
+        );
     replace(_$result);
     return _$result;
   }
@@ -2927,27 +2943,28 @@ class RecipeBuilder implements Builder<Recipe, RecipeBuilder>, $RecipeInterfaceB
     try {
       _$result = _$v ??
           _$Recipe._(
-              type: BuiltValueNullFieldError.checkNotNull(type, r'Recipe', 'type'),
-              id: id,
-              prepTime: prepTime,
-              cookTime: cookTime,
-              totalTime: totalTime,
-              description: BuiltValueNullFieldError.checkNotNull(description, r'Recipe', 'description'),
-              url: BuiltValueNullFieldError.checkNotNull(url, r'Recipe', 'url'),
-              image: BuiltValueNullFieldError.checkNotNull(image, r'Recipe', 'image'),
-              recipeYield: BuiltValueNullFieldError.checkNotNull(recipeYield, r'Recipe', 'recipeYield'),
-              recipeCategory: BuiltValueNullFieldError.checkNotNull(recipeCategory, r'Recipe', 'recipeCategory'),
-              tool: tool.build(),
-              recipeIngredient: recipeIngredient.build(),
-              recipeInstructions: recipeInstructions.build(),
-              nutrition: nutrition.build(),
-              name: BuiltValueNullFieldError.checkNotNull(name, r'Recipe', 'name'),
-              keywords: BuiltValueNullFieldError.checkNotNull(keywords, r'Recipe', 'keywords'),
-              dateCreated: BuiltValueNullFieldError.checkNotNull(dateCreated, r'Recipe', 'dateCreated'),
-              dateModified: dateModified,
-              imageUrl: BuiltValueNullFieldError.checkNotNull(imageUrl, r'Recipe', 'imageUrl'),
-              imagePlaceholderUrl:
-                  BuiltValueNullFieldError.checkNotNull(imagePlaceholderUrl, r'Recipe', 'imagePlaceholderUrl'));
+            type: BuiltValueNullFieldError.checkNotNull(type, r'Recipe', 'type'),
+            id: id,
+            prepTime: prepTime,
+            cookTime: cookTime,
+            totalTime: totalTime,
+            description: BuiltValueNullFieldError.checkNotNull(description, r'Recipe', 'description'),
+            url: BuiltValueNullFieldError.checkNotNull(url, r'Recipe', 'url'),
+            image: BuiltValueNullFieldError.checkNotNull(image, r'Recipe', 'image'),
+            recipeYield: BuiltValueNullFieldError.checkNotNull(recipeYield, r'Recipe', 'recipeYield'),
+            recipeCategory: BuiltValueNullFieldError.checkNotNull(recipeCategory, r'Recipe', 'recipeCategory'),
+            tool: tool.build(),
+            recipeIngredient: recipeIngredient.build(),
+            recipeInstructions: recipeInstructions.build(),
+            nutrition: nutrition.build(),
+            name: BuiltValueNullFieldError.checkNotNull(name, r'Recipe', 'name'),
+            keywords: BuiltValueNullFieldError.checkNotNull(keywords, r'Recipe', 'keywords'),
+            dateCreated: BuiltValueNullFieldError.checkNotNull(dateCreated, r'Recipe', 'dateCreated'),
+            dateModified: dateModified,
+            imageUrl: BuiltValueNullFieldError.checkNotNull(imageUrl, r'Recipe', 'imageUrl'),
+            imagePlaceholderUrl:
+                BuiltValueNullFieldError.checkNotNull(imagePlaceholderUrl, r'Recipe', 'imagePlaceholderUrl'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3065,8 +3082,9 @@ class KeywordBuilder implements Builder<Keyword, KeywordBuilder>, $KeywordInterf
     Keyword._validate(this);
     final _$result = _$v ??
         _$Keyword._(
-            name: BuiltValueNullFieldError.checkNotNull(name, r'Keyword', 'name'),
-            recipeCount: BuiltValueNullFieldError.checkNotNull(recipeCount, r'Keyword', 'recipeCount'));
+          name: BuiltValueNullFieldError.checkNotNull(name, r'Keyword', 'name'),
+          recipeCount: BuiltValueNullFieldError.checkNotNull(recipeCount, r'Keyword', 'recipeCount'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -3175,7 +3193,12 @@ class ErrorBuilder implements Builder<Error, ErrorBuilder>, $ErrorInterfaceBuild
 
   _$Error _build() {
     Error._validate(this);
-    final _$result = _$v ?? _$Error._(msg: msg, file: file, line: line);
+    final _$result = _$v ??
+        _$Error._(
+          msg: msg,
+          file: file,
+          line: line,
+        );
     replace(_$result);
     return _$result;
   }

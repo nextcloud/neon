@@ -245,8 +245,8 @@ class ObjectAnyOf0Builder implements Builder<ObjectAnyOf0, ObjectAnyOf0Builder>,
     ObjectAnyOf0._validate(this);
     final _$result = _$v ??
         _$ObjectAnyOf0._(
-            attribute1AnyOf:
-                BuiltValueNullFieldError.checkNotNull(attribute1AnyOf, r'ObjectAnyOf0', 'attribute1AnyOf'));
+          attribute1AnyOf: BuiltValueNullFieldError.checkNotNull(attribute1AnyOf, r'ObjectAnyOf0', 'attribute1AnyOf'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -334,8 +334,8 @@ class ObjectAnyOf1Builder implements Builder<ObjectAnyOf1, ObjectAnyOf1Builder>,
     ObjectAnyOf1._validate(this);
     final _$result = _$v ??
         _$ObjectAnyOf1._(
-            attribute2AnyOf:
-                BuiltValueNullFieldError.checkNotNull(attribute2AnyOf, r'ObjectAnyOf1', 'attribute2AnyOf'));
+          attribute2AnyOf: BuiltValueNullFieldError.checkNotNull(attribute2AnyOf, r'ObjectAnyOf1', 'attribute2AnyOf'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -423,7 +423,8 @@ class MixedAnyOf1Builder implements Builder<MixedAnyOf1, MixedAnyOf1Builder>, $M
     MixedAnyOf1._validate(this);
     final _$result = _$v ??
         _$MixedAnyOf1._(
-            attributeAnyOf: BuiltValueNullFieldError.checkNotNull(attributeAnyOf, r'MixedAnyOf1', 'attributeAnyOf'));
+          attributeAnyOf: BuiltValueNullFieldError.checkNotNull(attributeAnyOf, r'MixedAnyOf1', 'attributeAnyOf'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -512,8 +513,8 @@ class OneObjectAnyOf0Builder
     OneObjectAnyOf0._validate(this);
     final _$result = _$v ??
         _$OneObjectAnyOf0._(
-            attributeAnyOf:
-                BuiltValueNullFieldError.checkNotNull(attributeAnyOf, r'OneObjectAnyOf0', 'attributeAnyOf'));
+          attributeAnyOf: BuiltValueNullFieldError.checkNotNull(attributeAnyOf, r'OneObjectAnyOf0', 'attributeAnyOf'),
+        );
     replace(_$result);
     return _$result;
   }

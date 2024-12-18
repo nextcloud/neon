@@ -170,7 +170,8 @@ class Capabilities_FilesBuilder
     Capabilities_Files._validate(this);
     final _$result = _$v ??
         _$Capabilities_Files._(
-            comments: BuiltValueNullFieldError.checkNotNull(comments, r'Capabilities_Files', 'comments'));
+          comments: BuiltValueNullFieldError.checkNotNull(comments, r'Capabilities_Files', 'comments'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -258,7 +259,10 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     Capabilities._validate(this);
     _$Capabilities _$result;
     try {
-      _$result = _$v ?? _$Capabilities._(files: files.build());
+      _$result = _$v ??
+          _$Capabilities._(
+            files: files.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

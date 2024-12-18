@@ -654,7 +654,8 @@ class CheckResponseApplicationJsonBuilder
     CheckResponseApplicationJson._validate(this);
     final _$result = _$v ??
         _$CheckResponseApplicationJson._(
-            success: BuiltValueNullFieldError.checkNotNull(success, r'CheckResponseApplicationJson', 'success'));
+          success: BuiltValueNullFieldError.checkNotNull(success, r'CheckResponseApplicationJson', 'success'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -746,7 +747,8 @@ class SetKeepaliveResponseApplicationJsonBuilder
     SetKeepaliveResponseApplicationJson._validate(this);
     final _$result = _$v ??
         _$SetKeepaliveResponseApplicationJson._(
-            success: BuiltValueNullFieldError.checkNotNull(success, r'SetKeepaliveResponseApplicationJson', 'success'));
+          success: BuiltValueNullFieldError.checkNotNull(success, r'SetKeepaliveResponseApplicationJson', 'success'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -853,9 +855,9 @@ class CreateDeviceResponseApplicationJsonBuilder
     CreateDeviceResponseApplicationJson._validate(this);
     final _$result = _$v ??
         _$CreateDeviceResponseApplicationJson._(
-            success: BuiltValueNullFieldError.checkNotNull(success, r'CreateDeviceResponseApplicationJson', 'success'),
-            deviceId:
-                BuiltValueNullFieldError.checkNotNull(deviceId, r'CreateDeviceResponseApplicationJson', 'deviceId'));
+          success: BuiltValueNullFieldError.checkNotNull(success, r'CreateDeviceResponseApplicationJson', 'success'),
+          deviceId: BuiltValueNullFieldError.checkNotNull(deviceId, r'CreateDeviceResponseApplicationJson', 'deviceId'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -947,7 +949,8 @@ class SyncDeviceResponseApplicationJsonBuilder
     SyncDeviceResponseApplicationJson._validate(this);
     final _$result = _$v ??
         _$SyncDeviceResponseApplicationJson._(
-            success: BuiltValueNullFieldError.checkNotNull(success, r'SyncDeviceResponseApplicationJson', 'success'));
+          success: BuiltValueNullFieldError.checkNotNull(success, r'SyncDeviceResponseApplicationJson', 'success'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1039,7 +1042,8 @@ class DeleteDeviceResponseApplicationJsonBuilder
     DeleteDeviceResponseApplicationJson._validate(this);
     final _$result = _$v ??
         _$DeleteDeviceResponseApplicationJson._(
-            success: BuiltValueNullFieldError.checkNotNull(success, r'DeleteDeviceResponseApplicationJson', 'success'));
+          success: BuiltValueNullFieldError.checkNotNull(success, r'DeleteDeviceResponseApplicationJson', 'success'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1146,8 +1150,9 @@ class CreateAppResponseApplicationJsonBuilder
     CreateAppResponseApplicationJson._validate(this);
     final _$result = _$v ??
         _$CreateAppResponseApplicationJson._(
-            success: BuiltValueNullFieldError.checkNotNull(success, r'CreateAppResponseApplicationJson', 'success'),
-            token: BuiltValueNullFieldError.checkNotNull(token, r'CreateAppResponseApplicationJson', 'token'));
+          success: BuiltValueNullFieldError.checkNotNull(success, r'CreateAppResponseApplicationJson', 'success'),
+          token: BuiltValueNullFieldError.checkNotNull(token, r'CreateAppResponseApplicationJson', 'token'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1239,7 +1244,8 @@ class DeleteAppResponseApplicationJsonBuilder
     DeleteAppResponseApplicationJson._validate(this);
     final _$result = _$v ??
         _$DeleteAppResponseApplicationJson._(
-            success: BuiltValueNullFieldError.checkNotNull(success, r'DeleteAppResponseApplicationJson', 'success'));
+          success: BuiltValueNullFieldError.checkNotNull(success, r'DeleteAppResponseApplicationJson', 'success'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1339,8 +1345,9 @@ class UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder
     UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush._validate(this);
     final _$result = _$v ??
         _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush._(
-            version: BuiltValueNullFieldError.checkNotNull(
-                version, r'UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush', 'version'));
+          version: BuiltValueNullFieldError.checkNotNull(
+              version, r'UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush', 'version'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1439,7 +1446,10 @@ class UnifiedpushDiscoveryResponseApplicationJsonBuilder
     UnifiedpushDiscoveryResponseApplicationJson._validate(this);
     _$UnifiedpushDiscoveryResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UnifiedpushDiscoveryResponseApplicationJson._(unifiedpush: unifiedpush.build());
+      _$result = _$v ??
+          _$UnifiedpushDiscoveryResponseApplicationJson._(
+            unifiedpush: unifiedpush.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1541,7 +1551,8 @@ class PushResponseApplicationJsonBuilder
     PushResponseApplicationJson._validate(this);
     final _$result = _$v ??
         _$PushResponseApplicationJson._(
-            success: BuiltValueNullFieldError.checkNotNull(success, r'PushResponseApplicationJson', 'success'));
+          success: BuiltValueNullFieldError.checkNotNull(success, r'PushResponseApplicationJson', 'success'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1641,8 +1652,9 @@ class GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder
     GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush._validate(this);
     final _$result = _$v ??
         _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush._(
-            gateway: BuiltValueNullFieldError.checkNotNull(
-                gateway, r'GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush', 'gateway'));
+          gateway: BuiltValueNullFieldError.checkNotNull(
+              gateway, r'GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush', 'gateway'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1741,7 +1753,10 @@ class GatewayMatrixDiscoveryResponseApplicationJsonBuilder
     GatewayMatrixDiscoveryResponseApplicationJson._validate(this);
     _$GatewayMatrixDiscoveryResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$GatewayMatrixDiscoveryResponseApplicationJson._(unifiedpush: unifiedpush.build());
+      _$result = _$v ??
+          _$GatewayMatrixDiscoveryResponseApplicationJson._(
+            unifiedpush: unifiedpush.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1845,7 +1860,10 @@ class GatewayMatrixResponseApplicationJsonBuilder
     GatewayMatrixResponseApplicationJson._validate(this);
     _$GatewayMatrixResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$GatewayMatrixResponseApplicationJson._(rejected: rejected.build());
+      _$result = _$v ??
+          _$GatewayMatrixResponseApplicationJson._(
+            rejected: rejected.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

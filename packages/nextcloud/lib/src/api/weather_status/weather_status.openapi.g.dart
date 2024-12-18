@@ -2006,7 +2006,8 @@ class WeatherStatusSetModeRequestApplicationJsonBuilder
     WeatherStatusSetModeRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$WeatherStatusSetModeRequestApplicationJson._(
-            mode: BuiltValueNullFieldError.checkNotNull(mode, r'WeatherStatusSetModeRequestApplicationJson', 'mode'));
+          mode: BuiltValueNullFieldError.checkNotNull(mode, r'WeatherStatusSetModeRequestApplicationJson', 'mode'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -2150,11 +2151,12 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
     OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
-            message: message,
-            totalitems: totalitems,
-            itemsperpage: itemsperpage);
+          status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+          statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+          message: message,
+          totalitems: totalitems,
+          itemsperpage: itemsperpage,
+        );
     replace(_$result);
     return _$result;
   }
@@ -2239,7 +2241,10 @@ class SuccessBuilder implements Builder<Success, SuccessBuilder>, $SuccessInterf
 
   _$Success _build() {
     Success._validate(this);
-    final _$result = _$v ?? _$Success._(success: BuiltValueNullFieldError.checkNotNull(success, r'Success', 'success'));
+    final _$result = _$v ??
+        _$Success._(
+          success: BuiltValueNullFieldError.checkNotNull(success, r'Success', 'success'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -2350,7 +2355,11 @@ class WeatherStatusSetModeResponseApplicationJson_OcsBuilder
     WeatherStatusSetModeResponseApplicationJson_Ocs._validate(this);
     _$WeatherStatusSetModeResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$WeatherStatusSetModeResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$WeatherStatusSetModeResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2459,7 +2468,10 @@ class WeatherStatusSetModeResponseApplicationJsonBuilder
     WeatherStatusSetModeResponseApplicationJson._validate(this);
     _$WeatherStatusSetModeResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$WeatherStatusSetModeResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$WeatherStatusSetModeResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2578,7 +2590,12 @@ class LocationBuilder implements Builder<Location, LocationBuilder>, $LocationIn
 
   _$Location _build() {
     Location._validate(this);
-    final _$result = _$v ?? _$Location._(lat: lat, lon: lon, address: address);
+    final _$result = _$v ??
+        _$Location._(
+          lat: lat,
+          lon: lon,
+          address: address,
+        );
     replace(_$result);
     return _$result;
   }
@@ -2711,10 +2728,11 @@ class LocationWithSuccessBuilder
     LocationWithSuccess._validate(this);
     final _$result = _$v ??
         _$LocationWithSuccess._(
-            lat: lat,
-            lon: lon,
-            address: address,
-            success: BuiltValueNullFieldError.checkNotNull(success, r'LocationWithSuccess', 'success'));
+          lat: lat,
+          lon: lon,
+          address: address,
+          success: BuiltValueNullFieldError.checkNotNull(success, r'LocationWithSuccess', 'success'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -2828,8 +2846,11 @@ class WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder
     WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs._validate(this);
     _$WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2941,7 +2962,10 @@ class WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder
     WeatherStatusUsePersonalAddressResponseApplicationJson._validate(this);
     _$WeatherStatusUsePersonalAddressResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$WeatherStatusUsePersonalAddressResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$WeatherStatusUsePersonalAddressResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3037,7 +3061,10 @@ class ModeBuilder implements Builder<Mode, ModeBuilder>, $ModeInterfaceBuilder {
 
   _$Mode _build() {
     Mode._validate(this);
-    final _$result = _$v ?? _$Mode._(mode: BuiltValueNullFieldError.checkNotNull(mode, r'Mode', 'mode'));
+    final _$result = _$v ??
+        _$Mode._(
+          mode: BuiltValueNullFieldError.checkNotNull(mode, r'Mode', 'mode'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -3168,10 +3195,11 @@ class LocationWithModeBuilder
     LocationWithMode._validate(this);
     final _$result = _$v ??
         _$LocationWithMode._(
-            lat: lat,
-            lon: lon,
-            address: address,
-            mode: BuiltValueNullFieldError.checkNotNull(mode, r'LocationWithMode', 'mode'));
+          lat: lat,
+          lon: lon,
+          address: address,
+          mode: BuiltValueNullFieldError.checkNotNull(mode, r'LocationWithMode', 'mode'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -3283,7 +3311,11 @@ class WeatherStatusGetLocationResponseApplicationJson_OcsBuilder
     WeatherStatusGetLocationResponseApplicationJson_Ocs._validate(this);
     _$WeatherStatusGetLocationResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$WeatherStatusGetLocationResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$WeatherStatusGetLocationResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3394,7 +3426,10 @@ class WeatherStatusGetLocationResponseApplicationJsonBuilder
     WeatherStatusGetLocationResponseApplicationJson._validate(this);
     _$WeatherStatusGetLocationResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$WeatherStatusGetLocationResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$WeatherStatusGetLocationResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3525,7 +3560,12 @@ class WeatherStatusSetLocationRequestApplicationJsonBuilder
 
   _$WeatherStatusSetLocationRequestApplicationJson _build() {
     WeatherStatusSetLocationRequestApplicationJson._validate(this);
-    final _$result = _$v ?? _$WeatherStatusSetLocationRequestApplicationJson._(address: address, lat: lat, lon: lon);
+    final _$result = _$v ??
+        _$WeatherStatusSetLocationRequestApplicationJson._(
+          address: address,
+          lat: lat,
+          lon: lon,
+        );
     replace(_$result);
     return _$result;
   }
@@ -3637,7 +3677,11 @@ class WeatherStatusSetLocationResponseApplicationJson_OcsBuilder
     WeatherStatusSetLocationResponseApplicationJson_Ocs._validate(this);
     _$WeatherStatusSetLocationResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$WeatherStatusSetLocationResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$WeatherStatusSetLocationResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3748,7 +3792,10 @@ class WeatherStatusSetLocationResponseApplicationJsonBuilder
     WeatherStatusSetLocationResponseApplicationJson._validate(this);
     _$WeatherStatusSetLocationResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$WeatherStatusSetLocationResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$WeatherStatusSetLocationResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3933,17 +3980,18 @@ class Forecast_Data_Instant_DetailsBuilder
     Forecast_Data_Instant_Details._validate(this);
     final _$result = _$v ??
         _$Forecast_Data_Instant_Details._(
-            airPressureAtSeaLevel: BuiltValueNullFieldError.checkNotNull(
-                airPressureAtSeaLevel, r'Forecast_Data_Instant_Details', 'airPressureAtSeaLevel'),
-            airTemperature: BuiltValueNullFieldError.checkNotNull(
-                airTemperature, r'Forecast_Data_Instant_Details', 'airTemperature'),
-            cloudAreaFraction: BuiltValueNullFieldError.checkNotNull(
-                cloudAreaFraction, r'Forecast_Data_Instant_Details', 'cloudAreaFraction'),
-            relativeHumidity: BuiltValueNullFieldError.checkNotNull(
-                relativeHumidity, r'Forecast_Data_Instant_Details', 'relativeHumidity'),
-            windFromDirection: BuiltValueNullFieldError.checkNotNull(
-                windFromDirection, r'Forecast_Data_Instant_Details', 'windFromDirection'),
-            windSpeed: BuiltValueNullFieldError.checkNotNull(windSpeed, r'Forecast_Data_Instant_Details', 'windSpeed'));
+          airPressureAtSeaLevel: BuiltValueNullFieldError.checkNotNull(
+              airPressureAtSeaLevel, r'Forecast_Data_Instant_Details', 'airPressureAtSeaLevel'),
+          airTemperature:
+              BuiltValueNullFieldError.checkNotNull(airTemperature, r'Forecast_Data_Instant_Details', 'airTemperature'),
+          cloudAreaFraction: BuiltValueNullFieldError.checkNotNull(
+              cloudAreaFraction, r'Forecast_Data_Instant_Details', 'cloudAreaFraction'),
+          relativeHumidity: BuiltValueNullFieldError.checkNotNull(
+              relativeHumidity, r'Forecast_Data_Instant_Details', 'relativeHumidity'),
+          windFromDirection: BuiltValueNullFieldError.checkNotNull(
+              windFromDirection, r'Forecast_Data_Instant_Details', 'windFromDirection'),
+          windSpeed: BuiltValueNullFieldError.checkNotNull(windSpeed, r'Forecast_Data_Instant_Details', 'windSpeed'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -4033,7 +4081,10 @@ class Forecast_Data_InstantBuilder
     Forecast_Data_Instant._validate(this);
     _$Forecast_Data_Instant _$result;
     try {
-      _$result = _$v ?? _$Forecast_Data_Instant._(details: details.build());
+      _$result = _$v ??
+          _$Forecast_Data_Instant._(
+            details: details.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4136,8 +4187,9 @@ class Forecast_Data_Next12Hours_SummaryBuilder
     Forecast_Data_Next12Hours_Summary._validate(this);
     final _$result = _$v ??
         _$Forecast_Data_Next12Hours_Summary._(
-            symbolCode:
-                BuiltValueNullFieldError.checkNotNull(symbolCode, r'Forecast_Data_Next12Hours_Summary', 'symbolCode'));
+          symbolCode:
+              BuiltValueNullFieldError.checkNotNull(symbolCode, r'Forecast_Data_Next12Hours_Summary', 'symbolCode'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -4227,7 +4279,10 @@ class Forecast_Data_Next12Hours_DetailsBuilder
 
   _$Forecast_Data_Next12Hours_Details _build() {
     Forecast_Data_Next12Hours_Details._validate(this);
-    final _$result = _$v ?? _$Forecast_Data_Next12Hours_Details._(precipitationAmount: precipitationAmount);
+    final _$result = _$v ??
+        _$Forecast_Data_Next12Hours_Details._(
+          precipitationAmount: precipitationAmount,
+        );
     replace(_$result);
     return _$result;
   }
@@ -4336,7 +4391,11 @@ class Forecast_Data_Next12HoursBuilder
     Forecast_Data_Next12Hours._validate(this);
     _$Forecast_Data_Next12Hours _$result;
     try {
-      _$result = _$v ?? _$Forecast_Data_Next12Hours._(summary: summary.build(), details: details.build());
+      _$result = _$v ??
+          _$Forecast_Data_Next12Hours._(
+            summary: summary.build(),
+            details: details.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4440,8 +4499,9 @@ class Forecast_Data_Next1Hours_SummaryBuilder
     Forecast_Data_Next1Hours_Summary._validate(this);
     final _$result = _$v ??
         _$Forecast_Data_Next1Hours_Summary._(
-            symbolCode:
-                BuiltValueNullFieldError.checkNotNull(symbolCode, r'Forecast_Data_Next1Hours_Summary', 'symbolCode'));
+          symbolCode:
+              BuiltValueNullFieldError.checkNotNull(symbolCode, r'Forecast_Data_Next1Hours_Summary', 'symbolCode'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -4531,7 +4591,10 @@ class Forecast_Data_Next1Hours_DetailsBuilder
 
   _$Forecast_Data_Next1Hours_Details _build() {
     Forecast_Data_Next1Hours_Details._validate(this);
-    final _$result = _$v ?? _$Forecast_Data_Next1Hours_Details._(precipitationAmount: precipitationAmount);
+    final _$result = _$v ??
+        _$Forecast_Data_Next1Hours_Details._(
+          precipitationAmount: precipitationAmount,
+        );
     replace(_$result);
     return _$result;
   }
@@ -4638,7 +4701,11 @@ class Forecast_Data_Next1HoursBuilder
     Forecast_Data_Next1Hours._validate(this);
     _$Forecast_Data_Next1Hours _$result;
     try {
-      _$result = _$v ?? _$Forecast_Data_Next1Hours._(summary: summary.build(), details: details.build());
+      _$result = _$v ??
+          _$Forecast_Data_Next1Hours._(
+            summary: summary.build(),
+            details: details.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4742,8 +4809,9 @@ class Forecast_Data_Next6Hours_SummaryBuilder
     Forecast_Data_Next6Hours_Summary._validate(this);
     final _$result = _$v ??
         _$Forecast_Data_Next6Hours_Summary._(
-            symbolCode:
-                BuiltValueNullFieldError.checkNotNull(symbolCode, r'Forecast_Data_Next6Hours_Summary', 'symbolCode'));
+          symbolCode:
+              BuiltValueNullFieldError.checkNotNull(symbolCode, r'Forecast_Data_Next6Hours_Summary', 'symbolCode'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -4833,7 +4901,10 @@ class Forecast_Data_Next6Hours_DetailsBuilder
 
   _$Forecast_Data_Next6Hours_Details _build() {
     Forecast_Data_Next6Hours_Details._validate(this);
-    final _$result = _$v ?? _$Forecast_Data_Next6Hours_Details._(precipitationAmount: precipitationAmount);
+    final _$result = _$v ??
+        _$Forecast_Data_Next6Hours_Details._(
+          precipitationAmount: precipitationAmount,
+        );
     replace(_$result);
     return _$result;
   }
@@ -4940,7 +5011,11 @@ class Forecast_Data_Next6HoursBuilder
     Forecast_Data_Next6Hours._validate(this);
     _$Forecast_Data_Next6Hours _$result;
     try {
-      _$result = _$v ?? _$Forecast_Data_Next6Hours._(summary: summary.build(), details: details.build());
+      _$result = _$v ??
+          _$Forecast_Data_Next6Hours._(
+            summary: summary.build(),
+            details: details.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -5089,10 +5164,11 @@ class Forecast_DataBuilder implements Builder<Forecast_Data, Forecast_DataBuilde
     try {
       _$result = _$v ??
           _$Forecast_Data._(
-              instant: instant.build(),
-              next12Hours: next12Hours.build(),
-              next1Hours: next1Hours.build(),
-              next6Hours: next6Hours.build());
+            instant: instant.build(),
+            next12Hours: next12Hours.build(),
+            next1Hours: next1Hours.build(),
+            next6Hours: next6Hours.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -5211,7 +5287,10 @@ class ForecastBuilder implements Builder<Forecast, ForecastBuilder>, $ForecastIn
     _$Forecast _$result;
     try {
       _$result = _$v ??
-          _$Forecast._(time: BuiltValueNullFieldError.checkNotNull(time, r'Forecast', 'time'), data: data.build());
+          _$Forecast._(
+            time: BuiltValueNullFieldError.checkNotNull(time, r'Forecast', 'time'),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -5320,8 +5399,9 @@ class WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Builder
     WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1._validate(this);
     final _$result = _$v ??
         _$WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1._(
-            error: BuiltValueNullFieldError.checkNotNull(
-                error, r'WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1', 'error'));
+          error: BuiltValueNullFieldError.checkNotNull(
+              error, r'WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1', 'error'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -5438,9 +5518,10 @@ class WeatherStatusGetForecastResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$WeatherStatusGetForecastResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'WeatherStatusGetForecastResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(
+                data, r'WeatherStatusGetForecastResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -5549,7 +5630,10 @@ class WeatherStatusGetForecastResponseApplicationJsonBuilder
     WeatherStatusGetForecastResponseApplicationJson._validate(this);
     _$WeatherStatusGetForecastResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$WeatherStatusGetForecastResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$WeatherStatusGetForecastResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -5672,8 +5756,11 @@ class WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder
     WeatherStatusGetFavoritesResponseApplicationJson_Ocs._validate(this);
     _$WeatherStatusGetFavoritesResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$WeatherStatusGetFavoritesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$WeatherStatusGetFavoritesResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -5784,7 +5871,10 @@ class WeatherStatusGetFavoritesResponseApplicationJsonBuilder
     WeatherStatusGetFavoritesResponseApplicationJson._validate(this);
     _$WeatherStatusGetFavoritesResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$WeatherStatusGetFavoritesResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$WeatherStatusGetFavoritesResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -5893,7 +5983,10 @@ class WeatherStatusSetFavoritesRequestApplicationJsonBuilder
     WeatherStatusSetFavoritesRequestApplicationJson._validate(this);
     _$WeatherStatusSetFavoritesRequestApplicationJson _$result;
     try {
-      _$result = _$v ?? _$WeatherStatusSetFavoritesRequestApplicationJson._(favorites: favorites.build());
+      _$result = _$v ??
+          _$WeatherStatusSetFavoritesRequestApplicationJson._(
+            favorites: favorites.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -6016,8 +6109,11 @@ class WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder
     WeatherStatusSetFavoritesResponseApplicationJson_Ocs._validate(this);
     _$WeatherStatusSetFavoritesResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$WeatherStatusSetFavoritesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$WeatherStatusSetFavoritesResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -6128,7 +6224,10 @@ class WeatherStatusSetFavoritesResponseApplicationJsonBuilder
     WeatherStatusSetFavoritesResponseApplicationJson._validate(this);
     _$WeatherStatusSetFavoritesResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$WeatherStatusSetFavoritesResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$WeatherStatusSetFavoritesResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -6231,7 +6330,8 @@ class Capabilities_WeatherStatusBuilder
     Capabilities_WeatherStatus._validate(this);
     final _$result = _$v ??
         _$Capabilities_WeatherStatus._(
-            enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_WeatherStatus', 'enabled'));
+          enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_WeatherStatus', 'enabled'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -6320,7 +6420,10 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     Capabilities._validate(this);
     _$Capabilities _$result;
     try {
-      _$result = _$v ?? _$Capabilities._(weatherStatus: weatherStatus.build());
+      _$result = _$v ??
+          _$Capabilities._(
+            weatherStatus: weatherStatus.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

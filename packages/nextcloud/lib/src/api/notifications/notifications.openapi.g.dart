@@ -2226,10 +2226,11 @@ class ApiGenerateNotificationRequestApplicationJsonBuilder
     ApiGenerateNotificationRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$ApiGenerateNotificationRequestApplicationJson._(
-            shortMessage: BuiltValueNullFieldError.checkNotNull(
-                shortMessage, r'ApiGenerateNotificationRequestApplicationJson', 'shortMessage'),
-            longMessage: BuiltValueNullFieldError.checkNotNull(
-                longMessage, r'ApiGenerateNotificationRequestApplicationJson', 'longMessage'));
+          shortMessage: BuiltValueNullFieldError.checkNotNull(
+              shortMessage, r'ApiGenerateNotificationRequestApplicationJson', 'shortMessage'),
+          longMessage: BuiltValueNullFieldError.checkNotNull(
+              longMessage, r'ApiGenerateNotificationRequestApplicationJson', 'longMessage'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -2373,11 +2374,12 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
     OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
-            message: message,
-            totalitems: totalitems,
-            itemsperpage: itemsperpage);
+          status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+          statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+          message: message,
+          totalitems: totalitems,
+          itemsperpage: itemsperpage,
+        );
     replace(_$result);
     return _$result;
   }
@@ -2490,9 +2492,10 @@ class ApiGenerateNotificationResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$ApiGenerateNotificationResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'ApiGenerateNotificationResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(
+                data, r'ApiGenerateNotificationResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2599,7 +2602,10 @@ class ApiGenerateNotificationResponseApplicationJsonBuilder
     ApiGenerateNotificationResponseApplicationJson._validate(this);
     _$ApiGenerateNotificationResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ApiGenerateNotificationResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ApiGenerateNotificationResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2761,12 +2767,13 @@ class ApiGenerateNotificationV3RequestApplicationJsonBuilder
     try {
       _$result = _$v ??
           _$ApiGenerateNotificationV3RequestApplicationJson._(
-              subject: BuiltValueNullFieldError.checkNotNull(
-                  subject, r'ApiGenerateNotificationV3RequestApplicationJson', 'subject'),
-              message: BuiltValueNullFieldError.checkNotNull(
-                  message, r'ApiGenerateNotificationV3RequestApplicationJson', 'message'),
-              subjectParameters: subjectParameters.build(),
-              messageParameters: messageParameters.build());
+            subject: BuiltValueNullFieldError.checkNotNull(
+                subject, r'ApiGenerateNotificationV3RequestApplicationJson', 'subject'),
+            message: BuiltValueNullFieldError.checkNotNull(
+                message, r'ApiGenerateNotificationV3RequestApplicationJson', 'message'),
+            subjectParameters: subjectParameters.build(),
+            messageParameters: messageParameters.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2877,8 +2884,9 @@ class ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder
     ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data._(
-            id: BuiltValueNullFieldError.checkNotNull(
-                id, r'ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data', 'id'));
+          id: BuiltValueNullFieldError.checkNotNull(
+              id, r'ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data', 'id'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -2991,8 +2999,11 @@ class ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder
     ApiGenerateNotificationV3ResponseApplicationJson_Ocs._validate(this);
     _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3103,7 +3114,10 @@ class ApiGenerateNotificationV3ResponseApplicationJsonBuilder
     ApiGenerateNotificationV3ResponseApplicationJson._validate(this);
     _$ApiGenerateNotificationV3ResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ApiGenerateNotificationV3ResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ApiGenerateNotificationV3ResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3250,10 +3264,11 @@ class NotificationActionBuilder
     NotificationAction._validate(this);
     final _$result = _$v ??
         _$NotificationAction._(
-            label: BuiltValueNullFieldError.checkNotNull(label, r'NotificationAction', 'label'),
-            link: BuiltValueNullFieldError.checkNotNull(link, r'NotificationAction', 'link'),
-            type: BuiltValueNullFieldError.checkNotNull(type, r'NotificationAction', 'type'),
-            primary: BuiltValueNullFieldError.checkNotNull(primary, r'NotificationAction', 'primary'));
+          label: BuiltValueNullFieldError.checkNotNull(label, r'NotificationAction', 'label'),
+          link: BuiltValueNullFieldError.checkNotNull(link, r'NotificationAction', 'link'),
+          type: BuiltValueNullFieldError.checkNotNull(type, r'NotificationAction', 'type'),
+          primary: BuiltValueNullFieldError.checkNotNull(primary, r'NotificationAction', 'primary'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -3571,22 +3586,23 @@ class NotificationBuilder implements Builder<Notification, NotificationBuilder>,
     try {
       _$result = _$v ??
           _$Notification._(
-              notificationId: BuiltValueNullFieldError.checkNotNull(notificationId, r'Notification', 'notificationId'),
-              app: BuiltValueNullFieldError.checkNotNull(app, r'Notification', 'app'),
-              user: BuiltValueNullFieldError.checkNotNull(user, r'Notification', 'user'),
-              datetime: BuiltValueNullFieldError.checkNotNull(datetime, r'Notification', 'datetime'),
-              objectType: BuiltValueNullFieldError.checkNotNull(objectType, r'Notification', 'objectType'),
-              objectId: BuiltValueNullFieldError.checkNotNull(objectId, r'Notification', 'objectId'),
-              subject: BuiltValueNullFieldError.checkNotNull(subject, r'Notification', 'subject'),
-              message: BuiltValueNullFieldError.checkNotNull(message, r'Notification', 'message'),
-              link: BuiltValueNullFieldError.checkNotNull(link, r'Notification', 'link'),
-              actions: actions.build(),
-              subjectRich: subjectRich,
-              subjectRichParameters: _subjectRichParameters?.build(),
-              messageRich: messageRich,
-              messageRichParameters: _messageRichParameters?.build(),
-              icon: icon,
-              shouldNotify: shouldNotify);
+            notificationId: BuiltValueNullFieldError.checkNotNull(notificationId, r'Notification', 'notificationId'),
+            app: BuiltValueNullFieldError.checkNotNull(app, r'Notification', 'app'),
+            user: BuiltValueNullFieldError.checkNotNull(user, r'Notification', 'user'),
+            datetime: BuiltValueNullFieldError.checkNotNull(datetime, r'Notification', 'datetime'),
+            objectType: BuiltValueNullFieldError.checkNotNull(objectType, r'Notification', 'objectType'),
+            objectId: BuiltValueNullFieldError.checkNotNull(objectId, r'Notification', 'objectId'),
+            subject: BuiltValueNullFieldError.checkNotNull(subject, r'Notification', 'subject'),
+            message: BuiltValueNullFieldError.checkNotNull(message, r'Notification', 'message'),
+            link: BuiltValueNullFieldError.checkNotNull(link, r'Notification', 'link'),
+            actions: actions.build(),
+            subjectRich: subjectRich,
+            subjectRichParameters: _subjectRichParameters?.build(),
+            messageRich: messageRich,
+            messageRichParameters: _messageRichParameters?.build(),
+            icon: icon,
+            shouldNotify: shouldNotify,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3714,8 +3730,11 @@ class EndpointListNotificationsResponseApplicationJson_OcsBuilder
     EndpointListNotificationsResponseApplicationJson_Ocs._validate(this);
     _$EndpointListNotificationsResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$EndpointListNotificationsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$EndpointListNotificationsResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3826,7 +3845,10 @@ class EndpointListNotificationsResponseApplicationJsonBuilder
     EndpointListNotificationsResponseApplicationJson._validate(this);
     _$EndpointListNotificationsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$EndpointListNotificationsResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$EndpointListNotificationsResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3931,7 +3953,10 @@ class EndpointEndpointListNotificationsHeadersBuilder
 
   _$EndpointEndpointListNotificationsHeaders _build() {
     EndpointEndpointListNotificationsHeaders._validate(this);
-    final _$result = _$v ?? _$EndpointEndpointListNotificationsHeaders._(xNextcloudUserStatus: xNextcloudUserStatus);
+    final _$result = _$v ??
+        _$EndpointEndpointListNotificationsHeaders._(
+          xNextcloudUserStatus: xNextcloudUserStatus,
+        );
     replace(_$result);
     return _$result;
   }
@@ -4047,9 +4072,10 @@ class EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$EndpointDeleteAllNotificationsResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'EndpointDeleteAllNotificationsResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(
+                data, r'EndpointDeleteAllNotificationsResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4159,7 +4185,10 @@ class EndpointDeleteAllNotificationsResponseApplicationJsonBuilder
     EndpointDeleteAllNotificationsResponseApplicationJson._validate(this);
     _$EndpointDeleteAllNotificationsResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$EndpointDeleteAllNotificationsResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$EndpointDeleteAllNotificationsResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4281,7 +4310,11 @@ class EndpointGetNotificationResponseApplicationJson_OcsBuilder
     EndpointGetNotificationResponseApplicationJson_Ocs._validate(this);
     _$EndpointGetNotificationResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$EndpointGetNotificationResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$EndpointGetNotificationResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4390,7 +4423,10 @@ class EndpointGetNotificationResponseApplicationJsonBuilder
     EndpointGetNotificationResponseApplicationJson._validate(this);
     _$EndpointGetNotificationResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$EndpointGetNotificationResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$EndpointGetNotificationResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4515,9 +4551,10 @@ class EndpointDeleteNotificationResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$EndpointDeleteNotificationResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'EndpointDeleteNotificationResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(
+                data, r'EndpointDeleteNotificationResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4626,7 +4663,10 @@ class EndpointDeleteNotificationResponseApplicationJsonBuilder
     EndpointDeleteNotificationResponseApplicationJson._validate(this);
     _$EndpointDeleteNotificationResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$EndpointDeleteNotificationResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$EndpointDeleteNotificationResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4734,7 +4774,10 @@ class EndpointConfirmIdsForUserRequestApplicationJsonBuilder
     EndpointConfirmIdsForUserRequestApplicationJson._validate(this);
     _$EndpointConfirmIdsForUserRequestApplicationJson _$result;
     try {
-      _$result = _$v ?? _$EndpointConfirmIdsForUserRequestApplicationJson._(ids: ids.build());
+      _$result = _$v ??
+          _$EndpointConfirmIdsForUserRequestApplicationJson._(
+            ids: ids.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4857,8 +4900,11 @@ class EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder
     EndpointConfirmIdsForUserResponseApplicationJson_Ocs._validate(this);
     _$EndpointConfirmIdsForUserResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$EndpointConfirmIdsForUserResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$EndpointConfirmIdsForUserResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4969,7 +5015,10 @@ class EndpointConfirmIdsForUserResponseApplicationJsonBuilder
     EndpointConfirmIdsForUserResponseApplicationJson._validate(this);
     _$EndpointConfirmIdsForUserResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$EndpointConfirmIdsForUserResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$EndpointConfirmIdsForUserResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -5109,12 +5158,13 @@ class PushRegisterDeviceRequestApplicationJsonBuilder
     PushRegisterDeviceRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$PushRegisterDeviceRequestApplicationJson._(
-            pushTokenHash: BuiltValueNullFieldError.checkNotNull(
-                pushTokenHash, r'PushRegisterDeviceRequestApplicationJson', 'pushTokenHash'),
-            devicePublicKey: BuiltValueNullFieldError.checkNotNull(
-                devicePublicKey, r'PushRegisterDeviceRequestApplicationJson', 'devicePublicKey'),
-            proxyServer: BuiltValueNullFieldError.checkNotNull(
-                proxyServer, r'PushRegisterDeviceRequestApplicationJson', 'proxyServer'));
+          pushTokenHash: BuiltValueNullFieldError.checkNotNull(
+              pushTokenHash, r'PushRegisterDeviceRequestApplicationJson', 'pushTokenHash'),
+          devicePublicKey: BuiltValueNullFieldError.checkNotNull(
+              devicePublicKey, r'PushRegisterDeviceRequestApplicationJson', 'devicePublicKey'),
+          proxyServer: BuiltValueNullFieldError.checkNotNull(
+              proxyServer, r'PushRegisterDeviceRequestApplicationJson', 'proxyServer'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -5232,10 +5282,10 @@ class PushDeviceBuilder implements Builder<PushDevice, PushDeviceBuilder>, $Push
     PushDevice._validate(this);
     final _$result = _$v ??
         _$PushDevice._(
-            publicKey: BuiltValueNullFieldError.checkNotNull(publicKey, r'PushDevice', 'publicKey'),
-            deviceIdentifier:
-                BuiltValueNullFieldError.checkNotNull(deviceIdentifier, r'PushDevice', 'deviceIdentifier'),
-            signature: BuiltValueNullFieldError.checkNotNull(signature, r'PushDevice', 'signature'));
+          publicKey: BuiltValueNullFieldError.checkNotNull(publicKey, r'PushDevice', 'publicKey'),
+          deviceIdentifier: BuiltValueNullFieldError.checkNotNull(deviceIdentifier, r'PushDevice', 'deviceIdentifier'),
+          signature: BuiltValueNullFieldError.checkNotNull(signature, r'PushDevice', 'signature'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -5345,7 +5395,11 @@ class PushRegisterDeviceResponseApplicationJson_OcsBuilder
     PushRegisterDeviceResponseApplicationJson_Ocs._validate(this);
     _$PushRegisterDeviceResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$PushRegisterDeviceResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$PushRegisterDeviceResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -5453,7 +5507,10 @@ class PushRegisterDeviceResponseApplicationJsonBuilder
     PushRegisterDeviceResponseApplicationJson._validate(this);
     _$PushRegisterDeviceResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$PushRegisterDeviceResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$PushRegisterDeviceResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -5575,9 +5632,9 @@ class PushRemoveDeviceResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$PushRemoveDeviceResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data:
-                  BuiltValueNullFieldError.checkNotNull(data, r'PushRemoveDeviceResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(data, r'PushRemoveDeviceResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -5683,7 +5740,10 @@ class PushRemoveDeviceResponseApplicationJsonBuilder
     PushRemoveDeviceResponseApplicationJson._validate(this);
     _$PushRemoveDeviceResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$PushRemoveDeviceResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$PushRemoveDeviceResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -5822,12 +5882,13 @@ class SettingsPersonalRequestApplicationJsonBuilder
     SettingsPersonalRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$SettingsPersonalRequestApplicationJson._(
-            batchSetting: BuiltValueNullFieldError.checkNotNull(
-                batchSetting, r'SettingsPersonalRequestApplicationJson', 'batchSetting'),
-            soundNotification: BuiltValueNullFieldError.checkNotNull(
-                soundNotification, r'SettingsPersonalRequestApplicationJson', 'soundNotification'),
-            soundTalk: BuiltValueNullFieldError.checkNotNull(
-                soundTalk, r'SettingsPersonalRequestApplicationJson', 'soundTalk'));
+          batchSetting: BuiltValueNullFieldError.checkNotNull(
+              batchSetting, r'SettingsPersonalRequestApplicationJson', 'batchSetting'),
+          soundNotification: BuiltValueNullFieldError.checkNotNull(
+              soundNotification, r'SettingsPersonalRequestApplicationJson', 'soundNotification'),
+          soundTalk:
+              BuiltValueNullFieldError.checkNotNull(soundTalk, r'SettingsPersonalRequestApplicationJson', 'soundTalk'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -5939,9 +6000,9 @@ class SettingsPersonalResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$SettingsPersonalResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data:
-                  BuiltValueNullFieldError.checkNotNull(data, r'SettingsPersonalResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(data, r'SettingsPersonalResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -6047,7 +6108,10 @@ class SettingsPersonalResponseApplicationJsonBuilder
     SettingsPersonalResponseApplicationJson._validate(this);
     _$SettingsPersonalResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$SettingsPersonalResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$SettingsPersonalResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -6183,12 +6247,13 @@ class SettingsAdminRequestApplicationJsonBuilder
     SettingsAdminRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$SettingsAdminRequestApplicationJson._(
-            batchSetting: BuiltValueNullFieldError.checkNotNull(
-                batchSetting, r'SettingsAdminRequestApplicationJson', 'batchSetting'),
-            soundNotification: BuiltValueNullFieldError.checkNotNull(
-                soundNotification, r'SettingsAdminRequestApplicationJson', 'soundNotification'),
-            soundTalk:
-                BuiltValueNullFieldError.checkNotNull(soundTalk, r'SettingsAdminRequestApplicationJson', 'soundTalk'));
+          batchSetting: BuiltValueNullFieldError.checkNotNull(
+              batchSetting, r'SettingsAdminRequestApplicationJson', 'batchSetting'),
+          soundNotification: BuiltValueNullFieldError.checkNotNull(
+              soundNotification, r'SettingsAdminRequestApplicationJson', 'soundNotification'),
+          soundTalk:
+              BuiltValueNullFieldError.checkNotNull(soundTalk, r'SettingsAdminRequestApplicationJson', 'soundTalk'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -6300,8 +6365,9 @@ class SettingsAdminResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$SettingsAdminResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(data, r'SettingsAdminResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(data, r'SettingsAdminResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -6406,7 +6472,10 @@ class SettingsAdminResponseApplicationJsonBuilder
     SettingsAdminResponseApplicationJson._validate(this);
     _$SettingsAdminResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$SettingsAdminResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$SettingsAdminResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -6543,7 +6612,10 @@ class Capabilities_NotificationsBuilder
     try {
       _$result = _$v ??
           _$Capabilities_Notifications._(
-              ocsEndpoints: ocsEndpoints.build(), push: push.build(), adminNotifications: adminNotifications.build());
+            ocsEndpoints: ocsEndpoints.build(),
+            push: push.build(),
+            adminNotifications: adminNotifications.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -6646,7 +6718,10 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     Capabilities._validate(this);
     _$Capabilities _$result;
     try {
-      _$result = _$v ?? _$Capabilities._(notifications: notifications.build());
+      _$result = _$v ??
+          _$Capabilities._(
+            notifications: notifications.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

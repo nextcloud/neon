@@ -1773,8 +1773,8 @@ class HeartbeatHeartbeatRequestApplicationJsonBuilder
     HeartbeatHeartbeatRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$HeartbeatHeartbeatRequestApplicationJson._(
-            status:
-                BuiltValueNullFieldError.checkNotNull(status, r'HeartbeatHeartbeatRequestApplicationJson', 'status'));
+          status: BuiltValueNullFieldError.checkNotNull(status, r'HeartbeatHeartbeatRequestApplicationJson', 'status'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1918,11 +1918,12 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
     OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
-            message: message,
-            totalitems: totalitems,
-            itemsperpage: itemsperpage);
+          status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+          statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+          message: message,
+          totalitems: totalitems,
+          itemsperpage: itemsperpage,
+        );
     replace(_$result);
     return _$result;
   }
@@ -2065,11 +2066,12 @@ class PublicBuilder implements Builder<Public, PublicBuilder>, $PublicInterfaceB
     Public._validate(this);
     final _$result = _$v ??
         _$Public._(
-            userId: BuiltValueNullFieldError.checkNotNull(userId, r'Public', 'userId'),
-            message: message,
-            icon: icon,
-            clearAt: clearAt,
-            status: BuiltValueNullFieldError.checkNotNull(status, r'Public', 'status'));
+          userId: BuiltValueNullFieldError.checkNotNull(userId, r'Public', 'userId'),
+          message: message,
+          icon: icon,
+          clearAt: clearAt,
+          status: BuiltValueNullFieldError.checkNotNull(status, r'Public', 'status'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -2262,16 +2264,17 @@ class PrivateBuilder implements Builder<Private, PrivateBuilder>, $PrivateInterf
     Private._validate(this);
     final _$result = _$v ??
         _$Private._(
-            messageId: messageId,
-            messageIsPredefined:
-                BuiltValueNullFieldError.checkNotNull(messageIsPredefined, r'Private', 'messageIsPredefined'),
-            statusIsUserDefined:
-                BuiltValueNullFieldError.checkNotNull(statusIsUserDefined, r'Private', 'statusIsUserDefined'),
-            userId: BuiltValueNullFieldError.checkNotNull(userId, r'Private', 'userId'),
-            message: message,
-            icon: icon,
-            clearAt: clearAt,
-            status: BuiltValueNullFieldError.checkNotNull(status, r'Private', 'status'));
+          messageId: messageId,
+          messageIsPredefined:
+              BuiltValueNullFieldError.checkNotNull(messageIsPredefined, r'Private', 'messageIsPredefined'),
+          statusIsUserDefined:
+              BuiltValueNullFieldError.checkNotNull(statusIsUserDefined, r'Private', 'statusIsUserDefined'),
+          userId: BuiltValueNullFieldError.checkNotNull(userId, r'Private', 'userId'),
+          message: message,
+          icon: icon,
+          clearAt: clearAt,
+          status: BuiltValueNullFieldError.checkNotNull(status, r'Private', 'status'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -2381,7 +2384,11 @@ class HeartbeatHeartbeatResponseApplicationJson_OcsBuilder
     HeartbeatHeartbeatResponseApplicationJson_Ocs._validate(this);
     _$HeartbeatHeartbeatResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$HeartbeatHeartbeatResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$HeartbeatHeartbeatResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2489,7 +2496,10 @@ class HeartbeatHeartbeatResponseApplicationJsonBuilder
     HeartbeatHeartbeatResponseApplicationJson._validate(this);
     _$HeartbeatHeartbeatResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$HeartbeatHeartbeatResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$HeartbeatHeartbeatResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2602,8 +2612,9 @@ class ClearAtBuilder implements Builder<ClearAt, ClearAtBuilder>, $ClearAtInterf
     ClearAt._validate(this);
     final _$result = _$v ??
         _$ClearAt._(
-            type: BuiltValueNullFieldError.checkNotNull(type, r'ClearAt', 'type'),
-            time: BuiltValueNullFieldError.checkNotNull(time, r'ClearAt', 'time'));
+          type: BuiltValueNullFieldError.checkNotNull(type, r'ClearAt', 'type'),
+          time: BuiltValueNullFieldError.checkNotNull(time, r'ClearAt', 'time'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -2750,11 +2761,12 @@ class PredefinedBuilder implements Builder<Predefined, PredefinedBuilder>, $Pred
     try {
       _$result = _$v ??
           _$Predefined._(
-              id: BuiltValueNullFieldError.checkNotNull(id, r'Predefined', 'id'),
-              icon: BuiltValueNullFieldError.checkNotNull(icon, r'Predefined', 'icon'),
-              message: BuiltValueNullFieldError.checkNotNull(message, r'Predefined', 'message'),
-              clearAt: _clearAt?.build(),
-              visible: visible);
+            id: BuiltValueNullFieldError.checkNotNull(id, r'Predefined', 'id'),
+            icon: BuiltValueNullFieldError.checkNotNull(icon, r'Predefined', 'icon'),
+            message: BuiltValueNullFieldError.checkNotNull(message, r'Predefined', 'message'),
+            clearAt: _clearAt?.build(),
+            visible: visible,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2875,7 +2887,11 @@ class PredefinedStatusFindAllResponseApplicationJson_OcsBuilder
     PredefinedStatusFindAllResponseApplicationJson_Ocs._validate(this);
     _$PredefinedStatusFindAllResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$PredefinedStatusFindAllResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$PredefinedStatusFindAllResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2984,7 +3000,10 @@ class PredefinedStatusFindAllResponseApplicationJsonBuilder
     PredefinedStatusFindAllResponseApplicationJson._validate(this);
     _$PredefinedStatusFindAllResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$PredefinedStatusFindAllResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$PredefinedStatusFindAllResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3105,7 +3124,11 @@ class StatusesFindAllResponseApplicationJson_OcsBuilder
     StatusesFindAllResponseApplicationJson_Ocs._validate(this);
     _$StatusesFindAllResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$StatusesFindAllResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$StatusesFindAllResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3213,7 +3236,10 @@ class StatusesFindAllResponseApplicationJsonBuilder
     StatusesFindAllResponseApplicationJson._validate(this);
     _$StatusesFindAllResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$StatusesFindAllResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$StatusesFindAllResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3333,7 +3359,11 @@ class StatusesFindResponseApplicationJson_OcsBuilder
     StatusesFindResponseApplicationJson_Ocs._validate(this);
     _$StatusesFindResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$StatusesFindResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$StatusesFindResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3438,7 +3468,10 @@ class StatusesFindResponseApplicationJsonBuilder
     StatusesFindResponseApplicationJson._validate(this);
     _$StatusesFindResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$StatusesFindResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$StatusesFindResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3558,7 +3591,11 @@ class UserStatusGetStatusResponseApplicationJson_OcsBuilder
     UserStatusGetStatusResponseApplicationJson_Ocs._validate(this);
     _$UserStatusGetStatusResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$UserStatusGetStatusResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$UserStatusGetStatusResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3667,7 +3704,10 @@ class UserStatusGetStatusResponseApplicationJsonBuilder
     UserStatusGetStatusResponseApplicationJson._validate(this);
     _$UserStatusGetStatusResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UserStatusGetStatusResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UserStatusGetStatusResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3773,8 +3813,9 @@ class UserStatusSetStatusRequestApplicationJsonBuilder
     UserStatusSetStatusRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$UserStatusSetStatusRequestApplicationJson._(
-            statusType: BuiltValueNullFieldError.checkNotNull(
-                statusType, r'UserStatusSetStatusRequestApplicationJson', 'statusType'));
+          statusType: BuiltValueNullFieldError.checkNotNull(
+              statusType, r'UserStatusSetStatusRequestApplicationJson', 'statusType'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -3884,7 +3925,11 @@ class UserStatusSetStatusResponseApplicationJson_OcsBuilder
     UserStatusSetStatusResponseApplicationJson_Ocs._validate(this);
     _$UserStatusSetStatusResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$UserStatusSetStatusResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$UserStatusSetStatusResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -3993,7 +4038,10 @@ class UserStatusSetStatusResponseApplicationJsonBuilder
     UserStatusSetStatusResponseApplicationJson._validate(this);
     _$UserStatusSetStatusResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UserStatusSetStatusResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UserStatusSetStatusResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4117,9 +4165,10 @@ class UserStatusSetPredefinedMessageRequestApplicationJsonBuilder
     UserStatusSetPredefinedMessageRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$UserStatusSetPredefinedMessageRequestApplicationJson._(
-            messageId: BuiltValueNullFieldError.checkNotNull(
-                messageId, r'UserStatusSetPredefinedMessageRequestApplicationJson', 'messageId'),
-            clearAt: clearAt);
+          messageId: BuiltValueNullFieldError.checkNotNull(
+              messageId, r'UserStatusSetPredefinedMessageRequestApplicationJson', 'messageId'),
+          clearAt: clearAt,
+        );
     replace(_$result);
     return _$result;
   }
@@ -4233,8 +4282,11 @@ class UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder
     UserStatusSetPredefinedMessageResponseApplicationJson_Ocs._validate(this);
     _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4346,7 +4398,10 @@ class UserStatusSetPredefinedMessageResponseApplicationJsonBuilder
     UserStatusSetPredefinedMessageResponseApplicationJson._validate(this);
     _$UserStatusSetPredefinedMessageResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UserStatusSetPredefinedMessageResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UserStatusSetPredefinedMessageResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4480,7 +4535,10 @@ class UserStatusSetCustomMessageRequestApplicationJsonBuilder
     UserStatusSetCustomMessageRequestApplicationJson._validate(this);
     final _$result = _$v ??
         _$UserStatusSetCustomMessageRequestApplicationJson._(
-            statusIcon: statusIcon, message: message, clearAt: clearAt);
+          statusIcon: statusIcon,
+          message: message,
+          clearAt: clearAt,
+        );
     replace(_$result);
     return _$result;
   }
@@ -4592,8 +4650,11 @@ class UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder
     UserStatusSetCustomMessageResponseApplicationJson_Ocs._validate(this);
     _$UserStatusSetCustomMessageResponseApplicationJson_Ocs _$result;
     try {
-      _$result =
-          _$v ?? _$UserStatusSetCustomMessageResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$UserStatusSetCustomMessageResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4704,7 +4765,10 @@ class UserStatusSetCustomMessageResponseApplicationJsonBuilder
     UserStatusSetCustomMessageResponseApplicationJson._validate(this);
     _$UserStatusSetCustomMessageResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UserStatusSetCustomMessageResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UserStatusSetCustomMessageResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4828,9 +4892,10 @@ class UserStatusClearMessageResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$UserStatusClearMessageResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'UserStatusClearMessageResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(
+                data, r'UserStatusClearMessageResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -4937,7 +5002,10 @@ class UserStatusClearMessageResponseApplicationJsonBuilder
     UserStatusClearMessageResponseApplicationJson._validate(this);
     _$UserStatusClearMessageResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UserStatusClearMessageResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UserStatusClearMessageResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -5063,9 +5131,10 @@ class UserStatusRevertStatusResponseApplicationJson_OcsBuilder
     try {
       _$result = _$v ??
           _$UserStatusRevertStatusResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'UserStatusRevertStatusResponseApplicationJson_Ocs', 'data'));
+            meta: meta.build(),
+            data: BuiltValueNullFieldError.checkNotNull(
+                data, r'UserStatusRevertStatusResponseApplicationJson_Ocs', 'data'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -5172,7 +5241,10 @@ class UserStatusRevertStatusResponseApplicationJsonBuilder
     UserStatusRevertStatusResponseApplicationJson._validate(this);
     _$UserStatusRevertStatusResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UserStatusRevertStatusResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$UserStatusRevertStatusResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -5305,10 +5377,11 @@ class Capabilities_UserStatusBuilder
     Capabilities_UserStatus._validate(this);
     final _$result = _$v ??
         _$Capabilities_UserStatus._(
-            enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_UserStatus', 'enabled'),
-            restore: BuiltValueNullFieldError.checkNotNull(restore, r'Capabilities_UserStatus', 'restore'),
-            supportsEmoji:
-                BuiltValueNullFieldError.checkNotNull(supportsEmoji, r'Capabilities_UserStatus', 'supportsEmoji'));
+          enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_UserStatus', 'enabled'),
+          restore: BuiltValueNullFieldError.checkNotNull(restore, r'Capabilities_UserStatus', 'restore'),
+          supportsEmoji:
+              BuiltValueNullFieldError.checkNotNull(supportsEmoji, r'Capabilities_UserStatus', 'supportsEmoji'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -5396,7 +5469,10 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     Capabilities._validate(this);
     _$Capabilities _$result;
     try {
-      _$result = _$v ?? _$Capabilities._(userStatus: userStatus.build());
+      _$result = _$v ??
+          _$Capabilities._(
+            userStatus: userStatus.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

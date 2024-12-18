@@ -494,11 +494,12 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
     OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
-            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
-            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
-            message: message,
-            totalitems: totalitems,
-            itemsperpage: itemsperpage);
+          status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+          statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+          message: message,
+          totalitems: totalitems,
+          itemsperpage: itemsperpage,
+        );
     replace(_$result);
     return _$result;
   }
@@ -594,8 +595,9 @@ class ApiDeleteResponseApplicationJson_Ocs_DataBuilder
     ApiDeleteResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$ApiDeleteResponseApplicationJson_Ocs_Data._(
-            message: BuiltValueNullFieldError.checkNotNull(
-                message, r'ApiDeleteResponseApplicationJson_Ocs_Data', 'message'));
+          message:
+              BuiltValueNullFieldError.checkNotNull(message, r'ApiDeleteResponseApplicationJson_Ocs_Data', 'message'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -705,7 +707,11 @@ class ApiDeleteResponseApplicationJson_OcsBuilder
     ApiDeleteResponseApplicationJson_Ocs._validate(this);
     _$ApiDeleteResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$ApiDeleteResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$ApiDeleteResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -809,7 +815,10 @@ class ApiDeleteResponseApplicationJsonBuilder
     ApiDeleteResponseApplicationJson._validate(this);
     _$ApiDeleteResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$ApiDeleteResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ??
+          _$ApiDeleteResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -926,8 +935,9 @@ class Capabilities_DropAccount_DelayBuilder
     Capabilities_DropAccount_Delay._validate(this);
     final _$result = _$v ??
         _$Capabilities_DropAccount_Delay._(
-            enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_DropAccount_Delay', 'enabled'),
-            hours: BuiltValueNullFieldError.checkNotNull(hours, r'Capabilities_DropAccount_Delay', 'hours'));
+          enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_DropAccount_Delay', 'enabled'),
+          hours: BuiltValueNullFieldError.checkNotNull(hours, r'Capabilities_DropAccount_Delay', 'hours'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1066,10 +1076,11 @@ class Capabilities_DropAccountBuilder
     try {
       _$result = _$v ??
           _$Capabilities_DropAccount._(
-              enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_DropAccount', 'enabled'),
-              apiVersion: BuiltValueNullFieldError.checkNotNull(apiVersion, r'Capabilities_DropAccount', 'apiVersion'),
-              delay: delay.build(),
-              details: details);
+            enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_DropAccount', 'enabled'),
+            apiVersion: BuiltValueNullFieldError.checkNotNull(apiVersion, r'Capabilities_DropAccount', 'apiVersion'),
+            delay: delay.build(),
+            details: details,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1167,7 +1178,10 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     Capabilities._validate(this);
     _$Capabilities _$result;
     try {
-      _$result = _$v ?? _$Capabilities._(dropAccount: dropAccount.build());
+      _$result = _$v ??
+          _$Capabilities._(
+            dropAccount: dropAccount.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

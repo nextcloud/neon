@@ -186,7 +186,10 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
 
   _$Base _build() {
     Base._validate(this);
-    final _$result = _$v ?? _$Base._(attribute: attribute);
+    final _$result = _$v ??
+        _$Base._(
+          attribute: attribute,
+        );
     replace(_$result);
     return _$result;
   }
@@ -303,7 +306,10 @@ class NestedRedirectBuilder implements Builder<NestedRedirect, NestedRedirectBui
     try {
       _$result = _$v ??
           _$NestedRedirect._(
-              redirect: _redirect?.build(), redirectBaseType: redirectBaseType, redirectEmptyType: redirectEmptyType);
+            redirect: _redirect?.build(),
+            redirectBaseType: redirectBaseType,
+            redirectEmptyType: redirectEmptyType,
+          );
     } catch (_) {
       late String _$failedField;
       try {
