@@ -48,9 +48,6 @@ dev_dependencies:
       path: packages/neon_lints
   vector_graphics_compiler: any
 
-dependency_overrides:
-  file_picker: 8.1.4
-
 flutter:
   uses-material-design: true
   assets:
