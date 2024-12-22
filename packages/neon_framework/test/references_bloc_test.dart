@@ -90,6 +90,7 @@ core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities() =>
           spreedPublicCapabilities: null,
           systemtagsCapabilities: null,
           tablesCapabilities: null,
+          termsOfServicePublicCapabilities: null,
           themingPublicCapabilities: null,
           userStatusCapabilities: null,
           weatherStatusCapabilities: null,

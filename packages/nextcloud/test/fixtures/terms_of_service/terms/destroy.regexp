@@ -1,0 +1,18 @@
+POST http://localhost/ocs/v2\.php/apps/terms_of_service/terms
+accept: application/json
+authorization: Bearer mock
+content-type: application/json; charset=utf-8
+ocs-apirequest: true
+\{"countryCode":"DE","languageCode":"de","body":"test"\}
+GET http://localhost/ocs/v2\.php/apps/terms_of_service/terms/admin
+accept: application/json
+authorization: Bearer mock
+ocs-apirequest: true
+DELETE http://localhost/ocs/v2\.php/apps/terms_of_service/terms/1
+accept: application/json
+authorization: Bearer mock
+ocs-apirequest: true
+GET http://localhost/ocs/v2\.php/apps/terms_of_service/terms/admin
+accept: application/json
+authorization: Bearer mock
+ocs-apirequest: true

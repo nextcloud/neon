@@ -1,0 +1,12 @@
+POST http://localhost/ocs/v2\.php/apps/terms_of_service/terms
+accept: application/json
+authorization: Bearer mock
+content-type: application/json; charset=utf-8
+ocs-apirequest: true
+\{"countryCode":"DE","languageCode":"de","body":"test"\}
+POST http://localhost/ocs/v2\.php/apps/terms_of_service/sign_public
+accept: application/json
+authorization: Bearer mock
+content-type: application/json; charset=utf-8
+ocs-apirequest: true
+\{"termId":2\}
