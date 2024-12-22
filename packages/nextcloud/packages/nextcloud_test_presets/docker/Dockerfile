@@ -66,6 +66,12 @@ ARG DROP_ACCOUNT_CHECKSUM
 ADD --checksum=$DROP_ACCOUNT_CHECKSUM $DROP_ACCOUNT_URL /tmp/app.tar.gz
 RUN tar -xzf /tmp/app.tar.gz -C /
 
+FROM apps AS terms_of_service
+ARG TERMS_OF_SERVICE_URL
+ARG TERMS_OF_SERVICE_CHECKSUM
+ADD --checksum=$TERMS_OF_SERVICE_CHECKSUM $TERMS_OF_SERVICE_URL /tmp/app.tar.gz
+RUN tar -xzf /tmp/app.tar.gz -C /
+
 FROM nextcloud
 
 COPY --from=cookbook /cookbook /usr/src/nextcloud/apps/cookbook
@@ -75,6 +81,7 @@ COPY --from=uppush /uppush /usr/src/nextcloud/apps/uppush
 COPY --from=spreed /spreed /usr/src/nextcloud/apps/spreed
 COPY --from=tables /tables /usr/src/nextcloud/apps/tables
 COPY --from=drop_account /drop_account /usr/src/nextcloud/apps/drop_account
+COPY --from=terms_of_service /terms_of_service /usr/src/nextcloud/apps/terms_of_service
 
 ADD post.sh /tmp
 RUN /tmp/post.sh

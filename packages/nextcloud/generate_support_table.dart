@@ -13,6 +13,7 @@ final labels = <String, String>{
   'password_policy': '[Password Policy app](https://github.com/nextcloud/password_policy)',
   'spreed': '[Talk app](https://github.com/nextcloud/spreed)',
   'tables': '[Tables app](https://github.com/nextcloud/tables)',
+  'terms_of_service': '[Terms of service app](https://github.com/nextcloud/terms_of_service)',
   'uppush': '[NextPush app](https://codeberg.org/NextPush/uppush)',
 };
 
