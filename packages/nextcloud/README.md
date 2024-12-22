@@ -58,6 +58,7 @@ For an example checkout the [example](https://github.com/nextcloud/neon/blob/mai
 | [News app](https://github.com/nextcloud/news)                                      | 25 - 25.3              |
 | [Notes app](https://github.com/nextcloud/notes)                                    | 4.9 - 4.11             |
 | [Notifications app](https://github.com/nextcloud/notifications)                    | 29 - 31                |
+| [Password Policy app](https://github.com/nextcloud/password_policy)                | 29 - 31                |
 | [Talk app](https://github.com/nextcloud/spreed)                                    | 19 - 21                |
 | [Tables app](https://github.com/nextcloud/tables)                                  | 0.6 - 0.9              |
 | [NextPush app](https://codeberg.org/NextPush/uppush)                               | 1.4 - 2.3              |
