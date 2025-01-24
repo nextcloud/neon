@@ -27,7 +27,7 @@ dev_dependencies:
   custom_lint: ^0.7.0
   flutter_test:
     sdk: flutter
-  go_router_builder: ^2.7.1
+  go_router_builder: ^2.7.3
   http: ^1.2.2
   mocktail: ^1.0.4
   neon_lints:
