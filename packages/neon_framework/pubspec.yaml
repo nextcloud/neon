@@ -12,7 +12,7 @@ dependencies:
       url: https://github.com/nextcloud/neon
       path: packages/neon_framework/packages/account_repository
   bloc: ^8.1.4
-  bloc_concurrency: ^0.2.5
+  bloc_concurrency: ^0.3.0
   built_collection: ^5.0.0
   built_value: ^8.9.0
   collection: ^1.0.0
