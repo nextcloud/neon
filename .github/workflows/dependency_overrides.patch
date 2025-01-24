@@ -1,32 +1,36 @@
 diff --git a/packages/cookie_store/pubspec.yaml b/packages/cookie_store/pubspec.yaml
 --- a/packages/cookie_store/pubspec.yaml
 +++ b/packages/cookie_store/pubspec.yaml
-@@ -20,3 +20,6 @@ dev_dependencies:
+@@ -20,3 +20,8 @@ dev_dependencies:
        url: https://github.com/nextcloud/neon
        path: packages/neon_lints
-   test: ^1.25.8
+   test: ^1.25.15
 +
 +dependency_overrides:
 +  frontend_server_client: ^4.0.0
++  shelf_web_socket: ^2.0.0
++  web_socket_channel: ^3.0.0
 diff --git a/packages/cookie_store/pubspec_overrides.yaml b/packages/cookie_store/pubspec_overrides.yaml
 --- a/packages/cookie_store/pubspec_overrides.yaml
 +++ b/packages/cookie_store/pubspec_overrides.yaml
-@@ -1,6 +1,7 @@
+@@ -1,6 +1,9 @@
 -# melos_managed_dependency_overrides: cookie_store_conformance_tests,neon_lints
-+# melos_managed_dependency_overrides: cookie_store_conformance_tests,neon_lints,frontend_server_client
++# melos_managed_dependency_overrides: cookie_store_conformance_tests,neon_lints,frontend_server_client,shelf_web_socket,web_socket_channel
  dependency_overrides:
    cookie_store_conformance_tests:
      path: packages/cookie_store_conformance_tests
    neon_lints:
      path: ../neon_lints
 +  frontend_server_client: ^4.0.0
++  shelf_web_socket: ^2.0.0
++  web_socket_channel: ^3.0.0
 diff --git a/packages/dynamite/packages/dynamite_end_to_end_test/pubspec.yaml b/packages/dynamite/packages/dynamite_end_to_end_test/pubspec.yaml
 --- a/packages/dynamite/packages/dynamite_end_to_end_test/pubspec.yaml
 +++ b/packages/dynamite/packages/dynamite_end_to_end_test/pubspec.yaml
 @@ -25,3 +25,7 @@ dev_dependencies:
        url: https://github.com/nextcloud/neon
        path: packages/neon_lints
-   test: ^1.25.8
+   test: ^1.25.15
 +
 +dependency_overrides:
 +  frontend_server_client: ^4.0.0
@@ -51,7 +55,7 @@ diff --git a/packages/dynamite/packages/dynamite_runtime/pubspec.yaml b/packages
 +++ b/packages/dynamite/packages/dynamite_runtime/pubspec.yaml
 @@ -29,6 +29,9 @@ dev_dependencies:
        path: packages/neon_lints
-   test: ^1.25.8
+   test: ^1.25.15
  
 +dependency_overrides:
 +  frontend_server_client: ^4.0.0
@@ -75,7 +79,7 @@ diff --git a/packages/dynamite/pubspec.yaml b/packages/dynamite/pubspec.yaml
 @@ -39,3 +39,7 @@ dev_dependencies:
        url: https://github.com/nextcloud/neon
        path: packages/neon_lints
-   test: ^1.25.8
+   test: ^1.25.15
 +
 +dependency_overrides:
 +  frontend_server_client: ^4.0.0
@@ -94,27 +98,31 @@ diff --git a/packages/dynamite/pubspec_overrides.yaml b/packages/dynamite/pubspe
 diff --git a/packages/interceptor_http_client/pubspec.yaml b/packages/interceptor_http_client/pubspec.yaml
 --- a/packages/interceptor_http_client/pubspec.yaml
 +++ b/packages/interceptor_http_client/pubspec.yaml
-@@ -27,3 +27,7 @@ dev_dependencies:
+@@ -27,3 +27,9 @@ dev_dependencies:
        url: https://github.com/nextcloud/neon
        path: packages/neon_lints
-   test: ^1.25.8
+   test: ^1.25.15
 +
 +dependency_overrides:
 +  frontend_server_client: ^4.0.0
++  shelf_web_socket: ^2.0.0
 +  web: ">=0.5.0 <2.0.0"
++  web_socket_channel: ^3.0.0
 diff --git a/packages/interceptor_http_client/pubspec_overrides.yaml b/packages/interceptor_http_client/pubspec_overrides.yaml
 --- a/packages/interceptor_http_client/pubspec_overrides.yaml
 +++ b/packages/interceptor_http_client/pubspec_overrides.yaml
-@@ -1,6 +1,8 @@
+@@ -1,6 +1,10 @@
 -# melos_managed_dependency_overrides: cookie_store,neon_lints
-+# melos_managed_dependency_overrides: cookie_store,neon_lints,frontend_server_client,web
++# melos_managed_dependency_overrides: cookie_store,neon_lints,frontend_server_client,shelf_web_socket,web,web_socket_channel
  dependency_overrides:
    cookie_store:
      path: ../cookie_store
    neon_lints:
      path: ../neon_lints
 +  frontend_server_client: ^4.0.0
++  shelf_web_socket: ^2.0.0
 +  web: ">=0.5.0 <2.0.0"
++  web_socket_channel: ^3.0.0
 diff --git a/packages/neon_framework/packages/account_repository/pubspec.yaml b/packages/neon_framework/packages/account_repository/pubspec.yaml
 --- a/packages/neon_framework/packages/account_repository/pubspec.yaml
 +++ b/packages/neon_framework/packages/account_repository/pubspec.yaml
@@ -185,31 +193,35 @@ diff --git a/packages/neon_framework/packages/dashboard_app/pubspec_overrides.ya
 diff --git a/packages/neon_framework/packages/neon_http_client/pubspec.yaml b/packages/neon_framework/packages/neon_http_client/pubspec.yaml
 --- a/packages/neon_framework/packages/neon_http_client/pubspec.yaml
 +++ b/packages/neon_framework/packages/neon_http_client/pubspec.yaml
-@@ -34,3 +34,8 @@ dev_dependencies:
+@@ -34,3 +34,10 @@ dev_dependencies:
        url: https://github.com/nextcloud/neon
        path: packages/neon_lints
-   test: ^1.25.8
+   test: ^1.25.15
 +
 +dependency_overrides:
 +  frontend_server_client: ^4.0.0
 +  quiver: ^3.2.1
++  shelf_web_socket: ^2.0.0
 +  web: ">=0.5.0 <2.0.0"
++  web_socket_channel: ^3.0.0
 diff --git a/packages/neon_framework/packages/neon_http_client/pubspec_overrides.yaml b/packages/neon_framework/packages/neon_http_client/pubspec_overrides.yaml
 --- a/packages/neon_framework/packages/neon_http_client/pubspec_overrides.yaml
 +++ b/packages/neon_framework/packages/neon_http_client/pubspec_overrides.yaml
 @@ -1,4 +1,4 @@
 -# melos_managed_dependency_overrides: cookie_store,dynamite_runtime,interceptor_http_client,neon_lints,nextcloud
-+# melos_managed_dependency_overrides: cookie_store,dynamite_runtime,interceptor_http_client,neon_lints,nextcloud,frontend_server_client,quiver,web
++# melos_managed_dependency_overrides: cookie_store,dynamite_runtime,interceptor_http_client,neon_lints,nextcloud,frontend_server_client,quiver,shelf_web_socket,web,web_socket_channel
  dependency_overrides:
    cookie_store:
      path: ../../../cookie_store
-@@ -10,3 +10,6 @@ dependency_overrides:
+@@ -10,3 +10,8 @@ dependency_overrides:
      path: ../../../neon_lints
    nextcloud:
      path: ../../../nextcloud
 +  frontend_server_client: ^4.0.0
 +  quiver: ^3.2.1
++  shelf_web_socket: ^2.0.0
 +  web: ">=0.5.0 <2.0.0"
++  web_socket_channel: ^3.0.0
 diff --git a/packages/neon_framework/packages/neon_rich_text/pubspec.yaml b/packages/neon_framework/packages/neon_rich_text/pubspec.yaml
 --- a/packages/neon_framework/packages/neon_rich_text/pubspec.yaml
 +++ b/packages/neon_framework/packages/neon_rich_text/pubspec.yaml
@@ -250,7 +262,7 @@ diff --git a/packages/neon_framework/packages/neon_storage/pubspec.yaml b/packag
 @@ -32,3 +32,6 @@ dev_dependencies:
        url: https://github.com/nextcloud/neon
        path: packages/neon_lints
-   test: ^1.25.8
+   test: ^1.25.15
 +
 +dependency_overrides:
 +  frontend_server_client: ^4.0.0
@@ -341,7 +353,7 @@ diff --git a/packages/neon_framework/packages/sort_box/pubspec.yaml b/packages/n
 @@ -15,3 +15,6 @@ dev_dependencies:
        url: https://github.com/nextcloud/neon
        path: packages/neon_lints
-   test: ^1.25.8
+   test: ^1.25.15
 +
 +dependency_overrides:
 +  frontend_server_client: ^4.0.0
@@ -431,7 +443,7 @@ diff --git a/packages/nextcloud/pubspec.yaml b/packages/nextcloud/pubspec.yaml
 --- a/packages/nextcloud/pubspec.yaml
 +++ b/packages/nextcloud/pubspec.yaml
 @@ -57,6 +57,10 @@ dev_dependencies:
-   test_api: ^0.7.3
+   test_api: ^0.7.4
    xml_serializable: ^2.5.4
  
 +dependency_overrides:
