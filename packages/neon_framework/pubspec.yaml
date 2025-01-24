@@ -11,8 +11,8 @@ dependencies:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/neon_framework/packages/account_repository
-  bloc: ^8.1.4
-  bloc_concurrency: ^0.2.5
+  bloc: ^9.0.0
+  bloc_concurrency: ^0.3.0
   built_collection: ^5.0.0
   built_value: ^8.9.0
   collection: ^1.0.0
@@ -29,7 +29,7 @@ dependencies:
   filesize: ^2.0.0
   flutter:
     sdk: flutter
-  flutter_bloc: ^8.1.6
+  flutter_bloc: ^9.0.0
   flutter_blurhash: ^0.8.2
   flutter_local_notifications: ^18.0.0
   flutter_localizations:
@@ -78,7 +78,7 @@ dependencies:
   xml: ^6.0.0
 
 dev_dependencies:
-  bloc_test: ^9.1.7
+  bloc_test: ^10.0.0
   build_runner: ^2.4.14
   built_value_generator: ^8.9.3
   code_builder: ^4.10.1
