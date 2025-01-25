@@ -46,11 +46,12 @@ final class DockerContainerFactory extends TestTargetFactory<DockerContainerInst
           'run',
           '--rm',
           '-d',
-          '--add-host',
-          'host.docker.internal:host-gateway',
-          '-p',
-          '$port:80',
+          '--network',
+          'host',
           dockerImageName,
+          'php',
+          '-S',
+          '0.0.0.0:$port',
         ],
       );
       // 125 means the docker run command itself has failed which indicated the port is already used
@@ -110,16 +111,10 @@ final class DockerContainerInstance extends TestTargetInstance {
       );
 
   @override
-  late Uri hostURL = Uri(
+  late Uri url = Uri(
     scheme: 'http',
     host: 'localhost',
     port: port,
-  );
-
-  @override
-  Uri targetURL = Uri(
-    scheme: 'http',
-    host: 'localhost',
   );
 
   @override

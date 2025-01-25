@@ -55,11 +55,8 @@ abstract class TestTargetInstance {
   /// Destroys the instance.
   FutureOr<void> destroy();
 
-  /// URL where the target is available from the host side.
-  Uri get hostURL;
-
-  /// URL where the target is available from itself.
-  Uri get targetURL;
+  /// URL where the target is available.
+  Uri get url;
 
   /// Creates an app password for [username] on the instance.
   Future<String> createAppPassword(String username);
@@ -86,7 +83,7 @@ abstract class TestTargetInstance {
     );
 
     return NextcloudClient(
-      hostURL,
+      url,
       loginName: username,
       password: username,
       appPassword: appPassword,
