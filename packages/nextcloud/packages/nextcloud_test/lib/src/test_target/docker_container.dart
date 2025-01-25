@@ -38,7 +38,9 @@ final class DockerContainerFactory extends TestTargetFactory<DockerContainerInst
     }
 
     late int port;
-    while (true) {
+
+    // Retry a few times because the random port could already be allocated.
+    for (var i = 0; i < 3; i++) {
       port = _randomPort();
       result = await runExecutableArguments(
         'docker',
@@ -54,8 +56,7 @@ final class DockerContainerFactory extends TestTargetFactory<DockerContainerInst
           '0.0.0.0:$port',
         ],
       );
-      // 125 means the docker run command itself has failed which indicated the port is already used
-      if (result.exitCode != 125) {
+      if (result.exitCode == 0) {
         break;
       }
     }
