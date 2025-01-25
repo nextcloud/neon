@@ -23,14 +23,14 @@ final class NextcloudTester {
   /// The app version tested.
   Version get version => _preset.version;
 
-  /// URL where the target is available from itself.
-  Uri get targetURL {
+  /// URL where the target is available.
+  Uri get url {
     final target = _target;
     if (target == null) {
       throw StateError('The tester has not been initialized');
     }
 
-    return target.targetURL;
+    return target.url;
   }
 
   /// Creates a new [NextcloudClient] for a given [username].

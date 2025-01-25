@@ -99,7 +99,7 @@ void main() {
 
     group('recipes', () {
       test('callImport', () async {
-        final url = cookbook.UrlBuilder()..url = '${tester.targetURL}/static/recipe.html';
+        final url = cookbook.UrlBuilder()..url = '${tester.url}/static/recipe.html';
         final response = await tester.client.cookbook.recipes.$import($body: url.build());
         addTearDown(() async {
           closeFixture();

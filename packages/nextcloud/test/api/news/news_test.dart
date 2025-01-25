@@ -23,12 +23,12 @@ void main() {
 
     Future<DynamiteResponse<news.ListFeeds, void>> addWikipediaFeed([int? folderID]) async =>
         tester.client.news.feeds.addFeed(
-          url: '${tester.targetURL}/static/wikipedia.xml',
+          url: '${tester.url}/static/wikipedia.xml',
           folderId: folderID,
         );
 
     Future<DynamiteResponse<news.ListFeeds, void>> addNasaFeed() async => tester.client.news.feeds.addFeed(
-          url: '${tester.targetURL}/static/nasa.xml',
+          url: '${tester.url}/static/nasa.xml',
         );
 
     test('Is supported', () async {
@@ -55,7 +55,7 @@ void main() {
         expect(response.body.starredCount, null);
         expect(response.body.newestItemId, isNotNull);
         expect(response.body.feeds, hasLength(1));
-        expect(response.body.feeds[0].url, '${tester.targetURL}/static/wikipedia.xml');
+        expect(response.body.feeds[0].url, '${tester.url}/static/wikipedia.xml');
 
         response = await tester.client.news.feeds.listFeeds();
         expect(response.statusCode, 200);
@@ -64,7 +64,7 @@ void main() {
         expect(response.body.starredCount, 0);
         expect(response.body.newestItemId, isNotNull);
         expect(response.body.feeds, hasLength(1));
-        expect(response.body.feeds[0].url, '${tester.targetURL}/static/wikipedia.xml');
+        expect(response.body.feeds[0].url, '${tester.url}/static/wikipedia.xml');
       });
 
       test('Add feed to folder', () async {
@@ -77,7 +77,7 @@ void main() {
         expect(response.body.newestItemId, isNotNull);
         expect(response.body.feeds, hasLength(1));
         expect(response.body.feeds[0].folderId, isPositive);
-        expect(response.body.feeds[0].url, '${tester.targetURL}/static/wikipedia.xml');
+        expect(response.body.feeds[0].url, '${tester.url}/static/wikipedia.xml');
       });
 
       test('Delete feed', () async {

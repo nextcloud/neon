@@ -90,11 +90,9 @@ final class LocalFactory extends TestTargetFactory<LocalInstance> {
 final class LocalInstance extends TestTargetInstance {
   /// Creates a new test instance for a local server.
   LocalInstance({
-    required Uri url,
+    required this.url,
     required String dir,
-  })  : hostURL = url,
-        targetURL = url,
-        _dir = dir;
+  }) : _dir = dir;
 
   final String _dir;
 
@@ -102,10 +100,7 @@ final class LocalInstance extends TestTargetInstance {
   void destroy() {}
 
   @override
-  final Uri hostURL;
-
-  @override
-  final Uri targetURL;
+  final Uri url;
 
   @override
   Future<String> createAppPassword(String username) async {
