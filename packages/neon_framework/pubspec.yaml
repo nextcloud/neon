@@ -92,7 +92,7 @@ dev_dependencies:
   flutter_local_notifications_platform_interface: ^8.0.0
   flutter_test:
     sdk: flutter
-  go_router_builder: ^2.7.3
+  go_router_builder: ^2.7.4
   mocktail: ^1.0.4
   neon_lints:
     git:
