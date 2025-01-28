@@ -168,6 +168,36 @@ void main() {
           });
         });
       });
+
+      test('Message expiration', () async {
+        const expiration = 1;
+
+        final room = await createTestRoom();
+        expect(room.lastMessage.baseMessage, isNotNull);
+        expect(room.lastMessage.builtListNever, isNull);
+        expect(room.lastMessage.chatMessage, isNotNull);
+
+        await tester.client.spreed.room.setMessageExpiration(
+          token: room.token,
+          $body: spreed.RoomSetMessageExpirationRequestApplicationJson(
+            (b) => b.seconds = expiration,
+          ),
+        );
+
+        final clearHistoryResponse = await tester.client.spreed.chat.clearHistory(
+          token: room.token,
+        );
+        expect(clearHistoryResponse.body.ocs.data.expirationTimestamp, isPositive);
+
+        await Future<void>.delayed(const Duration(seconds: expiration));
+
+        final getRoomResponse = await tester.client.spreed.room.getSingleRoom(
+          token: room.token,
+        );
+        expect(getRoomResponse.body.ocs.data.lastMessage.baseMessage, isNull);
+        expect(getRoomResponse.body.ocs.data.lastMessage.builtListNever, isNotNull);
+        expect(getRoomResponse.body.ocs.data.lastMessage.chatMessage, isNull);
+      });
     });
 
     group('Avatar', () {
