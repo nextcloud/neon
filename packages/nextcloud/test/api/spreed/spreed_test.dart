@@ -168,6 +168,36 @@ void main() {
           });
         });
       });
+
+      test('Message expiration', () async {
+        const expiration = 1;
+
+        final room = await createTestRoom();
+        expect(room.lastMessage.baseMessage, isNotNull);
+        expect(room.lastMessage.builtListNever, isNull);
+        expect(room.lastMessage.chatMessage, isNotNull);
+
+        await tester.client.spreed.room.setMessageExpiration(
+          token: room.token,
+          $body: spreed.RoomSetMessageExpirationRequestApplicationJson(
+            (b) => b.seconds = expiration,
+          ),
+        );
+
+        final clearHistoryResponse = await tester.client.spreed.chat.clearHistory(
+          token: room.token,
+        );
+        expect(clearHistoryResponse.body.ocs.data.expirationTimestamp, isPositive);
+
+        await Future<void>.delayed(const Duration(seconds: expiration));
+
+        final getRoomResponse = await tester.client.spreed.room.getSingleRoom(
+          token: room.token,
+        );
+        expect(getRoomResponse.body.ocs.data.lastMessage.baseMessage, isNull);
+        expect(getRoomResponse.body.ocs.data.lastMessage.builtListNever, isNotNull);
+        expect(getRoomResponse.body.ocs.data.lastMessage.chatMessage, isNull);
+      });
     });
 
     group('Avatar', () {
@@ -462,6 +492,34 @@ void main() {
         expect(response.body.ocs.data.parent!.chatMessage!.message, 'Message deleted by you');
         expect(response.body.ocs.data.parent!.chatMessage!.messageType, spreed.MessageType.commentDeleted);
         expect(response.body.ocs.data.parent!.chatMessage!.systemMessage, '');
+      });
+
+      test('Clear history', () async {
+        final room = await createTestRoom();
+
+        final clearHistoryResponse = await tester.client.spreed.chat.clearHistory(
+          token: room.token,
+        );
+        expect(clearHistoryResponse.body.ocs.data.id, isPositive);
+        expect(clearHistoryResponse.body.ocs.data.actorType, spreed.ActorType.users);
+        expect(clearHistoryResponse.body.ocs.data.actorId, 'user1');
+        expect(clearHistoryResponse.body.ocs.data.actorDisplayName, 'User One');
+        expect(clearHistoryResponse.body.ocs.data.message, 'You cleared the history of the conversation');
+        expect(clearHistoryResponse.body.ocs.data.messageType, spreed.MessageType.system);
+        expect(clearHistoryResponse.body.ocs.data.systemMessage, 'history_cleared');
+
+        final receiveMessagesResponse = await tester.client.spreed.chat.receiveMessages(
+          token: room.token,
+          lookIntoFuture: spreed.ChatReceiveMessagesLookIntoFuture.$0,
+        );
+        expect(receiveMessagesResponse.body.ocs.data, hasLength(1));
+        expect(receiveMessagesResponse.body.ocs.data[0].id, isPositive);
+        expect(receiveMessagesResponse.body.ocs.data[0].actorType, spreed.ActorType.users);
+        expect(receiveMessagesResponse.body.ocs.data[0].actorId, 'user1');
+        expect(receiveMessagesResponse.body.ocs.data[0].actorDisplayName, 'User One');
+        expect(receiveMessagesResponse.body.ocs.data[0].message, 'You cleared the history of the conversation');
+        expect(receiveMessagesResponse.body.ocs.data[0].messageType, spreed.MessageType.system);
+        expect(receiveMessagesResponse.body.ocs.data[0].systemMessage, 'history_cleared');
       });
     });
 
