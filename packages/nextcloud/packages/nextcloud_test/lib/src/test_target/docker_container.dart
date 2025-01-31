@@ -38,9 +38,9 @@ final class DockerContainerFactory extends TestTargetFactory<DockerContainerInst
     }
 
     late int port;
+    late String id;
 
-    // Retry a few times because the random port could already be allocated.
-    for (var i = 0; i < 3; i++) {
+    while (true) {
       port = _randomPort();
       result = await runExecutableArguments(
         'docker',
@@ -56,17 +56,30 @@ final class DockerContainerFactory extends TestTargetFactory<DockerContainerInst
           '0.0.0.0:$port',
         ],
       );
+      // The command will not fail if the port is already allocated since we run in detached mode.
+      if (result.exitCode != 0) {
+        throw Exception('Failed to run docker container: ${result.stderr}');
+      }
+
+      id = result.stdout.toString().replaceAll('\n', '');
+
+      // Ensure container is still up and didn't crash because the port was already allocated.
+      result = await runExecutableArguments(
+        'docker',
+        [
+          'exec',
+          '-i',
+          id,
+          'true',
+        ],
+      );
       if (result.exitCode == 0) {
         break;
       }
     }
 
-    if (result.exitCode != 0) {
-      throw Exception('Failed to run docker container: ${result.stderr}');
-    }
-
     return DockerContainerInstance(
-      id: result.stdout.toString().replaceAll('\n', ''),
+      id: id,
       port: port,
     );
   }
