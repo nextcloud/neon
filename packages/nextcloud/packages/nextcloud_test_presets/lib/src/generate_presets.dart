@@ -226,7 +226,13 @@ Future<List<App>> _getApps(List<String> appIDs, http.Client httpClient) async {
 
       if (!releases.containsKey(normalizedVersion)) {
         releases[normalizedVersion] = appRelease;
-      } else if (appRelease.version > releases[normalizedVersion]!.version) {
+      } else if (
+          // Always prefer a stable release if the current one is unstable, regardless of the version numbers.
+          (releases[normalizedVersion]!.version.isPreRelease && !appRelease.version.isPreRelease) ||
+              // If both are stable or unstable, just take the higher version.
+              // The first condition is necessary to prevent that an unstable release with a higher version will override a stable release with a lower version.
+              (releases[normalizedVersion]!.version.isPreRelease == appRelease.version.isPreRelease &&
+                  appRelease.version > releases[normalizedVersion]!.version)) {
         releases[normalizedVersion] = appRelease;
       }
     }
