@@ -6,23 +6,23 @@ part of 'files_external.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const Mount_Type _$mountTypeDir = Mount_Type._('dir');
+const Mount_Type _$mountTypeDir = const Mount_Type._('dir');
 
 Mount_Type _$valueOfMount_Type(String name) {
   switch (name) {
     case 'dir':
       return _$mountTypeDir;
     default:
-      throw ArgumentError(name);
+      throw new ArgumentError(name);
   }
 }
 
-final BuiltSet<Mount_Type> _$mountTypeValues = BuiltSet<Mount_Type>(const <Mount_Type>[
+final BuiltSet<Mount_Type> _$mountTypeValues = new BuiltSet<Mount_Type>(const <Mount_Type>[
   _$mountTypeDir,
 ]);
 
-const Mount_Scope _$mountScopeSystem = Mount_Scope._('system');
-const Mount_Scope _$mountScopePersonal = Mount_Scope._('personal');
+const Mount_Scope _$mountScopeSystem = const Mount_Scope._('system');
+const Mount_Scope _$mountScopePersonal = const Mount_Scope._('personal');
 
 Mount_Scope _$valueOfMount_Scope(String name) {
   switch (name) {
@@ -31,17 +31,17 @@ Mount_Scope _$valueOfMount_Scope(String name) {
     case 'personal':
       return _$mountScopePersonal;
     default:
-      throw ArgumentError(name);
+      throw new ArgumentError(name);
   }
 }
 
-final BuiltSet<Mount_Scope> _$mountScopeValues = BuiltSet<Mount_Scope>(const <Mount_Scope>[
+final BuiltSet<Mount_Scope> _$mountScopeValues = new BuiltSet<Mount_Scope>(const <Mount_Scope>[
   _$mountScopeSystem,
   _$mountScopePersonal,
 ]);
 
-const StorageConfig_Type _$storageConfigTypePersonal = StorageConfig_Type._('personal');
-const StorageConfig_Type _$storageConfigTypeSystem = StorageConfig_Type._('system');
+const StorageConfig_Type _$storageConfigTypePersonal = const StorageConfig_Type._('personal');
+const StorageConfig_Type _$storageConfigTypeSystem = const StorageConfig_Type._('system');
 
 StorageConfig_Type _$valueOfStorageConfig_Type(String name) {
   switch (name) {
@@ -50,22 +50,23 @@ StorageConfig_Type _$valueOfStorageConfig_Type(String name) {
     case 'system':
       return _$storageConfigTypeSystem;
     default:
-      throw ArgumentError(name);
+      throw new ArgumentError(name);
   }
 }
 
-final BuiltSet<StorageConfig_Type> _$storageConfigTypeValues = BuiltSet<StorageConfig_Type>(const <StorageConfig_Type>[
+final BuiltSet<StorageConfig_Type> _$storageConfigTypeValues =
+    new BuiltSet<StorageConfig_Type>(const <StorageConfig_Type>[
   _$storageConfigTypePersonal,
   _$storageConfigTypeSystem,
 ]);
 
-Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
-Serializer<StorageConfig> _$storageConfigSerializer = _$StorageConfigSerializer();
-Serializer<Mount> _$mountSerializer = _$MountSerializer();
+Serializer<OCSMeta> _$oCSMetaSerializer = new _$OCSMetaSerializer();
+Serializer<StorageConfig> _$storageConfigSerializer = new _$StorageConfigSerializer();
+Serializer<Mount> _$mountSerializer = new _$MountSerializer();
 Serializer<ApiGetUserMountsResponseApplicationJson_Ocs> _$apiGetUserMountsResponseApplicationJsonOcsSerializer =
-    _$ApiGetUserMountsResponseApplicationJson_OcsSerializer();
+    new _$ApiGetUserMountsResponseApplicationJson_OcsSerializer();
 Serializer<ApiGetUserMountsResponseApplicationJson> _$apiGetUserMountsResponseApplicationJsonSerializer =
-    _$ApiGetUserMountsResponseApplicationJsonSerializer();
+    new _$ApiGetUserMountsResponseApplicationJsonSerializer();
 
 class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
@@ -107,7 +108,7 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
   OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = OCSMetaBuilder();
+    final result = new OCSMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -153,7 +154,7 @@ class _$StorageConfigSerializer implements StructuredSerializer<StorageConfig> {
       serializers.serialize(object.backend, specifiedType: const FullType(String)),
       'backendOptions',
       serializers.serialize(object.backendOptions,
-          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)])),
+          specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])),
       'mountPoint',
       serializers.serialize(object.mountPoint, specifiedType: const FullType(String)),
       'type',
@@ -166,13 +167,13 @@ class _$StorageConfigSerializer implements StructuredSerializer<StorageConfig> {
     if (value != null) {
       result
         ..add('applicableGroups')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)])));
     }
     value = object.applicableUsers;
     if (value != null) {
       result
         ..add('applicableUsers')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)])));
     }
     value = object.id;
     if (value != null) {
@@ -185,7 +186,7 @@ class _$StorageConfigSerializer implements StructuredSerializer<StorageConfig> {
       result
         ..add('mountOptions')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)])));
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])));
     }
     value = object.priority;
     if (value != null) {
@@ -211,7 +212,7 @@ class _$StorageConfigSerializer implements StructuredSerializer<StorageConfig> {
   @override
   StorageConfig deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = StorageConfigBuilder();
+    final result = new StorageConfigBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -221,11 +222,11 @@ class _$StorageConfigSerializer implements StructuredSerializer<StorageConfig> {
       switch (key) {
         case 'applicableGroups':
           result.applicableGroups.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
           break;
         case 'applicableUsers':
           result.applicableUsers.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
           break;
         case 'authMechanism':
           result.authMechanism = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -235,14 +236,14 @@ class _$StorageConfigSerializer implements StructuredSerializer<StorageConfig> {
           break;
         case 'backendOptions':
           result.backendOptions.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]))!);
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]))!);
           break;
         case 'id':
           result.id = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
         case 'mountOptions':
           result.mountOptions.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]))!);
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]))!);
           break;
         case 'mountPoint':
           result.mountPoint = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -305,7 +306,7 @@ class _$MountSerializer implements StructuredSerializer<Mount> {
   @override
   Mount deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = MountBuilder();
+    final result = new MountBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -365,7 +366,7 @@ class _$ApiGetUserMountsResponseApplicationJson_OcsSerializer
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(Mount)])),
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, const [const FullType(Mount)])),
     ];
 
     return result;
@@ -374,7 +375,7 @@ class _$ApiGetUserMountsResponseApplicationJson_OcsSerializer
   @override
   ApiGetUserMountsResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ApiGetUserMountsResponseApplicationJson_OcsBuilder();
+    final result = new ApiGetUserMountsResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -387,7 +388,7 @@ class _$ApiGetUserMountsResponseApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Mount)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(Mount)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -420,7 +421,7 @@ class _$ApiGetUserMountsResponseApplicationJsonSerializer
   @override
   ApiGetUserMountsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ApiGetUserMountsResponseApplicationJsonBuilder();
+    final result = new ApiGetUserMountsResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -471,7 +472,7 @@ class _$OCSMeta extends OCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (new OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
       : super._() {
@@ -483,7 +484,7 @@ class _$OCSMeta extends OCSMeta {
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
+  OCSMetaBuilder toBuilder() => new OCSMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -577,7 +578,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   _$OCSMeta _build() {
     OCSMeta._validate(this);
     final _$result = _$v ??
-        _$OCSMeta._(
+        new _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
           message: message,
@@ -661,7 +662,7 @@ class _$StorageConfig extends StorageConfig {
   final bool userProvided;
 
   factory _$StorageConfig([void Function(StorageConfigBuilder)? updates]) =>
-      (StorageConfigBuilder()..update(updates))._build();
+      (new StorageConfigBuilder()..update(updates))._build();
 
   _$StorageConfig._(
       {this.applicableGroups,
@@ -690,7 +691,7 @@ class _$StorageConfig extends StorageConfig {
   StorageConfig rebuild(void Function(StorageConfigBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  StorageConfigBuilder toBuilder() => StorageConfigBuilder()..replace(this);
+  StorageConfigBuilder toBuilder() => new StorageConfigBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -755,11 +756,11 @@ class StorageConfigBuilder implements Builder<StorageConfig, StorageConfigBuilde
   _$StorageConfig? _$v;
 
   ListBuilder<String>? _applicableGroups;
-  ListBuilder<String> get applicableGroups => _$this._applicableGroups ??= ListBuilder<String>();
+  ListBuilder<String> get applicableGroups => _$this._applicableGroups ??= new ListBuilder<String>();
   set applicableGroups(covariant ListBuilder<String>? applicableGroups) => _$this._applicableGroups = applicableGroups;
 
   ListBuilder<String>? _applicableUsers;
-  ListBuilder<String> get applicableUsers => _$this._applicableUsers ??= ListBuilder<String>();
+  ListBuilder<String> get applicableUsers => _$this._applicableUsers ??= new ListBuilder<String>();
   set applicableUsers(covariant ListBuilder<String>? applicableUsers) => _$this._applicableUsers = applicableUsers;
 
   String? _authMechanism;
@@ -771,7 +772,7 @@ class StorageConfigBuilder implements Builder<StorageConfig, StorageConfigBuilde
   set backend(covariant String? backend) => _$this._backend = backend;
 
   MapBuilder<String, JsonObject>? _backendOptions;
-  MapBuilder<String, JsonObject> get backendOptions => _$this._backendOptions ??= MapBuilder<String, JsonObject>();
+  MapBuilder<String, JsonObject> get backendOptions => _$this._backendOptions ??= new MapBuilder<String, JsonObject>();
   set backendOptions(covariant MapBuilder<String, JsonObject>? backendOptions) =>
       _$this._backendOptions = backendOptions;
 
@@ -780,7 +781,7 @@ class StorageConfigBuilder implements Builder<StorageConfig, StorageConfigBuilde
   set id(covariant int? id) => _$this._id = id;
 
   MapBuilder<String, JsonObject>? _mountOptions;
-  MapBuilder<String, JsonObject> get mountOptions => _$this._mountOptions ??= MapBuilder<String, JsonObject>();
+  MapBuilder<String, JsonObject> get mountOptions => _$this._mountOptions ??= new MapBuilder<String, JsonObject>();
   set mountOptions(covariant MapBuilder<String, JsonObject>? mountOptions) => _$this._mountOptions = mountOptions;
 
   String? _mountPoint;
@@ -851,7 +852,7 @@ class StorageConfigBuilder implements Builder<StorageConfig, StorageConfigBuilde
     _$StorageConfig _$result;
     try {
       _$result = _$v ??
-          _$StorageConfig._(
+          new _$StorageConfig._(
             applicableGroups: _applicableGroups?.build(),
             applicableUsers: _applicableUsers?.build(),
             authMechanism: BuiltValueNullFieldError.checkNotNull(authMechanism, r'StorageConfig', 'authMechanism'),
@@ -880,7 +881,7 @@ class StorageConfigBuilder implements Builder<StorageConfig, StorageConfigBuilde
         _$failedField = 'mountOptions';
         _mountOptions?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'StorageConfig', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'StorageConfig', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -940,7 +941,7 @@ class _$Mount extends Mount {
   @override
   final StorageConfig config;
 
-  factory _$Mount([void Function(MountBuilder)? updates]) => (MountBuilder()..update(updates))._build();
+  factory _$Mount([void Function(MountBuilder)? updates]) => (new MountBuilder()..update(updates))._build();
 
   _$Mount._(
       {required this.name,
@@ -968,7 +969,7 @@ class _$Mount extends Mount {
   Mount rebuild(void Function(MountBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  MountBuilder toBuilder() => MountBuilder()..replace(this);
+  MountBuilder toBuilder() => new MountBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1053,7 +1054,7 @@ class MountBuilder implements Builder<Mount, MountBuilder>, $MountInterfaceBuild
   set $class(covariant String? $class) => _$this._$class = $class;
 
   StorageConfigBuilder? _config;
-  StorageConfigBuilder get config => _$this._config ??= StorageConfigBuilder();
+  StorageConfigBuilder get config => _$this._config ??= new StorageConfigBuilder();
   set config(covariant StorageConfigBuilder? config) => _$this._config = config;
 
   MountBuilder() {
@@ -1096,7 +1097,7 @@ class MountBuilder implements Builder<Mount, MountBuilder>, $MountInterfaceBuild
     _$Mount _$result;
     try {
       _$result = _$v ??
-          _$Mount._(
+          new _$Mount._(
             name: BuiltValueNullFieldError.checkNotNull(name, r'Mount', 'name'),
             path: BuiltValueNullFieldError.checkNotNull(path, r'Mount', 'path'),
             type: BuiltValueNullFieldError.checkNotNull(type, r'Mount', 'type'),
@@ -1113,7 +1114,7 @@ class MountBuilder implements Builder<Mount, MountBuilder>, $MountInterfaceBuild
         _$failedField = 'config';
         config.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Mount', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'Mount', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1140,7 +1141,7 @@ class _$ApiGetUserMountsResponseApplicationJson_Ocs extends ApiGetUserMountsResp
 
   factory _$ApiGetUserMountsResponseApplicationJson_Ocs(
           [void Function(ApiGetUserMountsResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiGetUserMountsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (new ApiGetUserMountsResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ApiGetUserMountsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'ApiGetUserMountsResponseApplicationJson_Ocs', 'meta');
@@ -1154,7 +1155,7 @@ class _$ApiGetUserMountsResponseApplicationJson_Ocs extends ApiGetUserMountsResp
 
   @override
   ApiGetUserMountsResponseApplicationJson_OcsBuilder toBuilder() =>
-      ApiGetUserMountsResponseApplicationJson_OcsBuilder()..replace(this);
+      new ApiGetUserMountsResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1187,11 +1188,11 @@ class ApiGetUserMountsResponseApplicationJson_OcsBuilder
   _$ApiGetUserMountsResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<Mount>? _data;
-  ListBuilder<Mount> get data => _$this._data ??= ListBuilder<Mount>();
+  ListBuilder<Mount> get data => _$this._data ??= new ListBuilder<Mount>();
   set data(covariant ListBuilder<Mount>? data) => _$this._data = data;
 
   ApiGetUserMountsResponseApplicationJson_OcsBuilder() {
@@ -1227,7 +1228,7 @@ class ApiGetUserMountsResponseApplicationJson_OcsBuilder
     _$ApiGetUserMountsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$ApiGetUserMountsResponseApplicationJson_Ocs._(
+          new _$ApiGetUserMountsResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -1239,7 +1240,8 @@ class ApiGetUserMountsResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'ApiGetUserMountsResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(
+            r'ApiGetUserMountsResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1261,7 +1263,7 @@ class _$ApiGetUserMountsResponseApplicationJson extends ApiGetUserMountsResponse
 
   factory _$ApiGetUserMountsResponseApplicationJson(
           [void Function(ApiGetUserMountsResponseApplicationJsonBuilder)? updates]) =>
-      (ApiGetUserMountsResponseApplicationJsonBuilder()..update(updates))._build();
+      (new ApiGetUserMountsResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiGetUserMountsResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'ApiGetUserMountsResponseApplicationJson', 'ocs');
@@ -1274,7 +1276,7 @@ class _$ApiGetUserMountsResponseApplicationJson extends ApiGetUserMountsResponse
 
   @override
   ApiGetUserMountsResponseApplicationJsonBuilder toBuilder() =>
-      ApiGetUserMountsResponseApplicationJsonBuilder()..replace(this);
+      new ApiGetUserMountsResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1304,7 +1306,7 @@ class ApiGetUserMountsResponseApplicationJsonBuilder
 
   ApiGetUserMountsResponseApplicationJson_OcsBuilder? _ocs;
   ApiGetUserMountsResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= ApiGetUserMountsResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= new ApiGetUserMountsResponseApplicationJson_OcsBuilder();
   set ocs(covariant ApiGetUserMountsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ApiGetUserMountsResponseApplicationJsonBuilder() {
@@ -1339,7 +1341,7 @@ class ApiGetUserMountsResponseApplicationJsonBuilder
     _$ApiGetUserMountsResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$ApiGetUserMountsResponseApplicationJson._(
+          new _$ApiGetUserMountsResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -1348,7 +1350,7 @@ class ApiGetUserMountsResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'ApiGetUserMountsResponseApplicationJson', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'ApiGetUserMountsResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

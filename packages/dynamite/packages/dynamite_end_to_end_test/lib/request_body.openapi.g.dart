@@ -7,13 +7,13 @@ part of 'request_body.openapi.dart';
 // **************************************************************************
 
 Serializer<GetObjectRequestApplicationJson> _$getObjectRequestApplicationJsonSerializer =
-    _$GetObjectRequestApplicationJsonSerializer();
+    new _$GetObjectRequestApplicationJsonSerializer();
 Serializer<PutObjectRequestApplicationJson> _$putObjectRequestApplicationJsonSerializer =
-    _$PutObjectRequestApplicationJsonSerializer();
+    new _$PutObjectRequestApplicationJsonSerializer();
 Serializer<PostObjectRequestApplicationJson> _$postObjectRequestApplicationJsonSerializer =
-    _$PostObjectRequestApplicationJsonSerializer();
+    new _$PostObjectRequestApplicationJsonSerializer();
 Serializer<DeleteObjectRequestApplicationJson> _$deleteObjectRequestApplicationJsonSerializer =
-    _$DeleteObjectRequestApplicationJsonSerializer();
+    new _$DeleteObjectRequestApplicationJsonSerializer();
 
 class _$GetObjectRequestApplicationJsonSerializer implements StructuredSerializer<GetObjectRequestApplicationJson> {
   @override
@@ -38,7 +38,7 @@ class _$GetObjectRequestApplicationJsonSerializer implements StructuredSerialize
   @override
   GetObjectRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = GetObjectRequestApplicationJsonBuilder();
+    final result = new GetObjectRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -76,7 +76,7 @@ class _$PutObjectRequestApplicationJsonSerializer implements StructuredSerialize
   @override
   PutObjectRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = PutObjectRequestApplicationJsonBuilder();
+    final result = new PutObjectRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -117,7 +117,7 @@ class _$PostObjectRequestApplicationJsonSerializer implements StructuredSerializ
   @override
   PostObjectRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = PostObjectRequestApplicationJsonBuilder();
+    final result = new PostObjectRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -159,7 +159,7 @@ class _$DeleteObjectRequestApplicationJsonSerializer
   @override
   DeleteObjectRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = DeleteObjectRequestApplicationJsonBuilder();
+    final result = new DeleteObjectRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -189,7 +189,7 @@ class _$GetObjectRequestApplicationJson extends GetObjectRequestApplicationJson 
   final String? test;
 
   factory _$GetObjectRequestApplicationJson([void Function(GetObjectRequestApplicationJsonBuilder)? updates]) =>
-      (GetObjectRequestApplicationJsonBuilder()..update(updates))._build();
+      (new GetObjectRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$GetObjectRequestApplicationJson._({this.test}) : super._();
 
@@ -198,7 +198,7 @@ class _$GetObjectRequestApplicationJson extends GetObjectRequestApplicationJson 
       (toBuilder()..update(updates)).build();
 
   @override
-  GetObjectRequestApplicationJsonBuilder toBuilder() => GetObjectRequestApplicationJsonBuilder()..replace(this);
+  GetObjectRequestApplicationJsonBuilder toBuilder() => new GetObjectRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -260,7 +260,7 @@ class GetObjectRequestApplicationJsonBuilder
   _$GetObjectRequestApplicationJson _build() {
     GetObjectRequestApplicationJson._validate(this);
     final _$result = _$v ??
-        _$GetObjectRequestApplicationJson._(
+        new _$GetObjectRequestApplicationJson._(
           test: test,
         );
     replace(_$result);
@@ -280,7 +280,7 @@ class _$PutObjectRequestApplicationJson extends PutObjectRequestApplicationJson 
   final String test;
 
   factory _$PutObjectRequestApplicationJson([void Function(PutObjectRequestApplicationJsonBuilder)? updates]) =>
-      (PutObjectRequestApplicationJsonBuilder()..update(updates))._build();
+      (new PutObjectRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$PutObjectRequestApplicationJson._({required this.test}) : super._() {
     BuiltValueNullFieldError.checkNotNull(test, r'PutObjectRequestApplicationJson', 'test');
@@ -291,7 +291,7 @@ class _$PutObjectRequestApplicationJson extends PutObjectRequestApplicationJson 
       (toBuilder()..update(updates)).build();
 
   @override
-  PutObjectRequestApplicationJsonBuilder toBuilder() => PutObjectRequestApplicationJsonBuilder()..replace(this);
+  PutObjectRequestApplicationJsonBuilder toBuilder() => new PutObjectRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -353,7 +353,7 @@ class PutObjectRequestApplicationJsonBuilder
   _$PutObjectRequestApplicationJson _build() {
     PutObjectRequestApplicationJson._validate(this);
     final _$result = _$v ??
-        _$PutObjectRequestApplicationJson._(
+        new _$PutObjectRequestApplicationJson._(
           test: BuiltValueNullFieldError.checkNotNull(test, r'PutObjectRequestApplicationJson', 'test'),
         );
     replace(_$result);
@@ -373,7 +373,7 @@ class _$PostObjectRequestApplicationJson extends PostObjectRequestApplicationJso
   final String? test;
 
   factory _$PostObjectRequestApplicationJson([void Function(PostObjectRequestApplicationJsonBuilder)? updates]) =>
-      (PostObjectRequestApplicationJsonBuilder()..update(updates))._build();
+      (new PostObjectRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$PostObjectRequestApplicationJson._({this.test}) : super._();
 
@@ -382,7 +382,7 @@ class _$PostObjectRequestApplicationJson extends PostObjectRequestApplicationJso
       (toBuilder()..update(updates)).build();
 
   @override
-  PostObjectRequestApplicationJsonBuilder toBuilder() => PostObjectRequestApplicationJsonBuilder()..replace(this);
+  PostObjectRequestApplicationJsonBuilder toBuilder() => new PostObjectRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -444,7 +444,7 @@ class PostObjectRequestApplicationJsonBuilder
   _$PostObjectRequestApplicationJson _build() {
     PostObjectRequestApplicationJson._validate(this);
     final _$result = _$v ??
-        _$PostObjectRequestApplicationJson._(
+        new _$PostObjectRequestApplicationJson._(
           test: test,
         );
     replace(_$result);
@@ -464,7 +464,7 @@ class _$DeleteObjectRequestApplicationJson extends DeleteObjectRequestApplicatio
   final String? test;
 
   factory _$DeleteObjectRequestApplicationJson([void Function(DeleteObjectRequestApplicationJsonBuilder)? updates]) =>
-      (DeleteObjectRequestApplicationJsonBuilder()..update(updates))._build();
+      (new DeleteObjectRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$DeleteObjectRequestApplicationJson._({this.test}) : super._();
 
@@ -473,7 +473,8 @@ class _$DeleteObjectRequestApplicationJson extends DeleteObjectRequestApplicatio
       (toBuilder()..update(updates)).build();
 
   @override
-  DeleteObjectRequestApplicationJsonBuilder toBuilder() => DeleteObjectRequestApplicationJsonBuilder()..replace(this);
+  DeleteObjectRequestApplicationJsonBuilder toBuilder() =>
+      new DeleteObjectRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -535,7 +536,7 @@ class DeleteObjectRequestApplicationJsonBuilder
   _$DeleteObjectRequestApplicationJson _build() {
     DeleteObjectRequestApplicationJson._validate(this);
     final _$result = _$v ??
-        _$DeleteObjectRequestApplicationJson._(
+        new _$DeleteObjectRequestApplicationJson._(
           test: test,
         );
     replace(_$result);

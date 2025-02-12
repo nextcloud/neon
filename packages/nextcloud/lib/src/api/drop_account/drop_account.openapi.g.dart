@@ -6,17 +6,17 @@ part of 'drop_account.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
+Serializer<OCSMeta> _$oCSMetaSerializer = new _$OCSMetaSerializer();
 Serializer<ApiDeleteResponseApplicationJson_Ocs_Data> _$apiDeleteResponseApplicationJsonOcsDataSerializer =
-    _$ApiDeleteResponseApplicationJson_Ocs_DataSerializer();
+    new _$ApiDeleteResponseApplicationJson_Ocs_DataSerializer();
 Serializer<ApiDeleteResponseApplicationJson_Ocs> _$apiDeleteResponseApplicationJsonOcsSerializer =
-    _$ApiDeleteResponseApplicationJson_OcsSerializer();
+    new _$ApiDeleteResponseApplicationJson_OcsSerializer();
 Serializer<ApiDeleteResponseApplicationJson> _$apiDeleteResponseApplicationJsonSerializer =
-    _$ApiDeleteResponseApplicationJsonSerializer();
+    new _$ApiDeleteResponseApplicationJsonSerializer();
 Serializer<Capabilities_DropAccount_Delay> _$capabilitiesDropAccountDelaySerializer =
-    _$Capabilities_DropAccount_DelaySerializer();
-Serializer<Capabilities_DropAccount> _$capabilitiesDropAccountSerializer = _$Capabilities_DropAccountSerializer();
-Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
+    new _$Capabilities_DropAccount_DelaySerializer();
+Serializer<Capabilities_DropAccount> _$capabilitiesDropAccountSerializer = new _$Capabilities_DropAccountSerializer();
+Serializer<Capabilities> _$capabilitiesSerializer = new _$CapabilitiesSerializer();
 
 class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
@@ -58,7 +58,7 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
   OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = OCSMetaBuilder();
+    final result = new OCSMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -112,7 +112,7 @@ class _$ApiDeleteResponseApplicationJson_Ocs_DataSerializer
   @override
   ApiDeleteResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ApiDeleteResponseApplicationJson_Ocs_DataBuilder();
+    final result = new ApiDeleteResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -153,7 +153,7 @@ class _$ApiDeleteResponseApplicationJson_OcsSerializer
   @override
   ApiDeleteResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ApiDeleteResponseApplicationJson_OcsBuilder();
+    final result = new ApiDeleteResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -196,7 +196,7 @@ class _$ApiDeleteResponseApplicationJsonSerializer implements StructuredSerializ
   @override
   ApiDeleteResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ApiDeleteResponseApplicationJsonBuilder();
+    final result = new ApiDeleteResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -238,7 +238,7 @@ class _$Capabilities_DropAccount_DelaySerializer implements StructuredSerializer
   @override
   Capabilities_DropAccount_Delay deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Capabilities_DropAccount_DelayBuilder();
+    final result = new Capabilities_DropAccount_DelayBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -289,7 +289,7 @@ class _$Capabilities_DropAccountSerializer implements StructuredSerializer<Capab
   @override
   Capabilities_DropAccount deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Capabilities_DropAccountBuilder();
+    final result = new Capabilities_DropAccountBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -337,7 +337,7 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   @override
   Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CapabilitiesBuilder();
+    final result = new CapabilitiesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -387,7 +387,7 @@ class _$OCSMeta extends OCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (new OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
       : super._() {
@@ -399,7 +399,7 @@ class _$OCSMeta extends OCSMeta {
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
+  OCSMetaBuilder toBuilder() => new OCSMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -493,7 +493,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   _$OCSMeta _build() {
     OCSMeta._validate(this);
     final _$result = _$v ??
-        _$OCSMeta._(
+        new _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
           message: message,
@@ -518,7 +518,7 @@ class _$ApiDeleteResponseApplicationJson_Ocs_Data extends ApiDeleteResponseAppli
 
   factory _$ApiDeleteResponseApplicationJson_Ocs_Data(
           [void Function(ApiDeleteResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (ApiDeleteResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+      (new ApiDeleteResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
   _$ApiDeleteResponseApplicationJson_Ocs_Data._({required this.message}) : super._() {
     BuiltValueNullFieldError.checkNotNull(message, r'ApiDeleteResponseApplicationJson_Ocs_Data', 'message');
@@ -531,7 +531,7 @@ class _$ApiDeleteResponseApplicationJson_Ocs_Data extends ApiDeleteResponseAppli
 
   @override
   ApiDeleteResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
-      ApiDeleteResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+      new ApiDeleteResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -594,7 +594,7 @@ class ApiDeleteResponseApplicationJson_Ocs_DataBuilder
   _$ApiDeleteResponseApplicationJson_Ocs_Data _build() {
     ApiDeleteResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
-        _$ApiDeleteResponseApplicationJson_Ocs_Data._(
+        new _$ApiDeleteResponseApplicationJson_Ocs_Data._(
           message:
               BuiltValueNullFieldError.checkNotNull(message, r'ApiDeleteResponseApplicationJson_Ocs_Data', 'message'),
         );
@@ -621,7 +621,7 @@ class _$ApiDeleteResponseApplicationJson_Ocs extends ApiDeleteResponseApplicatio
 
   factory _$ApiDeleteResponseApplicationJson_Ocs(
           [void Function(ApiDeleteResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiDeleteResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (new ApiDeleteResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ApiDeleteResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'ApiDeleteResponseApplicationJson_Ocs', 'meta');
@@ -634,7 +634,7 @@ class _$ApiDeleteResponseApplicationJson_Ocs extends ApiDeleteResponseApplicatio
 
   @override
   ApiDeleteResponseApplicationJson_OcsBuilder toBuilder() =>
-      ApiDeleteResponseApplicationJson_OcsBuilder()..replace(this);
+      new ApiDeleteResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -667,12 +667,12 @@ class ApiDeleteResponseApplicationJson_OcsBuilder
   _$ApiDeleteResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   ApiDeleteResponseApplicationJson_Ocs_DataBuilder? _data;
   ApiDeleteResponseApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= ApiDeleteResponseApplicationJson_Ocs_DataBuilder();
+      _$this._data ??= new ApiDeleteResponseApplicationJson_Ocs_DataBuilder();
   set data(covariant ApiDeleteResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   ApiDeleteResponseApplicationJson_OcsBuilder() {
@@ -708,7 +708,7 @@ class ApiDeleteResponseApplicationJson_OcsBuilder
     _$ApiDeleteResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$ApiDeleteResponseApplicationJson_Ocs._(
+          new _$ApiDeleteResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -720,7 +720,7 @@ class ApiDeleteResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'ApiDeleteResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'ApiDeleteResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -741,7 +741,7 @@ class _$ApiDeleteResponseApplicationJson extends ApiDeleteResponseApplicationJso
   final ApiDeleteResponseApplicationJson_Ocs ocs;
 
   factory _$ApiDeleteResponseApplicationJson([void Function(ApiDeleteResponseApplicationJsonBuilder)? updates]) =>
-      (ApiDeleteResponseApplicationJsonBuilder()..update(updates))._build();
+      (new ApiDeleteResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiDeleteResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'ApiDeleteResponseApplicationJson', 'ocs');
@@ -752,7 +752,7 @@ class _$ApiDeleteResponseApplicationJson extends ApiDeleteResponseApplicationJso
       (toBuilder()..update(updates)).build();
 
   @override
-  ApiDeleteResponseApplicationJsonBuilder toBuilder() => ApiDeleteResponseApplicationJsonBuilder()..replace(this);
+  ApiDeleteResponseApplicationJsonBuilder toBuilder() => new ApiDeleteResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -781,7 +781,8 @@ class ApiDeleteResponseApplicationJsonBuilder
   _$ApiDeleteResponseApplicationJson? _$v;
 
   ApiDeleteResponseApplicationJson_OcsBuilder? _ocs;
-  ApiDeleteResponseApplicationJson_OcsBuilder get ocs => _$this._ocs ??= ApiDeleteResponseApplicationJson_OcsBuilder();
+  ApiDeleteResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= new ApiDeleteResponseApplicationJson_OcsBuilder();
   set ocs(covariant ApiDeleteResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ApiDeleteResponseApplicationJsonBuilder() {
@@ -816,7 +817,7 @@ class ApiDeleteResponseApplicationJsonBuilder
     _$ApiDeleteResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$ApiDeleteResponseApplicationJson._(
+          new _$ApiDeleteResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -825,7 +826,7 @@ class ApiDeleteResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'ApiDeleteResponseApplicationJson', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'ApiDeleteResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -851,7 +852,7 @@ class _$Capabilities_DropAccount_Delay extends Capabilities_DropAccount_Delay {
   final int hours;
 
   factory _$Capabilities_DropAccount_Delay([void Function(Capabilities_DropAccount_DelayBuilder)? updates]) =>
-      (Capabilities_DropAccount_DelayBuilder()..update(updates))._build();
+      (new Capabilities_DropAccount_DelayBuilder()..update(updates))._build();
 
   _$Capabilities_DropAccount_Delay._({required this.enabled, required this.hours}) : super._() {
     BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_DropAccount_Delay', 'enabled');
@@ -863,7 +864,7 @@ class _$Capabilities_DropAccount_Delay extends Capabilities_DropAccount_Delay {
       (toBuilder()..update(updates)).build();
 
   @override
-  Capabilities_DropAccount_DelayBuilder toBuilder() => Capabilities_DropAccount_DelayBuilder()..replace(this);
+  Capabilities_DropAccount_DelayBuilder toBuilder() => new Capabilities_DropAccount_DelayBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -934,7 +935,7 @@ class Capabilities_DropAccount_DelayBuilder
   _$Capabilities_DropAccount_Delay _build() {
     Capabilities_DropAccount_Delay._validate(this);
     final _$result = _$v ??
-        _$Capabilities_DropAccount_Delay._(
+        new _$Capabilities_DropAccount_Delay._(
           enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_DropAccount_Delay', 'enabled'),
           hours: BuiltValueNullFieldError.checkNotNull(hours, r'Capabilities_DropAccount_Delay', 'hours'),
         );
@@ -970,7 +971,7 @@ class _$Capabilities_DropAccount extends Capabilities_DropAccount {
   final String? details;
 
   factory _$Capabilities_DropAccount([void Function(Capabilities_DropAccountBuilder)? updates]) =>
-      (Capabilities_DropAccountBuilder()..update(updates))._build();
+      (new Capabilities_DropAccountBuilder()..update(updates))._build();
 
   _$Capabilities_DropAccount._({required this.enabled, required this.apiVersion, required this.delay, this.details})
       : super._() {
@@ -984,7 +985,7 @@ class _$Capabilities_DropAccount extends Capabilities_DropAccount {
       (toBuilder()..update(updates)).build();
 
   @override
-  Capabilities_DropAccountBuilder toBuilder() => Capabilities_DropAccountBuilder()..replace(this);
+  Capabilities_DropAccountBuilder toBuilder() => new Capabilities_DropAccountBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1033,7 +1034,7 @@ class Capabilities_DropAccountBuilder
   set apiVersion(covariant String? apiVersion) => _$this._apiVersion = apiVersion;
 
   Capabilities_DropAccount_DelayBuilder? _delay;
-  Capabilities_DropAccount_DelayBuilder get delay => _$this._delay ??= Capabilities_DropAccount_DelayBuilder();
+  Capabilities_DropAccount_DelayBuilder get delay => _$this._delay ??= new Capabilities_DropAccount_DelayBuilder();
   set delay(covariant Capabilities_DropAccount_DelayBuilder? delay) => _$this._delay = delay;
 
   String? _details;
@@ -1075,7 +1076,7 @@ class Capabilities_DropAccountBuilder
     _$Capabilities_DropAccount _$result;
     try {
       _$result = _$v ??
-          _$Capabilities_DropAccount._(
+          new _$Capabilities_DropAccount._(
             enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_DropAccount', 'enabled'),
             apiVersion: BuiltValueNullFieldError.checkNotNull(apiVersion, r'Capabilities_DropAccount', 'apiVersion'),
             delay: delay.build(),
@@ -1087,7 +1088,7 @@ class Capabilities_DropAccountBuilder
         _$failedField = 'delay';
         delay.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Capabilities_DropAccount', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'Capabilities_DropAccount', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1108,7 +1109,7 @@ class _$Capabilities extends Capabilities {
   final Capabilities_DropAccount dropAccount;
 
   factory _$Capabilities([void Function(CapabilitiesBuilder)? updates]) =>
-      (CapabilitiesBuilder()..update(updates))._build();
+      (new CapabilitiesBuilder()..update(updates))._build();
 
   _$Capabilities._({required this.dropAccount}) : super._() {
     BuiltValueNullFieldError.checkNotNull(dropAccount, r'Capabilities', 'dropAccount');
@@ -1118,7 +1119,7 @@ class _$Capabilities extends Capabilities {
   Capabilities rebuild(void Function(CapabilitiesBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  CapabilitiesBuilder toBuilder() => CapabilitiesBuilder()..replace(this);
+  CapabilitiesBuilder toBuilder() => new CapabilitiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1144,7 +1145,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   _$Capabilities? _$v;
 
   Capabilities_DropAccountBuilder? _dropAccount;
-  Capabilities_DropAccountBuilder get dropAccount => _$this._dropAccount ??= Capabilities_DropAccountBuilder();
+  Capabilities_DropAccountBuilder get dropAccount => _$this._dropAccount ??= new Capabilities_DropAccountBuilder();
   set dropAccount(covariant Capabilities_DropAccountBuilder? dropAccount) => _$this._dropAccount = dropAccount;
 
   CapabilitiesBuilder() {
@@ -1179,7 +1180,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     _$Capabilities _$result;
     try {
       _$result = _$v ??
-          _$Capabilities._(
+          new _$Capabilities._(
             dropAccount: dropAccount.build(),
           );
     } catch (_) {
@@ -1188,7 +1189,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
         _$failedField = 'dropAccount';
         dropAccount.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
       }
       rethrow;
     }

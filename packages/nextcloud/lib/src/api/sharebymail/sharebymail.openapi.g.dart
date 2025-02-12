@@ -8,16 +8,17 @@ part of 'sharebymail.openapi.dart';
 
 Serializer<Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop>
     _$capabilities0FilesSharingSharebymailUploadFilesDropSerializer =
-    _$Capabilities0_FilesSharing_Sharebymail_UploadFilesDropSerializer();
+    new _$Capabilities0_FilesSharing_Sharebymail_UploadFilesDropSerializer();
 Serializer<Capabilities0_FilesSharing_Sharebymail_Password> _$capabilities0FilesSharingSharebymailPasswordSerializer =
-    _$Capabilities0_FilesSharing_Sharebymail_PasswordSerializer();
+    new _$Capabilities0_FilesSharing_Sharebymail_PasswordSerializer();
 Serializer<Capabilities0_FilesSharing_Sharebymail_ExpireDate>
     _$capabilities0FilesSharingSharebymailExpireDateSerializer =
-    _$Capabilities0_FilesSharing_Sharebymail_ExpireDateSerializer();
+    new _$Capabilities0_FilesSharing_Sharebymail_ExpireDateSerializer();
 Serializer<Capabilities0_FilesSharing_Sharebymail> _$capabilities0FilesSharingSharebymailSerializer =
-    _$Capabilities0_FilesSharing_SharebymailSerializer();
-Serializer<Capabilities0_FilesSharing> _$capabilities0FilesSharingSerializer = _$Capabilities0_FilesSharingSerializer();
-Serializer<Capabilities0> _$capabilities0Serializer = _$Capabilities0Serializer();
+    new _$Capabilities0_FilesSharing_SharebymailSerializer();
+Serializer<Capabilities0_FilesSharing> _$capabilities0FilesSharingSerializer =
+    new _$Capabilities0_FilesSharingSerializer();
+Serializer<Capabilities0> _$capabilities0Serializer = new _$Capabilities0Serializer();
 
 class _$Capabilities0_FilesSharing_Sharebymail_UploadFilesDropSerializer
     implements StructuredSerializer<Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop> {
@@ -44,7 +45,7 @@ class _$Capabilities0_FilesSharing_Sharebymail_UploadFilesDropSerializer
   Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder();
+    final result = new Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -88,7 +89,7 @@ class _$Capabilities0_FilesSharing_Sharebymail_PasswordSerializer
   @override
   Capabilities0_FilesSharing_Sharebymail_Password deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Capabilities0_FilesSharing_Sharebymail_PasswordBuilder();
+    final result = new Capabilities0_FilesSharing_Sharebymail_PasswordBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -135,7 +136,7 @@ class _$Capabilities0_FilesSharing_Sharebymail_ExpireDateSerializer
   @override
   Capabilities0_FilesSharing_Sharebymail_ExpireDate deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder();
+    final result = new Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -188,7 +189,7 @@ class _$Capabilities0_FilesSharing_SharebymailSerializer
   @override
   Capabilities0_FilesSharing_Sharebymail deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Capabilities0_FilesSharing_SharebymailBuilder();
+    final result = new Capabilities0_FilesSharing_SharebymailBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -244,7 +245,7 @@ class _$Capabilities0_FilesSharingSerializer implements StructuredSerializer<Cap
   @override
   Capabilities0_FilesSharing deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Capabilities0_FilesSharingBuilder();
+    final result = new Capabilities0_FilesSharingBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -284,7 +285,7 @@ class _$Capabilities0Serializer implements StructuredSerializer<Capabilities0> {
   @override
   Capabilities0 deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Capabilities0Builder();
+    final result = new Capabilities0Builder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -317,7 +318,7 @@ class _$Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop
 
   factory _$Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop(
           [void Function(Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder)? updates]) =>
-      (Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder()..update(updates))._build();
+      (new Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder()..update(updates))._build();
 
   _$Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop._({required this.enabled}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
@@ -331,7 +332,7 @@ class _$Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop
 
   @override
   Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder toBuilder() =>
-      Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder()..replace(this);
+      new Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -396,7 +397,7 @@ class Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder
   _$Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop _build() {
     Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop._validate(this);
     final _$result = _$v ??
-        _$Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop._(
+        new _$Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop._(
           enabled: BuiltValueNullFieldError.checkNotNull(
               enabled, r'Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop', 'enabled'),
         );
@@ -423,7 +424,7 @@ class _$Capabilities0_FilesSharing_Sharebymail_Password extends Capabilities0_Fi
 
   factory _$Capabilities0_FilesSharing_Sharebymail_Password(
           [void Function(Capabilities0_FilesSharing_Sharebymail_PasswordBuilder)? updates]) =>
-      (Capabilities0_FilesSharing_Sharebymail_PasswordBuilder()..update(updates))._build();
+      (new Capabilities0_FilesSharing_Sharebymail_PasswordBuilder()..update(updates))._build();
 
   _$Capabilities0_FilesSharing_Sharebymail_Password._({required this.enabled, required this.enforced}) : super._() {
     BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities0_FilesSharing_Sharebymail_Password', 'enabled');
@@ -437,7 +438,7 @@ class _$Capabilities0_FilesSharing_Sharebymail_Password extends Capabilities0_Fi
 
   @override
   Capabilities0_FilesSharing_Sharebymail_PasswordBuilder toBuilder() =>
-      Capabilities0_FilesSharing_Sharebymail_PasswordBuilder()..replace(this);
+      new Capabilities0_FilesSharing_Sharebymail_PasswordBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -511,7 +512,7 @@ class Capabilities0_FilesSharing_Sharebymail_PasswordBuilder
   _$Capabilities0_FilesSharing_Sharebymail_Password _build() {
     Capabilities0_FilesSharing_Sharebymail_Password._validate(this);
     final _$result = _$v ??
-        _$Capabilities0_FilesSharing_Sharebymail_Password._(
+        new _$Capabilities0_FilesSharing_Sharebymail_Password._(
           enabled: BuiltValueNullFieldError.checkNotNull(
               enabled, r'Capabilities0_FilesSharing_Sharebymail_Password', 'enabled'),
           enforced: BuiltValueNullFieldError.checkNotNull(
@@ -540,7 +541,7 @@ class _$Capabilities0_FilesSharing_Sharebymail_ExpireDate extends Capabilities0_
 
   factory _$Capabilities0_FilesSharing_Sharebymail_ExpireDate(
           [void Function(Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder)? updates]) =>
-      (Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder()..update(updates))._build();
+      (new Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder()..update(updates))._build();
 
   _$Capabilities0_FilesSharing_Sharebymail_ExpireDate._({required this.enabled, required this.enforced}) : super._() {
     BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities0_FilesSharing_Sharebymail_ExpireDate', 'enabled');
@@ -554,7 +555,7 @@ class _$Capabilities0_FilesSharing_Sharebymail_ExpireDate extends Capabilities0_
 
   @override
   Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder toBuilder() =>
-      Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder()..replace(this);
+      new Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -628,7 +629,7 @@ class Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder
   _$Capabilities0_FilesSharing_Sharebymail_ExpireDate _build() {
     Capabilities0_FilesSharing_Sharebymail_ExpireDate._validate(this);
     final _$result = _$v ??
-        _$Capabilities0_FilesSharing_Sharebymail_ExpireDate._(
+        new _$Capabilities0_FilesSharing_Sharebymail_ExpireDate._(
           enabled: BuiltValueNullFieldError.checkNotNull(
               enabled, r'Capabilities0_FilesSharing_Sharebymail_ExpireDate', 'enabled'),
           enforced: BuiltValueNullFieldError.checkNotNull(
@@ -672,7 +673,7 @@ class _$Capabilities0_FilesSharing_Sharebymail extends Capabilities0_FilesSharin
 
   factory _$Capabilities0_FilesSharing_Sharebymail(
           [void Function(Capabilities0_FilesSharing_SharebymailBuilder)? updates]) =>
-      (Capabilities0_FilesSharing_SharebymailBuilder()..update(updates))._build();
+      (new Capabilities0_FilesSharing_SharebymailBuilder()..update(updates))._build();
 
   _$Capabilities0_FilesSharing_Sharebymail._(
       {required this.enabled,
@@ -697,7 +698,7 @@ class _$Capabilities0_FilesSharing_Sharebymail extends Capabilities0_FilesSharin
 
   @override
   Capabilities0_FilesSharing_SharebymailBuilder toBuilder() =>
-      Capabilities0_FilesSharing_SharebymailBuilder()..replace(this);
+      new Capabilities0_FilesSharing_SharebymailBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -750,19 +751,19 @@ class Capabilities0_FilesSharing_SharebymailBuilder
 
   Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder? _uploadFilesDrop;
   Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder get uploadFilesDrop =>
-      _$this._uploadFilesDrop ??= Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder();
+      _$this._uploadFilesDrop ??= new Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder();
   set uploadFilesDrop(covariant Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder? uploadFilesDrop) =>
       _$this._uploadFilesDrop = uploadFilesDrop;
 
   Capabilities0_FilesSharing_Sharebymail_PasswordBuilder? _password;
   Capabilities0_FilesSharing_Sharebymail_PasswordBuilder get password =>
-      _$this._password ??= Capabilities0_FilesSharing_Sharebymail_PasswordBuilder();
+      _$this._password ??= new Capabilities0_FilesSharing_Sharebymail_PasswordBuilder();
   set password(covariant Capabilities0_FilesSharing_Sharebymail_PasswordBuilder? password) =>
       _$this._password = password;
 
   Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder? _expireDate;
   Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder get expireDate =>
-      _$this._expireDate ??= Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder();
+      _$this._expireDate ??= new Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder();
   set expireDate(covariant Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder? expireDate) =>
       _$this._expireDate = expireDate;
 
@@ -802,7 +803,7 @@ class Capabilities0_FilesSharing_SharebymailBuilder
     _$Capabilities0_FilesSharing_Sharebymail _$result;
     try {
       _$result = _$v ??
-          _$Capabilities0_FilesSharing_Sharebymail._(
+          new _$Capabilities0_FilesSharing_Sharebymail._(
             enabled:
                 BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities0_FilesSharing_Sharebymail', 'enabled'),
             sendPasswordByMail: BuiltValueNullFieldError.checkNotNull(
@@ -821,7 +822,7 @@ class Capabilities0_FilesSharing_SharebymailBuilder
         _$failedField = 'expireDate';
         expireDate.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Capabilities0_FilesSharing_Sharebymail', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'Capabilities0_FilesSharing_Sharebymail', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -842,7 +843,7 @@ class _$Capabilities0_FilesSharing extends Capabilities0_FilesSharing {
   final Capabilities0_FilesSharing_Sharebymail sharebymail;
 
   factory _$Capabilities0_FilesSharing([void Function(Capabilities0_FilesSharingBuilder)? updates]) =>
-      (Capabilities0_FilesSharingBuilder()..update(updates))._build();
+      (new Capabilities0_FilesSharingBuilder()..update(updates))._build();
 
   _$Capabilities0_FilesSharing._({required this.sharebymail}) : super._() {
     BuiltValueNullFieldError.checkNotNull(sharebymail, r'Capabilities0_FilesSharing', 'sharebymail');
@@ -853,7 +854,7 @@ class _$Capabilities0_FilesSharing extends Capabilities0_FilesSharing {
       (toBuilder()..update(updates)).build();
 
   @override
-  Capabilities0_FilesSharingBuilder toBuilder() => Capabilities0_FilesSharingBuilder()..replace(this);
+  Capabilities0_FilesSharingBuilder toBuilder() => new Capabilities0_FilesSharingBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -883,7 +884,7 @@ class Capabilities0_FilesSharingBuilder
 
   Capabilities0_FilesSharing_SharebymailBuilder? _sharebymail;
   Capabilities0_FilesSharing_SharebymailBuilder get sharebymail =>
-      _$this._sharebymail ??= Capabilities0_FilesSharing_SharebymailBuilder();
+      _$this._sharebymail ??= new Capabilities0_FilesSharing_SharebymailBuilder();
   set sharebymail(covariant Capabilities0_FilesSharing_SharebymailBuilder? sharebymail) =>
       _$this._sharebymail = sharebymail;
 
@@ -919,7 +920,7 @@ class Capabilities0_FilesSharingBuilder
     _$Capabilities0_FilesSharing _$result;
     try {
       _$result = _$v ??
-          _$Capabilities0_FilesSharing._(
+          new _$Capabilities0_FilesSharing._(
             sharebymail: sharebymail.build(),
           );
     } catch (_) {
@@ -928,7 +929,7 @@ class Capabilities0_FilesSharingBuilder
         _$failedField = 'sharebymail';
         sharebymail.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Capabilities0_FilesSharing', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'Capabilities0_FilesSharing', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -949,7 +950,7 @@ class _$Capabilities0 extends Capabilities0 {
   final Capabilities0_FilesSharing filesSharing;
 
   factory _$Capabilities0([void Function(Capabilities0Builder)? updates]) =>
-      (Capabilities0Builder()..update(updates))._build();
+      (new Capabilities0Builder()..update(updates))._build();
 
   _$Capabilities0._({required this.filesSharing}) : super._() {
     BuiltValueNullFieldError.checkNotNull(filesSharing, r'Capabilities0', 'filesSharing');
@@ -959,7 +960,7 @@ class _$Capabilities0 extends Capabilities0 {
   Capabilities0 rebuild(void Function(Capabilities0Builder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  Capabilities0Builder toBuilder() => Capabilities0Builder()..replace(this);
+  Capabilities0Builder toBuilder() => new Capabilities0Builder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -985,7 +986,8 @@ class Capabilities0Builder implements Builder<Capabilities0, Capabilities0Builde
   _$Capabilities0? _$v;
 
   Capabilities0_FilesSharingBuilder? _filesSharing;
-  Capabilities0_FilesSharingBuilder get filesSharing => _$this._filesSharing ??= Capabilities0_FilesSharingBuilder();
+  Capabilities0_FilesSharingBuilder get filesSharing =>
+      _$this._filesSharing ??= new Capabilities0_FilesSharingBuilder();
   set filesSharing(covariant Capabilities0_FilesSharingBuilder? filesSharing) => _$this._filesSharing = filesSharing;
 
   Capabilities0Builder() {
@@ -1020,7 +1022,7 @@ class Capabilities0Builder implements Builder<Capabilities0, Capabilities0Builde
     _$Capabilities0 _$result;
     try {
       _$result = _$v ??
-          _$Capabilities0._(
+          new _$Capabilities0._(
             filesSharing: filesSharing.build(),
           );
     } catch (_) {
@@ -1029,7 +1031,7 @@ class Capabilities0Builder implements Builder<Capabilities0, Capabilities0Builde
         _$failedField = 'filesSharing';
         filesSharing.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Capabilities0', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'Capabilities0', _$failedField, e.toString());
       }
       rethrow;
     }

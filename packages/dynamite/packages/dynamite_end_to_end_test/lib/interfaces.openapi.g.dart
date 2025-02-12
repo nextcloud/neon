@@ -6,8 +6,8 @@ part of 'interfaces.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Base> _$baseSerializer = _$BaseSerializer();
-Serializer<BaseInterface> _$baseInterfaceSerializer = _$BaseInterfaceSerializer();
+Serializer<Base> _$baseSerializer = new _$BaseSerializer();
+Serializer<BaseInterface> _$baseInterfaceSerializer = new _$BaseInterfaceSerializer();
 
 class _$BaseSerializer implements StructuredSerializer<Base> {
   @override
@@ -31,7 +31,7 @@ class _$BaseSerializer implements StructuredSerializer<Base> {
   @override
   Base deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = BaseBuilder();
+    final result = new BaseBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -78,7 +78,7 @@ class _$BaseInterfaceSerializer implements StructuredSerializer<BaseInterface> {
   @override
   BaseInterface deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = BaseInterfaceBuilder();
+    final result = new BaseInterfaceBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -110,7 +110,7 @@ class _$Base extends Base {
   @override
   final String? attribute;
 
-  factory _$Base([void Function(BaseBuilder)? updates]) => (BaseBuilder()..update(updates))._build();
+  factory _$Base([void Function(BaseBuilder)? updates]) => (new BaseBuilder()..update(updates))._build();
 
   _$Base._({this.attribute}) : super._();
 
@@ -118,7 +118,7 @@ class _$Base extends Base {
   Base rebuild(void Function(BaseBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  BaseBuilder toBuilder() => BaseBuilder()..replace(this);
+  BaseBuilder toBuilder() => new BaseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -177,7 +177,7 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
   _$Base _build() {
     Base._validate(this);
     final _$result = _$v ??
-        _$Base._(
+        new _$Base._(
           attribute: attribute,
         );
     replace(_$result);
@@ -202,7 +202,7 @@ class _$BaseInterface extends BaseInterface {
   final String? property;
 
   factory _$BaseInterface([void Function(BaseInterfaceBuilder)? updates]) =>
-      (BaseInterfaceBuilder()..update(updates))._build();
+      (new BaseInterfaceBuilder()..update(updates))._build();
 
   _$BaseInterface._({this.attribute, this.property}) : super._();
 
@@ -210,7 +210,7 @@ class _$BaseInterface extends BaseInterface {
   BaseInterface rebuild(void Function(BaseInterfaceBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  BaseInterfaceBuilder toBuilder() => BaseInterfaceBuilder()..replace(this);
+  BaseInterfaceBuilder toBuilder() => new BaseInterfaceBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -278,7 +278,7 @@ class BaseInterfaceBuilder implements Builder<BaseInterface, BaseInterfaceBuilde
   _$BaseInterface _build() {
     BaseInterface._validate(this);
     final _$result = _$v ??
-        _$BaseInterface._(
+        new _$BaseInterface._(
           attribute: attribute,
           property: property,
         );
