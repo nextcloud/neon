@@ -24,6 +24,7 @@ jobs:
               - tool/**
               - packages/dynamite/**
               - packages/nextcloud/**
+              - .fvmrc
 
   dart:
     name: Dart
