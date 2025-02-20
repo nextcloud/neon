@@ -1,5 +1,7 @@
 // ignore_for_file: unused_import
 
+// expect_lint: avoid_dart_html
+import 'dart:html';
 // expect_lint: avoid_dart_io
 import 'dart:io';
 
