@@ -9,7 +9,7 @@ concurrency:
 jobs:
   dart-ci:
     name: Dart CI (${{ matrix.dependencies }})
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     permissions:
       packages: write
     strategy:
