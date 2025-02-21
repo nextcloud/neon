@@ -3,6 +3,7 @@ name: Publish
 on:
   schedule:
     - cron:  '0 5 * * *'
+  pull_request:
 
 concurrency:
   group: publish
