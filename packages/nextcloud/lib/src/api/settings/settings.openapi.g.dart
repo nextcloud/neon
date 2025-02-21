@@ -6,8 +6,9 @@ part of 'settings.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const DeclarativeForm_SectionType _$declarativeFormSectionTypeAdmin = DeclarativeForm_SectionType._('admin');
-const DeclarativeForm_SectionType _$declarativeFormSectionTypePersonal = DeclarativeForm_SectionType._('personal');
+const DeclarativeForm_SectionType _$declarativeFormSectionTypeAdmin = const DeclarativeForm_SectionType._('admin');
+const DeclarativeForm_SectionType _$declarativeFormSectionTypePersonal =
+    const DeclarativeForm_SectionType._('personal');
 
 DeclarativeForm_SectionType _$valueOfDeclarativeForm_SectionType(String name) {
   switch (name) {
@@ -16,18 +17,20 @@ DeclarativeForm_SectionType _$valueOfDeclarativeForm_SectionType(String name) {
     case 'personal':
       return _$declarativeFormSectionTypePersonal;
     default:
-      throw ArgumentError(name);
+      throw new ArgumentError(name);
   }
 }
 
 final BuiltSet<DeclarativeForm_SectionType> _$declarativeFormSectionTypeValues =
-    BuiltSet<DeclarativeForm_SectionType>(const <DeclarativeForm_SectionType>[
+    new BuiltSet<DeclarativeForm_SectionType>(const <DeclarativeForm_SectionType>[
   _$declarativeFormSectionTypeAdmin,
   _$declarativeFormSectionTypePersonal,
 ]);
 
-const DeclarativeForm_StorageType _$declarativeFormStorageTypeInternal = DeclarativeForm_StorageType._('internal');
-const DeclarativeForm_StorageType _$declarativeFormStorageType$external = DeclarativeForm_StorageType._('\$external');
+const DeclarativeForm_StorageType _$declarativeFormStorageTypeInternal =
+    const DeclarativeForm_StorageType._('internal');
+const DeclarativeForm_StorageType _$declarativeFormStorageType$external =
+    const DeclarativeForm_StorageType._('\$external');
 
 DeclarativeForm_StorageType _$valueOfDeclarativeForm_StorageType(String name) {
   switch (name) {
@@ -36,27 +39,29 @@ DeclarativeForm_StorageType _$valueOfDeclarativeForm_StorageType(String name) {
     case '\$external':
       return _$declarativeFormStorageType$external;
     default:
-      throw ArgumentError(name);
+      throw new ArgumentError(name);
   }
 }
 
 final BuiltSet<DeclarativeForm_StorageType> _$declarativeFormStorageTypeValues =
-    BuiltSet<DeclarativeForm_StorageType>(const <DeclarativeForm_StorageType>[
+    new BuiltSet<DeclarativeForm_StorageType>(const <DeclarativeForm_StorageType>[
   _$declarativeFormStorageTypeInternal,
   _$declarativeFormStorageType$external,
 ]);
 
-const DeclarativeFormField_Type _$declarativeFormFieldTypeText = DeclarativeFormField_Type._('text');
-const DeclarativeFormField_Type _$declarativeFormFieldTypePassword = DeclarativeFormField_Type._('password');
-const DeclarativeFormField_Type _$declarativeFormFieldTypeEmail = DeclarativeFormField_Type._('email');
-const DeclarativeFormField_Type _$declarativeFormFieldTypeTel = DeclarativeFormField_Type._('tel');
-const DeclarativeFormField_Type _$declarativeFormFieldTypeUrl = DeclarativeFormField_Type._('url');
-const DeclarativeFormField_Type _$declarativeFormFieldTypeNumber = DeclarativeFormField_Type._('number');
-const DeclarativeFormField_Type _$declarativeFormFieldTypeCheckbox = DeclarativeFormField_Type._('checkbox');
-const DeclarativeFormField_Type _$declarativeFormFieldTypeMultiCheckbox = DeclarativeFormField_Type._('multiCheckbox');
-const DeclarativeFormField_Type _$declarativeFormFieldTypeRadio = DeclarativeFormField_Type._('radio');
-const DeclarativeFormField_Type _$declarativeFormFieldTypeSelect = DeclarativeFormField_Type._('select');
-const DeclarativeFormField_Type _$declarativeFormFieldTypeMultiSelect = DeclarativeFormField_Type._('multiSelect');
+const DeclarativeFormField_Type _$declarativeFormFieldTypeText = const DeclarativeFormField_Type._('text');
+const DeclarativeFormField_Type _$declarativeFormFieldTypePassword = const DeclarativeFormField_Type._('password');
+const DeclarativeFormField_Type _$declarativeFormFieldTypeEmail = const DeclarativeFormField_Type._('email');
+const DeclarativeFormField_Type _$declarativeFormFieldTypeTel = const DeclarativeFormField_Type._('tel');
+const DeclarativeFormField_Type _$declarativeFormFieldTypeUrl = const DeclarativeFormField_Type._('url');
+const DeclarativeFormField_Type _$declarativeFormFieldTypeNumber = const DeclarativeFormField_Type._('number');
+const DeclarativeFormField_Type _$declarativeFormFieldTypeCheckbox = const DeclarativeFormField_Type._('checkbox');
+const DeclarativeFormField_Type _$declarativeFormFieldTypeMultiCheckbox =
+    const DeclarativeFormField_Type._('multiCheckbox');
+const DeclarativeFormField_Type _$declarativeFormFieldTypeRadio = const DeclarativeFormField_Type._('radio');
+const DeclarativeFormField_Type _$declarativeFormFieldTypeSelect = const DeclarativeFormField_Type._('select');
+const DeclarativeFormField_Type _$declarativeFormFieldTypeMultiSelect =
+    const DeclarativeFormField_Type._('multiSelect');
 
 DeclarativeFormField_Type _$valueOfDeclarativeFormField_Type(String name) {
   switch (name) {
@@ -83,12 +88,12 @@ DeclarativeFormField_Type _$valueOfDeclarativeFormField_Type(String name) {
     case 'multiSelect':
       return _$declarativeFormFieldTypeMultiSelect;
     default:
-      throw ArgumentError(name);
+      throw new ArgumentError(name);
   }
 }
 
 final BuiltSet<DeclarativeFormField_Type> _$declarativeFormFieldTypeValues =
-    BuiltSet<DeclarativeFormField_Type>(const <DeclarativeFormField_Type>[
+    new BuiltSet<DeclarativeFormField_Type>(const <DeclarativeFormField_Type>[
   _$declarativeFormFieldTypeText,
   _$declarativeFormFieldTypePassword,
   _$declarativeFormFieldTypeEmail,
@@ -104,26 +109,26 @@ final BuiltSet<DeclarativeFormField_Type> _$declarativeFormFieldTypeValues =
 
 Serializer<DeclarativeSettingsSetValueRequestApplicationJson>
     _$declarativeSettingsSetValueRequestApplicationJsonSerializer =
-    _$DeclarativeSettingsSetValueRequestApplicationJsonSerializer();
-Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
+    new _$DeclarativeSettingsSetValueRequestApplicationJsonSerializer();
+Serializer<OCSMeta> _$oCSMetaSerializer = new _$OCSMetaSerializer();
 Serializer<DeclarativeSettingsSetValueResponseApplicationJson_Ocs>
     _$declarativeSettingsSetValueResponseApplicationJsonOcsSerializer =
-    _$DeclarativeSettingsSetValueResponseApplicationJson_OcsSerializer();
+    new _$DeclarativeSettingsSetValueResponseApplicationJson_OcsSerializer();
 Serializer<DeclarativeSettingsSetValueResponseApplicationJson>
     _$declarativeSettingsSetValueResponseApplicationJsonSerializer =
-    _$DeclarativeSettingsSetValueResponseApplicationJsonSerializer();
+    new _$DeclarativeSettingsSetValueResponseApplicationJsonSerializer();
 Serializer<DeclarativeFormField_Options1> _$declarativeFormFieldOptions1Serializer =
-    _$DeclarativeFormField_Options1Serializer();
-Serializer<DeclarativeFormField> _$declarativeFormFieldSerializer = _$DeclarativeFormFieldSerializer();
-Serializer<DeclarativeForm> _$declarativeFormSerializer = _$DeclarativeFormSerializer();
+    new _$DeclarativeFormField_Options1Serializer();
+Serializer<DeclarativeFormField> _$declarativeFormFieldSerializer = new _$DeclarativeFormFieldSerializer();
+Serializer<DeclarativeForm> _$declarativeFormSerializer = new _$DeclarativeFormSerializer();
 Serializer<DeclarativeSettingsGetFormsResponseApplicationJson_Ocs>
     _$declarativeSettingsGetFormsResponseApplicationJsonOcsSerializer =
-    _$DeclarativeSettingsGetFormsResponseApplicationJson_OcsSerializer();
+    new _$DeclarativeSettingsGetFormsResponseApplicationJson_OcsSerializer();
 Serializer<DeclarativeSettingsGetFormsResponseApplicationJson>
     _$declarativeSettingsGetFormsResponseApplicationJsonSerializer =
-    _$DeclarativeSettingsGetFormsResponseApplicationJsonSerializer();
+    new _$DeclarativeSettingsGetFormsResponseApplicationJsonSerializer();
 Serializer<LogSettingsLogSettingsDownloadHeaders> _$logSettingsLogSettingsDownloadHeadersSerializer =
-    _$LogSettingsLogSettingsDownloadHeadersSerializer();
+    new _$LogSettingsLogSettingsDownloadHeadersSerializer();
 
 class _$DeclarativeSettingsSetValueRequestApplicationJsonSerializer
     implements StructuredSerializer<DeclarativeSettingsSetValueRequestApplicationJson> {
@@ -155,7 +160,7 @@ class _$DeclarativeSettingsSetValueRequestApplicationJsonSerializer
   @override
   DeclarativeSettingsSetValueRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = DeclarativeSettingsSetValueRequestApplicationJsonBuilder();
+    final result = new DeclarativeSettingsSetValueRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -222,7 +227,7 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
   OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = OCSMetaBuilder();
+    final result = new OCSMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -283,7 +288,7 @@ class _$DeclarativeSettingsSetValueResponseApplicationJson_OcsSerializer
   DeclarativeSettingsSetValueResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder();
+    final result = new DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -329,7 +334,7 @@ class _$DeclarativeSettingsSetValueResponseApplicationJsonSerializer
   @override
   DeclarativeSettingsSetValueResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = DeclarativeSettingsSetValueResponseApplicationJsonBuilder();
+    final result = new DeclarativeSettingsSetValueResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -371,7 +376,7 @@ class _$DeclarativeFormField_Options1Serializer implements StructuredSerializer<
   @override
   DeclarativeFormField_Options1 deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = DeclarativeFormField_Options1Builder();
+    final result = new DeclarativeFormField_Options1Builder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -437,7 +442,7 @@ class _$DeclarativeFormFieldSerializer implements StructuredSerializer<Declarati
       result
         ..add('options')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltList, [FullType(DeclarativeFormField_Options)])));
+            specifiedType: const FullType(BuiltList, const [const FullType(DeclarativeFormField_Options)])));
     }
     return result;
   }
@@ -445,7 +450,7 @@ class _$DeclarativeFormFieldSerializer implements StructuredSerializer<Declarati
   @override
   DeclarativeFormField deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = DeclarativeFormFieldBuilder();
+    final result = new DeclarativeFormFieldBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -477,7 +482,7 @@ class _$DeclarativeFormFieldSerializer implements StructuredSerializer<Declarati
           break;
         case 'options':
           result.options.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(BuiltList, [FullType(DeclarativeFormField_Options)]))!
+                  specifiedType: const FullType(BuiltList, const [const FullType(DeclarativeFormField_Options)]))!
               as BuiltList<Object?>);
           break;
         case 'value':
@@ -516,7 +521,8 @@ class _$DeclarativeFormSerializer implements StructuredSerializer<DeclarativeFor
       'app',
       serializers.serialize(object.app, specifiedType: const FullType(String)),
       'fields',
-      serializers.serialize(object.fields, specifiedType: const FullType(BuiltList, [FullType(DeclarativeFormField)])),
+      serializers.serialize(object.fields,
+          specifiedType: const FullType(BuiltList, const [const FullType(DeclarativeFormField)])),
     ];
     Object? value;
     value = object.description;
@@ -537,7 +543,7 @@ class _$DeclarativeFormSerializer implements StructuredSerializer<DeclarativeFor
   @override
   DeclarativeForm deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = DeclarativeFormBuilder();
+    final result = new DeclarativeFormBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -576,7 +582,8 @@ class _$DeclarativeFormSerializer implements StructuredSerializer<DeclarativeFor
           break;
         case 'fields':
           result.fields.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(DeclarativeFormField)]))! as BuiltList<Object?>);
+                  specifiedType: const FullType(BuiltList, const [const FullType(DeclarativeFormField)]))!
+              as BuiltList<Object?>);
           break;
       }
     }
@@ -602,7 +609,8 @@ class _$DeclarativeSettingsGetFormsResponseApplicationJson_OcsSerializer
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(DeclarativeForm)])),
+      serializers.serialize(object.data,
+          specifiedType: const FullType(BuiltList, const [const FullType(DeclarativeForm)])),
     ];
 
     return result;
@@ -612,7 +620,7 @@ class _$DeclarativeSettingsGetFormsResponseApplicationJson_OcsSerializer
   DeclarativeSettingsGetFormsResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder();
+    final result = new DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -625,7 +633,8 @@ class _$DeclarativeSettingsGetFormsResponseApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(DeclarativeForm)]))! as BuiltList<Object?>);
+                  specifiedType: const FullType(BuiltList, const [const FullType(DeclarativeForm)]))!
+              as BuiltList<Object?>);
           break;
       }
     }
@@ -659,7 +668,7 @@ class _$DeclarativeSettingsGetFormsResponseApplicationJsonSerializer
   @override
   DeclarativeSettingsGetFormsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = DeclarativeSettingsGetFormsResponseApplicationJsonBuilder();
+    final result = new DeclarativeSettingsGetFormsResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -703,7 +712,7 @@ class _$LogSettingsLogSettingsDownloadHeadersSerializer
   @override
   LogSettingsLogSettingsDownloadHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = LogSettingsLogSettingsDownloadHeadersBuilder();
+    final result = new LogSettingsLogSettingsDownloadHeadersBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -749,7 +758,7 @@ class _$DeclarativeSettingsSetValueRequestApplicationJson extends DeclarativeSet
 
   factory _$DeclarativeSettingsSetValueRequestApplicationJson(
           [void Function(DeclarativeSettingsSetValueRequestApplicationJsonBuilder)? updates]) =>
-      (DeclarativeSettingsSetValueRequestApplicationJsonBuilder()..update(updates))._build();
+      (new DeclarativeSettingsSetValueRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$DeclarativeSettingsSetValueRequestApplicationJson._(
       {required this.app, required this.formId, required this.fieldId, required this.value})
@@ -767,7 +776,7 @@ class _$DeclarativeSettingsSetValueRequestApplicationJson extends DeclarativeSet
 
   @override
   DeclarativeSettingsSetValueRequestApplicationJsonBuilder toBuilder() =>
-      DeclarativeSettingsSetValueRequestApplicationJsonBuilder()..replace(this);
+      new DeclarativeSettingsSetValueRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -857,7 +866,7 @@ class DeclarativeSettingsSetValueRequestApplicationJsonBuilder
   _$DeclarativeSettingsSetValueRequestApplicationJson _build() {
     DeclarativeSettingsSetValueRequestApplicationJson._validate(this);
     final _$result = _$v ??
-        _$DeclarativeSettingsSetValueRequestApplicationJson._(
+        new _$DeclarativeSettingsSetValueRequestApplicationJson._(
           app: BuiltValueNullFieldError.checkNotNull(app, r'DeclarativeSettingsSetValueRequestApplicationJson', 'app'),
           formId: BuiltValueNullFieldError.checkNotNull(
               formId, r'DeclarativeSettingsSetValueRequestApplicationJson', 'formId'),
@@ -902,7 +911,7 @@ class _$OCSMeta extends OCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (new OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
       : super._() {
@@ -914,7 +923,7 @@ class _$OCSMeta extends OCSMeta {
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
+  OCSMetaBuilder toBuilder() => new OCSMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1008,7 +1017,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   _$OCSMeta _build() {
     OCSMeta._validate(this);
     final _$result = _$v ??
-        _$OCSMeta._(
+        new _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
           message: message,
@@ -1039,7 +1048,7 @@ class _$DeclarativeSettingsSetValueResponseApplicationJson_Ocs
 
   factory _$DeclarativeSettingsSetValueResponseApplicationJson_Ocs(
           [void Function(DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder)? updates]) =>
-      (DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (new DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$DeclarativeSettingsSetValueResponseApplicationJson_Ocs._({required this.meta, this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'DeclarativeSettingsSetValueResponseApplicationJson_Ocs', 'meta');
@@ -1052,7 +1061,7 @@ class _$DeclarativeSettingsSetValueResponseApplicationJson_Ocs
 
   @override
   DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder toBuilder() =>
-      DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder()..replace(this);
+      new DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1086,7 +1095,7 @@ class DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder
   _$DeclarativeSettingsSetValueResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
@@ -1126,7 +1135,7 @@ class DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder
     _$DeclarativeSettingsSetValueResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$DeclarativeSettingsSetValueResponseApplicationJson_Ocs._(
+          new _$DeclarativeSettingsSetValueResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data,
           );
@@ -1136,7 +1145,7 @@ class DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'DeclarativeSettingsSetValueResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -1159,7 +1168,7 @@ class _$DeclarativeSettingsSetValueResponseApplicationJson extends DeclarativeSe
 
   factory _$DeclarativeSettingsSetValueResponseApplicationJson(
           [void Function(DeclarativeSettingsSetValueResponseApplicationJsonBuilder)? updates]) =>
-      (DeclarativeSettingsSetValueResponseApplicationJsonBuilder()..update(updates))._build();
+      (new DeclarativeSettingsSetValueResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$DeclarativeSettingsSetValueResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'DeclarativeSettingsSetValueResponseApplicationJson', 'ocs');
@@ -1172,7 +1181,7 @@ class _$DeclarativeSettingsSetValueResponseApplicationJson extends DeclarativeSe
 
   @override
   DeclarativeSettingsSetValueResponseApplicationJsonBuilder toBuilder() =>
-      DeclarativeSettingsSetValueResponseApplicationJsonBuilder()..replace(this);
+      new DeclarativeSettingsSetValueResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1204,7 +1213,7 @@ class DeclarativeSettingsSetValueResponseApplicationJsonBuilder
 
   DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder? _ocs;
   DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= new DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder();
   set ocs(covariant DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   DeclarativeSettingsSetValueResponseApplicationJsonBuilder() {
@@ -1239,7 +1248,7 @@ class DeclarativeSettingsSetValueResponseApplicationJsonBuilder
     _$DeclarativeSettingsSetValueResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$DeclarativeSettingsSetValueResponseApplicationJson._(
+          new _$DeclarativeSettingsSetValueResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -1248,7 +1257,7 @@ class DeclarativeSettingsSetValueResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'DeclarativeSettingsSetValueResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -1275,7 +1284,7 @@ class _$DeclarativeFormField_Options1 extends DeclarativeFormField_Options1 {
   final JsonObject value;
 
   factory _$DeclarativeFormField_Options1([void Function(DeclarativeFormField_Options1Builder)? updates]) =>
-      (DeclarativeFormField_Options1Builder()..update(updates))._build();
+      (new DeclarativeFormField_Options1Builder()..update(updates))._build();
 
   _$DeclarativeFormField_Options1._({required this.name, required this.value}) : super._() {
     BuiltValueNullFieldError.checkNotNull(name, r'DeclarativeFormField_Options1', 'name');
@@ -1287,7 +1296,7 @@ class _$DeclarativeFormField_Options1 extends DeclarativeFormField_Options1 {
       (toBuilder()..update(updates)).build();
 
   @override
-  DeclarativeFormField_Options1Builder toBuilder() => DeclarativeFormField_Options1Builder()..replace(this);
+  DeclarativeFormField_Options1Builder toBuilder() => new DeclarativeFormField_Options1Builder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1358,7 +1367,7 @@ class DeclarativeFormField_Options1Builder
   _$DeclarativeFormField_Options1 _build() {
     DeclarativeFormField_Options1._validate(this);
     final _$result = _$v ??
-        _$DeclarativeFormField_Options1._(
+        new _$DeclarativeFormField_Options1._(
           name: BuiltValueNullFieldError.checkNotNull(name, r'DeclarativeFormField_Options1', 'name'),
           value: BuiltValueNullFieldError.checkNotNull(value, r'DeclarativeFormField_Options1', 'value'),
         );
@@ -1419,7 +1428,7 @@ class _$DeclarativeFormField extends DeclarativeFormField {
   final DeclarativeFormField_Value value;
 
   factory _$DeclarativeFormField([void Function(DeclarativeFormFieldBuilder)? updates]) =>
-      (DeclarativeFormFieldBuilder()..update(updates))._build();
+      (new DeclarativeFormFieldBuilder()..update(updates))._build();
 
   _$DeclarativeFormField._(
       {required this.id,
@@ -1444,7 +1453,7 @@ class _$DeclarativeFormField extends DeclarativeFormField {
       (toBuilder()..update(updates)).build();
 
   @override
-  DeclarativeFormFieldBuilder toBuilder() => DeclarativeFormFieldBuilder()..replace(this);
+  DeclarativeFormFieldBuilder toBuilder() => new DeclarativeFormFieldBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1528,7 +1537,7 @@ class DeclarativeFormFieldBuilder
 
   ListBuilder<DeclarativeFormField_Options>? _options;
   ListBuilder<DeclarativeFormField_Options> get options =>
-      _$this._options ??= ListBuilder<DeclarativeFormField_Options>();
+      _$this._options ??= new ListBuilder<DeclarativeFormField_Options>();
   set options(covariant ListBuilder<DeclarativeFormField_Options>? options) => _$this._options = options;
 
   DeclarativeFormField_Value? _value;
@@ -1575,7 +1584,7 @@ class DeclarativeFormFieldBuilder
     _$DeclarativeFormField _$result;
     try {
       _$result = _$v ??
-          _$DeclarativeFormField._(
+          new _$DeclarativeFormField._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'DeclarativeFormField', 'id'),
             title: BuiltValueNullFieldError.checkNotNull(title, r'DeclarativeFormField', 'title'),
             description: description,
@@ -1592,7 +1601,7 @@ class DeclarativeFormFieldBuilder
         _$failedField = 'options';
         _options?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'DeclarativeFormField', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'DeclarativeFormField', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1658,7 +1667,7 @@ class _$DeclarativeForm extends DeclarativeForm {
   final BuiltList<DeclarativeFormField> fields;
 
   factory _$DeclarativeForm([void Function(DeclarativeFormBuilder)? updates]) =>
-      (DeclarativeFormBuilder()..update(updates))._build();
+      (new DeclarativeFormBuilder()..update(updates))._build();
 
   _$DeclarativeForm._(
       {required this.id,
@@ -1686,7 +1695,7 @@ class _$DeclarativeForm extends DeclarativeForm {
   DeclarativeForm rebuild(void Function(DeclarativeFormBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  DeclarativeFormBuilder toBuilder() => DeclarativeFormBuilder()..replace(this);
+  DeclarativeFormBuilder toBuilder() => new DeclarativeFormBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1779,7 +1788,7 @@ class DeclarativeFormBuilder
   set app(covariant String? app) => _$this._app = app;
 
   ListBuilder<DeclarativeFormField>? _fields;
-  ListBuilder<DeclarativeFormField> get fields => _$this._fields ??= ListBuilder<DeclarativeFormField>();
+  ListBuilder<DeclarativeFormField> get fields => _$this._fields ??= new ListBuilder<DeclarativeFormField>();
   set fields(covariant ListBuilder<DeclarativeFormField>? fields) => _$this._fields = fields;
 
   DeclarativeFormBuilder() {
@@ -1823,7 +1832,7 @@ class DeclarativeFormBuilder
     _$DeclarativeForm _$result;
     try {
       _$result = _$v ??
-          _$DeclarativeForm._(
+          new _$DeclarativeForm._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'DeclarativeForm', 'id'),
             priority: BuiltValueNullFieldError.checkNotNull(priority, r'DeclarativeForm', 'priority'),
             sectionType: BuiltValueNullFieldError.checkNotNull(sectionType, r'DeclarativeForm', 'sectionType'),
@@ -1841,7 +1850,7 @@ class DeclarativeFormBuilder
         _$failedField = 'fields';
         fields.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'DeclarativeForm', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'DeclarativeForm', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1869,7 +1878,7 @@ class _$DeclarativeSettingsGetFormsResponseApplicationJson_Ocs
 
   factory _$DeclarativeSettingsGetFormsResponseApplicationJson_Ocs(
           [void Function(DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder)? updates]) =>
-      (DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (new DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$DeclarativeSettingsGetFormsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'DeclarativeSettingsGetFormsResponseApplicationJson_Ocs', 'meta');
@@ -1883,7 +1892,7 @@ class _$DeclarativeSettingsGetFormsResponseApplicationJson_Ocs
 
   @override
   DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder toBuilder() =>
-      DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder()..replace(this);
+      new DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1917,11 +1926,11 @@ class DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder
   _$DeclarativeSettingsGetFormsResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<DeclarativeForm>? _data;
-  ListBuilder<DeclarativeForm> get data => _$this._data ??= ListBuilder<DeclarativeForm>();
+  ListBuilder<DeclarativeForm> get data => _$this._data ??= new ListBuilder<DeclarativeForm>();
   set data(covariant ListBuilder<DeclarativeForm>? data) => _$this._data = data;
 
   DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder() {
@@ -1957,7 +1966,7 @@ class DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder
     _$DeclarativeSettingsGetFormsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$DeclarativeSettingsGetFormsResponseApplicationJson_Ocs._(
+          new _$DeclarativeSettingsGetFormsResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -1969,7 +1978,7 @@ class DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'DeclarativeSettingsGetFormsResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -1992,7 +2001,7 @@ class _$DeclarativeSettingsGetFormsResponseApplicationJson extends DeclarativeSe
 
   factory _$DeclarativeSettingsGetFormsResponseApplicationJson(
           [void Function(DeclarativeSettingsGetFormsResponseApplicationJsonBuilder)? updates]) =>
-      (DeclarativeSettingsGetFormsResponseApplicationJsonBuilder()..update(updates))._build();
+      (new DeclarativeSettingsGetFormsResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$DeclarativeSettingsGetFormsResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'DeclarativeSettingsGetFormsResponseApplicationJson', 'ocs');
@@ -2005,7 +2014,7 @@ class _$DeclarativeSettingsGetFormsResponseApplicationJson extends DeclarativeSe
 
   @override
   DeclarativeSettingsGetFormsResponseApplicationJsonBuilder toBuilder() =>
-      DeclarativeSettingsGetFormsResponseApplicationJsonBuilder()..replace(this);
+      new DeclarativeSettingsGetFormsResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2037,7 +2046,7 @@ class DeclarativeSettingsGetFormsResponseApplicationJsonBuilder
 
   DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder? _ocs;
   DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= new DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder();
   set ocs(covariant DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   DeclarativeSettingsGetFormsResponseApplicationJsonBuilder() {
@@ -2072,7 +2081,7 @@ class DeclarativeSettingsGetFormsResponseApplicationJsonBuilder
     _$DeclarativeSettingsGetFormsResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$DeclarativeSettingsGetFormsResponseApplicationJson._(
+          new _$DeclarativeSettingsGetFormsResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -2081,7 +2090,7 @@ class DeclarativeSettingsGetFormsResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'DeclarativeSettingsGetFormsResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -2104,7 +2113,7 @@ class _$LogSettingsLogSettingsDownloadHeaders extends LogSettingsLogSettingsDown
 
   factory _$LogSettingsLogSettingsDownloadHeaders(
           [void Function(LogSettingsLogSettingsDownloadHeadersBuilder)? updates]) =>
-      (LogSettingsLogSettingsDownloadHeadersBuilder()..update(updates))._build();
+      (new LogSettingsLogSettingsDownloadHeadersBuilder()..update(updates))._build();
 
   _$LogSettingsLogSettingsDownloadHeaders._({this.contentDisposition}) : super._();
 
@@ -2114,7 +2123,7 @@ class _$LogSettingsLogSettingsDownloadHeaders extends LogSettingsLogSettingsDown
 
   @override
   LogSettingsLogSettingsDownloadHeadersBuilder toBuilder() =>
-      LogSettingsLogSettingsDownloadHeadersBuilder()..replace(this);
+      new LogSettingsLogSettingsDownloadHeadersBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2178,7 +2187,7 @@ class LogSettingsLogSettingsDownloadHeadersBuilder
   _$LogSettingsLogSettingsDownloadHeaders _build() {
     LogSettingsLogSettingsDownloadHeaders._validate(this);
     final _$result = _$v ??
-        _$LogSettingsLogSettingsDownloadHeaders._(
+        new _$LogSettingsLogSettingsDownloadHeaders._(
           contentDisposition: contentDisposition,
         );
     replace(_$result);

@@ -6,12 +6,12 @@ part of 'nested_ofs.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<BaseAllOf> _$baseAllOfSerializer = _$BaseAllOfSerializer();
-Serializer<BaseOneOf1> _$baseOneOf1Serializer = _$BaseOneOf1Serializer();
-Serializer<BaseAnyOf1> _$baseAnyOf1Serializer = _$BaseAnyOf1Serializer();
-Serializer<BaseNestedAllOf> _$baseNestedAllOfSerializer = _$BaseNestedAllOfSerializer();
-Serializer<BaseNestedOneOf3> _$baseNestedOneOf3Serializer = _$BaseNestedOneOf3Serializer();
-Serializer<BaseNestedAnyOf3> _$baseNestedAnyOf3Serializer = _$BaseNestedAnyOf3Serializer();
+Serializer<BaseAllOf> _$baseAllOfSerializer = new _$BaseAllOfSerializer();
+Serializer<BaseOneOf1> _$baseOneOf1Serializer = new _$BaseOneOf1Serializer();
+Serializer<BaseAnyOf1> _$baseAnyOf1Serializer = new _$BaseAnyOf1Serializer();
+Serializer<BaseNestedAllOf> _$baseNestedAllOfSerializer = new _$BaseNestedAllOfSerializer();
+Serializer<BaseNestedOneOf3> _$baseNestedOneOf3Serializer = new _$BaseNestedOneOf3Serializer();
+Serializer<BaseNestedAnyOf3> _$baseNestedAnyOf3Serializer = new _$BaseNestedAnyOf3Serializer();
 
 class _$BaseAllOfSerializer implements StructuredSerializer<BaseAllOf> {
   @override
@@ -35,7 +35,7 @@ class _$BaseAllOfSerializer implements StructuredSerializer<BaseAllOf> {
   @override
   BaseAllOf deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = BaseAllOfBuilder();
+    final result = new BaseAllOfBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -76,7 +76,7 @@ class _$BaseOneOf1Serializer implements StructuredSerializer<BaseOneOf1> {
   @override
   BaseOneOf1 deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = BaseOneOf1Builder();
+    final result = new BaseOneOf1Builder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -114,7 +114,7 @@ class _$BaseAnyOf1Serializer implements StructuredSerializer<BaseAnyOf1> {
   @override
   BaseAnyOf1 deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = BaseAnyOf1Builder();
+    final result = new BaseAnyOf1Builder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -160,7 +160,7 @@ class _$BaseNestedAllOfSerializer implements StructuredSerializer<BaseNestedAllO
   @override
   BaseNestedAllOf deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = BaseNestedAllOfBuilder();
+    final result = new BaseNestedAllOfBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -211,7 +211,7 @@ class _$BaseNestedOneOf3Serializer implements StructuredSerializer<BaseNestedOne
   @override
   BaseNestedOneOf3 deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = BaseNestedOneOf3Builder();
+    final result = new BaseNestedOneOf3Builder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -250,7 +250,7 @@ class _$BaseNestedAnyOf3Serializer implements StructuredSerializer<BaseNestedAny
   @override
   BaseNestedAnyOf3 deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = BaseNestedAnyOf3Builder();
+    final result = new BaseNestedAnyOf3Builder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -285,7 +285,7 @@ class _$BaseAllOf extends BaseAllOf {
   @override
   final String attributeAllOf;
 
-  factory _$BaseAllOf([void Function(BaseAllOfBuilder)? updates]) => (BaseAllOfBuilder()..update(updates))._build();
+  factory _$BaseAllOf([void Function(BaseAllOfBuilder)? updates]) => (new BaseAllOfBuilder()..update(updates))._build();
 
   _$BaseAllOf._({required this.string, required this.attributeAllOf}) : super._() {
     BuiltValueNullFieldError.checkNotNull(string, r'BaseAllOf', 'string');
@@ -296,7 +296,7 @@ class _$BaseAllOf extends BaseAllOf {
   BaseAllOf rebuild(void Function(BaseAllOfBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  BaseAllOfBuilder toBuilder() => BaseAllOfBuilder()..replace(this);
+  BaseAllOfBuilder toBuilder() => new BaseAllOfBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -364,7 +364,7 @@ class BaseAllOfBuilder implements Builder<BaseAllOf, BaseAllOfBuilder>, $BaseAll
   _$BaseAllOf _build() {
     BaseAllOf._validate(this);
     final _$result = _$v ??
-        _$BaseAllOf._(
+        new _$BaseAllOf._(
           string: BuiltValueNullFieldError.checkNotNull(string, r'BaseAllOf', 'string'),
           attributeAllOf: BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'BaseAllOf', 'attributeAllOf'),
         );
@@ -384,7 +384,8 @@ class _$BaseOneOf1 extends BaseOneOf1 {
   @override
   final String attributeOneOf;
 
-  factory _$BaseOneOf1([void Function(BaseOneOf1Builder)? updates]) => (BaseOneOf1Builder()..update(updates))._build();
+  factory _$BaseOneOf1([void Function(BaseOneOf1Builder)? updates]) =>
+      (new BaseOneOf1Builder()..update(updates))._build();
 
   _$BaseOneOf1._({required this.attributeOneOf}) : super._() {
     BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'BaseOneOf1', 'attributeOneOf');
@@ -394,7 +395,7 @@ class _$BaseOneOf1 extends BaseOneOf1 {
   BaseOneOf1 rebuild(void Function(BaseOneOf1Builder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  BaseOneOf1Builder toBuilder() => BaseOneOf1Builder()..replace(this);
+  BaseOneOf1Builder toBuilder() => new BaseOneOf1Builder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -453,7 +454,7 @@ class BaseOneOf1Builder implements Builder<BaseOneOf1, BaseOneOf1Builder>, $Base
   _$BaseOneOf1 _build() {
     BaseOneOf1._validate(this);
     final _$result = _$v ??
-        _$BaseOneOf1._(
+        new _$BaseOneOf1._(
           attributeOneOf: BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'BaseOneOf1', 'attributeOneOf'),
         );
     replace(_$result);
@@ -472,7 +473,8 @@ class _$BaseAnyOf1 extends BaseAnyOf1 {
   @override
   final String attributeAnyOf;
 
-  factory _$BaseAnyOf1([void Function(BaseAnyOf1Builder)? updates]) => (BaseAnyOf1Builder()..update(updates))._build();
+  factory _$BaseAnyOf1([void Function(BaseAnyOf1Builder)? updates]) =>
+      (new BaseAnyOf1Builder()..update(updates))._build();
 
   _$BaseAnyOf1._({required this.attributeAnyOf}) : super._() {
     BuiltValueNullFieldError.checkNotNull(attributeAnyOf, r'BaseAnyOf1', 'attributeAnyOf');
@@ -482,7 +484,7 @@ class _$BaseAnyOf1 extends BaseAnyOf1 {
   BaseAnyOf1 rebuild(void Function(BaseAnyOf1Builder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  BaseAnyOf1Builder toBuilder() => BaseAnyOf1Builder()..replace(this);
+  BaseAnyOf1Builder toBuilder() => new BaseAnyOf1Builder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -541,7 +543,7 @@ class BaseAnyOf1Builder implements Builder<BaseAnyOf1, BaseAnyOf1Builder>, $Base
   _$BaseAnyOf1 _build() {
     BaseAnyOf1._validate(this);
     final _$result = _$v ??
-        _$BaseAnyOf1._(
+        new _$BaseAnyOf1._(
           attributeAnyOf: BuiltValueNullFieldError.checkNotNull(attributeAnyOf, r'BaseAnyOf1', 'attributeAnyOf'),
         );
     replace(_$result);
@@ -581,7 +583,7 @@ class _$BaseNestedAllOf extends BaseNestedAllOf {
   final String attributeAllOf;
 
   factory _$BaseNestedAllOf([void Function(BaseNestedAllOfBuilder)? updates]) =>
-      (BaseNestedAllOfBuilder()..update(updates))._build();
+      (new BaseNestedAllOfBuilder()..update(updates))._build();
 
   _$BaseNestedAllOf._(
       {required this.baseOneOf,
@@ -601,7 +603,7 @@ class _$BaseNestedAllOf extends BaseNestedAllOf {
   BaseNestedAllOf rebuild(void Function(BaseNestedAllOfBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  BaseNestedAllOfBuilder toBuilder() => BaseNestedAllOfBuilder()..replace(this);
+  BaseNestedAllOfBuilder toBuilder() => new BaseNestedAllOfBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -698,7 +700,7 @@ class BaseNestedAllOfBuilder
   _$BaseNestedAllOf _build() {
     BaseNestedAllOf._validate(this);
     final _$result = _$v ??
-        _$BaseNestedAllOf._(
+        new _$BaseNestedAllOf._(
           baseOneOf: BuiltValueNullFieldError.checkNotNull(baseOneOf, r'BaseNestedAllOf', 'baseOneOf'),
           baseAnyOf: BuiltValueNullFieldError.checkNotNull(baseAnyOf, r'BaseNestedAllOf', 'baseAnyOf'),
           attributeNestedAllOf:
@@ -723,7 +725,7 @@ class _$BaseNestedOneOf3 extends BaseNestedOneOf3 {
   final String attributeNestedOneOf;
 
   factory _$BaseNestedOneOf3([void Function(BaseNestedOneOf3Builder)? updates]) =>
-      (BaseNestedOneOf3Builder()..update(updates))._build();
+      (new BaseNestedOneOf3Builder()..update(updates))._build();
 
   _$BaseNestedOneOf3._({required this.attributeNestedOneOf}) : super._() {
     BuiltValueNullFieldError.checkNotNull(attributeNestedOneOf, r'BaseNestedOneOf3', 'attributeNestedOneOf');
@@ -733,7 +735,7 @@ class _$BaseNestedOneOf3 extends BaseNestedOneOf3 {
   BaseNestedOneOf3 rebuild(void Function(BaseNestedOneOf3Builder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  BaseNestedOneOf3Builder toBuilder() => BaseNestedOneOf3Builder()..replace(this);
+  BaseNestedOneOf3Builder toBuilder() => new BaseNestedOneOf3Builder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -795,7 +797,7 @@ class BaseNestedOneOf3Builder
   _$BaseNestedOneOf3 _build() {
     BaseNestedOneOf3._validate(this);
     final _$result = _$v ??
-        _$BaseNestedOneOf3._(
+        new _$BaseNestedOneOf3._(
           attributeNestedOneOf:
               BuiltValueNullFieldError.checkNotNull(attributeNestedOneOf, r'BaseNestedOneOf3', 'attributeNestedOneOf'),
         );
@@ -816,7 +818,7 @@ class _$BaseNestedAnyOf3 extends BaseNestedAnyOf3 {
   final String attributeNestedAnyOf;
 
   factory _$BaseNestedAnyOf3([void Function(BaseNestedAnyOf3Builder)? updates]) =>
-      (BaseNestedAnyOf3Builder()..update(updates))._build();
+      (new BaseNestedAnyOf3Builder()..update(updates))._build();
 
   _$BaseNestedAnyOf3._({required this.attributeNestedAnyOf}) : super._() {
     BuiltValueNullFieldError.checkNotNull(attributeNestedAnyOf, r'BaseNestedAnyOf3', 'attributeNestedAnyOf');
@@ -826,7 +828,7 @@ class _$BaseNestedAnyOf3 extends BaseNestedAnyOf3 {
   BaseNestedAnyOf3 rebuild(void Function(BaseNestedAnyOf3Builder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  BaseNestedAnyOf3Builder toBuilder() => BaseNestedAnyOf3Builder()..replace(this);
+  BaseNestedAnyOf3Builder toBuilder() => new BaseNestedAnyOf3Builder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -888,7 +890,7 @@ class BaseNestedAnyOf3Builder
   _$BaseNestedAnyOf3 _build() {
     BaseNestedAnyOf3._validate(this);
     final _$result = _$v ??
-        _$BaseNestedAnyOf3._(
+        new _$BaseNestedAnyOf3._(
           attributeNestedAnyOf:
               BuiltValueNullFieldError.checkNotNull(attributeNestedAnyOf, r'BaseNestedAnyOf3', 'attributeNestedAnyOf'),
         );

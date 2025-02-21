@@ -6,9 +6,9 @@ part of 'notes.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const Settings_NoteMode _$settingsNoteModeEdit = Settings_NoteMode._('edit');
-const Settings_NoteMode _$settingsNoteModePreview = Settings_NoteMode._('preview');
-const Settings_NoteMode _$settingsNoteModeRich = Settings_NoteMode._('rich');
+const Settings_NoteMode _$settingsNoteModeEdit = const Settings_NoteMode._('edit');
+const Settings_NoteMode _$settingsNoteModePreview = const Settings_NoteMode._('preview');
+const Settings_NoteMode _$settingsNoteModeRich = const Settings_NoteMode._('rich');
 
 Settings_NoteMode _$valueOfSettings_NoteMode(String name) {
   switch (name) {
@@ -19,23 +19,23 @@ Settings_NoteMode _$valueOfSettings_NoteMode(String name) {
     case 'rich':
       return _$settingsNoteModeRich;
     default:
-      throw ArgumentError(name);
+      throw new ArgumentError(name);
   }
 }
 
-final BuiltSet<Settings_NoteMode> _$settingsNoteModeValues = BuiltSet<Settings_NoteMode>(const <Settings_NoteMode>[
+final BuiltSet<Settings_NoteMode> _$settingsNoteModeValues = new BuiltSet<Settings_NoteMode>(const <Settings_NoteMode>[
   _$settingsNoteModeEdit,
   _$settingsNoteModePreview,
   _$settingsNoteModeRich,
 ]);
 
-Serializer<Note> _$noteSerializer = _$NoteSerializer();
-Serializer<Settings> _$settingsSerializer = _$SettingsSerializer();
-Serializer<Capabilities_Notes> _$capabilitiesNotesSerializer = _$Capabilities_NotesSerializer();
-Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
-Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
-Serializer<EmptyOCS_Ocs> _$emptyOCSOcsSerializer = _$EmptyOCS_OcsSerializer();
-Serializer<EmptyOCS> _$emptyOCSSerializer = _$EmptyOCSSerializer();
+Serializer<Note> _$noteSerializer = new _$NoteSerializer();
+Serializer<Settings> _$settingsSerializer = new _$SettingsSerializer();
+Serializer<Capabilities_Notes> _$capabilitiesNotesSerializer = new _$Capabilities_NotesSerializer();
+Serializer<Capabilities> _$capabilitiesSerializer = new _$CapabilitiesSerializer();
+Serializer<OCSMeta> _$oCSMetaSerializer = new _$OCSMetaSerializer();
+Serializer<EmptyOCS_Ocs> _$emptyOCSOcsSerializer = new _$EmptyOCS_OcsSerializer();
+Serializer<EmptyOCS> _$emptyOCSSerializer = new _$EmptyOCSSerializer();
 
 class _$NoteSerializer implements StructuredSerializer<Note> {
   @override
@@ -74,7 +74,7 @@ class _$NoteSerializer implements StructuredSerializer<Note> {
   @override
   Note deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NoteBuilder();
+    final result = new NoteBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -143,7 +143,7 @@ class _$SettingsSerializer implements StructuredSerializer<Settings> {
   @override
   Settings deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SettingsBuilder();
+    final result = new SettingsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -183,7 +183,7 @@ class _$Capabilities_NotesSerializer implements StructuredSerializer<Capabilitie
     if (value != null) {
       result
         ..add('api_version')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)])));
     }
     value = object.version;
     if (value != null) {
@@ -197,7 +197,7 @@ class _$Capabilities_NotesSerializer implements StructuredSerializer<Capabilitie
   @override
   Capabilities_Notes deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Capabilities_NotesBuilder();
+    final result = new Capabilities_NotesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -207,7 +207,7 @@ class _$Capabilities_NotesSerializer implements StructuredSerializer<Capabilitie
       switch (key) {
         case 'api_version':
           result.apiVersion.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
           break;
         case 'version':
           result.version = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -239,7 +239,7 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   @override
   Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CapabilitiesBuilder();
+    final result = new CapabilitiesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -298,7 +298,7 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
   OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = OCSMetaBuilder();
+    final result = new OCSMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -341,7 +341,7 @@ class _$EmptyOCS_OcsSerializer implements StructuredSerializer<EmptyOCS_Ocs> {
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])),
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)])),
     ];
 
     return result;
@@ -350,7 +350,7 @@ class _$EmptyOCS_OcsSerializer implements StructuredSerializer<EmptyOCS_Ocs> {
   @override
   EmptyOCS_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = EmptyOCS_OcsBuilder();
+    final result = new EmptyOCS_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -363,7 +363,7 @@ class _$EmptyOCS_OcsSerializer implements StructuredSerializer<EmptyOCS_Ocs> {
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -392,7 +392,7 @@ class _$EmptyOCSSerializer implements StructuredSerializer<EmptyOCS> {
   @override
   EmptyOCS deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = EmptyOCSBuilder();
+    final result = new EmptyOCSBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -467,7 +467,7 @@ class _$Note extends Note {
   @override
   final String errorType;
 
-  factory _$Note([void Function(NoteBuilder)? updates]) => (NoteBuilder()..update(updates))._build();
+  factory _$Note([void Function(NoteBuilder)? updates]) => (new NoteBuilder()..update(updates))._build();
 
   _$Note._(
       {required this.id,
@@ -497,7 +497,7 @@ class _$Note extends Note {
   Note rebuild(void Function(NoteBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  NoteBuilder toBuilder() => NoteBuilder()..replace(this);
+  NoteBuilder toBuilder() => new NoteBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -631,7 +631,7 @@ class NoteBuilder implements Builder<Note, NoteBuilder>, $NoteInterfaceBuilder {
   _$Note _build() {
     Note._validate(this);
     final _$result = _$v ??
-        _$Note._(
+        new _$Note._(
           id: BuiltValueNullFieldError.checkNotNull(id, r'Note', 'id'),
           etag: BuiltValueNullFieldError.checkNotNull(etag, r'Note', 'etag'),
           readonly: BuiltValueNullFieldError.checkNotNull(readonly, r'Note', 'readonly'),
@@ -669,7 +669,7 @@ class _$Settings extends Settings {
   @override
   final Settings_NoteMode noteMode;
 
-  factory _$Settings([void Function(SettingsBuilder)? updates]) => (SettingsBuilder()..update(updates))._build();
+  factory _$Settings([void Function(SettingsBuilder)? updates]) => (new SettingsBuilder()..update(updates))._build();
 
   _$Settings._({required this.notesPath, required this.fileSuffix, required this.noteMode}) : super._() {
     BuiltValueNullFieldError.checkNotNull(notesPath, r'Settings', 'notesPath');
@@ -681,7 +681,7 @@ class _$Settings extends Settings {
   Settings rebuild(void Function(SettingsBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  SettingsBuilder toBuilder() => SettingsBuilder()..replace(this);
+  SettingsBuilder toBuilder() => new SettingsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -759,7 +759,7 @@ class SettingsBuilder implements Builder<Settings, SettingsBuilder>, $SettingsIn
   _$Settings _build() {
     Settings._validate(this);
     final _$result = _$v ??
-        _$Settings._(
+        new _$Settings._(
           notesPath: BuiltValueNullFieldError.checkNotNull(notesPath, r'Settings', 'notesPath'),
           fileSuffix: BuiltValueNullFieldError.checkNotNull(fileSuffix, r'Settings', 'fileSuffix'),
           noteMode: BuiltValueNullFieldError.checkNotNull(noteMode, r'Settings', 'noteMode'),
@@ -786,7 +786,7 @@ class _$Capabilities_Notes extends Capabilities_Notes {
   final String? version;
 
   factory _$Capabilities_Notes([void Function(Capabilities_NotesBuilder)? updates]) =>
-      (Capabilities_NotesBuilder()..update(updates))._build();
+      (new Capabilities_NotesBuilder()..update(updates))._build();
 
   _$Capabilities_Notes._({this.apiVersion, this.version}) : super._();
 
@@ -795,7 +795,7 @@ class _$Capabilities_Notes extends Capabilities_Notes {
       (toBuilder()..update(updates)).build();
 
   @override
-  Capabilities_NotesBuilder toBuilder() => Capabilities_NotesBuilder()..replace(this);
+  Capabilities_NotesBuilder toBuilder() => new Capabilities_NotesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -826,7 +826,7 @@ class Capabilities_NotesBuilder
   _$Capabilities_Notes? _$v;
 
   ListBuilder<String>? _apiVersion;
-  ListBuilder<String> get apiVersion => _$this._apiVersion ??= ListBuilder<String>();
+  ListBuilder<String> get apiVersion => _$this._apiVersion ??= new ListBuilder<String>();
   set apiVersion(covariant ListBuilder<String>? apiVersion) => _$this._apiVersion = apiVersion;
 
   String? _version;
@@ -866,7 +866,7 @@ class Capabilities_NotesBuilder
     _$Capabilities_Notes _$result;
     try {
       _$result = _$v ??
-          _$Capabilities_Notes._(
+          new _$Capabilities_Notes._(
             apiVersion: _apiVersion?.build(),
             version: version,
           );
@@ -876,7 +876,7 @@ class Capabilities_NotesBuilder
         _$failedField = 'apiVersion';
         _apiVersion?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Capabilities_Notes', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'Capabilities_Notes', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -897,7 +897,7 @@ class _$Capabilities extends Capabilities {
   final Capabilities_Notes notes;
 
   factory _$Capabilities([void Function(CapabilitiesBuilder)? updates]) =>
-      (CapabilitiesBuilder()..update(updates))._build();
+      (new CapabilitiesBuilder()..update(updates))._build();
 
   _$Capabilities._({required this.notes}) : super._() {
     BuiltValueNullFieldError.checkNotNull(notes, r'Capabilities', 'notes');
@@ -907,7 +907,7 @@ class _$Capabilities extends Capabilities {
   Capabilities rebuild(void Function(CapabilitiesBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  CapabilitiesBuilder toBuilder() => CapabilitiesBuilder()..replace(this);
+  CapabilitiesBuilder toBuilder() => new CapabilitiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -933,7 +933,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   _$Capabilities? _$v;
 
   Capabilities_NotesBuilder? _notes;
-  Capabilities_NotesBuilder get notes => _$this._notes ??= Capabilities_NotesBuilder();
+  Capabilities_NotesBuilder get notes => _$this._notes ??= new Capabilities_NotesBuilder();
   set notes(covariant Capabilities_NotesBuilder? notes) => _$this._notes = notes;
 
   CapabilitiesBuilder() {
@@ -968,7 +968,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     _$Capabilities _$result;
     try {
       _$result = _$v ??
-          _$Capabilities._(
+          new _$Capabilities._(
             notes: notes.build(),
           );
     } catch (_) {
@@ -977,7 +977,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
         _$failedField = 'notes';
         notes.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1017,7 +1017,7 @@ class _$OCSMeta extends OCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (new OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
       : super._() {
@@ -1029,7 +1029,7 @@ class _$OCSMeta extends OCSMeta {
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
+  OCSMetaBuilder toBuilder() => new OCSMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1123,7 +1123,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   _$OCSMeta _build() {
     OCSMeta._validate(this);
     final _$result = _$v ??
-        _$OCSMeta._(
+        new _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
           message: message,
@@ -1152,7 +1152,7 @@ class _$EmptyOCS_Ocs extends EmptyOCS_Ocs {
   final BuiltList<JsonObject> data;
 
   factory _$EmptyOCS_Ocs([void Function(EmptyOCS_OcsBuilder)? updates]) =>
-      (EmptyOCS_OcsBuilder()..update(updates))._build();
+      (new EmptyOCS_OcsBuilder()..update(updates))._build();
 
   _$EmptyOCS_Ocs._({required this.meta, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'EmptyOCS_Ocs', 'meta');
@@ -1163,7 +1163,7 @@ class _$EmptyOCS_Ocs extends EmptyOCS_Ocs {
   EmptyOCS_Ocs rebuild(void Function(EmptyOCS_OcsBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  EmptyOCS_OcsBuilder toBuilder() => EmptyOCS_OcsBuilder()..replace(this);
+  EmptyOCS_OcsBuilder toBuilder() => new EmptyOCS_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1193,11 +1193,11 @@ class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>,
   _$EmptyOCS_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<JsonObject>? _data;
-  ListBuilder<JsonObject> get data => _$this._data ??= ListBuilder<JsonObject>();
+  ListBuilder<JsonObject> get data => _$this._data ??= new ListBuilder<JsonObject>();
   set data(covariant ListBuilder<JsonObject>? data) => _$this._data = data;
 
   EmptyOCS_OcsBuilder() {
@@ -1233,7 +1233,7 @@ class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>,
     _$EmptyOCS_Ocs _$result;
     try {
       _$result = _$v ??
-          _$EmptyOCS_Ocs._(
+          new _$EmptyOCS_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -1245,7 +1245,7 @@ class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>,
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'EmptyOCS_Ocs', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'EmptyOCS_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1265,7 +1265,7 @@ class _$EmptyOCS extends EmptyOCS {
   @override
   final EmptyOCS_Ocs ocs;
 
-  factory _$EmptyOCS([void Function(EmptyOCSBuilder)? updates]) => (EmptyOCSBuilder()..update(updates))._build();
+  factory _$EmptyOCS([void Function(EmptyOCSBuilder)? updates]) => (new EmptyOCSBuilder()..update(updates))._build();
 
   _$EmptyOCS._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'EmptyOCS', 'ocs');
@@ -1275,7 +1275,7 @@ class _$EmptyOCS extends EmptyOCS {
   EmptyOCS rebuild(void Function(EmptyOCSBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  EmptyOCSBuilder toBuilder() => EmptyOCSBuilder()..replace(this);
+  EmptyOCSBuilder toBuilder() => new EmptyOCSBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1301,7 +1301,7 @@ class EmptyOCSBuilder implements Builder<EmptyOCS, EmptyOCSBuilder>, $EmptyOCSIn
   _$EmptyOCS? _$v;
 
   EmptyOCS_OcsBuilder? _ocs;
-  EmptyOCS_OcsBuilder get ocs => _$this._ocs ??= EmptyOCS_OcsBuilder();
+  EmptyOCS_OcsBuilder get ocs => _$this._ocs ??= new EmptyOCS_OcsBuilder();
   set ocs(covariant EmptyOCS_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   EmptyOCSBuilder() {
@@ -1336,7 +1336,7 @@ class EmptyOCSBuilder implements Builder<EmptyOCS, EmptyOCSBuilder>, $EmptyOCSIn
     _$EmptyOCS _$result;
     try {
       _$result = _$v ??
-          _$EmptyOCS._(
+          new _$EmptyOCS._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -1345,7 +1345,7 @@ class EmptyOCSBuilder implements Builder<EmptyOCS, EmptyOCSBuilder>, $EmptyOCSIn
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'EmptyOCS', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'EmptyOCS', _$failedField, e.toString());
       }
       rethrow;
     }

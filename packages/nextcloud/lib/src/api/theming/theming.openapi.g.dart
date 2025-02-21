@@ -6,8 +6,8 @@ part of 'theming.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const ThemingGetThemeStylesheetPlain _$themingGetThemeStylesheetPlain$0 = ThemingGetThemeStylesheetPlain._('\$0');
-const ThemingGetThemeStylesheetPlain _$themingGetThemeStylesheetPlain$1 = ThemingGetThemeStylesheetPlain._('\$1');
+const ThemingGetThemeStylesheetPlain _$themingGetThemeStylesheetPlain$0 = const ThemingGetThemeStylesheetPlain._('\$0');
+const ThemingGetThemeStylesheetPlain _$themingGetThemeStylesheetPlain$1 = const ThemingGetThemeStylesheetPlain._('\$1');
 
 ThemingGetThemeStylesheetPlain _$valueOfThemingGetThemeStylesheetPlain(String name) {
   switch (name) {
@@ -16,20 +16,20 @@ ThemingGetThemeStylesheetPlain _$valueOfThemingGetThemeStylesheetPlain(String na
     case '\$1':
       return _$themingGetThemeStylesheetPlain$1;
     default:
-      throw ArgumentError(name);
+      throw new ArgumentError(name);
   }
 }
 
 final BuiltSet<ThemingGetThemeStylesheetPlain> _$themingGetThemeStylesheetPlainValues =
-    BuiltSet<ThemingGetThemeStylesheetPlain>(const <ThemingGetThemeStylesheetPlain>[
+    new BuiltSet<ThemingGetThemeStylesheetPlain>(const <ThemingGetThemeStylesheetPlain>[
   _$themingGetThemeStylesheetPlain$0,
   _$themingGetThemeStylesheetPlain$1,
 ]);
 
 const ThemingGetThemeStylesheetWithCustomCss _$themingGetThemeStylesheetWithCustomCss$0 =
-    ThemingGetThemeStylesheetWithCustomCss._('\$0');
+    const ThemingGetThemeStylesheetWithCustomCss._('\$0');
 const ThemingGetThemeStylesheetWithCustomCss _$themingGetThemeStylesheetWithCustomCss$1 =
-    ThemingGetThemeStylesheetWithCustomCss._('\$1');
+    const ThemingGetThemeStylesheetWithCustomCss._('\$1');
 
 ThemingGetThemeStylesheetWithCustomCss _$valueOfThemingGetThemeStylesheetWithCustomCss(String name) {
   switch (name) {
@@ -38,18 +38,18 @@ ThemingGetThemeStylesheetWithCustomCss _$valueOfThemingGetThemeStylesheetWithCus
     case '\$1':
       return _$themingGetThemeStylesheetWithCustomCss$1;
     default:
-      throw ArgumentError(name);
+      throw new ArgumentError(name);
   }
 }
 
 final BuiltSet<ThemingGetThemeStylesheetWithCustomCss> _$themingGetThemeStylesheetWithCustomCssValues =
-    BuiltSet<ThemingGetThemeStylesheetWithCustomCss>(const <ThemingGetThemeStylesheetWithCustomCss>[
+    new BuiltSet<ThemingGetThemeStylesheetWithCustomCss>(const <ThemingGetThemeStylesheetWithCustomCss>[
   _$themingGetThemeStylesheetWithCustomCss$0,
   _$themingGetThemeStylesheetWithCustomCss$1,
 ]);
 
-const ThemingGetImageUseSvg _$themingGetImageUseSvg$0 = ThemingGetImageUseSvg._('\$0');
-const ThemingGetImageUseSvg _$themingGetImageUseSvg$1 = ThemingGetImageUseSvg._('\$1');
+const ThemingGetImageUseSvg _$themingGetImageUseSvg$0 = const ThemingGetImageUseSvg._('\$0');
+const ThemingGetImageUseSvg _$themingGetImageUseSvg$1 = const ThemingGetImageUseSvg._('\$1');
 
 ThemingGetImageUseSvg _$valueOfThemingGetImageUseSvg(String name) {
   switch (name) {
@@ -58,32 +58,33 @@ ThemingGetImageUseSvg _$valueOfThemingGetImageUseSvg(String name) {
     case '\$1':
       return _$themingGetImageUseSvg$1;
     default:
-      throw ArgumentError(name);
+      throw new ArgumentError(name);
   }
 }
 
 final BuiltSet<ThemingGetImageUseSvg> _$themingGetImageUseSvgValues =
-    BuiltSet<ThemingGetImageUseSvg>(const <ThemingGetImageUseSvg>[
+    new BuiltSet<ThemingGetImageUseSvg>(const <ThemingGetImageUseSvg>[
   _$themingGetImageUseSvg$0,
   _$themingGetImageUseSvg$1,
 ]);
 
 Serializer<ThemingGetManifestResponseApplicationJson_Icons> _$themingGetManifestResponseApplicationJsonIconsSerializer =
-    _$ThemingGetManifestResponseApplicationJson_IconsSerializer();
+    new _$ThemingGetManifestResponseApplicationJson_IconsSerializer();
 Serializer<ThemingGetManifestResponseApplicationJson> _$themingGetManifestResponseApplicationJsonSerializer =
-    _$ThemingGetManifestResponseApplicationJsonSerializer();
-Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
+    new _$ThemingGetManifestResponseApplicationJsonSerializer();
+Serializer<OCSMeta> _$oCSMetaSerializer = new _$OCSMetaSerializer();
 Serializer<UserThemeEnableThemeResponseApplicationJson_Ocs> _$userThemeEnableThemeResponseApplicationJsonOcsSerializer =
-    _$UserThemeEnableThemeResponseApplicationJson_OcsSerializer();
+    new _$UserThemeEnableThemeResponseApplicationJson_OcsSerializer();
 Serializer<UserThemeEnableThemeResponseApplicationJson> _$userThemeEnableThemeResponseApplicationJsonSerializer =
-    _$UserThemeEnableThemeResponseApplicationJsonSerializer();
+    new _$UserThemeEnableThemeResponseApplicationJsonSerializer();
 Serializer<UserThemeDisableThemeResponseApplicationJson_Ocs>
     _$userThemeDisableThemeResponseApplicationJsonOcsSerializer =
-    _$UserThemeDisableThemeResponseApplicationJson_OcsSerializer();
+    new _$UserThemeDisableThemeResponseApplicationJson_OcsSerializer();
 Serializer<UserThemeDisableThemeResponseApplicationJson> _$userThemeDisableThemeResponseApplicationJsonSerializer =
-    _$UserThemeDisableThemeResponseApplicationJsonSerializer();
-Serializer<PublicCapabilities_Theming> _$publicCapabilitiesThemingSerializer = _$PublicCapabilities_ThemingSerializer();
-Serializer<PublicCapabilities> _$publicCapabilitiesSerializer = _$PublicCapabilitiesSerializer();
+    new _$UserThemeDisableThemeResponseApplicationJsonSerializer();
+Serializer<PublicCapabilities_Theming> _$publicCapabilitiesThemingSerializer =
+    new _$PublicCapabilities_ThemingSerializer();
+Serializer<PublicCapabilities> _$publicCapabilitiesSerializer = new _$PublicCapabilitiesSerializer();
 
 class _$ThemingGetManifestResponseApplicationJson_IconsSerializer
     implements StructuredSerializer<ThemingGetManifestResponseApplicationJson_Icons> {
@@ -113,7 +114,7 @@ class _$ThemingGetManifestResponseApplicationJson_IconsSerializer
   @override
   ThemingGetManifestResponseApplicationJson_Icons deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ThemingGetManifestResponseApplicationJson_IconsBuilder();
+    final result = new ThemingGetManifestResponseApplicationJson_IconsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -165,7 +166,8 @@ class _$ThemingGetManifestResponseApplicationJsonSerializer
       serializers.serialize(object.description, specifiedType: const FullType(String)),
       'icons',
       serializers.serialize(object.icons,
-          specifiedType: const FullType(BuiltList, [FullType(ThemingGetManifestResponseApplicationJson_Icons)])),
+          specifiedType:
+              const FullType(BuiltList, const [const FullType(ThemingGetManifestResponseApplicationJson_Icons)])),
       'display',
       serializers.serialize(object.display, specifiedType: const FullType(String)),
     ];
@@ -176,7 +178,7 @@ class _$ThemingGetManifestResponseApplicationJsonSerializer
   @override
   ThemingGetManifestResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ThemingGetManifestResponseApplicationJsonBuilder();
+    final result = new ThemingGetManifestResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -204,8 +206,8 @@ class _$ThemingGetManifestResponseApplicationJsonSerializer
           break;
         case 'icons':
           result.icons.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, [FullType(ThemingGetManifestResponseApplicationJson_Icons)]))!
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(ThemingGetManifestResponseApplicationJson_Icons)]))!
               as BuiltList<Object?>);
           break;
         case 'display':
@@ -258,7 +260,7 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
   OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = OCSMetaBuilder();
+    final result = new OCSMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -314,7 +316,7 @@ class _$UserThemeEnableThemeResponseApplicationJson_OcsSerializer
   @override
   UserThemeEnableThemeResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UserThemeEnableThemeResponseApplicationJson_OcsBuilder();
+    final result = new UserThemeEnableThemeResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -359,7 +361,7 @@ class _$UserThemeEnableThemeResponseApplicationJsonSerializer
   @override
   UserThemeEnableThemeResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UserThemeEnableThemeResponseApplicationJsonBuilder();
+    final result = new UserThemeEnableThemeResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -405,7 +407,7 @@ class _$UserThemeDisableThemeResponseApplicationJson_OcsSerializer
   @override
   UserThemeDisableThemeResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UserThemeDisableThemeResponseApplicationJson_OcsBuilder();
+    final result = new UserThemeDisableThemeResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -451,7 +453,7 @@ class _$UserThemeDisableThemeResponseApplicationJsonSerializer
   @override
   UserThemeDisableThemeResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UserThemeDisableThemeResponseApplicationJsonBuilder();
+    final result = new UserThemeDisableThemeResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -523,7 +525,7 @@ class _$PublicCapabilities_ThemingSerializer implements StructuredSerializer<Pub
   @override
   PublicCapabilities_Theming deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = PublicCapabilities_ThemingBuilder();
+    final result = new PublicCapabilities_ThemingBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -603,7 +605,7 @@ class _$PublicCapabilitiesSerializer implements StructuredSerializer<PublicCapab
   @override
   PublicCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = PublicCapabilitiesBuilder();
+    final result = new PublicCapabilitiesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -645,7 +647,7 @@ class _$ThemingGetManifestResponseApplicationJson_Icons extends ThemingGetManife
 
   factory _$ThemingGetManifestResponseApplicationJson_Icons(
           [void Function(ThemingGetManifestResponseApplicationJson_IconsBuilder)? updates]) =>
-      (ThemingGetManifestResponseApplicationJson_IconsBuilder()..update(updates))._build();
+      (new ThemingGetManifestResponseApplicationJson_IconsBuilder()..update(updates))._build();
 
   _$ThemingGetManifestResponseApplicationJson_Icons._({required this.src, required this.type, required this.sizes})
       : super._() {
@@ -661,7 +663,7 @@ class _$ThemingGetManifestResponseApplicationJson_Icons extends ThemingGetManife
 
   @override
   ThemingGetManifestResponseApplicationJson_IconsBuilder toBuilder() =>
-      ThemingGetManifestResponseApplicationJson_IconsBuilder()..replace(this);
+      new ThemingGetManifestResponseApplicationJson_IconsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -743,7 +745,7 @@ class ThemingGetManifestResponseApplicationJson_IconsBuilder
   _$ThemingGetManifestResponseApplicationJson_Icons _build() {
     ThemingGetManifestResponseApplicationJson_Icons._validate(this);
     final _$result = _$v ??
-        _$ThemingGetManifestResponseApplicationJson_Icons._(
+        new _$ThemingGetManifestResponseApplicationJson_Icons._(
           src: BuiltValueNullFieldError.checkNotNull(src, r'ThemingGetManifestResponseApplicationJson_Icons', 'src'),
           type: BuiltValueNullFieldError.checkNotNull(type, r'ThemingGetManifestResponseApplicationJson_Icons', 'type'),
           sizes:
@@ -802,7 +804,7 @@ class _$ThemingGetManifestResponseApplicationJson extends ThemingGetManifestResp
 
   factory _$ThemingGetManifestResponseApplicationJson(
           [void Function(ThemingGetManifestResponseApplicationJsonBuilder)? updates]) =>
-      (ThemingGetManifestResponseApplicationJsonBuilder()..update(updates))._build();
+      (new ThemingGetManifestResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ThemingGetManifestResponseApplicationJson._(
       {required this.name,
@@ -832,7 +834,7 @@ class _$ThemingGetManifestResponseApplicationJson extends ThemingGetManifestResp
 
   @override
   ThemingGetManifestResponseApplicationJsonBuilder toBuilder() =>
-      ThemingGetManifestResponseApplicationJsonBuilder()..replace(this);
+      new ThemingGetManifestResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -910,7 +912,7 @@ class ThemingGetManifestResponseApplicationJsonBuilder
 
   ListBuilder<ThemingGetManifestResponseApplicationJson_Icons>? _icons;
   ListBuilder<ThemingGetManifestResponseApplicationJson_Icons> get icons =>
-      _$this._icons ??= ListBuilder<ThemingGetManifestResponseApplicationJson_Icons>();
+      _$this._icons ??= new ListBuilder<ThemingGetManifestResponseApplicationJson_Icons>();
   set icons(covariant ListBuilder<ThemingGetManifestResponseApplicationJson_Icons>? icons) => _$this._icons = icons;
 
   String? _display;
@@ -956,7 +958,7 @@ class ThemingGetManifestResponseApplicationJsonBuilder
     _$ThemingGetManifestResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$ThemingGetManifestResponseApplicationJson._(
+          new _$ThemingGetManifestResponseApplicationJson._(
             name: BuiltValueNullFieldError.checkNotNull(name, r'ThemingGetManifestResponseApplicationJson', 'name'),
             shortName: BuiltValueNullFieldError.checkNotNull(
                 shortName, r'ThemingGetManifestResponseApplicationJson', 'shortName'),
@@ -978,7 +980,7 @@ class ThemingGetManifestResponseApplicationJsonBuilder
         _$failedField = 'icons';
         icons.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'ThemingGetManifestResponseApplicationJson', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'ThemingGetManifestResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1018,7 +1020,7 @@ class _$OCSMeta extends OCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (new OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
       : super._() {
@@ -1030,7 +1032,7 @@ class _$OCSMeta extends OCSMeta {
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
+  OCSMetaBuilder toBuilder() => new OCSMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1124,7 +1126,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   _$OCSMeta _build() {
     OCSMeta._validate(this);
     final _$result = _$v ??
-        _$OCSMeta._(
+        new _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
           message: message,
@@ -1154,7 +1156,7 @@ class _$UserThemeEnableThemeResponseApplicationJson_Ocs extends UserThemeEnableT
 
   factory _$UserThemeEnableThemeResponseApplicationJson_Ocs(
           [void Function(UserThemeEnableThemeResponseApplicationJson_OcsBuilder)? updates]) =>
-      (UserThemeEnableThemeResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (new UserThemeEnableThemeResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$UserThemeEnableThemeResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'UserThemeEnableThemeResponseApplicationJson_Ocs', 'meta');
@@ -1168,7 +1170,7 @@ class _$UserThemeEnableThemeResponseApplicationJson_Ocs extends UserThemeEnableT
 
   @override
   UserThemeEnableThemeResponseApplicationJson_OcsBuilder toBuilder() =>
-      UserThemeEnableThemeResponseApplicationJson_OcsBuilder()..replace(this);
+      new UserThemeEnableThemeResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1202,7 +1204,7 @@ class UserThemeEnableThemeResponseApplicationJson_OcsBuilder
   _$UserThemeEnableThemeResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
@@ -1242,7 +1244,7 @@ class UserThemeEnableThemeResponseApplicationJson_OcsBuilder
     _$UserThemeEnableThemeResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$UserThemeEnableThemeResponseApplicationJson_Ocs._(
+          new _$UserThemeEnableThemeResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data:
                 BuiltValueNullFieldError.checkNotNull(data, r'UserThemeEnableThemeResponseApplicationJson_Ocs', 'data'),
@@ -1253,7 +1255,7 @@ class UserThemeEnableThemeResponseApplicationJson_OcsBuilder
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'UserThemeEnableThemeResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -1276,7 +1278,7 @@ class _$UserThemeEnableThemeResponseApplicationJson extends UserThemeEnableTheme
 
   factory _$UserThemeEnableThemeResponseApplicationJson(
           [void Function(UserThemeEnableThemeResponseApplicationJsonBuilder)? updates]) =>
-      (UserThemeEnableThemeResponseApplicationJsonBuilder()..update(updates))._build();
+      (new UserThemeEnableThemeResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$UserThemeEnableThemeResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'UserThemeEnableThemeResponseApplicationJson', 'ocs');
@@ -1289,7 +1291,7 @@ class _$UserThemeEnableThemeResponseApplicationJson extends UserThemeEnableTheme
 
   @override
   UserThemeEnableThemeResponseApplicationJsonBuilder toBuilder() =>
-      UserThemeEnableThemeResponseApplicationJsonBuilder()..replace(this);
+      new UserThemeEnableThemeResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1319,7 +1321,7 @@ class UserThemeEnableThemeResponseApplicationJsonBuilder
 
   UserThemeEnableThemeResponseApplicationJson_OcsBuilder? _ocs;
   UserThemeEnableThemeResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= UserThemeEnableThemeResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= new UserThemeEnableThemeResponseApplicationJson_OcsBuilder();
   set ocs(covariant UserThemeEnableThemeResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   UserThemeEnableThemeResponseApplicationJsonBuilder() {
@@ -1354,7 +1356,7 @@ class UserThemeEnableThemeResponseApplicationJsonBuilder
     _$UserThemeEnableThemeResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$UserThemeEnableThemeResponseApplicationJson._(
+          new _$UserThemeEnableThemeResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -1363,7 +1365,8 @@ class UserThemeEnableThemeResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'UserThemeEnableThemeResponseApplicationJson', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(
+            r'UserThemeEnableThemeResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1390,7 +1393,7 @@ class _$UserThemeDisableThemeResponseApplicationJson_Ocs extends UserThemeDisabl
 
   factory _$UserThemeDisableThemeResponseApplicationJson_Ocs(
           [void Function(UserThemeDisableThemeResponseApplicationJson_OcsBuilder)? updates]) =>
-      (UserThemeDisableThemeResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (new UserThemeDisableThemeResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$UserThemeDisableThemeResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'UserThemeDisableThemeResponseApplicationJson_Ocs', 'meta');
@@ -1404,7 +1407,7 @@ class _$UserThemeDisableThemeResponseApplicationJson_Ocs extends UserThemeDisabl
 
   @override
   UserThemeDisableThemeResponseApplicationJson_OcsBuilder toBuilder() =>
-      UserThemeDisableThemeResponseApplicationJson_OcsBuilder()..replace(this);
+      new UserThemeDisableThemeResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1438,7 +1441,7 @@ class UserThemeDisableThemeResponseApplicationJson_OcsBuilder
   _$UserThemeDisableThemeResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
@@ -1478,7 +1481,7 @@ class UserThemeDisableThemeResponseApplicationJson_OcsBuilder
     _$UserThemeDisableThemeResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$UserThemeDisableThemeResponseApplicationJson_Ocs._(
+          new _$UserThemeDisableThemeResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(
                 data, r'UserThemeDisableThemeResponseApplicationJson_Ocs', 'data'),
@@ -1489,7 +1492,7 @@ class UserThemeDisableThemeResponseApplicationJson_OcsBuilder
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'UserThemeDisableThemeResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -1512,7 +1515,7 @@ class _$UserThemeDisableThemeResponseApplicationJson extends UserThemeDisableThe
 
   factory _$UserThemeDisableThemeResponseApplicationJson(
           [void Function(UserThemeDisableThemeResponseApplicationJsonBuilder)? updates]) =>
-      (UserThemeDisableThemeResponseApplicationJsonBuilder()..update(updates))._build();
+      (new UserThemeDisableThemeResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$UserThemeDisableThemeResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'UserThemeDisableThemeResponseApplicationJson', 'ocs');
@@ -1525,7 +1528,7 @@ class _$UserThemeDisableThemeResponseApplicationJson extends UserThemeDisableThe
 
   @override
   UserThemeDisableThemeResponseApplicationJsonBuilder toBuilder() =>
-      UserThemeDisableThemeResponseApplicationJsonBuilder()..replace(this);
+      new UserThemeDisableThemeResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1555,7 +1558,7 @@ class UserThemeDisableThemeResponseApplicationJsonBuilder
 
   UserThemeDisableThemeResponseApplicationJson_OcsBuilder? _ocs;
   UserThemeDisableThemeResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= UserThemeDisableThemeResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= new UserThemeDisableThemeResponseApplicationJson_OcsBuilder();
   set ocs(covariant UserThemeDisableThemeResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   UserThemeDisableThemeResponseApplicationJsonBuilder() {
@@ -1590,7 +1593,7 @@ class UserThemeDisableThemeResponseApplicationJsonBuilder
     _$UserThemeDisableThemeResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$UserThemeDisableThemeResponseApplicationJson._(
+          new _$UserThemeDisableThemeResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -1599,7 +1602,8 @@ class UserThemeDisableThemeResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'UserThemeDisableThemeResponseApplicationJson', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(
+            r'UserThemeDisableThemeResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1690,7 +1694,7 @@ class _$PublicCapabilities_Theming extends PublicCapabilities_Theming {
   final String favicon;
 
   factory _$PublicCapabilities_Theming([void Function(PublicCapabilities_ThemingBuilder)? updates]) =>
-      (PublicCapabilities_ThemingBuilder()..update(updates))._build();
+      (new PublicCapabilities_ThemingBuilder()..update(updates))._build();
 
   _$PublicCapabilities_Theming._(
       {required this.name,
@@ -1730,7 +1734,7 @@ class _$PublicCapabilities_Theming extends PublicCapabilities_Theming {
       (toBuilder()..update(updates)).build();
 
   @override
-  PublicCapabilities_ThemingBuilder toBuilder() => PublicCapabilities_ThemingBuilder()..replace(this);
+  PublicCapabilities_ThemingBuilder toBuilder() => new PublicCapabilities_ThemingBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1907,7 +1911,7 @@ class PublicCapabilities_ThemingBuilder
   _$PublicCapabilities_Theming _build() {
     PublicCapabilities_Theming._validate(this);
     final _$result = _$v ??
-        _$PublicCapabilities_Theming._(
+        new _$PublicCapabilities_Theming._(
           name: BuiltValueNullFieldError.checkNotNull(name, r'PublicCapabilities_Theming', 'name'),
           url: BuiltValueNullFieldError.checkNotNull(url, r'PublicCapabilities_Theming', 'url'),
           slogan: BuiltValueNullFieldError.checkNotNull(slogan, r'PublicCapabilities_Theming', 'slogan'),
@@ -1946,7 +1950,7 @@ class _$PublicCapabilities extends PublicCapabilities {
   final PublicCapabilities_Theming theming;
 
   factory _$PublicCapabilities([void Function(PublicCapabilitiesBuilder)? updates]) =>
-      (PublicCapabilitiesBuilder()..update(updates))._build();
+      (new PublicCapabilitiesBuilder()..update(updates))._build();
 
   _$PublicCapabilities._({required this.theming}) : super._() {
     BuiltValueNullFieldError.checkNotNull(theming, r'PublicCapabilities', 'theming');
@@ -1957,7 +1961,7 @@ class _$PublicCapabilities extends PublicCapabilities {
       (toBuilder()..update(updates)).build();
 
   @override
-  PublicCapabilitiesBuilder toBuilder() => PublicCapabilitiesBuilder()..replace(this);
+  PublicCapabilitiesBuilder toBuilder() => new PublicCapabilitiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1984,7 +1988,7 @@ class PublicCapabilitiesBuilder
   _$PublicCapabilities? _$v;
 
   PublicCapabilities_ThemingBuilder? _theming;
-  PublicCapabilities_ThemingBuilder get theming => _$this._theming ??= PublicCapabilities_ThemingBuilder();
+  PublicCapabilities_ThemingBuilder get theming => _$this._theming ??= new PublicCapabilities_ThemingBuilder();
   set theming(covariant PublicCapabilities_ThemingBuilder? theming) => _$this._theming = theming;
 
   PublicCapabilitiesBuilder() {
@@ -2019,7 +2023,7 @@ class PublicCapabilitiesBuilder
     _$PublicCapabilities _$result;
     try {
       _$result = _$v ??
-          _$PublicCapabilities._(
+          new _$PublicCapabilities._(
             theming: theming.build(),
           );
     } catch (_) {
@@ -2028,7 +2032,7 @@ class PublicCapabilitiesBuilder
         _$failedField = 'theming';
         theming.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'PublicCapabilities', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'PublicCapabilities', _$failedField, e.toString());
       }
       rethrow;
     }

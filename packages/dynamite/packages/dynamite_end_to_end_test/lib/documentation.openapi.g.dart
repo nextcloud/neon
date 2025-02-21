@@ -6,10 +6,10 @@ part of 'documentation.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const HuntingSkill _$huntingSkillClueless = HuntingSkill._('clueless');
-const HuntingSkill _$huntingSkillLazy = HuntingSkill._('lazy');
-const HuntingSkill _$huntingSkillAdventurous = HuntingSkill._('adventurous');
-const HuntingSkill _$huntingSkillAggressive = HuntingSkill._('aggressive');
+const HuntingSkill _$huntingSkillClueless = const HuntingSkill._('clueless');
+const HuntingSkill _$huntingSkillLazy = const HuntingSkill._('lazy');
+const HuntingSkill _$huntingSkillAdventurous = const HuntingSkill._('adventurous');
+const HuntingSkill _$huntingSkillAggressive = const HuntingSkill._('aggressive');
 
 HuntingSkill _$valueOfHuntingSkill(String name) {
   switch (name) {
@@ -22,22 +22,22 @@ HuntingSkill _$valueOfHuntingSkill(String name) {
     case 'aggressive':
       return _$huntingSkillAggressive;
     default:
-      throw ArgumentError(name);
+      throw new ArgumentError(name);
   }
 }
 
-final BuiltSet<HuntingSkill> _$huntingSkillValues = BuiltSet<HuntingSkill>(const <HuntingSkill>[
+final BuiltSet<HuntingSkill> _$huntingSkillValues = new BuiltSet<HuntingSkill>(const <HuntingSkill>[
   _$huntingSkillClueless,
   _$huntingSkillLazy,
   _$huntingSkillAdventurous,
   _$huntingSkillAggressive,
 ]);
 
-Serializer<Object2> _$object2Serializer = _$Object2Serializer();
-Serializer<Object1> _$object1Serializer = _$Object1Serializer();
+Serializer<Object2> _$object2Serializer = new _$Object2Serializer();
+Serializer<Object1> _$object1Serializer = new _$Object1Serializer();
 Serializer<NonRootClientSetModeRequestApplicationJson> _$nonRootClientSetModeRequestApplicationJsonSerializer =
-    _$NonRootClientSetModeRequestApplicationJsonSerializer();
-Serializer<Object4> _$object4Serializer = _$Object4Serializer();
+    new _$NonRootClientSetModeRequestApplicationJsonSerializer();
+Serializer<Object4> _$object4Serializer = new _$Object4Serializer();
 
 class _$Object2Serializer implements StructuredSerializer<Object2> {
   @override
@@ -65,7 +65,7 @@ class _$Object2Serializer implements StructuredSerializer<Object2> {
   @override
   Object2 deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Object2Builder();
+    final result = new Object2Builder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -114,7 +114,7 @@ class _$Object1Serializer implements StructuredSerializer<Object1> {
   @override
   Object1 deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Object1Builder();
+    final result = new Object1Builder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -165,7 +165,7 @@ class _$NonRootClientSetModeRequestApplicationJsonSerializer
   @override
   NonRootClientSetModeRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NonRootClientSetModeRequestApplicationJsonBuilder();
+    final result = new NonRootClientSetModeRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -224,7 +224,7 @@ class _$Object4Serializer implements StructuredSerializer<Object4> {
   @override
   Object4 deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Object4Builder();
+    final result = new Object4Builder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -268,7 +268,7 @@ class _$Object2 extends Object2 {
   @override
   final String? tag;
 
-  factory _$Object2([void Function(Object2Builder)? updates]) => (Object2Builder()..update(updates))._build();
+  factory _$Object2([void Function(Object2Builder)? updates]) => (new Object2Builder()..update(updates))._build();
 
   _$Object2._({required this.name, this.tag}) : super._() {
     BuiltValueNullFieldError.checkNotNull(name, r'Object2', 'name');
@@ -278,7 +278,7 @@ class _$Object2 extends Object2 {
   Object2 rebuild(void Function(Object2Builder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  Object2Builder toBuilder() => Object2Builder()..replace(this);
+  Object2Builder toBuilder() => new Object2Builder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -346,7 +346,7 @@ class Object2Builder implements Builder<Object2, Object2Builder>, $Object2Interf
   _$Object2 _build() {
     Object2._validate(this);
     final _$result = _$v ??
-        _$Object2._(
+        new _$Object2._(
           name: BuiltValueNullFieldError.checkNotNull(name, r'Object2', 'name'),
           tag: tag,
         );
@@ -376,7 +376,7 @@ class _$Object1 extends Object1 {
   @override
   final String? tag;
 
-  factory _$Object1([void Function(Object1Builder)? updates]) => (Object1Builder()..update(updates))._build();
+  factory _$Object1([void Function(Object1Builder)? updates]) => (new Object1Builder()..update(updates))._build();
 
   _$Object1._({required this.id, required this.name, this.tag}) : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'Object1', 'id');
@@ -387,7 +387,7 @@ class _$Object1 extends Object1 {
   Object1 rebuild(void Function(Object1Builder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  Object1Builder toBuilder() => Object1Builder()..replace(this);
+  Object1Builder toBuilder() => new Object1Builder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -462,7 +462,7 @@ class Object1Builder implements Builder<Object1, Object1Builder>, $Object1Interf
   _$Object1 _build() {
     Object1._validate(this);
     final _$result = _$v ??
-        _$Object1._(
+        new _$Object1._(
           id: BuiltValueNullFieldError.checkNotNull(id, r'Object1', 'id'),
           name: BuiltValueNullFieldError.checkNotNull(name, r'Object1', 'name'),
           tag: tag,
@@ -485,7 +485,7 @@ class _$NonRootClientSetModeRequestApplicationJson extends NonRootClientSetModeR
 
   factory _$NonRootClientSetModeRequestApplicationJson(
           [void Function(NonRootClientSetModeRequestApplicationJsonBuilder)? updates]) =>
-      (NonRootClientSetModeRequestApplicationJsonBuilder()..update(updates))._build();
+      (new NonRootClientSetModeRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$NonRootClientSetModeRequestApplicationJson._({this.test}) : super._();
 
@@ -496,7 +496,7 @@ class _$NonRootClientSetModeRequestApplicationJson extends NonRootClientSetModeR
 
   @override
   NonRootClientSetModeRequestApplicationJsonBuilder toBuilder() =>
-      NonRootClientSetModeRequestApplicationJsonBuilder()..replace(this);
+      new NonRootClientSetModeRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -558,7 +558,7 @@ class NonRootClientSetModeRequestApplicationJsonBuilder
   _$NonRootClientSetModeRequestApplicationJson _build() {
     NonRootClientSetModeRequestApplicationJson._validate(this);
     final _$result = _$v ??
-        _$NonRootClientSetModeRequestApplicationJson._(
+        new _$NonRootClientSetModeRequestApplicationJson._(
           test: test,
         );
     replace(_$result);
@@ -592,7 +592,7 @@ class _$Object4 extends Object4 {
   @override
   final String? htmlInCodeBlockAfterCodeBlock;
 
-  factory _$Object4([void Function(Object4Builder)? updates]) => (Object4Builder()..update(updates))._build();
+  factory _$Object4([void Function(Object4Builder)? updates]) => (new Object4Builder()..update(updates))._build();
 
   _$Object4._({this.html, this.htmlInCodeblock, this.htmlAfterCodeBlock, this.htmlInCodeBlockAfterCodeBlock})
       : super._();
@@ -601,7 +601,7 @@ class _$Object4 extends Object4 {
   Object4 rebuild(void Function(Object4Builder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  Object4Builder toBuilder() => Object4Builder()..replace(this);
+  Object4Builder toBuilder() => new Object4Builder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -688,7 +688,7 @@ class Object4Builder implements Builder<Object4, Object4Builder>, $Object4Interf
   _$Object4 _build() {
     Object4._validate(this);
     final _$result = _$v ??
-        _$Object4._(
+        new _$Object4._(
           html: html,
           htmlInCodeblock: htmlInCodeblock,
           htmlAfterCodeBlock: htmlAfterCodeBlock,

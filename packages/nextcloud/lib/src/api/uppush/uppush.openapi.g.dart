@@ -7,33 +7,33 @@ part of 'uppush.openapi.dart';
 // **************************************************************************
 
 Serializer<CheckResponseApplicationJson> _$checkResponseApplicationJsonSerializer =
-    _$CheckResponseApplicationJsonSerializer();
+    new _$CheckResponseApplicationJsonSerializer();
 Serializer<SetKeepaliveResponseApplicationJson> _$setKeepaliveResponseApplicationJsonSerializer =
-    _$SetKeepaliveResponseApplicationJsonSerializer();
+    new _$SetKeepaliveResponseApplicationJsonSerializer();
 Serializer<CreateDeviceResponseApplicationJson> _$createDeviceResponseApplicationJsonSerializer =
-    _$CreateDeviceResponseApplicationJsonSerializer();
+    new _$CreateDeviceResponseApplicationJsonSerializer();
 Serializer<SyncDeviceResponseApplicationJson> _$syncDeviceResponseApplicationJsonSerializer =
-    _$SyncDeviceResponseApplicationJsonSerializer();
+    new _$SyncDeviceResponseApplicationJsonSerializer();
 Serializer<DeleteDeviceResponseApplicationJson> _$deleteDeviceResponseApplicationJsonSerializer =
-    _$DeleteDeviceResponseApplicationJsonSerializer();
+    new _$DeleteDeviceResponseApplicationJsonSerializer();
 Serializer<CreateAppResponseApplicationJson> _$createAppResponseApplicationJsonSerializer =
-    _$CreateAppResponseApplicationJsonSerializer();
+    new _$CreateAppResponseApplicationJsonSerializer();
 Serializer<DeleteAppResponseApplicationJson> _$deleteAppResponseApplicationJsonSerializer =
-    _$DeleteAppResponseApplicationJsonSerializer();
+    new _$DeleteAppResponseApplicationJsonSerializer();
 Serializer<UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush>
     _$unifiedpushDiscoveryResponseApplicationJsonUnifiedpushSerializer =
-    _$UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushSerializer();
+    new _$UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushSerializer();
 Serializer<UnifiedpushDiscoveryResponseApplicationJson> _$unifiedpushDiscoveryResponseApplicationJsonSerializer =
-    _$UnifiedpushDiscoveryResponseApplicationJsonSerializer();
+    new _$UnifiedpushDiscoveryResponseApplicationJsonSerializer();
 Serializer<PushResponseApplicationJson> _$pushResponseApplicationJsonSerializer =
-    _$PushResponseApplicationJsonSerializer();
+    new _$PushResponseApplicationJsonSerializer();
 Serializer<GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush>
     _$gatewayMatrixDiscoveryResponseApplicationJsonUnifiedpushSerializer =
-    _$GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushSerializer();
+    new _$GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushSerializer();
 Serializer<GatewayMatrixDiscoveryResponseApplicationJson> _$gatewayMatrixDiscoveryResponseApplicationJsonSerializer =
-    _$GatewayMatrixDiscoveryResponseApplicationJsonSerializer();
+    new _$GatewayMatrixDiscoveryResponseApplicationJsonSerializer();
 Serializer<GatewayMatrixResponseApplicationJson> _$gatewayMatrixResponseApplicationJsonSerializer =
-    _$GatewayMatrixResponseApplicationJsonSerializer();
+    new _$GatewayMatrixResponseApplicationJsonSerializer();
 
 class _$CheckResponseApplicationJsonSerializer implements StructuredSerializer<CheckResponseApplicationJson> {
   @override
@@ -55,7 +55,7 @@ class _$CheckResponseApplicationJsonSerializer implements StructuredSerializer<C
   @override
   CheckResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CheckResponseApplicationJsonBuilder();
+    final result = new CheckResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -94,7 +94,7 @@ class _$SetKeepaliveResponseApplicationJsonSerializer
   @override
   SetKeepaliveResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SetKeepaliveResponseApplicationJsonBuilder();
+    final result = new SetKeepaliveResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -135,7 +135,7 @@ class _$CreateDeviceResponseApplicationJsonSerializer
   @override
   CreateDeviceResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CreateDeviceResponseApplicationJsonBuilder();
+    final result = new CreateDeviceResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -176,7 +176,7 @@ class _$SyncDeviceResponseApplicationJsonSerializer implements StructuredSeriali
   @override
   SyncDeviceResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SyncDeviceResponseApplicationJsonBuilder();
+    final result = new SyncDeviceResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -215,7 +215,7 @@ class _$DeleteDeviceResponseApplicationJsonSerializer
   @override
   DeleteDeviceResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = DeleteDeviceResponseApplicationJsonBuilder();
+    final result = new DeleteDeviceResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -255,7 +255,7 @@ class _$CreateAppResponseApplicationJsonSerializer implements StructuredSerializ
   @override
   CreateAppResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CreateAppResponseApplicationJsonBuilder();
+    final result = new CreateAppResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -296,7 +296,7 @@ class _$DeleteAppResponseApplicationJsonSerializer implements StructuredSerializ
   @override
   DeleteAppResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = DeleteAppResponseApplicationJsonBuilder();
+    final result = new DeleteAppResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -339,7 +339,7 @@ class _$UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushSerializer
   UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder();
+    final result = new UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -382,7 +382,7 @@ class _$UnifiedpushDiscoveryResponseApplicationJsonSerializer
   @override
   UnifiedpushDiscoveryResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UnifiedpushDiscoveryResponseApplicationJsonBuilder();
+    final result = new UnifiedpushDiscoveryResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -422,7 +422,7 @@ class _$PushResponseApplicationJsonSerializer implements StructuredSerializer<Pu
   @override
   PushResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = PushResponseApplicationJsonBuilder();
+    final result = new PushResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -465,7 +465,7 @@ class _$GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushSerializer
   GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder();
+    final result = new GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -508,7 +508,7 @@ class _$GatewayMatrixDiscoveryResponseApplicationJsonSerializer
   @override
   GatewayMatrixDiscoveryResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = GatewayMatrixDiscoveryResponseApplicationJsonBuilder();
+    final result = new GatewayMatrixDiscoveryResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -540,7 +540,7 @@ class _$GatewayMatrixResponseApplicationJsonSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'rejected',
-      serializers.serialize(object.rejected, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      serializers.serialize(object.rejected, specifiedType: const FullType(BuiltList, const [const FullType(String)])),
     ];
 
     return result;
@@ -549,7 +549,7 @@ class _$GatewayMatrixResponseApplicationJsonSerializer
   @override
   GatewayMatrixResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = GatewayMatrixResponseApplicationJsonBuilder();
+    final result = new GatewayMatrixResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -559,7 +559,7 @@ class _$GatewayMatrixResponseApplicationJsonSerializer
       switch (key) {
         case 'rejected':
           result.rejected.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -580,7 +580,7 @@ class _$CheckResponseApplicationJson extends CheckResponseApplicationJson {
   final bool success;
 
   factory _$CheckResponseApplicationJson([void Function(CheckResponseApplicationJsonBuilder)? updates]) =>
-      (CheckResponseApplicationJsonBuilder()..update(updates))._build();
+      (new CheckResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$CheckResponseApplicationJson._({required this.success}) : super._() {
     BuiltValueNullFieldError.checkNotNull(success, r'CheckResponseApplicationJson', 'success');
@@ -591,7 +591,7 @@ class _$CheckResponseApplicationJson extends CheckResponseApplicationJson {
       (toBuilder()..update(updates)).build();
 
   @override
-  CheckResponseApplicationJsonBuilder toBuilder() => CheckResponseApplicationJsonBuilder()..replace(this);
+  CheckResponseApplicationJsonBuilder toBuilder() => new CheckResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -653,7 +653,7 @@ class CheckResponseApplicationJsonBuilder
   _$CheckResponseApplicationJson _build() {
     CheckResponseApplicationJson._validate(this);
     final _$result = _$v ??
-        _$CheckResponseApplicationJson._(
+        new _$CheckResponseApplicationJson._(
           success: BuiltValueNullFieldError.checkNotNull(success, r'CheckResponseApplicationJson', 'success'),
         );
     replace(_$result);
@@ -673,7 +673,7 @@ class _$SetKeepaliveResponseApplicationJson extends SetKeepaliveResponseApplicat
   final bool success;
 
   factory _$SetKeepaliveResponseApplicationJson([void Function(SetKeepaliveResponseApplicationJsonBuilder)? updates]) =>
-      (SetKeepaliveResponseApplicationJsonBuilder()..update(updates))._build();
+      (new SetKeepaliveResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$SetKeepaliveResponseApplicationJson._({required this.success}) : super._() {
     BuiltValueNullFieldError.checkNotNull(success, r'SetKeepaliveResponseApplicationJson', 'success');
@@ -684,7 +684,8 @@ class _$SetKeepaliveResponseApplicationJson extends SetKeepaliveResponseApplicat
       (toBuilder()..update(updates)).build();
 
   @override
-  SetKeepaliveResponseApplicationJsonBuilder toBuilder() => SetKeepaliveResponseApplicationJsonBuilder()..replace(this);
+  SetKeepaliveResponseApplicationJsonBuilder toBuilder() =>
+      new SetKeepaliveResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -746,7 +747,7 @@ class SetKeepaliveResponseApplicationJsonBuilder
   _$SetKeepaliveResponseApplicationJson _build() {
     SetKeepaliveResponseApplicationJson._validate(this);
     final _$result = _$v ??
-        _$SetKeepaliveResponseApplicationJson._(
+        new _$SetKeepaliveResponseApplicationJson._(
           success: BuiltValueNullFieldError.checkNotNull(success, r'SetKeepaliveResponseApplicationJson', 'success'),
         );
     replace(_$result);
@@ -771,7 +772,7 @@ class _$CreateDeviceResponseApplicationJson extends CreateDeviceResponseApplicat
   final String deviceId;
 
   factory _$CreateDeviceResponseApplicationJson([void Function(CreateDeviceResponseApplicationJsonBuilder)? updates]) =>
-      (CreateDeviceResponseApplicationJsonBuilder()..update(updates))._build();
+      (new CreateDeviceResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$CreateDeviceResponseApplicationJson._({required this.success, required this.deviceId}) : super._() {
     BuiltValueNullFieldError.checkNotNull(success, r'CreateDeviceResponseApplicationJson', 'success');
@@ -783,7 +784,8 @@ class _$CreateDeviceResponseApplicationJson extends CreateDeviceResponseApplicat
       (toBuilder()..update(updates)).build();
 
   @override
-  CreateDeviceResponseApplicationJsonBuilder toBuilder() => CreateDeviceResponseApplicationJsonBuilder()..replace(this);
+  CreateDeviceResponseApplicationJsonBuilder toBuilder() =>
+      new CreateDeviceResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -854,7 +856,7 @@ class CreateDeviceResponseApplicationJsonBuilder
   _$CreateDeviceResponseApplicationJson _build() {
     CreateDeviceResponseApplicationJson._validate(this);
     final _$result = _$v ??
-        _$CreateDeviceResponseApplicationJson._(
+        new _$CreateDeviceResponseApplicationJson._(
           success: BuiltValueNullFieldError.checkNotNull(success, r'CreateDeviceResponseApplicationJson', 'success'),
           deviceId: BuiltValueNullFieldError.checkNotNull(deviceId, r'CreateDeviceResponseApplicationJson', 'deviceId'),
         );
@@ -875,7 +877,7 @@ class _$SyncDeviceResponseApplicationJson extends SyncDeviceResponseApplicationJ
   final bool success;
 
   factory _$SyncDeviceResponseApplicationJson([void Function(SyncDeviceResponseApplicationJsonBuilder)? updates]) =>
-      (SyncDeviceResponseApplicationJsonBuilder()..update(updates))._build();
+      (new SyncDeviceResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$SyncDeviceResponseApplicationJson._({required this.success}) : super._() {
     BuiltValueNullFieldError.checkNotNull(success, r'SyncDeviceResponseApplicationJson', 'success');
@@ -886,7 +888,7 @@ class _$SyncDeviceResponseApplicationJson extends SyncDeviceResponseApplicationJ
       (toBuilder()..update(updates)).build();
 
   @override
-  SyncDeviceResponseApplicationJsonBuilder toBuilder() => SyncDeviceResponseApplicationJsonBuilder()..replace(this);
+  SyncDeviceResponseApplicationJsonBuilder toBuilder() => new SyncDeviceResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -948,7 +950,7 @@ class SyncDeviceResponseApplicationJsonBuilder
   _$SyncDeviceResponseApplicationJson _build() {
     SyncDeviceResponseApplicationJson._validate(this);
     final _$result = _$v ??
-        _$SyncDeviceResponseApplicationJson._(
+        new _$SyncDeviceResponseApplicationJson._(
           success: BuiltValueNullFieldError.checkNotNull(success, r'SyncDeviceResponseApplicationJson', 'success'),
         );
     replace(_$result);
@@ -968,7 +970,7 @@ class _$DeleteDeviceResponseApplicationJson extends DeleteDeviceResponseApplicat
   final bool success;
 
   factory _$DeleteDeviceResponseApplicationJson([void Function(DeleteDeviceResponseApplicationJsonBuilder)? updates]) =>
-      (DeleteDeviceResponseApplicationJsonBuilder()..update(updates))._build();
+      (new DeleteDeviceResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$DeleteDeviceResponseApplicationJson._({required this.success}) : super._() {
     BuiltValueNullFieldError.checkNotNull(success, r'DeleteDeviceResponseApplicationJson', 'success');
@@ -979,7 +981,8 @@ class _$DeleteDeviceResponseApplicationJson extends DeleteDeviceResponseApplicat
       (toBuilder()..update(updates)).build();
 
   @override
-  DeleteDeviceResponseApplicationJsonBuilder toBuilder() => DeleteDeviceResponseApplicationJsonBuilder()..replace(this);
+  DeleteDeviceResponseApplicationJsonBuilder toBuilder() =>
+      new DeleteDeviceResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1041,7 +1044,7 @@ class DeleteDeviceResponseApplicationJsonBuilder
   _$DeleteDeviceResponseApplicationJson _build() {
     DeleteDeviceResponseApplicationJson._validate(this);
     final _$result = _$v ??
-        _$DeleteDeviceResponseApplicationJson._(
+        new _$DeleteDeviceResponseApplicationJson._(
           success: BuiltValueNullFieldError.checkNotNull(success, r'DeleteDeviceResponseApplicationJson', 'success'),
         );
     replace(_$result);
@@ -1066,7 +1069,7 @@ class _$CreateAppResponseApplicationJson extends CreateAppResponseApplicationJso
   final String token;
 
   factory _$CreateAppResponseApplicationJson([void Function(CreateAppResponseApplicationJsonBuilder)? updates]) =>
-      (CreateAppResponseApplicationJsonBuilder()..update(updates))._build();
+      (new CreateAppResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$CreateAppResponseApplicationJson._({required this.success, required this.token}) : super._() {
     BuiltValueNullFieldError.checkNotNull(success, r'CreateAppResponseApplicationJson', 'success');
@@ -1078,7 +1081,7 @@ class _$CreateAppResponseApplicationJson extends CreateAppResponseApplicationJso
       (toBuilder()..update(updates)).build();
 
   @override
-  CreateAppResponseApplicationJsonBuilder toBuilder() => CreateAppResponseApplicationJsonBuilder()..replace(this);
+  CreateAppResponseApplicationJsonBuilder toBuilder() => new CreateAppResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1149,7 +1152,7 @@ class CreateAppResponseApplicationJsonBuilder
   _$CreateAppResponseApplicationJson _build() {
     CreateAppResponseApplicationJson._validate(this);
     final _$result = _$v ??
-        _$CreateAppResponseApplicationJson._(
+        new _$CreateAppResponseApplicationJson._(
           success: BuiltValueNullFieldError.checkNotNull(success, r'CreateAppResponseApplicationJson', 'success'),
           token: BuiltValueNullFieldError.checkNotNull(token, r'CreateAppResponseApplicationJson', 'token'),
         );
@@ -1170,7 +1173,7 @@ class _$DeleteAppResponseApplicationJson extends DeleteAppResponseApplicationJso
   final bool success;
 
   factory _$DeleteAppResponseApplicationJson([void Function(DeleteAppResponseApplicationJsonBuilder)? updates]) =>
-      (DeleteAppResponseApplicationJsonBuilder()..update(updates))._build();
+      (new DeleteAppResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$DeleteAppResponseApplicationJson._({required this.success}) : super._() {
     BuiltValueNullFieldError.checkNotNull(success, r'DeleteAppResponseApplicationJson', 'success');
@@ -1181,7 +1184,7 @@ class _$DeleteAppResponseApplicationJson extends DeleteAppResponseApplicationJso
       (toBuilder()..update(updates)).build();
 
   @override
-  DeleteAppResponseApplicationJsonBuilder toBuilder() => DeleteAppResponseApplicationJsonBuilder()..replace(this);
+  DeleteAppResponseApplicationJsonBuilder toBuilder() => new DeleteAppResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1243,7 +1246,7 @@ class DeleteAppResponseApplicationJsonBuilder
   _$DeleteAppResponseApplicationJson _build() {
     DeleteAppResponseApplicationJson._validate(this);
     final _$result = _$v ??
-        _$DeleteAppResponseApplicationJson._(
+        new _$DeleteAppResponseApplicationJson._(
           success: BuiltValueNullFieldError.checkNotNull(success, r'DeleteAppResponseApplicationJson', 'success'),
         );
     replace(_$result);
@@ -1265,7 +1268,7 @@ class _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
 
   factory _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush(
           [void Function(UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder)? updates]) =>
-      (UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder()..update(updates))._build();
+      (new UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder()..update(updates))._build();
 
   _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush._({required this.version}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
@@ -1279,7 +1282,7 @@ class _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
 
   @override
   UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder toBuilder() =>
-      UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder()..replace(this);
+      new UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1344,7 +1347,7 @@ class UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder
   _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush _build() {
     UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush._validate(this);
     final _$result = _$v ??
-        _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush._(
+        new _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush._(
           version: BuiltValueNullFieldError.checkNotNull(
               version, r'UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush', 'version'),
         );
@@ -1366,7 +1369,7 @@ class _$UnifiedpushDiscoveryResponseApplicationJson extends UnifiedpushDiscovery
 
   factory _$UnifiedpushDiscoveryResponseApplicationJson(
           [void Function(UnifiedpushDiscoveryResponseApplicationJsonBuilder)? updates]) =>
-      (UnifiedpushDiscoveryResponseApplicationJsonBuilder()..update(updates))._build();
+      (new UnifiedpushDiscoveryResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$UnifiedpushDiscoveryResponseApplicationJson._({required this.unifiedpush}) : super._() {
     BuiltValueNullFieldError.checkNotNull(unifiedpush, r'UnifiedpushDiscoveryResponseApplicationJson', 'unifiedpush');
@@ -1379,7 +1382,7 @@ class _$UnifiedpushDiscoveryResponseApplicationJson extends UnifiedpushDiscovery
 
   @override
   UnifiedpushDiscoveryResponseApplicationJsonBuilder toBuilder() =>
-      UnifiedpushDiscoveryResponseApplicationJsonBuilder()..replace(this);
+      new UnifiedpushDiscoveryResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1411,7 +1414,7 @@ class UnifiedpushDiscoveryResponseApplicationJsonBuilder
 
   UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder? _unifiedpush;
   UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder get unifiedpush =>
-      _$this._unifiedpush ??= UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder();
+      _$this._unifiedpush ??= new UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder();
   set unifiedpush(covariant UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder? unifiedpush) =>
       _$this._unifiedpush = unifiedpush;
 
@@ -1447,7 +1450,7 @@ class UnifiedpushDiscoveryResponseApplicationJsonBuilder
     _$UnifiedpushDiscoveryResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$UnifiedpushDiscoveryResponseApplicationJson._(
+          new _$UnifiedpushDiscoveryResponseApplicationJson._(
             unifiedpush: unifiedpush.build(),
           );
     } catch (_) {
@@ -1456,7 +1459,8 @@ class UnifiedpushDiscoveryResponseApplicationJsonBuilder
         _$failedField = 'unifiedpush';
         unifiedpush.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'UnifiedpushDiscoveryResponseApplicationJson', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(
+            r'UnifiedpushDiscoveryResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1477,7 +1481,7 @@ class _$PushResponseApplicationJson extends PushResponseApplicationJson {
   final bool success;
 
   factory _$PushResponseApplicationJson([void Function(PushResponseApplicationJsonBuilder)? updates]) =>
-      (PushResponseApplicationJsonBuilder()..update(updates))._build();
+      (new PushResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$PushResponseApplicationJson._({required this.success}) : super._() {
     BuiltValueNullFieldError.checkNotNull(success, r'PushResponseApplicationJson', 'success');
@@ -1488,7 +1492,7 @@ class _$PushResponseApplicationJson extends PushResponseApplicationJson {
       (toBuilder()..update(updates)).build();
 
   @override
-  PushResponseApplicationJsonBuilder toBuilder() => PushResponseApplicationJsonBuilder()..replace(this);
+  PushResponseApplicationJsonBuilder toBuilder() => new PushResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1550,7 +1554,7 @@ class PushResponseApplicationJsonBuilder
   _$PushResponseApplicationJson _build() {
     PushResponseApplicationJson._validate(this);
     final _$result = _$v ??
-        _$PushResponseApplicationJson._(
+        new _$PushResponseApplicationJson._(
           success: BuiltValueNullFieldError.checkNotNull(success, r'PushResponseApplicationJson', 'success'),
         );
     replace(_$result);
@@ -1572,7 +1576,7 @@ class _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
 
   factory _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush(
           [void Function(GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder)? updates]) =>
-      (GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder()..update(updates))._build();
+      (new GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder()..update(updates))._build();
 
   _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush._({required this.gateway}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
@@ -1586,7 +1590,7 @@ class _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
 
   @override
   GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder toBuilder() =>
-      GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder()..replace(this);
+      new GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1651,7 +1655,7 @@ class GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder
   _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush _build() {
     GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush._validate(this);
     final _$result = _$v ??
-        _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush._(
+        new _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush._(
           gateway: BuiltValueNullFieldError.checkNotNull(
               gateway, r'GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush', 'gateway'),
         );
@@ -1673,7 +1677,7 @@ class _$GatewayMatrixDiscoveryResponseApplicationJson extends GatewayMatrixDisco
 
   factory _$GatewayMatrixDiscoveryResponseApplicationJson(
           [void Function(GatewayMatrixDiscoveryResponseApplicationJsonBuilder)? updates]) =>
-      (GatewayMatrixDiscoveryResponseApplicationJsonBuilder()..update(updates))._build();
+      (new GatewayMatrixDiscoveryResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$GatewayMatrixDiscoveryResponseApplicationJson._({required this.unifiedpush}) : super._() {
     BuiltValueNullFieldError.checkNotNull(unifiedpush, r'GatewayMatrixDiscoveryResponseApplicationJson', 'unifiedpush');
@@ -1686,7 +1690,7 @@ class _$GatewayMatrixDiscoveryResponseApplicationJson extends GatewayMatrixDisco
 
   @override
   GatewayMatrixDiscoveryResponseApplicationJsonBuilder toBuilder() =>
-      GatewayMatrixDiscoveryResponseApplicationJsonBuilder()..replace(this);
+      new GatewayMatrixDiscoveryResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1718,7 +1722,7 @@ class GatewayMatrixDiscoveryResponseApplicationJsonBuilder
 
   GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder? _unifiedpush;
   GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder get unifiedpush =>
-      _$this._unifiedpush ??= GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder();
+      _$this._unifiedpush ??= new GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder();
   set unifiedpush(covariant GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder? unifiedpush) =>
       _$this._unifiedpush = unifiedpush;
 
@@ -1754,7 +1758,7 @@ class GatewayMatrixDiscoveryResponseApplicationJsonBuilder
     _$GatewayMatrixDiscoveryResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$GatewayMatrixDiscoveryResponseApplicationJson._(
+          new _$GatewayMatrixDiscoveryResponseApplicationJson._(
             unifiedpush: unifiedpush.build(),
           );
     } catch (_) {
@@ -1763,7 +1767,8 @@ class GatewayMatrixDiscoveryResponseApplicationJsonBuilder
         _$failedField = 'unifiedpush';
         unifiedpush.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'GatewayMatrixDiscoveryResponseApplicationJson', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(
+            r'GatewayMatrixDiscoveryResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1785,7 +1790,7 @@ class _$GatewayMatrixResponseApplicationJson extends GatewayMatrixResponseApplic
 
   factory _$GatewayMatrixResponseApplicationJson(
           [void Function(GatewayMatrixResponseApplicationJsonBuilder)? updates]) =>
-      (GatewayMatrixResponseApplicationJsonBuilder()..update(updates))._build();
+      (new GatewayMatrixResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$GatewayMatrixResponseApplicationJson._({required this.rejected}) : super._() {
     BuiltValueNullFieldError.checkNotNull(rejected, r'GatewayMatrixResponseApplicationJson', 'rejected');
@@ -1797,7 +1802,7 @@ class _$GatewayMatrixResponseApplicationJson extends GatewayMatrixResponseApplic
 
   @override
   GatewayMatrixResponseApplicationJsonBuilder toBuilder() =>
-      GatewayMatrixResponseApplicationJsonBuilder()..replace(this);
+      new GatewayMatrixResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1826,7 +1831,7 @@ class GatewayMatrixResponseApplicationJsonBuilder
   _$GatewayMatrixResponseApplicationJson? _$v;
 
   ListBuilder<String>? _rejected;
-  ListBuilder<String> get rejected => _$this._rejected ??= ListBuilder<String>();
+  ListBuilder<String> get rejected => _$this._rejected ??= new ListBuilder<String>();
   set rejected(covariant ListBuilder<String>? rejected) => _$this._rejected = rejected;
 
   GatewayMatrixResponseApplicationJsonBuilder() {
@@ -1861,7 +1866,7 @@ class GatewayMatrixResponseApplicationJsonBuilder
     _$GatewayMatrixResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$GatewayMatrixResponseApplicationJson._(
+          new _$GatewayMatrixResponseApplicationJson._(
             rejected: rejected.build(),
           );
     } catch (_) {
@@ -1870,7 +1875,7 @@ class GatewayMatrixResponseApplicationJsonBuilder
         _$failedField = 'rejected';
         rejected.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'GatewayMatrixResponseApplicationJson', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'GatewayMatrixResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

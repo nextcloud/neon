@@ -6,8 +6,8 @@ part of 'pattern_check.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<TestObject> _$testObjectSerializer = _$TestObjectSerializer();
-Serializer<TestObjectUnspecified> _$testObjectUnspecifiedSerializer = _$TestObjectUnspecifiedSerializer();
+Serializer<TestObject> _$testObjectSerializer = new _$TestObjectSerializer();
+Serializer<TestObjectUnspecified> _$testObjectUnspecifiedSerializer = new _$TestObjectUnspecifiedSerializer();
 
 class _$TestObjectSerializer implements StructuredSerializer<TestObject> {
   @override
@@ -48,25 +48,25 @@ class _$TestObjectSerializer implements StructuredSerializer<TestObject> {
     if (value != null) {
       result
         ..add('min-items')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(int)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(int)])));
     }
     value = object.maxItems;
     if (value != null) {
       result
         ..add('max-items')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(int)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(int)])));
     }
     value = object.arrayUnique;
     if (value != null) {
       result
         ..add('array-unique')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltSet, [FullType(int)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltSet, const [const FullType(int)])));
     }
     value = object.arrayMultipleChecks;
     if (value != null) {
       result
         ..add('array-multiple-checks')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltSet, [FullType(int)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltSet, const [const FullType(int)])));
     }
     value = object.multipleOf;
     if (value != null) {
@@ -110,7 +110,7 @@ class _$TestObjectSerializer implements StructuredSerializer<TestObject> {
   @override
   TestObject deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = TestObjectBuilder();
+    final result = new TestObjectBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -133,19 +133,19 @@ class _$TestObjectSerializer implements StructuredSerializer<TestObject> {
           break;
         case 'min-items':
           result.minItems.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(int)]))! as BuiltList<Object?>);
           break;
         case 'max-items':
           result.maxItems.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(int)]))! as BuiltList<Object?>);
           break;
         case 'array-unique':
           result.arrayUnique.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltSet, [FullType(int)]))! as BuiltSet<Object?>);
+              specifiedType: const FullType(BuiltSet, const [const FullType(int)]))! as BuiltSet<Object?>);
           break;
         case 'array-multiple-checks':
           result.arrayMultipleChecks.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltSet, [FullType(int)]))! as BuiltSet<Object?>);
+              specifiedType: const FullType(BuiltSet, const [const FullType(int)]))! as BuiltSet<Object?>);
           break;
         case 'multipleOf':
           result.multipleOf = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
@@ -195,7 +195,7 @@ class _$TestObjectUnspecifiedSerializer implements StructuredSerializer<TestObje
   @override
   TestObjectUnspecified deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = TestObjectUnspecifiedBuilder();
+    final result = new TestObjectUnspecifiedBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -289,7 +289,8 @@ class _$TestObject extends TestObject {
   @override
   final num? numberMultipleChecks;
 
-  factory _$TestObject([void Function(TestObjectBuilder)? updates]) => (TestObjectBuilder()..update(updates))._build();
+  factory _$TestObject([void Function(TestObjectBuilder)? updates]) =>
+      (new TestObjectBuilder()..update(updates))._build();
 
   _$TestObject._(
       {this.onlyNumbers,
@@ -312,7 +313,7 @@ class _$TestObject extends TestObject {
   TestObject rebuild(void Function(TestObjectBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  TestObjectBuilder toBuilder() => TestObjectBuilder()..replace(this);
+  TestObjectBuilder toBuilder() => new TestObjectBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -397,19 +398,19 @@ class TestObjectBuilder implements Builder<TestObject, TestObjectBuilder>, $Test
       _$this._stringMultipleChecks = stringMultipleChecks;
 
   ListBuilder<int>? _minItems;
-  ListBuilder<int> get minItems => _$this._minItems ??= ListBuilder<int>();
+  ListBuilder<int> get minItems => _$this._minItems ??= new ListBuilder<int>();
   set minItems(covariant ListBuilder<int>? minItems) => _$this._minItems = minItems;
 
   ListBuilder<int>? _maxItems;
-  ListBuilder<int> get maxItems => _$this._maxItems ??= ListBuilder<int>();
+  ListBuilder<int> get maxItems => _$this._maxItems ??= new ListBuilder<int>();
   set maxItems(covariant ListBuilder<int>? maxItems) => _$this._maxItems = maxItems;
 
   SetBuilder<int>? _arrayUnique;
-  SetBuilder<int> get arrayUnique => _$this._arrayUnique ??= SetBuilder<int>();
+  SetBuilder<int> get arrayUnique => _$this._arrayUnique ??= new SetBuilder<int>();
   set arrayUnique(covariant SetBuilder<int>? arrayUnique) => _$this._arrayUnique = arrayUnique;
 
   SetBuilder<int>? _arrayMultipleChecks;
-  SetBuilder<int> get arrayMultipleChecks => _$this._arrayMultipleChecks ??= SetBuilder<int>();
+  SetBuilder<int> get arrayMultipleChecks => _$this._arrayMultipleChecks ??= new SetBuilder<int>();
   set arrayMultipleChecks(covariant SetBuilder<int>? arrayMultipleChecks) =>
       _$this._arrayMultipleChecks = arrayMultipleChecks;
 
@@ -482,7 +483,7 @@ class TestObjectBuilder implements Builder<TestObject, TestObjectBuilder>, $Test
     _$TestObject _$result;
     try {
       _$result = _$v ??
-          _$TestObject._(
+          new _$TestObject._(
             onlyNumbers: onlyNumbers,
             minLength: minLength,
             maxLength: maxLength,
@@ -510,7 +511,7 @@ class TestObjectBuilder implements Builder<TestObject, TestObjectBuilder>, $Test
         _$failedField = 'arrayMultipleChecks';
         _arrayMultipleChecks?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'TestObject', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'TestObject', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -531,7 +532,7 @@ class _$TestObjectUnspecified extends TestObjectUnspecified {
   final JsonObject? value;
 
   factory _$TestObjectUnspecified([void Function(TestObjectUnspecifiedBuilder)? updates]) =>
-      (TestObjectUnspecifiedBuilder()..update(updates))._build();
+      (new TestObjectUnspecifiedBuilder()..update(updates))._build();
 
   _$TestObjectUnspecified._({this.value}) : super._();
 
@@ -540,7 +541,7 @@ class _$TestObjectUnspecified extends TestObjectUnspecified {
       (toBuilder()..update(updates)).build();
 
   @override
-  TestObjectUnspecifiedBuilder toBuilder() => TestObjectUnspecifiedBuilder()..replace(this);
+  TestObjectUnspecifiedBuilder toBuilder() => new TestObjectUnspecifiedBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -600,7 +601,7 @@ class TestObjectUnspecifiedBuilder
   _$TestObjectUnspecified _build() {
     TestObjectUnspecified._validate(this);
     final _$result = _$v ??
-        _$TestObjectUnspecified._(
+        new _$TestObjectUnspecified._(
           value: value,
         );
     replace(_$result);

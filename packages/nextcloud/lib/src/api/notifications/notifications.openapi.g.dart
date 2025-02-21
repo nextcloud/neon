@@ -7,9 +7,9 @@ part of 'notifications.openapi.dart';
 // **************************************************************************
 
 const ApiGenerateNotificationApiVersion _$apiGenerateNotificationApiVersionV1 =
-    ApiGenerateNotificationApiVersion._('v1');
+    const ApiGenerateNotificationApiVersion._('v1');
 const ApiGenerateNotificationApiVersion _$apiGenerateNotificationApiVersionV2 =
-    ApiGenerateNotificationApiVersion._('v2');
+    const ApiGenerateNotificationApiVersion._('v2');
 
 ApiGenerateNotificationApiVersion _$valueOfApiGenerateNotificationApiVersion(String name) {
   switch (name) {
@@ -18,20 +18,20 @@ ApiGenerateNotificationApiVersion _$valueOfApiGenerateNotificationApiVersion(Str
     case 'v2':
       return _$apiGenerateNotificationApiVersionV2;
     default:
-      throw ArgumentError(name);
+      throw new ArgumentError(name);
   }
 }
 
 final BuiltSet<ApiGenerateNotificationApiVersion> _$apiGenerateNotificationApiVersionValues =
-    BuiltSet<ApiGenerateNotificationApiVersion>(const <ApiGenerateNotificationApiVersion>[
+    new BuiltSet<ApiGenerateNotificationApiVersion>(const <ApiGenerateNotificationApiVersion>[
   _$apiGenerateNotificationApiVersionV1,
   _$apiGenerateNotificationApiVersionV2,
 ]);
 
 const EndpointListNotificationsApiVersion _$endpointListNotificationsApiVersionV1 =
-    EndpointListNotificationsApiVersion._('v1');
+    const EndpointListNotificationsApiVersion._('v1');
 const EndpointListNotificationsApiVersion _$endpointListNotificationsApiVersionV2 =
-    EndpointListNotificationsApiVersion._('v2');
+    const EndpointListNotificationsApiVersion._('v2');
 
 EndpointListNotificationsApiVersion _$valueOfEndpointListNotificationsApiVersion(String name) {
   switch (name) {
@@ -40,20 +40,20 @@ EndpointListNotificationsApiVersion _$valueOfEndpointListNotificationsApiVersion
     case 'v2':
       return _$endpointListNotificationsApiVersionV2;
     default:
-      throw ArgumentError(name);
+      throw new ArgumentError(name);
   }
 }
 
 final BuiltSet<EndpointListNotificationsApiVersion> _$endpointListNotificationsApiVersionValues =
-    BuiltSet<EndpointListNotificationsApiVersion>(const <EndpointListNotificationsApiVersion>[
+    new BuiltSet<EndpointListNotificationsApiVersion>(const <EndpointListNotificationsApiVersion>[
   _$endpointListNotificationsApiVersionV1,
   _$endpointListNotificationsApiVersionV2,
 ]);
 
 const EndpointDeleteAllNotificationsApiVersion _$endpointDeleteAllNotificationsApiVersionV1 =
-    EndpointDeleteAllNotificationsApiVersion._('v1');
+    const EndpointDeleteAllNotificationsApiVersion._('v1');
 const EndpointDeleteAllNotificationsApiVersion _$endpointDeleteAllNotificationsApiVersionV2 =
-    EndpointDeleteAllNotificationsApiVersion._('v2');
+    const EndpointDeleteAllNotificationsApiVersion._('v2');
 
 EndpointDeleteAllNotificationsApiVersion _$valueOfEndpointDeleteAllNotificationsApiVersion(String name) {
   switch (name) {
@@ -62,20 +62,20 @@ EndpointDeleteAllNotificationsApiVersion _$valueOfEndpointDeleteAllNotifications
     case 'v2':
       return _$endpointDeleteAllNotificationsApiVersionV2;
     default:
-      throw ArgumentError(name);
+      throw new ArgumentError(name);
   }
 }
 
 final BuiltSet<EndpointDeleteAllNotificationsApiVersion> _$endpointDeleteAllNotificationsApiVersionValues =
-    BuiltSet<EndpointDeleteAllNotificationsApiVersion>(const <EndpointDeleteAllNotificationsApiVersion>[
+    new BuiltSet<EndpointDeleteAllNotificationsApiVersion>(const <EndpointDeleteAllNotificationsApiVersion>[
   _$endpointDeleteAllNotificationsApiVersionV1,
   _$endpointDeleteAllNotificationsApiVersionV2,
 ]);
 
 const EndpointGetNotificationApiVersion _$endpointGetNotificationApiVersionV1 =
-    EndpointGetNotificationApiVersion._('v1');
+    const EndpointGetNotificationApiVersion._('v1');
 const EndpointGetNotificationApiVersion _$endpointGetNotificationApiVersionV2 =
-    EndpointGetNotificationApiVersion._('v2');
+    const EndpointGetNotificationApiVersion._('v2');
 
 EndpointGetNotificationApiVersion _$valueOfEndpointGetNotificationApiVersion(String name) {
   switch (name) {
@@ -84,20 +84,20 @@ EndpointGetNotificationApiVersion _$valueOfEndpointGetNotificationApiVersion(Str
     case 'v2':
       return _$endpointGetNotificationApiVersionV2;
     default:
-      throw ArgumentError(name);
+      throw new ArgumentError(name);
   }
 }
 
 final BuiltSet<EndpointGetNotificationApiVersion> _$endpointGetNotificationApiVersionValues =
-    BuiltSet<EndpointGetNotificationApiVersion>(const <EndpointGetNotificationApiVersion>[
+    new BuiltSet<EndpointGetNotificationApiVersion>(const <EndpointGetNotificationApiVersion>[
   _$endpointGetNotificationApiVersionV1,
   _$endpointGetNotificationApiVersionV2,
 ]);
 
 const EndpointDeleteNotificationApiVersion _$endpointDeleteNotificationApiVersionV1 =
-    EndpointDeleteNotificationApiVersion._('v1');
+    const EndpointDeleteNotificationApiVersion._('v1');
 const EndpointDeleteNotificationApiVersion _$endpointDeleteNotificationApiVersionV2 =
-    EndpointDeleteNotificationApiVersion._('v2');
+    const EndpointDeleteNotificationApiVersion._('v2');
 
 EndpointDeleteNotificationApiVersion _$valueOfEndpointDeleteNotificationApiVersion(String name) {
   switch (name) {
@@ -106,20 +106,20 @@ EndpointDeleteNotificationApiVersion _$valueOfEndpointDeleteNotificationApiVersi
     case 'v2':
       return _$endpointDeleteNotificationApiVersionV2;
     default:
-      throw ArgumentError(name);
+      throw new ArgumentError(name);
   }
 }
 
 final BuiltSet<EndpointDeleteNotificationApiVersion> _$endpointDeleteNotificationApiVersionValues =
-    BuiltSet<EndpointDeleteNotificationApiVersion>(const <EndpointDeleteNotificationApiVersion>[
+    new BuiltSet<EndpointDeleteNotificationApiVersion>(const <EndpointDeleteNotificationApiVersion>[
   _$endpointDeleteNotificationApiVersionV1,
   _$endpointDeleteNotificationApiVersionV2,
 ]);
 
 const EndpointConfirmIdsForUserApiVersion _$endpointConfirmIdsForUserApiVersionV1 =
-    EndpointConfirmIdsForUserApiVersion._('v1');
+    const EndpointConfirmIdsForUserApiVersion._('v1');
 const EndpointConfirmIdsForUserApiVersion _$endpointConfirmIdsForUserApiVersionV2 =
-    EndpointConfirmIdsForUserApiVersion._('v2');
+    const EndpointConfirmIdsForUserApiVersion._('v2');
 
 EndpointConfirmIdsForUserApiVersion _$valueOfEndpointConfirmIdsForUserApiVersion(String name) {
   switch (name) {
@@ -128,161 +128,162 @@ EndpointConfirmIdsForUserApiVersion _$valueOfEndpointConfirmIdsForUserApiVersion
     case 'v2':
       return _$endpointConfirmIdsForUserApiVersionV2;
     default:
-      throw ArgumentError(name);
+      throw new ArgumentError(name);
   }
 }
 
 final BuiltSet<EndpointConfirmIdsForUserApiVersion> _$endpointConfirmIdsForUserApiVersionValues =
-    BuiltSet<EndpointConfirmIdsForUserApiVersion>(const <EndpointConfirmIdsForUserApiVersion>[
+    new BuiltSet<EndpointConfirmIdsForUserApiVersion>(const <EndpointConfirmIdsForUserApiVersion>[
   _$endpointConfirmIdsForUserApiVersionV1,
   _$endpointConfirmIdsForUserApiVersionV2,
 ]);
 
-const PushRegisterDeviceApiVersion _$pushRegisterDeviceApiVersionV2 = PushRegisterDeviceApiVersion._('v2');
+const PushRegisterDeviceApiVersion _$pushRegisterDeviceApiVersionV2 = const PushRegisterDeviceApiVersion._('v2');
 
 PushRegisterDeviceApiVersion _$valueOfPushRegisterDeviceApiVersion(String name) {
   switch (name) {
     case 'v2':
       return _$pushRegisterDeviceApiVersionV2;
     default:
-      throw ArgumentError(name);
+      throw new ArgumentError(name);
   }
 }
 
 final BuiltSet<PushRegisterDeviceApiVersion> _$pushRegisterDeviceApiVersionValues =
-    BuiltSet<PushRegisterDeviceApiVersion>(const <PushRegisterDeviceApiVersion>[
+    new BuiltSet<PushRegisterDeviceApiVersion>(const <PushRegisterDeviceApiVersion>[
   _$pushRegisterDeviceApiVersionV2,
 ]);
 
-const PushRemoveDeviceApiVersion _$pushRemoveDeviceApiVersionV2 = PushRemoveDeviceApiVersion._('v2');
+const PushRemoveDeviceApiVersion _$pushRemoveDeviceApiVersionV2 = const PushRemoveDeviceApiVersion._('v2');
 
 PushRemoveDeviceApiVersion _$valueOfPushRemoveDeviceApiVersion(String name) {
   switch (name) {
     case 'v2':
       return _$pushRemoveDeviceApiVersionV2;
     default:
-      throw ArgumentError(name);
+      throw new ArgumentError(name);
   }
 }
 
 final BuiltSet<PushRemoveDeviceApiVersion> _$pushRemoveDeviceApiVersionValues =
-    BuiltSet<PushRemoveDeviceApiVersion>(const <PushRemoveDeviceApiVersion>[
+    new BuiltSet<PushRemoveDeviceApiVersion>(const <PushRemoveDeviceApiVersion>[
   _$pushRemoveDeviceApiVersionV2,
 ]);
 
-const SettingsPersonalApiVersion _$settingsPersonalApiVersionV2 = SettingsPersonalApiVersion._('v2');
+const SettingsPersonalApiVersion _$settingsPersonalApiVersionV2 = const SettingsPersonalApiVersion._('v2');
 
 SettingsPersonalApiVersion _$valueOfSettingsPersonalApiVersion(String name) {
   switch (name) {
     case 'v2':
       return _$settingsPersonalApiVersionV2;
     default:
-      throw ArgumentError(name);
+      throw new ArgumentError(name);
   }
 }
 
 final BuiltSet<SettingsPersonalApiVersion> _$settingsPersonalApiVersionValues =
-    BuiltSet<SettingsPersonalApiVersion>(const <SettingsPersonalApiVersion>[
+    new BuiltSet<SettingsPersonalApiVersion>(const <SettingsPersonalApiVersion>[
   _$settingsPersonalApiVersionV2,
 ]);
 
-const SettingsAdminApiVersion _$settingsAdminApiVersionV2 = SettingsAdminApiVersion._('v2');
+const SettingsAdminApiVersion _$settingsAdminApiVersionV2 = const SettingsAdminApiVersion._('v2');
 
 SettingsAdminApiVersion _$valueOfSettingsAdminApiVersion(String name) {
   switch (name) {
     case 'v2':
       return _$settingsAdminApiVersionV2;
     default:
-      throw ArgumentError(name);
+      throw new ArgumentError(name);
   }
 }
 
 final BuiltSet<SettingsAdminApiVersion> _$settingsAdminApiVersionValues =
-    BuiltSet<SettingsAdminApiVersion>(const <SettingsAdminApiVersion>[
+    new BuiltSet<SettingsAdminApiVersion>(const <SettingsAdminApiVersion>[
   _$settingsAdminApiVersionV2,
 ]);
 
 Serializer<ApiGenerateNotificationRequestApplicationJson> _$apiGenerateNotificationRequestApplicationJsonSerializer =
-    _$ApiGenerateNotificationRequestApplicationJsonSerializer();
-Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
+    new _$ApiGenerateNotificationRequestApplicationJsonSerializer();
+Serializer<OCSMeta> _$oCSMetaSerializer = new _$OCSMetaSerializer();
 Serializer<ApiGenerateNotificationResponseApplicationJson_Ocs>
     _$apiGenerateNotificationResponseApplicationJsonOcsSerializer =
-    _$ApiGenerateNotificationResponseApplicationJson_OcsSerializer();
+    new _$ApiGenerateNotificationResponseApplicationJson_OcsSerializer();
 Serializer<ApiGenerateNotificationResponseApplicationJson> _$apiGenerateNotificationResponseApplicationJsonSerializer =
-    _$ApiGenerateNotificationResponseApplicationJsonSerializer();
+    new _$ApiGenerateNotificationResponseApplicationJsonSerializer();
 Serializer<ApiGenerateNotificationV3RequestApplicationJson>
     _$apiGenerateNotificationV3RequestApplicationJsonSerializer =
-    _$ApiGenerateNotificationV3RequestApplicationJsonSerializer();
+    new _$ApiGenerateNotificationV3RequestApplicationJsonSerializer();
 Serializer<ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data>
     _$apiGenerateNotificationV3ResponseApplicationJsonOcsDataSerializer =
-    _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataSerializer();
+    new _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataSerializer();
 Serializer<ApiGenerateNotificationV3ResponseApplicationJson_Ocs>
     _$apiGenerateNotificationV3ResponseApplicationJsonOcsSerializer =
-    _$ApiGenerateNotificationV3ResponseApplicationJson_OcsSerializer();
+    new _$ApiGenerateNotificationV3ResponseApplicationJson_OcsSerializer();
 Serializer<ApiGenerateNotificationV3ResponseApplicationJson>
     _$apiGenerateNotificationV3ResponseApplicationJsonSerializer =
-    _$ApiGenerateNotificationV3ResponseApplicationJsonSerializer();
-Serializer<NotificationAction> _$notificationActionSerializer = _$NotificationActionSerializer();
-Serializer<Notification> _$notificationSerializer = _$NotificationSerializer();
+    new _$ApiGenerateNotificationV3ResponseApplicationJsonSerializer();
+Serializer<NotificationAction> _$notificationActionSerializer = new _$NotificationActionSerializer();
+Serializer<Notification> _$notificationSerializer = new _$NotificationSerializer();
 Serializer<EndpointListNotificationsResponseApplicationJson_Ocs>
     _$endpointListNotificationsResponseApplicationJsonOcsSerializer =
-    _$EndpointListNotificationsResponseApplicationJson_OcsSerializer();
+    new _$EndpointListNotificationsResponseApplicationJson_OcsSerializer();
 Serializer<EndpointListNotificationsResponseApplicationJson>
     _$endpointListNotificationsResponseApplicationJsonSerializer =
-    _$EndpointListNotificationsResponseApplicationJsonSerializer();
+    new _$EndpointListNotificationsResponseApplicationJsonSerializer();
 Serializer<EndpointEndpointListNotificationsHeaders> _$endpointEndpointListNotificationsHeadersSerializer =
-    _$EndpointEndpointListNotificationsHeadersSerializer();
+    new _$EndpointEndpointListNotificationsHeadersSerializer();
 Serializer<EndpointDeleteAllNotificationsResponseApplicationJson_Ocs>
     _$endpointDeleteAllNotificationsResponseApplicationJsonOcsSerializer =
-    _$EndpointDeleteAllNotificationsResponseApplicationJson_OcsSerializer();
+    new _$EndpointDeleteAllNotificationsResponseApplicationJson_OcsSerializer();
 Serializer<EndpointDeleteAllNotificationsResponseApplicationJson>
     _$endpointDeleteAllNotificationsResponseApplicationJsonSerializer =
-    _$EndpointDeleteAllNotificationsResponseApplicationJsonSerializer();
+    new _$EndpointDeleteAllNotificationsResponseApplicationJsonSerializer();
 Serializer<EndpointGetNotificationResponseApplicationJson_Ocs>
     _$endpointGetNotificationResponseApplicationJsonOcsSerializer =
-    _$EndpointGetNotificationResponseApplicationJson_OcsSerializer();
+    new _$EndpointGetNotificationResponseApplicationJson_OcsSerializer();
 Serializer<EndpointGetNotificationResponseApplicationJson> _$endpointGetNotificationResponseApplicationJsonSerializer =
-    _$EndpointGetNotificationResponseApplicationJsonSerializer();
+    new _$EndpointGetNotificationResponseApplicationJsonSerializer();
 Serializer<EndpointDeleteNotificationResponseApplicationJson_Ocs>
     _$endpointDeleteNotificationResponseApplicationJsonOcsSerializer =
-    _$EndpointDeleteNotificationResponseApplicationJson_OcsSerializer();
+    new _$EndpointDeleteNotificationResponseApplicationJson_OcsSerializer();
 Serializer<EndpointDeleteNotificationResponseApplicationJson>
     _$endpointDeleteNotificationResponseApplicationJsonSerializer =
-    _$EndpointDeleteNotificationResponseApplicationJsonSerializer();
+    new _$EndpointDeleteNotificationResponseApplicationJsonSerializer();
 Serializer<EndpointConfirmIdsForUserRequestApplicationJson>
     _$endpointConfirmIdsForUserRequestApplicationJsonSerializer =
-    _$EndpointConfirmIdsForUserRequestApplicationJsonSerializer();
+    new _$EndpointConfirmIdsForUserRequestApplicationJsonSerializer();
 Serializer<EndpointConfirmIdsForUserResponseApplicationJson_Ocs>
     _$endpointConfirmIdsForUserResponseApplicationJsonOcsSerializer =
-    _$EndpointConfirmIdsForUserResponseApplicationJson_OcsSerializer();
+    new _$EndpointConfirmIdsForUserResponseApplicationJson_OcsSerializer();
 Serializer<EndpointConfirmIdsForUserResponseApplicationJson>
     _$endpointConfirmIdsForUserResponseApplicationJsonSerializer =
-    _$EndpointConfirmIdsForUserResponseApplicationJsonSerializer();
+    new _$EndpointConfirmIdsForUserResponseApplicationJsonSerializer();
 Serializer<PushRegisterDeviceRequestApplicationJson> _$pushRegisterDeviceRequestApplicationJsonSerializer =
-    _$PushRegisterDeviceRequestApplicationJsonSerializer();
-Serializer<PushDevice> _$pushDeviceSerializer = _$PushDeviceSerializer();
+    new _$PushRegisterDeviceRequestApplicationJsonSerializer();
+Serializer<PushDevice> _$pushDeviceSerializer = new _$PushDeviceSerializer();
 Serializer<PushRegisterDeviceResponseApplicationJson_Ocs> _$pushRegisterDeviceResponseApplicationJsonOcsSerializer =
-    _$PushRegisterDeviceResponseApplicationJson_OcsSerializer();
+    new _$PushRegisterDeviceResponseApplicationJson_OcsSerializer();
 Serializer<PushRegisterDeviceResponseApplicationJson> _$pushRegisterDeviceResponseApplicationJsonSerializer =
-    _$PushRegisterDeviceResponseApplicationJsonSerializer();
+    new _$PushRegisterDeviceResponseApplicationJsonSerializer();
 Serializer<PushRemoveDeviceResponseApplicationJson_Ocs> _$pushRemoveDeviceResponseApplicationJsonOcsSerializer =
-    _$PushRemoveDeviceResponseApplicationJson_OcsSerializer();
+    new _$PushRemoveDeviceResponseApplicationJson_OcsSerializer();
 Serializer<PushRemoveDeviceResponseApplicationJson> _$pushRemoveDeviceResponseApplicationJsonSerializer =
-    _$PushRemoveDeviceResponseApplicationJsonSerializer();
+    new _$PushRemoveDeviceResponseApplicationJsonSerializer();
 Serializer<SettingsPersonalRequestApplicationJson> _$settingsPersonalRequestApplicationJsonSerializer =
-    _$SettingsPersonalRequestApplicationJsonSerializer();
+    new _$SettingsPersonalRequestApplicationJsonSerializer();
 Serializer<SettingsPersonalResponseApplicationJson_Ocs> _$settingsPersonalResponseApplicationJsonOcsSerializer =
-    _$SettingsPersonalResponseApplicationJson_OcsSerializer();
+    new _$SettingsPersonalResponseApplicationJson_OcsSerializer();
 Serializer<SettingsPersonalResponseApplicationJson> _$settingsPersonalResponseApplicationJsonSerializer =
-    _$SettingsPersonalResponseApplicationJsonSerializer();
+    new _$SettingsPersonalResponseApplicationJsonSerializer();
 Serializer<SettingsAdminRequestApplicationJson> _$settingsAdminRequestApplicationJsonSerializer =
-    _$SettingsAdminRequestApplicationJsonSerializer();
+    new _$SettingsAdminRequestApplicationJsonSerializer();
 Serializer<SettingsAdminResponseApplicationJson_Ocs> _$settingsAdminResponseApplicationJsonOcsSerializer =
-    _$SettingsAdminResponseApplicationJson_OcsSerializer();
+    new _$SettingsAdminResponseApplicationJson_OcsSerializer();
 Serializer<SettingsAdminResponseApplicationJson> _$settingsAdminResponseApplicationJsonSerializer =
-    _$SettingsAdminResponseApplicationJsonSerializer();
-Serializer<Capabilities_Notifications> _$capabilitiesNotificationsSerializer = _$Capabilities_NotificationsSerializer();
-Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
+    new _$SettingsAdminResponseApplicationJsonSerializer();
+Serializer<Capabilities_Notifications> _$capabilitiesNotificationsSerializer =
+    new _$Capabilities_NotificationsSerializer();
+Serializer<Capabilities> _$capabilitiesSerializer = new _$CapabilitiesSerializer();
 
 class _$ApiGenerateNotificationRequestApplicationJsonSerializer
     implements StructuredSerializer<ApiGenerateNotificationRequestApplicationJson> {
@@ -310,7 +311,7 @@ class _$ApiGenerateNotificationRequestApplicationJsonSerializer
   @override
   ApiGenerateNotificationRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ApiGenerateNotificationRequestApplicationJsonBuilder();
+    final result = new ApiGenerateNotificationRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -371,7 +372,7 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
   OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = OCSMetaBuilder();
+    final result = new OCSMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -427,7 +428,7 @@ class _$ApiGenerateNotificationResponseApplicationJson_OcsSerializer
   @override
   ApiGenerateNotificationResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ApiGenerateNotificationResponseApplicationJson_OcsBuilder();
+    final result = new ApiGenerateNotificationResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -473,7 +474,7 @@ class _$ApiGenerateNotificationResponseApplicationJsonSerializer
   @override
   ApiGenerateNotificationResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ApiGenerateNotificationResponseApplicationJsonBuilder();
+    final result = new ApiGenerateNotificationResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -513,15 +514,15 @@ class _$ApiGenerateNotificationV3RequestApplicationJsonSerializer
       serializers.serialize(object.message, specifiedType: const FullType(String)),
       'subjectParameters',
       serializers.serialize(object.subjectParameters,
-          specifiedType: const FullType(BuiltMap, [
-            FullType(String),
-            FullType(BuiltMap, [FullType(String), FullType(JsonObject)])
+          specifiedType: const FullType(BuiltMap, const [
+            const FullType(String),
+            const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])
           ])),
       'messageParameters',
       serializers.serialize(object.messageParameters,
-          specifiedType: const FullType(BuiltMap, [
-            FullType(String),
-            FullType(BuiltMap, [FullType(String), FullType(JsonObject)])
+          specifiedType: const FullType(BuiltMap, const [
+            const FullType(String),
+            const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])
           ])),
     ];
 
@@ -531,7 +532,7 @@ class _$ApiGenerateNotificationV3RequestApplicationJsonSerializer
   @override
   ApiGenerateNotificationV3RequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ApiGenerateNotificationV3RequestApplicationJsonBuilder();
+    final result = new ApiGenerateNotificationV3RequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -547,16 +548,16 @@ class _$ApiGenerateNotificationV3RequestApplicationJsonSerializer
           break;
         case 'subjectParameters':
           result.subjectParameters.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [
-                FullType(String),
-                FullType(BuiltMap, [FullType(String), FullType(JsonObject)])
+              specifiedType: const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])
               ]))!);
           break;
         case 'messageParameters':
           result.messageParameters.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [
-                FullType(String),
-                FullType(BuiltMap, [FullType(String), FullType(JsonObject)])
+              specifiedType: const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])
               ]))!);
           break;
       }
@@ -591,7 +592,7 @@ class _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataSerializer
   ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder();
+    final result = new ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -637,7 +638,7 @@ class _$ApiGenerateNotificationV3ResponseApplicationJson_OcsSerializer
   ApiGenerateNotificationV3ResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder();
+    final result = new ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -685,7 +686,7 @@ class _$ApiGenerateNotificationV3ResponseApplicationJsonSerializer
   @override
   ApiGenerateNotificationV3ResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ApiGenerateNotificationV3ResponseApplicationJsonBuilder();
+    final result = new ApiGenerateNotificationV3ResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -731,7 +732,7 @@ class _$NotificationActionSerializer implements StructuredSerializer<Notificatio
   @override
   NotificationAction deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationActionBuilder();
+    final result = new NotificationActionBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -787,7 +788,8 @@ class _$NotificationSerializer implements StructuredSerializer<Notification> {
       'link',
       serializers.serialize(object.link, specifiedType: const FullType(String)),
       'actions',
-      serializers.serialize(object.actions, specifiedType: const FullType(BuiltList, [FullType(NotificationAction)])),
+      serializers.serialize(object.actions,
+          specifiedType: const FullType(BuiltList, const [const FullType(NotificationAction)])),
     ];
     Object? value;
     value = object.subjectRich;
@@ -801,9 +803,9 @@ class _$NotificationSerializer implements StructuredSerializer<Notification> {
       result
         ..add('subjectRichParameters')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [
-              FullType(String),
-              FullType(BuiltMap, [FullType(String), FullType(JsonObject)])
+            specifiedType: const FullType(BuiltMap, const [
+              const FullType(String),
+              const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])
             ])));
     }
     value = object.messageRich;
@@ -817,9 +819,9 @@ class _$NotificationSerializer implements StructuredSerializer<Notification> {
       result
         ..add('messageRichParameters')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [
-              FullType(String),
-              FullType(BuiltMap, [FullType(String), FullType(JsonObject)])
+            specifiedType: const FullType(BuiltMap, const [
+              const FullType(String),
+              const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])
             ])));
     }
     value = object.icon;
@@ -840,7 +842,7 @@ class _$NotificationSerializer implements StructuredSerializer<Notification> {
   @override
   Notification deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NotificationBuilder();
+    final result = new NotificationBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -877,16 +879,17 @@ class _$NotificationSerializer implements StructuredSerializer<Notification> {
           break;
         case 'actions':
           result.actions.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(NotificationAction)]))! as BuiltList<Object?>);
+                  specifiedType: const FullType(BuiltList, const [const FullType(NotificationAction)]))!
+              as BuiltList<Object?>);
           break;
         case 'subjectRich':
           result.subjectRich = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'subjectRichParameters':
           result.subjectRichParameters.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [
-                FullType(String),
-                FullType(BuiltMap, [FullType(String), FullType(JsonObject)])
+              specifiedType: const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])
               ]))!);
           break;
         case 'messageRich':
@@ -894,9 +897,9 @@ class _$NotificationSerializer implements StructuredSerializer<Notification> {
           break;
         case 'messageRichParameters':
           result.messageRichParameters.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [
-                FullType(String),
-                FullType(BuiltMap, [FullType(String), FullType(JsonObject)])
+              specifiedType: const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])
               ]))!);
           break;
         case 'icon':
@@ -929,7 +932,8 @@ class _$EndpointListNotificationsResponseApplicationJson_OcsSerializer
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(Notification)])),
+      serializers.serialize(object.data,
+          specifiedType: const FullType(BuiltList, const [const FullType(Notification)])),
     ];
 
     return result;
@@ -939,7 +943,7 @@ class _$EndpointListNotificationsResponseApplicationJson_OcsSerializer
   EndpointListNotificationsResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = EndpointListNotificationsResponseApplicationJson_OcsBuilder();
+    final result = new EndpointListNotificationsResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -952,7 +956,7 @@ class _$EndpointListNotificationsResponseApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Notification)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(Notification)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -986,7 +990,7 @@ class _$EndpointListNotificationsResponseApplicationJsonSerializer
   @override
   EndpointListNotificationsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = EndpointListNotificationsResponseApplicationJsonBuilder();
+    final result = new EndpointListNotificationsResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1033,7 +1037,7 @@ class _$EndpointEndpointListNotificationsHeadersSerializer
   @override
   EndpointEndpointListNotificationsHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = EndpointEndpointListNotificationsHeadersBuilder();
+    final result = new EndpointEndpointListNotificationsHeadersBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1079,7 +1083,7 @@ class _$EndpointDeleteAllNotificationsResponseApplicationJson_OcsSerializer
   EndpointDeleteAllNotificationsResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder();
+    final result = new EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1126,7 +1130,7 @@ class _$EndpointDeleteAllNotificationsResponseApplicationJsonSerializer
   EndpointDeleteAllNotificationsResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = EndpointDeleteAllNotificationsResponseApplicationJsonBuilder();
+    final result = new EndpointDeleteAllNotificationsResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1172,7 +1176,7 @@ class _$EndpointGetNotificationResponseApplicationJson_OcsSerializer
   @override
   EndpointGetNotificationResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = EndpointGetNotificationResponseApplicationJson_OcsBuilder();
+    final result = new EndpointGetNotificationResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1219,7 +1223,7 @@ class _$EndpointGetNotificationResponseApplicationJsonSerializer
   @override
   EndpointGetNotificationResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = EndpointGetNotificationResponseApplicationJsonBuilder();
+    final result = new EndpointGetNotificationResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1266,7 +1270,7 @@ class _$EndpointDeleteNotificationResponseApplicationJson_OcsSerializer
   EndpointDeleteNotificationResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = EndpointDeleteNotificationResponseApplicationJson_OcsBuilder();
+    final result = new EndpointDeleteNotificationResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1312,7 +1316,7 @@ class _$EndpointDeleteNotificationResponseApplicationJsonSerializer
   @override
   EndpointDeleteNotificationResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = EndpointDeleteNotificationResponseApplicationJsonBuilder();
+    final result = new EndpointDeleteNotificationResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1347,7 +1351,7 @@ class _$EndpointConfirmIdsForUserRequestApplicationJsonSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ids',
-      serializers.serialize(object.ids, specifiedType: const FullType(BuiltList, [FullType(int)])),
+      serializers.serialize(object.ids, specifiedType: const FullType(BuiltList, const [const FullType(int)])),
     ];
 
     return result;
@@ -1356,7 +1360,7 @@ class _$EndpointConfirmIdsForUserRequestApplicationJsonSerializer
   @override
   EndpointConfirmIdsForUserRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = EndpointConfirmIdsForUserRequestApplicationJsonBuilder();
+    final result = new EndpointConfirmIdsForUserRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1365,8 +1369,8 @@ class _$EndpointConfirmIdsForUserRequestApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ids':
-          result.ids.replace(serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(int)]))!
-              as BuiltList<Object?>);
+          result.ids.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [const FullType(int)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -1392,7 +1396,7 @@ class _$EndpointConfirmIdsForUserResponseApplicationJson_OcsSerializer
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(int)])),
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, const [const FullType(int)])),
     ];
 
     return result;
@@ -1402,7 +1406,7 @@ class _$EndpointConfirmIdsForUserResponseApplicationJson_OcsSerializer
   EndpointConfirmIdsForUserResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder();
+    final result = new EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1414,8 +1418,8 @@ class _$EndpointConfirmIdsForUserResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(int)]))!
-              as BuiltList<Object?>);
+          result.data.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [const FullType(int)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -1449,7 +1453,7 @@ class _$EndpointConfirmIdsForUserResponseApplicationJsonSerializer
   @override
   EndpointConfirmIdsForUserResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = EndpointConfirmIdsForUserResponseApplicationJsonBuilder();
+    final result = new EndpointConfirmIdsForUserResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1497,7 +1501,7 @@ class _$PushRegisterDeviceRequestApplicationJsonSerializer
   @override
   PushRegisterDeviceRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = PushRegisterDeviceRequestApplicationJsonBuilder();
+    final result = new PushRegisterDeviceRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1545,7 +1549,7 @@ class _$PushDeviceSerializer implements StructuredSerializer<PushDevice> {
   @override
   PushDevice deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = PushDeviceBuilder();
+    final result = new PushDeviceBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1595,7 +1599,7 @@ class _$PushRegisterDeviceResponseApplicationJson_OcsSerializer
   @override
   PushRegisterDeviceResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = PushRegisterDeviceResponseApplicationJson_OcsBuilder();
+    final result = new PushRegisterDeviceResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1640,7 +1644,7 @@ class _$PushRegisterDeviceResponseApplicationJsonSerializer
   @override
   PushRegisterDeviceResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = PushRegisterDeviceResponseApplicationJsonBuilder();
+    final result = new PushRegisterDeviceResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1686,7 +1690,7 @@ class _$PushRemoveDeviceResponseApplicationJson_OcsSerializer
   @override
   PushRemoveDeviceResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = PushRemoveDeviceResponseApplicationJson_OcsBuilder();
+    final result = new PushRemoveDeviceResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1731,7 +1735,7 @@ class _$PushRemoveDeviceResponseApplicationJsonSerializer
   @override
   PushRemoveDeviceResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = PushRemoveDeviceResponseApplicationJsonBuilder();
+    final result = new PushRemoveDeviceResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1776,7 +1780,7 @@ class _$SettingsPersonalRequestApplicationJsonSerializer
   @override
   SettingsPersonalRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SettingsPersonalRequestApplicationJsonBuilder();
+    final result = new SettingsPersonalRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1826,7 +1830,7 @@ class _$SettingsPersonalResponseApplicationJson_OcsSerializer
   @override
   SettingsPersonalResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SettingsPersonalResponseApplicationJson_OcsBuilder();
+    final result = new SettingsPersonalResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1871,7 +1875,7 @@ class _$SettingsPersonalResponseApplicationJsonSerializer
   @override
   SettingsPersonalResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SettingsPersonalResponseApplicationJsonBuilder();
+    final result = new SettingsPersonalResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1916,7 +1920,7 @@ class _$SettingsAdminRequestApplicationJsonSerializer
   @override
   SettingsAdminRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SettingsAdminRequestApplicationJsonBuilder();
+    final result = new SettingsAdminRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1966,7 +1970,7 @@ class _$SettingsAdminResponseApplicationJson_OcsSerializer
   @override
   SettingsAdminResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SettingsAdminResponseApplicationJson_OcsBuilder();
+    final result = new SettingsAdminResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2008,7 +2012,7 @@ class _$SettingsAdminResponseApplicationJsonSerializer
   @override
   SettingsAdminResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SettingsAdminResponseApplicationJsonBuilder();
+    final result = new SettingsAdminResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2039,11 +2043,13 @@ class _$Capabilities_NotificationsSerializer implements StructuredSerializer<Cap
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs-endpoints',
-      serializers.serialize(object.ocsEndpoints, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      serializers.serialize(object.ocsEndpoints,
+          specifiedType: const FullType(BuiltList, const [const FullType(String)])),
       'push',
-      serializers.serialize(object.push, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      serializers.serialize(object.push, specifiedType: const FullType(BuiltList, const [const FullType(String)])),
       'admin-notifications',
-      serializers.serialize(object.adminNotifications, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      serializers.serialize(object.adminNotifications,
+          specifiedType: const FullType(BuiltList, const [const FullType(String)])),
     ];
 
     return result;
@@ -2052,7 +2058,7 @@ class _$Capabilities_NotificationsSerializer implements StructuredSerializer<Cap
   @override
   Capabilities_Notifications deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Capabilities_NotificationsBuilder();
+    final result = new Capabilities_NotificationsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2062,15 +2068,15 @@ class _$Capabilities_NotificationsSerializer implements StructuredSerializer<Cap
       switch (key) {
         case 'ocs-endpoints':
           result.ocsEndpoints.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
           break;
         case 'push':
           result.push.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
           break;
         case 'admin-notifications':
           result.adminNotifications.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -2099,7 +2105,7 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   @override
   Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CapabilitiesBuilder();
+    final result = new CapabilitiesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2136,7 +2142,7 @@ class _$ApiGenerateNotificationRequestApplicationJson extends ApiGenerateNotific
 
   factory _$ApiGenerateNotificationRequestApplicationJson(
           [void Function(ApiGenerateNotificationRequestApplicationJsonBuilder)? updates]) =>
-      (ApiGenerateNotificationRequestApplicationJsonBuilder()..update(updates))._build();
+      (new ApiGenerateNotificationRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiGenerateNotificationRequestApplicationJson._({required this.shortMessage, required this.longMessage})
       : super._() {
@@ -2152,7 +2158,7 @@ class _$ApiGenerateNotificationRequestApplicationJson extends ApiGenerateNotific
 
   @override
   ApiGenerateNotificationRequestApplicationJsonBuilder toBuilder() =>
-      ApiGenerateNotificationRequestApplicationJsonBuilder()..replace(this);
+      new ApiGenerateNotificationRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2225,7 +2231,7 @@ class ApiGenerateNotificationRequestApplicationJsonBuilder
   _$ApiGenerateNotificationRequestApplicationJson _build() {
     ApiGenerateNotificationRequestApplicationJson._validate(this);
     final _$result = _$v ??
-        _$ApiGenerateNotificationRequestApplicationJson._(
+        new _$ApiGenerateNotificationRequestApplicationJson._(
           shortMessage: BuiltValueNullFieldError.checkNotNull(
               shortMessage, r'ApiGenerateNotificationRequestApplicationJson', 'shortMessage'),
           longMessage: BuiltValueNullFieldError.checkNotNull(
@@ -2267,7 +2273,7 @@ class _$OCSMeta extends OCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (new OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
       : super._() {
@@ -2279,7 +2285,7 @@ class _$OCSMeta extends OCSMeta {
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
+  OCSMetaBuilder toBuilder() => new OCSMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2373,7 +2379,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   _$OCSMeta _build() {
     OCSMeta._validate(this);
     final _$result = _$v ??
-        _$OCSMeta._(
+        new _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
           message: message,
@@ -2403,7 +2409,7 @@ class _$ApiGenerateNotificationResponseApplicationJson_Ocs extends ApiGenerateNo
 
   factory _$ApiGenerateNotificationResponseApplicationJson_Ocs(
           [void Function(ApiGenerateNotificationResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiGenerateNotificationResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (new ApiGenerateNotificationResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ApiGenerateNotificationResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'ApiGenerateNotificationResponseApplicationJson_Ocs', 'meta');
@@ -2417,7 +2423,7 @@ class _$ApiGenerateNotificationResponseApplicationJson_Ocs extends ApiGenerateNo
 
   @override
   ApiGenerateNotificationResponseApplicationJson_OcsBuilder toBuilder() =>
-      ApiGenerateNotificationResponseApplicationJson_OcsBuilder()..replace(this);
+      new ApiGenerateNotificationResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2451,7 +2457,7 @@ class ApiGenerateNotificationResponseApplicationJson_OcsBuilder
   _$ApiGenerateNotificationResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
@@ -2491,7 +2497,7 @@ class ApiGenerateNotificationResponseApplicationJson_OcsBuilder
     _$ApiGenerateNotificationResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$ApiGenerateNotificationResponseApplicationJson_Ocs._(
+          new _$ApiGenerateNotificationResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(
                 data, r'ApiGenerateNotificationResponseApplicationJson_Ocs', 'data'),
@@ -2502,7 +2508,7 @@ class ApiGenerateNotificationResponseApplicationJson_OcsBuilder
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'ApiGenerateNotificationResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -2525,7 +2531,7 @@ class _$ApiGenerateNotificationResponseApplicationJson extends ApiGenerateNotifi
 
   factory _$ApiGenerateNotificationResponseApplicationJson(
           [void Function(ApiGenerateNotificationResponseApplicationJsonBuilder)? updates]) =>
-      (ApiGenerateNotificationResponseApplicationJsonBuilder()..update(updates))._build();
+      (new ApiGenerateNotificationResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiGenerateNotificationResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'ApiGenerateNotificationResponseApplicationJson', 'ocs');
@@ -2538,7 +2544,7 @@ class _$ApiGenerateNotificationResponseApplicationJson extends ApiGenerateNotifi
 
   @override
   ApiGenerateNotificationResponseApplicationJsonBuilder toBuilder() =>
-      ApiGenerateNotificationResponseApplicationJsonBuilder()..replace(this);
+      new ApiGenerateNotificationResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2568,7 +2574,7 @@ class ApiGenerateNotificationResponseApplicationJsonBuilder
 
   ApiGenerateNotificationResponseApplicationJson_OcsBuilder? _ocs;
   ApiGenerateNotificationResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= ApiGenerateNotificationResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= new ApiGenerateNotificationResponseApplicationJson_OcsBuilder();
   set ocs(covariant ApiGenerateNotificationResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ApiGenerateNotificationResponseApplicationJsonBuilder() {
@@ -2603,7 +2609,7 @@ class ApiGenerateNotificationResponseApplicationJsonBuilder
     _$ApiGenerateNotificationResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$ApiGenerateNotificationResponseApplicationJson._(
+          new _$ApiGenerateNotificationResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -2612,7 +2618,7 @@ class ApiGenerateNotificationResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'ApiGenerateNotificationResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -2650,7 +2656,7 @@ class _$ApiGenerateNotificationV3RequestApplicationJson extends ApiGenerateNotif
 
   factory _$ApiGenerateNotificationV3RequestApplicationJson(
           [void Function(ApiGenerateNotificationV3RequestApplicationJsonBuilder)? updates]) =>
-      (ApiGenerateNotificationV3RequestApplicationJsonBuilder()..update(updates))._build();
+      (new ApiGenerateNotificationV3RequestApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiGenerateNotificationV3RequestApplicationJson._(
       {required this.subject, required this.message, required this.subjectParameters, required this.messageParameters})
@@ -2670,7 +2676,7 @@ class _$ApiGenerateNotificationV3RequestApplicationJson extends ApiGenerateNotif
 
   @override
   ApiGenerateNotificationV3RequestApplicationJsonBuilder toBuilder() =>
-      ApiGenerateNotificationV3RequestApplicationJsonBuilder()..replace(this);
+      new ApiGenerateNotificationV3RequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2721,13 +2727,13 @@ class ApiGenerateNotificationV3RequestApplicationJsonBuilder
 
   MapBuilder<String, BuiltMap<String, JsonObject>>? _subjectParameters;
   MapBuilder<String, BuiltMap<String, JsonObject>> get subjectParameters =>
-      _$this._subjectParameters ??= MapBuilder<String, BuiltMap<String, JsonObject>>();
+      _$this._subjectParameters ??= new MapBuilder<String, BuiltMap<String, JsonObject>>();
   set subjectParameters(covariant MapBuilder<String, BuiltMap<String, JsonObject>>? subjectParameters) =>
       _$this._subjectParameters = subjectParameters;
 
   MapBuilder<String, BuiltMap<String, JsonObject>>? _messageParameters;
   MapBuilder<String, BuiltMap<String, JsonObject>> get messageParameters =>
-      _$this._messageParameters ??= MapBuilder<String, BuiltMap<String, JsonObject>>();
+      _$this._messageParameters ??= new MapBuilder<String, BuiltMap<String, JsonObject>>();
   set messageParameters(covariant MapBuilder<String, BuiltMap<String, JsonObject>>? messageParameters) =>
       _$this._messageParameters = messageParameters;
 
@@ -2766,7 +2772,7 @@ class ApiGenerateNotificationV3RequestApplicationJsonBuilder
     _$ApiGenerateNotificationV3RequestApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$ApiGenerateNotificationV3RequestApplicationJson._(
+          new _$ApiGenerateNotificationV3RequestApplicationJson._(
             subject: BuiltValueNullFieldError.checkNotNull(
                 subject, r'ApiGenerateNotificationV3RequestApplicationJson', 'subject'),
             message: BuiltValueNullFieldError.checkNotNull(
@@ -2782,7 +2788,7 @@ class ApiGenerateNotificationV3RequestApplicationJsonBuilder
         _$failedField = 'messageParameters';
         messageParameters.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'ApiGenerateNotificationV3RequestApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -2806,7 +2812,7 @@ class _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data
 
   factory _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data(
           [void Function(ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+      (new ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
   _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data._({required this.id}) : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data', 'id');
@@ -2819,7 +2825,7 @@ class _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data
 
   @override
   ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
-      ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+      new ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2883,7 +2889,7 @@ class ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder
   _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data _build() {
     ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
-        _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data._(
+        new _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data._(
           id: BuiltValueNullFieldError.checkNotNull(
               id, r'ApiGenerateNotificationV3ResponseApplicationJson_Ocs_Data', 'id'),
         );
@@ -2911,7 +2917,7 @@ class _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs
 
   factory _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs(
           [void Function(ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (new ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'ApiGenerateNotificationV3ResponseApplicationJson_Ocs', 'meta');
@@ -2925,7 +2931,7 @@ class _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs
 
   @override
   ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder toBuilder() =>
-      ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder()..replace(this);
+      new ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2959,12 +2965,12 @@ class ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder
   _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder? _data;
   ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder();
+      _$this._data ??= new ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder();
   set data(covariant ApiGenerateNotificationV3ResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder() {
@@ -3000,7 +3006,7 @@ class ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder
     _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs._(
+          new _$ApiGenerateNotificationV3ResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -3012,7 +3018,7 @@ class ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'ApiGenerateNotificationV3ResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -3035,7 +3041,7 @@ class _$ApiGenerateNotificationV3ResponseApplicationJson extends ApiGenerateNoti
 
   factory _$ApiGenerateNotificationV3ResponseApplicationJson(
           [void Function(ApiGenerateNotificationV3ResponseApplicationJsonBuilder)? updates]) =>
-      (ApiGenerateNotificationV3ResponseApplicationJsonBuilder()..update(updates))._build();
+      (new ApiGenerateNotificationV3ResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiGenerateNotificationV3ResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'ApiGenerateNotificationV3ResponseApplicationJson', 'ocs');
@@ -3048,7 +3054,7 @@ class _$ApiGenerateNotificationV3ResponseApplicationJson extends ApiGenerateNoti
 
   @override
   ApiGenerateNotificationV3ResponseApplicationJsonBuilder toBuilder() =>
-      ApiGenerateNotificationV3ResponseApplicationJsonBuilder()..replace(this);
+      new ApiGenerateNotificationV3ResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3080,7 +3086,7 @@ class ApiGenerateNotificationV3ResponseApplicationJsonBuilder
 
   ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder? _ocs;
   ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= new ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder();
   set ocs(covariant ApiGenerateNotificationV3ResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ApiGenerateNotificationV3ResponseApplicationJsonBuilder() {
@@ -3115,7 +3121,7 @@ class ApiGenerateNotificationV3ResponseApplicationJsonBuilder
     _$ApiGenerateNotificationV3ResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$ApiGenerateNotificationV3ResponseApplicationJson._(
+          new _$ApiGenerateNotificationV3ResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -3124,7 +3130,7 @@ class ApiGenerateNotificationV3ResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'ApiGenerateNotificationV3ResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -3161,7 +3167,7 @@ class _$NotificationAction extends NotificationAction {
   final bool primary;
 
   factory _$NotificationAction([void Function(NotificationActionBuilder)? updates]) =>
-      (NotificationActionBuilder()..update(updates))._build();
+      (new NotificationActionBuilder()..update(updates))._build();
 
   _$NotificationAction._({required this.label, required this.link, required this.type, required this.primary})
       : super._() {
@@ -3176,7 +3182,7 @@ class _$NotificationAction extends NotificationAction {
       (toBuilder()..update(updates)).build();
 
   @override
-  NotificationActionBuilder toBuilder() => NotificationActionBuilder()..replace(this);
+  NotificationActionBuilder toBuilder() => new NotificationActionBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3263,7 +3269,7 @@ class NotificationActionBuilder
   _$NotificationAction _build() {
     NotificationAction._validate(this);
     final _$result = _$v ??
-        _$NotificationAction._(
+        new _$NotificationAction._(
           label: BuiltValueNullFieldError.checkNotNull(label, r'NotificationAction', 'label'),
           link: BuiltValueNullFieldError.checkNotNull(link, r'NotificationAction', 'link'),
           type: BuiltValueNullFieldError.checkNotNull(type, r'NotificationAction', 'type'),
@@ -3361,7 +3367,7 @@ class _$Notification extends Notification {
   final bool? shouldNotify;
 
   factory _$Notification([void Function(NotificationBuilder)? updates]) =>
-      (NotificationBuilder()..update(updates))._build();
+      (new NotificationBuilder()..update(updates))._build();
 
   _$Notification._(
       {required this.notificationId,
@@ -3397,7 +3403,7 @@ class _$Notification extends Notification {
   Notification rebuild(void Function(NotificationBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  NotificationBuilder toBuilder() => NotificationBuilder()..replace(this);
+  NotificationBuilder toBuilder() => new NotificationBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3507,7 +3513,7 @@ class NotificationBuilder implements Builder<Notification, NotificationBuilder>,
   set link(covariant String? link) => _$this._link = link;
 
   ListBuilder<NotificationAction>? _actions;
-  ListBuilder<NotificationAction> get actions => _$this._actions ??= ListBuilder<NotificationAction>();
+  ListBuilder<NotificationAction> get actions => _$this._actions ??= new ListBuilder<NotificationAction>();
   set actions(covariant ListBuilder<NotificationAction>? actions) => _$this._actions = actions;
 
   String? _subjectRich;
@@ -3516,7 +3522,7 @@ class NotificationBuilder implements Builder<Notification, NotificationBuilder>,
 
   MapBuilder<String, BuiltMap<String, JsonObject>>? _subjectRichParameters;
   MapBuilder<String, BuiltMap<String, JsonObject>> get subjectRichParameters =>
-      _$this._subjectRichParameters ??= MapBuilder<String, BuiltMap<String, JsonObject>>();
+      _$this._subjectRichParameters ??= new MapBuilder<String, BuiltMap<String, JsonObject>>();
   set subjectRichParameters(covariant MapBuilder<String, BuiltMap<String, JsonObject>>? subjectRichParameters) =>
       _$this._subjectRichParameters = subjectRichParameters;
 
@@ -3526,7 +3532,7 @@ class NotificationBuilder implements Builder<Notification, NotificationBuilder>,
 
   MapBuilder<String, BuiltMap<String, JsonObject>>? _messageRichParameters;
   MapBuilder<String, BuiltMap<String, JsonObject>> get messageRichParameters =>
-      _$this._messageRichParameters ??= MapBuilder<String, BuiltMap<String, JsonObject>>();
+      _$this._messageRichParameters ??= new MapBuilder<String, BuiltMap<String, JsonObject>>();
   set messageRichParameters(covariant MapBuilder<String, BuiltMap<String, JsonObject>>? messageRichParameters) =>
       _$this._messageRichParameters = messageRichParameters;
 
@@ -3585,7 +3591,7 @@ class NotificationBuilder implements Builder<Notification, NotificationBuilder>,
     _$Notification _$result;
     try {
       _$result = _$v ??
-          _$Notification._(
+          new _$Notification._(
             notificationId: BuiltValueNullFieldError.checkNotNull(notificationId, r'Notification', 'notificationId'),
             app: BuiltValueNullFieldError.checkNotNull(app, r'Notification', 'app'),
             user: BuiltValueNullFieldError.checkNotNull(user, r'Notification', 'user'),
@@ -3615,7 +3621,7 @@ class NotificationBuilder implements Builder<Notification, NotificationBuilder>,
         _$failedField = 'messageRichParameters';
         _messageRichParameters?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Notification', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'Notification', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3643,7 +3649,7 @@ class _$EndpointListNotificationsResponseApplicationJson_Ocs
 
   factory _$EndpointListNotificationsResponseApplicationJson_Ocs(
           [void Function(EndpointListNotificationsResponseApplicationJson_OcsBuilder)? updates]) =>
-      (EndpointListNotificationsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (new EndpointListNotificationsResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$EndpointListNotificationsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'EndpointListNotificationsResponseApplicationJson_Ocs', 'meta');
@@ -3657,7 +3663,7 @@ class _$EndpointListNotificationsResponseApplicationJson_Ocs
 
   @override
   EndpointListNotificationsResponseApplicationJson_OcsBuilder toBuilder() =>
-      EndpointListNotificationsResponseApplicationJson_OcsBuilder()..replace(this);
+      new EndpointListNotificationsResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3691,11 +3697,11 @@ class EndpointListNotificationsResponseApplicationJson_OcsBuilder
   _$EndpointListNotificationsResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<Notification>? _data;
-  ListBuilder<Notification> get data => _$this._data ??= ListBuilder<Notification>();
+  ListBuilder<Notification> get data => _$this._data ??= new ListBuilder<Notification>();
   set data(covariant ListBuilder<Notification>? data) => _$this._data = data;
 
   EndpointListNotificationsResponseApplicationJson_OcsBuilder() {
@@ -3731,7 +3737,7 @@ class EndpointListNotificationsResponseApplicationJson_OcsBuilder
     _$EndpointListNotificationsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$EndpointListNotificationsResponseApplicationJson_Ocs._(
+          new _$EndpointListNotificationsResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -3743,7 +3749,7 @@ class EndpointListNotificationsResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'EndpointListNotificationsResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -3766,7 +3772,7 @@ class _$EndpointListNotificationsResponseApplicationJson extends EndpointListNot
 
   factory _$EndpointListNotificationsResponseApplicationJson(
           [void Function(EndpointListNotificationsResponseApplicationJsonBuilder)? updates]) =>
-      (EndpointListNotificationsResponseApplicationJsonBuilder()..update(updates))._build();
+      (new EndpointListNotificationsResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$EndpointListNotificationsResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'EndpointListNotificationsResponseApplicationJson', 'ocs');
@@ -3779,7 +3785,7 @@ class _$EndpointListNotificationsResponseApplicationJson extends EndpointListNot
 
   @override
   EndpointListNotificationsResponseApplicationJsonBuilder toBuilder() =>
-      EndpointListNotificationsResponseApplicationJsonBuilder()..replace(this);
+      new EndpointListNotificationsResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3811,7 +3817,7 @@ class EndpointListNotificationsResponseApplicationJsonBuilder
 
   EndpointListNotificationsResponseApplicationJson_OcsBuilder? _ocs;
   EndpointListNotificationsResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= EndpointListNotificationsResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= new EndpointListNotificationsResponseApplicationJson_OcsBuilder();
   set ocs(covariant EndpointListNotificationsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   EndpointListNotificationsResponseApplicationJsonBuilder() {
@@ -3846,7 +3852,7 @@ class EndpointListNotificationsResponseApplicationJsonBuilder
     _$EndpointListNotificationsResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$EndpointListNotificationsResponseApplicationJson._(
+          new _$EndpointListNotificationsResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -3855,7 +3861,7 @@ class EndpointListNotificationsResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'EndpointListNotificationsResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -3878,7 +3884,7 @@ class _$EndpointEndpointListNotificationsHeaders extends EndpointEndpointListNot
 
   factory _$EndpointEndpointListNotificationsHeaders(
           [void Function(EndpointEndpointListNotificationsHeadersBuilder)? updates]) =>
-      (EndpointEndpointListNotificationsHeadersBuilder()..update(updates))._build();
+      (new EndpointEndpointListNotificationsHeadersBuilder()..update(updates))._build();
 
   _$EndpointEndpointListNotificationsHeaders._({this.xNextcloudUserStatus}) : super._();
 
@@ -3889,7 +3895,7 @@ class _$EndpointEndpointListNotificationsHeaders extends EndpointEndpointListNot
 
   @override
   EndpointEndpointListNotificationsHeadersBuilder toBuilder() =>
-      EndpointEndpointListNotificationsHeadersBuilder()..replace(this);
+      new EndpointEndpointListNotificationsHeadersBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3954,7 +3960,7 @@ class EndpointEndpointListNotificationsHeadersBuilder
   _$EndpointEndpointListNotificationsHeaders _build() {
     EndpointEndpointListNotificationsHeaders._validate(this);
     final _$result = _$v ??
-        _$EndpointEndpointListNotificationsHeaders._(
+        new _$EndpointEndpointListNotificationsHeaders._(
           xNextcloudUserStatus: xNextcloudUserStatus,
         );
     replace(_$result);
@@ -3981,7 +3987,7 @@ class _$EndpointDeleteAllNotificationsResponseApplicationJson_Ocs
 
   factory _$EndpointDeleteAllNotificationsResponseApplicationJson_Ocs(
           [void Function(EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder)? updates]) =>
-      (EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (new EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$EndpointDeleteAllNotificationsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'EndpointDeleteAllNotificationsResponseApplicationJson_Ocs', 'meta');
@@ -3995,7 +4001,7 @@ class _$EndpointDeleteAllNotificationsResponseApplicationJson_Ocs
 
   @override
   EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder toBuilder() =>
-      EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder()..replace(this);
+      new EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4031,7 +4037,7 @@ class EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder
   _$EndpointDeleteAllNotificationsResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
@@ -4071,7 +4077,7 @@ class EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder
     _$EndpointDeleteAllNotificationsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$EndpointDeleteAllNotificationsResponseApplicationJson_Ocs._(
+          new _$EndpointDeleteAllNotificationsResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(
                 data, r'EndpointDeleteAllNotificationsResponseApplicationJson_Ocs', 'data'),
@@ -4082,7 +4088,7 @@ class EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'EndpointDeleteAllNotificationsResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -4106,7 +4112,7 @@ class _$EndpointDeleteAllNotificationsResponseApplicationJson
 
   factory _$EndpointDeleteAllNotificationsResponseApplicationJson(
           [void Function(EndpointDeleteAllNotificationsResponseApplicationJsonBuilder)? updates]) =>
-      (EndpointDeleteAllNotificationsResponseApplicationJsonBuilder()..update(updates))._build();
+      (new EndpointDeleteAllNotificationsResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$EndpointDeleteAllNotificationsResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'EndpointDeleteAllNotificationsResponseApplicationJson', 'ocs');
@@ -4119,7 +4125,7 @@ class _$EndpointDeleteAllNotificationsResponseApplicationJson
 
   @override
   EndpointDeleteAllNotificationsResponseApplicationJsonBuilder toBuilder() =>
-      EndpointDeleteAllNotificationsResponseApplicationJsonBuilder()..replace(this);
+      new EndpointDeleteAllNotificationsResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4151,7 +4157,7 @@ class EndpointDeleteAllNotificationsResponseApplicationJsonBuilder
 
   EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder? _ocs;
   EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= new EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder();
   set ocs(covariant EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   EndpointDeleteAllNotificationsResponseApplicationJsonBuilder() {
@@ -4186,7 +4192,7 @@ class EndpointDeleteAllNotificationsResponseApplicationJsonBuilder
     _$EndpointDeleteAllNotificationsResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$EndpointDeleteAllNotificationsResponseApplicationJson._(
+          new _$EndpointDeleteAllNotificationsResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -4195,7 +4201,7 @@ class EndpointDeleteAllNotificationsResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'EndpointDeleteAllNotificationsResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -4223,7 +4229,7 @@ class _$EndpointGetNotificationResponseApplicationJson_Ocs extends EndpointGetNo
 
   factory _$EndpointGetNotificationResponseApplicationJson_Ocs(
           [void Function(EndpointGetNotificationResponseApplicationJson_OcsBuilder)? updates]) =>
-      (EndpointGetNotificationResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (new EndpointGetNotificationResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$EndpointGetNotificationResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'EndpointGetNotificationResponseApplicationJson_Ocs', 'meta');
@@ -4237,7 +4243,7 @@ class _$EndpointGetNotificationResponseApplicationJson_Ocs extends EndpointGetNo
 
   @override
   EndpointGetNotificationResponseApplicationJson_OcsBuilder toBuilder() =>
-      EndpointGetNotificationResponseApplicationJson_OcsBuilder()..replace(this);
+      new EndpointGetNotificationResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4271,11 +4277,11 @@ class EndpointGetNotificationResponseApplicationJson_OcsBuilder
   _$EndpointGetNotificationResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   NotificationBuilder? _data;
-  NotificationBuilder get data => _$this._data ??= NotificationBuilder();
+  NotificationBuilder get data => _$this._data ??= new NotificationBuilder();
   set data(covariant NotificationBuilder? data) => _$this._data = data;
 
   EndpointGetNotificationResponseApplicationJson_OcsBuilder() {
@@ -4311,7 +4317,7 @@ class EndpointGetNotificationResponseApplicationJson_OcsBuilder
     _$EndpointGetNotificationResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$EndpointGetNotificationResponseApplicationJson_Ocs._(
+          new _$EndpointGetNotificationResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -4323,7 +4329,7 @@ class EndpointGetNotificationResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'EndpointGetNotificationResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -4346,7 +4352,7 @@ class _$EndpointGetNotificationResponseApplicationJson extends EndpointGetNotifi
 
   factory _$EndpointGetNotificationResponseApplicationJson(
           [void Function(EndpointGetNotificationResponseApplicationJsonBuilder)? updates]) =>
-      (EndpointGetNotificationResponseApplicationJsonBuilder()..update(updates))._build();
+      (new EndpointGetNotificationResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$EndpointGetNotificationResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'EndpointGetNotificationResponseApplicationJson', 'ocs');
@@ -4359,7 +4365,7 @@ class _$EndpointGetNotificationResponseApplicationJson extends EndpointGetNotifi
 
   @override
   EndpointGetNotificationResponseApplicationJsonBuilder toBuilder() =>
-      EndpointGetNotificationResponseApplicationJsonBuilder()..replace(this);
+      new EndpointGetNotificationResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4389,7 +4395,7 @@ class EndpointGetNotificationResponseApplicationJsonBuilder
 
   EndpointGetNotificationResponseApplicationJson_OcsBuilder? _ocs;
   EndpointGetNotificationResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= EndpointGetNotificationResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= new EndpointGetNotificationResponseApplicationJson_OcsBuilder();
   set ocs(covariant EndpointGetNotificationResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   EndpointGetNotificationResponseApplicationJsonBuilder() {
@@ -4424,7 +4430,7 @@ class EndpointGetNotificationResponseApplicationJsonBuilder
     _$EndpointGetNotificationResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$EndpointGetNotificationResponseApplicationJson._(
+          new _$EndpointGetNotificationResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -4433,7 +4439,7 @@ class EndpointGetNotificationResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'EndpointGetNotificationResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -4462,7 +4468,7 @@ class _$EndpointDeleteNotificationResponseApplicationJson_Ocs
 
   factory _$EndpointDeleteNotificationResponseApplicationJson_Ocs(
           [void Function(EndpointDeleteNotificationResponseApplicationJson_OcsBuilder)? updates]) =>
-      (EndpointDeleteNotificationResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (new EndpointDeleteNotificationResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$EndpointDeleteNotificationResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'EndpointDeleteNotificationResponseApplicationJson_Ocs', 'meta');
@@ -4476,7 +4482,7 @@ class _$EndpointDeleteNotificationResponseApplicationJson_Ocs
 
   @override
   EndpointDeleteNotificationResponseApplicationJson_OcsBuilder toBuilder() =>
-      EndpointDeleteNotificationResponseApplicationJson_OcsBuilder()..replace(this);
+      new EndpointDeleteNotificationResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4510,7 +4516,7 @@ class EndpointDeleteNotificationResponseApplicationJson_OcsBuilder
   _$EndpointDeleteNotificationResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
@@ -4550,7 +4556,7 @@ class EndpointDeleteNotificationResponseApplicationJson_OcsBuilder
     _$EndpointDeleteNotificationResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$EndpointDeleteNotificationResponseApplicationJson_Ocs._(
+          new _$EndpointDeleteNotificationResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(
                 data, r'EndpointDeleteNotificationResponseApplicationJson_Ocs', 'data'),
@@ -4561,7 +4567,7 @@ class EndpointDeleteNotificationResponseApplicationJson_OcsBuilder
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'EndpointDeleteNotificationResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -4584,7 +4590,7 @@ class _$EndpointDeleteNotificationResponseApplicationJson extends EndpointDelete
 
   factory _$EndpointDeleteNotificationResponseApplicationJson(
           [void Function(EndpointDeleteNotificationResponseApplicationJsonBuilder)? updates]) =>
-      (EndpointDeleteNotificationResponseApplicationJsonBuilder()..update(updates))._build();
+      (new EndpointDeleteNotificationResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$EndpointDeleteNotificationResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'EndpointDeleteNotificationResponseApplicationJson', 'ocs');
@@ -4597,7 +4603,7 @@ class _$EndpointDeleteNotificationResponseApplicationJson extends EndpointDelete
 
   @override
   EndpointDeleteNotificationResponseApplicationJsonBuilder toBuilder() =>
-      EndpointDeleteNotificationResponseApplicationJsonBuilder()..replace(this);
+      new EndpointDeleteNotificationResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4629,7 +4635,7 @@ class EndpointDeleteNotificationResponseApplicationJsonBuilder
 
   EndpointDeleteNotificationResponseApplicationJson_OcsBuilder? _ocs;
   EndpointDeleteNotificationResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= EndpointDeleteNotificationResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= new EndpointDeleteNotificationResponseApplicationJson_OcsBuilder();
   set ocs(covariant EndpointDeleteNotificationResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   EndpointDeleteNotificationResponseApplicationJsonBuilder() {
@@ -4664,7 +4670,7 @@ class EndpointDeleteNotificationResponseApplicationJsonBuilder
     _$EndpointDeleteNotificationResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$EndpointDeleteNotificationResponseApplicationJson._(
+          new _$EndpointDeleteNotificationResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -4673,7 +4679,7 @@ class EndpointDeleteNotificationResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'EndpointDeleteNotificationResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -4696,7 +4702,7 @@ class _$EndpointConfirmIdsForUserRequestApplicationJson extends EndpointConfirmI
 
   factory _$EndpointConfirmIdsForUserRequestApplicationJson(
           [void Function(EndpointConfirmIdsForUserRequestApplicationJsonBuilder)? updates]) =>
-      (EndpointConfirmIdsForUserRequestApplicationJsonBuilder()..update(updates))._build();
+      (new EndpointConfirmIdsForUserRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$EndpointConfirmIdsForUserRequestApplicationJson._({required this.ids}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ids, r'EndpointConfirmIdsForUserRequestApplicationJson', 'ids');
@@ -4709,7 +4715,7 @@ class _$EndpointConfirmIdsForUserRequestApplicationJson extends EndpointConfirmI
 
   @override
   EndpointConfirmIdsForUserRequestApplicationJsonBuilder toBuilder() =>
-      EndpointConfirmIdsForUserRequestApplicationJsonBuilder()..replace(this);
+      new EndpointConfirmIdsForUserRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4740,7 +4746,7 @@ class EndpointConfirmIdsForUserRequestApplicationJsonBuilder
   _$EndpointConfirmIdsForUserRequestApplicationJson? _$v;
 
   ListBuilder<int>? _ids;
-  ListBuilder<int> get ids => _$this._ids ??= ListBuilder<int>();
+  ListBuilder<int> get ids => _$this._ids ??= new ListBuilder<int>();
   set ids(covariant ListBuilder<int>? ids) => _$this._ids = ids;
 
   EndpointConfirmIdsForUserRequestApplicationJsonBuilder() {
@@ -4775,7 +4781,7 @@ class EndpointConfirmIdsForUserRequestApplicationJsonBuilder
     _$EndpointConfirmIdsForUserRequestApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$EndpointConfirmIdsForUserRequestApplicationJson._(
+          new _$EndpointConfirmIdsForUserRequestApplicationJson._(
             ids: ids.build(),
           );
     } catch (_) {
@@ -4784,7 +4790,7 @@ class EndpointConfirmIdsForUserRequestApplicationJsonBuilder
         _$failedField = 'ids';
         ids.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'EndpointConfirmIdsForUserRequestApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -4813,7 +4819,7 @@ class _$EndpointConfirmIdsForUserResponseApplicationJson_Ocs
 
   factory _$EndpointConfirmIdsForUserResponseApplicationJson_Ocs(
           [void Function(EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder)? updates]) =>
-      (EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (new EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$EndpointConfirmIdsForUserResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'EndpointConfirmIdsForUserResponseApplicationJson_Ocs', 'meta');
@@ -4827,7 +4833,7 @@ class _$EndpointConfirmIdsForUserResponseApplicationJson_Ocs
 
   @override
   EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder toBuilder() =>
-      EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder()..replace(this);
+      new EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4861,11 +4867,11 @@ class EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder
   _$EndpointConfirmIdsForUserResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<int>? _data;
-  ListBuilder<int> get data => _$this._data ??= ListBuilder<int>();
+  ListBuilder<int> get data => _$this._data ??= new ListBuilder<int>();
   set data(covariant ListBuilder<int>? data) => _$this._data = data;
 
   EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder() {
@@ -4901,7 +4907,7 @@ class EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder
     _$EndpointConfirmIdsForUserResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$EndpointConfirmIdsForUserResponseApplicationJson_Ocs._(
+          new _$EndpointConfirmIdsForUserResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -4913,7 +4919,7 @@ class EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'EndpointConfirmIdsForUserResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -4936,7 +4942,7 @@ class _$EndpointConfirmIdsForUserResponseApplicationJson extends EndpointConfirm
 
   factory _$EndpointConfirmIdsForUserResponseApplicationJson(
           [void Function(EndpointConfirmIdsForUserResponseApplicationJsonBuilder)? updates]) =>
-      (EndpointConfirmIdsForUserResponseApplicationJsonBuilder()..update(updates))._build();
+      (new EndpointConfirmIdsForUserResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$EndpointConfirmIdsForUserResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'EndpointConfirmIdsForUserResponseApplicationJson', 'ocs');
@@ -4949,7 +4955,7 @@ class _$EndpointConfirmIdsForUserResponseApplicationJson extends EndpointConfirm
 
   @override
   EndpointConfirmIdsForUserResponseApplicationJsonBuilder toBuilder() =>
-      EndpointConfirmIdsForUserResponseApplicationJsonBuilder()..replace(this);
+      new EndpointConfirmIdsForUserResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4981,7 +4987,7 @@ class EndpointConfirmIdsForUserResponseApplicationJsonBuilder
 
   EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder? _ocs;
   EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= new EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder();
   set ocs(covariant EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   EndpointConfirmIdsForUserResponseApplicationJsonBuilder() {
@@ -5016,7 +5022,7 @@ class EndpointConfirmIdsForUserResponseApplicationJsonBuilder
     _$EndpointConfirmIdsForUserResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$EndpointConfirmIdsForUserResponseApplicationJson._(
+          new _$EndpointConfirmIdsForUserResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -5025,7 +5031,7 @@ class EndpointConfirmIdsForUserResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'EndpointConfirmIdsForUserResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -5058,7 +5064,7 @@ class _$PushRegisterDeviceRequestApplicationJson extends PushRegisterDeviceReque
 
   factory _$PushRegisterDeviceRequestApplicationJson(
           [void Function(PushRegisterDeviceRequestApplicationJsonBuilder)? updates]) =>
-      (PushRegisterDeviceRequestApplicationJsonBuilder()..update(updates))._build();
+      (new PushRegisterDeviceRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$PushRegisterDeviceRequestApplicationJson._(
       {required this.pushTokenHash, required this.devicePublicKey, required this.proxyServer})
@@ -5076,7 +5082,7 @@ class _$PushRegisterDeviceRequestApplicationJson extends PushRegisterDeviceReque
 
   @override
   PushRegisterDeviceRequestApplicationJsonBuilder toBuilder() =>
-      PushRegisterDeviceRequestApplicationJsonBuilder()..replace(this);
+      new PushRegisterDeviceRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -5157,7 +5163,7 @@ class PushRegisterDeviceRequestApplicationJsonBuilder
   _$PushRegisterDeviceRequestApplicationJson _build() {
     PushRegisterDeviceRequestApplicationJson._validate(this);
     final _$result = _$v ??
-        _$PushRegisterDeviceRequestApplicationJson._(
+        new _$PushRegisterDeviceRequestApplicationJson._(
           pushTokenHash: BuiltValueNullFieldError.checkNotNull(
               pushTokenHash, r'PushRegisterDeviceRequestApplicationJson', 'pushTokenHash'),
           devicePublicKey: BuiltValueNullFieldError.checkNotNull(
@@ -5191,7 +5197,8 @@ class _$PushDevice extends PushDevice {
   @override
   final String signature;
 
-  factory _$PushDevice([void Function(PushDeviceBuilder)? updates]) => (PushDeviceBuilder()..update(updates))._build();
+  factory _$PushDevice([void Function(PushDeviceBuilder)? updates]) =>
+      (new PushDeviceBuilder()..update(updates))._build();
 
   _$PushDevice._({required this.publicKey, required this.deviceIdentifier, required this.signature}) : super._() {
     BuiltValueNullFieldError.checkNotNull(publicKey, r'PushDevice', 'publicKey');
@@ -5203,7 +5210,7 @@ class _$PushDevice extends PushDevice {
   PushDevice rebuild(void Function(PushDeviceBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  PushDeviceBuilder toBuilder() => PushDeviceBuilder()..replace(this);
+  PushDeviceBuilder toBuilder() => new PushDeviceBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -5281,7 +5288,7 @@ class PushDeviceBuilder implements Builder<PushDevice, PushDeviceBuilder>, $Push
   _$PushDevice _build() {
     PushDevice._validate(this);
     final _$result = _$v ??
-        _$PushDevice._(
+        new _$PushDevice._(
           publicKey: BuiltValueNullFieldError.checkNotNull(publicKey, r'PushDevice', 'publicKey'),
           deviceIdentifier: BuiltValueNullFieldError.checkNotNull(deviceIdentifier, r'PushDevice', 'deviceIdentifier'),
           signature: BuiltValueNullFieldError.checkNotNull(signature, r'PushDevice', 'signature'),
@@ -5309,7 +5316,7 @@ class _$PushRegisterDeviceResponseApplicationJson_Ocs extends PushRegisterDevice
 
   factory _$PushRegisterDeviceResponseApplicationJson_Ocs(
           [void Function(PushRegisterDeviceResponseApplicationJson_OcsBuilder)? updates]) =>
-      (PushRegisterDeviceResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (new PushRegisterDeviceResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$PushRegisterDeviceResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'PushRegisterDeviceResponseApplicationJson_Ocs', 'meta');
@@ -5323,7 +5330,7 @@ class _$PushRegisterDeviceResponseApplicationJson_Ocs extends PushRegisterDevice
 
   @override
   PushRegisterDeviceResponseApplicationJson_OcsBuilder toBuilder() =>
-      PushRegisterDeviceResponseApplicationJson_OcsBuilder()..replace(this);
+      new PushRegisterDeviceResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -5356,11 +5363,11 @@ class PushRegisterDeviceResponseApplicationJson_OcsBuilder
   _$PushRegisterDeviceResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   PushDeviceBuilder? _data;
-  PushDeviceBuilder get data => _$this._data ??= PushDeviceBuilder();
+  PushDeviceBuilder get data => _$this._data ??= new PushDeviceBuilder();
   set data(covariant PushDeviceBuilder? data) => _$this._data = data;
 
   PushRegisterDeviceResponseApplicationJson_OcsBuilder() {
@@ -5396,7 +5403,7 @@ class PushRegisterDeviceResponseApplicationJson_OcsBuilder
     _$PushRegisterDeviceResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$PushRegisterDeviceResponseApplicationJson_Ocs._(
+          new _$PushRegisterDeviceResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -5408,7 +5415,8 @@ class PushRegisterDeviceResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'PushRegisterDeviceResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(
+            r'PushRegisterDeviceResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -5430,7 +5438,7 @@ class _$PushRegisterDeviceResponseApplicationJson extends PushRegisterDeviceResp
 
   factory _$PushRegisterDeviceResponseApplicationJson(
           [void Function(PushRegisterDeviceResponseApplicationJsonBuilder)? updates]) =>
-      (PushRegisterDeviceResponseApplicationJsonBuilder()..update(updates))._build();
+      (new PushRegisterDeviceResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$PushRegisterDeviceResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'PushRegisterDeviceResponseApplicationJson', 'ocs');
@@ -5443,7 +5451,7 @@ class _$PushRegisterDeviceResponseApplicationJson extends PushRegisterDeviceResp
 
   @override
   PushRegisterDeviceResponseApplicationJsonBuilder toBuilder() =>
-      PushRegisterDeviceResponseApplicationJsonBuilder()..replace(this);
+      new PushRegisterDeviceResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -5473,7 +5481,7 @@ class PushRegisterDeviceResponseApplicationJsonBuilder
 
   PushRegisterDeviceResponseApplicationJson_OcsBuilder? _ocs;
   PushRegisterDeviceResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= PushRegisterDeviceResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= new PushRegisterDeviceResponseApplicationJson_OcsBuilder();
   set ocs(covariant PushRegisterDeviceResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   PushRegisterDeviceResponseApplicationJsonBuilder() {
@@ -5508,7 +5516,7 @@ class PushRegisterDeviceResponseApplicationJsonBuilder
     _$PushRegisterDeviceResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$PushRegisterDeviceResponseApplicationJson._(
+          new _$PushRegisterDeviceResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -5517,7 +5525,7 @@ class PushRegisterDeviceResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'PushRegisterDeviceResponseApplicationJson', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'PushRegisterDeviceResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -5544,7 +5552,7 @@ class _$PushRemoveDeviceResponseApplicationJson_Ocs extends PushRemoveDeviceResp
 
   factory _$PushRemoveDeviceResponseApplicationJson_Ocs(
           [void Function(PushRemoveDeviceResponseApplicationJson_OcsBuilder)? updates]) =>
-      (PushRemoveDeviceResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (new PushRemoveDeviceResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$PushRemoveDeviceResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'PushRemoveDeviceResponseApplicationJson_Ocs', 'meta');
@@ -5558,7 +5566,7 @@ class _$PushRemoveDeviceResponseApplicationJson_Ocs extends PushRemoveDeviceResp
 
   @override
   PushRemoveDeviceResponseApplicationJson_OcsBuilder toBuilder() =>
-      PushRemoveDeviceResponseApplicationJson_OcsBuilder()..replace(this);
+      new PushRemoveDeviceResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -5591,7 +5599,7 @@ class PushRemoveDeviceResponseApplicationJson_OcsBuilder
   _$PushRemoveDeviceResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
@@ -5631,7 +5639,7 @@ class PushRemoveDeviceResponseApplicationJson_OcsBuilder
     _$PushRemoveDeviceResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$PushRemoveDeviceResponseApplicationJson_Ocs._(
+          new _$PushRemoveDeviceResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(data, r'PushRemoveDeviceResponseApplicationJson_Ocs', 'data'),
           );
@@ -5641,7 +5649,8 @@ class PushRemoveDeviceResponseApplicationJson_OcsBuilder
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'PushRemoveDeviceResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(
+            r'PushRemoveDeviceResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -5663,7 +5672,7 @@ class _$PushRemoveDeviceResponseApplicationJson extends PushRemoveDeviceResponse
 
   factory _$PushRemoveDeviceResponseApplicationJson(
           [void Function(PushRemoveDeviceResponseApplicationJsonBuilder)? updates]) =>
-      (PushRemoveDeviceResponseApplicationJsonBuilder()..update(updates))._build();
+      (new PushRemoveDeviceResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$PushRemoveDeviceResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'PushRemoveDeviceResponseApplicationJson', 'ocs');
@@ -5676,7 +5685,7 @@ class _$PushRemoveDeviceResponseApplicationJson extends PushRemoveDeviceResponse
 
   @override
   PushRemoveDeviceResponseApplicationJsonBuilder toBuilder() =>
-      PushRemoveDeviceResponseApplicationJsonBuilder()..replace(this);
+      new PushRemoveDeviceResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -5706,7 +5715,7 @@ class PushRemoveDeviceResponseApplicationJsonBuilder
 
   PushRemoveDeviceResponseApplicationJson_OcsBuilder? _ocs;
   PushRemoveDeviceResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= PushRemoveDeviceResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= new PushRemoveDeviceResponseApplicationJson_OcsBuilder();
   set ocs(covariant PushRemoveDeviceResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   PushRemoveDeviceResponseApplicationJsonBuilder() {
@@ -5741,7 +5750,7 @@ class PushRemoveDeviceResponseApplicationJsonBuilder
     _$PushRemoveDeviceResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$PushRemoveDeviceResponseApplicationJson._(
+          new _$PushRemoveDeviceResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -5750,7 +5759,7 @@ class PushRemoveDeviceResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'PushRemoveDeviceResponseApplicationJson', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'PushRemoveDeviceResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -5782,7 +5791,7 @@ class _$SettingsPersonalRequestApplicationJson extends SettingsPersonalRequestAp
 
   factory _$SettingsPersonalRequestApplicationJson(
           [void Function(SettingsPersonalRequestApplicationJsonBuilder)? updates]) =>
-      (SettingsPersonalRequestApplicationJsonBuilder()..update(updates))._build();
+      (new SettingsPersonalRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$SettingsPersonalRequestApplicationJson._(
       {required this.batchSetting, required this.soundNotification, required this.soundTalk})
@@ -5800,7 +5809,7 @@ class _$SettingsPersonalRequestApplicationJson extends SettingsPersonalRequestAp
 
   @override
   SettingsPersonalRequestApplicationJsonBuilder toBuilder() =>
-      SettingsPersonalRequestApplicationJsonBuilder()..replace(this);
+      new SettingsPersonalRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -5881,7 +5890,7 @@ class SettingsPersonalRequestApplicationJsonBuilder
   _$SettingsPersonalRequestApplicationJson _build() {
     SettingsPersonalRequestApplicationJson._validate(this);
     final _$result = _$v ??
-        _$SettingsPersonalRequestApplicationJson._(
+        new _$SettingsPersonalRequestApplicationJson._(
           batchSetting: BuiltValueNullFieldError.checkNotNull(
               batchSetting, r'SettingsPersonalRequestApplicationJson', 'batchSetting'),
           soundNotification: BuiltValueNullFieldError.checkNotNull(
@@ -5912,7 +5921,7 @@ class _$SettingsPersonalResponseApplicationJson_Ocs extends SettingsPersonalResp
 
   factory _$SettingsPersonalResponseApplicationJson_Ocs(
           [void Function(SettingsPersonalResponseApplicationJson_OcsBuilder)? updates]) =>
-      (SettingsPersonalResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (new SettingsPersonalResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$SettingsPersonalResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'SettingsPersonalResponseApplicationJson_Ocs', 'meta');
@@ -5926,7 +5935,7 @@ class _$SettingsPersonalResponseApplicationJson_Ocs extends SettingsPersonalResp
 
   @override
   SettingsPersonalResponseApplicationJson_OcsBuilder toBuilder() =>
-      SettingsPersonalResponseApplicationJson_OcsBuilder()..replace(this);
+      new SettingsPersonalResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -5959,7 +5968,7 @@ class SettingsPersonalResponseApplicationJson_OcsBuilder
   _$SettingsPersonalResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
@@ -5999,7 +6008,7 @@ class SettingsPersonalResponseApplicationJson_OcsBuilder
     _$SettingsPersonalResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$SettingsPersonalResponseApplicationJson_Ocs._(
+          new _$SettingsPersonalResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(data, r'SettingsPersonalResponseApplicationJson_Ocs', 'data'),
           );
@@ -6009,7 +6018,8 @@ class SettingsPersonalResponseApplicationJson_OcsBuilder
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'SettingsPersonalResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(
+            r'SettingsPersonalResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -6031,7 +6041,7 @@ class _$SettingsPersonalResponseApplicationJson extends SettingsPersonalResponse
 
   factory _$SettingsPersonalResponseApplicationJson(
           [void Function(SettingsPersonalResponseApplicationJsonBuilder)? updates]) =>
-      (SettingsPersonalResponseApplicationJsonBuilder()..update(updates))._build();
+      (new SettingsPersonalResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$SettingsPersonalResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'SettingsPersonalResponseApplicationJson', 'ocs');
@@ -6044,7 +6054,7 @@ class _$SettingsPersonalResponseApplicationJson extends SettingsPersonalResponse
 
   @override
   SettingsPersonalResponseApplicationJsonBuilder toBuilder() =>
-      SettingsPersonalResponseApplicationJsonBuilder()..replace(this);
+      new SettingsPersonalResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -6074,7 +6084,7 @@ class SettingsPersonalResponseApplicationJsonBuilder
 
   SettingsPersonalResponseApplicationJson_OcsBuilder? _ocs;
   SettingsPersonalResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= SettingsPersonalResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= new SettingsPersonalResponseApplicationJson_OcsBuilder();
   set ocs(covariant SettingsPersonalResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   SettingsPersonalResponseApplicationJsonBuilder() {
@@ -6109,7 +6119,7 @@ class SettingsPersonalResponseApplicationJsonBuilder
     _$SettingsPersonalResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$SettingsPersonalResponseApplicationJson._(
+          new _$SettingsPersonalResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -6118,7 +6128,7 @@ class SettingsPersonalResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'SettingsPersonalResponseApplicationJson', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'SettingsPersonalResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -6149,7 +6159,7 @@ class _$SettingsAdminRequestApplicationJson extends SettingsAdminRequestApplicat
   final String soundTalk;
 
   factory _$SettingsAdminRequestApplicationJson([void Function(SettingsAdminRequestApplicationJsonBuilder)? updates]) =>
-      (SettingsAdminRequestApplicationJsonBuilder()..update(updates))._build();
+      (new SettingsAdminRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$SettingsAdminRequestApplicationJson._(
       {required this.batchSetting, required this.soundNotification, required this.soundTalk})
@@ -6165,7 +6175,8 @@ class _$SettingsAdminRequestApplicationJson extends SettingsAdminRequestApplicat
       (toBuilder()..update(updates)).build();
 
   @override
-  SettingsAdminRequestApplicationJsonBuilder toBuilder() => SettingsAdminRequestApplicationJsonBuilder()..replace(this);
+  SettingsAdminRequestApplicationJsonBuilder toBuilder() =>
+      new SettingsAdminRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -6246,7 +6257,7 @@ class SettingsAdminRequestApplicationJsonBuilder
   _$SettingsAdminRequestApplicationJson _build() {
     SettingsAdminRequestApplicationJson._validate(this);
     final _$result = _$v ??
-        _$SettingsAdminRequestApplicationJson._(
+        new _$SettingsAdminRequestApplicationJson._(
           batchSetting: BuiltValueNullFieldError.checkNotNull(
               batchSetting, r'SettingsAdminRequestApplicationJson', 'batchSetting'),
           soundNotification: BuiltValueNullFieldError.checkNotNull(
@@ -6277,7 +6288,7 @@ class _$SettingsAdminResponseApplicationJson_Ocs extends SettingsAdminResponseAp
 
   factory _$SettingsAdminResponseApplicationJson_Ocs(
           [void Function(SettingsAdminResponseApplicationJson_OcsBuilder)? updates]) =>
-      (SettingsAdminResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (new SettingsAdminResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$SettingsAdminResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'SettingsAdminResponseApplicationJson_Ocs', 'meta');
@@ -6291,7 +6302,7 @@ class _$SettingsAdminResponseApplicationJson_Ocs extends SettingsAdminResponseAp
 
   @override
   SettingsAdminResponseApplicationJson_OcsBuilder toBuilder() =>
-      SettingsAdminResponseApplicationJson_OcsBuilder()..replace(this);
+      new SettingsAdminResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -6324,7 +6335,7 @@ class SettingsAdminResponseApplicationJson_OcsBuilder
   _$SettingsAdminResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
@@ -6364,7 +6375,7 @@ class SettingsAdminResponseApplicationJson_OcsBuilder
     _$SettingsAdminResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$SettingsAdminResponseApplicationJson_Ocs._(
+          new _$SettingsAdminResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(data, r'SettingsAdminResponseApplicationJson_Ocs', 'data'),
           );
@@ -6374,7 +6385,7 @@ class SettingsAdminResponseApplicationJson_OcsBuilder
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'SettingsAdminResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'SettingsAdminResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -6396,7 +6407,7 @@ class _$SettingsAdminResponseApplicationJson extends SettingsAdminResponseApplic
 
   factory _$SettingsAdminResponseApplicationJson(
           [void Function(SettingsAdminResponseApplicationJsonBuilder)? updates]) =>
-      (SettingsAdminResponseApplicationJsonBuilder()..update(updates))._build();
+      (new SettingsAdminResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$SettingsAdminResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'SettingsAdminResponseApplicationJson', 'ocs');
@@ -6408,7 +6419,7 @@ class _$SettingsAdminResponseApplicationJson extends SettingsAdminResponseApplic
 
   @override
   SettingsAdminResponseApplicationJsonBuilder toBuilder() =>
-      SettingsAdminResponseApplicationJsonBuilder()..replace(this);
+      new SettingsAdminResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -6438,7 +6449,7 @@ class SettingsAdminResponseApplicationJsonBuilder
 
   SettingsAdminResponseApplicationJson_OcsBuilder? _ocs;
   SettingsAdminResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= SettingsAdminResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= new SettingsAdminResponseApplicationJson_OcsBuilder();
   set ocs(covariant SettingsAdminResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   SettingsAdminResponseApplicationJsonBuilder() {
@@ -6473,7 +6484,7 @@ class SettingsAdminResponseApplicationJsonBuilder
     _$SettingsAdminResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$SettingsAdminResponseApplicationJson._(
+          new _$SettingsAdminResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -6482,7 +6493,7 @@ class SettingsAdminResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'SettingsAdminResponseApplicationJson', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'SettingsAdminResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -6513,7 +6524,7 @@ class _$Capabilities_Notifications extends Capabilities_Notifications {
   final BuiltList<String> adminNotifications;
 
   factory _$Capabilities_Notifications([void Function(Capabilities_NotificationsBuilder)? updates]) =>
-      (Capabilities_NotificationsBuilder()..update(updates))._build();
+      (new Capabilities_NotificationsBuilder()..update(updates))._build();
 
   _$Capabilities_Notifications._({required this.ocsEndpoints, required this.push, required this.adminNotifications})
       : super._() {
@@ -6527,7 +6538,7 @@ class _$Capabilities_Notifications extends Capabilities_Notifications {
       (toBuilder()..update(updates)).build();
 
   @override
-  Capabilities_NotificationsBuilder toBuilder() => Capabilities_NotificationsBuilder()..replace(this);
+  Capabilities_NotificationsBuilder toBuilder() => new Capabilities_NotificationsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -6565,15 +6576,15 @@ class Capabilities_NotificationsBuilder
   _$Capabilities_Notifications? _$v;
 
   ListBuilder<String>? _ocsEndpoints;
-  ListBuilder<String> get ocsEndpoints => _$this._ocsEndpoints ??= ListBuilder<String>();
+  ListBuilder<String> get ocsEndpoints => _$this._ocsEndpoints ??= new ListBuilder<String>();
   set ocsEndpoints(covariant ListBuilder<String>? ocsEndpoints) => _$this._ocsEndpoints = ocsEndpoints;
 
   ListBuilder<String>? _push;
-  ListBuilder<String> get push => _$this._push ??= ListBuilder<String>();
+  ListBuilder<String> get push => _$this._push ??= new ListBuilder<String>();
   set push(covariant ListBuilder<String>? push) => _$this._push = push;
 
   ListBuilder<String>? _adminNotifications;
-  ListBuilder<String> get adminNotifications => _$this._adminNotifications ??= ListBuilder<String>();
+  ListBuilder<String> get adminNotifications => _$this._adminNotifications ??= new ListBuilder<String>();
   set adminNotifications(covariant ListBuilder<String>? adminNotifications) =>
       _$this._adminNotifications = adminNotifications;
 
@@ -6611,7 +6622,7 @@ class Capabilities_NotificationsBuilder
     _$Capabilities_Notifications _$result;
     try {
       _$result = _$v ??
-          _$Capabilities_Notifications._(
+          new _$Capabilities_Notifications._(
             ocsEndpoints: ocsEndpoints.build(),
             push: push.build(),
             adminNotifications: adminNotifications.build(),
@@ -6626,7 +6637,7 @@ class Capabilities_NotificationsBuilder
         _$failedField = 'adminNotifications';
         adminNotifications.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Capabilities_Notifications', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'Capabilities_Notifications', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -6647,7 +6658,7 @@ class _$Capabilities extends Capabilities {
   final Capabilities_Notifications notifications;
 
   factory _$Capabilities([void Function(CapabilitiesBuilder)? updates]) =>
-      (CapabilitiesBuilder()..update(updates))._build();
+      (new CapabilitiesBuilder()..update(updates))._build();
 
   _$Capabilities._({required this.notifications}) : super._() {
     BuiltValueNullFieldError.checkNotNull(notifications, r'Capabilities', 'notifications');
@@ -6657,7 +6668,7 @@ class _$Capabilities extends Capabilities {
   Capabilities rebuild(void Function(CapabilitiesBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  CapabilitiesBuilder toBuilder() => CapabilitiesBuilder()..replace(this);
+  CapabilitiesBuilder toBuilder() => new CapabilitiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -6683,7 +6694,8 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   _$Capabilities? _$v;
 
   Capabilities_NotificationsBuilder? _notifications;
-  Capabilities_NotificationsBuilder get notifications => _$this._notifications ??= Capabilities_NotificationsBuilder();
+  Capabilities_NotificationsBuilder get notifications =>
+      _$this._notifications ??= new Capabilities_NotificationsBuilder();
   set notifications(covariant Capabilities_NotificationsBuilder? notifications) =>
       _$this._notifications = notifications;
 
@@ -6719,7 +6731,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     _$Capabilities _$result;
     try {
       _$result = _$v ??
-          _$Capabilities._(
+          new _$Capabilities._(
             notifications: notifications.build(),
           );
     } catch (_) {
@@ -6728,7 +6740,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
         _$failedField = 'notifications';
         notifications.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
       }
       rethrow;
     }

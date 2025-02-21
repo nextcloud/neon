@@ -6,24 +6,24 @@ part of 'news.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<SupportedAPIVersions> _$supportedAPIVersionsSerializer = _$SupportedAPIVersionsSerializer();
-Serializer<Article> _$articleSerializer = _$ArticleSerializer();
-Serializer<Feed> _$feedSerializer = _$FeedSerializer();
-Serializer<ListFeeds> _$listFeedsSerializer = _$ListFeedsSerializer();
-Serializer<Folder> _$folderSerializer = _$FolderSerializer();
-Serializer<ListFolders> _$listFoldersSerializer = _$ListFoldersSerializer();
-Serializer<ListArticles> _$listArticlesSerializer = _$ListArticlesSerializer();
+Serializer<SupportedAPIVersions> _$supportedAPIVersionsSerializer = new _$SupportedAPIVersionsSerializer();
+Serializer<Article> _$articleSerializer = new _$ArticleSerializer();
+Serializer<Feed> _$feedSerializer = new _$FeedSerializer();
+Serializer<ListFeeds> _$listFeedsSerializer = new _$ListFeedsSerializer();
+Serializer<Folder> _$folderSerializer = new _$FolderSerializer();
+Serializer<ListFolders> _$listFoldersSerializer = new _$ListFoldersSerializer();
+Serializer<ListArticles> _$listArticlesSerializer = new _$ListArticlesSerializer();
 Serializer<ReadMultipleArticlesRequestApplicationJson> _$readMultipleArticlesRequestApplicationJsonSerializer =
-    _$ReadMultipleArticlesRequestApplicationJsonSerializer();
+    new _$ReadMultipleArticlesRequestApplicationJsonSerializer();
 Serializer<UnreadMultipleArticlesRequestApplicationJson> _$unreadMultipleArticlesRequestApplicationJsonSerializer =
-    _$UnreadMultipleArticlesRequestApplicationJsonSerializer();
+    new _$UnreadMultipleArticlesRequestApplicationJsonSerializer();
 Serializer<StarMultipleArticlesRequestApplicationJson> _$starMultipleArticlesRequestApplicationJsonSerializer =
-    _$StarMultipleArticlesRequestApplicationJsonSerializer();
+    new _$StarMultipleArticlesRequestApplicationJsonSerializer();
 Serializer<UnstarMultipleArticlesRequestApplicationJson> _$unstarMultipleArticlesRequestApplicationJsonSerializer =
-    _$UnstarMultipleArticlesRequestApplicationJsonSerializer();
-Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
-Serializer<EmptyOCS_Ocs> _$emptyOCSOcsSerializer = _$EmptyOCS_OcsSerializer();
-Serializer<EmptyOCS> _$emptyOCSSerializer = _$EmptyOCSSerializer();
+    new _$UnstarMultipleArticlesRequestApplicationJsonSerializer();
+Serializer<OCSMeta> _$oCSMetaSerializer = new _$OCSMetaSerializer();
+Serializer<EmptyOCS_Ocs> _$emptyOCSOcsSerializer = new _$EmptyOCS_OcsSerializer();
+Serializer<EmptyOCS> _$emptyOCSSerializer = new _$EmptyOCSSerializer();
 
 class _$SupportedAPIVersionsSerializer implements StructuredSerializer<SupportedAPIVersions> {
   @override
@@ -40,7 +40,7 @@ class _$SupportedAPIVersionsSerializer implements StructuredSerializer<Supported
     if (value != null) {
       result
         ..add('apiLevels')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)])));
     }
     return result;
   }
@@ -48,7 +48,7 @@ class _$SupportedAPIVersionsSerializer implements StructuredSerializer<Supported
   @override
   SupportedAPIVersions deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SupportedAPIVersionsBuilder();
+    final result = new SupportedAPIVersionsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -58,7 +58,7 @@ class _$SupportedAPIVersionsSerializer implements StructuredSerializer<Supported
       switch (key) {
         case 'apiLevels':
           result.apiLevels.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -153,7 +153,7 @@ class _$ArticleSerializer implements StructuredSerializer<Article> {
   @override
   Article deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ArticleBuilder();
+    final result = new ArticleBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -252,7 +252,7 @@ class _$FeedSerializer implements StructuredSerializer<Feed> {
       'updateErrorCount',
       serializers.serialize(object.updateErrorCount, specifiedType: const FullType(int)),
       'items',
-      serializers.serialize(object.items, specifiedType: const FullType(BuiltList, [FullType(Article)])),
+      serializers.serialize(object.items, specifiedType: const FullType(BuiltList, const [const FullType(Article)])),
     ];
     Object? value;
     value = object.faviconLink;
@@ -291,7 +291,7 @@ class _$FeedSerializer implements StructuredSerializer<Feed> {
   @override
   Feed deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FeedBuilder();
+    final result = new FeedBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -337,7 +337,7 @@ class _$FeedSerializer implements StructuredSerializer<Feed> {
           break;
         case 'items':
           result.items.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Article)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(Article)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -357,7 +357,7 @@ class _$ListFeedsSerializer implements StructuredSerializer<ListFeeds> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'feeds',
-      serializers.serialize(object.feeds, specifiedType: const FullType(BuiltList, [FullType(Feed)])),
+      serializers.serialize(object.feeds, specifiedType: const FullType(BuiltList, const [const FullType(Feed)])),
     ];
     Object? value;
     value = object.starredCount;
@@ -378,7 +378,7 @@ class _$ListFeedsSerializer implements StructuredSerializer<ListFeeds> {
   @override
   ListFeeds deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ListFeedsBuilder();
+    final result = new ListFeedsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -394,7 +394,7 @@ class _$ListFeedsSerializer implements StructuredSerializer<ListFeeds> {
           break;
         case 'feeds':
           result.feeds.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Feed)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(Feed)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -419,7 +419,7 @@ class _$FolderSerializer implements StructuredSerializer<Folder> {
       'opened',
       serializers.serialize(object.opened, specifiedType: const FullType(bool)),
       'feeds',
-      serializers.serialize(object.feeds, specifiedType: const FullType(BuiltList, [FullType(Feed)])),
+      serializers.serialize(object.feeds, specifiedType: const FullType(BuiltList, const [const FullType(Feed)])),
     ];
 
     return result;
@@ -428,7 +428,7 @@ class _$FolderSerializer implements StructuredSerializer<Folder> {
   @override
   Folder deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = FolderBuilder();
+    final result = new FolderBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -447,7 +447,7 @@ class _$FolderSerializer implements StructuredSerializer<Folder> {
           break;
         case 'feeds':
           result.feeds.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Feed)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(Feed)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -467,7 +467,7 @@ class _$ListFoldersSerializer implements StructuredSerializer<ListFolders> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'folders',
-      serializers.serialize(object.folders, specifiedType: const FullType(BuiltList, [FullType(Folder)])),
+      serializers.serialize(object.folders, specifiedType: const FullType(BuiltList, const [const FullType(Folder)])),
     ];
 
     return result;
@@ -476,7 +476,7 @@ class _$ListFoldersSerializer implements StructuredSerializer<ListFolders> {
   @override
   ListFolders deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ListFoldersBuilder();
+    final result = new ListFoldersBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -486,7 +486,7 @@ class _$ListFoldersSerializer implements StructuredSerializer<ListFolders> {
       switch (key) {
         case 'folders':
           result.folders.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Folder)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(Folder)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -506,7 +506,7 @@ class _$ListArticlesSerializer implements StructuredSerializer<ListArticles> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'items',
-      serializers.serialize(object.items, specifiedType: const FullType(BuiltList, [FullType(Article)])),
+      serializers.serialize(object.items, specifiedType: const FullType(BuiltList, const [const FullType(Article)])),
     ];
 
     return result;
@@ -515,7 +515,7 @@ class _$ListArticlesSerializer implements StructuredSerializer<ListArticles> {
   @override
   ListArticles deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ListArticlesBuilder();
+    final result = new ListArticlesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -525,7 +525,7 @@ class _$ListArticlesSerializer implements StructuredSerializer<ListArticles> {
       switch (key) {
         case 'items':
           result.items.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Article)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(Article)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -549,7 +549,7 @@ class _$ReadMultipleArticlesRequestApplicationJsonSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'itemIds',
-      serializers.serialize(object.itemIds, specifiedType: const FullType(BuiltList, [FullType(int)])),
+      serializers.serialize(object.itemIds, specifiedType: const FullType(BuiltList, const [const FullType(int)])),
     ];
 
     return result;
@@ -558,7 +558,7 @@ class _$ReadMultipleArticlesRequestApplicationJsonSerializer
   @override
   ReadMultipleArticlesRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ReadMultipleArticlesRequestApplicationJsonBuilder();
+    final result = new ReadMultipleArticlesRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -568,7 +568,7 @@ class _$ReadMultipleArticlesRequestApplicationJsonSerializer
       switch (key) {
         case 'itemIds':
           result.itemIds.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(int)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -592,7 +592,7 @@ class _$UnreadMultipleArticlesRequestApplicationJsonSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'itemIds',
-      serializers.serialize(object.itemIds, specifiedType: const FullType(BuiltList, [FullType(int)])),
+      serializers.serialize(object.itemIds, specifiedType: const FullType(BuiltList, const [const FullType(int)])),
     ];
 
     return result;
@@ -601,7 +601,7 @@ class _$UnreadMultipleArticlesRequestApplicationJsonSerializer
   @override
   UnreadMultipleArticlesRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UnreadMultipleArticlesRequestApplicationJsonBuilder();
+    final result = new UnreadMultipleArticlesRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -611,7 +611,7 @@ class _$UnreadMultipleArticlesRequestApplicationJsonSerializer
       switch (key) {
         case 'itemIds':
           result.itemIds.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(int)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -635,7 +635,7 @@ class _$StarMultipleArticlesRequestApplicationJsonSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'itemIds',
-      serializers.serialize(object.itemIds, specifiedType: const FullType(BuiltList, [FullType(int)])),
+      serializers.serialize(object.itemIds, specifiedType: const FullType(BuiltList, const [const FullType(int)])),
     ];
 
     return result;
@@ -644,7 +644,7 @@ class _$StarMultipleArticlesRequestApplicationJsonSerializer
   @override
   StarMultipleArticlesRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = StarMultipleArticlesRequestApplicationJsonBuilder();
+    final result = new StarMultipleArticlesRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -654,7 +654,7 @@ class _$StarMultipleArticlesRequestApplicationJsonSerializer
       switch (key) {
         case 'itemIds':
           result.itemIds.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(int)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -678,7 +678,7 @@ class _$UnstarMultipleArticlesRequestApplicationJsonSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'itemIds',
-      serializers.serialize(object.itemIds, specifiedType: const FullType(BuiltList, [FullType(int)])),
+      serializers.serialize(object.itemIds, specifiedType: const FullType(BuiltList, const [const FullType(int)])),
     ];
 
     return result;
@@ -687,7 +687,7 @@ class _$UnstarMultipleArticlesRequestApplicationJsonSerializer
   @override
   UnstarMultipleArticlesRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UnstarMultipleArticlesRequestApplicationJsonBuilder();
+    final result = new UnstarMultipleArticlesRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -697,7 +697,7 @@ class _$UnstarMultipleArticlesRequestApplicationJsonSerializer
       switch (key) {
         case 'itemIds':
           result.itemIds.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(int)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -746,7 +746,7 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
   OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = OCSMetaBuilder();
+    final result = new OCSMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -789,7 +789,7 @@ class _$EmptyOCS_OcsSerializer implements StructuredSerializer<EmptyOCS_Ocs> {
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])),
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)])),
     ];
 
     return result;
@@ -798,7 +798,7 @@ class _$EmptyOCS_OcsSerializer implements StructuredSerializer<EmptyOCS_Ocs> {
   @override
   EmptyOCS_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = EmptyOCS_OcsBuilder();
+    final result = new EmptyOCS_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -811,7 +811,7 @@ class _$EmptyOCS_OcsSerializer implements StructuredSerializer<EmptyOCS_Ocs> {
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -840,7 +840,7 @@ class _$EmptyOCSSerializer implements StructuredSerializer<EmptyOCS> {
   @override
   EmptyOCS deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = EmptyOCSBuilder();
+    final result = new EmptyOCSBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -871,7 +871,7 @@ class _$SupportedAPIVersions extends SupportedAPIVersions {
   final BuiltList<String>? apiLevels;
 
   factory _$SupportedAPIVersions([void Function(SupportedAPIVersionsBuilder)? updates]) =>
-      (SupportedAPIVersionsBuilder()..update(updates))._build();
+      (new SupportedAPIVersionsBuilder()..update(updates))._build();
 
   _$SupportedAPIVersions._({this.apiLevels}) : super._();
 
@@ -880,7 +880,7 @@ class _$SupportedAPIVersions extends SupportedAPIVersions {
       (toBuilder()..update(updates)).build();
 
   @override
-  SupportedAPIVersionsBuilder toBuilder() => SupportedAPIVersionsBuilder()..replace(this);
+  SupportedAPIVersionsBuilder toBuilder() => new SupportedAPIVersionsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -907,7 +907,7 @@ class SupportedAPIVersionsBuilder
   _$SupportedAPIVersions? _$v;
 
   ListBuilder<String>? _apiLevels;
-  ListBuilder<String> get apiLevels => _$this._apiLevels ??= ListBuilder<String>();
+  ListBuilder<String> get apiLevels => _$this._apiLevels ??= new ListBuilder<String>();
   set apiLevels(covariant ListBuilder<String>? apiLevels) => _$this._apiLevels = apiLevels;
 
   SupportedAPIVersionsBuilder() {
@@ -942,7 +942,7 @@ class SupportedAPIVersionsBuilder
     _$SupportedAPIVersions _$result;
     try {
       _$result = _$v ??
-          _$SupportedAPIVersions._(
+          new _$SupportedAPIVersions._(
             apiLevels: _apiLevels?.build(),
           );
     } catch (_) {
@@ -951,7 +951,7 @@ class SupportedAPIVersionsBuilder
         _$failedField = 'apiLevels';
         _apiLevels?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'SupportedAPIVersions', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'SupportedAPIVersions', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1066,7 +1066,7 @@ class _$Article extends Article {
   @override
   final String contentHash;
 
-  factory _$Article([void Function(ArticleBuilder)? updates]) => (ArticleBuilder()..update(updates))._build();
+  factory _$Article([void Function(ArticleBuilder)? updates]) => (new ArticleBuilder()..update(updates))._build();
 
   _$Article._(
       {required this.id,
@@ -1109,7 +1109,7 @@ class _$Article extends Article {
   Article rebuild(void Function(ArticleBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  ArticleBuilder toBuilder() => ArticleBuilder()..replace(this);
+  ArticleBuilder toBuilder() => new ArticleBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1323,7 +1323,7 @@ class ArticleBuilder implements Builder<Article, ArticleBuilder>, $ArticleInterf
   _$Article _build() {
     Article._validate(this);
     final _$result = _$v ??
-        _$Article._(
+        new _$Article._(
           id: BuiltValueNullFieldError.checkNotNull(id, r'Article', 'id'),
           guid: BuiltValueNullFieldError.checkNotNull(guid, r'Article', 'guid'),
           guidHash: BuiltValueNullFieldError.checkNotNull(guidHash, r'Article', 'guidHash'),
@@ -1421,7 +1421,7 @@ class _$Feed extends Feed {
   @override
   final BuiltList<Article> items;
 
-  factory _$Feed([void Function(FeedBuilder)? updates]) => (FeedBuilder()..update(updates))._build();
+  factory _$Feed([void Function(FeedBuilder)? updates]) => (new FeedBuilder()..update(updates))._build();
 
   _$Feed._(
       {required this.id,
@@ -1452,7 +1452,7 @@ class _$Feed extends Feed {
   Feed rebuild(void Function(FeedBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FeedBuilder toBuilder() => FeedBuilder()..replace(this);
+  FeedBuilder toBuilder() => new FeedBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1565,7 +1565,7 @@ class FeedBuilder implements Builder<Feed, FeedBuilder>, $FeedInterfaceBuilder {
   set lastUpdateError(covariant String? lastUpdateError) => _$this._lastUpdateError = lastUpdateError;
 
   ListBuilder<Article>? _items;
-  ListBuilder<Article> get items => _$this._items ??= ListBuilder<Article>();
+  ListBuilder<Article> get items => _$this._items ??= new ListBuilder<Article>();
   set items(covariant ListBuilder<Article>? items) => _$this._items = items;
 
   FeedBuilder() {
@@ -1612,7 +1612,7 @@ class FeedBuilder implements Builder<Feed, FeedBuilder>, $FeedInterfaceBuilder {
     _$Feed _$result;
     try {
       _$result = _$v ??
-          _$Feed._(
+          new _$Feed._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'Feed', 'id'),
             url: BuiltValueNullFieldError.checkNotNull(url, r'Feed', 'url'),
             title: BuiltValueNullFieldError.checkNotNull(title, r'Feed', 'title'),
@@ -1633,7 +1633,7 @@ class FeedBuilder implements Builder<Feed, FeedBuilder>, $FeedInterfaceBuilder {
         _$failedField = 'items';
         items.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Feed', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'Feed', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1663,7 +1663,7 @@ class _$ListFeeds extends ListFeeds {
   @override
   final BuiltList<Feed> feeds;
 
-  factory _$ListFeeds([void Function(ListFeedsBuilder)? updates]) => (ListFeedsBuilder()..update(updates))._build();
+  factory _$ListFeeds([void Function(ListFeedsBuilder)? updates]) => (new ListFeedsBuilder()..update(updates))._build();
 
   _$ListFeeds._({this.starredCount, this.newestItemId, required this.feeds}) : super._() {
     BuiltValueNullFieldError.checkNotNull(feeds, r'ListFeeds', 'feeds');
@@ -1673,7 +1673,7 @@ class _$ListFeeds extends ListFeeds {
   ListFeeds rebuild(void Function(ListFeedsBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  ListFeedsBuilder toBuilder() => ListFeedsBuilder()..replace(this);
+  ListFeedsBuilder toBuilder() => new ListFeedsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1716,7 +1716,7 @@ class ListFeedsBuilder implements Builder<ListFeeds, ListFeedsBuilder>, $ListFee
   set newestItemId(covariant int? newestItemId) => _$this._newestItemId = newestItemId;
 
   ListBuilder<Feed>? _feeds;
-  ListBuilder<Feed> get feeds => _$this._feeds ??= ListBuilder<Feed>();
+  ListBuilder<Feed> get feeds => _$this._feeds ??= new ListBuilder<Feed>();
   set feeds(covariant ListBuilder<Feed>? feeds) => _$this._feeds = feeds;
 
   ListFeedsBuilder() {
@@ -1753,7 +1753,7 @@ class ListFeedsBuilder implements Builder<ListFeeds, ListFeedsBuilder>, $ListFee
     _$ListFeeds _$result;
     try {
       _$result = _$v ??
-          _$ListFeeds._(
+          new _$ListFeeds._(
             starredCount: starredCount,
             newestItemId: newestItemId,
             feeds: feeds.build(),
@@ -1764,7 +1764,7 @@ class ListFeedsBuilder implements Builder<ListFeeds, ListFeedsBuilder>, $ListFee
         _$failedField = 'feeds';
         feeds.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'ListFeeds', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'ListFeeds', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1799,7 +1799,7 @@ class _$Folder extends Folder {
   @override
   final BuiltList<Feed> feeds;
 
-  factory _$Folder([void Function(FolderBuilder)? updates]) => (FolderBuilder()..update(updates))._build();
+  factory _$Folder([void Function(FolderBuilder)? updates]) => (new FolderBuilder()..update(updates))._build();
 
   _$Folder._({required this.id, required this.name, required this.opened, required this.feeds}) : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'Folder', 'id');
@@ -1812,7 +1812,7 @@ class _$Folder extends Folder {
   Folder rebuild(void Function(FolderBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  FolderBuilder toBuilder() => FolderBuilder()..replace(this);
+  FolderBuilder toBuilder() => new FolderBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1858,7 +1858,7 @@ class FolderBuilder implements Builder<Folder, FolderBuilder>, $FolderInterfaceB
   set opened(covariant bool? opened) => _$this._opened = opened;
 
   ListBuilder<Feed>? _feeds;
-  ListBuilder<Feed> get feeds => _$this._feeds ??= ListBuilder<Feed>();
+  ListBuilder<Feed> get feeds => _$this._feeds ??= new ListBuilder<Feed>();
   set feeds(covariant ListBuilder<Feed>? feeds) => _$this._feeds = feeds;
 
   FolderBuilder() {
@@ -1896,7 +1896,7 @@ class FolderBuilder implements Builder<Folder, FolderBuilder>, $FolderInterfaceB
     _$Folder _$result;
     try {
       _$result = _$v ??
-          _$Folder._(
+          new _$Folder._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'Folder', 'id'),
             name: BuiltValueNullFieldError.checkNotNull(name, r'Folder', 'name'),
             opened: BuiltValueNullFieldError.checkNotNull(opened, r'Folder', 'opened'),
@@ -1908,7 +1908,7 @@ class FolderBuilder implements Builder<Folder, FolderBuilder>, $FolderInterfaceB
         _$failedField = 'feeds';
         feeds.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Folder', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'Folder', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1929,7 +1929,7 @@ class _$ListFolders extends ListFolders {
   final BuiltList<Folder> folders;
 
   factory _$ListFolders([void Function(ListFoldersBuilder)? updates]) =>
-      (ListFoldersBuilder()..update(updates))._build();
+      (new ListFoldersBuilder()..update(updates))._build();
 
   _$ListFolders._({required this.folders}) : super._() {
     BuiltValueNullFieldError.checkNotNull(folders, r'ListFolders', 'folders');
@@ -1939,7 +1939,7 @@ class _$ListFolders extends ListFolders {
   ListFolders rebuild(void Function(ListFoldersBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  ListFoldersBuilder toBuilder() => ListFoldersBuilder()..replace(this);
+  ListFoldersBuilder toBuilder() => new ListFoldersBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1965,7 +1965,7 @@ class ListFoldersBuilder implements Builder<ListFolders, ListFoldersBuilder>, $L
   _$ListFolders? _$v;
 
   ListBuilder<Folder>? _folders;
-  ListBuilder<Folder> get folders => _$this._folders ??= ListBuilder<Folder>();
+  ListBuilder<Folder> get folders => _$this._folders ??= new ListBuilder<Folder>();
   set folders(covariant ListBuilder<Folder>? folders) => _$this._folders = folders;
 
   ListFoldersBuilder() {
@@ -2000,7 +2000,7 @@ class ListFoldersBuilder implements Builder<ListFolders, ListFoldersBuilder>, $L
     _$ListFolders _$result;
     try {
       _$result = _$v ??
-          _$ListFolders._(
+          new _$ListFolders._(
             folders: folders.build(),
           );
     } catch (_) {
@@ -2009,7 +2009,7 @@ class ListFoldersBuilder implements Builder<ListFolders, ListFoldersBuilder>, $L
         _$failedField = 'folders';
         folders.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'ListFolders', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'ListFolders', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2030,7 +2030,7 @@ class _$ListArticles extends ListArticles {
   final BuiltList<Article> items;
 
   factory _$ListArticles([void Function(ListArticlesBuilder)? updates]) =>
-      (ListArticlesBuilder()..update(updates))._build();
+      (new ListArticlesBuilder()..update(updates))._build();
 
   _$ListArticles._({required this.items}) : super._() {
     BuiltValueNullFieldError.checkNotNull(items, r'ListArticles', 'items');
@@ -2040,7 +2040,7 @@ class _$ListArticles extends ListArticles {
   ListArticles rebuild(void Function(ListArticlesBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  ListArticlesBuilder toBuilder() => ListArticlesBuilder()..replace(this);
+  ListArticlesBuilder toBuilder() => new ListArticlesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2066,7 +2066,7 @@ class ListArticlesBuilder implements Builder<ListArticles, ListArticlesBuilder>,
   _$ListArticles? _$v;
 
   ListBuilder<Article>? _items;
-  ListBuilder<Article> get items => _$this._items ??= ListBuilder<Article>();
+  ListBuilder<Article> get items => _$this._items ??= new ListBuilder<Article>();
   set items(covariant ListBuilder<Article>? items) => _$this._items = items;
 
   ListArticlesBuilder() {
@@ -2101,7 +2101,7 @@ class ListArticlesBuilder implements Builder<ListArticles, ListArticlesBuilder>,
     _$ListArticles _$result;
     try {
       _$result = _$v ??
-          _$ListArticles._(
+          new _$ListArticles._(
             items: items.build(),
           );
     } catch (_) {
@@ -2110,7 +2110,7 @@ class ListArticlesBuilder implements Builder<ListArticles, ListArticlesBuilder>,
         _$failedField = 'items';
         items.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'ListArticles', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'ListArticles', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2132,7 +2132,7 @@ class _$ReadMultipleArticlesRequestApplicationJson extends ReadMultipleArticlesR
 
   factory _$ReadMultipleArticlesRequestApplicationJson(
           [void Function(ReadMultipleArticlesRequestApplicationJsonBuilder)? updates]) =>
-      (ReadMultipleArticlesRequestApplicationJsonBuilder()..update(updates))._build();
+      (new ReadMultipleArticlesRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$ReadMultipleArticlesRequestApplicationJson._({required this.itemIds}) : super._() {
     BuiltValueNullFieldError.checkNotNull(itemIds, r'ReadMultipleArticlesRequestApplicationJson', 'itemIds');
@@ -2145,7 +2145,7 @@ class _$ReadMultipleArticlesRequestApplicationJson extends ReadMultipleArticlesR
 
   @override
   ReadMultipleArticlesRequestApplicationJsonBuilder toBuilder() =>
-      ReadMultipleArticlesRequestApplicationJsonBuilder()..replace(this);
+      new ReadMultipleArticlesRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2175,7 +2175,7 @@ class ReadMultipleArticlesRequestApplicationJsonBuilder
   _$ReadMultipleArticlesRequestApplicationJson? _$v;
 
   ListBuilder<int>? _itemIds;
-  ListBuilder<int> get itemIds => _$this._itemIds ??= ListBuilder<int>();
+  ListBuilder<int> get itemIds => _$this._itemIds ??= new ListBuilder<int>();
   set itemIds(covariant ListBuilder<int>? itemIds) => _$this._itemIds = itemIds;
 
   ReadMultipleArticlesRequestApplicationJsonBuilder() {
@@ -2210,7 +2210,7 @@ class ReadMultipleArticlesRequestApplicationJsonBuilder
     _$ReadMultipleArticlesRequestApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$ReadMultipleArticlesRequestApplicationJson._(
+          new _$ReadMultipleArticlesRequestApplicationJson._(
             itemIds: itemIds.build(),
           );
     } catch (_) {
@@ -2219,7 +2219,8 @@ class ReadMultipleArticlesRequestApplicationJsonBuilder
         _$failedField = 'itemIds';
         itemIds.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'ReadMultipleArticlesRequestApplicationJson', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(
+            r'ReadMultipleArticlesRequestApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2241,7 +2242,7 @@ class _$UnreadMultipleArticlesRequestApplicationJson extends UnreadMultipleArtic
 
   factory _$UnreadMultipleArticlesRequestApplicationJson(
           [void Function(UnreadMultipleArticlesRequestApplicationJsonBuilder)? updates]) =>
-      (UnreadMultipleArticlesRequestApplicationJsonBuilder()..update(updates))._build();
+      (new UnreadMultipleArticlesRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$UnreadMultipleArticlesRequestApplicationJson._({required this.itemIds}) : super._() {
     BuiltValueNullFieldError.checkNotNull(itemIds, r'UnreadMultipleArticlesRequestApplicationJson', 'itemIds');
@@ -2254,7 +2255,7 @@ class _$UnreadMultipleArticlesRequestApplicationJson extends UnreadMultipleArtic
 
   @override
   UnreadMultipleArticlesRequestApplicationJsonBuilder toBuilder() =>
-      UnreadMultipleArticlesRequestApplicationJsonBuilder()..replace(this);
+      new UnreadMultipleArticlesRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2284,7 +2285,7 @@ class UnreadMultipleArticlesRequestApplicationJsonBuilder
   _$UnreadMultipleArticlesRequestApplicationJson? _$v;
 
   ListBuilder<int>? _itemIds;
-  ListBuilder<int> get itemIds => _$this._itemIds ??= ListBuilder<int>();
+  ListBuilder<int> get itemIds => _$this._itemIds ??= new ListBuilder<int>();
   set itemIds(covariant ListBuilder<int>? itemIds) => _$this._itemIds = itemIds;
 
   UnreadMultipleArticlesRequestApplicationJsonBuilder() {
@@ -2319,7 +2320,7 @@ class UnreadMultipleArticlesRequestApplicationJsonBuilder
     _$UnreadMultipleArticlesRequestApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$UnreadMultipleArticlesRequestApplicationJson._(
+          new _$UnreadMultipleArticlesRequestApplicationJson._(
             itemIds: itemIds.build(),
           );
     } catch (_) {
@@ -2328,7 +2329,8 @@ class UnreadMultipleArticlesRequestApplicationJsonBuilder
         _$failedField = 'itemIds';
         itemIds.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'UnreadMultipleArticlesRequestApplicationJson', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(
+            r'UnreadMultipleArticlesRequestApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2350,7 +2352,7 @@ class _$StarMultipleArticlesRequestApplicationJson extends StarMultipleArticlesR
 
   factory _$StarMultipleArticlesRequestApplicationJson(
           [void Function(StarMultipleArticlesRequestApplicationJsonBuilder)? updates]) =>
-      (StarMultipleArticlesRequestApplicationJsonBuilder()..update(updates))._build();
+      (new StarMultipleArticlesRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$StarMultipleArticlesRequestApplicationJson._({required this.itemIds}) : super._() {
     BuiltValueNullFieldError.checkNotNull(itemIds, r'StarMultipleArticlesRequestApplicationJson', 'itemIds');
@@ -2363,7 +2365,7 @@ class _$StarMultipleArticlesRequestApplicationJson extends StarMultipleArticlesR
 
   @override
   StarMultipleArticlesRequestApplicationJsonBuilder toBuilder() =>
-      StarMultipleArticlesRequestApplicationJsonBuilder()..replace(this);
+      new StarMultipleArticlesRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2393,7 +2395,7 @@ class StarMultipleArticlesRequestApplicationJsonBuilder
   _$StarMultipleArticlesRequestApplicationJson? _$v;
 
   ListBuilder<int>? _itemIds;
-  ListBuilder<int> get itemIds => _$this._itemIds ??= ListBuilder<int>();
+  ListBuilder<int> get itemIds => _$this._itemIds ??= new ListBuilder<int>();
   set itemIds(covariant ListBuilder<int>? itemIds) => _$this._itemIds = itemIds;
 
   StarMultipleArticlesRequestApplicationJsonBuilder() {
@@ -2428,7 +2430,7 @@ class StarMultipleArticlesRequestApplicationJsonBuilder
     _$StarMultipleArticlesRequestApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$StarMultipleArticlesRequestApplicationJson._(
+          new _$StarMultipleArticlesRequestApplicationJson._(
             itemIds: itemIds.build(),
           );
     } catch (_) {
@@ -2437,7 +2439,8 @@ class StarMultipleArticlesRequestApplicationJsonBuilder
         _$failedField = 'itemIds';
         itemIds.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'StarMultipleArticlesRequestApplicationJson', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(
+            r'StarMultipleArticlesRequestApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2459,7 +2462,7 @@ class _$UnstarMultipleArticlesRequestApplicationJson extends UnstarMultipleArtic
 
   factory _$UnstarMultipleArticlesRequestApplicationJson(
           [void Function(UnstarMultipleArticlesRequestApplicationJsonBuilder)? updates]) =>
-      (UnstarMultipleArticlesRequestApplicationJsonBuilder()..update(updates))._build();
+      (new UnstarMultipleArticlesRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$UnstarMultipleArticlesRequestApplicationJson._({required this.itemIds}) : super._() {
     BuiltValueNullFieldError.checkNotNull(itemIds, r'UnstarMultipleArticlesRequestApplicationJson', 'itemIds');
@@ -2472,7 +2475,7 @@ class _$UnstarMultipleArticlesRequestApplicationJson extends UnstarMultipleArtic
 
   @override
   UnstarMultipleArticlesRequestApplicationJsonBuilder toBuilder() =>
-      UnstarMultipleArticlesRequestApplicationJsonBuilder()..replace(this);
+      new UnstarMultipleArticlesRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2502,7 +2505,7 @@ class UnstarMultipleArticlesRequestApplicationJsonBuilder
   _$UnstarMultipleArticlesRequestApplicationJson? _$v;
 
   ListBuilder<int>? _itemIds;
-  ListBuilder<int> get itemIds => _$this._itemIds ??= ListBuilder<int>();
+  ListBuilder<int> get itemIds => _$this._itemIds ??= new ListBuilder<int>();
   set itemIds(covariant ListBuilder<int>? itemIds) => _$this._itemIds = itemIds;
 
   UnstarMultipleArticlesRequestApplicationJsonBuilder() {
@@ -2537,7 +2540,7 @@ class UnstarMultipleArticlesRequestApplicationJsonBuilder
     _$UnstarMultipleArticlesRequestApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$UnstarMultipleArticlesRequestApplicationJson._(
+          new _$UnstarMultipleArticlesRequestApplicationJson._(
             itemIds: itemIds.build(),
           );
     } catch (_) {
@@ -2546,7 +2549,8 @@ class UnstarMultipleArticlesRequestApplicationJsonBuilder
         _$failedField = 'itemIds';
         itemIds.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'UnstarMultipleArticlesRequestApplicationJson', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(
+            r'UnstarMultipleArticlesRequestApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2586,7 +2590,7 @@ class _$OCSMeta extends OCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (new OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
       : super._() {
@@ -2598,7 +2602,7 @@ class _$OCSMeta extends OCSMeta {
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
+  OCSMetaBuilder toBuilder() => new OCSMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2692,7 +2696,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   _$OCSMeta _build() {
     OCSMeta._validate(this);
     final _$result = _$v ??
-        _$OCSMeta._(
+        new _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
           message: message,
@@ -2721,7 +2725,7 @@ class _$EmptyOCS_Ocs extends EmptyOCS_Ocs {
   final BuiltList<JsonObject> data;
 
   factory _$EmptyOCS_Ocs([void Function(EmptyOCS_OcsBuilder)? updates]) =>
-      (EmptyOCS_OcsBuilder()..update(updates))._build();
+      (new EmptyOCS_OcsBuilder()..update(updates))._build();
 
   _$EmptyOCS_Ocs._({required this.meta, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'EmptyOCS_Ocs', 'meta');
@@ -2732,7 +2736,7 @@ class _$EmptyOCS_Ocs extends EmptyOCS_Ocs {
   EmptyOCS_Ocs rebuild(void Function(EmptyOCS_OcsBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  EmptyOCS_OcsBuilder toBuilder() => EmptyOCS_OcsBuilder()..replace(this);
+  EmptyOCS_OcsBuilder toBuilder() => new EmptyOCS_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2762,11 +2766,11 @@ class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>,
   _$EmptyOCS_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<JsonObject>? _data;
-  ListBuilder<JsonObject> get data => _$this._data ??= ListBuilder<JsonObject>();
+  ListBuilder<JsonObject> get data => _$this._data ??= new ListBuilder<JsonObject>();
   set data(covariant ListBuilder<JsonObject>? data) => _$this._data = data;
 
   EmptyOCS_OcsBuilder() {
@@ -2802,7 +2806,7 @@ class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>,
     _$EmptyOCS_Ocs _$result;
     try {
       _$result = _$v ??
-          _$EmptyOCS_Ocs._(
+          new _$EmptyOCS_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -2814,7 +2818,7 @@ class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>,
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'EmptyOCS_Ocs', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'EmptyOCS_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2834,7 +2838,7 @@ class _$EmptyOCS extends EmptyOCS {
   @override
   final EmptyOCS_Ocs ocs;
 
-  factory _$EmptyOCS([void Function(EmptyOCSBuilder)? updates]) => (EmptyOCSBuilder()..update(updates))._build();
+  factory _$EmptyOCS([void Function(EmptyOCSBuilder)? updates]) => (new EmptyOCSBuilder()..update(updates))._build();
 
   _$EmptyOCS._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'EmptyOCS', 'ocs');
@@ -2844,7 +2848,7 @@ class _$EmptyOCS extends EmptyOCS {
   EmptyOCS rebuild(void Function(EmptyOCSBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  EmptyOCSBuilder toBuilder() => EmptyOCSBuilder()..replace(this);
+  EmptyOCSBuilder toBuilder() => new EmptyOCSBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2870,7 +2874,7 @@ class EmptyOCSBuilder implements Builder<EmptyOCS, EmptyOCSBuilder>, $EmptyOCSIn
   _$EmptyOCS? _$v;
 
   EmptyOCS_OcsBuilder? _ocs;
-  EmptyOCS_OcsBuilder get ocs => _$this._ocs ??= EmptyOCS_OcsBuilder();
+  EmptyOCS_OcsBuilder get ocs => _$this._ocs ??= new EmptyOCS_OcsBuilder();
   set ocs(covariant EmptyOCS_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   EmptyOCSBuilder() {
@@ -2905,7 +2909,7 @@ class EmptyOCSBuilder implements Builder<EmptyOCS, EmptyOCSBuilder>, $EmptyOCSIn
     _$EmptyOCS _$result;
     try {
       _$result = _$v ??
-          _$EmptyOCS._(
+          new _$EmptyOCS._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -2914,7 +2918,7 @@ class EmptyOCSBuilder implements Builder<EmptyOCS, EmptyOCSBuilder>, $EmptyOCSIn
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'EmptyOCS', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'EmptyOCS', _$failedField, e.toString());
       }
       rethrow;
     }
