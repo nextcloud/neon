@@ -7,83 +7,84 @@ part of 'weather_status.openapi.dart';
 // **************************************************************************
 
 Serializer<WeatherStatusSetModeRequestApplicationJson> _$weatherStatusSetModeRequestApplicationJsonSerializer =
-    _$WeatherStatusSetModeRequestApplicationJsonSerializer();
-Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
-Serializer<Success> _$successSerializer = _$SuccessSerializer();
+    new _$WeatherStatusSetModeRequestApplicationJsonSerializer();
+Serializer<OCSMeta> _$oCSMetaSerializer = new _$OCSMetaSerializer();
+Serializer<Success> _$successSerializer = new _$SuccessSerializer();
 Serializer<WeatherStatusSetModeResponseApplicationJson_Ocs> _$weatherStatusSetModeResponseApplicationJsonOcsSerializer =
-    _$WeatherStatusSetModeResponseApplicationJson_OcsSerializer();
+    new _$WeatherStatusSetModeResponseApplicationJson_OcsSerializer();
 Serializer<WeatherStatusSetModeResponseApplicationJson> _$weatherStatusSetModeResponseApplicationJsonSerializer =
-    _$WeatherStatusSetModeResponseApplicationJsonSerializer();
-Serializer<Location> _$locationSerializer = _$LocationSerializer();
-Serializer<LocationWithSuccess> _$locationWithSuccessSerializer = _$LocationWithSuccessSerializer();
+    new _$WeatherStatusSetModeResponseApplicationJsonSerializer();
+Serializer<Location> _$locationSerializer = new _$LocationSerializer();
+Serializer<LocationWithSuccess> _$locationWithSuccessSerializer = new _$LocationWithSuccessSerializer();
 Serializer<WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs>
     _$weatherStatusUsePersonalAddressResponseApplicationJsonOcsSerializer =
-    _$WeatherStatusUsePersonalAddressResponseApplicationJson_OcsSerializer();
+    new _$WeatherStatusUsePersonalAddressResponseApplicationJson_OcsSerializer();
 Serializer<WeatherStatusUsePersonalAddressResponseApplicationJson>
     _$weatherStatusUsePersonalAddressResponseApplicationJsonSerializer =
-    _$WeatherStatusUsePersonalAddressResponseApplicationJsonSerializer();
-Serializer<Mode> _$modeSerializer = _$ModeSerializer();
-Serializer<LocationWithMode> _$locationWithModeSerializer = _$LocationWithModeSerializer();
+    new _$WeatherStatusUsePersonalAddressResponseApplicationJsonSerializer();
+Serializer<Mode> _$modeSerializer = new _$ModeSerializer();
+Serializer<LocationWithMode> _$locationWithModeSerializer = new _$LocationWithModeSerializer();
 Serializer<WeatherStatusGetLocationResponseApplicationJson_Ocs>
     _$weatherStatusGetLocationResponseApplicationJsonOcsSerializer =
-    _$WeatherStatusGetLocationResponseApplicationJson_OcsSerializer();
+    new _$WeatherStatusGetLocationResponseApplicationJson_OcsSerializer();
 Serializer<WeatherStatusGetLocationResponseApplicationJson>
     _$weatherStatusGetLocationResponseApplicationJsonSerializer =
-    _$WeatherStatusGetLocationResponseApplicationJsonSerializer();
+    new _$WeatherStatusGetLocationResponseApplicationJsonSerializer();
 Serializer<WeatherStatusSetLocationRequestApplicationJson> _$weatherStatusSetLocationRequestApplicationJsonSerializer =
-    _$WeatherStatusSetLocationRequestApplicationJsonSerializer();
+    new _$WeatherStatusSetLocationRequestApplicationJsonSerializer();
 Serializer<WeatherStatusSetLocationResponseApplicationJson_Ocs>
     _$weatherStatusSetLocationResponseApplicationJsonOcsSerializer =
-    _$WeatherStatusSetLocationResponseApplicationJson_OcsSerializer();
+    new _$WeatherStatusSetLocationResponseApplicationJson_OcsSerializer();
 Serializer<WeatherStatusSetLocationResponseApplicationJson>
     _$weatherStatusSetLocationResponseApplicationJsonSerializer =
-    _$WeatherStatusSetLocationResponseApplicationJsonSerializer();
+    new _$WeatherStatusSetLocationResponseApplicationJsonSerializer();
 Serializer<Forecast_Data_Instant_Details> _$forecastDataInstantDetailsSerializer =
-    _$Forecast_Data_Instant_DetailsSerializer();
-Serializer<Forecast_Data_Instant> _$forecastDataInstantSerializer = _$Forecast_Data_InstantSerializer();
+    new _$Forecast_Data_Instant_DetailsSerializer();
+Serializer<Forecast_Data_Instant> _$forecastDataInstantSerializer = new _$Forecast_Data_InstantSerializer();
 Serializer<Forecast_Data_Next12Hours_Summary> _$forecastDataNext12HoursSummarySerializer =
-    _$Forecast_Data_Next12Hours_SummarySerializer();
+    new _$Forecast_Data_Next12Hours_SummarySerializer();
 Serializer<Forecast_Data_Next12Hours_Details> _$forecastDataNext12HoursDetailsSerializer =
-    _$Forecast_Data_Next12Hours_DetailsSerializer();
-Serializer<Forecast_Data_Next12Hours> _$forecastDataNext12HoursSerializer = _$Forecast_Data_Next12HoursSerializer();
+    new _$Forecast_Data_Next12Hours_DetailsSerializer();
+Serializer<Forecast_Data_Next12Hours> _$forecastDataNext12HoursSerializer = new _$Forecast_Data_Next12HoursSerializer();
 Serializer<Forecast_Data_Next1Hours_Summary> _$forecastDataNext1HoursSummarySerializer =
-    _$Forecast_Data_Next1Hours_SummarySerializer();
+    new _$Forecast_Data_Next1Hours_SummarySerializer();
 Serializer<Forecast_Data_Next1Hours_Details> _$forecastDataNext1HoursDetailsSerializer =
-    _$Forecast_Data_Next1Hours_DetailsSerializer();
-Serializer<Forecast_Data_Next1Hours> _$forecastDataNext1HoursSerializer = _$Forecast_Data_Next1HoursSerializer();
+    new _$Forecast_Data_Next1Hours_DetailsSerializer();
+Serializer<Forecast_Data_Next1Hours> _$forecastDataNext1HoursSerializer = new _$Forecast_Data_Next1HoursSerializer();
 Serializer<Forecast_Data_Next6Hours_Summary> _$forecastDataNext6HoursSummarySerializer =
-    _$Forecast_Data_Next6Hours_SummarySerializer();
+    new _$Forecast_Data_Next6Hours_SummarySerializer();
 Serializer<Forecast_Data_Next6Hours_Details> _$forecastDataNext6HoursDetailsSerializer =
-    _$Forecast_Data_Next6Hours_DetailsSerializer();
-Serializer<Forecast_Data_Next6Hours> _$forecastDataNext6HoursSerializer = _$Forecast_Data_Next6HoursSerializer();
-Serializer<Forecast_Data> _$forecastDataSerializer = _$Forecast_DataSerializer();
-Serializer<Forecast> _$forecastSerializer = _$ForecastSerializer();
+    new _$Forecast_Data_Next6Hours_DetailsSerializer();
+Serializer<Forecast_Data_Next6Hours> _$forecastDataNext6HoursSerializer = new _$Forecast_Data_Next6HoursSerializer();
+Serializer<Forecast_Data> _$forecastDataSerializer = new _$Forecast_DataSerializer();
+Serializer<Forecast> _$forecastSerializer = new _$ForecastSerializer();
 Serializer<WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1>
     _$weatherStatusGetForecastResponseApplicationJsonOcsData1Serializer =
-    _$WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Serializer();
+    new _$WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Serializer();
 Serializer<WeatherStatusGetForecastResponseApplicationJson_Ocs>
     _$weatherStatusGetForecastResponseApplicationJsonOcsSerializer =
-    _$WeatherStatusGetForecastResponseApplicationJson_OcsSerializer();
+    new _$WeatherStatusGetForecastResponseApplicationJson_OcsSerializer();
 Serializer<WeatherStatusGetForecastResponseApplicationJson>
     _$weatherStatusGetForecastResponseApplicationJsonSerializer =
-    _$WeatherStatusGetForecastResponseApplicationJsonSerializer();
+    new _$WeatherStatusGetForecastResponseApplicationJsonSerializer();
 Serializer<WeatherStatusGetFavoritesResponseApplicationJson_Ocs>
     _$weatherStatusGetFavoritesResponseApplicationJsonOcsSerializer =
-    _$WeatherStatusGetFavoritesResponseApplicationJson_OcsSerializer();
+    new _$WeatherStatusGetFavoritesResponseApplicationJson_OcsSerializer();
 Serializer<WeatherStatusGetFavoritesResponseApplicationJson>
     _$weatherStatusGetFavoritesResponseApplicationJsonSerializer =
-    _$WeatherStatusGetFavoritesResponseApplicationJsonSerializer();
+    new _$WeatherStatusGetFavoritesResponseApplicationJsonSerializer();
 Serializer<WeatherStatusSetFavoritesRequestApplicationJson>
     _$weatherStatusSetFavoritesRequestApplicationJsonSerializer =
-    _$WeatherStatusSetFavoritesRequestApplicationJsonSerializer();
+    new _$WeatherStatusSetFavoritesRequestApplicationJsonSerializer();
 Serializer<WeatherStatusSetFavoritesResponseApplicationJson_Ocs>
     _$weatherStatusSetFavoritesResponseApplicationJsonOcsSerializer =
-    _$WeatherStatusSetFavoritesResponseApplicationJson_OcsSerializer();
+    new _$WeatherStatusSetFavoritesResponseApplicationJson_OcsSerializer();
 Serializer<WeatherStatusSetFavoritesResponseApplicationJson>
     _$weatherStatusSetFavoritesResponseApplicationJsonSerializer =
-    _$WeatherStatusSetFavoritesResponseApplicationJsonSerializer();
-Serializer<Capabilities_WeatherStatus> _$capabilitiesWeatherStatusSerializer = _$Capabilities_WeatherStatusSerializer();
-Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
+    new _$WeatherStatusSetFavoritesResponseApplicationJsonSerializer();
+Serializer<Capabilities_WeatherStatus> _$capabilitiesWeatherStatusSerializer =
+    new _$Capabilities_WeatherStatusSerializer();
+Serializer<Capabilities> _$capabilitiesSerializer = new _$CapabilitiesSerializer();
 
 class _$WeatherStatusSetModeRequestApplicationJsonSerializer
     implements StructuredSerializer<WeatherStatusSetModeRequestApplicationJson> {
@@ -109,7 +110,7 @@ class _$WeatherStatusSetModeRequestApplicationJsonSerializer
   @override
   WeatherStatusSetModeRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = WeatherStatusSetModeRequestApplicationJsonBuilder();
+    final result = new WeatherStatusSetModeRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -167,7 +168,7 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
   OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = OCSMetaBuilder();
+    final result = new OCSMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -217,7 +218,7 @@ class _$SuccessSerializer implements StructuredSerializer<Success> {
   @override
   Success deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SuccessBuilder();
+    final result = new SuccessBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -261,7 +262,7 @@ class _$WeatherStatusSetModeResponseApplicationJson_OcsSerializer
   @override
   WeatherStatusSetModeResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = WeatherStatusSetModeResponseApplicationJson_OcsBuilder();
+    final result = new WeatherStatusSetModeResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -306,7 +307,7 @@ class _$WeatherStatusSetModeResponseApplicationJsonSerializer
   @override
   WeatherStatusSetModeResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = WeatherStatusSetModeResponseApplicationJsonBuilder();
+    final result = new WeatherStatusSetModeResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -361,7 +362,7 @@ class _$LocationSerializer implements StructuredSerializer<Location> {
   @override
   Location deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = LocationBuilder();
+    final result = new LocationBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -423,7 +424,7 @@ class _$LocationWithSuccessSerializer implements StructuredSerializer<LocationWi
   @override
   LocationWithSuccess deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = LocationWithSuccessBuilder();
+    final result = new LocationWithSuccessBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -478,7 +479,7 @@ class _$WeatherStatusUsePersonalAddressResponseApplicationJson_OcsSerializer
   WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder();
+    final result = new WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -526,7 +527,7 @@ class _$WeatherStatusUsePersonalAddressResponseApplicationJsonSerializer
   WeatherStatusUsePersonalAddressResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder();
+    final result = new WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -565,7 +566,7 @@ class _$ModeSerializer implements StructuredSerializer<Mode> {
   @override
   Mode deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ModeBuilder();
+    final result = new ModeBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -621,7 +622,7 @@ class _$LocationWithModeSerializer implements StructuredSerializer<LocationWithM
   @override
   LocationWithMode deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = LocationWithModeBuilder();
+    final result = new LocationWithModeBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -674,7 +675,7 @@ class _$WeatherStatusGetLocationResponseApplicationJson_OcsSerializer
   @override
   WeatherStatusGetLocationResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = WeatherStatusGetLocationResponseApplicationJson_OcsBuilder();
+    final result = new WeatherStatusGetLocationResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -721,7 +722,7 @@ class _$WeatherStatusGetLocationResponseApplicationJsonSerializer
   @override
   WeatherStatusGetLocationResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = WeatherStatusGetLocationResponseApplicationJsonBuilder();
+    final result = new WeatherStatusGetLocationResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -780,7 +781,7 @@ class _$WeatherStatusSetLocationRequestApplicationJsonSerializer
   @override
   WeatherStatusSetLocationRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = WeatherStatusSetLocationRequestApplicationJsonBuilder();
+    final result = new WeatherStatusSetLocationRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -830,7 +831,7 @@ class _$WeatherStatusSetLocationResponseApplicationJson_OcsSerializer
   @override
   WeatherStatusSetLocationResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = WeatherStatusSetLocationResponseApplicationJson_OcsBuilder();
+    final result = new WeatherStatusSetLocationResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -877,7 +878,7 @@ class _$WeatherStatusSetLocationResponseApplicationJsonSerializer
   @override
   WeatherStatusSetLocationResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = WeatherStatusSetLocationResponseApplicationJsonBuilder();
+    final result = new WeatherStatusSetLocationResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -927,7 +928,7 @@ class _$Forecast_Data_Instant_DetailsSerializer implements StructuredSerializer<
   @override
   Forecast_Data_Instant_Details deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Forecast_Data_Instant_DetailsBuilder();
+    final result = new Forecast_Data_Instant_DetailsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -980,7 +981,7 @@ class _$Forecast_Data_InstantSerializer implements StructuredSerializer<Forecast
   @override
   Forecast_Data_Instant deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Forecast_Data_InstantBuilder();
+    final result = new Forecast_Data_InstantBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1019,7 +1020,7 @@ class _$Forecast_Data_Next12Hours_SummarySerializer implements StructuredSeriali
   @override
   Forecast_Data_Next12Hours_Summary deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Forecast_Data_Next12Hours_SummaryBuilder();
+    final result = new Forecast_Data_Next12Hours_SummaryBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1060,7 +1061,7 @@ class _$Forecast_Data_Next12Hours_DetailsSerializer implements StructuredSeriali
   @override
   Forecast_Data_Next12Hours_Details deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Forecast_Data_Next12Hours_DetailsBuilder();
+    final result = new Forecast_Data_Next12Hours_DetailsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1100,7 +1101,7 @@ class _$Forecast_Data_Next12HoursSerializer implements StructuredSerializer<Fore
   @override
   Forecast_Data_Next12Hours deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Forecast_Data_Next12HoursBuilder();
+    final result = new Forecast_Data_Next12HoursBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1143,7 +1144,7 @@ class _$Forecast_Data_Next1Hours_SummarySerializer implements StructuredSerializ
   @override
   Forecast_Data_Next1Hours_Summary deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Forecast_Data_Next1Hours_SummaryBuilder();
+    final result = new Forecast_Data_Next1Hours_SummaryBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1184,7 +1185,7 @@ class _$Forecast_Data_Next1Hours_DetailsSerializer implements StructuredSerializ
   @override
   Forecast_Data_Next1Hours_Details deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Forecast_Data_Next1Hours_DetailsBuilder();
+    final result = new Forecast_Data_Next1Hours_DetailsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1224,7 +1225,7 @@ class _$Forecast_Data_Next1HoursSerializer implements StructuredSerializer<Forec
   @override
   Forecast_Data_Next1Hours deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Forecast_Data_Next1HoursBuilder();
+    final result = new Forecast_Data_Next1HoursBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1267,7 +1268,7 @@ class _$Forecast_Data_Next6Hours_SummarySerializer implements StructuredSerializ
   @override
   Forecast_Data_Next6Hours_Summary deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Forecast_Data_Next6Hours_SummaryBuilder();
+    final result = new Forecast_Data_Next6Hours_SummaryBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1308,7 +1309,7 @@ class _$Forecast_Data_Next6Hours_DetailsSerializer implements StructuredSerializ
   @override
   Forecast_Data_Next6Hours_Details deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Forecast_Data_Next6Hours_DetailsBuilder();
+    final result = new Forecast_Data_Next6Hours_DetailsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1348,7 +1349,7 @@ class _$Forecast_Data_Next6HoursSerializer implements StructuredSerializer<Forec
   @override
   Forecast_Data_Next6Hours deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Forecast_Data_Next6HoursBuilder();
+    final result = new Forecast_Data_Next6HoursBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1397,7 +1398,7 @@ class _$Forecast_DataSerializer implements StructuredSerializer<Forecast_Data> {
   @override
   Forecast_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Forecast_DataBuilder();
+    final result = new Forecast_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1450,7 +1451,7 @@ class _$ForecastSerializer implements StructuredSerializer<Forecast> {
   @override
   Forecast deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ForecastBuilder();
+    final result = new ForecastBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1497,7 +1498,7 @@ class _$WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Serializer
   WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1 deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Builder();
+    final result = new WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Builder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1542,7 +1543,7 @@ class _$WeatherStatusGetForecastResponseApplicationJson_OcsSerializer
   @override
   WeatherStatusGetForecastResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = WeatherStatusGetForecastResponseApplicationJson_OcsBuilder();
+    final result = new WeatherStatusGetForecastResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1590,7 +1591,7 @@ class _$WeatherStatusGetForecastResponseApplicationJsonSerializer
   @override
   WeatherStatusGetForecastResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = WeatherStatusGetForecastResponseApplicationJsonBuilder();
+    final result = new WeatherStatusGetForecastResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1627,7 +1628,7 @@ class _$WeatherStatusGetFavoritesResponseApplicationJson_OcsSerializer
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, const [const FullType(String)])),
     ];
 
     return result;
@@ -1637,7 +1638,7 @@ class _$WeatherStatusGetFavoritesResponseApplicationJson_OcsSerializer
   WeatherStatusGetFavoritesResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder();
+    final result = new WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1650,7 +1651,7 @@ class _$WeatherStatusGetFavoritesResponseApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -1684,7 +1685,7 @@ class _$WeatherStatusGetFavoritesResponseApplicationJsonSerializer
   @override
   WeatherStatusGetFavoritesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = WeatherStatusGetFavoritesResponseApplicationJsonBuilder();
+    final result = new WeatherStatusGetFavoritesResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1719,7 +1720,7 @@ class _$WeatherStatusSetFavoritesRequestApplicationJsonSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'favorites',
-      serializers.serialize(object.favorites, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      serializers.serialize(object.favorites, specifiedType: const FullType(BuiltList, const [const FullType(String)])),
     ];
 
     return result;
@@ -1728,7 +1729,7 @@ class _$WeatherStatusSetFavoritesRequestApplicationJsonSerializer
   @override
   WeatherStatusSetFavoritesRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = WeatherStatusSetFavoritesRequestApplicationJsonBuilder();
+    final result = new WeatherStatusSetFavoritesRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1738,7 +1739,7 @@ class _$WeatherStatusSetFavoritesRequestApplicationJsonSerializer
       switch (key) {
         case 'favorites':
           result.favorites.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -1774,7 +1775,7 @@ class _$WeatherStatusSetFavoritesResponseApplicationJson_OcsSerializer
   WeatherStatusSetFavoritesResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder();
+    final result = new WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1820,7 +1821,7 @@ class _$WeatherStatusSetFavoritesResponseApplicationJsonSerializer
   @override
   WeatherStatusSetFavoritesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = WeatherStatusSetFavoritesResponseApplicationJsonBuilder();
+    final result = new WeatherStatusSetFavoritesResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1860,7 +1861,7 @@ class _$Capabilities_WeatherStatusSerializer implements StructuredSerializer<Cap
   @override
   Capabilities_WeatherStatus deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = Capabilities_WeatherStatusBuilder();
+    final result = new Capabilities_WeatherStatusBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1898,7 +1899,7 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   @override
   Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CapabilitiesBuilder();
+    final result = new CapabilitiesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1930,7 +1931,7 @@ class _$WeatherStatusSetModeRequestApplicationJson extends WeatherStatusSetModeR
 
   factory _$WeatherStatusSetModeRequestApplicationJson(
           [void Function(WeatherStatusSetModeRequestApplicationJsonBuilder)? updates]) =>
-      (WeatherStatusSetModeRequestApplicationJsonBuilder()..update(updates))._build();
+      (new WeatherStatusSetModeRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$WeatherStatusSetModeRequestApplicationJson._({required this.mode}) : super._() {
     BuiltValueNullFieldError.checkNotNull(mode, r'WeatherStatusSetModeRequestApplicationJson', 'mode');
@@ -1943,7 +1944,7 @@ class _$WeatherStatusSetModeRequestApplicationJson extends WeatherStatusSetModeR
 
   @override
   WeatherStatusSetModeRequestApplicationJsonBuilder toBuilder() =>
-      WeatherStatusSetModeRequestApplicationJsonBuilder()..replace(this);
+      new WeatherStatusSetModeRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2005,7 +2006,7 @@ class WeatherStatusSetModeRequestApplicationJsonBuilder
   _$WeatherStatusSetModeRequestApplicationJson _build() {
     WeatherStatusSetModeRequestApplicationJson._validate(this);
     final _$result = _$v ??
-        _$WeatherStatusSetModeRequestApplicationJson._(
+        new _$WeatherStatusSetModeRequestApplicationJson._(
           mode: BuiltValueNullFieldError.checkNotNull(mode, r'WeatherStatusSetModeRequestApplicationJson', 'mode'),
         );
     replace(_$result);
@@ -2044,7 +2045,7 @@ class _$OCSMeta extends OCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (new OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
       : super._() {
@@ -2056,7 +2057,7 @@ class _$OCSMeta extends OCSMeta {
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
+  OCSMetaBuilder toBuilder() => new OCSMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2150,7 +2151,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   _$OCSMeta _build() {
     OCSMeta._validate(this);
     final _$result = _$v ??
-        _$OCSMeta._(
+        new _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
           message: message,
@@ -2173,7 +2174,7 @@ class _$Success extends Success {
   @override
   final bool success;
 
-  factory _$Success([void Function(SuccessBuilder)? updates]) => (SuccessBuilder()..update(updates))._build();
+  factory _$Success([void Function(SuccessBuilder)? updates]) => (new SuccessBuilder()..update(updates))._build();
 
   _$Success._({required this.success}) : super._() {
     BuiltValueNullFieldError.checkNotNull(success, r'Success', 'success');
@@ -2183,7 +2184,7 @@ class _$Success extends Success {
   Success rebuild(void Function(SuccessBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  SuccessBuilder toBuilder() => SuccessBuilder()..replace(this);
+  SuccessBuilder toBuilder() => new SuccessBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2242,7 +2243,7 @@ class SuccessBuilder implements Builder<Success, SuccessBuilder>, $SuccessInterf
   _$Success _build() {
     Success._validate(this);
     final _$result = _$v ??
-        _$Success._(
+        new _$Success._(
           success: BuiltValueNullFieldError.checkNotNull(success, r'Success', 'success'),
         );
     replace(_$result);
@@ -2268,7 +2269,7 @@ class _$WeatherStatusSetModeResponseApplicationJson_Ocs extends WeatherStatusSet
 
   factory _$WeatherStatusSetModeResponseApplicationJson_Ocs(
           [void Function(WeatherStatusSetModeResponseApplicationJson_OcsBuilder)? updates]) =>
-      (WeatherStatusSetModeResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (new WeatherStatusSetModeResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$WeatherStatusSetModeResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'WeatherStatusSetModeResponseApplicationJson_Ocs', 'meta');
@@ -2282,7 +2283,7 @@ class _$WeatherStatusSetModeResponseApplicationJson_Ocs extends WeatherStatusSet
 
   @override
   WeatherStatusSetModeResponseApplicationJson_OcsBuilder toBuilder() =>
-      WeatherStatusSetModeResponseApplicationJson_OcsBuilder()..replace(this);
+      new WeatherStatusSetModeResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2316,11 +2317,11 @@ class WeatherStatusSetModeResponseApplicationJson_OcsBuilder
   _$WeatherStatusSetModeResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   SuccessBuilder? _data;
-  SuccessBuilder get data => _$this._data ??= SuccessBuilder();
+  SuccessBuilder get data => _$this._data ??= new SuccessBuilder();
   set data(covariant SuccessBuilder? data) => _$this._data = data;
 
   WeatherStatusSetModeResponseApplicationJson_OcsBuilder() {
@@ -2356,7 +2357,7 @@ class WeatherStatusSetModeResponseApplicationJson_OcsBuilder
     _$WeatherStatusSetModeResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$WeatherStatusSetModeResponseApplicationJson_Ocs._(
+          new _$WeatherStatusSetModeResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -2368,7 +2369,7 @@ class WeatherStatusSetModeResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'WeatherStatusSetModeResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -2391,7 +2392,7 @@ class _$WeatherStatusSetModeResponseApplicationJson extends WeatherStatusSetMode
 
   factory _$WeatherStatusSetModeResponseApplicationJson(
           [void Function(WeatherStatusSetModeResponseApplicationJsonBuilder)? updates]) =>
-      (WeatherStatusSetModeResponseApplicationJsonBuilder()..update(updates))._build();
+      (new WeatherStatusSetModeResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$WeatherStatusSetModeResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'WeatherStatusSetModeResponseApplicationJson', 'ocs');
@@ -2404,7 +2405,7 @@ class _$WeatherStatusSetModeResponseApplicationJson extends WeatherStatusSetMode
 
   @override
   WeatherStatusSetModeResponseApplicationJsonBuilder toBuilder() =>
-      WeatherStatusSetModeResponseApplicationJsonBuilder()..replace(this);
+      new WeatherStatusSetModeResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2434,7 +2435,7 @@ class WeatherStatusSetModeResponseApplicationJsonBuilder
 
   WeatherStatusSetModeResponseApplicationJson_OcsBuilder? _ocs;
   WeatherStatusSetModeResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= WeatherStatusSetModeResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= new WeatherStatusSetModeResponseApplicationJson_OcsBuilder();
   set ocs(covariant WeatherStatusSetModeResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   WeatherStatusSetModeResponseApplicationJsonBuilder() {
@@ -2469,7 +2470,7 @@ class WeatherStatusSetModeResponseApplicationJsonBuilder
     _$WeatherStatusSetModeResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$WeatherStatusSetModeResponseApplicationJson._(
+          new _$WeatherStatusSetModeResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -2478,7 +2479,8 @@ class WeatherStatusSetModeResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'WeatherStatusSetModeResponseApplicationJson', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(
+            r'WeatherStatusSetModeResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2508,7 +2510,7 @@ class _$Location extends Location {
   @override
   final String? address;
 
-  factory _$Location([void Function(LocationBuilder)? updates]) => (LocationBuilder()..update(updates))._build();
+  factory _$Location([void Function(LocationBuilder)? updates]) => (new LocationBuilder()..update(updates))._build();
 
   _$Location._({this.lat, this.lon, this.address}) : super._();
 
@@ -2516,7 +2518,7 @@ class _$Location extends Location {
   Location rebuild(void Function(LocationBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  LocationBuilder toBuilder() => LocationBuilder()..replace(this);
+  LocationBuilder toBuilder() => new LocationBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2591,7 +2593,7 @@ class LocationBuilder implements Builder<Location, LocationBuilder>, $LocationIn
   _$Location _build() {
     Location._validate(this);
     final _$result = _$v ??
-        _$Location._(
+        new _$Location._(
           lat: lat,
           lon: lon,
           address: address,
@@ -2629,7 +2631,7 @@ class _$LocationWithSuccess extends LocationWithSuccess {
   final bool success;
 
   factory _$LocationWithSuccess([void Function(LocationWithSuccessBuilder)? updates]) =>
-      (LocationWithSuccessBuilder()..update(updates))._build();
+      (new LocationWithSuccessBuilder()..update(updates))._build();
 
   _$LocationWithSuccess._({this.lat, this.lon, this.address, required this.success}) : super._() {
     BuiltValueNullFieldError.checkNotNull(success, r'LocationWithSuccess', 'success');
@@ -2640,7 +2642,7 @@ class _$LocationWithSuccess extends LocationWithSuccess {
       (toBuilder()..update(updates)).build();
 
   @override
-  LocationWithSuccessBuilder toBuilder() => LocationWithSuccessBuilder()..replace(this);
+  LocationWithSuccessBuilder toBuilder() => new LocationWithSuccessBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2727,7 +2729,7 @@ class LocationWithSuccessBuilder
   _$LocationWithSuccess _build() {
     LocationWithSuccess._validate(this);
     final _$result = _$v ??
-        _$LocationWithSuccess._(
+        new _$LocationWithSuccess._(
           lat: lat,
           lon: lon,
           address: address,
@@ -2757,7 +2759,7 @@ class _$WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs
 
   factory _$WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs(
           [void Function(WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder)? updates]) =>
-      (WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (new WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs', 'meta');
@@ -2771,7 +2773,7 @@ class _$WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs
 
   @override
   WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder toBuilder() =>
-      WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder()..replace(this);
+      new WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2807,11 +2809,11 @@ class WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder
   _$WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   LocationWithSuccessBuilder? _data;
-  LocationWithSuccessBuilder get data => _$this._data ??= LocationWithSuccessBuilder();
+  LocationWithSuccessBuilder get data => _$this._data ??= new LocationWithSuccessBuilder();
   set data(covariant LocationWithSuccessBuilder? data) => _$this._data = data;
 
   WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder() {
@@ -2847,7 +2849,7 @@ class WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder
     _$WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs._(
+          new _$WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -2859,7 +2861,7 @@ class WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -2883,7 +2885,7 @@ class _$WeatherStatusUsePersonalAddressResponseApplicationJson
 
   factory _$WeatherStatusUsePersonalAddressResponseApplicationJson(
           [void Function(WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder)? updates]) =>
-      (WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder()..update(updates))._build();
+      (new WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$WeatherStatusUsePersonalAddressResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'WeatherStatusUsePersonalAddressResponseApplicationJson', 'ocs');
@@ -2896,7 +2898,7 @@ class _$WeatherStatusUsePersonalAddressResponseApplicationJson
 
   @override
   WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder toBuilder() =>
-      WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder()..replace(this);
+      new WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2928,7 +2930,7 @@ class WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder
 
   WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder? _ocs;
   WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= new WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder();
   set ocs(covariant WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder() {
@@ -2963,7 +2965,7 @@ class WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder
     _$WeatherStatusUsePersonalAddressResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$WeatherStatusUsePersonalAddressResponseApplicationJson._(
+          new _$WeatherStatusUsePersonalAddressResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -2972,7 +2974,7 @@ class WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'WeatherStatusUsePersonalAddressResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -2993,7 +2995,7 @@ class _$Mode extends Mode {
   @override
   final int mode;
 
-  factory _$Mode([void Function(ModeBuilder)? updates]) => (ModeBuilder()..update(updates))._build();
+  factory _$Mode([void Function(ModeBuilder)? updates]) => (new ModeBuilder()..update(updates))._build();
 
   _$Mode._({required this.mode}) : super._() {
     BuiltValueNullFieldError.checkNotNull(mode, r'Mode', 'mode');
@@ -3003,7 +3005,7 @@ class _$Mode extends Mode {
   Mode rebuild(void Function(ModeBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  ModeBuilder toBuilder() => ModeBuilder()..replace(this);
+  ModeBuilder toBuilder() => new ModeBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3062,7 +3064,7 @@ class ModeBuilder implements Builder<Mode, ModeBuilder>, $ModeInterfaceBuilder {
   _$Mode _build() {
     Mode._validate(this);
     final _$result = _$v ??
-        _$Mode._(
+        new _$Mode._(
           mode: BuiltValueNullFieldError.checkNotNull(mode, r'Mode', 'mode'),
         );
     replace(_$result);
@@ -3097,7 +3099,7 @@ class _$LocationWithMode extends LocationWithMode {
   final int mode;
 
   factory _$LocationWithMode([void Function(LocationWithModeBuilder)? updates]) =>
-      (LocationWithModeBuilder()..update(updates))._build();
+      (new LocationWithModeBuilder()..update(updates))._build();
 
   _$LocationWithMode._({this.lat, this.lon, this.address, required this.mode}) : super._() {
     BuiltValueNullFieldError.checkNotNull(mode, r'LocationWithMode', 'mode');
@@ -3107,7 +3109,7 @@ class _$LocationWithMode extends LocationWithMode {
   LocationWithMode rebuild(void Function(LocationWithModeBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  LocationWithModeBuilder toBuilder() => LocationWithModeBuilder()..replace(this);
+  LocationWithModeBuilder toBuilder() => new LocationWithModeBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3194,7 +3196,7 @@ class LocationWithModeBuilder
   _$LocationWithMode _build() {
     LocationWithMode._validate(this);
     final _$result = _$v ??
-        _$LocationWithMode._(
+        new _$LocationWithMode._(
           lat: lat,
           lon: lon,
           address: address,
@@ -3224,7 +3226,7 @@ class _$WeatherStatusGetLocationResponseApplicationJson_Ocs
 
   factory _$WeatherStatusGetLocationResponseApplicationJson_Ocs(
           [void Function(WeatherStatusGetLocationResponseApplicationJson_OcsBuilder)? updates]) =>
-      (WeatherStatusGetLocationResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (new WeatherStatusGetLocationResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$WeatherStatusGetLocationResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'WeatherStatusGetLocationResponseApplicationJson_Ocs', 'meta');
@@ -3238,7 +3240,7 @@ class _$WeatherStatusGetLocationResponseApplicationJson_Ocs
 
   @override
   WeatherStatusGetLocationResponseApplicationJson_OcsBuilder toBuilder() =>
-      WeatherStatusGetLocationResponseApplicationJson_OcsBuilder()..replace(this);
+      new WeatherStatusGetLocationResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3272,11 +3274,11 @@ class WeatherStatusGetLocationResponseApplicationJson_OcsBuilder
   _$WeatherStatusGetLocationResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   LocationWithModeBuilder? _data;
-  LocationWithModeBuilder get data => _$this._data ??= LocationWithModeBuilder();
+  LocationWithModeBuilder get data => _$this._data ??= new LocationWithModeBuilder();
   set data(covariant LocationWithModeBuilder? data) => _$this._data = data;
 
   WeatherStatusGetLocationResponseApplicationJson_OcsBuilder() {
@@ -3312,7 +3314,7 @@ class WeatherStatusGetLocationResponseApplicationJson_OcsBuilder
     _$WeatherStatusGetLocationResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$WeatherStatusGetLocationResponseApplicationJson_Ocs._(
+          new _$WeatherStatusGetLocationResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -3324,7 +3326,7 @@ class WeatherStatusGetLocationResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'WeatherStatusGetLocationResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -3347,7 +3349,7 @@ class _$WeatherStatusGetLocationResponseApplicationJson extends WeatherStatusGet
 
   factory _$WeatherStatusGetLocationResponseApplicationJson(
           [void Function(WeatherStatusGetLocationResponseApplicationJsonBuilder)? updates]) =>
-      (WeatherStatusGetLocationResponseApplicationJsonBuilder()..update(updates))._build();
+      (new WeatherStatusGetLocationResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$WeatherStatusGetLocationResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'WeatherStatusGetLocationResponseApplicationJson', 'ocs');
@@ -3360,7 +3362,7 @@ class _$WeatherStatusGetLocationResponseApplicationJson extends WeatherStatusGet
 
   @override
   WeatherStatusGetLocationResponseApplicationJsonBuilder toBuilder() =>
-      WeatherStatusGetLocationResponseApplicationJsonBuilder()..replace(this);
+      new WeatherStatusGetLocationResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3392,7 +3394,7 @@ class WeatherStatusGetLocationResponseApplicationJsonBuilder
 
   WeatherStatusGetLocationResponseApplicationJson_OcsBuilder? _ocs;
   WeatherStatusGetLocationResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= WeatherStatusGetLocationResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= new WeatherStatusGetLocationResponseApplicationJson_OcsBuilder();
   set ocs(covariant WeatherStatusGetLocationResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   WeatherStatusGetLocationResponseApplicationJsonBuilder() {
@@ -3427,7 +3429,7 @@ class WeatherStatusGetLocationResponseApplicationJsonBuilder
     _$WeatherStatusGetLocationResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$WeatherStatusGetLocationResponseApplicationJson._(
+          new _$WeatherStatusGetLocationResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -3436,7 +3438,7 @@ class WeatherStatusGetLocationResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'WeatherStatusGetLocationResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -3469,7 +3471,7 @@ class _$WeatherStatusSetLocationRequestApplicationJson extends WeatherStatusSetL
 
   factory _$WeatherStatusSetLocationRequestApplicationJson(
           [void Function(WeatherStatusSetLocationRequestApplicationJsonBuilder)? updates]) =>
-      (WeatherStatusSetLocationRequestApplicationJsonBuilder()..update(updates))._build();
+      (new WeatherStatusSetLocationRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$WeatherStatusSetLocationRequestApplicationJson._({this.address, this.lat, this.lon}) : super._();
 
@@ -3480,7 +3482,7 @@ class _$WeatherStatusSetLocationRequestApplicationJson extends WeatherStatusSetL
 
   @override
   WeatherStatusSetLocationRequestApplicationJsonBuilder toBuilder() =>
-      WeatherStatusSetLocationRequestApplicationJsonBuilder()..replace(this);
+      new WeatherStatusSetLocationRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3561,7 +3563,7 @@ class WeatherStatusSetLocationRequestApplicationJsonBuilder
   _$WeatherStatusSetLocationRequestApplicationJson _build() {
     WeatherStatusSetLocationRequestApplicationJson._validate(this);
     final _$result = _$v ??
-        _$WeatherStatusSetLocationRequestApplicationJson._(
+        new _$WeatherStatusSetLocationRequestApplicationJson._(
           address: address,
           lat: lat,
           lon: lon,
@@ -3590,7 +3592,7 @@ class _$WeatherStatusSetLocationResponseApplicationJson_Ocs
 
   factory _$WeatherStatusSetLocationResponseApplicationJson_Ocs(
           [void Function(WeatherStatusSetLocationResponseApplicationJson_OcsBuilder)? updates]) =>
-      (WeatherStatusSetLocationResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (new WeatherStatusSetLocationResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$WeatherStatusSetLocationResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'WeatherStatusSetLocationResponseApplicationJson_Ocs', 'meta');
@@ -3604,7 +3606,7 @@ class _$WeatherStatusSetLocationResponseApplicationJson_Ocs
 
   @override
   WeatherStatusSetLocationResponseApplicationJson_OcsBuilder toBuilder() =>
-      WeatherStatusSetLocationResponseApplicationJson_OcsBuilder()..replace(this);
+      new WeatherStatusSetLocationResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3638,11 +3640,11 @@ class WeatherStatusSetLocationResponseApplicationJson_OcsBuilder
   _$WeatherStatusSetLocationResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   LocationWithSuccessBuilder? _data;
-  LocationWithSuccessBuilder get data => _$this._data ??= LocationWithSuccessBuilder();
+  LocationWithSuccessBuilder get data => _$this._data ??= new LocationWithSuccessBuilder();
   set data(covariant LocationWithSuccessBuilder? data) => _$this._data = data;
 
   WeatherStatusSetLocationResponseApplicationJson_OcsBuilder() {
@@ -3678,7 +3680,7 @@ class WeatherStatusSetLocationResponseApplicationJson_OcsBuilder
     _$WeatherStatusSetLocationResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$WeatherStatusSetLocationResponseApplicationJson_Ocs._(
+          new _$WeatherStatusSetLocationResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -3690,7 +3692,7 @@ class WeatherStatusSetLocationResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'WeatherStatusSetLocationResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -3713,7 +3715,7 @@ class _$WeatherStatusSetLocationResponseApplicationJson extends WeatherStatusSet
 
   factory _$WeatherStatusSetLocationResponseApplicationJson(
           [void Function(WeatherStatusSetLocationResponseApplicationJsonBuilder)? updates]) =>
-      (WeatherStatusSetLocationResponseApplicationJsonBuilder()..update(updates))._build();
+      (new WeatherStatusSetLocationResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$WeatherStatusSetLocationResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'WeatherStatusSetLocationResponseApplicationJson', 'ocs');
@@ -3726,7 +3728,7 @@ class _$WeatherStatusSetLocationResponseApplicationJson extends WeatherStatusSet
 
   @override
   WeatherStatusSetLocationResponseApplicationJsonBuilder toBuilder() =>
-      WeatherStatusSetLocationResponseApplicationJsonBuilder()..replace(this);
+      new WeatherStatusSetLocationResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3758,7 +3760,7 @@ class WeatherStatusSetLocationResponseApplicationJsonBuilder
 
   WeatherStatusSetLocationResponseApplicationJson_OcsBuilder? _ocs;
   WeatherStatusSetLocationResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= WeatherStatusSetLocationResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= new WeatherStatusSetLocationResponseApplicationJson_OcsBuilder();
   set ocs(covariant WeatherStatusSetLocationResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   WeatherStatusSetLocationResponseApplicationJsonBuilder() {
@@ -3793,7 +3795,7 @@ class WeatherStatusSetLocationResponseApplicationJsonBuilder
     _$WeatherStatusSetLocationResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$WeatherStatusSetLocationResponseApplicationJson._(
+          new _$WeatherStatusSetLocationResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -3802,7 +3804,7 @@ class WeatherStatusSetLocationResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'WeatherStatusSetLocationResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -3849,7 +3851,7 @@ class _$Forecast_Data_Instant_Details extends Forecast_Data_Instant_Details {
   final num windSpeed;
 
   factory _$Forecast_Data_Instant_Details([void Function(Forecast_Data_Instant_DetailsBuilder)? updates]) =>
-      (Forecast_Data_Instant_DetailsBuilder()..update(updates))._build();
+      (new Forecast_Data_Instant_DetailsBuilder()..update(updates))._build();
 
   _$Forecast_Data_Instant_Details._(
       {required this.airPressureAtSeaLevel,
@@ -3873,7 +3875,7 @@ class _$Forecast_Data_Instant_Details extends Forecast_Data_Instant_Details {
       (toBuilder()..update(updates)).build();
 
   @override
-  Forecast_Data_Instant_DetailsBuilder toBuilder() => Forecast_Data_Instant_DetailsBuilder()..replace(this);
+  Forecast_Data_Instant_DetailsBuilder toBuilder() => new Forecast_Data_Instant_DetailsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3979,7 +3981,7 @@ class Forecast_Data_Instant_DetailsBuilder
   _$Forecast_Data_Instant_Details _build() {
     Forecast_Data_Instant_Details._validate(this);
     final _$result = _$v ??
-        _$Forecast_Data_Instant_Details._(
+        new _$Forecast_Data_Instant_Details._(
           airPressureAtSeaLevel: BuiltValueNullFieldError.checkNotNull(
               airPressureAtSeaLevel, r'Forecast_Data_Instant_Details', 'airPressureAtSeaLevel'),
           airTemperature:
@@ -4009,7 +4011,7 @@ class _$Forecast_Data_Instant extends Forecast_Data_Instant {
   final Forecast_Data_Instant_Details details;
 
   factory _$Forecast_Data_Instant([void Function(Forecast_Data_InstantBuilder)? updates]) =>
-      (Forecast_Data_InstantBuilder()..update(updates))._build();
+      (new Forecast_Data_InstantBuilder()..update(updates))._build();
 
   _$Forecast_Data_Instant._({required this.details}) : super._() {
     BuiltValueNullFieldError.checkNotNull(details, r'Forecast_Data_Instant', 'details');
@@ -4020,7 +4022,7 @@ class _$Forecast_Data_Instant extends Forecast_Data_Instant {
       (toBuilder()..update(updates)).build();
 
   @override
-  Forecast_Data_InstantBuilder toBuilder() => Forecast_Data_InstantBuilder()..replace(this);
+  Forecast_Data_InstantBuilder toBuilder() => new Forecast_Data_InstantBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4047,7 +4049,7 @@ class Forecast_Data_InstantBuilder
   _$Forecast_Data_Instant? _$v;
 
   Forecast_Data_Instant_DetailsBuilder? _details;
-  Forecast_Data_Instant_DetailsBuilder get details => _$this._details ??= Forecast_Data_Instant_DetailsBuilder();
+  Forecast_Data_Instant_DetailsBuilder get details => _$this._details ??= new Forecast_Data_Instant_DetailsBuilder();
   set details(covariant Forecast_Data_Instant_DetailsBuilder? details) => _$this._details = details;
 
   Forecast_Data_InstantBuilder() {
@@ -4082,7 +4084,7 @@ class Forecast_Data_InstantBuilder
     _$Forecast_Data_Instant _$result;
     try {
       _$result = _$v ??
-          _$Forecast_Data_Instant._(
+          new _$Forecast_Data_Instant._(
             details: details.build(),
           );
     } catch (_) {
@@ -4091,7 +4093,7 @@ class Forecast_Data_InstantBuilder
         _$failedField = 'details';
         details.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Forecast_Data_Instant', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'Forecast_Data_Instant', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -4112,7 +4114,7 @@ class _$Forecast_Data_Next12Hours_Summary extends Forecast_Data_Next12Hours_Summ
   final String symbolCode;
 
   factory _$Forecast_Data_Next12Hours_Summary([void Function(Forecast_Data_Next12Hours_SummaryBuilder)? updates]) =>
-      (Forecast_Data_Next12Hours_SummaryBuilder()..update(updates))._build();
+      (new Forecast_Data_Next12Hours_SummaryBuilder()..update(updates))._build();
 
   _$Forecast_Data_Next12Hours_Summary._({required this.symbolCode}) : super._() {
     BuiltValueNullFieldError.checkNotNull(symbolCode, r'Forecast_Data_Next12Hours_Summary', 'symbolCode');
@@ -4123,7 +4125,7 @@ class _$Forecast_Data_Next12Hours_Summary extends Forecast_Data_Next12Hours_Summ
       (toBuilder()..update(updates)).build();
 
   @override
-  Forecast_Data_Next12Hours_SummaryBuilder toBuilder() => Forecast_Data_Next12Hours_SummaryBuilder()..replace(this);
+  Forecast_Data_Next12Hours_SummaryBuilder toBuilder() => new Forecast_Data_Next12Hours_SummaryBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4186,7 +4188,7 @@ class Forecast_Data_Next12Hours_SummaryBuilder
   _$Forecast_Data_Next12Hours_Summary _build() {
     Forecast_Data_Next12Hours_Summary._validate(this);
     final _$result = _$v ??
-        _$Forecast_Data_Next12Hours_Summary._(
+        new _$Forecast_Data_Next12Hours_Summary._(
           symbolCode:
               BuiltValueNullFieldError.checkNotNull(symbolCode, r'Forecast_Data_Next12Hours_Summary', 'symbolCode'),
         );
@@ -4207,7 +4209,7 @@ class _$Forecast_Data_Next12Hours_Details extends Forecast_Data_Next12Hours_Deta
   final num? precipitationAmount;
 
   factory _$Forecast_Data_Next12Hours_Details([void Function(Forecast_Data_Next12Hours_DetailsBuilder)? updates]) =>
-      (Forecast_Data_Next12Hours_DetailsBuilder()..update(updates))._build();
+      (new Forecast_Data_Next12Hours_DetailsBuilder()..update(updates))._build();
 
   _$Forecast_Data_Next12Hours_Details._({this.precipitationAmount}) : super._();
 
@@ -4216,7 +4218,7 @@ class _$Forecast_Data_Next12Hours_Details extends Forecast_Data_Next12Hours_Deta
       (toBuilder()..update(updates)).build();
 
   @override
-  Forecast_Data_Next12Hours_DetailsBuilder toBuilder() => Forecast_Data_Next12Hours_DetailsBuilder()..replace(this);
+  Forecast_Data_Next12Hours_DetailsBuilder toBuilder() => new Forecast_Data_Next12Hours_DetailsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4280,7 +4282,7 @@ class Forecast_Data_Next12Hours_DetailsBuilder
   _$Forecast_Data_Next12Hours_Details _build() {
     Forecast_Data_Next12Hours_Details._validate(this);
     final _$result = _$v ??
-        _$Forecast_Data_Next12Hours_Details._(
+        new _$Forecast_Data_Next12Hours_Details._(
           precipitationAmount: precipitationAmount,
         );
     replace(_$result);
@@ -4305,7 +4307,7 @@ class _$Forecast_Data_Next12Hours extends Forecast_Data_Next12Hours {
   final Forecast_Data_Next12Hours_Details details;
 
   factory _$Forecast_Data_Next12Hours([void Function(Forecast_Data_Next12HoursBuilder)? updates]) =>
-      (Forecast_Data_Next12HoursBuilder()..update(updates))._build();
+      (new Forecast_Data_Next12HoursBuilder()..update(updates))._build();
 
   _$Forecast_Data_Next12Hours._({required this.summary, required this.details}) : super._() {
     BuiltValueNullFieldError.checkNotNull(summary, r'Forecast_Data_Next12Hours', 'summary');
@@ -4317,7 +4319,7 @@ class _$Forecast_Data_Next12Hours extends Forecast_Data_Next12Hours {
       (toBuilder()..update(updates)).build();
 
   @override
-  Forecast_Data_Next12HoursBuilder toBuilder() => Forecast_Data_Next12HoursBuilder()..replace(this);
+  Forecast_Data_Next12HoursBuilder toBuilder() => new Forecast_Data_Next12HoursBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4351,12 +4353,12 @@ class Forecast_Data_Next12HoursBuilder
 
   Forecast_Data_Next12Hours_SummaryBuilder? _summary;
   Forecast_Data_Next12Hours_SummaryBuilder get summary =>
-      _$this._summary ??= Forecast_Data_Next12Hours_SummaryBuilder();
+      _$this._summary ??= new Forecast_Data_Next12Hours_SummaryBuilder();
   set summary(covariant Forecast_Data_Next12Hours_SummaryBuilder? summary) => _$this._summary = summary;
 
   Forecast_Data_Next12Hours_DetailsBuilder? _details;
   Forecast_Data_Next12Hours_DetailsBuilder get details =>
-      _$this._details ??= Forecast_Data_Next12Hours_DetailsBuilder();
+      _$this._details ??= new Forecast_Data_Next12Hours_DetailsBuilder();
   set details(covariant Forecast_Data_Next12Hours_DetailsBuilder? details) => _$this._details = details;
 
   Forecast_Data_Next12HoursBuilder() {
@@ -4392,7 +4394,7 @@ class Forecast_Data_Next12HoursBuilder
     _$Forecast_Data_Next12Hours _$result;
     try {
       _$result = _$v ??
-          _$Forecast_Data_Next12Hours._(
+          new _$Forecast_Data_Next12Hours._(
             summary: summary.build(),
             details: details.build(),
           );
@@ -4404,7 +4406,7 @@ class Forecast_Data_Next12HoursBuilder
         _$failedField = 'details';
         details.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Forecast_Data_Next12Hours', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'Forecast_Data_Next12Hours', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -4425,7 +4427,7 @@ class _$Forecast_Data_Next1Hours_Summary extends Forecast_Data_Next1Hours_Summar
   final String symbolCode;
 
   factory _$Forecast_Data_Next1Hours_Summary([void Function(Forecast_Data_Next1Hours_SummaryBuilder)? updates]) =>
-      (Forecast_Data_Next1Hours_SummaryBuilder()..update(updates))._build();
+      (new Forecast_Data_Next1Hours_SummaryBuilder()..update(updates))._build();
 
   _$Forecast_Data_Next1Hours_Summary._({required this.symbolCode}) : super._() {
     BuiltValueNullFieldError.checkNotNull(symbolCode, r'Forecast_Data_Next1Hours_Summary', 'symbolCode');
@@ -4436,7 +4438,7 @@ class _$Forecast_Data_Next1Hours_Summary extends Forecast_Data_Next1Hours_Summar
       (toBuilder()..update(updates)).build();
 
   @override
-  Forecast_Data_Next1Hours_SummaryBuilder toBuilder() => Forecast_Data_Next1Hours_SummaryBuilder()..replace(this);
+  Forecast_Data_Next1Hours_SummaryBuilder toBuilder() => new Forecast_Data_Next1Hours_SummaryBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4498,7 +4500,7 @@ class Forecast_Data_Next1Hours_SummaryBuilder
   _$Forecast_Data_Next1Hours_Summary _build() {
     Forecast_Data_Next1Hours_Summary._validate(this);
     final _$result = _$v ??
-        _$Forecast_Data_Next1Hours_Summary._(
+        new _$Forecast_Data_Next1Hours_Summary._(
           symbolCode:
               BuiltValueNullFieldError.checkNotNull(symbolCode, r'Forecast_Data_Next1Hours_Summary', 'symbolCode'),
         );
@@ -4519,7 +4521,7 @@ class _$Forecast_Data_Next1Hours_Details extends Forecast_Data_Next1Hours_Detail
   final num? precipitationAmount;
 
   factory _$Forecast_Data_Next1Hours_Details([void Function(Forecast_Data_Next1Hours_DetailsBuilder)? updates]) =>
-      (Forecast_Data_Next1Hours_DetailsBuilder()..update(updates))._build();
+      (new Forecast_Data_Next1Hours_DetailsBuilder()..update(updates))._build();
 
   _$Forecast_Data_Next1Hours_Details._({this.precipitationAmount}) : super._();
 
@@ -4528,7 +4530,7 @@ class _$Forecast_Data_Next1Hours_Details extends Forecast_Data_Next1Hours_Detail
       (toBuilder()..update(updates)).build();
 
   @override
-  Forecast_Data_Next1Hours_DetailsBuilder toBuilder() => Forecast_Data_Next1Hours_DetailsBuilder()..replace(this);
+  Forecast_Data_Next1Hours_DetailsBuilder toBuilder() => new Forecast_Data_Next1Hours_DetailsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4592,7 +4594,7 @@ class Forecast_Data_Next1Hours_DetailsBuilder
   _$Forecast_Data_Next1Hours_Details _build() {
     Forecast_Data_Next1Hours_Details._validate(this);
     final _$result = _$v ??
-        _$Forecast_Data_Next1Hours_Details._(
+        new _$Forecast_Data_Next1Hours_Details._(
           precipitationAmount: precipitationAmount,
         );
     replace(_$result);
@@ -4617,7 +4619,7 @@ class _$Forecast_Data_Next1Hours extends Forecast_Data_Next1Hours {
   final Forecast_Data_Next1Hours_Details details;
 
   factory _$Forecast_Data_Next1Hours([void Function(Forecast_Data_Next1HoursBuilder)? updates]) =>
-      (Forecast_Data_Next1HoursBuilder()..update(updates))._build();
+      (new Forecast_Data_Next1HoursBuilder()..update(updates))._build();
 
   _$Forecast_Data_Next1Hours._({required this.summary, required this.details}) : super._() {
     BuiltValueNullFieldError.checkNotNull(summary, r'Forecast_Data_Next1Hours', 'summary');
@@ -4629,7 +4631,7 @@ class _$Forecast_Data_Next1Hours extends Forecast_Data_Next1Hours {
       (toBuilder()..update(updates)).build();
 
   @override
-  Forecast_Data_Next1HoursBuilder toBuilder() => Forecast_Data_Next1HoursBuilder()..replace(this);
+  Forecast_Data_Next1HoursBuilder toBuilder() => new Forecast_Data_Next1HoursBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4662,11 +4664,13 @@ class Forecast_Data_Next1HoursBuilder
   _$Forecast_Data_Next1Hours? _$v;
 
   Forecast_Data_Next1Hours_SummaryBuilder? _summary;
-  Forecast_Data_Next1Hours_SummaryBuilder get summary => _$this._summary ??= Forecast_Data_Next1Hours_SummaryBuilder();
+  Forecast_Data_Next1Hours_SummaryBuilder get summary =>
+      _$this._summary ??= new Forecast_Data_Next1Hours_SummaryBuilder();
   set summary(covariant Forecast_Data_Next1Hours_SummaryBuilder? summary) => _$this._summary = summary;
 
   Forecast_Data_Next1Hours_DetailsBuilder? _details;
-  Forecast_Data_Next1Hours_DetailsBuilder get details => _$this._details ??= Forecast_Data_Next1Hours_DetailsBuilder();
+  Forecast_Data_Next1Hours_DetailsBuilder get details =>
+      _$this._details ??= new Forecast_Data_Next1Hours_DetailsBuilder();
   set details(covariant Forecast_Data_Next1Hours_DetailsBuilder? details) => _$this._details = details;
 
   Forecast_Data_Next1HoursBuilder() {
@@ -4702,7 +4706,7 @@ class Forecast_Data_Next1HoursBuilder
     _$Forecast_Data_Next1Hours _$result;
     try {
       _$result = _$v ??
-          _$Forecast_Data_Next1Hours._(
+          new _$Forecast_Data_Next1Hours._(
             summary: summary.build(),
             details: details.build(),
           );
@@ -4714,7 +4718,7 @@ class Forecast_Data_Next1HoursBuilder
         _$failedField = 'details';
         details.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Forecast_Data_Next1Hours', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'Forecast_Data_Next1Hours', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -4735,7 +4739,7 @@ class _$Forecast_Data_Next6Hours_Summary extends Forecast_Data_Next6Hours_Summar
   final String symbolCode;
 
   factory _$Forecast_Data_Next6Hours_Summary([void Function(Forecast_Data_Next6Hours_SummaryBuilder)? updates]) =>
-      (Forecast_Data_Next6Hours_SummaryBuilder()..update(updates))._build();
+      (new Forecast_Data_Next6Hours_SummaryBuilder()..update(updates))._build();
 
   _$Forecast_Data_Next6Hours_Summary._({required this.symbolCode}) : super._() {
     BuiltValueNullFieldError.checkNotNull(symbolCode, r'Forecast_Data_Next6Hours_Summary', 'symbolCode');
@@ -4746,7 +4750,7 @@ class _$Forecast_Data_Next6Hours_Summary extends Forecast_Data_Next6Hours_Summar
       (toBuilder()..update(updates)).build();
 
   @override
-  Forecast_Data_Next6Hours_SummaryBuilder toBuilder() => Forecast_Data_Next6Hours_SummaryBuilder()..replace(this);
+  Forecast_Data_Next6Hours_SummaryBuilder toBuilder() => new Forecast_Data_Next6Hours_SummaryBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4808,7 +4812,7 @@ class Forecast_Data_Next6Hours_SummaryBuilder
   _$Forecast_Data_Next6Hours_Summary _build() {
     Forecast_Data_Next6Hours_Summary._validate(this);
     final _$result = _$v ??
-        _$Forecast_Data_Next6Hours_Summary._(
+        new _$Forecast_Data_Next6Hours_Summary._(
           symbolCode:
               BuiltValueNullFieldError.checkNotNull(symbolCode, r'Forecast_Data_Next6Hours_Summary', 'symbolCode'),
         );
@@ -4829,7 +4833,7 @@ class _$Forecast_Data_Next6Hours_Details extends Forecast_Data_Next6Hours_Detail
   final num? precipitationAmount;
 
   factory _$Forecast_Data_Next6Hours_Details([void Function(Forecast_Data_Next6Hours_DetailsBuilder)? updates]) =>
-      (Forecast_Data_Next6Hours_DetailsBuilder()..update(updates))._build();
+      (new Forecast_Data_Next6Hours_DetailsBuilder()..update(updates))._build();
 
   _$Forecast_Data_Next6Hours_Details._({this.precipitationAmount}) : super._();
 
@@ -4838,7 +4842,7 @@ class _$Forecast_Data_Next6Hours_Details extends Forecast_Data_Next6Hours_Detail
       (toBuilder()..update(updates)).build();
 
   @override
-  Forecast_Data_Next6Hours_DetailsBuilder toBuilder() => Forecast_Data_Next6Hours_DetailsBuilder()..replace(this);
+  Forecast_Data_Next6Hours_DetailsBuilder toBuilder() => new Forecast_Data_Next6Hours_DetailsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4902,7 +4906,7 @@ class Forecast_Data_Next6Hours_DetailsBuilder
   _$Forecast_Data_Next6Hours_Details _build() {
     Forecast_Data_Next6Hours_Details._validate(this);
     final _$result = _$v ??
-        _$Forecast_Data_Next6Hours_Details._(
+        new _$Forecast_Data_Next6Hours_Details._(
           precipitationAmount: precipitationAmount,
         );
     replace(_$result);
@@ -4927,7 +4931,7 @@ class _$Forecast_Data_Next6Hours extends Forecast_Data_Next6Hours {
   final Forecast_Data_Next6Hours_Details details;
 
   factory _$Forecast_Data_Next6Hours([void Function(Forecast_Data_Next6HoursBuilder)? updates]) =>
-      (Forecast_Data_Next6HoursBuilder()..update(updates))._build();
+      (new Forecast_Data_Next6HoursBuilder()..update(updates))._build();
 
   _$Forecast_Data_Next6Hours._({required this.summary, required this.details}) : super._() {
     BuiltValueNullFieldError.checkNotNull(summary, r'Forecast_Data_Next6Hours', 'summary');
@@ -4939,7 +4943,7 @@ class _$Forecast_Data_Next6Hours extends Forecast_Data_Next6Hours {
       (toBuilder()..update(updates)).build();
 
   @override
-  Forecast_Data_Next6HoursBuilder toBuilder() => Forecast_Data_Next6HoursBuilder()..replace(this);
+  Forecast_Data_Next6HoursBuilder toBuilder() => new Forecast_Data_Next6HoursBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4972,11 +4976,13 @@ class Forecast_Data_Next6HoursBuilder
   _$Forecast_Data_Next6Hours? _$v;
 
   Forecast_Data_Next6Hours_SummaryBuilder? _summary;
-  Forecast_Data_Next6Hours_SummaryBuilder get summary => _$this._summary ??= Forecast_Data_Next6Hours_SummaryBuilder();
+  Forecast_Data_Next6Hours_SummaryBuilder get summary =>
+      _$this._summary ??= new Forecast_Data_Next6Hours_SummaryBuilder();
   set summary(covariant Forecast_Data_Next6Hours_SummaryBuilder? summary) => _$this._summary = summary;
 
   Forecast_Data_Next6Hours_DetailsBuilder? _details;
-  Forecast_Data_Next6Hours_DetailsBuilder get details => _$this._details ??= Forecast_Data_Next6Hours_DetailsBuilder();
+  Forecast_Data_Next6Hours_DetailsBuilder get details =>
+      _$this._details ??= new Forecast_Data_Next6Hours_DetailsBuilder();
   set details(covariant Forecast_Data_Next6Hours_DetailsBuilder? details) => _$this._details = details;
 
   Forecast_Data_Next6HoursBuilder() {
@@ -5012,7 +5018,7 @@ class Forecast_Data_Next6HoursBuilder
     _$Forecast_Data_Next6Hours _$result;
     try {
       _$result = _$v ??
-          _$Forecast_Data_Next6Hours._(
+          new _$Forecast_Data_Next6Hours._(
             summary: summary.build(),
             details: details.build(),
           );
@@ -5024,7 +5030,7 @@ class Forecast_Data_Next6HoursBuilder
         _$failedField = 'details';
         details.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Forecast_Data_Next6Hours', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'Forecast_Data_Next6Hours', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -5060,7 +5066,7 @@ class _$Forecast_Data extends Forecast_Data {
   final Forecast_Data_Next6Hours next6Hours;
 
   factory _$Forecast_Data([void Function(Forecast_DataBuilder)? updates]) =>
-      (Forecast_DataBuilder()..update(updates))._build();
+      (new Forecast_DataBuilder()..update(updates))._build();
 
   _$Forecast_Data._(
       {required this.instant, required this.next12Hours, required this.next1Hours, required this.next6Hours})
@@ -5075,7 +5081,7 @@ class _$Forecast_Data extends Forecast_Data {
   Forecast_Data rebuild(void Function(Forecast_DataBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  Forecast_DataBuilder toBuilder() => Forecast_DataBuilder()..replace(this);
+  Forecast_DataBuilder toBuilder() => new Forecast_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -5113,19 +5119,19 @@ class Forecast_DataBuilder implements Builder<Forecast_Data, Forecast_DataBuilde
   _$Forecast_Data? _$v;
 
   Forecast_Data_InstantBuilder? _instant;
-  Forecast_Data_InstantBuilder get instant => _$this._instant ??= Forecast_Data_InstantBuilder();
+  Forecast_Data_InstantBuilder get instant => _$this._instant ??= new Forecast_Data_InstantBuilder();
   set instant(covariant Forecast_Data_InstantBuilder? instant) => _$this._instant = instant;
 
   Forecast_Data_Next12HoursBuilder? _next12Hours;
-  Forecast_Data_Next12HoursBuilder get next12Hours => _$this._next12Hours ??= Forecast_Data_Next12HoursBuilder();
+  Forecast_Data_Next12HoursBuilder get next12Hours => _$this._next12Hours ??= new Forecast_Data_Next12HoursBuilder();
   set next12Hours(covariant Forecast_Data_Next12HoursBuilder? next12Hours) => _$this._next12Hours = next12Hours;
 
   Forecast_Data_Next1HoursBuilder? _next1Hours;
-  Forecast_Data_Next1HoursBuilder get next1Hours => _$this._next1Hours ??= Forecast_Data_Next1HoursBuilder();
+  Forecast_Data_Next1HoursBuilder get next1Hours => _$this._next1Hours ??= new Forecast_Data_Next1HoursBuilder();
   set next1Hours(covariant Forecast_Data_Next1HoursBuilder? next1Hours) => _$this._next1Hours = next1Hours;
 
   Forecast_Data_Next6HoursBuilder? _next6Hours;
-  Forecast_Data_Next6HoursBuilder get next6Hours => _$this._next6Hours ??= Forecast_Data_Next6HoursBuilder();
+  Forecast_Data_Next6HoursBuilder get next6Hours => _$this._next6Hours ??= new Forecast_Data_Next6HoursBuilder();
   set next6Hours(covariant Forecast_Data_Next6HoursBuilder? next6Hours) => _$this._next6Hours = next6Hours;
 
   Forecast_DataBuilder() {
@@ -5163,7 +5169,7 @@ class Forecast_DataBuilder implements Builder<Forecast_Data, Forecast_DataBuilde
     _$Forecast_Data _$result;
     try {
       _$result = _$v ??
-          _$Forecast_Data._(
+          new _$Forecast_Data._(
             instant: instant.build(),
             next12Hours: next12Hours.build(),
             next1Hours: next1Hours.build(),
@@ -5181,7 +5187,7 @@ class Forecast_DataBuilder implements Builder<Forecast_Data, Forecast_DataBuilde
         _$failedField = 'next6Hours';
         next6Hours.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Forecast_Data', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'Forecast_Data', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -5206,7 +5212,7 @@ class _$Forecast extends Forecast {
   @override
   final Forecast_Data data;
 
-  factory _$Forecast([void Function(ForecastBuilder)? updates]) => (ForecastBuilder()..update(updates))._build();
+  factory _$Forecast([void Function(ForecastBuilder)? updates]) => (new ForecastBuilder()..update(updates))._build();
 
   _$Forecast._({required this.time, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(time, r'Forecast', 'time');
@@ -5217,7 +5223,7 @@ class _$Forecast extends Forecast {
   Forecast rebuild(void Function(ForecastBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  ForecastBuilder toBuilder() => ForecastBuilder()..replace(this);
+  ForecastBuilder toBuilder() => new ForecastBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -5251,7 +5257,7 @@ class ForecastBuilder implements Builder<Forecast, ForecastBuilder>, $ForecastIn
   set time(covariant String? time) => _$this._time = time;
 
   Forecast_DataBuilder? _data;
-  Forecast_DataBuilder get data => _$this._data ??= Forecast_DataBuilder();
+  Forecast_DataBuilder get data => _$this._data ??= new Forecast_DataBuilder();
   set data(covariant Forecast_DataBuilder? data) => _$this._data = data;
 
   ForecastBuilder() {
@@ -5287,7 +5293,7 @@ class ForecastBuilder implements Builder<Forecast, ForecastBuilder>, $ForecastIn
     _$Forecast _$result;
     try {
       _$result = _$v ??
-          _$Forecast._(
+          new _$Forecast._(
             time: BuiltValueNullFieldError.checkNotNull(time, r'Forecast', 'time'),
             data: data.build(),
           );
@@ -5297,7 +5303,7 @@ class ForecastBuilder implements Builder<Forecast, ForecastBuilder>, $ForecastIn
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Forecast', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'Forecast', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -5320,7 +5326,7 @@ class _$WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1
 
   factory _$WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1(
           [void Function(WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Builder)? updates]) =>
-      (WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Builder()..update(updates))._build();
+      (new WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Builder()..update(updates))._build();
 
   _$WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1._({required this.error}) : super._() {
     BuiltValueNullFieldError.checkNotNull(error, r'WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1', 'error');
@@ -5333,7 +5339,7 @@ class _$WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1
 
   @override
   WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Builder toBuilder() =>
-      WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Builder()..replace(this);
+      new WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Builder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -5398,7 +5404,7 @@ class WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Builder
   _$WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1 _build() {
     WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1._validate(this);
     final _$result = _$v ??
-        _$WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1._(
+        new _$WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1._(
           error: BuiltValueNullFieldError.checkNotNull(
               error, r'WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1', 'error'),
         );
@@ -5426,7 +5432,7 @@ class _$WeatherStatusGetForecastResponseApplicationJson_Ocs
 
   factory _$WeatherStatusGetForecastResponseApplicationJson_Ocs(
           [void Function(WeatherStatusGetForecastResponseApplicationJson_OcsBuilder)? updates]) =>
-      (WeatherStatusGetForecastResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (new WeatherStatusGetForecastResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$WeatherStatusGetForecastResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'WeatherStatusGetForecastResponseApplicationJson_Ocs', 'meta');
@@ -5440,7 +5446,7 @@ class _$WeatherStatusGetForecastResponseApplicationJson_Ocs
 
   @override
   WeatherStatusGetForecastResponseApplicationJson_OcsBuilder toBuilder() =>
-      WeatherStatusGetForecastResponseApplicationJson_OcsBuilder()..replace(this);
+      new WeatherStatusGetForecastResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -5477,7 +5483,7 @@ class WeatherStatusGetForecastResponseApplicationJson_OcsBuilder
   _$WeatherStatusGetForecastResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   WeatherStatusGetForecastResponseApplicationJson_Ocs_Data? _data;
@@ -5517,7 +5523,7 @@ class WeatherStatusGetForecastResponseApplicationJson_OcsBuilder
     _$WeatherStatusGetForecastResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$WeatherStatusGetForecastResponseApplicationJson_Ocs._(
+          new _$WeatherStatusGetForecastResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(
                 data, r'WeatherStatusGetForecastResponseApplicationJson_Ocs', 'data'),
@@ -5528,7 +5534,7 @@ class WeatherStatusGetForecastResponseApplicationJson_OcsBuilder
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'WeatherStatusGetForecastResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -5551,7 +5557,7 @@ class _$WeatherStatusGetForecastResponseApplicationJson extends WeatherStatusGet
 
   factory _$WeatherStatusGetForecastResponseApplicationJson(
           [void Function(WeatherStatusGetForecastResponseApplicationJsonBuilder)? updates]) =>
-      (WeatherStatusGetForecastResponseApplicationJsonBuilder()..update(updates))._build();
+      (new WeatherStatusGetForecastResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$WeatherStatusGetForecastResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'WeatherStatusGetForecastResponseApplicationJson', 'ocs');
@@ -5564,7 +5570,7 @@ class _$WeatherStatusGetForecastResponseApplicationJson extends WeatherStatusGet
 
   @override
   WeatherStatusGetForecastResponseApplicationJsonBuilder toBuilder() =>
-      WeatherStatusGetForecastResponseApplicationJsonBuilder()..replace(this);
+      new WeatherStatusGetForecastResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -5596,7 +5602,7 @@ class WeatherStatusGetForecastResponseApplicationJsonBuilder
 
   WeatherStatusGetForecastResponseApplicationJson_OcsBuilder? _ocs;
   WeatherStatusGetForecastResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= WeatherStatusGetForecastResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= new WeatherStatusGetForecastResponseApplicationJson_OcsBuilder();
   set ocs(covariant WeatherStatusGetForecastResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   WeatherStatusGetForecastResponseApplicationJsonBuilder() {
@@ -5631,7 +5637,7 @@ class WeatherStatusGetForecastResponseApplicationJsonBuilder
     _$WeatherStatusGetForecastResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$WeatherStatusGetForecastResponseApplicationJson._(
+          new _$WeatherStatusGetForecastResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -5640,7 +5646,7 @@ class WeatherStatusGetForecastResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'WeatherStatusGetForecastResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -5669,7 +5675,7 @@ class _$WeatherStatusGetFavoritesResponseApplicationJson_Ocs
 
   factory _$WeatherStatusGetFavoritesResponseApplicationJson_Ocs(
           [void Function(WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder)? updates]) =>
-      (WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (new WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$WeatherStatusGetFavoritesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'WeatherStatusGetFavoritesResponseApplicationJson_Ocs', 'meta');
@@ -5683,7 +5689,7 @@ class _$WeatherStatusGetFavoritesResponseApplicationJson_Ocs
 
   @override
   WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder toBuilder() =>
-      WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder()..replace(this);
+      new WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -5717,11 +5723,11 @@ class WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder
   _$WeatherStatusGetFavoritesResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<String>? _data;
-  ListBuilder<String> get data => _$this._data ??= ListBuilder<String>();
+  ListBuilder<String> get data => _$this._data ??= new ListBuilder<String>();
   set data(covariant ListBuilder<String>? data) => _$this._data = data;
 
   WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder() {
@@ -5757,7 +5763,7 @@ class WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder
     _$WeatherStatusGetFavoritesResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$WeatherStatusGetFavoritesResponseApplicationJson_Ocs._(
+          new _$WeatherStatusGetFavoritesResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -5769,7 +5775,7 @@ class WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'WeatherStatusGetFavoritesResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -5792,7 +5798,7 @@ class _$WeatherStatusGetFavoritesResponseApplicationJson extends WeatherStatusGe
 
   factory _$WeatherStatusGetFavoritesResponseApplicationJson(
           [void Function(WeatherStatusGetFavoritesResponseApplicationJsonBuilder)? updates]) =>
-      (WeatherStatusGetFavoritesResponseApplicationJsonBuilder()..update(updates))._build();
+      (new WeatherStatusGetFavoritesResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$WeatherStatusGetFavoritesResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'WeatherStatusGetFavoritesResponseApplicationJson', 'ocs');
@@ -5805,7 +5811,7 @@ class _$WeatherStatusGetFavoritesResponseApplicationJson extends WeatherStatusGe
 
   @override
   WeatherStatusGetFavoritesResponseApplicationJsonBuilder toBuilder() =>
-      WeatherStatusGetFavoritesResponseApplicationJsonBuilder()..replace(this);
+      new WeatherStatusGetFavoritesResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -5837,7 +5843,7 @@ class WeatherStatusGetFavoritesResponseApplicationJsonBuilder
 
   WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder? _ocs;
   WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= new WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder();
   set ocs(covariant WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   WeatherStatusGetFavoritesResponseApplicationJsonBuilder() {
@@ -5872,7 +5878,7 @@ class WeatherStatusGetFavoritesResponseApplicationJsonBuilder
     _$WeatherStatusGetFavoritesResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$WeatherStatusGetFavoritesResponseApplicationJson._(
+          new _$WeatherStatusGetFavoritesResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -5881,7 +5887,7 @@ class WeatherStatusGetFavoritesResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'WeatherStatusGetFavoritesResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -5904,7 +5910,7 @@ class _$WeatherStatusSetFavoritesRequestApplicationJson extends WeatherStatusSet
 
   factory _$WeatherStatusSetFavoritesRequestApplicationJson(
           [void Function(WeatherStatusSetFavoritesRequestApplicationJsonBuilder)? updates]) =>
-      (WeatherStatusSetFavoritesRequestApplicationJsonBuilder()..update(updates))._build();
+      (new WeatherStatusSetFavoritesRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$WeatherStatusSetFavoritesRequestApplicationJson._({required this.favorites}) : super._() {
     BuiltValueNullFieldError.checkNotNull(favorites, r'WeatherStatusSetFavoritesRequestApplicationJson', 'favorites');
@@ -5917,7 +5923,7 @@ class _$WeatherStatusSetFavoritesRequestApplicationJson extends WeatherStatusSet
 
   @override
   WeatherStatusSetFavoritesRequestApplicationJsonBuilder toBuilder() =>
-      WeatherStatusSetFavoritesRequestApplicationJsonBuilder()..replace(this);
+      new WeatherStatusSetFavoritesRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -5949,7 +5955,7 @@ class WeatherStatusSetFavoritesRequestApplicationJsonBuilder
   _$WeatherStatusSetFavoritesRequestApplicationJson? _$v;
 
   ListBuilder<String>? _favorites;
-  ListBuilder<String> get favorites => _$this._favorites ??= ListBuilder<String>();
+  ListBuilder<String> get favorites => _$this._favorites ??= new ListBuilder<String>();
   set favorites(covariant ListBuilder<String>? favorites) => _$this._favorites = favorites;
 
   WeatherStatusSetFavoritesRequestApplicationJsonBuilder() {
@@ -5984,7 +5990,7 @@ class WeatherStatusSetFavoritesRequestApplicationJsonBuilder
     _$WeatherStatusSetFavoritesRequestApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$WeatherStatusSetFavoritesRequestApplicationJson._(
+          new _$WeatherStatusSetFavoritesRequestApplicationJson._(
             favorites: favorites.build(),
           );
     } catch (_) {
@@ -5993,7 +5999,7 @@ class WeatherStatusSetFavoritesRequestApplicationJsonBuilder
         _$failedField = 'favorites';
         favorites.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'WeatherStatusSetFavoritesRequestApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -6022,7 +6028,7 @@ class _$WeatherStatusSetFavoritesResponseApplicationJson_Ocs
 
   factory _$WeatherStatusSetFavoritesResponseApplicationJson_Ocs(
           [void Function(WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder)? updates]) =>
-      (WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (new WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$WeatherStatusSetFavoritesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
     BuiltValueNullFieldError.checkNotNull(meta, r'WeatherStatusSetFavoritesResponseApplicationJson_Ocs', 'meta');
@@ -6036,7 +6042,7 @@ class _$WeatherStatusSetFavoritesResponseApplicationJson_Ocs
 
   @override
   WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder toBuilder() =>
-      WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder()..replace(this);
+      new WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -6070,11 +6076,11 @@ class WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder
   _$WeatherStatusSetFavoritesResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   SuccessBuilder? _data;
-  SuccessBuilder get data => _$this._data ??= SuccessBuilder();
+  SuccessBuilder get data => _$this._data ??= new SuccessBuilder();
   set data(covariant SuccessBuilder? data) => _$this._data = data;
 
   WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder() {
@@ -6110,7 +6116,7 @@ class WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder
     _$WeatherStatusSetFavoritesResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          _$WeatherStatusSetFavoritesResponseApplicationJson_Ocs._(
+          new _$WeatherStatusSetFavoritesResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -6122,7 +6128,7 @@ class WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'WeatherStatusSetFavoritesResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -6145,7 +6151,7 @@ class _$WeatherStatusSetFavoritesResponseApplicationJson extends WeatherStatusSe
 
   factory _$WeatherStatusSetFavoritesResponseApplicationJson(
           [void Function(WeatherStatusSetFavoritesResponseApplicationJsonBuilder)? updates]) =>
-      (WeatherStatusSetFavoritesResponseApplicationJsonBuilder()..update(updates))._build();
+      (new WeatherStatusSetFavoritesResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$WeatherStatusSetFavoritesResponseApplicationJson._({required this.ocs}) : super._() {
     BuiltValueNullFieldError.checkNotNull(ocs, r'WeatherStatusSetFavoritesResponseApplicationJson', 'ocs');
@@ -6158,7 +6164,7 @@ class _$WeatherStatusSetFavoritesResponseApplicationJson extends WeatherStatusSe
 
   @override
   WeatherStatusSetFavoritesResponseApplicationJsonBuilder toBuilder() =>
-      WeatherStatusSetFavoritesResponseApplicationJsonBuilder()..replace(this);
+      new WeatherStatusSetFavoritesResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -6190,7 +6196,7 @@ class WeatherStatusSetFavoritesResponseApplicationJsonBuilder
 
   WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder? _ocs;
   WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= new WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder();
   set ocs(covariant WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   WeatherStatusSetFavoritesResponseApplicationJsonBuilder() {
@@ -6225,7 +6231,7 @@ class WeatherStatusSetFavoritesResponseApplicationJsonBuilder
     _$WeatherStatusSetFavoritesResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          _$WeatherStatusSetFavoritesResponseApplicationJson._(
+          new _$WeatherStatusSetFavoritesResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -6234,7 +6240,7 @@ class WeatherStatusSetFavoritesResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             r'WeatherStatusSetFavoritesResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -6256,7 +6262,7 @@ class _$Capabilities_WeatherStatus extends Capabilities_WeatherStatus {
   final bool enabled;
 
   factory _$Capabilities_WeatherStatus([void Function(Capabilities_WeatherStatusBuilder)? updates]) =>
-      (Capabilities_WeatherStatusBuilder()..update(updates))._build();
+      (new Capabilities_WeatherStatusBuilder()..update(updates))._build();
 
   _$Capabilities_WeatherStatus._({required this.enabled}) : super._() {
     BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_WeatherStatus', 'enabled');
@@ -6267,7 +6273,7 @@ class _$Capabilities_WeatherStatus extends Capabilities_WeatherStatus {
       (toBuilder()..update(updates)).build();
 
   @override
-  Capabilities_WeatherStatusBuilder toBuilder() => Capabilities_WeatherStatusBuilder()..replace(this);
+  Capabilities_WeatherStatusBuilder toBuilder() => new Capabilities_WeatherStatusBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -6329,7 +6335,7 @@ class Capabilities_WeatherStatusBuilder
   _$Capabilities_WeatherStatus _build() {
     Capabilities_WeatherStatus._validate(this);
     final _$result = _$v ??
-        _$Capabilities_WeatherStatus._(
+        new _$Capabilities_WeatherStatus._(
           enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_WeatherStatus', 'enabled'),
         );
     replace(_$result);
@@ -6349,7 +6355,7 @@ class _$Capabilities extends Capabilities {
   final Capabilities_WeatherStatus weatherStatus;
 
   factory _$Capabilities([void Function(CapabilitiesBuilder)? updates]) =>
-      (CapabilitiesBuilder()..update(updates))._build();
+      (new CapabilitiesBuilder()..update(updates))._build();
 
   _$Capabilities._({required this.weatherStatus}) : super._() {
     BuiltValueNullFieldError.checkNotNull(weatherStatus, r'Capabilities', 'weatherStatus');
@@ -6359,7 +6365,7 @@ class _$Capabilities extends Capabilities {
   Capabilities rebuild(void Function(CapabilitiesBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  CapabilitiesBuilder toBuilder() => CapabilitiesBuilder()..replace(this);
+  CapabilitiesBuilder toBuilder() => new CapabilitiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -6385,7 +6391,8 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   _$Capabilities? _$v;
 
   Capabilities_WeatherStatusBuilder? _weatherStatus;
-  Capabilities_WeatherStatusBuilder get weatherStatus => _$this._weatherStatus ??= Capabilities_WeatherStatusBuilder();
+  Capabilities_WeatherStatusBuilder get weatherStatus =>
+      _$this._weatherStatus ??= new Capabilities_WeatherStatusBuilder();
   set weatherStatus(covariant Capabilities_WeatherStatusBuilder? weatherStatus) =>
       _$this._weatherStatus = weatherStatus;
 
@@ -6421,7 +6428,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     _$Capabilities _$result;
     try {
       _$result = _$v ??
-          _$Capabilities._(
+          new _$Capabilities._(
             weatherStatus: weatherStatus.build(),
           );
     } catch (_) {
@@ -6430,7 +6437,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
         _$failedField = 'weatherStatus';
         weatherStatus.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
       }
       rethrow;
     }

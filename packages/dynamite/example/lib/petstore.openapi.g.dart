@@ -6,9 +6,9 @@ part of 'petstore.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<NewPet> _$newPetSerializer = _$NewPetSerializer();
-Serializer<Pet> _$petSerializer = _$PetSerializer();
-Serializer<Error> _$errorSerializer = _$ErrorSerializer();
+Serializer<NewPet> _$newPetSerializer = new _$NewPetSerializer();
+Serializer<Pet> _$petSerializer = new _$PetSerializer();
+Serializer<Error> _$errorSerializer = new _$ErrorSerializer();
 
 class _$NewPetSerializer implements StructuredSerializer<NewPet> {
   @override
@@ -35,7 +35,7 @@ class _$NewPetSerializer implements StructuredSerializer<NewPet> {
   @override
   NewPet deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NewPetBuilder();
+    final result = new NewPetBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -83,7 +83,7 @@ class _$PetSerializer implements StructuredSerializer<Pet> {
   @override
   Pet deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = PetBuilder();
+    final result = new PetBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -128,7 +128,7 @@ class _$ErrorSerializer implements StructuredSerializer<Error> {
   @override
   Error deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ErrorBuilder();
+    final result = new ErrorBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -165,7 +165,7 @@ class _$NewPet extends NewPet {
   @override
   final String? tag;
 
-  factory _$NewPet([void Function(NewPetBuilder)? updates]) => (NewPetBuilder()..update(updates))._build();
+  factory _$NewPet([void Function(NewPetBuilder)? updates]) => (new NewPetBuilder()..update(updates))._build();
 
   _$NewPet._({required this.name, this.tag}) : super._() {
     BuiltValueNullFieldError.checkNotNull(name, r'NewPet', 'name');
@@ -175,7 +175,7 @@ class _$NewPet extends NewPet {
   NewPet rebuild(void Function(NewPetBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  NewPetBuilder toBuilder() => NewPetBuilder()..replace(this);
+  NewPetBuilder toBuilder() => new NewPetBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -243,7 +243,7 @@ class NewPetBuilder implements Builder<NewPet, NewPetBuilder>, $NewPetInterfaceB
   _$NewPet _build() {
     NewPet._validate(this);
     final _$result = _$v ??
-        _$NewPet._(
+        new _$NewPet._(
           name: BuiltValueNullFieldError.checkNotNull(name, r'NewPet', 'name'),
           tag: tag,
         );
@@ -273,7 +273,7 @@ class _$Pet extends Pet {
   @override
   final String? tag;
 
-  factory _$Pet([void Function(PetBuilder)? updates]) => (PetBuilder()..update(updates))._build();
+  factory _$Pet([void Function(PetBuilder)? updates]) => (new PetBuilder()..update(updates))._build();
 
   _$Pet._({required this.id, required this.name, this.tag}) : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'Pet', 'id');
@@ -284,7 +284,7 @@ class _$Pet extends Pet {
   Pet rebuild(void Function(PetBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  PetBuilder toBuilder() => PetBuilder()..replace(this);
+  PetBuilder toBuilder() => new PetBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -359,7 +359,7 @@ class PetBuilder implements Builder<Pet, PetBuilder>, $PetInterfaceBuilder {
   _$Pet _build() {
     Pet._validate(this);
     final _$result = _$v ??
-        _$Pet._(
+        new _$Pet._(
           id: BuiltValueNullFieldError.checkNotNull(id, r'Pet', 'id'),
           name: BuiltValueNullFieldError.checkNotNull(name, r'Pet', 'name'),
           tag: tag,
@@ -385,7 +385,7 @@ class _$Error extends Error {
   @override
   final String message;
 
-  factory _$Error([void Function(ErrorBuilder)? updates]) => (ErrorBuilder()..update(updates))._build();
+  factory _$Error([void Function(ErrorBuilder)? updates]) => (new ErrorBuilder()..update(updates))._build();
 
   _$Error._({required this.code, required this.message}) : super._() {
     BuiltValueNullFieldError.checkNotNull(code, r'Error', 'code');
@@ -396,7 +396,7 @@ class _$Error extends Error {
   Error rebuild(void Function(ErrorBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  ErrorBuilder toBuilder() => ErrorBuilder()..replace(this);
+  ErrorBuilder toBuilder() => new ErrorBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -464,7 +464,7 @@ class ErrorBuilder implements Builder<Error, ErrorBuilder>, $ErrorInterfaceBuild
   _$Error _build() {
     Error._validate(this);
     final _$result = _$v ??
-        _$Error._(
+        new _$Error._(
           code: BuiltValueNullFieldError.checkNotNull(code, r'Error', 'code'),
           message: BuiltValueNullFieldError.checkNotNull(message, r'Error', 'message'),
         );

@@ -6,7 +6,7 @@ part of 'some_of.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<OneValueSomeOfInObject> _$oneValueSomeOfInObjectSerializer = _$OneValueSomeOfInObjectSerializer();
+Serializer<OneValueSomeOfInObject> _$oneValueSomeOfInObjectSerializer = new _$OneValueSomeOfInObjectSerializer();
 
 class _$OneValueSomeOfInObjectSerializer implements StructuredSerializer<OneValueSomeOfInObject> {
   @override
@@ -36,7 +36,7 @@ class _$OneValueSomeOfInObjectSerializer implements StructuredSerializer<OneValu
   @override
   OneValueSomeOfInObject deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = OneValueSomeOfInObjectBuilder();
+    final result = new OneValueSomeOfInObjectBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -84,7 +84,7 @@ class _$OneValueSomeOfInObject extends OneValueSomeOfInObject {
   final OneValueSomeOfInObject_IntDoubleString? intDoubleString;
 
   factory _$OneValueSomeOfInObject([void Function(OneValueSomeOfInObjectBuilder)? updates]) =>
-      (OneValueSomeOfInObjectBuilder()..update(updates))._build();
+      (new OneValueSomeOfInObjectBuilder()..update(updates))._build();
 
   _$OneValueSomeOfInObject._({required this.oneValue, required this.intDouble, this.intDoubleString}) : super._() {
     BuiltValueNullFieldError.checkNotNull(oneValue, r'OneValueSomeOfInObject', 'oneValue');
@@ -96,7 +96,7 @@ class _$OneValueSomeOfInObject extends OneValueSomeOfInObject {
       (toBuilder()..update(updates)).build();
 
   @override
-  OneValueSomeOfInObjectBuilder toBuilder() => OneValueSomeOfInObjectBuilder()..replace(this);
+  OneValueSomeOfInObjectBuilder toBuilder() => new OneValueSomeOfInObjectBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -177,7 +177,7 @@ class OneValueSomeOfInObjectBuilder
   _$OneValueSomeOfInObject _build() {
     OneValueSomeOfInObject._validate(this);
     final _$result = _$v ??
-        _$OneValueSomeOfInObject._(
+        new _$OneValueSomeOfInObject._(
           oneValue: BuiltValueNullFieldError.checkNotNull(oneValue, r'OneValueSomeOfInObject', 'oneValue'),
           intDouble: BuiltValueNullFieldError.checkNotNull(intDouble, r'OneValueSomeOfInObject', 'intDouble'),
           intDoubleString: intDoubleString,

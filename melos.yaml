@@ -32,7 +32,7 @@ command:
         git commit --amend --signoff --no-edit
 
 scripts:
-  format: dart format --fix --line-length 120 .
+  format: dart format --line-length 120 .
   format:check: dart format --output=none --set-exit-if-changed --line-length 120 .
   analyze: >
     dart analyze --fatal-infos . &&

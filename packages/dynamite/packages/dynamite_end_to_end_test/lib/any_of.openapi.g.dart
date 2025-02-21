@@ -6,10 +6,10 @@ part of 'any_of.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<ObjectAnyOf0> _$objectAnyOf0Serializer = _$ObjectAnyOf0Serializer();
-Serializer<ObjectAnyOf1> _$objectAnyOf1Serializer = _$ObjectAnyOf1Serializer();
-Serializer<MixedAnyOf1> _$mixedAnyOf1Serializer = _$MixedAnyOf1Serializer();
-Serializer<OneObjectAnyOf0> _$oneObjectAnyOf0Serializer = _$OneObjectAnyOf0Serializer();
+Serializer<ObjectAnyOf0> _$objectAnyOf0Serializer = new _$ObjectAnyOf0Serializer();
+Serializer<ObjectAnyOf1> _$objectAnyOf1Serializer = new _$ObjectAnyOf1Serializer();
+Serializer<MixedAnyOf1> _$mixedAnyOf1Serializer = new _$MixedAnyOf1Serializer();
+Serializer<OneObjectAnyOf0> _$oneObjectAnyOf0Serializer = new _$OneObjectAnyOf0Serializer();
 
 class _$ObjectAnyOf0Serializer implements StructuredSerializer<ObjectAnyOf0> {
   @override
@@ -31,7 +31,7 @@ class _$ObjectAnyOf0Serializer implements StructuredSerializer<ObjectAnyOf0> {
   @override
   ObjectAnyOf0 deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ObjectAnyOf0Builder();
+    final result = new ObjectAnyOf0Builder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -69,7 +69,7 @@ class _$ObjectAnyOf1Serializer implements StructuredSerializer<ObjectAnyOf1> {
   @override
   ObjectAnyOf1 deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = ObjectAnyOf1Builder();
+    final result = new ObjectAnyOf1Builder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -107,7 +107,7 @@ class _$MixedAnyOf1Serializer implements StructuredSerializer<MixedAnyOf1> {
   @override
   MixedAnyOf1 deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = MixedAnyOf1Builder();
+    final result = new MixedAnyOf1Builder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -145,7 +145,7 @@ class _$OneObjectAnyOf0Serializer implements StructuredSerializer<OneObjectAnyOf
   @override
   OneObjectAnyOf0 deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = OneObjectAnyOf0Builder();
+    final result = new OneObjectAnyOf0Builder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -175,7 +175,7 @@ class _$ObjectAnyOf0 extends ObjectAnyOf0 {
   final String attribute1AnyOf;
 
   factory _$ObjectAnyOf0([void Function(ObjectAnyOf0Builder)? updates]) =>
-      (ObjectAnyOf0Builder()..update(updates))._build();
+      (new ObjectAnyOf0Builder()..update(updates))._build();
 
   _$ObjectAnyOf0._({required this.attribute1AnyOf}) : super._() {
     BuiltValueNullFieldError.checkNotNull(attribute1AnyOf, r'ObjectAnyOf0', 'attribute1AnyOf');
@@ -185,7 +185,7 @@ class _$ObjectAnyOf0 extends ObjectAnyOf0 {
   ObjectAnyOf0 rebuild(void Function(ObjectAnyOf0Builder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  ObjectAnyOf0Builder toBuilder() => ObjectAnyOf0Builder()..replace(this);
+  ObjectAnyOf0Builder toBuilder() => new ObjectAnyOf0Builder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -244,7 +244,7 @@ class ObjectAnyOf0Builder implements Builder<ObjectAnyOf0, ObjectAnyOf0Builder>,
   _$ObjectAnyOf0 _build() {
     ObjectAnyOf0._validate(this);
     final _$result = _$v ??
-        _$ObjectAnyOf0._(
+        new _$ObjectAnyOf0._(
           attribute1AnyOf: BuiltValueNullFieldError.checkNotNull(attribute1AnyOf, r'ObjectAnyOf0', 'attribute1AnyOf'),
         );
     replace(_$result);
@@ -264,7 +264,7 @@ class _$ObjectAnyOf1 extends ObjectAnyOf1 {
   final String attribute2AnyOf;
 
   factory _$ObjectAnyOf1([void Function(ObjectAnyOf1Builder)? updates]) =>
-      (ObjectAnyOf1Builder()..update(updates))._build();
+      (new ObjectAnyOf1Builder()..update(updates))._build();
 
   _$ObjectAnyOf1._({required this.attribute2AnyOf}) : super._() {
     BuiltValueNullFieldError.checkNotNull(attribute2AnyOf, r'ObjectAnyOf1', 'attribute2AnyOf');
@@ -274,7 +274,7 @@ class _$ObjectAnyOf1 extends ObjectAnyOf1 {
   ObjectAnyOf1 rebuild(void Function(ObjectAnyOf1Builder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  ObjectAnyOf1Builder toBuilder() => ObjectAnyOf1Builder()..replace(this);
+  ObjectAnyOf1Builder toBuilder() => new ObjectAnyOf1Builder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -333,7 +333,7 @@ class ObjectAnyOf1Builder implements Builder<ObjectAnyOf1, ObjectAnyOf1Builder>,
   _$ObjectAnyOf1 _build() {
     ObjectAnyOf1._validate(this);
     final _$result = _$v ??
-        _$ObjectAnyOf1._(
+        new _$ObjectAnyOf1._(
           attribute2AnyOf: BuiltValueNullFieldError.checkNotNull(attribute2AnyOf, r'ObjectAnyOf1', 'attribute2AnyOf'),
         );
     replace(_$result);
@@ -353,7 +353,7 @@ class _$MixedAnyOf1 extends MixedAnyOf1 {
   final String attributeAnyOf;
 
   factory _$MixedAnyOf1([void Function(MixedAnyOf1Builder)? updates]) =>
-      (MixedAnyOf1Builder()..update(updates))._build();
+      (new MixedAnyOf1Builder()..update(updates))._build();
 
   _$MixedAnyOf1._({required this.attributeAnyOf}) : super._() {
     BuiltValueNullFieldError.checkNotNull(attributeAnyOf, r'MixedAnyOf1', 'attributeAnyOf');
@@ -363,7 +363,7 @@ class _$MixedAnyOf1 extends MixedAnyOf1 {
   MixedAnyOf1 rebuild(void Function(MixedAnyOf1Builder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  MixedAnyOf1Builder toBuilder() => MixedAnyOf1Builder()..replace(this);
+  MixedAnyOf1Builder toBuilder() => new MixedAnyOf1Builder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -422,7 +422,7 @@ class MixedAnyOf1Builder implements Builder<MixedAnyOf1, MixedAnyOf1Builder>, $M
   _$MixedAnyOf1 _build() {
     MixedAnyOf1._validate(this);
     final _$result = _$v ??
-        _$MixedAnyOf1._(
+        new _$MixedAnyOf1._(
           attributeAnyOf: BuiltValueNullFieldError.checkNotNull(attributeAnyOf, r'MixedAnyOf1', 'attributeAnyOf'),
         );
     replace(_$result);
@@ -442,7 +442,7 @@ class _$OneObjectAnyOf0 extends OneObjectAnyOf0 {
   final String attributeAnyOf;
 
   factory _$OneObjectAnyOf0([void Function(OneObjectAnyOf0Builder)? updates]) =>
-      (OneObjectAnyOf0Builder()..update(updates))._build();
+      (new OneObjectAnyOf0Builder()..update(updates))._build();
 
   _$OneObjectAnyOf0._({required this.attributeAnyOf}) : super._() {
     BuiltValueNullFieldError.checkNotNull(attributeAnyOf, r'OneObjectAnyOf0', 'attributeAnyOf');
@@ -452,7 +452,7 @@ class _$OneObjectAnyOf0 extends OneObjectAnyOf0 {
   OneObjectAnyOf0 rebuild(void Function(OneObjectAnyOf0Builder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  OneObjectAnyOf0Builder toBuilder() => OneObjectAnyOf0Builder()..replace(this);
+  OneObjectAnyOf0Builder toBuilder() => new OneObjectAnyOf0Builder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -512,7 +512,7 @@ class OneObjectAnyOf0Builder
   _$OneObjectAnyOf0 _build() {
     OneObjectAnyOf0._validate(this);
     final _$result = _$v ??
-        _$OneObjectAnyOf0._(
+        new _$OneObjectAnyOf0._(
           attributeAnyOf: BuiltValueNullFieldError.checkNotNull(attributeAnyOf, r'OneObjectAnyOf0', 'attributeAnyOf'),
         );
     replace(_$result);
