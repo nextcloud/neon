@@ -52,6 +52,11 @@
       "enabled": false
     },
     {
+      "matchManagers": ["git-submodules"],
+      "matchUpdateTypes": ["digest"],
+      "enabled": false
+    },
+    {
       "matchManagers": ["pub"],
       "matchPackageNames": ["timezone"],
       "rangeStrategy": "bump",
