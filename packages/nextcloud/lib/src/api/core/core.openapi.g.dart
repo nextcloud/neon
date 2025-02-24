@@ -7677,7 +7677,13 @@ class _$TablesCapabilities_TablesSerializer implements StructuredSerializer<Tabl
       serializers.serialize(object.columnTypes,
           specifiedType: const FullType(BuiltList, const [const FullType(String)])),
     ];
-
+    Object? value;
+    value = object.isCirclesEnabled;
+    if (value != null) {
+      result
+        ..add('isCirclesEnabled')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     return result;
   }
 
@@ -7705,6 +7711,9 @@ class _$TablesCapabilities_TablesSerializer implements StructuredSerializer<Tabl
         case 'features':
           result.features.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'isCirclesEnabled':
+          result.isCirclesEnabled = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
         case 'column_types':
           result.columnTypes.replace(serializers.deserialize(value,
@@ -32171,6 +32180,9 @@ abstract mixin class $TablesCapabilities_TablesInterfaceBuilder {
   ListBuilder<String> get features;
   set features(ListBuilder<String>? features);
 
+  bool? get isCirclesEnabled;
+  set isCirclesEnabled(bool? isCirclesEnabled);
+
   ListBuilder<String> get columnTypes;
   set columnTypes(ListBuilder<String>? columnTypes);
 }
@@ -32185,6 +32197,8 @@ class _$TablesCapabilities_Tables extends TablesCapabilities_Tables {
   @override
   final BuiltList<String> features;
   @override
+  final bool? isCirclesEnabled;
+  @override
   final BuiltList<String> columnTypes;
 
   factory _$TablesCapabilities_Tables([void Function(TablesCapabilities_TablesBuilder)? updates]) =>
@@ -32195,6 +32209,7 @@ class _$TablesCapabilities_Tables extends TablesCapabilities_Tables {
       required this.version,
       required this.apiVersions,
       required this.features,
+      this.isCirclesEnabled,
       required this.columnTypes})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(enabled, r'TablesCapabilities_Tables', 'enabled');
@@ -32219,6 +32234,7 @@ class _$TablesCapabilities_Tables extends TablesCapabilities_Tables {
         version == other.version &&
         apiVersions == other.apiVersions &&
         features == other.features &&
+        isCirclesEnabled == other.isCirclesEnabled &&
         columnTypes == other.columnTypes;
   }
 
@@ -32229,6 +32245,7 @@ class _$TablesCapabilities_Tables extends TablesCapabilities_Tables {
     _$hash = $jc(_$hash, version.hashCode);
     _$hash = $jc(_$hash, apiVersions.hashCode);
     _$hash = $jc(_$hash, features.hashCode);
+    _$hash = $jc(_$hash, isCirclesEnabled.hashCode);
     _$hash = $jc(_$hash, columnTypes.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -32241,6 +32258,7 @@ class _$TablesCapabilities_Tables extends TablesCapabilities_Tables {
           ..add('version', version)
           ..add('apiVersions', apiVersions)
           ..add('features', features)
+          ..add('isCirclesEnabled', isCirclesEnabled)
           ..add('columnTypes', columnTypes))
         .toString();
   }
@@ -32268,6 +32286,10 @@ class TablesCapabilities_TablesBuilder
   ListBuilder<String> get features => _$this._features ??= new ListBuilder<String>();
   set features(covariant ListBuilder<String>? features) => _$this._features = features;
 
+  bool? _isCirclesEnabled;
+  bool? get isCirclesEnabled => _$this._isCirclesEnabled;
+  set isCirclesEnabled(covariant bool? isCirclesEnabled) => _$this._isCirclesEnabled = isCirclesEnabled;
+
   ListBuilder<String>? _columnTypes;
   ListBuilder<String> get columnTypes => _$this._columnTypes ??= new ListBuilder<String>();
   set columnTypes(covariant ListBuilder<String>? columnTypes) => _$this._columnTypes = columnTypes;
@@ -32283,6 +32305,7 @@ class TablesCapabilities_TablesBuilder
       _version = $v.version;
       _apiVersions = $v.apiVersions.toBuilder();
       _features = $v.features.toBuilder();
+      _isCirclesEnabled = $v.isCirclesEnabled;
       _columnTypes = $v.columnTypes.toBuilder();
       _$v = null;
     }
@@ -32313,6 +32336,7 @@ class TablesCapabilities_TablesBuilder
             version: BuiltValueNullFieldError.checkNotNull(version, r'TablesCapabilities_Tables', 'version'),
             apiVersions: apiVersions.build(),
             features: features.build(),
+            isCirclesEnabled: isCirclesEnabled,
             columnTypes: columnTypes.build(),
           );
     } catch (_) {
@@ -32322,6 +32346,7 @@ class TablesCapabilities_TablesBuilder
         apiVersions.build();
         _$failedField = 'features';
         features.build();
+
         _$failedField = 'columnTypes';
         columnTypes.build();
       } catch (e) {
