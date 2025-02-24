@@ -1,33 +1,43 @@
 [submodule "external/nextcloud-server"]
 	path = external/nextcloud-server
 	url = https://github.com/nextcloud/server.git
+	branch = v30.0.0
 [submodule "external/nextcloud-notifications"]
 	path = external/nextcloud-notifications
 	url = https://github.com/nextcloud/notifications.git
+	branch = v30.0.0
 [submodule "external/nextcloud-spreed"]
 	path = external/nextcloud-spreed
 	url = https://github.com/nextcloud/spreed
+	branch = v20.0.0
 [submodule "external/nextcloud-news"]
 	path = external/nextcloud-news
 	url = https://github.com/nextcloud/news
+	branch = 25.0.0-alpha8
 [submodule "external/nextcloud-notes"]
 	path = external/nextcloud-notes
 	url = https://github.com/nextcloud/notes
+	branch = v4.10.1
 [submodule "external/openapi-specification"]
 	path = external/openapi-specification
 	url = https://github.com/OAI/OpenAPI-Specification.git
+	branch = 3.1.1
 [submodule "external/nextcloud-openapi-extractor"]
 	path = external/nextcloud-openapi-extractor
 	url = https://github.com/nextcloud/openapi-extractor.git
+	branch = v1.0.1
 [submodule "external/nextcloud-drop_account"]
 	path = external/nextcloud-drop_account
 	url = https://framagit.org/framasoft/nextcloud/drop_account.git
+	branch = 2.6.0
 [submodule "external/nextcloud-cookbook"]
 	path = external/nextcloud-cookbook
 	url = https://github.com/nextcloud/cookbook.git
+	branch = v0.11.2
 [submodule "external/nextcloud-tables"]
 	path = external/nextcloud-tables
 	url = https://github.com/nextcloud/tables
+	branch = v0.8.0
 [submodule "external/emoji-metadata"]
 	path = external/emoji-metadata
 	url = https://github.com/googlefonts/emoji-metadata
