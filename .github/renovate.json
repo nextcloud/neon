@@ -3,6 +3,9 @@
   "extends": [
     "config:best-practices"
   ],
+  "git-submodules": {
+    "enabled": true
+  },
   "labels": [
     "dependencies"
   ],
