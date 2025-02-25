@@ -261,7 +261,15 @@ class CacheParameters {
   factory CacheParameters.parseHeaders(Map<String, dynamic> headers) {
     tz.TZDateTime? expiry;
     if (headers.containsKey('expires')) {
-      expiry = parseHttpDate(headers['expires']! as String);
+      try {
+        expiry = parseHttpDate(headers['expires']! as String);
+      } on FormatException catch (error, stackTrace) {
+        _log.finer(
+          'Failed to parse "Expires" header: "${headers['expires']}"',
+          error,
+          stackTrace,
+        );
+      }
     }
 
     return CacheParameters(
