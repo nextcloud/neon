@@ -72,6 +72,9 @@ Serializer<ThemingGetManifestResponseApplicationJson_Icons> _$themingGetManifest
     new _$ThemingGetManifestResponseApplicationJson_IconsSerializer();
 Serializer<ThemingGetManifestResponseApplicationJson> _$themingGetManifestResponseApplicationJsonSerializer =
     new _$ThemingGetManifestResponseApplicationJsonSerializer();
+Serializer<UserThemeSetBackgroundRequestApplicationJson> _$userThemeSetBackgroundRequestApplicationJsonSerializer =
+    new _$UserThemeSetBackgroundRequestApplicationJsonSerializer();
+Serializer<Background> _$backgroundSerializer = new _$BackgroundSerializer();
 Serializer<OCSMeta> _$oCSMetaSerializer = new _$OCSMetaSerializer();
 Serializer<UserThemeEnableThemeResponseApplicationJson_Ocs> _$userThemeEnableThemeResponseApplicationJsonOcsSerializer =
     new _$UserThemeEnableThemeResponseApplicationJson_OcsSerializer();
@@ -212,6 +215,114 @@ class _$ThemingGetManifestResponseApplicationJsonSerializer
           break;
         case 'display':
           result.display = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserThemeSetBackgroundRequestApplicationJsonSerializer
+    implements StructuredSerializer<UserThemeSetBackgroundRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    UserThemeSetBackgroundRequestApplicationJson,
+    _$UserThemeSetBackgroundRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'UserThemeSetBackgroundRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UserThemeSetBackgroundRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'value',
+      serializers.serialize(object.value, specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.color;
+    if (value != null) {
+      result
+        ..add('color')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  UserThemeSetBackgroundRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new UserThemeSetBackgroundRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'value':
+          result.value = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'color':
+          result.color = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$BackgroundSerializer implements StructuredSerializer<Background> {
+  @override
+  final Iterable<Type> types = const [Background, _$Background];
+  @override
+  final String wireName = 'Background';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Background object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'backgroundColor',
+      serializers.serialize(object.backgroundColor, specifiedType: const FullType(String)),
+      'primaryColor',
+      serializers.serialize(object.primaryColor, specifiedType: const FullType(String)),
+      'version',
+      serializers.serialize(object.version, specifiedType: const FullType(int)),
+    ];
+    Object? value;
+    value = object.backgroundImage;
+    if (value != null) {
+      result
+        ..add('backgroundImage')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  Background deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new BackgroundBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'backgroundImage':
+          result.backgroundImage = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'backgroundColor':
+          result.backgroundColor = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'primaryColor':
+          result.primaryColor = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'version':
+          result.version = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
       }
     }
@@ -984,6 +1095,255 @@ class ThemingGetManifestResponseApplicationJsonBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $UserThemeSetBackgroundRequestApplicationJsonInterfaceBuilder {
+  void replace($UserThemeSetBackgroundRequestApplicationJsonInterface other);
+  void update(void Function($UserThemeSetBackgroundRequestApplicationJsonInterfaceBuilder) updates);
+  String? get value;
+  set value(String? value);
+
+  String? get color;
+  set color(String? color);
+}
+
+class _$UserThemeSetBackgroundRequestApplicationJson extends UserThemeSetBackgroundRequestApplicationJson {
+  @override
+  final String value;
+  @override
+  final String? color;
+
+  factory _$UserThemeSetBackgroundRequestApplicationJson(
+          [void Function(UserThemeSetBackgroundRequestApplicationJsonBuilder)? updates]) =>
+      (new UserThemeSetBackgroundRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$UserThemeSetBackgroundRequestApplicationJson._({required this.value, this.color}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(value, r'UserThemeSetBackgroundRequestApplicationJson', 'value');
+  }
+
+  @override
+  UserThemeSetBackgroundRequestApplicationJson rebuild(
+          void Function(UserThemeSetBackgroundRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserThemeSetBackgroundRequestApplicationJsonBuilder toBuilder() =>
+      new UserThemeSetBackgroundRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserThemeSetBackgroundRequestApplicationJson && value == other.value && color == other.color;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, value.hashCode);
+    _$hash = $jc(_$hash, color.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserThemeSetBackgroundRequestApplicationJson')
+          ..add('value', value)
+          ..add('color', color))
+        .toString();
+  }
+}
+
+class UserThemeSetBackgroundRequestApplicationJsonBuilder
+    implements
+        Builder<UserThemeSetBackgroundRequestApplicationJson, UserThemeSetBackgroundRequestApplicationJsonBuilder>,
+        $UserThemeSetBackgroundRequestApplicationJsonInterfaceBuilder {
+  _$UserThemeSetBackgroundRequestApplicationJson? _$v;
+
+  String? _value;
+  String? get value => _$this._value;
+  set value(covariant String? value) => _$this._value = value;
+
+  String? _color;
+  String? get color => _$this._color;
+  set color(covariant String? color) => _$this._color = color;
+
+  UserThemeSetBackgroundRequestApplicationJsonBuilder() {
+    UserThemeSetBackgroundRequestApplicationJson._defaults(this);
+  }
+
+  UserThemeSetBackgroundRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _value = $v.value;
+      _color = $v.color;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UserThemeSetBackgroundRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserThemeSetBackgroundRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(UserThemeSetBackgroundRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserThemeSetBackgroundRequestApplicationJson build() => _build();
+
+  _$UserThemeSetBackgroundRequestApplicationJson _build() {
+    UserThemeSetBackgroundRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        new _$UserThemeSetBackgroundRequestApplicationJson._(
+          value: BuiltValueNullFieldError.checkNotNull(value, r'UserThemeSetBackgroundRequestApplicationJson', 'value'),
+          color: color,
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $BackgroundInterfaceBuilder {
+  void replace($BackgroundInterface other);
+  void update(void Function($BackgroundInterfaceBuilder) updates);
+  String? get backgroundImage;
+  set backgroundImage(String? backgroundImage);
+
+  String? get backgroundColor;
+  set backgroundColor(String? backgroundColor);
+
+  String? get primaryColor;
+  set primaryColor(String? primaryColor);
+
+  int? get version;
+  set version(int? version);
+}
+
+class _$Background extends Background {
+  @override
+  final String? backgroundImage;
+  @override
+  final String backgroundColor;
+  @override
+  final String primaryColor;
+  @override
+  final int version;
+
+  factory _$Background([void Function(BackgroundBuilder)? updates]) =>
+      (new BackgroundBuilder()..update(updates))._build();
+
+  _$Background._(
+      {this.backgroundImage, required this.backgroundColor, required this.primaryColor, required this.version})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(backgroundColor, r'Background', 'backgroundColor');
+    BuiltValueNullFieldError.checkNotNull(primaryColor, r'Background', 'primaryColor');
+    BuiltValueNullFieldError.checkNotNull(version, r'Background', 'version');
+  }
+
+  @override
+  Background rebuild(void Function(BackgroundBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  BackgroundBuilder toBuilder() => new BackgroundBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Background &&
+        backgroundImage == other.backgroundImage &&
+        backgroundColor == other.backgroundColor &&
+        primaryColor == other.primaryColor &&
+        version == other.version;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, backgroundImage.hashCode);
+    _$hash = $jc(_$hash, backgroundColor.hashCode);
+    _$hash = $jc(_$hash, primaryColor.hashCode);
+    _$hash = $jc(_$hash, version.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'Background')
+          ..add('backgroundImage', backgroundImage)
+          ..add('backgroundColor', backgroundColor)
+          ..add('primaryColor', primaryColor)
+          ..add('version', version))
+        .toString();
+  }
+}
+
+class BackgroundBuilder implements Builder<Background, BackgroundBuilder>, $BackgroundInterfaceBuilder {
+  _$Background? _$v;
+
+  String? _backgroundImage;
+  String? get backgroundImage => _$this._backgroundImage;
+  set backgroundImage(covariant String? backgroundImage) => _$this._backgroundImage = backgroundImage;
+
+  String? _backgroundColor;
+  String? get backgroundColor => _$this._backgroundColor;
+  set backgroundColor(covariant String? backgroundColor) => _$this._backgroundColor = backgroundColor;
+
+  String? _primaryColor;
+  String? get primaryColor => _$this._primaryColor;
+  set primaryColor(covariant String? primaryColor) => _$this._primaryColor = primaryColor;
+
+  int? _version;
+  int? get version => _$this._version;
+  set version(covariant int? version) => _$this._version = version;
+
+  BackgroundBuilder() {
+    Background._defaults(this);
+  }
+
+  BackgroundBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _backgroundImage = $v.backgroundImage;
+      _backgroundColor = $v.backgroundColor;
+      _primaryColor = $v.primaryColor;
+      _version = $v.version;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant Background other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Background;
+  }
+
+  @override
+  void update(void Function(BackgroundBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  Background build() => _build();
+
+  _$Background _build() {
+    Background._validate(this);
+    final _$result = _$v ??
+        new _$Background._(
+          backgroundImage: backgroundImage,
+          backgroundColor: BuiltValueNullFieldError.checkNotNull(backgroundColor, r'Background', 'backgroundColor'),
+          primaryColor: BuiltValueNullFieldError.checkNotNull(primaryColor, r'Background', 'primaryColor'),
+          version: BuiltValueNullFieldError.checkNotNull(version, r'Background', 'version'),
+        );
     replace(_$result);
     return _$result;
   }

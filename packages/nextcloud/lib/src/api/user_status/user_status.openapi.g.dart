@@ -572,12 +572,6 @@ class _$PredefinedSerializer implements StructuredSerializer<Predefined> {
         ..add('clearAt')
         ..add(serializers.serialize(value, specifiedType: const FullType(ClearAt)));
     }
-    value = object.visible;
-    if (value != null) {
-      result
-        ..add('visible')
-        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
     return result;
   }
 
@@ -603,9 +597,6 @@ class _$PredefinedSerializer implements StructuredSerializer<Predefined> {
           break;
         case 'clearAt':
           result.clearAt.replace(serializers.deserialize(value, specifiedType: const FullType(ClearAt))! as ClearAt);
-          break;
-        case 'visible':
-          result.visible = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
       }
     }
@@ -2635,9 +2626,6 @@ abstract mixin class $PredefinedInterfaceBuilder {
 
   ClearAtBuilder get clearAt;
   set clearAt(ClearAtBuilder? clearAt);
-
-  bool? get visible;
-  set visible(bool? visible);
 }
 
 class _$Predefined extends Predefined {
@@ -2649,14 +2637,11 @@ class _$Predefined extends Predefined {
   final String message;
   @override
   final ClearAt? clearAt;
-  @override
-  final bool? visible;
 
   factory _$Predefined([void Function(PredefinedBuilder)? updates]) =>
       (new PredefinedBuilder()..update(updates))._build();
 
-  _$Predefined._({required this.id, required this.icon, required this.message, this.clearAt, this.visible})
-      : super._() {
+  _$Predefined._({required this.id, required this.icon, required this.message, this.clearAt}) : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'Predefined', 'id');
     BuiltValueNullFieldError.checkNotNull(icon, r'Predefined', 'icon');
     BuiltValueNullFieldError.checkNotNull(message, r'Predefined', 'message');
@@ -2675,8 +2660,7 @@ class _$Predefined extends Predefined {
         id == other.id &&
         icon == other.icon &&
         message == other.message &&
-        clearAt == other.clearAt &&
-        visible == other.visible;
+        clearAt == other.clearAt;
   }
 
   @override
@@ -2686,7 +2670,6 @@ class _$Predefined extends Predefined {
     _$hash = $jc(_$hash, icon.hashCode);
     _$hash = $jc(_$hash, message.hashCode);
     _$hash = $jc(_$hash, clearAt.hashCode);
-    _$hash = $jc(_$hash, visible.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -2697,8 +2680,7 @@ class _$Predefined extends Predefined {
           ..add('id', id)
           ..add('icon', icon)
           ..add('message', message)
-          ..add('clearAt', clearAt)
-          ..add('visible', visible))
+          ..add('clearAt', clearAt))
         .toString();
   }
 }
@@ -2722,10 +2704,6 @@ class PredefinedBuilder implements Builder<Predefined, PredefinedBuilder>, $Pred
   ClearAtBuilder get clearAt => _$this._clearAt ??= new ClearAtBuilder();
   set clearAt(covariant ClearAtBuilder? clearAt) => _$this._clearAt = clearAt;
 
-  bool? _visible;
-  bool? get visible => _$this._visible;
-  set visible(covariant bool? visible) => _$this._visible = visible;
-
   PredefinedBuilder() {
     Predefined._defaults(this);
   }
@@ -2737,7 +2715,6 @@ class PredefinedBuilder implements Builder<Predefined, PredefinedBuilder>, $Pred
       _icon = $v.icon;
       _message = $v.message;
       _clearAt = $v.clearAt?.toBuilder();
-      _visible = $v.visible;
       _$v = null;
     }
     return this;
@@ -2767,7 +2744,6 @@ class PredefinedBuilder implements Builder<Predefined, PredefinedBuilder>, $Pred
             icon: BuiltValueNullFieldError.checkNotNull(icon, r'Predefined', 'icon'),
             message: BuiltValueNullFieldError.checkNotNull(message, r'Predefined', 'message'),
             clearAt: _clearAt?.build(),
-            visible: visible,
           );
     } catch (_) {
       late String _$failedField;
