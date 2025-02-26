@@ -1,5 +1,5 @@
+// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
-
 import 'localizations.dart';
 
 // ignore_for_file: type=lint
@@ -21,6 +21,12 @@ class DashboardLocalizationsEn extends DashboardLocalizations {
       {
         'clearsky': 'clear sky',
         'cloudy': 'cloudy',
+        'snowandthunder': 'snow and thunder',
+        'snowshowersandthunder': 'snow showers and thunder',
+        'snowshowersandthunder_polartwilight': 'snow showers, thunder and polar twilight',
+        'snowshowers': 'snow showers',
+        'snowshowers_polartwilight': 'snow showers and polar twilight',
+        'snow': 'snow',
         'fair': 'fair weather',
         'partlycloudy': 'partly cloudy',
         'fog': 'foggy',
