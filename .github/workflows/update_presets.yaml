@@ -22,10 +22,6 @@ jobs:
 
       - name: Update presets
         run: ./tool/generate-nextcloud-test-presets.sh
-      - name: Update support table
-        run: |
-          cd packages/nextcloud
-          fvm dart run generate_support_table.dart
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@dd2324fc52d5d43c699a5636bcf19fceaa70c284 # v7
         with:
