@@ -21,6 +21,15 @@ Future<void> generatePresets() async {
     'news': {
       Version(28, 0, 14): 'https://github.com/nextcloud/news/releases/download/25.0.0-alpha9/news.tar.gz',
     },
+    'cookbook': {
+      // No compatible version available yet
+      Version(31, 0, 0):
+          'https://github.com/christianlupus-nextcloud/cookbook-releases/releases/download/v0.11.2/cookbook-0.11.2.tar.gz',
+    },
+    'uppush': {
+      // No compatible version available yet
+      Version(31, 0, 0): 'https://codeberg.org/NextPush/uppush/archive/2.2.5.tar.gz',
+    },
   };
 
   final httpClient = http.Client();
