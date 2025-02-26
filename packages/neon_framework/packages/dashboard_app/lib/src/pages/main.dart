@@ -187,31 +187,10 @@ class DashboardMainPage extends StatelessWidget {
                     weatherCode.replaceAll(RegExp(r'_(day|night)$'), ''),
                   );
 
-                  final icon = switch (weatherCode) {
-                    'clearsky_day' => 'sun',
-                    'clearsky_night' => 'moon',
-                    'cloudy' => 'cloud-cloud',
-                    'fair_day' => 'sun-small-cloud',
-                    'fair_night' => 'moon-small-cloud',
-                    'partlycloudy_day' => 'sun-cloud',
-                    'partlycloudy_night' => 'moon-cloud',
-                    'fog' => 'fog',
-                    'rain' => 'rain',
-                    'lightrain' => 'light-rain',
-                    'heavyrain' => 'heavy-rain',
-                    'rainshowers_day' => 'sun-cloud-rain',
-                    'rainshowers_night' => 'moon-cloud-rain',
-                    'lightrainshowers_day' => 'sun-cloud-light-rain',
-                    'lightrainshowers_night' => 'moon-cloud-light-rain',
-                    'heavyrainshowers_day' => 'sun-cloud-heavy-rain',
-                    'heavyrainshowers_night' => 'moon-cloud-heavy-rain',
-                    _ => throw UnimplementedError('Unknown icon: $weatherCode'),
-                  };
-
                   return _buildStatus(
                     context: context,
                     icon: NeonServerIcon(
-                      icon: icon,
+                      icon: weatherCode,
                     ),
                     label: Text('$temperature °C $description'),
                     onPressed: onWeatherStatusPressed,
@@ -220,7 +199,7 @@ class DashboardMainPage extends StatelessWidget {
                   return _buildStatus(
                     context: context,
                     icon: const NeonServerIcon(
-                      icon: 'sun-small-cloud',
+                      icon: 'fair_day',
                     ),
                     label: Text(DashboardLocalizations.of(context).locationSet),
                     onPressed: onWeatherStatusPressed,

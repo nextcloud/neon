@@ -106,7 +106,7 @@ abstract class DashboardLocalizations {
   /// No description provided for @weather.
   ///
   /// In en, this message translates to:
-  /// **'{code, select, clearsky{clear sky} cloudy{cloudy} fair{fair weather} partlycloudy{partly cloudy} fog{foggy} rain{rainfall} lightrain{light rainfall} heavyrain{heavy rainfall} rainshowers{rainfall showers} lightrainshowers{light rainfall showers} heavyrainshowers{heavy rainfall showers} other{}}'**
+  /// **'{code, select, clearsky{clear sky} cloudy{cloudy} snowandthunder{snow and thunder} snowshowersandthunder{snow showers and thunder} snowshowersandthunder_polartwilight{snow showers, thunder and polar twilight} snowshowers{snow showers} snowshowers_polartwilight{snow showers and polar twilight} snow{snow} fair{fair weather} partlycloudy{partly cloudy} fog{foggy} rain{rainfall} lightrain{light rainfall} heavyrain{heavy rainfall} rainshowers{rainfall showers} lightrainshowers{light rainfall showers} heavyrainshowers{heavy rainfall showers} other{}}'**
   String weather(String code);
 
   /// No description provided for @locationSet.

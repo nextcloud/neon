@@ -7,3 +7,8 @@ cd "$(dirname "$0")/.."
   rm -rf docker/presets/*
   fvm dart run nextcloud_test_presets:generate_presets
 )
+
+(
+  cd packages/nextcloud
+  fvm dart run generate_support_table.dart
+)

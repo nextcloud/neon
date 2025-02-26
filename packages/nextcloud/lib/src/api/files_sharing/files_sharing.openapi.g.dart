@@ -84,6 +84,32 @@ final BuiltSet<Share_MailSend> _$shareMailSendValues = new BuiltSet<Share_MailSe
   _$shareMailSend$1,
 ]);
 
+const ShareapiCreateShareRequestApplicationJson_PublicUpload
+    _$shareapiCreateShareRequestApplicationJsonPublicUpload$true =
+    const ShareapiCreateShareRequestApplicationJson_PublicUpload._('\$true');
+const ShareapiCreateShareRequestApplicationJson_PublicUpload
+    _$shareapiCreateShareRequestApplicationJsonPublicUpload$false =
+    const ShareapiCreateShareRequestApplicationJson_PublicUpload._('\$false');
+
+ShareapiCreateShareRequestApplicationJson_PublicUpload _$valueOfShareapiCreateShareRequestApplicationJson_PublicUpload(
+    String name) {
+  switch (name) {
+    case '\$true':
+      return _$shareapiCreateShareRequestApplicationJsonPublicUpload$true;
+    case '\$false':
+      return _$shareapiCreateShareRequestApplicationJsonPublicUpload$false;
+    default:
+      throw new ArgumentError(name);
+  }
+}
+
+final BuiltSet<ShareapiCreateShareRequestApplicationJson_PublicUpload>
+    _$shareapiCreateShareRequestApplicationJsonPublicUploadValues = new BuiltSet<
+        ShareapiCreateShareRequestApplicationJson_PublicUpload>(const <ShareapiCreateShareRequestApplicationJson_PublicUpload>[
+  _$shareapiCreateShareRequestApplicationJsonPublicUpload$true,
+  _$shareapiCreateShareRequestApplicationJsonPublicUpload$false,
+]);
+
 const ShareapiCreateShareRequestApplicationJson_SendMail _$shareapiCreateShareRequestApplicationJsonSendMail$false =
     const ShareapiCreateShareRequestApplicationJson_SendMail._('\$false');
 const ShareapiCreateShareRequestApplicationJson_SendMail _$shareapiCreateShareRequestApplicationJsonSendMail$true =
@@ -235,15 +261,25 @@ Serializer<ShareapiAcceptShareResponseApplicationJson_Ocs> _$shareapiAcceptShare
     new _$ShareapiAcceptShareResponseApplicationJson_OcsSerializer();
 Serializer<ShareapiAcceptShareResponseApplicationJson> _$shareapiAcceptShareResponseApplicationJsonSerializer =
     new _$ShareapiAcceptShareResponseApplicationJsonSerializer();
+Serializer<ShareapiGenerateTokenResponseApplicationJson_Ocs_Data>
+    _$shareapiGenerateTokenResponseApplicationJsonOcsDataSerializer =
+    new _$ShareapiGenerateTokenResponseApplicationJson_Ocs_DataSerializer();
+Serializer<ShareapiGenerateTokenResponseApplicationJson_Ocs>
+    _$shareapiGenerateTokenResponseApplicationJsonOcsSerializer =
+    new _$ShareapiGenerateTokenResponseApplicationJson_OcsSerializer();
+Serializer<ShareapiGenerateTokenResponseApplicationJson> _$shareapiGenerateTokenResponseApplicationJsonSerializer =
+    new _$ShareapiGenerateTokenResponseApplicationJsonSerializer();
 Serializer<Sharee> _$shareeSerializer = new _$ShareeSerializer();
 Serializer<ShareeValue> _$shareeValueSerializer = new _$ShareeValueSerializer();
 Serializer<ShareeCircle_Value> _$shareeCircleValueSerializer = new _$ShareeCircle_ValueSerializer();
 Serializer<ShareeCircle> _$shareeCircleSerializer = new _$ShareeCircleSerializer();
 Serializer<ShareeEmail> _$shareeEmailSerializer = new _$ShareeEmailSerializer();
+Serializer<ShareeGroup> _$shareeGroupSerializer = new _$ShareeGroupSerializer();
 Serializer<ShareeRemoteGroup_Value> _$shareeRemoteGroupValueSerializer = new _$ShareeRemoteGroup_ValueSerializer();
 Serializer<ShareeRemoteGroup> _$shareeRemoteGroupSerializer = new _$ShareeRemoteGroupSerializer();
 Serializer<ShareeRemote_Value> _$shareeRemoteValueSerializer = new _$ShareeRemote_ValueSerializer();
 Serializer<ShareeRemote> _$shareeRemoteSerializer = new _$ShareeRemoteSerializer();
+Serializer<ShareeRoom> _$shareeRoomSerializer = new _$ShareeRoomSerializer();
 Serializer<ShareeUser_Status> _$shareeUserStatusSerializer = new _$ShareeUser_StatusSerializer();
 Serializer<ShareeUser> _$shareeUserSerializer = new _$ShareeUserSerializer();
 Serializer<ShareesSearchResult_Exact> _$shareesSearchResultExactSerializer =
@@ -1631,6 +1667,8 @@ class _$ShareSerializer implements StructuredSerializer<Share> {
       serializers.serialize(object.hasPreview, specifiedType: const FullType(bool)),
       'hide_download',
       serializers.serialize(object.hideDownload, specifiedType: const FullType(Share_HideDownload)),
+      'is-mount-root',
+      serializers.serialize(object.isMountRoot, specifiedType: const FullType(bool)),
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(String)),
       'item_mtime',
@@ -1641,10 +1679,14 @@ class _$ShareSerializer implements StructuredSerializer<Share> {
       serializers.serialize(object.itemSource, specifiedType: const FullType(int)),
       'item_type',
       serializers.serialize(object.itemType, specifiedType: const FullType(Share_ItemType)),
+      'label',
+      serializers.serialize(object.label, specifiedType: const FullType(String)),
       'mail_send',
       serializers.serialize(object.mailSend, specifiedType: const FullType(Share_MailSend)),
       'mimetype',
       serializers.serialize(object.mimetype, specifiedType: const FullType(String)),
+      'mount-type',
+      serializers.serialize(object.mountType, specifiedType: const FullType(String)),
       'note',
       serializers.serialize(object.note, specifiedType: const FullType(String)),
       'permissions',
@@ -1680,12 +1722,6 @@ class _$ShareSerializer implements StructuredSerializer<Share> {
       result
         ..add('item_permissions')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.label;
-    if (value != null) {
-      result
-        ..add('label')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     value = object.parent;
     if (value != null) {
@@ -1814,6 +1850,9 @@ class _$ShareSerializer implements StructuredSerializer<Share> {
           result.hideDownload =
               serializers.deserialize(value, specifiedType: const FullType(Share_HideDownload))! as Share_HideDownload;
           break;
+        case 'is-mount-root':
+          result.isMountRoot = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
         case 'id':
           result.id = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
@@ -1834,7 +1873,7 @@ class _$ShareSerializer implements StructuredSerializer<Share> {
               serializers.deserialize(value, specifiedType: const FullType(Share_ItemType))! as Share_ItemType;
           break;
         case 'label':
-          result.label = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'mail_send':
           result.mailSend =
@@ -1842,6 +1881,9 @@ class _$ShareSerializer implements StructuredSerializer<Share> {
           break;
         case 'mimetype':
           result.mimetype = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'mount-type':
+          result.mountType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'note':
           result.note = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -2025,8 +2067,6 @@ class _$ShareapiCreateShareRequestApplicationJsonSerializer
     final result = <Object?>[
       'shareType',
       serializers.serialize(object.shareType, specifiedType: const FullType(int)),
-      'publicUpload',
-      serializers.serialize(object.publicUpload, specifiedType: const FullType(String)),
       'password',
       serializers.serialize(object.password, specifiedType: const FullType(String)),
       'note',
@@ -2052,6 +2092,13 @@ class _$ShareapiCreateShareRequestApplicationJsonSerializer
       result
         ..add('shareWith')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.publicUpload;
+    if (value != null) {
+      result
+        ..add('publicUpload')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(ShareapiCreateShareRequestApplicationJson_PublicUpload)));
     }
     value = object.sendPasswordByTalk;
     if (value != null) {
@@ -2105,7 +2152,9 @@ class _$ShareapiCreateShareRequestApplicationJsonSerializer
           result.shareWith = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'publicUpload':
-          result.publicUpload = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.publicUpload = serializers.deserialize(value,
+                  specifiedType: const FullType(ShareapiCreateShareRequestApplicationJson_PublicUpload))
+              as ShareapiCreateShareRequestApplicationJson_PublicUpload?;
           break;
         case 'password':
           result.password = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -2432,7 +2481,7 @@ class _$ShareapiGetShareResponseApplicationJson_OcsSerializer
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(Share)),
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, const [const FullType(Share)])),
     ];
 
     return result;
@@ -2453,7 +2502,8 @@ class _$ShareapiGetShareResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(Share))! as Share);
+          result.data.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [const FullType(Share)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -2581,6 +2631,12 @@ class _$ShareapiUpdateShareRequestApplicationJsonSerializer
         ..add('sendMail')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
+    value = object.token;
+    if (value != null) {
+      result
+        ..add('token')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -2624,6 +2680,9 @@ class _$ShareapiUpdateShareRequestApplicationJsonSerializer
           break;
         case 'sendMail':
           result.sendMail = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'token':
+          result.token = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -3039,6 +3098,144 @@ class _$ShareapiAcceptShareResponseApplicationJsonSerializer
   }
 }
 
+class _$ShareapiGenerateTokenResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<ShareapiGenerateTokenResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    ShareapiGenerateTokenResponseApplicationJson_Ocs_Data,
+    _$ShareapiGenerateTokenResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'ShareapiGenerateTokenResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ShareapiGenerateTokenResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'token',
+      serializers.serialize(object.token, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ShareapiGenerateTokenResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'token':
+          result.token = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ShareapiGenerateTokenResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ShareapiGenerateTokenResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    ShareapiGenerateTokenResponseApplicationJson_Ocs,
+    _$ShareapiGenerateTokenResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'ShareapiGenerateTokenResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ShareapiGenerateTokenResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(ShareapiGenerateTokenResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ShareapiGenerateTokenResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new ShareapiGenerateTokenResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ShareapiGenerateTokenResponseApplicationJson_Ocs_Data))!
+              as ShareapiGenerateTokenResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ShareapiGenerateTokenResponseApplicationJsonSerializer
+    implements StructuredSerializer<ShareapiGenerateTokenResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ShareapiGenerateTokenResponseApplicationJson,
+    _$ShareapiGenerateTokenResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'ShareapiGenerateTokenResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ShareapiGenerateTokenResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(ShareapiGenerateTokenResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ShareapiGenerateTokenResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new ShareapiGenerateTokenResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ShareapiGenerateTokenResponseApplicationJson_Ocs))!
+              as ShareapiGenerateTokenResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$ShareeSerializer implements StructuredSerializer<Sharee> {
   @override
   final Iterable<Type> types = const [Sharee, _$Sharee];
@@ -3051,13 +3248,7 @@ class _$ShareeSerializer implements StructuredSerializer<Sharee> {
       'label',
       serializers.serialize(object.label, specifiedType: const FullType(String)),
     ];
-    Object? value;
-    value = object.count;
-    if (value != null) {
-      result
-        ..add('count')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
+
     return result;
   }
 
@@ -3072,9 +3263,6 @@ class _$ShareeSerializer implements StructuredSerializer<Sharee> {
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'count':
-          result.count = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
-          break;
         case 'label':
           result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
@@ -3193,13 +3381,7 @@ class _$ShareeCircleSerializer implements StructuredSerializer<ShareeCircle> {
       'label',
       serializers.serialize(object.label, specifiedType: const FullType(String)),
     ];
-    Object? value;
-    value = object.count;
-    if (value != null) {
-      result
-        ..add('count')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
+
     return result;
   }
 
@@ -3221,9 +3403,6 @@ class _$ShareeCircleSerializer implements StructuredSerializer<ShareeCircle> {
         case 'value':
           result.value.replace(
               serializers.deserialize(value, specifiedType: const FullType(ShareeCircle_Value))! as ShareeCircle_Value);
-          break;
-        case 'count':
-          result.count = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
         case 'label':
           result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -3258,13 +3437,7 @@ class _$ShareeEmailSerializer implements StructuredSerializer<ShareeEmail> {
       'label',
       serializers.serialize(object.label, specifiedType: const FullType(String)),
     ];
-    Object? value;
-    value = object.count;
-    if (value != null) {
-      result
-        ..add('count')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
+
     return result;
   }
 
@@ -3296,8 +3469,49 @@ class _$ShareeEmailSerializer implements StructuredSerializer<ShareeEmail> {
           result.value
               .replace(serializers.deserialize(value, specifiedType: const FullType(ShareeValue))! as ShareeValue);
           break;
-        case 'count':
-          result.count = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+        case 'label':
+          result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ShareeGroupSerializer implements StructuredSerializer<ShareeGroup> {
+  @override
+  final Iterable<Type> types = const [ShareeGroup, _$ShareeGroup];
+  @override
+  final String wireName = 'ShareeGroup';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ShareeGroup object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'value',
+      serializers.serialize(object.value, specifiedType: const FullType(ShareeValue)),
+      'label',
+      serializers.serialize(object.label, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ShareeGroup deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new ShareeGroupBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'value':
+          result.value
+              .replace(serializers.deserialize(value, specifiedType: const FullType(ShareeValue))! as ShareeValue);
           break;
         case 'label':
           result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -3376,13 +3590,7 @@ class _$ShareeRemoteGroupSerializer implements StructuredSerializer<ShareeRemote
       'label',
       serializers.serialize(object.label, specifiedType: const FullType(String)),
     ];
-    Object? value;
-    value = object.count;
-    if (value != null) {
-      result
-        ..add('count')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
+
     return result;
   }
 
@@ -3406,9 +3614,6 @@ class _$ShareeRemoteGroupSerializer implements StructuredSerializer<ShareeRemote
         case 'value':
           result.value.replace(serializers.deserialize(value, specifiedType: const FullType(ShareeRemoteGroup_Value))!
               as ShareeRemoteGroup_Value);
-          break;
-        case 'count':
-          result.count = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
         case 'label':
           result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -3489,13 +3694,7 @@ class _$ShareeRemoteSerializer implements StructuredSerializer<ShareeRemote> {
       'label',
       serializers.serialize(object.label, specifiedType: const FullType(String)),
     ];
-    Object? value;
-    value = object.count;
-    if (value != null) {
-      result
-        ..add('count')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
+
     return result;
   }
 
@@ -3523,8 +3722,49 @@ class _$ShareeRemoteSerializer implements StructuredSerializer<ShareeRemote> {
           result.value.replace(
               serializers.deserialize(value, specifiedType: const FullType(ShareeRemote_Value))! as ShareeRemote_Value);
           break;
-        case 'count':
-          result.count = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+        case 'label':
+          result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ShareeRoomSerializer implements StructuredSerializer<ShareeRoom> {
+  @override
+  final Iterable<Type> types = const [ShareeRoom, _$ShareeRoom];
+  @override
+  final String wireName = 'ShareeRoom';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ShareeRoom object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'value',
+      serializers.serialize(object.value, specifiedType: const FullType(ShareeValue)),
+      'label',
+      serializers.serialize(object.label, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ShareeRoom deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new ShareeRoomBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'value':
+          result.value
+              .replace(serializers.deserialize(value, specifiedType: const FullType(ShareeValue))! as ShareeValue);
           break;
         case 'label':
           result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -3616,13 +3856,7 @@ class _$ShareeUserSerializer implements StructuredSerializer<ShareeUser> {
       'label',
       serializers.serialize(object.label, specifiedType: const FullType(String)),
     ];
-    Object? value;
-    value = object.count;
-    if (value != null) {
-      result
-        ..add('count')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
+
     return result;
   }
 
@@ -3655,9 +3889,6 @@ class _$ShareeUserSerializer implements StructuredSerializer<ShareeUser> {
           result.value
               .replace(serializers.deserialize(value, specifiedType: const FullType(ShareeValue))! as ShareeValue);
           break;
-        case 'count':
-          result.count = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
-          break;
         case 'label':
           result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
@@ -3685,7 +3916,8 @@ class _$ShareesSearchResult_ExactSerializer implements StructuredSerializer<Shar
       serializers.serialize(object.emails,
           specifiedType: const FullType(BuiltList, const [const FullType(ShareeEmail)])),
       'groups',
-      serializers.serialize(object.groups, specifiedType: const FullType(BuiltList, const [const FullType(Sharee)])),
+      serializers.serialize(object.groups,
+          specifiedType: const FullType(BuiltList, const [const FullType(ShareeGroup)])),
       'remote_groups',
       serializers.serialize(object.remoteGroups,
           specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemoteGroup)])),
@@ -3693,7 +3925,7 @@ class _$ShareesSearchResult_ExactSerializer implements StructuredSerializer<Shar
       serializers.serialize(object.remotes,
           specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemote)])),
       'rooms',
-      serializers.serialize(object.rooms, specifiedType: const FullType(BuiltList, const [const FullType(Sharee)])),
+      serializers.serialize(object.rooms, specifiedType: const FullType(BuiltList, const [const FullType(ShareeRoom)])),
       'users',
       serializers.serialize(object.users, specifiedType: const FullType(BuiltList, const [const FullType(ShareeUser)])),
     ];
@@ -3722,7 +3954,7 @@ class _$ShareesSearchResult_ExactSerializer implements StructuredSerializer<Shar
           break;
         case 'groups':
           result.groups.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(Sharee)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(ShareeGroup)]))! as BuiltList<Object?>);
           break;
         case 'remote_groups':
           result.remoteGroups.replace(serializers.deserialize(value,
@@ -3735,7 +3967,7 @@ class _$ShareesSearchResult_ExactSerializer implements StructuredSerializer<Shar
           break;
         case 'rooms':
           result.rooms.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(Sharee)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(ShareeRoom)]))! as BuiltList<Object?>);
           break;
         case 'users':
           result.users.replace(serializers.deserialize(value,
@@ -3976,13 +4208,7 @@ class _$ShareeLookupSerializer implements StructuredSerializer<ShareeLookup> {
       'label',
       serializers.serialize(object.label, specifiedType: const FullType(String)),
     ];
-    Object? value;
-    value = object.count;
-    if (value != null) {
-      result
-        ..add('count')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
+
     return result;
   }
 
@@ -4004,9 +4230,6 @@ class _$ShareeLookupSerializer implements StructuredSerializer<ShareeLookup> {
         case 'value':
           result.value.replace(
               serializers.deserialize(value, specifiedType: const FullType(ShareeLookup_Value))! as ShareeLookup_Value);
-          break;
-        case 'count':
-          result.count = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
         case 'label':
           result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -4037,7 +4260,8 @@ class _$ShareesSearchResultSerializer implements StructuredSerializer<ShareesSea
       serializers.serialize(object.emails,
           specifiedType: const FullType(BuiltList, const [const FullType(ShareeEmail)])),
       'groups',
-      serializers.serialize(object.groups, specifiedType: const FullType(BuiltList, const [const FullType(Sharee)])),
+      serializers.serialize(object.groups,
+          specifiedType: const FullType(BuiltList, const [const FullType(ShareeGroup)])),
       'lookup',
       serializers.serialize(object.lookup,
           specifiedType: const FullType(BuiltList, const [const FullType(ShareeLookup)])),
@@ -4048,7 +4272,7 @@ class _$ShareesSearchResultSerializer implements StructuredSerializer<ShareesSea
       serializers.serialize(object.remotes,
           specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemote)])),
       'rooms',
-      serializers.serialize(object.rooms, specifiedType: const FullType(BuiltList, const [const FullType(Sharee)])),
+      serializers.serialize(object.rooms, specifiedType: const FullType(BuiltList, const [const FullType(ShareeRoom)])),
       'users',
       serializers.serialize(object.users, specifiedType: const FullType(BuiltList, const [const FullType(ShareeUser)])),
       'lookupEnabled',
@@ -4083,7 +4307,7 @@ class _$ShareesSearchResultSerializer implements StructuredSerializer<ShareesSea
           break;
         case 'groups':
           result.groups.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(Sharee)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(ShareeGroup)]))! as BuiltList<Object?>);
           break;
         case 'lookup':
           result.lookup.replace(serializers.deserialize(value,
@@ -4100,7 +4324,7 @@ class _$ShareesSearchResultSerializer implements StructuredSerializer<ShareesSea
           break;
         case 'rooms':
           result.rooms.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(Sharee)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(ShareeRoom)]))! as BuiltList<Object?>);
           break;
         case 'users':
           result.users.replace(serializers.deserialize(value,
@@ -4263,7 +4487,8 @@ class _$ShareesRecommendedResult_ExactSerializer implements StructuredSerializer
       serializers.serialize(object.emails,
           specifiedType: const FullType(BuiltList, const [const FullType(ShareeEmail)])),
       'groups',
-      serializers.serialize(object.groups, specifiedType: const FullType(BuiltList, const [const FullType(Sharee)])),
+      serializers.serialize(object.groups,
+          specifiedType: const FullType(BuiltList, const [const FullType(ShareeGroup)])),
       'remote_groups',
       serializers.serialize(object.remoteGroups,
           specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemoteGroup)])),
@@ -4294,7 +4519,7 @@ class _$ShareesRecommendedResult_ExactSerializer implements StructuredSerializer
           break;
         case 'groups':
           result.groups.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(Sharee)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(ShareeGroup)]))! as BuiltList<Object?>);
           break;
         case 'remote_groups':
           result.remoteGroups.replace(serializers.deserialize(value,
@@ -4332,7 +4557,8 @@ class _$ShareesRecommendedResultSerializer implements StructuredSerializer<Share
       serializers.serialize(object.emails,
           specifiedType: const FullType(BuiltList, const [const FullType(ShareeEmail)])),
       'groups',
-      serializers.serialize(object.groups, specifiedType: const FullType(BuiltList, const [const FullType(Sharee)])),
+      serializers.serialize(object.groups,
+          specifiedType: const FullType(BuiltList, const [const FullType(ShareeGroup)])),
       'remote_groups',
       serializers.serialize(object.remoteGroups,
           specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemoteGroup)])),
@@ -4367,7 +4593,7 @@ class _$ShareesRecommendedResultSerializer implements StructuredSerializer<Share
           break;
         case 'groups':
           result.groups.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(Sharee)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, const [const FullType(ShareeGroup)]))! as BuiltList<Object?>);
           break;
         case 'remote_groups':
           result.remoteGroups.replace(serializers.deserialize(value,
@@ -4774,6 +5000,12 @@ class _$Capabilities_FilesSharing_PublicSerializer implements StructuredSerializ
         ..add('upload_files_drop')
         ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
     }
+    value = object.customTokens;
+    if (value != null) {
+      result
+        ..add('custom_tokens')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     return result;
   }
 
@@ -4822,6 +5054,9 @@ class _$Capabilities_FilesSharing_PublicSerializer implements StructuredSerializ
           break;
         case 'upload_files_drop':
           result.uploadFilesDrop = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'custom_tokens':
+          result.customTokens = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
       }
     }
@@ -8651,6 +8886,9 @@ abstract mixin class $ShareInterfaceBuilder {
   Share_HideDownload? get hideDownload;
   set hideDownload(Share_HideDownload? hideDownload);
 
+  bool? get isMountRoot;
+  set isMountRoot(bool? isMountRoot);
+
   String? get id;
   set id(String? id);
 
@@ -8677,6 +8915,9 @@ abstract mixin class $ShareInterfaceBuilder {
 
   String? get mimetype;
   set mimetype(String? mimetype);
+
+  String? get mountType;
+  set mountType(String? mountType);
 
   String? get note;
   set note(String? note);
@@ -8766,6 +9007,8 @@ class _$Share extends Share {
   @override
   final Share_HideDownload hideDownload;
   @override
+  final bool isMountRoot;
+  @override
   final String id;
   @override
   final int itemMtime;
@@ -8778,11 +9021,13 @@ class _$Share extends Share {
   @override
   final Share_ItemType itemType;
   @override
-  final String? label;
+  final String label;
   @override
   final Share_MailSend mailSend;
   @override
   final String mimetype;
+  @override
+  final String mountType;
   @override
   final String note;
   @override
@@ -8840,15 +9085,17 @@ class _$Share extends Share {
       required this.fileTarget,
       required this.hasPreview,
       required this.hideDownload,
+      required this.isMountRoot,
       required this.id,
       required this.itemMtime,
       this.itemPermissions,
       required this.itemSize,
       required this.itemSource,
       required this.itemType,
-      this.label,
+      required this.label,
       required this.mailSend,
       required this.mimetype,
+      required this.mountType,
       required this.note,
       this.parent,
       this.password,
@@ -8880,13 +9127,16 @@ class _$Share extends Share {
     BuiltValueNullFieldError.checkNotNull(fileTarget, r'Share', 'fileTarget');
     BuiltValueNullFieldError.checkNotNull(hasPreview, r'Share', 'hasPreview');
     BuiltValueNullFieldError.checkNotNull(hideDownload, r'Share', 'hideDownload');
+    BuiltValueNullFieldError.checkNotNull(isMountRoot, r'Share', 'isMountRoot');
     BuiltValueNullFieldError.checkNotNull(id, r'Share', 'id');
     BuiltValueNullFieldError.checkNotNull(itemMtime, r'Share', 'itemMtime');
     BuiltValueNullFieldError.checkNotNull(itemSize, r'Share', 'itemSize');
     BuiltValueNullFieldError.checkNotNull(itemSource, r'Share', 'itemSource');
     BuiltValueNullFieldError.checkNotNull(itemType, r'Share', 'itemType');
+    BuiltValueNullFieldError.checkNotNull(label, r'Share', 'label');
     BuiltValueNullFieldError.checkNotNull(mailSend, r'Share', 'mailSend');
     BuiltValueNullFieldError.checkNotNull(mimetype, r'Share', 'mimetype');
+    BuiltValueNullFieldError.checkNotNull(mountType, r'Share', 'mountType');
     BuiltValueNullFieldError.checkNotNull(note, r'Share', 'note');
     BuiltValueNullFieldError.checkNotNull(permissions, r'Share', 'permissions');
     BuiltValueNullFieldError.checkNotNull(shareType, r'Share', 'shareType');
@@ -8918,6 +9168,7 @@ class _$Share extends Share {
         fileTarget == other.fileTarget &&
         hasPreview == other.hasPreview &&
         hideDownload == other.hideDownload &&
+        isMountRoot == other.isMountRoot &&
         id == other.id &&
         itemMtime == other.itemMtime &&
         itemPermissions == other.itemPermissions &&
@@ -8927,6 +9178,7 @@ class _$Share extends Share {
         label == other.label &&
         mailSend == other.mailSend &&
         mimetype == other.mimetype &&
+        mountType == other.mountType &&
         note == other.note &&
         parent == other.parent &&
         password == other.password &&
@@ -8964,6 +9216,7 @@ class _$Share extends Share {
     _$hash = $jc(_$hash, fileTarget.hashCode);
     _$hash = $jc(_$hash, hasPreview.hashCode);
     _$hash = $jc(_$hash, hideDownload.hashCode);
+    _$hash = $jc(_$hash, isMountRoot.hashCode);
     _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, itemMtime.hashCode);
     _$hash = $jc(_$hash, itemPermissions.hashCode);
@@ -8973,6 +9226,7 @@ class _$Share extends Share {
     _$hash = $jc(_$hash, label.hashCode);
     _$hash = $jc(_$hash, mailSend.hashCode);
     _$hash = $jc(_$hash, mimetype.hashCode);
+    _$hash = $jc(_$hash, mountType.hashCode);
     _$hash = $jc(_$hash, note.hashCode);
     _$hash = $jc(_$hash, parent.hashCode);
     _$hash = $jc(_$hash, password.hashCode);
@@ -9012,6 +9266,7 @@ class _$Share extends Share {
           ..add('fileTarget', fileTarget)
           ..add('hasPreview', hasPreview)
           ..add('hideDownload', hideDownload)
+          ..add('isMountRoot', isMountRoot)
           ..add('id', id)
           ..add('itemMtime', itemMtime)
           ..add('itemPermissions', itemPermissions)
@@ -9021,6 +9276,7 @@ class _$Share extends Share {
           ..add('label', label)
           ..add('mailSend', mailSend)
           ..add('mimetype', mimetype)
+          ..add('mountType', mountType)
           ..add('note', note)
           ..add('parent', parent)
           ..add('password', password)
@@ -9094,6 +9350,10 @@ class ShareBuilder implements Builder<Share, ShareBuilder>, $ShareInterfaceBuild
   Share_HideDownload? get hideDownload => _$this._hideDownload;
   set hideDownload(covariant Share_HideDownload? hideDownload) => _$this._hideDownload = hideDownload;
 
+  bool? _isMountRoot;
+  bool? get isMountRoot => _$this._isMountRoot;
+  set isMountRoot(covariant bool? isMountRoot) => _$this._isMountRoot = isMountRoot;
+
   String? _id;
   String? get id => _$this._id;
   set id(covariant String? id) => _$this._id = id;
@@ -9129,6 +9389,10 @@ class ShareBuilder implements Builder<Share, ShareBuilder>, $ShareInterfaceBuild
   String? _mimetype;
   String? get mimetype => _$this._mimetype;
   set mimetype(covariant String? mimetype) => _$this._mimetype = mimetype;
+
+  String? _mountType;
+  String? get mountType => _$this._mountType;
+  set mountType(covariant String? mountType) => _$this._mountType = mountType;
 
   String? _note;
   String? get note => _$this._note;
@@ -9235,6 +9499,7 @@ class ShareBuilder implements Builder<Share, ShareBuilder>, $ShareInterfaceBuild
       _fileTarget = $v.fileTarget;
       _hasPreview = $v.hasPreview;
       _hideDownload = $v.hideDownload;
+      _isMountRoot = $v.isMountRoot;
       _id = $v.id;
       _itemMtime = $v.itemMtime;
       _itemPermissions = $v.itemPermissions;
@@ -9244,6 +9509,7 @@ class ShareBuilder implements Builder<Share, ShareBuilder>, $ShareInterfaceBuild
       _label = $v.label;
       _mailSend = $v.mailSend;
       _mimetype = $v.mimetype;
+      _mountType = $v.mountType;
       _note = $v.note;
       _parent = $v.parent;
       _password = $v.password;
@@ -9302,15 +9568,17 @@ class ShareBuilder implements Builder<Share, ShareBuilder>, $ShareInterfaceBuild
             fileTarget: BuiltValueNullFieldError.checkNotNull(fileTarget, r'Share', 'fileTarget'),
             hasPreview: BuiltValueNullFieldError.checkNotNull(hasPreview, r'Share', 'hasPreview'),
             hideDownload: BuiltValueNullFieldError.checkNotNull(hideDownload, r'Share', 'hideDownload'),
+            isMountRoot: BuiltValueNullFieldError.checkNotNull(isMountRoot, r'Share', 'isMountRoot'),
             id: BuiltValueNullFieldError.checkNotNull(id, r'Share', 'id'),
             itemMtime: BuiltValueNullFieldError.checkNotNull(itemMtime, r'Share', 'itemMtime'),
             itemPermissions: itemPermissions,
             itemSize: BuiltValueNullFieldError.checkNotNull(itemSize, r'Share', 'itemSize'),
             itemSource: BuiltValueNullFieldError.checkNotNull(itemSource, r'Share', 'itemSource'),
             itemType: BuiltValueNullFieldError.checkNotNull(itemType, r'Share', 'itemType'),
-            label: label,
+            label: BuiltValueNullFieldError.checkNotNull(label, r'Share', 'label'),
             mailSend: BuiltValueNullFieldError.checkNotNull(mailSend, r'Share', 'mailSend'),
             mimetype: BuiltValueNullFieldError.checkNotNull(mimetype, r'Share', 'mimetype'),
+            mountType: BuiltValueNullFieldError.checkNotNull(mountType, r'Share', 'mountType'),
             note: BuiltValueNullFieldError.checkNotNull(note, r'Share', 'note'),
             parent: parent,
             password: password,
@@ -9599,8 +9867,8 @@ abstract mixin class $ShareapiCreateShareRequestApplicationJsonInterfaceBuilder 
   String? get shareWith;
   set shareWith(String? shareWith);
 
-  String? get publicUpload;
-  set publicUpload(String? publicUpload);
+  ShareapiCreateShareRequestApplicationJson_PublicUpload? get publicUpload;
+  set publicUpload(ShareapiCreateShareRequestApplicationJson_PublicUpload? publicUpload);
 
   String? get password;
   set password(String? password);
@@ -9634,7 +9902,7 @@ class _$ShareapiCreateShareRequestApplicationJson extends ShareapiCreateShareReq
   @override
   final String? shareWith;
   @override
-  final String publicUpload;
+  final ShareapiCreateShareRequestApplicationJson_PublicUpload? publicUpload;
   @override
   final String password;
   @override
@@ -9659,7 +9927,7 @@ class _$ShareapiCreateShareRequestApplicationJson extends ShareapiCreateShareReq
       this.permissions,
       required this.shareType,
       this.shareWith,
-      required this.publicUpload,
+      this.publicUpload,
       required this.password,
       this.sendPasswordByTalk,
       this.expireDate,
@@ -9669,7 +9937,6 @@ class _$ShareapiCreateShareRequestApplicationJson extends ShareapiCreateShareReq
       this.sendMail})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(shareType, r'ShareapiCreateShareRequestApplicationJson', 'shareType');
-    BuiltValueNullFieldError.checkNotNull(publicUpload, r'ShareapiCreateShareRequestApplicationJson', 'publicUpload');
     BuiltValueNullFieldError.checkNotNull(password, r'ShareapiCreateShareRequestApplicationJson', 'password');
     BuiltValueNullFieldError.checkNotNull(note, r'ShareapiCreateShareRequestApplicationJson', 'note');
     BuiltValueNullFieldError.checkNotNull(label, r'ShareapiCreateShareRequestApplicationJson', 'label');
@@ -9762,9 +10029,10 @@ class ShareapiCreateShareRequestApplicationJsonBuilder
   String? get shareWith => _$this._shareWith;
   set shareWith(covariant String? shareWith) => _$this._shareWith = shareWith;
 
-  String? _publicUpload;
-  String? get publicUpload => _$this._publicUpload;
-  set publicUpload(covariant String? publicUpload) => _$this._publicUpload = publicUpload;
+  ShareapiCreateShareRequestApplicationJson_PublicUpload? _publicUpload;
+  ShareapiCreateShareRequestApplicationJson_PublicUpload? get publicUpload => _$this._publicUpload;
+  set publicUpload(covariant ShareapiCreateShareRequestApplicationJson_PublicUpload? publicUpload) =>
+      _$this._publicUpload = publicUpload;
 
   String? _password;
   String? get password => _$this._password;
@@ -9841,8 +10109,7 @@ class ShareapiCreateShareRequestApplicationJsonBuilder
           shareType: BuiltValueNullFieldError.checkNotNull(
               shareType, r'ShareapiCreateShareRequestApplicationJson', 'shareType'),
           shareWith: shareWith,
-          publicUpload: BuiltValueNullFieldError.checkNotNull(
-              publicUpload, r'ShareapiCreateShareRequestApplicationJson', 'publicUpload'),
+          publicUpload: publicUpload,
           password:
               BuiltValueNullFieldError.checkNotNull(password, r'ShareapiCreateShareRequestApplicationJson', 'password'),
           sendPasswordByTalk: sendPasswordByTalk,
@@ -10579,15 +10846,15 @@ abstract mixin class $ShareapiGetShareResponseApplicationJson_OcsInterfaceBuilde
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
-  ShareBuilder get data;
-  set data(ShareBuilder? data);
+  ListBuilder<Share> get data;
+  set data(ListBuilder<Share>? data);
 }
 
 class _$ShareapiGetShareResponseApplicationJson_Ocs extends ShareapiGetShareResponseApplicationJson_Ocs {
   @override
   final OCSMeta meta;
   @override
-  final Share data;
+  final BuiltList<Share> data;
 
   factory _$ShareapiGetShareResponseApplicationJson_Ocs(
           [void Function(ShareapiGetShareResponseApplicationJson_OcsBuilder)? updates]) =>
@@ -10641,9 +10908,9 @@ class ShareapiGetShareResponseApplicationJson_OcsBuilder
   OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  ShareBuilder? _data;
-  ShareBuilder get data => _$this._data ??= new ShareBuilder();
-  set data(covariant ShareBuilder? data) => _$this._data = data;
+  ListBuilder<Share>? _data;
+  ListBuilder<Share> get data => _$this._data ??= new ListBuilder<Share>();
+  set data(covariant ListBuilder<Share>? data) => _$this._data = data;
 
   ShareapiGetShareResponseApplicationJson_OcsBuilder() {
     ShareapiGetShareResponseApplicationJson_Ocs._defaults(this);
@@ -10841,6 +11108,9 @@ abstract mixin class $ShareapiUpdateShareRequestApplicationJsonInterfaceBuilder 
 
   String? get sendMail;
   set sendMail(String? sendMail);
+
+  String? get token;
+  set token(String? token);
 }
 
 class _$ShareapiUpdateShareRequestApplicationJson extends ShareapiUpdateShareRequestApplicationJson {
@@ -10864,6 +11134,8 @@ class _$ShareapiUpdateShareRequestApplicationJson extends ShareapiUpdateShareReq
   final String? attributes;
   @override
   final String? sendMail;
+  @override
+  final String? token;
 
   factory _$ShareapiUpdateShareRequestApplicationJson(
           [void Function(ShareapiUpdateShareRequestApplicationJsonBuilder)? updates]) =>
@@ -10879,7 +11151,8 @@ class _$ShareapiUpdateShareRequestApplicationJson extends ShareapiUpdateShareReq
       this.label,
       this.hideDownload,
       this.attributes,
-      this.sendMail})
+      this.sendMail,
+      this.token})
       : super._();
 
   @override
@@ -10904,7 +11177,8 @@ class _$ShareapiUpdateShareRequestApplicationJson extends ShareapiUpdateShareReq
         label == other.label &&
         hideDownload == other.hideDownload &&
         attributes == other.attributes &&
-        sendMail == other.sendMail;
+        sendMail == other.sendMail &&
+        token == other.token;
   }
 
   @override
@@ -10920,6 +11194,7 @@ class _$ShareapiUpdateShareRequestApplicationJson extends ShareapiUpdateShareReq
     _$hash = $jc(_$hash, hideDownload.hashCode);
     _$hash = $jc(_$hash, attributes.hashCode);
     _$hash = $jc(_$hash, sendMail.hashCode);
+    _$hash = $jc(_$hash, token.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -10936,7 +11211,8 @@ class _$ShareapiUpdateShareRequestApplicationJson extends ShareapiUpdateShareReq
           ..add('label', label)
           ..add('hideDownload', hideDownload)
           ..add('attributes', attributes)
-          ..add('sendMail', sendMail))
+          ..add('sendMail', sendMail)
+          ..add('token', token))
         .toString();
   }
 }
@@ -10987,6 +11263,10 @@ class ShareapiUpdateShareRequestApplicationJsonBuilder
   String? get sendMail => _$this._sendMail;
   set sendMail(covariant String? sendMail) => _$this._sendMail = sendMail;
 
+  String? _token;
+  String? get token => _$this._token;
+  set token(covariant String? token) => _$this._token = token;
+
   ShareapiUpdateShareRequestApplicationJsonBuilder() {
     ShareapiUpdateShareRequestApplicationJson._defaults(this);
   }
@@ -11004,6 +11284,7 @@ class ShareapiUpdateShareRequestApplicationJsonBuilder
       _hideDownload = $v.hideDownload;
       _attributes = $v.attributes;
       _sendMail = $v.sendMail;
+      _token = $v.token;
       _$v = null;
     }
     return this;
@@ -11037,6 +11318,7 @@ class ShareapiUpdateShareRequestApplicationJsonBuilder
           hideDownload: hideDownload,
           attributes: attributes,
           sendMail: sendMail,
+          token: token,
         );
     replace(_$result);
     return _$result;
@@ -12087,25 +12369,359 @@ class ShareapiAcceptShareResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class $ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  String? get token;
+  set token(String? token);
+}
+
+class _$ShareapiGenerateTokenResponseApplicationJson_Ocs_Data
+    extends ShareapiGenerateTokenResponseApplicationJson_Ocs_Data {
+  @override
+  final String token;
+
+  factory _$ShareapiGenerateTokenResponseApplicationJson_Ocs_Data(
+          [void Function(ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (new ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$ShareapiGenerateTokenResponseApplicationJson_Ocs_Data._({required this.token}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(token, r'ShareapiGenerateTokenResponseApplicationJson_Ocs_Data', 'token');
+  }
+
+  @override
+  ShareapiGenerateTokenResponseApplicationJson_Ocs_Data rebuild(
+          void Function(ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      new ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ShareapiGenerateTokenResponseApplicationJson_Ocs_Data && token == other.token;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, token.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ShareapiGenerateTokenResponseApplicationJson_Ocs_Data')..add('token', token))
+        .toString();
+  }
+}
+
+class ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<ShareapiGenerateTokenResponseApplicationJson_Ocs_Data,
+            ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder>,
+        $ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$ShareapiGenerateTokenResponseApplicationJson_Ocs_Data? _$v;
+
+  String? _token;
+  String? get token => _$this._token;
+  set token(covariant String? token) => _$this._token = token;
+
+  ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder() {
+    ShareapiGenerateTokenResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _token = $v.token;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ShareapiGenerateTokenResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ShareapiGenerateTokenResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ShareapiGenerateTokenResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$ShareapiGenerateTokenResponseApplicationJson_Ocs_Data _build() {
+    ShareapiGenerateTokenResponseApplicationJson_Ocs_Data._validate(this);
+    final _$result = _$v ??
+        new _$ShareapiGenerateTokenResponseApplicationJson_Ocs_Data._(
+          token: BuiltValueNullFieldError.checkNotNull(
+              token, r'ShareapiGenerateTokenResponseApplicationJson_Ocs_Data', 'token'),
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ShareapiGenerateTokenResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ShareapiGenerateTokenResponseApplicationJson_OcsInterface other);
+  void update(void Function($ShareapiGenerateTokenResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$ShareapiGenerateTokenResponseApplicationJson_Ocs extends ShareapiGenerateTokenResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final ShareapiGenerateTokenResponseApplicationJson_Ocs_Data data;
+
+  factory _$ShareapiGenerateTokenResponseApplicationJson_Ocs(
+          [void Function(ShareapiGenerateTokenResponseApplicationJson_OcsBuilder)? updates]) =>
+      (new ShareapiGenerateTokenResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$ShareapiGenerateTokenResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ShareapiGenerateTokenResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ShareapiGenerateTokenResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  ShareapiGenerateTokenResponseApplicationJson_Ocs rebuild(
+          void Function(ShareapiGenerateTokenResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ShareapiGenerateTokenResponseApplicationJson_OcsBuilder toBuilder() =>
+      new ShareapiGenerateTokenResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ShareapiGenerateTokenResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ShareapiGenerateTokenResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class ShareapiGenerateTokenResponseApplicationJson_OcsBuilder
+    implements
+        Builder<ShareapiGenerateTokenResponseApplicationJson_Ocs,
+            ShareapiGenerateTokenResponseApplicationJson_OcsBuilder>,
+        $ShareapiGenerateTokenResponseApplicationJson_OcsInterfaceBuilder {
+  _$ShareapiGenerateTokenResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder? _data;
+  ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= new ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  ShareapiGenerateTokenResponseApplicationJson_OcsBuilder() {
+    ShareapiGenerateTokenResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  ShareapiGenerateTokenResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ShareapiGenerateTokenResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ShareapiGenerateTokenResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(ShareapiGenerateTokenResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ShareapiGenerateTokenResponseApplicationJson_Ocs build() => _build();
+
+  _$ShareapiGenerateTokenResponseApplicationJson_Ocs _build() {
+    ShareapiGenerateTokenResponseApplicationJson_Ocs._validate(this);
+    _$ShareapiGenerateTokenResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          new _$ShareapiGenerateTokenResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'ShareapiGenerateTokenResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ShareapiGenerateTokenResponseApplicationJsonInterfaceBuilder {
+  void replace($ShareapiGenerateTokenResponseApplicationJsonInterface other);
+  void update(void Function($ShareapiGenerateTokenResponseApplicationJsonInterfaceBuilder) updates);
+  ShareapiGenerateTokenResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ShareapiGenerateTokenResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$ShareapiGenerateTokenResponseApplicationJson extends ShareapiGenerateTokenResponseApplicationJson {
+  @override
+  final ShareapiGenerateTokenResponseApplicationJson_Ocs ocs;
+
+  factory _$ShareapiGenerateTokenResponseApplicationJson(
+          [void Function(ShareapiGenerateTokenResponseApplicationJsonBuilder)? updates]) =>
+      (new ShareapiGenerateTokenResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$ShareapiGenerateTokenResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ShareapiGenerateTokenResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  ShareapiGenerateTokenResponseApplicationJson rebuild(
+          void Function(ShareapiGenerateTokenResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ShareapiGenerateTokenResponseApplicationJsonBuilder toBuilder() =>
+      new ShareapiGenerateTokenResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ShareapiGenerateTokenResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ShareapiGenerateTokenResponseApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class ShareapiGenerateTokenResponseApplicationJsonBuilder
+    implements
+        Builder<ShareapiGenerateTokenResponseApplicationJson, ShareapiGenerateTokenResponseApplicationJsonBuilder>,
+        $ShareapiGenerateTokenResponseApplicationJsonInterfaceBuilder {
+  _$ShareapiGenerateTokenResponseApplicationJson? _$v;
+
+  ShareapiGenerateTokenResponseApplicationJson_OcsBuilder? _ocs;
+  ShareapiGenerateTokenResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= new ShareapiGenerateTokenResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ShareapiGenerateTokenResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  ShareapiGenerateTokenResponseApplicationJsonBuilder() {
+    ShareapiGenerateTokenResponseApplicationJson._defaults(this);
+  }
+
+  ShareapiGenerateTokenResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ShareapiGenerateTokenResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ShareapiGenerateTokenResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(ShareapiGenerateTokenResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ShareapiGenerateTokenResponseApplicationJson build() => _build();
+
+  _$ShareapiGenerateTokenResponseApplicationJson _build() {
+    ShareapiGenerateTokenResponseApplicationJson._validate(this);
+    _$ShareapiGenerateTokenResponseApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          new _$ShareapiGenerateTokenResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'ShareapiGenerateTokenResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $ShareeInterfaceBuilder {
   void replace($ShareeInterface other);
   void update(void Function($ShareeInterfaceBuilder) updates);
-  int? get count;
-  set count(int? count);
-
   String? get label;
   set label(String? label);
 }
 
 class _$Sharee extends Sharee {
   @override
-  final int? count;
-  @override
   final String label;
 
   factory _$Sharee([void Function(ShareeBuilder)? updates]) => (new ShareeBuilder()..update(updates))._build();
 
-  _$Sharee._({this.count, required this.label}) : super._() {
+  _$Sharee._({required this.label}) : super._() {
     BuiltValueNullFieldError.checkNotNull(label, r'Sharee', 'label');
   }
 
@@ -12118,13 +12734,12 @@ class _$Sharee extends Sharee {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Sharee && count == other.count && label == other.label;
+    return other is Sharee && label == other.label;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, count.hashCode);
     _$hash = $jc(_$hash, label.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -12132,19 +12747,12 @@ class _$Sharee extends Sharee {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'Sharee')
-          ..add('count', count)
-          ..add('label', label))
-        .toString();
+    return (newBuiltValueToStringHelper(r'Sharee')..add('label', label)).toString();
   }
 }
 
 class ShareeBuilder implements Builder<Sharee, ShareeBuilder>, $ShareeInterfaceBuilder {
   _$Sharee? _$v;
-
-  int? _count;
-  int? get count => _$this._count;
-  set count(covariant int? count) => _$this._count = count;
 
   String? _label;
   String? get label => _$this._label;
@@ -12157,7 +12765,6 @@ class ShareeBuilder implements Builder<Sharee, ShareeBuilder>, $ShareeInterfaceB
   ShareeBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _count = $v.count;
       _label = $v.label;
       _$v = null;
     }
@@ -12182,7 +12789,6 @@ class ShareeBuilder implements Builder<Sharee, ShareeBuilder>, $ShareeInterfaceB
     Sharee._validate(this);
     final _$result = _$v ??
         new _$Sharee._(
-          count: count,
           label: BuiltValueNullFieldError.checkNotNull(label, r'Sharee', 'label'),
         );
     replace(_$result);
@@ -12428,9 +13034,6 @@ abstract mixin class $ShareeCircleInterfaceBuilder implements $ShareeInterfaceBu
   ShareeCircle_ValueBuilder get value;
   set value(covariant ShareeCircle_ValueBuilder? value);
 
-  int? get count;
-  set count(covariant int? count);
-
   String? get label;
   set label(covariant String? label);
 }
@@ -12441,15 +13044,12 @@ class _$ShareeCircle extends ShareeCircle {
   @override
   final ShareeCircle_Value value;
   @override
-  final int? count;
-  @override
   final String label;
 
   factory _$ShareeCircle([void Function(ShareeCircleBuilder)? updates]) =>
       (new ShareeCircleBuilder()..update(updates))._build();
 
-  _$ShareeCircle._({required this.shareWithDescription, required this.value, this.count, required this.label})
-      : super._() {
+  _$ShareeCircle._({required this.shareWithDescription, required this.value, required this.label}) : super._() {
     BuiltValueNullFieldError.checkNotNull(shareWithDescription, r'ShareeCircle', 'shareWithDescription');
     BuiltValueNullFieldError.checkNotNull(value, r'ShareeCircle', 'value');
     BuiltValueNullFieldError.checkNotNull(label, r'ShareeCircle', 'label');
@@ -12467,7 +13067,6 @@ class _$ShareeCircle extends ShareeCircle {
     return other is ShareeCircle &&
         shareWithDescription == other.shareWithDescription &&
         value == other.value &&
-        count == other.count &&
         label == other.label;
   }
 
@@ -12476,7 +13075,6 @@ class _$ShareeCircle extends ShareeCircle {
     var _$hash = 0;
     _$hash = $jc(_$hash, shareWithDescription.hashCode);
     _$hash = $jc(_$hash, value.hashCode);
-    _$hash = $jc(_$hash, count.hashCode);
     _$hash = $jc(_$hash, label.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -12487,7 +13085,6 @@ class _$ShareeCircle extends ShareeCircle {
     return (newBuiltValueToStringHelper(r'ShareeCircle')
           ..add('shareWithDescription', shareWithDescription)
           ..add('value', value)
-          ..add('count', count)
           ..add('label', label))
         .toString();
   }
@@ -12505,10 +13102,6 @@ class ShareeCircleBuilder implements Builder<ShareeCircle, ShareeCircleBuilder>,
   ShareeCircle_ValueBuilder get value => _$this._value ??= new ShareeCircle_ValueBuilder();
   set value(covariant ShareeCircle_ValueBuilder? value) => _$this._value = value;
 
-  int? _count;
-  int? get count => _$this._count;
-  set count(covariant int? count) => _$this._count = count;
-
   String? _label;
   String? get label => _$this._label;
   set label(covariant String? label) => _$this._label = label;
@@ -12522,7 +13115,6 @@ class ShareeCircleBuilder implements Builder<ShareeCircle, ShareeCircleBuilder>,
     if ($v != null) {
       _shareWithDescription = $v.shareWithDescription;
       _value = $v.value.toBuilder();
-      _count = $v.count;
       _label = $v.label;
       _$v = null;
     }
@@ -12552,7 +13144,6 @@ class ShareeCircleBuilder implements Builder<ShareeCircle, ShareeCircleBuilder>,
             shareWithDescription:
                 BuiltValueNullFieldError.checkNotNull(shareWithDescription, r'ShareeCircle', 'shareWithDescription'),
             value: value.build(),
-            count: count,
             label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeCircle', 'label'),
           );
     } catch (_) {
@@ -12588,9 +13179,6 @@ abstract mixin class $ShareeEmailInterfaceBuilder implements $ShareeInterfaceBui
   ShareeValueBuilder get value;
   set value(covariant ShareeValueBuilder? value);
 
-  int? get count;
-  set count(covariant int? count);
-
   String? get label;
   set label(covariant String? label);
 }
@@ -12607,8 +13195,6 @@ class _$ShareeEmail extends ShareeEmail {
   @override
   final ShareeValue value;
   @override
-  final int? count;
-  @override
   final String label;
 
   factory _$ShareeEmail([void Function(ShareeEmailBuilder)? updates]) =>
@@ -12620,7 +13206,6 @@ class _$ShareeEmail extends ShareeEmail {
       required this.type,
       required this.shareWithDisplayNameUnique,
       required this.value,
-      this.count,
       required this.label})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(uuid, r'ShareeEmail', 'uuid');
@@ -12646,7 +13231,6 @@ class _$ShareeEmail extends ShareeEmail {
         type == other.type &&
         shareWithDisplayNameUnique == other.shareWithDisplayNameUnique &&
         value == other.value &&
-        count == other.count &&
         label == other.label;
   }
 
@@ -12658,7 +13242,6 @@ class _$ShareeEmail extends ShareeEmail {
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, shareWithDisplayNameUnique.hashCode);
     _$hash = $jc(_$hash, value.hashCode);
-    _$hash = $jc(_$hash, count.hashCode);
     _$hash = $jc(_$hash, label.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -12672,7 +13255,6 @@ class _$ShareeEmail extends ShareeEmail {
           ..add('type', type)
           ..add('shareWithDisplayNameUnique', shareWithDisplayNameUnique)
           ..add('value', value)
-          ..add('count', count)
           ..add('label', label))
         .toString();
   }
@@ -12702,10 +13284,6 @@ class ShareeEmailBuilder implements Builder<ShareeEmail, ShareeEmailBuilder>, $S
   ShareeValueBuilder get value => _$this._value ??= new ShareeValueBuilder();
   set value(covariant ShareeValueBuilder? value) => _$this._value = value;
 
-  int? _count;
-  int? get count => _$this._count;
-  set count(covariant int? count) => _$this._count = count;
-
   String? _label;
   String? get label => _$this._label;
   set label(covariant String? label) => _$this._label = label;
@@ -12722,7 +13300,6 @@ class ShareeEmailBuilder implements Builder<ShareeEmail, ShareeEmailBuilder>, $S
       _type = $v.type;
       _shareWithDisplayNameUnique = $v.shareWithDisplayNameUnique;
       _value = $v.value.toBuilder();
-      _count = $v.count;
       _label = $v.label;
       _$v = null;
     }
@@ -12755,7 +13332,6 @@ class ShareeEmailBuilder implements Builder<ShareeEmail, ShareeEmailBuilder>, $S
             shareWithDisplayNameUnique: BuiltValueNullFieldError.checkNotNull(
                 shareWithDisplayNameUnique, r'ShareeEmail', 'shareWithDisplayNameUnique'),
             value: value.build(),
-            count: count,
             label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeEmail', 'label'),
           );
     } catch (_) {
@@ -12765,6 +13341,123 @@ class ShareeEmailBuilder implements Builder<ShareeEmail, ShareeEmailBuilder>, $S
         value.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(r'ShareeEmail', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ShareeGroupInterfaceBuilder implements $ShareeInterfaceBuilder {
+  void replace(covariant $ShareeGroupInterface other);
+  void update(void Function($ShareeGroupInterfaceBuilder) updates);
+  ShareeValueBuilder get value;
+  set value(covariant ShareeValueBuilder? value);
+
+  String? get label;
+  set label(covariant String? label);
+}
+
+class _$ShareeGroup extends ShareeGroup {
+  @override
+  final ShareeValue value;
+  @override
+  final String label;
+
+  factory _$ShareeGroup([void Function(ShareeGroupBuilder)? updates]) =>
+      (new ShareeGroupBuilder()..update(updates))._build();
+
+  _$ShareeGroup._({required this.value, required this.label}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(value, r'ShareeGroup', 'value');
+    BuiltValueNullFieldError.checkNotNull(label, r'ShareeGroup', 'label');
+  }
+
+  @override
+  ShareeGroup rebuild(void Function(ShareeGroupBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  ShareeGroupBuilder toBuilder() => new ShareeGroupBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ShareeGroup && value == other.value && label == other.label;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, value.hashCode);
+    _$hash = $jc(_$hash, label.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ShareeGroup')
+          ..add('value', value)
+          ..add('label', label))
+        .toString();
+  }
+}
+
+class ShareeGroupBuilder implements Builder<ShareeGroup, ShareeGroupBuilder>, $ShareeGroupInterfaceBuilder {
+  _$ShareeGroup? _$v;
+
+  ShareeValueBuilder? _value;
+  ShareeValueBuilder get value => _$this._value ??= new ShareeValueBuilder();
+  set value(covariant ShareeValueBuilder? value) => _$this._value = value;
+
+  String? _label;
+  String? get label => _$this._label;
+  set label(covariant String? label) => _$this._label = label;
+
+  ShareeGroupBuilder() {
+    ShareeGroup._defaults(this);
+  }
+
+  ShareeGroupBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _value = $v.value.toBuilder();
+      _label = $v.label;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ShareeGroup other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ShareeGroup;
+  }
+
+  @override
+  void update(void Function(ShareeGroupBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ShareeGroup build() => _build();
+
+  _$ShareeGroup _build() {
+    ShareeGroup._validate(this);
+    _$ShareeGroup _$result;
+    try {
+      _$result = _$v ??
+          new _$ShareeGroup._(
+            value: value.build(),
+            label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeGroup', 'label'),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'value';
+        value.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(r'ShareeGroup', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -12911,9 +13604,6 @@ abstract mixin class $ShareeRemoteGroupInterfaceBuilder implements $ShareeInterf
   ShareeRemoteGroup_ValueBuilder get value;
   set value(covariant ShareeRemoteGroup_ValueBuilder? value);
 
-  int? get count;
-  set count(covariant int? count);
-
   String? get label;
   set label(covariant String? label);
 }
@@ -12926,14 +13616,12 @@ class _$ShareeRemoteGroup extends ShareeRemoteGroup {
   @override
   final ShareeRemoteGroup_Value value;
   @override
-  final int? count;
-  @override
   final String label;
 
   factory _$ShareeRemoteGroup([void Function(ShareeRemoteGroupBuilder)? updates]) =>
       (new ShareeRemoteGroupBuilder()..update(updates))._build();
 
-  _$ShareeRemoteGroup._({required this.guid, required this.name, required this.value, this.count, required this.label})
+  _$ShareeRemoteGroup._({required this.guid, required this.name, required this.value, required this.label})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(guid, r'ShareeRemoteGroup', 'guid');
     BuiltValueNullFieldError.checkNotNull(name, r'ShareeRemoteGroup', 'name');
@@ -12954,7 +13642,6 @@ class _$ShareeRemoteGroup extends ShareeRemoteGroup {
         guid == other.guid &&
         name == other.name &&
         value == other.value &&
-        count == other.count &&
         label == other.label;
   }
 
@@ -12964,7 +13651,6 @@ class _$ShareeRemoteGroup extends ShareeRemoteGroup {
     _$hash = $jc(_$hash, guid.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, value.hashCode);
-    _$hash = $jc(_$hash, count.hashCode);
     _$hash = $jc(_$hash, label.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -12976,7 +13662,6 @@ class _$ShareeRemoteGroup extends ShareeRemoteGroup {
           ..add('guid', guid)
           ..add('name', name)
           ..add('value', value)
-          ..add('count', count)
           ..add('label', label))
         .toString();
   }
@@ -12998,10 +13683,6 @@ class ShareeRemoteGroupBuilder
   ShareeRemoteGroup_ValueBuilder get value => _$this._value ??= new ShareeRemoteGroup_ValueBuilder();
   set value(covariant ShareeRemoteGroup_ValueBuilder? value) => _$this._value = value;
 
-  int? _count;
-  int? get count => _$this._count;
-  set count(covariant int? count) => _$this._count = count;
-
   String? _label;
   String? get label => _$this._label;
   set label(covariant String? label) => _$this._label = label;
@@ -13016,7 +13697,6 @@ class ShareeRemoteGroupBuilder
       _guid = $v.guid;
       _name = $v.name;
       _value = $v.value.toBuilder();
-      _count = $v.count;
       _label = $v.label;
       _$v = null;
     }
@@ -13046,7 +13726,6 @@ class ShareeRemoteGroupBuilder
             guid: BuiltValueNullFieldError.checkNotNull(guid, r'ShareeRemoteGroup', 'guid'),
             name: BuiltValueNullFieldError.checkNotNull(name, r'ShareeRemoteGroup', 'name'),
             value: value.build(),
-            count: count,
             label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeRemoteGroup', 'label'),
           );
     } catch (_) {
@@ -13203,9 +13882,6 @@ abstract mixin class $ShareeRemoteInterfaceBuilder implements $ShareeInterfaceBu
   ShareeRemote_ValueBuilder get value;
   set value(covariant ShareeRemote_ValueBuilder? value);
 
-  int? get count;
-  set count(covariant int? count);
-
   String? get label;
   set label(covariant String? label);
 }
@@ -13220,20 +13896,13 @@ class _$ShareeRemote extends ShareeRemote {
   @override
   final ShareeRemote_Value value;
   @override
-  final int? count;
-  @override
   final String label;
 
   factory _$ShareeRemote([void Function(ShareeRemoteBuilder)? updates]) =>
       (new ShareeRemoteBuilder()..update(updates))._build();
 
   _$ShareeRemote._(
-      {required this.uuid,
-      required this.name,
-      required this.type,
-      required this.value,
-      this.count,
-      required this.label})
+      {required this.uuid, required this.name, required this.type, required this.value, required this.label})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(uuid, r'ShareeRemote', 'uuid');
     BuiltValueNullFieldError.checkNotNull(name, r'ShareeRemote', 'name');
@@ -13256,7 +13925,6 @@ class _$ShareeRemote extends ShareeRemote {
         name == other.name &&
         type == other.type &&
         value == other.value &&
-        count == other.count &&
         label == other.label;
   }
 
@@ -13267,7 +13935,6 @@ class _$ShareeRemote extends ShareeRemote {
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, value.hashCode);
-    _$hash = $jc(_$hash, count.hashCode);
     _$hash = $jc(_$hash, label.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -13280,7 +13947,6 @@ class _$ShareeRemote extends ShareeRemote {
           ..add('name', name)
           ..add('type', type)
           ..add('value', value)
-          ..add('count', count)
           ..add('label', label))
         .toString();
   }
@@ -13305,10 +13971,6 @@ class ShareeRemoteBuilder implements Builder<ShareeRemote, ShareeRemoteBuilder>,
   ShareeRemote_ValueBuilder get value => _$this._value ??= new ShareeRemote_ValueBuilder();
   set value(covariant ShareeRemote_ValueBuilder? value) => _$this._value = value;
 
-  int? _count;
-  int? get count => _$this._count;
-  set count(covariant int? count) => _$this._count = count;
-
   String? _label;
   String? get label => _$this._label;
   set label(covariant String? label) => _$this._label = label;
@@ -13324,7 +13986,6 @@ class ShareeRemoteBuilder implements Builder<ShareeRemote, ShareeRemoteBuilder>,
       _name = $v.name;
       _type = $v.type;
       _value = $v.value.toBuilder();
-      _count = $v.count;
       _label = $v.label;
       _$v = null;
     }
@@ -13355,7 +14016,6 @@ class ShareeRemoteBuilder implements Builder<ShareeRemote, ShareeRemoteBuilder>,
             name: BuiltValueNullFieldError.checkNotNull(name, r'ShareeRemote', 'name'),
             type: BuiltValueNullFieldError.checkNotNull(type, r'ShareeRemote', 'type'),
             value: value.build(),
-            count: count,
             label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeRemote', 'label'),
           );
     } catch (_) {
@@ -13365,6 +14025,123 @@ class ShareeRemoteBuilder implements Builder<ShareeRemote, ShareeRemoteBuilder>,
         value.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(r'ShareeRemote', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ShareeRoomInterfaceBuilder implements $ShareeInterfaceBuilder {
+  void replace(covariant $ShareeRoomInterface other);
+  void update(void Function($ShareeRoomInterfaceBuilder) updates);
+  ShareeValueBuilder get value;
+  set value(covariant ShareeValueBuilder? value);
+
+  String? get label;
+  set label(covariant String? label);
+}
+
+class _$ShareeRoom extends ShareeRoom {
+  @override
+  final ShareeValue value;
+  @override
+  final String label;
+
+  factory _$ShareeRoom([void Function(ShareeRoomBuilder)? updates]) =>
+      (new ShareeRoomBuilder()..update(updates))._build();
+
+  _$ShareeRoom._({required this.value, required this.label}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(value, r'ShareeRoom', 'value');
+    BuiltValueNullFieldError.checkNotNull(label, r'ShareeRoom', 'label');
+  }
+
+  @override
+  ShareeRoom rebuild(void Function(ShareeRoomBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  ShareeRoomBuilder toBuilder() => new ShareeRoomBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ShareeRoom && value == other.value && label == other.label;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, value.hashCode);
+    _$hash = $jc(_$hash, label.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ShareeRoom')
+          ..add('value', value)
+          ..add('label', label))
+        .toString();
+  }
+}
+
+class ShareeRoomBuilder implements Builder<ShareeRoom, ShareeRoomBuilder>, $ShareeRoomInterfaceBuilder {
+  _$ShareeRoom? _$v;
+
+  ShareeValueBuilder? _value;
+  ShareeValueBuilder get value => _$this._value ??= new ShareeValueBuilder();
+  set value(covariant ShareeValueBuilder? value) => _$this._value = value;
+
+  String? _label;
+  String? get label => _$this._label;
+  set label(covariant String? label) => _$this._label = label;
+
+  ShareeRoomBuilder() {
+    ShareeRoom._defaults(this);
+  }
+
+  ShareeRoomBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _value = $v.value.toBuilder();
+      _label = $v.label;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ShareeRoom other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ShareeRoom;
+  }
+
+  @override
+  void update(void Function(ShareeRoomBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ShareeRoom build() => _build();
+
+  _$ShareeRoom _build() {
+    ShareeRoom._validate(this);
+    _$ShareeRoom _$result;
+    try {
+      _$result = _$v ??
+          new _$ShareeRoom._(
+            value: value.build(),
+            label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeRoom', 'label'),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'value';
+        value.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(r'ShareeRoom', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -13528,9 +14305,6 @@ abstract mixin class $ShareeUserInterfaceBuilder implements $ShareeInterfaceBuil
   ShareeValueBuilder get value;
   set value(covariant ShareeValueBuilder? value);
 
-  int? get count;
-  set count(covariant int? count);
-
   String? get label;
   set label(covariant String? label);
 }
@@ -13547,8 +14321,6 @@ class _$ShareeUser extends ShareeUser {
   @override
   final ShareeValue value;
   @override
-  final int? count;
-  @override
   final String label;
 
   factory _$ShareeUser([void Function(ShareeUserBuilder)? updates]) =>
@@ -13560,7 +14332,6 @@ class _$ShareeUser extends ShareeUser {
       required this.shareWithDisplayNameUnique,
       required this.status,
       required this.value,
-      this.count,
       required this.label})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(subline, r'ShareeUser', 'subline');
@@ -13586,7 +14357,6 @@ class _$ShareeUser extends ShareeUser {
         shareWithDisplayNameUnique == other.shareWithDisplayNameUnique &&
         status == other.status &&
         value == other.value &&
-        count == other.count &&
         label == other.label;
   }
 
@@ -13598,7 +14368,6 @@ class _$ShareeUser extends ShareeUser {
     _$hash = $jc(_$hash, shareWithDisplayNameUnique.hashCode);
     _$hash = $jc(_$hash, status.hashCode);
     _$hash = $jc(_$hash, value.hashCode);
-    _$hash = $jc(_$hash, count.hashCode);
     _$hash = $jc(_$hash, label.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -13612,7 +14381,6 @@ class _$ShareeUser extends ShareeUser {
           ..add('shareWithDisplayNameUnique', shareWithDisplayNameUnique)
           ..add('status', status)
           ..add('value', value)
-          ..add('count', count)
           ..add('label', label))
         .toString();
   }
@@ -13642,10 +14410,6 @@ class ShareeUserBuilder implements Builder<ShareeUser, ShareeUserBuilder>, $Shar
   ShareeValueBuilder get value => _$this._value ??= new ShareeValueBuilder();
   set value(covariant ShareeValueBuilder? value) => _$this._value = value;
 
-  int? _count;
-  int? get count => _$this._count;
-  set count(covariant int? count) => _$this._count = count;
-
   String? _label;
   String? get label => _$this._label;
   set label(covariant String? label) => _$this._label = label;
@@ -13662,7 +14426,6 @@ class ShareeUserBuilder implements Builder<ShareeUser, ShareeUserBuilder>, $Shar
       _shareWithDisplayNameUnique = $v.shareWithDisplayNameUnique;
       _status = $v.status.toBuilder();
       _value = $v.value.toBuilder();
-      _count = $v.count;
       _label = $v.label;
       _$v = null;
     }
@@ -13695,7 +14458,6 @@ class ShareeUserBuilder implements Builder<ShareeUser, ShareeUserBuilder>, $Shar
                 shareWithDisplayNameUnique, r'ShareeUser', 'shareWithDisplayNameUnique'),
             status: status.build(),
             value: value.build(),
-            count: count,
             label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeUser', 'label'),
           );
     } catch (_) {
@@ -13724,8 +14486,8 @@ abstract mixin class $ShareesSearchResult_ExactInterfaceBuilder {
   ListBuilder<ShareeEmail> get emails;
   set emails(ListBuilder<ShareeEmail>? emails);
 
-  ListBuilder<Sharee> get groups;
-  set groups(ListBuilder<Sharee>? groups);
+  ListBuilder<ShareeGroup> get groups;
+  set groups(ListBuilder<ShareeGroup>? groups);
 
   ListBuilder<ShareeRemoteGroup> get remoteGroups;
   set remoteGroups(ListBuilder<ShareeRemoteGroup>? remoteGroups);
@@ -13733,8 +14495,8 @@ abstract mixin class $ShareesSearchResult_ExactInterfaceBuilder {
   ListBuilder<ShareeRemote> get remotes;
   set remotes(ListBuilder<ShareeRemote>? remotes);
 
-  ListBuilder<Sharee> get rooms;
-  set rooms(ListBuilder<Sharee>? rooms);
+  ListBuilder<ShareeRoom> get rooms;
+  set rooms(ListBuilder<ShareeRoom>? rooms);
 
   ListBuilder<ShareeUser> get users;
   set users(ListBuilder<ShareeUser>? users);
@@ -13746,13 +14508,13 @@ class _$ShareesSearchResult_Exact extends ShareesSearchResult_Exact {
   @override
   final BuiltList<ShareeEmail> emails;
   @override
-  final BuiltList<Sharee> groups;
+  final BuiltList<ShareeGroup> groups;
   @override
   final BuiltList<ShareeRemoteGroup> remoteGroups;
   @override
   final BuiltList<ShareeRemote> remotes;
   @override
-  final BuiltList<Sharee> rooms;
+  final BuiltList<ShareeRoom> rooms;
   @override
   final BuiltList<ShareeUser> users;
 
@@ -13839,9 +14601,9 @@ class ShareesSearchResult_ExactBuilder
   ListBuilder<ShareeEmail> get emails => _$this._emails ??= new ListBuilder<ShareeEmail>();
   set emails(covariant ListBuilder<ShareeEmail>? emails) => _$this._emails = emails;
 
-  ListBuilder<Sharee>? _groups;
-  ListBuilder<Sharee> get groups => _$this._groups ??= new ListBuilder<Sharee>();
-  set groups(covariant ListBuilder<Sharee>? groups) => _$this._groups = groups;
+  ListBuilder<ShareeGroup>? _groups;
+  ListBuilder<ShareeGroup> get groups => _$this._groups ??= new ListBuilder<ShareeGroup>();
+  set groups(covariant ListBuilder<ShareeGroup>? groups) => _$this._groups = groups;
 
   ListBuilder<ShareeRemoteGroup>? _remoteGroups;
   ListBuilder<ShareeRemoteGroup> get remoteGroups => _$this._remoteGroups ??= new ListBuilder<ShareeRemoteGroup>();
@@ -13851,9 +14613,9 @@ class ShareesSearchResult_ExactBuilder
   ListBuilder<ShareeRemote> get remotes => _$this._remotes ??= new ListBuilder<ShareeRemote>();
   set remotes(covariant ListBuilder<ShareeRemote>? remotes) => _$this._remotes = remotes;
 
-  ListBuilder<Sharee>? _rooms;
-  ListBuilder<Sharee> get rooms => _$this._rooms ??= new ListBuilder<Sharee>();
-  set rooms(covariant ListBuilder<Sharee>? rooms) => _$this._rooms = rooms;
+  ListBuilder<ShareeRoom>? _rooms;
+  ListBuilder<ShareeRoom> get rooms => _$this._rooms ??= new ListBuilder<ShareeRoom>();
+  set rooms(covariant ListBuilder<ShareeRoom>? rooms) => _$this._rooms = rooms;
 
   ListBuilder<ShareeUser>? _users;
   ListBuilder<ShareeUser> get users => _$this._users ??= new ListBuilder<ShareeUser>();
@@ -14429,9 +15191,6 @@ abstract mixin class $ShareeLookupInterfaceBuilder implements $ShareeInterfaceBu
   ShareeLookup_ValueBuilder get value;
   set value(covariant ShareeLookup_ValueBuilder? value);
 
-  int? get count;
-  set count(covariant int? count);
-
   String? get label;
   set label(covariant String? label);
 }
@@ -14442,14 +15201,12 @@ class _$ShareeLookup extends ShareeLookup {
   @override
   final ShareeLookup_Value value;
   @override
-  final int? count;
-  @override
   final String label;
 
   factory _$ShareeLookup([void Function(ShareeLookupBuilder)? updates]) =>
       (new ShareeLookupBuilder()..update(updates))._build();
 
-  _$ShareeLookup._({required this.extra, required this.value, this.count, required this.label}) : super._() {
+  _$ShareeLookup._({required this.extra, required this.value, required this.label}) : super._() {
     BuiltValueNullFieldError.checkNotNull(extra, r'ShareeLookup', 'extra');
     BuiltValueNullFieldError.checkNotNull(value, r'ShareeLookup', 'value');
     BuiltValueNullFieldError.checkNotNull(label, r'ShareeLookup', 'label');
@@ -14464,11 +15221,7 @@ class _$ShareeLookup extends ShareeLookup {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ShareeLookup &&
-        extra == other.extra &&
-        value == other.value &&
-        count == other.count &&
-        label == other.label;
+    return other is ShareeLookup && extra == other.extra && value == other.value && label == other.label;
   }
 
   @override
@@ -14476,7 +15229,6 @@ class _$ShareeLookup extends ShareeLookup {
     var _$hash = 0;
     _$hash = $jc(_$hash, extra.hashCode);
     _$hash = $jc(_$hash, value.hashCode);
-    _$hash = $jc(_$hash, count.hashCode);
     _$hash = $jc(_$hash, label.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -14487,7 +15239,6 @@ class _$ShareeLookup extends ShareeLookup {
     return (newBuiltValueToStringHelper(r'ShareeLookup')
           ..add('extra', extra)
           ..add('value', value)
-          ..add('count', count)
           ..add('label', label))
         .toString();
   }
@@ -14504,10 +15255,6 @@ class ShareeLookupBuilder implements Builder<ShareeLookup, ShareeLookupBuilder>,
   ShareeLookup_ValueBuilder get value => _$this._value ??= new ShareeLookup_ValueBuilder();
   set value(covariant ShareeLookup_ValueBuilder? value) => _$this._value = value;
 
-  int? _count;
-  int? get count => _$this._count;
-  set count(covariant int? count) => _$this._count = count;
-
   String? _label;
   String? get label => _$this._label;
   set label(covariant String? label) => _$this._label = label;
@@ -14521,7 +15268,6 @@ class ShareeLookupBuilder implements Builder<ShareeLookup, ShareeLookupBuilder>,
     if ($v != null) {
       _extra = $v.extra.toBuilder();
       _value = $v.value.toBuilder();
-      _count = $v.count;
       _label = $v.label;
       _$v = null;
     }
@@ -14550,7 +15296,6 @@ class ShareeLookupBuilder implements Builder<ShareeLookup, ShareeLookupBuilder>,
           new _$ShareeLookup._(
             extra: extra.build(),
             value: value.build(),
-            count: count,
             label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeLookup', 'label'),
           );
     } catch (_) {
@@ -14582,8 +15327,8 @@ abstract mixin class $ShareesSearchResultInterfaceBuilder {
   ListBuilder<ShareeEmail> get emails;
   set emails(ListBuilder<ShareeEmail>? emails);
 
-  ListBuilder<Sharee> get groups;
-  set groups(ListBuilder<Sharee>? groups);
+  ListBuilder<ShareeGroup> get groups;
+  set groups(ListBuilder<ShareeGroup>? groups);
 
   ListBuilder<ShareeLookup> get lookup;
   set lookup(ListBuilder<ShareeLookup>? lookup);
@@ -14594,8 +15339,8 @@ abstract mixin class $ShareesSearchResultInterfaceBuilder {
   ListBuilder<ShareeRemote> get remotes;
   set remotes(ListBuilder<ShareeRemote>? remotes);
 
-  ListBuilder<Sharee> get rooms;
-  set rooms(ListBuilder<Sharee>? rooms);
+  ListBuilder<ShareeRoom> get rooms;
+  set rooms(ListBuilder<ShareeRoom>? rooms);
 
   ListBuilder<ShareeUser> get users;
   set users(ListBuilder<ShareeUser>? users);
@@ -14612,7 +15357,7 @@ class _$ShareesSearchResult extends ShareesSearchResult {
   @override
   final BuiltList<ShareeEmail> emails;
   @override
-  final BuiltList<Sharee> groups;
+  final BuiltList<ShareeGroup> groups;
   @override
   final BuiltList<ShareeLookup> lookup;
   @override
@@ -14620,7 +15365,7 @@ class _$ShareesSearchResult extends ShareesSearchResult {
   @override
   final BuiltList<ShareeRemote> remotes;
   @override
-  final BuiltList<Sharee> rooms;
+  final BuiltList<ShareeRoom> rooms;
   @override
   final BuiltList<ShareeUser> users;
   @override
@@ -14726,9 +15471,9 @@ class ShareesSearchResultBuilder
   ListBuilder<ShareeEmail> get emails => _$this._emails ??= new ListBuilder<ShareeEmail>();
   set emails(covariant ListBuilder<ShareeEmail>? emails) => _$this._emails = emails;
 
-  ListBuilder<Sharee>? _groups;
-  ListBuilder<Sharee> get groups => _$this._groups ??= new ListBuilder<Sharee>();
-  set groups(covariant ListBuilder<Sharee>? groups) => _$this._groups = groups;
+  ListBuilder<ShareeGroup>? _groups;
+  ListBuilder<ShareeGroup> get groups => _$this._groups ??= new ListBuilder<ShareeGroup>();
+  set groups(covariant ListBuilder<ShareeGroup>? groups) => _$this._groups = groups;
 
   ListBuilder<ShareeLookup>? _lookup;
   ListBuilder<ShareeLookup> get lookup => _$this._lookup ??= new ListBuilder<ShareeLookup>();
@@ -14742,9 +15487,9 @@ class ShareesSearchResultBuilder
   ListBuilder<ShareeRemote> get remotes => _$this._remotes ??= new ListBuilder<ShareeRemote>();
   set remotes(covariant ListBuilder<ShareeRemote>? remotes) => _$this._remotes = remotes;
 
-  ListBuilder<Sharee>? _rooms;
-  ListBuilder<Sharee> get rooms => _$this._rooms ??= new ListBuilder<Sharee>();
-  set rooms(covariant ListBuilder<Sharee>? rooms) => _$this._rooms = rooms;
+  ListBuilder<ShareeRoom>? _rooms;
+  ListBuilder<ShareeRoom> get rooms => _$this._rooms ??= new ListBuilder<ShareeRoom>();
+  set rooms(covariant ListBuilder<ShareeRoom>? rooms) => _$this._rooms = rooms;
 
   ListBuilder<ShareeUser>? _users;
   ListBuilder<ShareeUser> get users => _$this._users ??= new ListBuilder<ShareeUser>();
@@ -15172,8 +15917,8 @@ abstract mixin class $ShareesRecommendedResult_ExactInterfaceBuilder {
   ListBuilder<ShareeEmail> get emails;
   set emails(ListBuilder<ShareeEmail>? emails);
 
-  ListBuilder<Sharee> get groups;
-  set groups(ListBuilder<Sharee>? groups);
+  ListBuilder<ShareeGroup> get groups;
+  set groups(ListBuilder<ShareeGroup>? groups);
 
   ListBuilder<ShareeRemoteGroup> get remoteGroups;
   set remoteGroups(ListBuilder<ShareeRemoteGroup>? remoteGroups);
@@ -15189,7 +15934,7 @@ class _$ShareesRecommendedResult_Exact extends ShareesRecommendedResult_Exact {
   @override
   final BuiltList<ShareeEmail> emails;
   @override
-  final BuiltList<Sharee> groups;
+  final BuiltList<ShareeGroup> groups;
   @override
   final BuiltList<ShareeRemoteGroup> remoteGroups;
   @override
@@ -15266,9 +16011,9 @@ class ShareesRecommendedResult_ExactBuilder
   ListBuilder<ShareeEmail> get emails => _$this._emails ??= new ListBuilder<ShareeEmail>();
   set emails(covariant ListBuilder<ShareeEmail>? emails) => _$this._emails = emails;
 
-  ListBuilder<Sharee>? _groups;
-  ListBuilder<Sharee> get groups => _$this._groups ??= new ListBuilder<Sharee>();
-  set groups(covariant ListBuilder<Sharee>? groups) => _$this._groups = groups;
+  ListBuilder<ShareeGroup>? _groups;
+  ListBuilder<ShareeGroup> get groups => _$this._groups ??= new ListBuilder<ShareeGroup>();
+  set groups(covariant ListBuilder<ShareeGroup>? groups) => _$this._groups = groups;
 
   ListBuilder<ShareeRemoteGroup>? _remoteGroups;
   ListBuilder<ShareeRemoteGroup> get remoteGroups => _$this._remoteGroups ??= new ListBuilder<ShareeRemoteGroup>();
@@ -15357,8 +16102,8 @@ abstract mixin class $ShareesRecommendedResultInterfaceBuilder {
   ListBuilder<ShareeEmail> get emails;
   set emails(ListBuilder<ShareeEmail>? emails);
 
-  ListBuilder<Sharee> get groups;
-  set groups(ListBuilder<Sharee>? groups);
+  ListBuilder<ShareeGroup> get groups;
+  set groups(ListBuilder<ShareeGroup>? groups);
 
   ListBuilder<ShareeRemoteGroup> get remoteGroups;
   set remoteGroups(ListBuilder<ShareeRemoteGroup>? remoteGroups);
@@ -15376,7 +16121,7 @@ class _$ShareesRecommendedResult extends ShareesRecommendedResult {
   @override
   final BuiltList<ShareeEmail> emails;
   @override
-  final BuiltList<Sharee> groups;
+  final BuiltList<ShareeGroup> groups;
   @override
   final BuiltList<ShareeRemoteGroup> remoteGroups;
   @override
@@ -15462,9 +16207,9 @@ class ShareesRecommendedResultBuilder
   ListBuilder<ShareeEmail> get emails => _$this._emails ??= new ListBuilder<ShareeEmail>();
   set emails(covariant ListBuilder<ShareeEmail>? emails) => _$this._emails = emails;
 
-  ListBuilder<Sharee>? _groups;
-  ListBuilder<Sharee> get groups => _$this._groups ??= new ListBuilder<Sharee>();
-  set groups(covariant ListBuilder<Sharee>? groups) => _$this._groups = groups;
+  ListBuilder<ShareeGroup>? _groups;
+  ListBuilder<ShareeGroup> get groups => _$this._groups ??= new ListBuilder<ShareeGroup>();
+  set groups(covariant ListBuilder<ShareeGroup>? groups) => _$this._groups = groups;
 
   ListBuilder<ShareeRemoteGroup>? _remoteGroups;
   ListBuilder<ShareeRemoteGroup> get remoteGroups => _$this._remoteGroups ??= new ListBuilder<ShareeRemoteGroup>();
@@ -16325,6 +17070,9 @@ abstract mixin class $Capabilities_FilesSharing_PublicInterfaceBuilder {
 
   bool? get uploadFilesDrop;
   set uploadFilesDrop(bool? uploadFilesDrop);
+
+  bool? get customTokens;
+  set customTokens(bool? customTokens);
 }
 
 class _$Capabilities_FilesSharing_Public extends Capabilities_FilesSharing_Public {
@@ -16346,6 +17094,8 @@ class _$Capabilities_FilesSharing_Public extends Capabilities_FilesSharing_Publi
   final bool? upload;
   @override
   final bool? uploadFilesDrop;
+  @override
+  final bool? customTokens;
 
   factory _$Capabilities_FilesSharing_Public([void Function(Capabilities_FilesSharing_PublicBuilder)? updates]) =>
       (new Capabilities_FilesSharing_PublicBuilder()..update(updates))._build();
@@ -16359,7 +17109,8 @@ class _$Capabilities_FilesSharing_Public extends Capabilities_FilesSharing_Publi
       this.expireDateRemote,
       this.sendMail,
       this.upload,
-      this.uploadFilesDrop})
+      this.uploadFilesDrop,
+      this.customTokens})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_FilesSharing_Public', 'enabled');
   }
@@ -16383,7 +17134,8 @@ class _$Capabilities_FilesSharing_Public extends Capabilities_FilesSharing_Publi
         expireDateRemote == other.expireDateRemote &&
         sendMail == other.sendMail &&
         upload == other.upload &&
-        uploadFilesDrop == other.uploadFilesDrop;
+        uploadFilesDrop == other.uploadFilesDrop &&
+        customTokens == other.customTokens;
   }
 
   @override
@@ -16398,6 +17150,7 @@ class _$Capabilities_FilesSharing_Public extends Capabilities_FilesSharing_Publi
     _$hash = $jc(_$hash, sendMail.hashCode);
     _$hash = $jc(_$hash, upload.hashCode);
     _$hash = $jc(_$hash, uploadFilesDrop.hashCode);
+    _$hash = $jc(_$hash, customTokens.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -16413,7 +17166,8 @@ class _$Capabilities_FilesSharing_Public extends Capabilities_FilesSharing_Publi
           ..add('expireDateRemote', expireDateRemote)
           ..add('sendMail', sendMail)
           ..add('upload', upload)
-          ..add('uploadFilesDrop', uploadFilesDrop))
+          ..add('uploadFilesDrop', uploadFilesDrop)
+          ..add('customTokens', customTokens))
         .toString();
   }
 }
@@ -16467,6 +17221,10 @@ class Capabilities_FilesSharing_PublicBuilder
   bool? get uploadFilesDrop => _$this._uploadFilesDrop;
   set uploadFilesDrop(covariant bool? uploadFilesDrop) => _$this._uploadFilesDrop = uploadFilesDrop;
 
+  bool? _customTokens;
+  bool? get customTokens => _$this._customTokens;
+  set customTokens(covariant bool? customTokens) => _$this._customTokens = customTokens;
+
   Capabilities_FilesSharing_PublicBuilder() {
     Capabilities_FilesSharing_Public._defaults(this);
   }
@@ -16483,6 +17241,7 @@ class Capabilities_FilesSharing_PublicBuilder
       _sendMail = $v.sendMail;
       _upload = $v.upload;
       _uploadFilesDrop = $v.uploadFilesDrop;
+      _customTokens = $v.customTokens;
       _$v = null;
     }
     return this;
@@ -16517,6 +17276,7 @@ class Capabilities_FilesSharing_PublicBuilder
             sendMail: sendMail,
             upload: upload,
             uploadFilesDrop: uploadFilesDrop,
+            customTokens: customTokens,
           );
     } catch (_) {
       late String _$failedField;
