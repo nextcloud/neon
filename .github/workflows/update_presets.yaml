@@ -29,9 +29,9 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@dd2324fc52d5d43c699a5636bcf19fceaa70c284 # v7
         with:
-          commit-message: "chore(nextcloud_test): Update presets"
+          commit-message: "chore(nextcloud_test_presets): Update presets"
           signoff: true
-          branch: chore/nextcloud_test/update-presets
+          branch: chore/nextcloud_test_presets/update-presets
           delete-branch: true
-          title: "chore(nextcloud_test): Update presets"
-          body: "`git checkout chore/nextcloud_test/update-presets && git commit --amend -s --no-edit && git push -f` locally to trigger the CI."
+          title: "chore(nextcloud_test_presets): Update presets"
+          body: "`git checkout chore/nextcloud_test_presets/update-presets && git commit --amend -s --no-edit && git push -f` locally to trigger the CI."
