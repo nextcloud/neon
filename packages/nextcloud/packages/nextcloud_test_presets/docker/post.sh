@@ -4,7 +4,7 @@ set -eux
 ./occ app:enable cookbook "$@" --force
 ./occ app:enable news "$@"
 ./occ app:enable notes "$@"
-./occ app:enable uppush "$@" --force
+./occ app:enable uppush "$@"
 ./occ app:enable spreed "$@"
 ./occ talk:turn:add turn,turns staticauth.openrelay.metered.ca:443 udp,tcp --secret openrelayprojectsecret
 ./occ app:enable tables "$@"
