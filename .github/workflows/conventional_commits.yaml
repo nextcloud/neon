@@ -15,7 +15,7 @@ jobs:
       - name: Install dart
         uses: dart-lang/setup-dart@e51d8e571e22473a2ddebf0ef8a2123f0ab2c02c # v1
         with:
-          sdk: 3.5
+          sdk: 3.7
       - name: Install commitlint_cli
         run: dart pub get
 
