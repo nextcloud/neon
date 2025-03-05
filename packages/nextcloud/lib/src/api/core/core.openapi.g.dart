@@ -4009,7 +4009,7 @@ class _$NavigationEntrySerializer implements StructuredSerializer<NavigationEntr
     if (value != null) {
       result
         ..add('order')
-        ..add(serializers.serialize(value, specifiedType: const FullType(NavigationEntry_Order)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
     value = object.app;
     if (value != null) {
@@ -4041,8 +4041,7 @@ class _$NavigationEntrySerializer implements StructuredSerializer<NavigationEntr
           result.id = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'order':
-          result.order = serializers.deserialize(value, specifiedType: const FullType(NavigationEntry_Order))
-              as NavigationEntry_Order?;
+          result.order = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
         case 'href':
           result.href = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -8037,6 +8036,8 @@ class _$ThemingPublicCapabilities_ThemingSerializer implements StructuredSeriali
       serializers.serialize(object.logo, specifiedType: const FullType(String)),
       'background',
       serializers.serialize(object.background, specifiedType: const FullType(String)),
+      'background-text',
+      serializers.serialize(object.backgroundText, specifiedType: const FullType(String)),
       'background-plain',
       serializers.serialize(object.backgroundPlain, specifiedType: const FullType(bool)),
       'background-default',
@@ -8046,13 +8047,7 @@ class _$ThemingPublicCapabilities_ThemingSerializer implements StructuredSeriali
       'favicon',
       serializers.serialize(object.favicon, specifiedType: const FullType(String)),
     ];
-    Object? value;
-    value = object.backgroundText;
-    if (value != null) {
-      result
-        ..add('background-text')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
+
     return result;
   }
 
@@ -8098,7 +8093,7 @@ class _$ThemingPublicCapabilities_ThemingSerializer implements StructuredSeriali
           result.background = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'background-text':
-          result.backgroundText = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.backgroundText = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'background-plain':
           result.backgroundPlain = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -23231,8 +23226,8 @@ abstract mixin class $NavigationEntryInterfaceBuilder {
   String? get id;
   set id(String? id);
 
-  NavigationEntry_Order? get order;
-  set order(NavigationEntry_Order? order);
+  int? get order;
+  set order(int? order);
 
   String? get href;
   set href(String? href);
@@ -23266,7 +23261,7 @@ class _$NavigationEntry extends NavigationEntry {
   @override
   final String id;
   @override
-  final NavigationEntry_Order? order;
+  final int? order;
   @override
   final String href;
   @override
@@ -23321,10 +23316,9 @@ class _$NavigationEntry extends NavigationEntry {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    final dynamic _$dynamicOther = other;
     return other is NavigationEntry &&
         id == other.id &&
-        order == _$dynamicOther.order &&
+        order == other.order &&
         href == other.href &&
         icon == other.icon &&
         type == other.type &&
@@ -23380,9 +23374,9 @@ class NavigationEntryBuilder
   String? get id => _$this._id;
   set id(covariant String? id) => _$this._id = id;
 
-  NavigationEntry_Order? _order;
-  NavigationEntry_Order? get order => _$this._order;
-  set order(covariant NavigationEntry_Order? order) => _$this._order = order;
+  int? _order;
+  int? get order => _$this._order;
+  set order(covariant int? order) => _$this._order = order;
 
   String? _href;
   String? get href => _$this._href;
@@ -33428,7 +33422,7 @@ class _$ThemingPublicCapabilities_Theming extends ThemingPublicCapabilities_Them
   @override
   final String background;
   @override
-  final String? backgroundText;
+  final String backgroundText;
   @override
   final bool backgroundPlain;
   @override
@@ -33452,7 +33446,7 @@ class _$ThemingPublicCapabilities_Theming extends ThemingPublicCapabilities_Them
       required this.colorElementDark,
       required this.logo,
       required this.background,
-      this.backgroundText,
+      required this.backgroundText,
       required this.backgroundPlain,
       required this.backgroundDefault,
       required this.logoheader,
@@ -33469,6 +33463,7 @@ class _$ThemingPublicCapabilities_Theming extends ThemingPublicCapabilities_Them
     BuiltValueNullFieldError.checkNotNull(colorElementDark, r'ThemingPublicCapabilities_Theming', 'colorElementDark');
     BuiltValueNullFieldError.checkNotNull(logo, r'ThemingPublicCapabilities_Theming', 'logo');
     BuiltValueNullFieldError.checkNotNull(background, r'ThemingPublicCapabilities_Theming', 'background');
+    BuiltValueNullFieldError.checkNotNull(backgroundText, r'ThemingPublicCapabilities_Theming', 'backgroundText');
     BuiltValueNullFieldError.checkNotNull(backgroundPlain, r'ThemingPublicCapabilities_Theming', 'backgroundPlain');
     BuiltValueNullFieldError.checkNotNull(backgroundDefault, r'ThemingPublicCapabilities_Theming', 'backgroundDefault');
     BuiltValueNullFieldError.checkNotNull(logoheader, r'ThemingPublicCapabilities_Theming', 'logoheader');
@@ -33673,7 +33668,8 @@ class ThemingPublicCapabilities_ThemingBuilder
           logo: BuiltValueNullFieldError.checkNotNull(logo, r'ThemingPublicCapabilities_Theming', 'logo'),
           background:
               BuiltValueNullFieldError.checkNotNull(background, r'ThemingPublicCapabilities_Theming', 'background'),
-          backgroundText: backgroundText,
+          backgroundText: BuiltValueNullFieldError.checkNotNull(
+              backgroundText, r'ThemingPublicCapabilities_Theming', 'backgroundText'),
           backgroundPlain: BuiltValueNullFieldError.checkNotNull(
               backgroundPlain, r'ThemingPublicCapabilities_Theming', 'backgroundPlain'),
           backgroundDefault: BuiltValueNullFieldError.checkNotNull(

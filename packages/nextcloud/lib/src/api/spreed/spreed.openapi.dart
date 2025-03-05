@@ -17265,7 +17265,7 @@ sealed class $RoomInterface {
   int get listable;
   int get lobbyState;
   int get lobbyTimer;
-  int? get mentionPermissions;
+  int get mentionPermissions;
   int get messageExpiration;
   String get name;
   int get notificationCalls;
@@ -17290,7 +17290,7 @@ sealed class $RoomInterface {
   bool get unreadMention;
   bool get unreadMentionDirect;
   int get unreadMessages;
-  bool? get isArchived;
+  bool get isArchived;
 
   /// Rebuilds the instance.
   ///
@@ -32603,8 +32603,8 @@ class _$SignalingPullMessagesApiVersionSerializer implements PrimitiveSerializer
 
 @BuiltValue(instantiable: false)
 sealed class $SignalingSessionInterface {
-  String? get actorId;
-  ActorTypes? get actorType;
+  String get actorId;
+  ActorTypes get actorType;
   int get inCall;
   int get lastPing;
   int get participantPermissions;
