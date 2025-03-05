@@ -6,7 +6,7 @@ import 'package:nextcloud/src/models/models.dart';
 import 'package:version/version.dart';
 
 /// Minimum version of core/Server supported
-final minVersion = Version(28, 0, 0);
+final minVersion = Version(29, 0, 0);
 
 /// Checks whether the server [version] is a dev, beta or RC version.
 bool _isDevelopmentServerVersion(String version) {

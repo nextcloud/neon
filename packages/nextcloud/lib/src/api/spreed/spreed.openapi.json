@@ -254,6 +254,7 @@
                             "call",
                             "chat",
                             "conversations",
+                            "federation",
                             "previews",
                             "signaling"
                         ],
@@ -470,7 +471,8 @@
                 "required": [
                     "id",
                     "label",
-                    "source"
+                    "source",
+                    "mentionId"
                 ],
                 "properties": {
                     "id": {

@@ -3,7 +3,6 @@ import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
 import 'package:nextcloud/weather_status.dart' as weather_status;
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
-import 'package:version/version.dart';
 
 void main() {
   presets('server', 'weather_status', (tester) {
@@ -58,39 +57,35 @@ void main() {
       expect(response.body.ocs.data.lon, null);
     });
 
-    test(
-      'Use personal address',
-      () async {
-        await tester.client.weatherStatus.weatherStatus.setLocation(
-          $body: weather_status.WeatherStatusSetLocationRequestApplicationJson(
-            (b) => b..address = 'Hamburg',
-          ),
-        );
+    test('Use personal address', () async {
+      await tester.client.weatherStatus.weatherStatus.setLocation(
+        $body: weather_status.WeatherStatusSetLocationRequestApplicationJson(
+          (b) => b..address = 'Hamburg',
+        ),
+      );
 
-        await tester.client.core.appPassword.confirmUserPassword(
-          $body: core.AppPasswordConfirmUserPasswordRequestApplicationJson(
-            (b) => b..password = 'user1',
-          ),
-        );
+      await tester.client.core.appPassword.confirmUserPassword(
+        $body: core.AppPasswordConfirmUserPasswordRequestApplicationJson(
+          (b) => b..password = 'user1',
+        ),
+      );
 
-        await tester.client.provisioningApi.users.editUser(
-          userId: 'user1',
-          $body: provisioning_api.UsersEditUserRequestApplicationJson(
-            (b) => b
-              ..key = 'address'
-              ..value = 'Berlin',
-          ),
-        );
+      await tester.client.provisioningApi.users.editUser(
+        userId: 'user1',
+        $body: provisioning_api.UsersEditUserRequestApplicationJson(
+          (b) => b
+            ..key = 'address'
+            ..value = 'Berlin',
+        ),
+      );
 
-        final response = await tester.client.weatherStatus.weatherStatus.usePersonalAddress();
-        expect(response.statusCode, 200);
-        expect(response.body.ocs.data.success, true);
-        expect(response.body.ocs.data.address, 'Berlin, Deutschland');
-        expect(response.body.ocs.data.lat, isNotEmpty);
-        expect(response.body.ocs.data.lon, isNotEmpty);
-      },
-      skip: tester.version < Version(29, 0, 0),
-    );
+      final response = await tester.client.weatherStatus.weatherStatus.usePersonalAddress();
+      expect(response.statusCode, 200);
+      expect(response.body.ocs.data.success, true);
+      expect(response.body.ocs.data.address, 'Berlin, Deutschland');
+      expect(response.body.ocs.data.lat, isNotEmpty);
+      expect(response.body.ocs.data.lon, isNotEmpty);
+    });
 
     test('Get forecast', () async {
       await tester.client.weatherStatus.weatherStatus.setLocation(

@@ -10720,14 +10720,10 @@ class _$ChatMentionSuggestionSerializer implements StructuredSerializer<ChatMent
       serializers.serialize(object.label, specifiedType: const FullType(String)),
       'source',
       serializers.serialize(object.source, specifiedType: const FullType(String)),
+      'mentionId',
+      serializers.serialize(object.mentionId, specifiedType: const FullType(String)),
     ];
     Object? value;
-    value = object.mentionId;
-    if (value != null) {
-      result
-        ..add('mentionId')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
     value = object.details;
     if (value != null) {
       result
@@ -10782,7 +10778,7 @@ class _$ChatMentionSuggestionSerializer implements StructuredSerializer<ChatMent
           result.source = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'mentionId':
-          result.mentionId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.mentionId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'details':
           result.details = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -21248,18 +21244,14 @@ class _$Capabilities_ConfigSerializer implements StructuredSerializer<Capabiliti
       serializers.serialize(object.chat, specifiedType: const FullType(Capabilities_Config_Chat)),
       'conversations',
       serializers.serialize(object.conversations, specifiedType: const FullType(Capabilities_Config_Conversations)),
+      'federation',
+      serializers.serialize(object.federation, specifiedType: const FullType(Capabilities_Config_Federation)),
       'previews',
       serializers.serialize(object.previews, specifiedType: const FullType(Capabilities_Config_Previews)),
       'signaling',
       serializers.serialize(object.signaling, specifiedType: const FullType(Capabilities_Config_Signaling)),
     ];
-    Object? value;
-    value = object.federation;
-    if (value != null) {
-      result
-        ..add('federation')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Capabilities_Config_Federation)));
-    }
+
     return result;
   }
 
@@ -40832,7 +40824,7 @@ class _$ChatMentionSuggestion extends ChatMentionSuggestion {
   @override
   final String source;
   @override
-  final String? mentionId;
+  final String mentionId;
   @override
   final String? details;
   @override
@@ -40851,7 +40843,7 @@ class _$ChatMentionSuggestion extends ChatMentionSuggestion {
       {required this.id,
       required this.label,
       required this.source,
-      this.mentionId,
+      required this.mentionId,
       this.details,
       this.status,
       this.statusClearAt,
@@ -40861,6 +40853,7 @@ class _$ChatMentionSuggestion extends ChatMentionSuggestion {
     BuiltValueNullFieldError.checkNotNull(id, r'ChatMentionSuggestion', 'id');
     BuiltValueNullFieldError.checkNotNull(label, r'ChatMentionSuggestion', 'label');
     BuiltValueNullFieldError.checkNotNull(source, r'ChatMentionSuggestion', 'source');
+    BuiltValueNullFieldError.checkNotNull(mentionId, r'ChatMentionSuggestion', 'mentionId');
   }
 
   @override
@@ -40999,7 +40992,7 @@ class ChatMentionSuggestionBuilder
           id: BuiltValueNullFieldError.checkNotNull(id, r'ChatMentionSuggestion', 'id'),
           label: BuiltValueNullFieldError.checkNotNull(label, r'ChatMentionSuggestion', 'label'),
           source: BuiltValueNullFieldError.checkNotNull(source, r'ChatMentionSuggestion', 'source'),
-          mentionId: mentionId,
+          mentionId: BuiltValueNullFieldError.checkNotNull(mentionId, r'ChatMentionSuggestion', 'mentionId'),
           details: details,
           status: status,
           statusClearAt: statusClearAt,
@@ -67367,7 +67360,7 @@ class _$Capabilities_Config extends Capabilities_Config {
   @override
   final Capabilities_Config_Conversations conversations;
   @override
-  final Capabilities_Config_Federation? federation;
+  final Capabilities_Config_Federation federation;
   @override
   final Capabilities_Config_Previews previews;
   @override
@@ -67381,7 +67374,7 @@ class _$Capabilities_Config extends Capabilities_Config {
       required this.call,
       required this.chat,
       required this.conversations,
-      this.federation,
+      required this.federation,
       required this.previews,
       required this.signaling})
       : super._() {
@@ -67389,6 +67382,7 @@ class _$Capabilities_Config extends Capabilities_Config {
     BuiltValueNullFieldError.checkNotNull(call, r'Capabilities_Config', 'call');
     BuiltValueNullFieldError.checkNotNull(chat, r'Capabilities_Config', 'chat');
     BuiltValueNullFieldError.checkNotNull(conversations, r'Capabilities_Config', 'conversations');
+    BuiltValueNullFieldError.checkNotNull(federation, r'Capabilities_Config', 'federation');
     BuiltValueNullFieldError.checkNotNull(previews, r'Capabilities_Config', 'previews');
     BuiltValueNullFieldError.checkNotNull(signaling, r'Capabilities_Config', 'signaling');
   }
@@ -67489,7 +67483,7 @@ class Capabilities_ConfigBuilder
       _call = $v.call.toBuilder();
       _chat = $v.chat.toBuilder();
       _conversations = $v.conversations.toBuilder();
-      _federation = $v.federation?.toBuilder();
+      _federation = $v.federation.toBuilder();
       _previews = $v.previews.toBuilder();
       _signaling = $v.signaling.toBuilder();
       _$v = null;
@@ -67521,7 +67515,7 @@ class Capabilities_ConfigBuilder
             call: call.build(),
             chat: chat.build(),
             conversations: conversations.build(),
-            federation: _federation?.build(),
+            federation: federation.build(),
             previews: previews.build(),
             signaling: signaling.build(),
           );
@@ -67537,7 +67531,7 @@ class Capabilities_ConfigBuilder
         _$failedField = 'conversations';
         conversations.build();
         _$failedField = 'federation';
-        _federation?.build();
+        federation.build();
         _$failedField = 'previews';
         previews.build();
         _$failedField = 'signaling';
