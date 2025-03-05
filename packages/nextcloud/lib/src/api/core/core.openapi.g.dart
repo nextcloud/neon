@@ -918,6 +918,15 @@ Serializer<NotificationsCapabilities_Notifications> _$notificationsCapabilitiesN
     new _$NotificationsCapabilities_NotificationsSerializer();
 Serializer<NotificationsCapabilities> _$notificationsCapabilitiesSerializer =
     new _$NotificationsCapabilitiesSerializer();
+Serializer<PasswordPolicyCapabilities_PasswordPolicy_Api> _$passwordPolicyCapabilitiesPasswordPolicyApiSerializer =
+    new _$PasswordPolicyCapabilities_PasswordPolicy_ApiSerializer();
+Serializer<PasswordPolicyCapabilities_PasswordPolicy_Policies>
+    _$passwordPolicyCapabilitiesPasswordPolicyPoliciesSerializer =
+    new _$PasswordPolicyCapabilities_PasswordPolicy_PoliciesSerializer();
+Serializer<PasswordPolicyCapabilities_PasswordPolicy> _$passwordPolicyCapabilitiesPasswordPolicySerializer =
+    new _$PasswordPolicyCapabilities_PasswordPolicySerializer();
+Serializer<PasswordPolicyCapabilities> _$passwordPolicyCapabilitiesSerializer =
+    new _$PasswordPolicyCapabilitiesSerializer();
 Serializer<ProvisioningApiCapabilities_ProvisioningApi> _$provisioningApiCapabilitiesProvisioningApiSerializer =
     new _$ProvisioningApiCapabilities_ProvisioningApiSerializer();
 Serializer<ProvisioningApiCapabilities> _$provisioningApiCapabilitiesSerializer =
@@ -6512,6 +6521,247 @@ class _$NotificationsCapabilitiesSerializer implements StructuredSerializer<Noti
           result.notifications.replace(
               serializers.deserialize(value, specifiedType: const FullType(NotificationsCapabilities_Notifications))!
                   as NotificationsCapabilities_Notifications);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$PasswordPolicyCapabilities_PasswordPolicy_ApiSerializer
+    implements StructuredSerializer<PasswordPolicyCapabilities_PasswordPolicy_Api> {
+  @override
+  final Iterable<Type> types = const [
+    PasswordPolicyCapabilities_PasswordPolicy_Api,
+    _$PasswordPolicyCapabilities_PasswordPolicy_Api
+  ];
+  @override
+  final String wireName = 'PasswordPolicyCapabilities_PasswordPolicy_Api';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, PasswordPolicyCapabilities_PasswordPolicy_Api object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'generate',
+      serializers.serialize(object.generate, specifiedType: const FullType(String)),
+      'validate',
+      serializers.serialize(object.validate, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  PasswordPolicyCapabilities_PasswordPolicy_Api deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'generate':
+          result.generate = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'validate':
+          result.validate = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$PasswordPolicyCapabilities_PasswordPolicy_PoliciesSerializer
+    implements StructuredSerializer<PasswordPolicyCapabilities_PasswordPolicy_Policies> {
+  @override
+  final Iterable<Type> types = const [
+    PasswordPolicyCapabilities_PasswordPolicy_Policies,
+    _$PasswordPolicyCapabilities_PasswordPolicy_Policies
+  ];
+  @override
+  final String wireName = 'PasswordPolicyCapabilities_PasswordPolicy_Policies';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, PasswordPolicyCapabilities_PasswordPolicy_Policies object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'minLength',
+      serializers.serialize(object.minLength, specifiedType: const FullType(int)),
+      'enforceHaveIBeenPwned',
+      serializers.serialize(object.enforceHaveIBeenPwned, specifiedType: const FullType(bool)),
+      'enforceNonCommonPassword',
+      serializers.serialize(object.enforceNonCommonPassword, specifiedType: const FullType(bool)),
+      'enforceNumericCharacters',
+      serializers.serialize(object.enforceNumericCharacters, specifiedType: const FullType(bool)),
+      'enforceSpecialCharacters',
+      serializers.serialize(object.enforceSpecialCharacters, specifiedType: const FullType(bool)),
+      'enforceUpperLowerCase',
+      serializers.serialize(object.enforceUpperLowerCase, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  PasswordPolicyCapabilities_PasswordPolicy_Policies deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new PasswordPolicyCapabilities_PasswordPolicy_PoliciesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'minLength':
+          result.minLength = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'enforceHaveIBeenPwned':
+          result.enforceHaveIBeenPwned = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'enforceNonCommonPassword':
+          result.enforceNonCommonPassword =
+              serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'enforceNumericCharacters':
+          result.enforceNumericCharacters =
+              serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'enforceSpecialCharacters':
+          result.enforceSpecialCharacters =
+              serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'enforceUpperLowerCase':
+          result.enforceUpperLowerCase = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$PasswordPolicyCapabilities_PasswordPolicySerializer
+    implements StructuredSerializer<PasswordPolicyCapabilities_PasswordPolicy> {
+  @override
+  final Iterable<Type> types = const [
+    PasswordPolicyCapabilities_PasswordPolicy,
+    _$PasswordPolicyCapabilities_PasswordPolicy
+  ];
+  @override
+  final String wireName = 'PasswordPolicyCapabilities_PasswordPolicy';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, PasswordPolicyCapabilities_PasswordPolicy object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'api',
+      serializers.serialize(object.api, specifiedType: const FullType(PasswordPolicyCapabilities_PasswordPolicy_Api)),
+      'policies',
+      serializers.serialize(object.policies,
+          specifiedType: const FullType(BuiltMap,
+              const [const FullType(String), const FullType(PasswordPolicyCapabilities_PasswordPolicy_Policies)])),
+      'minLength',
+      serializers.serialize(object.minLength, specifiedType: const FullType(int)),
+      'enforceNonCommonPassword',
+      serializers.serialize(object.enforceNonCommonPassword, specifiedType: const FullType(bool)),
+      'enforceNumericCharacters',
+      serializers.serialize(object.enforceNumericCharacters, specifiedType: const FullType(bool)),
+      'enforceSpecialCharacters',
+      serializers.serialize(object.enforceSpecialCharacters, specifiedType: const FullType(bool)),
+      'enforceUpperLowerCase',
+      serializers.serialize(object.enforceUpperLowerCase, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  PasswordPolicyCapabilities_PasswordPolicy deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new PasswordPolicyCapabilities_PasswordPolicyBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'api':
+          result.api.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(PasswordPolicyCapabilities_PasswordPolicy_Api))!
+              as PasswordPolicyCapabilities_PasswordPolicy_Api);
+          break;
+        case 'policies':
+          result.policies.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType(PasswordPolicyCapabilities_PasswordPolicy_Policies)
+              ]))!);
+          break;
+        case 'minLength':
+          result.minLength = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'enforceNonCommonPassword':
+          result.enforceNonCommonPassword =
+              serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'enforceNumericCharacters':
+          result.enforceNumericCharacters =
+              serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'enforceSpecialCharacters':
+          result.enforceSpecialCharacters =
+              serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'enforceUpperLowerCase':
+          result.enforceUpperLowerCase = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$PasswordPolicyCapabilitiesSerializer implements StructuredSerializer<PasswordPolicyCapabilities> {
+  @override
+  final Iterable<Type> types = const [PasswordPolicyCapabilities, _$PasswordPolicyCapabilities];
+  @override
+  final String wireName = 'PasswordPolicyCapabilities';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, PasswordPolicyCapabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'password_policy',
+      serializers.serialize(object.passwordPolicy,
+          specifiedType: const FullType(PasswordPolicyCapabilities_PasswordPolicy)),
+    ];
+
+    return result;
+  }
+
+  @override
+  PasswordPolicyCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new PasswordPolicyCapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'password_policy':
+          result.passwordPolicy.replace(
+              serializers.deserialize(value, specifiedType: const FullType(PasswordPolicyCapabilities_PasswordPolicy))!
+                  as PasswordPolicyCapabilities_PasswordPolicy);
           break;
       }
     }
@@ -29299,6 +29549,656 @@ class NotificationsCapabilitiesBuilder
         notifications.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(r'NotificationsCapabilities', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $PasswordPolicyCapabilities_PasswordPolicy_ApiInterfaceBuilder {
+  void replace($PasswordPolicyCapabilities_PasswordPolicy_ApiInterface other);
+  void update(void Function($PasswordPolicyCapabilities_PasswordPolicy_ApiInterfaceBuilder) updates);
+  String? get generate;
+  set generate(String? generate);
+
+  String? get validate;
+  set validate(String? validate);
+}
+
+class _$PasswordPolicyCapabilities_PasswordPolicy_Api extends PasswordPolicyCapabilities_PasswordPolicy_Api {
+  @override
+  final String generate;
+  @override
+  final String validate;
+
+  factory _$PasswordPolicyCapabilities_PasswordPolicy_Api(
+          [void Function(PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder)? updates]) =>
+      (new PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder()..update(updates))._build();
+
+  _$PasswordPolicyCapabilities_PasswordPolicy_Api._({required this.generate, required this.validate}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(generate, r'PasswordPolicyCapabilities_PasswordPolicy_Api', 'generate');
+    BuiltValueNullFieldError.checkNotNull(validate, r'PasswordPolicyCapabilities_PasswordPolicy_Api', 'validate');
+  }
+
+  @override
+  PasswordPolicyCapabilities_PasswordPolicy_Api rebuild(
+          void Function(PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder toBuilder() =>
+      new PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is PasswordPolicyCapabilities_PasswordPolicy_Api &&
+        generate == other.generate &&
+        validate == other.validate;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, generate.hashCode);
+    _$hash = $jc(_$hash, validate.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'PasswordPolicyCapabilities_PasswordPolicy_Api')
+          ..add('generate', generate)
+          ..add('validate', validate))
+        .toString();
+  }
+}
+
+class PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder
+    implements
+        Builder<PasswordPolicyCapabilities_PasswordPolicy_Api, PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder>,
+        $PasswordPolicyCapabilities_PasswordPolicy_ApiInterfaceBuilder {
+  _$PasswordPolicyCapabilities_PasswordPolicy_Api? _$v;
+
+  String? _generate;
+  String? get generate => _$this._generate;
+  set generate(covariant String? generate) => _$this._generate = generate;
+
+  String? _validate;
+  String? get validate => _$this._validate;
+  set validate(covariant String? validate) => _$this._validate = validate;
+
+  PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder() {
+    PasswordPolicyCapabilities_PasswordPolicy_Api._defaults(this);
+  }
+
+  PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _generate = $v.generate;
+      _validate = $v.validate;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant PasswordPolicyCapabilities_PasswordPolicy_Api other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$PasswordPolicyCapabilities_PasswordPolicy_Api;
+  }
+
+  @override
+  void update(void Function(PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  PasswordPolicyCapabilities_PasswordPolicy_Api build() => _build();
+
+  _$PasswordPolicyCapabilities_PasswordPolicy_Api _build() {
+    PasswordPolicyCapabilities_PasswordPolicy_Api._validate(this);
+    final _$result = _$v ??
+        new _$PasswordPolicyCapabilities_PasswordPolicy_Api._(
+          generate: BuiltValueNullFieldError.checkNotNull(
+              generate, r'PasswordPolicyCapabilities_PasswordPolicy_Api', 'generate'),
+          validate: BuiltValueNullFieldError.checkNotNull(
+              validate, r'PasswordPolicyCapabilities_PasswordPolicy_Api', 'validate'),
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $PasswordPolicyCapabilities_PasswordPolicy_PoliciesInterfaceBuilder {
+  void replace($PasswordPolicyCapabilities_PasswordPolicy_PoliciesInterface other);
+  void update(void Function($PasswordPolicyCapabilities_PasswordPolicy_PoliciesInterfaceBuilder) updates);
+  int? get minLength;
+  set minLength(int? minLength);
+
+  bool? get enforceHaveIBeenPwned;
+  set enforceHaveIBeenPwned(bool? enforceHaveIBeenPwned);
+
+  bool? get enforceNonCommonPassword;
+  set enforceNonCommonPassword(bool? enforceNonCommonPassword);
+
+  bool? get enforceNumericCharacters;
+  set enforceNumericCharacters(bool? enforceNumericCharacters);
+
+  bool? get enforceSpecialCharacters;
+  set enforceSpecialCharacters(bool? enforceSpecialCharacters);
+
+  bool? get enforceUpperLowerCase;
+  set enforceUpperLowerCase(bool? enforceUpperLowerCase);
+}
+
+class _$PasswordPolicyCapabilities_PasswordPolicy_Policies extends PasswordPolicyCapabilities_PasswordPolicy_Policies {
+  @override
+  final int minLength;
+  @override
+  final bool enforceHaveIBeenPwned;
+  @override
+  final bool enforceNonCommonPassword;
+  @override
+  final bool enforceNumericCharacters;
+  @override
+  final bool enforceSpecialCharacters;
+  @override
+  final bool enforceUpperLowerCase;
+
+  factory _$PasswordPolicyCapabilities_PasswordPolicy_Policies(
+          [void Function(PasswordPolicyCapabilities_PasswordPolicy_PoliciesBuilder)? updates]) =>
+      (new PasswordPolicyCapabilities_PasswordPolicy_PoliciesBuilder()..update(updates))._build();
+
+  _$PasswordPolicyCapabilities_PasswordPolicy_Policies._(
+      {required this.minLength,
+      required this.enforceHaveIBeenPwned,
+      required this.enforceNonCommonPassword,
+      required this.enforceNumericCharacters,
+      required this.enforceSpecialCharacters,
+      required this.enforceUpperLowerCase})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        minLength, r'PasswordPolicyCapabilities_PasswordPolicy_Policies', 'minLength');
+    BuiltValueNullFieldError.checkNotNull(
+        enforceHaveIBeenPwned, r'PasswordPolicyCapabilities_PasswordPolicy_Policies', 'enforceHaveIBeenPwned');
+    BuiltValueNullFieldError.checkNotNull(
+        enforceNonCommonPassword, r'PasswordPolicyCapabilities_PasswordPolicy_Policies', 'enforceNonCommonPassword');
+    BuiltValueNullFieldError.checkNotNull(
+        enforceNumericCharacters, r'PasswordPolicyCapabilities_PasswordPolicy_Policies', 'enforceNumericCharacters');
+    BuiltValueNullFieldError.checkNotNull(
+        enforceSpecialCharacters, r'PasswordPolicyCapabilities_PasswordPolicy_Policies', 'enforceSpecialCharacters');
+    BuiltValueNullFieldError.checkNotNull(
+        enforceUpperLowerCase, r'PasswordPolicyCapabilities_PasswordPolicy_Policies', 'enforceUpperLowerCase');
+  }
+
+  @override
+  PasswordPolicyCapabilities_PasswordPolicy_Policies rebuild(
+          void Function(PasswordPolicyCapabilities_PasswordPolicy_PoliciesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  PasswordPolicyCapabilities_PasswordPolicy_PoliciesBuilder toBuilder() =>
+      new PasswordPolicyCapabilities_PasswordPolicy_PoliciesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is PasswordPolicyCapabilities_PasswordPolicy_Policies &&
+        minLength == other.minLength &&
+        enforceHaveIBeenPwned == other.enforceHaveIBeenPwned &&
+        enforceNonCommonPassword == other.enforceNonCommonPassword &&
+        enforceNumericCharacters == other.enforceNumericCharacters &&
+        enforceSpecialCharacters == other.enforceSpecialCharacters &&
+        enforceUpperLowerCase == other.enforceUpperLowerCase;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, minLength.hashCode);
+    _$hash = $jc(_$hash, enforceHaveIBeenPwned.hashCode);
+    _$hash = $jc(_$hash, enforceNonCommonPassword.hashCode);
+    _$hash = $jc(_$hash, enforceNumericCharacters.hashCode);
+    _$hash = $jc(_$hash, enforceSpecialCharacters.hashCode);
+    _$hash = $jc(_$hash, enforceUpperLowerCase.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'PasswordPolicyCapabilities_PasswordPolicy_Policies')
+          ..add('minLength', minLength)
+          ..add('enforceHaveIBeenPwned', enforceHaveIBeenPwned)
+          ..add('enforceNonCommonPassword', enforceNonCommonPassword)
+          ..add('enforceNumericCharacters', enforceNumericCharacters)
+          ..add('enforceSpecialCharacters', enforceSpecialCharacters)
+          ..add('enforceUpperLowerCase', enforceUpperLowerCase))
+        .toString();
+  }
+}
+
+class PasswordPolicyCapabilities_PasswordPolicy_PoliciesBuilder
+    implements
+        Builder<PasswordPolicyCapabilities_PasswordPolicy_Policies,
+            PasswordPolicyCapabilities_PasswordPolicy_PoliciesBuilder>,
+        $PasswordPolicyCapabilities_PasswordPolicy_PoliciesInterfaceBuilder {
+  _$PasswordPolicyCapabilities_PasswordPolicy_Policies? _$v;
+
+  int? _minLength;
+  int? get minLength => _$this._minLength;
+  set minLength(covariant int? minLength) => _$this._minLength = minLength;
+
+  bool? _enforceHaveIBeenPwned;
+  bool? get enforceHaveIBeenPwned => _$this._enforceHaveIBeenPwned;
+  set enforceHaveIBeenPwned(covariant bool? enforceHaveIBeenPwned) =>
+      _$this._enforceHaveIBeenPwned = enforceHaveIBeenPwned;
+
+  bool? _enforceNonCommonPassword;
+  bool? get enforceNonCommonPassword => _$this._enforceNonCommonPassword;
+  set enforceNonCommonPassword(covariant bool? enforceNonCommonPassword) =>
+      _$this._enforceNonCommonPassword = enforceNonCommonPassword;
+
+  bool? _enforceNumericCharacters;
+  bool? get enforceNumericCharacters => _$this._enforceNumericCharacters;
+  set enforceNumericCharacters(covariant bool? enforceNumericCharacters) =>
+      _$this._enforceNumericCharacters = enforceNumericCharacters;
+
+  bool? _enforceSpecialCharacters;
+  bool? get enforceSpecialCharacters => _$this._enforceSpecialCharacters;
+  set enforceSpecialCharacters(covariant bool? enforceSpecialCharacters) =>
+      _$this._enforceSpecialCharacters = enforceSpecialCharacters;
+
+  bool? _enforceUpperLowerCase;
+  bool? get enforceUpperLowerCase => _$this._enforceUpperLowerCase;
+  set enforceUpperLowerCase(covariant bool? enforceUpperLowerCase) =>
+      _$this._enforceUpperLowerCase = enforceUpperLowerCase;
+
+  PasswordPolicyCapabilities_PasswordPolicy_PoliciesBuilder() {
+    PasswordPolicyCapabilities_PasswordPolicy_Policies._defaults(this);
+  }
+
+  PasswordPolicyCapabilities_PasswordPolicy_PoliciesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _minLength = $v.minLength;
+      _enforceHaveIBeenPwned = $v.enforceHaveIBeenPwned;
+      _enforceNonCommonPassword = $v.enforceNonCommonPassword;
+      _enforceNumericCharacters = $v.enforceNumericCharacters;
+      _enforceSpecialCharacters = $v.enforceSpecialCharacters;
+      _enforceUpperLowerCase = $v.enforceUpperLowerCase;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant PasswordPolicyCapabilities_PasswordPolicy_Policies other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$PasswordPolicyCapabilities_PasswordPolicy_Policies;
+  }
+
+  @override
+  void update(void Function(PasswordPolicyCapabilities_PasswordPolicy_PoliciesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  PasswordPolicyCapabilities_PasswordPolicy_Policies build() => _build();
+
+  _$PasswordPolicyCapabilities_PasswordPolicy_Policies _build() {
+    PasswordPolicyCapabilities_PasswordPolicy_Policies._validate(this);
+    final _$result = _$v ??
+        new _$PasswordPolicyCapabilities_PasswordPolicy_Policies._(
+          minLength: BuiltValueNullFieldError.checkNotNull(
+              minLength, r'PasswordPolicyCapabilities_PasswordPolicy_Policies', 'minLength'),
+          enforceHaveIBeenPwned: BuiltValueNullFieldError.checkNotNull(
+              enforceHaveIBeenPwned, r'PasswordPolicyCapabilities_PasswordPolicy_Policies', 'enforceHaveIBeenPwned'),
+          enforceNonCommonPassword: BuiltValueNullFieldError.checkNotNull(enforceNonCommonPassword,
+              r'PasswordPolicyCapabilities_PasswordPolicy_Policies', 'enforceNonCommonPassword'),
+          enforceNumericCharacters: BuiltValueNullFieldError.checkNotNull(enforceNumericCharacters,
+              r'PasswordPolicyCapabilities_PasswordPolicy_Policies', 'enforceNumericCharacters'),
+          enforceSpecialCharacters: BuiltValueNullFieldError.checkNotNull(enforceSpecialCharacters,
+              r'PasswordPolicyCapabilities_PasswordPolicy_Policies', 'enforceSpecialCharacters'),
+          enforceUpperLowerCase: BuiltValueNullFieldError.checkNotNull(
+              enforceUpperLowerCase, r'PasswordPolicyCapabilities_PasswordPolicy_Policies', 'enforceUpperLowerCase'),
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $PasswordPolicyCapabilities_PasswordPolicyInterfaceBuilder {
+  void replace($PasswordPolicyCapabilities_PasswordPolicyInterface other);
+  void update(void Function($PasswordPolicyCapabilities_PasswordPolicyInterfaceBuilder) updates);
+  PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder get api;
+  set api(PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder? api);
+
+  MapBuilder<String, PasswordPolicyCapabilities_PasswordPolicy_Policies> get policies;
+  set policies(MapBuilder<String, PasswordPolicyCapabilities_PasswordPolicy_Policies>? policies);
+
+  int? get minLength;
+  set minLength(int? minLength);
+
+  bool? get enforceNonCommonPassword;
+  set enforceNonCommonPassword(bool? enforceNonCommonPassword);
+
+  bool? get enforceNumericCharacters;
+  set enforceNumericCharacters(bool? enforceNumericCharacters);
+
+  bool? get enforceSpecialCharacters;
+  set enforceSpecialCharacters(bool? enforceSpecialCharacters);
+
+  bool? get enforceUpperLowerCase;
+  set enforceUpperLowerCase(bool? enforceUpperLowerCase);
+}
+
+class _$PasswordPolicyCapabilities_PasswordPolicy extends PasswordPolicyCapabilities_PasswordPolicy {
+  @override
+  final PasswordPolicyCapabilities_PasswordPolicy_Api api;
+  @override
+  final BuiltMap<String, PasswordPolicyCapabilities_PasswordPolicy_Policies> policies;
+  @override
+  final int minLength;
+  @override
+  final bool enforceNonCommonPassword;
+  @override
+  final bool enforceNumericCharacters;
+  @override
+  final bool enforceSpecialCharacters;
+  @override
+  final bool enforceUpperLowerCase;
+
+  factory _$PasswordPolicyCapabilities_PasswordPolicy(
+          [void Function(PasswordPolicyCapabilities_PasswordPolicyBuilder)? updates]) =>
+      (new PasswordPolicyCapabilities_PasswordPolicyBuilder()..update(updates))._build();
+
+  _$PasswordPolicyCapabilities_PasswordPolicy._(
+      {required this.api,
+      required this.policies,
+      required this.minLength,
+      required this.enforceNonCommonPassword,
+      required this.enforceNumericCharacters,
+      required this.enforceSpecialCharacters,
+      required this.enforceUpperLowerCase})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(api, r'PasswordPolicyCapabilities_PasswordPolicy', 'api');
+    BuiltValueNullFieldError.checkNotNull(policies, r'PasswordPolicyCapabilities_PasswordPolicy', 'policies');
+    BuiltValueNullFieldError.checkNotNull(minLength, r'PasswordPolicyCapabilities_PasswordPolicy', 'minLength');
+    BuiltValueNullFieldError.checkNotNull(
+        enforceNonCommonPassword, r'PasswordPolicyCapabilities_PasswordPolicy', 'enforceNonCommonPassword');
+    BuiltValueNullFieldError.checkNotNull(
+        enforceNumericCharacters, r'PasswordPolicyCapabilities_PasswordPolicy', 'enforceNumericCharacters');
+    BuiltValueNullFieldError.checkNotNull(
+        enforceSpecialCharacters, r'PasswordPolicyCapabilities_PasswordPolicy', 'enforceSpecialCharacters');
+    BuiltValueNullFieldError.checkNotNull(
+        enforceUpperLowerCase, r'PasswordPolicyCapabilities_PasswordPolicy', 'enforceUpperLowerCase');
+  }
+
+  @override
+  PasswordPolicyCapabilities_PasswordPolicy rebuild(
+          void Function(PasswordPolicyCapabilities_PasswordPolicyBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  PasswordPolicyCapabilities_PasswordPolicyBuilder toBuilder() =>
+      new PasswordPolicyCapabilities_PasswordPolicyBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is PasswordPolicyCapabilities_PasswordPolicy &&
+        api == other.api &&
+        policies == other.policies &&
+        minLength == other.minLength &&
+        enforceNonCommonPassword == other.enforceNonCommonPassword &&
+        enforceNumericCharacters == other.enforceNumericCharacters &&
+        enforceSpecialCharacters == other.enforceSpecialCharacters &&
+        enforceUpperLowerCase == other.enforceUpperLowerCase;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, api.hashCode);
+    _$hash = $jc(_$hash, policies.hashCode);
+    _$hash = $jc(_$hash, minLength.hashCode);
+    _$hash = $jc(_$hash, enforceNonCommonPassword.hashCode);
+    _$hash = $jc(_$hash, enforceNumericCharacters.hashCode);
+    _$hash = $jc(_$hash, enforceSpecialCharacters.hashCode);
+    _$hash = $jc(_$hash, enforceUpperLowerCase.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'PasswordPolicyCapabilities_PasswordPolicy')
+          ..add('api', api)
+          ..add('policies', policies)
+          ..add('minLength', minLength)
+          ..add('enforceNonCommonPassword', enforceNonCommonPassword)
+          ..add('enforceNumericCharacters', enforceNumericCharacters)
+          ..add('enforceSpecialCharacters', enforceSpecialCharacters)
+          ..add('enforceUpperLowerCase', enforceUpperLowerCase))
+        .toString();
+  }
+}
+
+class PasswordPolicyCapabilities_PasswordPolicyBuilder
+    implements
+        Builder<PasswordPolicyCapabilities_PasswordPolicy, PasswordPolicyCapabilities_PasswordPolicyBuilder>,
+        $PasswordPolicyCapabilities_PasswordPolicyInterfaceBuilder {
+  _$PasswordPolicyCapabilities_PasswordPolicy? _$v;
+
+  PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder? _api;
+  PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder get api =>
+      _$this._api ??= new PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder();
+  set api(covariant PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder? api) => _$this._api = api;
+
+  MapBuilder<String, PasswordPolicyCapabilities_PasswordPolicy_Policies>? _policies;
+  MapBuilder<String, PasswordPolicyCapabilities_PasswordPolicy_Policies> get policies =>
+      _$this._policies ??= new MapBuilder<String, PasswordPolicyCapabilities_PasswordPolicy_Policies>();
+  set policies(covariant MapBuilder<String, PasswordPolicyCapabilities_PasswordPolicy_Policies>? policies) =>
+      _$this._policies = policies;
+
+  int? _minLength;
+  int? get minLength => _$this._minLength;
+  set minLength(covariant int? minLength) => _$this._minLength = minLength;
+
+  bool? _enforceNonCommonPassword;
+  bool? get enforceNonCommonPassword => _$this._enforceNonCommonPassword;
+  set enforceNonCommonPassword(covariant bool? enforceNonCommonPassword) =>
+      _$this._enforceNonCommonPassword = enforceNonCommonPassword;
+
+  bool? _enforceNumericCharacters;
+  bool? get enforceNumericCharacters => _$this._enforceNumericCharacters;
+  set enforceNumericCharacters(covariant bool? enforceNumericCharacters) =>
+      _$this._enforceNumericCharacters = enforceNumericCharacters;
+
+  bool? _enforceSpecialCharacters;
+  bool? get enforceSpecialCharacters => _$this._enforceSpecialCharacters;
+  set enforceSpecialCharacters(covariant bool? enforceSpecialCharacters) =>
+      _$this._enforceSpecialCharacters = enforceSpecialCharacters;
+
+  bool? _enforceUpperLowerCase;
+  bool? get enforceUpperLowerCase => _$this._enforceUpperLowerCase;
+  set enforceUpperLowerCase(covariant bool? enforceUpperLowerCase) =>
+      _$this._enforceUpperLowerCase = enforceUpperLowerCase;
+
+  PasswordPolicyCapabilities_PasswordPolicyBuilder() {
+    PasswordPolicyCapabilities_PasswordPolicy._defaults(this);
+  }
+
+  PasswordPolicyCapabilities_PasswordPolicyBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _api = $v.api.toBuilder();
+      _policies = $v.policies.toBuilder();
+      _minLength = $v.minLength;
+      _enforceNonCommonPassword = $v.enforceNonCommonPassword;
+      _enforceNumericCharacters = $v.enforceNumericCharacters;
+      _enforceSpecialCharacters = $v.enforceSpecialCharacters;
+      _enforceUpperLowerCase = $v.enforceUpperLowerCase;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant PasswordPolicyCapabilities_PasswordPolicy other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$PasswordPolicyCapabilities_PasswordPolicy;
+  }
+
+  @override
+  void update(void Function(PasswordPolicyCapabilities_PasswordPolicyBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  PasswordPolicyCapabilities_PasswordPolicy build() => _build();
+
+  _$PasswordPolicyCapabilities_PasswordPolicy _build() {
+    PasswordPolicyCapabilities_PasswordPolicy._validate(this);
+    _$PasswordPolicyCapabilities_PasswordPolicy _$result;
+    try {
+      _$result = _$v ??
+          new _$PasswordPolicyCapabilities_PasswordPolicy._(
+            api: api.build(),
+            policies: policies.build(),
+            minLength: BuiltValueNullFieldError.checkNotNull(
+                minLength, r'PasswordPolicyCapabilities_PasswordPolicy', 'minLength'),
+            enforceNonCommonPassword: BuiltValueNullFieldError.checkNotNull(
+                enforceNonCommonPassword, r'PasswordPolicyCapabilities_PasswordPolicy', 'enforceNonCommonPassword'),
+            enforceNumericCharacters: BuiltValueNullFieldError.checkNotNull(
+                enforceNumericCharacters, r'PasswordPolicyCapabilities_PasswordPolicy', 'enforceNumericCharacters'),
+            enforceSpecialCharacters: BuiltValueNullFieldError.checkNotNull(
+                enforceSpecialCharacters, r'PasswordPolicyCapabilities_PasswordPolicy', 'enforceSpecialCharacters'),
+            enforceUpperLowerCase: BuiltValueNullFieldError.checkNotNull(
+                enforceUpperLowerCase, r'PasswordPolicyCapabilities_PasswordPolicy', 'enforceUpperLowerCase'),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'api';
+        api.build();
+        _$failedField = 'policies';
+        policies.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(r'PasswordPolicyCapabilities_PasswordPolicy', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $PasswordPolicyCapabilitiesInterfaceBuilder {
+  void replace($PasswordPolicyCapabilitiesInterface other);
+  void update(void Function($PasswordPolicyCapabilitiesInterfaceBuilder) updates);
+  PasswordPolicyCapabilities_PasswordPolicyBuilder get passwordPolicy;
+  set passwordPolicy(PasswordPolicyCapabilities_PasswordPolicyBuilder? passwordPolicy);
+}
+
+class _$PasswordPolicyCapabilities extends PasswordPolicyCapabilities {
+  @override
+  final PasswordPolicyCapabilities_PasswordPolicy passwordPolicy;
+
+  factory _$PasswordPolicyCapabilities([void Function(PasswordPolicyCapabilitiesBuilder)? updates]) =>
+      (new PasswordPolicyCapabilitiesBuilder()..update(updates))._build();
+
+  _$PasswordPolicyCapabilities._({required this.passwordPolicy}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(passwordPolicy, r'PasswordPolicyCapabilities', 'passwordPolicy');
+  }
+
+  @override
+  PasswordPolicyCapabilities rebuild(void Function(PasswordPolicyCapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  PasswordPolicyCapabilitiesBuilder toBuilder() => new PasswordPolicyCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is PasswordPolicyCapabilities && passwordPolicy == other.passwordPolicy;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, passwordPolicy.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'PasswordPolicyCapabilities')..add('passwordPolicy', passwordPolicy))
+        .toString();
+  }
+}
+
+class PasswordPolicyCapabilitiesBuilder
+    implements
+        Builder<PasswordPolicyCapabilities, PasswordPolicyCapabilitiesBuilder>,
+        $PasswordPolicyCapabilitiesInterfaceBuilder {
+  _$PasswordPolicyCapabilities? _$v;
+
+  PasswordPolicyCapabilities_PasswordPolicyBuilder? _passwordPolicy;
+  PasswordPolicyCapabilities_PasswordPolicyBuilder get passwordPolicy =>
+      _$this._passwordPolicy ??= new PasswordPolicyCapabilities_PasswordPolicyBuilder();
+  set passwordPolicy(covariant PasswordPolicyCapabilities_PasswordPolicyBuilder? passwordPolicy) =>
+      _$this._passwordPolicy = passwordPolicy;
+
+  PasswordPolicyCapabilitiesBuilder() {
+    PasswordPolicyCapabilities._defaults(this);
+  }
+
+  PasswordPolicyCapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _passwordPolicy = $v.passwordPolicy.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant PasswordPolicyCapabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$PasswordPolicyCapabilities;
+  }
+
+  @override
+  void update(void Function(PasswordPolicyCapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  PasswordPolicyCapabilities build() => _build();
+
+  _$PasswordPolicyCapabilities _build() {
+    PasswordPolicyCapabilities._validate(this);
+    _$PasswordPolicyCapabilities _$result;
+    try {
+      _$result = _$v ??
+          new _$PasswordPolicyCapabilities._(
+            passwordPolicy: passwordPolicy.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'passwordPolicy';
+        passwordPolicy.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(r'PasswordPolicyCapabilities', _$failedField, e.toString());
       }
       rethrow;
     }
