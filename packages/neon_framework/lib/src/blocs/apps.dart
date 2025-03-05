@@ -256,7 +256,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
       getRequest: account.client.core.navigation.$getAppsNavigation_Request,
       converter: ResponseConverter(account.client.core.navigation.$getAppsNavigation_Serializer()),
       unwrap: (response) => response.body.ocs.data.rebuild(
-        (b) => b..sort((a, b) => (a.getOrder()).compareTo(b.getOrder())),
+        (b) => b..sort((a, b) => (a.order ?? -1).compareTo(b.order ?? -1)),
       ),
     );
   }
@@ -283,15 +283,5 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
   @override
   List<Provider<Bloc>> get appBlocProviders =>
       allAppImplementations.map((appImplementation) => appImplementation.blocProvider).toList();
-  // coverage:ignore-end
-}
-
-extension _NavigationEntryOrder on core.NavigationEntry {
-  int getOrder() {
-    if (order == null) {
-      return -1;
-    }
-
-    return order!.$int ?? int.parse(order!.string!);
-  }
+// coverage:ignore-end
 }

@@ -5,7 +5,7 @@ import 'package:nextcloud/src/api/spreed/spreed.openapi.dart' as spreed;
 import 'package:version/version.dart';
 
 /// The minimum version of the spreed app that is supported.
-final minVersion = Version(19, 0, 0);
+final minVersion = Version(20, 0, 0);
 
 /// Extension for checking whether spreed is supported.
 extension SpreedVersionCheck on spreed.$Client {
