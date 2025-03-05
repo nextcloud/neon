@@ -129,6 +129,13 @@ void main() {
             ..conversations.update(
               (b) => b.canCreate = false,
             )
+            ..federation.update(
+              (b) => b
+                ..enabled = false
+                ..incomingEnabled = false
+                ..outgoingEnabled = false
+                ..onlyTrustedServers = false,
+            )
             ..previews.update(
               (b) => b..maxGifSize = 0,
             )

@@ -4556,14 +4556,10 @@ class _$CoreCapabilities_CoreSerializer implements StructuredSerializer<CoreCapa
       serializers.serialize(object.referenceApi, specifiedType: const FullType(bool)),
       'reference-regex',
       serializers.serialize(object.referenceRegex, specifiedType: const FullType(String)),
+      'mod-rewrite-working',
+      serializers.serialize(object.modRewriteWorking, specifiedType: const FullType(bool)),
     ];
-    Object? value;
-    value = object.modRewriteWorking;
-    if (value != null) {
-      result
-        ..add('mod-rewrite-working')
-        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
+
     return result;
   }
 
@@ -4591,7 +4587,7 @@ class _$CoreCapabilities_CoreSerializer implements StructuredSerializer<CoreCapa
           result.referenceRegex = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'mod-rewrite-working':
-          result.modRewriteWorking = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          result.modRewriteWorking = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -7397,18 +7393,14 @@ class _$SpreedCapabilities_ConfigSerializer implements StructuredSerializer<Spre
       'conversations',
       serializers.serialize(object.conversations,
           specifiedType: const FullType(SpreedCapabilities_Config_Conversations)),
+      'federation',
+      serializers.serialize(object.federation, specifiedType: const FullType(SpreedCapabilities_Config_Federation)),
       'previews',
       serializers.serialize(object.previews, specifiedType: const FullType(SpreedCapabilities_Config_Previews)),
       'signaling',
       serializers.serialize(object.signaling, specifiedType: const FullType(SpreedCapabilities_Config_Signaling)),
     ];
-    Object? value;
-    value = object.federation;
-    if (value != null) {
-      result
-        ..add('federation')
-        ..add(serializers.serialize(value, specifiedType: const FullType(SpreedCapabilities_Config_Federation)));
-    }
+
     return result;
   }
 
@@ -24464,7 +24456,7 @@ class _$CoreCapabilities_Core extends CoreCapabilities_Core {
   @override
   final String referenceRegex;
   @override
-  final bool? modRewriteWorking;
+  final bool modRewriteWorking;
 
   factory _$CoreCapabilities_Core([void Function(CoreCapabilities_CoreBuilder)? updates]) =>
       (new CoreCapabilities_CoreBuilder()..update(updates))._build();
@@ -24474,12 +24466,13 @@ class _$CoreCapabilities_Core extends CoreCapabilities_Core {
       required this.webdavRoot,
       required this.referenceApi,
       required this.referenceRegex,
-      this.modRewriteWorking})
+      required this.modRewriteWorking})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(pollinterval, r'CoreCapabilities_Core', 'pollinterval');
     BuiltValueNullFieldError.checkNotNull(webdavRoot, r'CoreCapabilities_Core', 'webdavRoot');
     BuiltValueNullFieldError.checkNotNull(referenceApi, r'CoreCapabilities_Core', 'referenceApi');
     BuiltValueNullFieldError.checkNotNull(referenceRegex, r'CoreCapabilities_Core', 'referenceRegex');
+    BuiltValueNullFieldError.checkNotNull(modRewriteWorking, r'CoreCapabilities_Core', 'modRewriteWorking');
   }
 
   @override
@@ -24588,7 +24581,8 @@ class CoreCapabilities_CoreBuilder
           referenceApi: BuiltValueNullFieldError.checkNotNull(referenceApi, r'CoreCapabilities_Core', 'referenceApi'),
           referenceRegex:
               BuiltValueNullFieldError.checkNotNull(referenceRegex, r'CoreCapabilities_Core', 'referenceRegex'),
-          modRewriteWorking: modRewriteWorking,
+          modRewriteWorking:
+              BuiltValueNullFieldError.checkNotNull(modRewriteWorking, r'CoreCapabilities_Core', 'modRewriteWorking'),
         );
     replace(_$result);
     return _$result;
@@ -31497,7 +31491,7 @@ class _$SpreedCapabilities_Config extends SpreedCapabilities_Config {
   @override
   final SpreedCapabilities_Config_Conversations conversations;
   @override
-  final SpreedCapabilities_Config_Federation? federation;
+  final SpreedCapabilities_Config_Federation federation;
   @override
   final SpreedCapabilities_Config_Previews previews;
   @override
@@ -31511,7 +31505,7 @@ class _$SpreedCapabilities_Config extends SpreedCapabilities_Config {
       required this.call,
       required this.chat,
       required this.conversations,
-      this.federation,
+      required this.federation,
       required this.previews,
       required this.signaling})
       : super._() {
@@ -31519,6 +31513,7 @@ class _$SpreedCapabilities_Config extends SpreedCapabilities_Config {
     BuiltValueNullFieldError.checkNotNull(call, r'SpreedCapabilities_Config', 'call');
     BuiltValueNullFieldError.checkNotNull(chat, r'SpreedCapabilities_Config', 'chat');
     BuiltValueNullFieldError.checkNotNull(conversations, r'SpreedCapabilities_Config', 'conversations');
+    BuiltValueNullFieldError.checkNotNull(federation, r'SpreedCapabilities_Config', 'federation');
     BuiltValueNullFieldError.checkNotNull(previews, r'SpreedCapabilities_Config', 'previews');
     BuiltValueNullFieldError.checkNotNull(signaling, r'SpreedCapabilities_Config', 'signaling');
   }
@@ -31623,7 +31618,7 @@ class SpreedCapabilities_ConfigBuilder
       _call = $v.call.toBuilder();
       _chat = $v.chat.toBuilder();
       _conversations = $v.conversations.toBuilder();
-      _federation = $v.federation?.toBuilder();
+      _federation = $v.federation.toBuilder();
       _previews = $v.previews.toBuilder();
       _signaling = $v.signaling.toBuilder();
       _$v = null;
@@ -31655,7 +31650,7 @@ class SpreedCapabilities_ConfigBuilder
             call: call.build(),
             chat: chat.build(),
             conversations: conversations.build(),
-            federation: _federation?.build(),
+            federation: federation.build(),
             previews: previews.build(),
             signaling: signaling.build(),
           );
@@ -31671,7 +31666,7 @@ class SpreedCapabilities_ConfigBuilder
         _$failedField = 'conversations';
         conversations.build();
         _$failedField = 'federation';
-        _federation?.build();
+        federation.build();
         _$failedField = 'previews';
         previews.build();
         _$failedField = 'signaling';

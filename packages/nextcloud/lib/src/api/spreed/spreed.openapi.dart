@@ -29652,7 +29652,7 @@ sealed class $ChatMentionSuggestionInterface {
   String get id;
   String get label;
   String get source;
-  String? get mentionId;
+  String get mentionId;
   String? get details;
   String? get status;
   int? get statusClearAt;
@@ -48969,7 +48969,7 @@ sealed class $Capabilities_ConfigInterface {
   Capabilities_Config_Call get call;
   Capabilities_Config_Chat get chat;
   Capabilities_Config_Conversations get conversations;
-  Capabilities_Config_Federation? get federation;
+  Capabilities_Config_Federation get federation;
   Capabilities_Config_Previews get previews;
   Capabilities_Config_Signaling get signaling;
 

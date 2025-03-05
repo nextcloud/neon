@@ -1074,7 +1074,8 @@
                             "pollinterval",
                             "webdav-root",
                             "reference-api",
-                            "reference-regex"
+                            "reference-regex",
+                            "mod-rewrite-working"
                         ],
                         "properties": {
                             "pollinterval": {
@@ -1780,6 +1781,7 @@
                             "call",
                             "chat",
                             "conversations",
+                            "federation",
                             "previews",
                             "signaling"
                         ],
