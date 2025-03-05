@@ -32,19 +32,11 @@ part 'updatenotification.openapi.g.dart';
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
-  $Client(
-    super.baseURL, {
-    super.httpClient,
-    super.authentications,
-  });
+  $Client(super.baseURL, {super.httpClient, super.authentications});
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $ApiClient api = $ApiClient(this);
 }
@@ -97,12 +89,13 @@ class $ApiClient {
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i4.UriTemplate('/ocs/v2.php/apps/updatenotification/api/{apiVersion}/applist/{newVersion}')
-        .expand(_parameters);
+    final _path = _i4.UriTemplate(
+      '/ocs/v2.php/apps/updatenotification/api/{apiVersion}/applist/{newVersion}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -111,14 +104,12 @@ class $ApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -150,11 +141,7 @@ class $ApiClient {
     ApiGetAppListApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getAppList_Request(
-      newVersion: newVersion,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getAppList_Request(newVersion: newVersion, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -204,20 +191,23 @@ class $ApiClient {
     final __appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
     _parameters['appId'] = __appId;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ApiGetAppChangelogEntryApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(ApiGetAppChangelogEntryApiVersion),
+    );
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
     final __version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
     _parameters['version'] = __version;
 
-    final _path = _i4.UriTemplate('/ocs/v2.php/apps/updatenotification/api/{apiVersion}/changelog/{appId}{?version*}')
-        .expand(_parameters);
+    final _path = _i4.UriTemplate(
+      '/ocs/v2.php/apps/updatenotification/api/{apiVersion}/changelog/{appId}{?version*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -226,14 +216,12 @@ class $ApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);

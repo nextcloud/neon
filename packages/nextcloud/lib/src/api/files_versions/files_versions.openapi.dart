@@ -32,19 +32,11 @@ part 'files_versions.openapi.g.dart';
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
-  $Client(
-    super.baseURL, {
-    super.httpClient,
-    super.authentications,
-  });
+  $Client(super.baseURL, {super.httpClient, super.authentications});
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $PreviewClient preview = $PreviewClient(this);
 }
@@ -84,12 +76,7 @@ class $PreviewClient {
   ///  * [getPreview] for a method executing this request and parsing the response.
   ///  * [$getPreview_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getPreview_Request({
-    String? file,
-    int? x,
-    int? y,
-    String? version,
-  }) {
+  _i3.Request $getPreview_Request({String? file, int? x, int? y, String? version}) {
     final _parameters = <String, Object?>{};
     var __file = _$jsonSerializers.serialize(file, specifiedType: const FullType(String));
     __file ??= '';
@@ -111,7 +98,7 @@ class $PreviewClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -120,14 +107,12 @@ class $PreviewClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -150,18 +135,8 @@ class $PreviewClient {
   /// See:
   ///  * [$getPreview_Request] for the request send by this method.
   ///  * [$getPreview_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<Uint8List, void>> getPreview({
-    String? file,
-    int? x,
-    int? y,
-    String? version,
-  }) async {
-    final _request = $getPreview_Request(
-      file: file,
-      x: x,
-      y: y,
-      version: version,
-    );
+  Future<_i1.DynamiteResponse<Uint8List, void>> getPreview({String? file, int? x, int? y, String? version}) async {
+    final _request = $getPreview_Request(file: file, x: x, y: y, version: version);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 

@@ -34,7 +34,10 @@ class _State {
 void main() {
   final files = Glob('lib/src/api/**/*.openapi.dart').listSync()..sort((a, b) => a.path.compareTo(b.path));
 
-  final formatter = DartFormatter(pageWidth: 120);
+  final formatter = DartFormatter(
+    pageWidth: 120,
+    languageVersion: DartFormatter.latestLanguageVersion,
+  );
   final emitter = DartEmitter(
     orderDirectives: true,
     useNullSafetySyntax: true,

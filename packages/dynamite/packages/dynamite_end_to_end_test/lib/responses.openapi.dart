@@ -18,26 +18,16 @@ import 'package:meta/meta.dart' as _i2;
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
-  $Client(
-    super.baseURL, {
-    super.httpClient,
-  });
+  $Client(super.baseURL, {super.httpClient});
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   /// Builds a serializer to parse the response of [$$get_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<String, void> $$get_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(String),
-        headersType: null,
-        serializers: _$jsonSerializers,
-      );
+  _i1.DynamiteSerializer<String, void> $$get_Serializer() =>
+      _i1.DynamiteSerializer(bodyType: const FullType(String), headersType: null, serializers: _$jsonSerializers);
 
   /// Returns a `DynamiteRequest` backing the [$get] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -124,11 +114,8 @@ class $Client extends _i1.DynamiteClient {
 
   /// Builds a serializer to parse the response of [$post_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<String, void> $post_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(String),
-        headersType: null,
-        serializers: _$jsonSerializers,
-      );
+  _i1.DynamiteSerializer<String, void> $post_Serializer() =>
+      _i1.DynamiteSerializer(bodyType: const FullType(String), headersType: null, serializers: _$jsonSerializers);
 
   /// Returns a `DynamiteRequest` backing the [post] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.

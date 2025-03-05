@@ -34,19 +34,11 @@ part 'files_reminders.openapi.g.dart';
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
-  $Client(
-    super.baseURL, {
-    super.httpClient,
-    super.authentications,
-  });
+  $Client(super.baseURL, {super.httpClient, super.authentications});
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $ApiClient api = $ApiClient(this);
 }
@@ -84,18 +76,10 @@ class $ApiClient {
   ///  * [$get] for a method executing this request and parsing the response.
   ///  * [$$get_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $$get_Request({
-    required String version,
-    required int fileId,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $$get_Request({required String version, required int fileId, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
-    _i4.checkString(
-      __version,
-      'version',
-      pattern: RegExp(r'^1$'),
-    );
+    _i4.checkString(__version, 'version', pattern: RegExp(r'^1$'));
     _parameters['version'] = __version;
 
     final __fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
@@ -105,7 +89,7 @@ class $ApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -114,14 +98,12 @@ class $ApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -151,11 +133,7 @@ class $ApiClient {
     required int fileId,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $$get_Request(
-      version: version,
-      fileId: fileId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $$get_Request(version: version, fileId: fileId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -201,11 +179,7 @@ class $ApiClient {
   }) {
     final _parameters = <String, Object?>{};
     final __version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
-    _i4.checkString(
-      __version,
-      'version',
-      pattern: RegExp(r'^1$'),
-    );
+    _i4.checkString(__version, 'version', pattern: RegExp(r'^1$'));
     _parameters['version'] = __version;
 
     final __fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
@@ -215,7 +189,7 @@ class $ApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -224,21 +198,20 @@ class $ApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body =
-        json.encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(ApiSetRequestApplicationJson)));
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(ApiSetRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -268,12 +241,7 @@ class $ApiClient {
     required ApiSetRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $$set_Request(
-      version: version,
-      fileId: fileId,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $$set_Request(version: version, fileId: fileId, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -309,18 +277,10 @@ class $ApiClient {
   ///  * [remove] for a method executing this request and parsing the response.
   ///  * [$remove_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $remove_Request({
-    required String version,
-    required int fileId,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $remove_Request({required String version, required int fileId, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
-    _i4.checkString(
-      __version,
-      'version',
-      pattern: RegExp(r'^1$'),
-    );
+    _i4.checkString(__version, 'version', pattern: RegExp(r'^1$'));
     _parameters['version'] = __version;
 
     final __fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
@@ -330,7 +290,7 @@ class $ApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -339,14 +299,12 @@ class $ApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
@@ -377,11 +335,7 @@ class $ApiClient {
     required int fileId,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $remove_Request(
-      version: version,
-      fileId: fileId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $remove_Request(version: version, fileId: fileId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -971,7 +925,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ApiSetResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ApiSetResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(ApiRemoveResponseApplicationJson), ApiRemoveResponseApplicationJsonBuilder.new)
+      ..addBuilderFactory(
+        const FullType(ApiRemoveResponseApplicationJson),
+        ApiRemoveResponseApplicationJsonBuilder.new,
+      )
       ..add(ApiRemoveResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ApiRemoveResponseApplicationJson_Ocs),

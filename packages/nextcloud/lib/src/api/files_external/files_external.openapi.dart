@@ -32,19 +32,11 @@ part 'files_external.openapi.g.dart';
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
-  $Client(
-    super.baseURL, {
-    super.httpClient,
-    super.authentications,
-  });
+  $Client(super.baseURL, {super.httpClient, super.authentications});
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $ApiClient api = $ApiClient(this);
 }
@@ -85,7 +77,7 @@ class $ApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -94,14 +86,12 @@ class $ApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -126,9 +116,7 @@ class $ApiClient {
   Future<_i1.DynamiteResponse<ApiGetUserMountsResponseApplicationJson, void>> getUserMounts({
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getUserMounts_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getUserMounts_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -220,13 +208,9 @@ class Mount_Type extends EnumClass {
 class _$Mount_TypeSerializer implements PrimitiveSerializer<Mount_Type> {
   const _$Mount_TypeSerializer();
 
-  static const Map<Mount_Type, Object> _toWire = <Mount_Type, Object>{
-    Mount_Type.dir: 'dir',
-  };
+  static const Map<Mount_Type, Object> _toWire = <Mount_Type, Object>{Mount_Type.dir: 'dir'};
 
-  static const Map<Object, Mount_Type> _fromWire = <Object, Mount_Type>{
-    'dir': Mount_Type.dir,
-  };
+  static const Map<Object, Mount_Type> _fromWire = <Object, Mount_Type>{'dir': Mount_Type.dir};
 
   @override
   Iterable<Type> get types => const [Mount_Type];
@@ -235,19 +219,11 @@ class _$Mount_TypeSerializer implements PrimitiveSerializer<Mount_Type> {
   String get wireName => 'Mount_Type';
 
   @override
-  Object serialize(
-    Serializers serializers,
-    Mount_Type object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
+  Object serialize(Serializers serializers, Mount_Type object, {FullType specifiedType = FullType.unspecified}) =>
       _toWire[object]!;
 
   @override
-  Mount_Type deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
+  Mount_Type deserialize(Serializers serializers, Object serialized, {FullType specifiedType = FullType.unspecified}) =>
       _fromWire[serialized]!;
 }
 
@@ -296,11 +272,7 @@ class _$Mount_ScopeSerializer implements PrimitiveSerializer<Mount_Scope> {
   String get wireName => 'Mount_Scope';
 
   @override
-  Object serialize(
-    Serializers serializers,
-    Mount_Scope object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
+  Object serialize(Serializers serializers, Mount_Scope object, {FullType specifiedType = FullType.unspecified}) =>
       _toWire[object]!;
 
   @override

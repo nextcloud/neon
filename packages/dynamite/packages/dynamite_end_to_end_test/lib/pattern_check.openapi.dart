@@ -58,21 +58,9 @@ sealed class $TestObjectInterface {
   static void _defaults($TestObjectInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($TestObjectInterfaceBuilder b) {
-    _i1.checkString(
-      b.onlyNumbers,
-      'onlyNumbers',
-      pattern: RegExp(r'^[0-9]*$'),
-    );
-    _i1.checkString(
-      b.minLength,
-      'minLength',
-      minLength: 3,
-    );
-    _i1.checkString(
-      b.maxLength,
-      'maxLength',
-      maxLength: 20,
-    );
+    _i1.checkString(b.onlyNumbers, 'onlyNumbers', pattern: RegExp(r'^[0-9]*$'));
+    _i1.checkString(b.minLength, 'minLength', minLength: 3);
+    _i1.checkString(b.maxLength, 'maxLength', maxLength: 20);
     _i1.checkString(
       b.stringMultipleChecks,
       'stringMultipleChecks',
@@ -80,53 +68,15 @@ sealed class $TestObjectInterface {
       minLength: 3,
       maxLength: 20,
     );
-    _i1.checkIterable(
-      b.minItems,
-      'minItems',
-      minItems: 3,
-    );
-    _i1.checkIterable(
-      b.maxItems,
-      'maxItems',
-      maxItems: 20,
-    );
-    _i1.checkIterable(
-      b.arrayUnique,
-      'arrayUnique',
-      uniqueItems: true,
-    );
-    _i1.checkIterable(
-      b.arrayMultipleChecks,
-      'arrayMultipleChecks',
-      uniqueItems: true,
-      minItems: 3,
-      maxItems: 20,
-    );
-    _i1.checkNumber(
-      b.multipleOf,
-      'multipleOf',
-      multipleOf: 0,
-    );
-    _i1.checkNumber(
-      b.maximum,
-      'maximum',
-      maximum: 0,
-    );
-    _i1.checkNumber(
-      b.exclusiveMaximum,
-      'exclusiveMaximum',
-      exclusiveMaximum: 0,
-    );
-    _i1.checkNumber(
-      b.minimum,
-      'minimum',
-      minimum: 0,
-    );
-    _i1.checkNumber(
-      b.exclusiveMinimum,
-      'exclusiveMinimum',
-      exclusiveMinimum: 0,
-    );
+    _i1.checkIterable(b.minItems, 'minItems', minItems: 3);
+    _i1.checkIterable(b.maxItems, 'maxItems', maxItems: 20);
+    _i1.checkIterable(b.arrayUnique, 'arrayUnique', uniqueItems: true);
+    _i1.checkIterable(b.arrayMultipleChecks, 'arrayMultipleChecks', uniqueItems: true, minItems: 3, maxItems: 20);
+    _i1.checkNumber(b.multipleOf, 'multipleOf', multipleOf: 0);
+    _i1.checkNumber(b.maximum, 'maximum', maximum: 0);
+    _i1.checkNumber(b.exclusiveMaximum, 'exclusiveMaximum', exclusiveMaximum: 0);
+    _i1.checkNumber(b.minimum, 'minimum', minimum: 0);
+    _i1.checkNumber(b.exclusiveMinimum, 'exclusiveMinimum', exclusiveMinimum: 0);
     _i1.checkNumber(
       b.numberMultipleChecks,
       'numberMultipleChecks',
@@ -185,28 +135,9 @@ sealed class $TestObjectUnspecifiedInterface {
   static void _defaults($TestObjectUnspecifiedInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($TestObjectUnspecifiedInterfaceBuilder b) {
-    _i1.checkString(
-      b.value,
-      'value',
-      pattern: RegExp(r'^[0-9]*$'),
-      minLength: 3,
-      maxLength: 20,
-    );
-    _i1.checkIterable(
-      b.value,
-      'value',
-      minItems: 3,
-      maxItems: 20,
-    );
-    _i1.checkNumber(
-      b.value,
-      'value',
-      multipleOf: 1,
-      maximum: 0,
-      exclusiveMaximum: 0,
-      minimum: 0,
-      exclusiveMinimum: 0,
-    );
+    _i1.checkString(b.value, 'value', pattern: RegExp(r'^[0-9]*$'), minLength: 3, maxLength: 20);
+    _i1.checkIterable(b.value, 'value', minItems: 3, maxItems: 20);
+    _i1.checkNumber(b.value, 'value', multipleOf: 1, maximum: 0, exclusiveMaximum: 0, minimum: 0, exclusiveMinimum: 0);
   }
 }
 

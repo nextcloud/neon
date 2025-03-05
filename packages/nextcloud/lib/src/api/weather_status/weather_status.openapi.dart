@@ -33,19 +33,11 @@ part 'weather_status.openapi.g.dart';
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
-  $Client(
-    super.baseURL, {
-    super.httpClient,
-    super.authentications,
-  });
+  $Client(super.baseURL, {super.httpClient, super.authentications});
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $WeatherStatusClient weatherStatus = $WeatherStatusClient(this);
 }
@@ -81,15 +73,12 @@ class $WeatherStatusClient {
   ///  * [setMode] for a method executing this request and parsing the response.
   ///  * [$setMode_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $setMode_Request({
-    required WeatherStatusSetModeRequestApplicationJson $body,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $setMode_Request({required WeatherStatusSetModeRequestApplicationJson $body, bool? oCSAPIRequest}) {
     const _path = '/ocs/v2.php/apps/weather_status/api/v1/mode';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -98,14 +87,12 @@ class $WeatherStatusClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -135,10 +122,7 @@ class $WeatherStatusClient {
     required WeatherStatusSetModeRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $setMode_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $setMode_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -176,7 +160,7 @@ class $WeatherStatusClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -185,14 +169,12 @@ class $WeatherStatusClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -217,15 +199,14 @@ class $WeatherStatusClient {
   Future<_i1.DynamiteResponse<WeatherStatusUsePersonalAddressResponseApplicationJson, void>> usePersonalAddress({
     bool? oCSAPIRequest,
   }) async {
-    final _request = $usePersonalAddress_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $usePersonalAddress_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $usePersonalAddress_Serializer();
-    return _i1.ResponseConverter<WeatherStatusUsePersonalAddressResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<WeatherStatusUsePersonalAddressResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getLocation_Request].
@@ -258,7 +239,7 @@ class $WeatherStatusClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -267,14 +248,12 @@ class $WeatherStatusClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -299,9 +278,7 @@ class $WeatherStatusClient {
   Future<_i1.DynamiteResponse<WeatherStatusGetLocationResponseApplicationJson, void>> getLocation({
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getLocation_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getLocation_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -334,15 +311,12 @@ class $WeatherStatusClient {
   ///  * [setLocation] for a method executing this request and parsing the response.
   ///  * [$setLocation_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $setLocation_Request({
-    bool? oCSAPIRequest,
-    WeatherStatusSetLocationRequestApplicationJson? $body,
-  }) {
+  _i3.Request $setLocation_Request({bool? oCSAPIRequest, WeatherStatusSetLocationRequestApplicationJson? $body}) {
     const _path = '/ocs/v2.php/apps/weather_status/api/v1/location';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -351,14 +325,12 @@ class $WeatherStatusClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -398,10 +370,7 @@ class $WeatherStatusClient {
     bool? oCSAPIRequest,
     WeatherStatusSetLocationRequestApplicationJson? $body,
   }) async {
-    final _request = $setLocation_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $setLocation_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -440,7 +409,7 @@ class $WeatherStatusClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -449,14 +418,12 @@ class $WeatherStatusClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -482,9 +449,7 @@ class $WeatherStatusClient {
   Future<_i1.DynamiteResponse<WeatherStatusGetForecastResponseApplicationJson, void>> getForecast({
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getForecast_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getForecast_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -522,7 +487,7 @@ class $WeatherStatusClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -531,14 +496,12 @@ class $WeatherStatusClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -563,15 +526,14 @@ class $WeatherStatusClient {
   Future<_i1.DynamiteResponse<WeatherStatusGetFavoritesResponseApplicationJson, void>> getFavorites({
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getFavorites_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getFavorites_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getFavorites_Serializer();
-    return _i1.ResponseConverter<WeatherStatusGetFavoritesResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<WeatherStatusGetFavoritesResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$setFavorites_Request].
@@ -607,7 +569,7 @@ class $WeatherStatusClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -616,14 +578,12 @@ class $WeatherStatusClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -656,16 +616,14 @@ class $WeatherStatusClient {
     required WeatherStatusSetFavoritesRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $setFavorites_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $setFavorites_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setFavorites_Serializer();
-    return _i1.ResponseConverter<WeatherStatusSetFavoritesResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<WeatherStatusSetFavoritesResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 }
 
@@ -2510,7 +2468,7 @@ abstract class WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1
 
 typedef WeatherStatusGetForecastResponseApplicationJson_Ocs_Data = ({
   BuiltList<Forecast>? builtListForecast,
-  WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1? weatherStatusGetForecastResponseApplicationJsonOcsData1
+  WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1? weatherStatusGetForecastResponseApplicationJsonOcsData1,
 });
 
 @BuiltValue(instantiable: false)
@@ -3096,7 +3054,7 @@ extension $WeatherStatusGetForecastResponseApplicationJson_Ocs_DataExtension
 
 typedef _$20fe3de793aed6fbf929c9b82b472b1a = ({
   BuiltList<Forecast>? builtListForecast,
-  WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1? weatherStatusGetForecastResponseApplicationJsonOcsData1
+  WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1? weatherStatusGetForecastResponseApplicationJsonOcsData1,
 });
 
 /// @nodoc
@@ -3106,16 +3064,10 @@ extension $20fe3de793aed6fbf929c9b82b472b1aExtension on _$20fe3de793aed6fbf929c9
   List<String> get _names => const ['builtListForecast', 'weatherStatusGetForecastResponseApplicationJsonOcsData1'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i5.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i5.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i5.validateAnyOf(
-        _values,
-        _names,
-      );
+  void validateAnyOf() => _i5.validateAnyOf(_values, _names);
   static Serializer<_$20fe3de793aed6fbf929c9b82b472b1a> get _serializer =>
       const _$20fe3de793aed6fbf929c9b82b472b1aSerializer();
   static _$20fe3de793aed6fbf929c9b82b472b1a _fromJson(Object? json) =>
@@ -3154,7 +3106,7 @@ class _$20fe3de793aed6fbf929c9b82b472b1aSerializer implements PrimitiveSerialize
         specifiedType: const FullType(WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1),
       )!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
@@ -3166,10 +3118,8 @@ class _$20fe3de793aed6fbf929c9b82b472b1aSerializer implements PrimitiveSerialize
   }) {
     BuiltList<Forecast>? builtListForecast;
     try {
-      builtListForecast = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(Forecast)]),
-      )! as BuiltList<Forecast>;
+      builtListForecast = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Forecast)]))!
+          as BuiltList<Forecast>;
     } catch (_) {}
     WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1? weatherStatusGetForecastResponseApplicationJsonOcsData1;
     try {
@@ -3180,7 +3130,7 @@ class _$20fe3de793aed6fbf929c9b82b472b1aSerializer implements PrimitiveSerialize
     } catch (_) {}
     return (
       builtListForecast: builtListForecast,
-      weatherStatusGetForecastResponseApplicationJsonOcsData1: weatherStatusGetForecastResponseApplicationJsonOcsData1
+      weatherStatusGetForecastResponseApplicationJsonOcsData1: weatherStatusGetForecastResponseApplicationJsonOcsData1,
     );
   }
 }
@@ -3287,15 +3237,27 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(Forecast_Data_Next12Hours_Details.serializer)
       ..addBuilderFactory(const FullType(Forecast_Data_Next1Hours), Forecast_Data_Next1HoursBuilder.new)
       ..add(Forecast_Data_Next1Hours.serializer)
-      ..addBuilderFactory(const FullType(Forecast_Data_Next1Hours_Summary), Forecast_Data_Next1Hours_SummaryBuilder.new)
+      ..addBuilderFactory(
+        const FullType(Forecast_Data_Next1Hours_Summary),
+        Forecast_Data_Next1Hours_SummaryBuilder.new,
+      )
       ..add(Forecast_Data_Next1Hours_Summary.serializer)
-      ..addBuilderFactory(const FullType(Forecast_Data_Next1Hours_Details), Forecast_Data_Next1Hours_DetailsBuilder.new)
+      ..addBuilderFactory(
+        const FullType(Forecast_Data_Next1Hours_Details),
+        Forecast_Data_Next1Hours_DetailsBuilder.new,
+      )
       ..add(Forecast_Data_Next1Hours_Details.serializer)
       ..addBuilderFactory(const FullType(Forecast_Data_Next6Hours), Forecast_Data_Next6HoursBuilder.new)
       ..add(Forecast_Data_Next6Hours.serializer)
-      ..addBuilderFactory(const FullType(Forecast_Data_Next6Hours_Summary), Forecast_Data_Next6Hours_SummaryBuilder.new)
+      ..addBuilderFactory(
+        const FullType(Forecast_Data_Next6Hours_Summary),
+        Forecast_Data_Next6Hours_SummaryBuilder.new,
+      )
       ..add(Forecast_Data_Next6Hours_Summary.serializer)
-      ..addBuilderFactory(const FullType(Forecast_Data_Next6Hours_Details), Forecast_Data_Next6Hours_DetailsBuilder.new)
+      ..addBuilderFactory(
+        const FullType(Forecast_Data_Next6Hours_Details),
+        Forecast_Data_Next6Hours_DetailsBuilder.new,
+      )
       ..add(Forecast_Data_Next6Hours_Details.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Forecast)]), ListBuilder<Forecast>.new)
       ..addBuilderFactory(

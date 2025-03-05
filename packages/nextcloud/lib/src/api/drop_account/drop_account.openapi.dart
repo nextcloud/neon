@@ -30,19 +30,11 @@ part 'drop_account.openapi.g.dart';
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
-  $Client(
-    super.baseURL, {
-    super.httpClient,
-    super.authentications,
-  });
+  $Client(super.baseURL, {super.httpClient, super.authentications});
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $ApiClient api = $ApiClient(this);
 }
@@ -89,7 +81,7 @@ class $ApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -98,14 +90,12 @@ class $ApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -135,9 +125,7 @@ class $ApiClient {
   ///  * [$delete_Request] for the request send by this method.
   ///  * [$delete_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ApiDeleteResponseApplicationJson, void>> delete({bool? oCSAPIRequest}) async {
-    final _request = $delete_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $delete_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -576,7 +564,10 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(ApiDeleteResponseApplicationJson), ApiDeleteResponseApplicationJsonBuilder.new)
+      ..addBuilderFactory(
+        const FullType(ApiDeleteResponseApplicationJson),
+        ApiDeleteResponseApplicationJsonBuilder.new,
+      )
       ..add(ApiDeleteResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ApiDeleteResponseApplicationJson_Ocs),

@@ -37,18 +37,11 @@ part 'petstore.openapi.g.dart';
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
-  $Client(
-    super.baseURL, {
-    super.httpClient,
-  });
+  $Client(super.baseURL, {super.httpClient});
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   /// Builds a serializer to parse the response of [$findPets_Request].
   @_i2.experimental
@@ -80,10 +73,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [findPets] for a method executing this request and parsing the response.
   ///  * [$findPets_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $findPets_Request({
-    BuiltList<String>? tags,
-    int? limit,
-  }) {
+  _i3.Request $findPets_Request({BuiltList<String>? tags, int? limit}) {
     final _parameters = <String, Object?>{};
     final __tags = _$jsonSerializers.serialize(tags, specifiedType: const FullType(BuiltList, [FullType(String)]));
     _parameters['tags'] = __tags;
@@ -118,14 +108,8 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [$findPets_Request] for the request send by this method.
   ///  * [$findPets_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<BuiltList<Pet>, void>> findPets({
-    BuiltList<String>? tags,
-    int? limit,
-  }) async {
-    final _request = $findPets_Request(
-      tags: tags,
-      limit: limit,
-    );
+  Future<_i1.DynamiteResponse<BuiltList<Pet>, void>> findPets({BuiltList<String>? tags, int? limit}) async {
+    final _request = $findPets_Request(tags: tags, limit: limit);
     final _streamedResponse = await httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -182,9 +166,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$addPet_Request] for the request send by this method.
   ///  * [$addPet_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Pet, void>> addPet({required NewPet $body}) async {
-    final _request = $addPet_Request(
-      $body: $body,
-    );
+    final _request = $addPet_Request($body: $body);
     final _streamedResponse = await httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -245,9 +227,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$findPetById_Request] for the request send by this method.
   ///  * [$findPetById_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Pet, void>> findPetById({required int id}) async {
-    final _request = $findPetById_Request(
-      id: id,
-    );
+    final _request = $findPetById_Request(id: id);
     final _streamedResponse = await httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -307,9 +287,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$deletePet_Request] for the request send by this method.
   ///  * [$deletePet_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<void, void>> deletePet({required int id}) async {
-    final _request = $deletePet_Request(
-      id: id,
-    );
+    final _request = $deletePet_Request(id: id);
     final _streamedResponse = await httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 

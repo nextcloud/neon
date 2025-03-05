@@ -35,19 +35,11 @@ part 'user_status.openapi.g.dart';
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
-  $Client(
-    super.baseURL, {
-    super.httpClient,
-    super.authentications,
-  });
+  $Client(super.baseURL, {super.httpClient, super.authentications});
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $HeartbeatClient heartbeat = $HeartbeatClient(this);
 
@@ -92,15 +84,12 @@ class $HeartbeatClient {
   ///  * [heartbeat] for a method executing this request and parsing the response.
   ///  * [$heartbeat_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $heartbeat_Request({
-    required HeartbeatHeartbeatRequestApplicationJson $body,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $heartbeat_Request({required HeartbeatHeartbeatRequestApplicationJson $body, bool? oCSAPIRequest}) {
     const _path = '/ocs/v2.php/apps/user_status/api/v1/heartbeat';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -109,14 +98,12 @@ class $HeartbeatClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -149,10 +136,7 @@ class $HeartbeatClient {
     required HeartbeatHeartbeatRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $heartbeat_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $heartbeat_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -197,7 +181,7 @@ class $PredefinedStatusClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -206,14 +190,12 @@ class $PredefinedStatusClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -238,9 +220,7 @@ class $PredefinedStatusClient {
   Future<_i1.DynamiteResponse<PredefinedStatusFindAllResponseApplicationJson, void>> findAll({
     bool? oCSAPIRequest,
   }) async {
-    final _request = $findAll_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $findAll_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -281,28 +261,20 @@ class $StatusesClient {
   ///  * [findAll] for a method executing this request and parsing the response.
   ///  * [$findAll_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $findAll_Request({
-    int? limit,
-    int? offset,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $findAll_Request({int? limit, int? offset, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     _parameters['limit'] = __limit;
 
     final __offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
-    _i5.checkNumber(
-      __offset,
-      'offset',
-      minimum: 0,
-    );
+    _i5.checkNumber(__offset, 'offset', minimum: 0);
     _parameters['offset'] = __offset;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/apps/user_status/api/v1/statuses{?limit*,offset*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -311,14 +283,12 @@ class $StatusesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -347,11 +317,7 @@ class $StatusesClient {
     int? offset,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $findAll_Request(
-      limit: limit,
-      offset: offset,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $findAll_Request(limit: limit, offset: offset, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -385,10 +351,7 @@ class $StatusesClient {
   ///  * [find] for a method executing this request and parsing the response.
   ///  * [$find_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $find_Request({
-    required String userId,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $find_Request({required String userId, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
     _parameters['userId'] = __userId;
@@ -397,7 +360,7 @@ class $StatusesClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -406,14 +369,12 @@ class $StatusesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -441,10 +402,7 @@ class $StatusesClient {
     required String userId,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $find_Request(
-      userId: userId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $find_Request(userId: userId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -490,7 +448,7 @@ class $UserStatusClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -499,14 +457,12 @@ class $UserStatusClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -532,9 +488,7 @@ class $UserStatusClient {
   Future<_i1.DynamiteResponse<UserStatusGetStatusResponseApplicationJson, void>> getStatus({
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getStatus_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getStatus_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -568,15 +522,12 @@ class $UserStatusClient {
   ///  * [setStatus] for a method executing this request and parsing the response.
   ///  * [$setStatus_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $setStatus_Request({
-    required UserStatusSetStatusRequestApplicationJson $body,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $setStatus_Request({required UserStatusSetStatusRequestApplicationJson $body, bool? oCSAPIRequest}) {
     const _path = '/ocs/v2.php/apps/user_status/api/v1/user_status/status';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -585,14 +536,12 @@ class $UserStatusClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -623,10 +572,7 @@ class $UserStatusClient {
     required UserStatusSetStatusRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $setStatus_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $setStatus_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -668,7 +614,7 @@ class $UserStatusClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -677,14 +623,12 @@ class $UserStatusClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -718,16 +662,14 @@ class $UserStatusClient {
     required UserStatusSetPredefinedMessageRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $setPredefinedMessage_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $setPredefinedMessage_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setPredefinedMessage_Serializer();
-    return _i1.ResponseConverter<UserStatusSetPredefinedMessageResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<UserStatusSetPredefinedMessageResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$setCustomMessage_Request].
@@ -765,7 +707,7 @@ class $UserStatusClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -774,14 +716,12 @@ class $UserStatusClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -823,16 +763,14 @@ class $UserStatusClient {
     bool? oCSAPIRequest,
     UserStatusSetCustomMessageRequestApplicationJson? $body,
   }) async {
-    final _request = $setCustomMessage_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $setCustomMessage_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setCustomMessage_Serializer();
-    return _i1.ResponseConverter<UserStatusSetCustomMessageResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<UserStatusSetCustomMessageResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$clearMessage_Request].
@@ -865,7 +803,7 @@ class $UserStatusClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -874,14 +812,12 @@ class $UserStatusClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -906,9 +842,7 @@ class $UserStatusClient {
   Future<_i1.DynamiteResponse<UserStatusClearMessageResponseApplicationJson, void>> clearMessage({
     bool? oCSAPIRequest,
   }) async {
-    final _request = $clearMessage_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $clearMessage_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -942,20 +876,18 @@ class $UserStatusClient {
   ///  * [revertStatus] for a method executing this request and parsing the response.
   ///  * [$revertStatus_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $revertStatus_Request({
-    required String messageId,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $revertStatus_Request({required String messageId, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(String));
     _parameters['messageId'] = __messageId;
 
-    final _path =
-        _i6.UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/revert/{messageId}').expand(_parameters);
+    final _path = _i6.UriTemplate(
+      '/ocs/v2.php/apps/user_status/api/v1/user_status/revert/{messageId}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -964,14 +896,12 @@ class $UserStatusClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -998,10 +928,7 @@ class $UserStatusClient {
     required String messageId,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $revertStatus_Request(
-      messageId: messageId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $revertStatus_Request(messageId: messageId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1197,19 +1124,11 @@ class _$$TypeSerializer implements PrimitiveSerializer<$Type> {
   String get wireName => r'$Type';
 
   @override
-  Object serialize(
-    Serializers serializers,
-    $Type object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
+  Object serialize(Serializers serializers, $Type object, {FullType specifiedType = FullType.unspecified}) =>
       _toWire[object]!;
 
   @override
-  $Type deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
+  $Type deserialize(Serializers serializers, Object serialized, {FullType specifiedType = FullType.unspecified}) =>
       _fromWire[serialized]!;
 }
 
@@ -1507,11 +1426,7 @@ class _$ClearAt_TypeSerializer implements PrimitiveSerializer<ClearAt_Type> {
   String get wireName => 'ClearAt_Type';
 
   @override
-  Object serialize(
-    Serializers serializers,
-    ClearAt_Type object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
+  Object serialize(Serializers serializers, ClearAt_Type object, {FullType specifiedType = FullType.unspecified}) =>
       _toWire[object]!;
 
   @override
@@ -1568,11 +1483,7 @@ class _$ClearAtTimeTypeSerializer implements PrimitiveSerializer<ClearAtTimeType
   String get wireName => 'ClearAtTimeType';
 
   @override
-  Object serialize(
-    Serializers serializers,
-    ClearAtTimeType object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
+  Object serialize(Serializers serializers, ClearAtTimeType object, {FullType specifiedType = FullType.unspecified}) =>
       _toWire[object]!;
 
   @override
@@ -3204,16 +3115,10 @@ extension $557344b3ba734aacc7109e5420fcb6c5Extension on _$557344b3ba734aacc7109e
   List<String> get _names => const ['clearAtTimeType', r'$int'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i5.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i5.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i5.validateAnyOf(
-        _values,
-        _names,
-      );
+  void validateAnyOf() => _i5.validateAnyOf(_values, _names);
   static Serializer<_$557344b3ba734aacc7109e5420fcb6c5> get _serializer =>
       const _$557344b3ba734aacc7109e5420fcb6c5Serializer();
   static _$557344b3ba734aacc7109e5420fcb6c5 _fromJson(Object? json) =>
@@ -3249,7 +3154,7 @@ class _$557344b3ba734aacc7109e5420fcb6c5Serializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(int))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
@@ -3261,17 +3166,12 @@ class _$557344b3ba734aacc7109e5420fcb6c5Serializer implements PrimitiveSerialize
   }) {
     ClearAtTimeType? clearAtTimeType;
     try {
-      clearAtTimeType = serializers.deserialize(
-        data,
-        specifiedType: const FullType(ClearAtTimeType),
-      )! as ClearAtTimeType;
+      clearAtTimeType =
+          serializers.deserialize(data, specifiedType: const FullType(ClearAtTimeType))! as ClearAtTimeType;
     } catch (_) {}
     int? $int;
     try {
-      $int = serializers.deserialize(
-        data,
-        specifiedType: const FullType(int),
-      )! as int;
+      $int = serializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     return (clearAtTimeType: clearAtTimeType, $int: $int);
   }
@@ -3286,16 +3186,10 @@ extension $d77829de8b7590d2e16cdb714800f5beExtension on _$d77829de8b7590d2e16cdb
   List<String> get _names => const ['builtListNever', 'private'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i5.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i5.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i5.validateAnyOf(
-        _values,
-        _names,
-      );
+  void validateAnyOf() => _i5.validateAnyOf(_values, _names);
   static Serializer<_$d77829de8b7590d2e16cdb714800f5be> get _serializer =>
       const _$d77829de8b7590d2e16cdb714800f5beSerializer();
   static _$d77829de8b7590d2e16cdb714800f5be _fromJson(Object? json) =>
@@ -3331,7 +3225,7 @@ class _$d77829de8b7590d2e16cdb714800f5beSerializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(Private))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
@@ -3343,17 +3237,12 @@ class _$d77829de8b7590d2e16cdb714800f5beSerializer implements PrimitiveSerialize
   }) {
     BuiltList<Never>? builtListNever;
     try {
-      builtListNever = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(Never)]),
-      )! as BuiltList<Never>;
+      builtListNever = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Never)]))!
+          as BuiltList<Never>;
     } catch (_) {}
     Private? private;
     try {
-      private = serializers.deserialize(
-        data,
-        specifiedType: const FullType(Private),
-      )! as Private;
+      private = serializers.deserialize(data, specifiedType: const FullType(Private))! as Private;
     } catch (_) {}
     return (builtListNever: builtListNever, private: private);
   }
@@ -3521,10 +3410,7 @@ final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(_i7.DynamiteDoubleSerializer())
       ..addPlugin(
         _i8.StandardJsonPlugin(
-          typesToLeaveAsList: const {
-            _$557344b3ba734aacc7109e5420fcb6c5,
-            _$d77829de8b7590d2e16cdb714800f5be,
-          },
+          typesToLeaveAsList: const {_$557344b3ba734aacc7109e5420fcb6c5, _$d77829de8b7590d2e16cdb714800f5be},
         ),
       )
       ..addPlugin(const _i7.HeaderPlugin())

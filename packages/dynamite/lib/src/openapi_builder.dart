@@ -112,7 +112,10 @@ class OpenAPIBuilder implements Builder {
         }
       }
 
-      final formatter = DartFormatter(pageWidth: buildConfig.pageWidth);
+      final formatter = DartFormatter(
+        pageWidth: buildConfig.pageWidth,
+        languageVersion: DartFormatter.latestLanguageVersion,
+      );
       unawaited(
         buildStep.writeAsString(
           state.outputId,

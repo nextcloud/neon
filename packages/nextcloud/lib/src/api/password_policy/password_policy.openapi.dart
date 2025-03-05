@@ -33,19 +33,11 @@ part 'password_policy.openapi.g.dart';
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
-  $Client(
-    super.baseURL, {
-    super.httpClient,
-    super.authentications,
-  });
+  $Client(super.baseURL, {super.httpClient, super.authentications});
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $ApiClient api = $ApiClient(this);
 }
@@ -86,7 +78,7 @@ class $ApiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -95,14 +87,12 @@ class $ApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -126,9 +116,7 @@ class $ApiClient {
   ///  * [$generate_Request] for the request send by this method.
   ///  * [$generate_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ApiGenerateResponseApplicationJson, void>> generate({bool? oCSAPIRequest}) async {
-    final _request = $generate_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $generate_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -160,15 +148,12 @@ class $ApiClient {
   ///  * [validate] for a method executing this request and parsing the response.
   ///  * [$validate_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $validate_Request({
-    required ApiValidateRequestApplicationJson $body,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $validate_Request({required ApiValidateRequestApplicationJson $body, bool? oCSAPIRequest}) {
     const _path = '/ocs/v2.php/apps/password_policy/api/v1/validate';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -177,21 +162,20 @@ class $ApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = json
-        .encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(ApiValidateRequestApplicationJson)));
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(ApiValidateRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -213,10 +197,7 @@ class $ApiClient {
     required ApiValidateRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $validate_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $validate_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -807,11 +788,7 @@ sealed class $Capabilities_PasswordPolicy_PoliciesInterface {
   static void _defaults($Capabilities_PasswordPolicy_PoliciesInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($Capabilities_PasswordPolicy_PoliciesInterfaceBuilder b) {
-    _i5.checkNumber(
-      b.minLength,
-      'minLength',
-      minimum: 0,
-    );
+    _i5.checkNumber(b.minLength, 'minLength', minimum: 0);
   }
 }
 
@@ -879,11 +856,7 @@ sealed class $Capabilities_PasswordPolicyInterface {
   static void _defaults($Capabilities_PasswordPolicyInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($Capabilities_PasswordPolicyInterfaceBuilder b) {
-    _i5.checkNumber(
-      b.minLength,
-      'minLength',
-      minimum: 0,
-    );
+    _i5.checkNumber(b.minLength, 'minLength', minimum: 0);
   }
 }
 
@@ -1032,7 +1005,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(Capabilities.serializer)
       ..addBuilderFactory(const FullType(Capabilities_PasswordPolicy), Capabilities_PasswordPolicyBuilder.new)
       ..add(Capabilities_PasswordPolicy.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_PasswordPolicy_Api), Capabilities_PasswordPolicy_ApiBuilder.new)
+      ..addBuilderFactory(
+        const FullType(Capabilities_PasswordPolicy_Api),
+        Capabilities_PasswordPolicy_ApiBuilder.new,
+      )
       ..add(Capabilities_PasswordPolicy_Api.serializer)
       ..addBuilderFactory(
         const FullType(Capabilities_PasswordPolicy_Policies),
