@@ -70,7 +70,8 @@ core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities() =>
                   ..referenceRegex = '[a-z]+'
                   ..referenceApi = true
                   ..pollinterval = 0
-                  ..webdavRoot = '',
+                  ..webdavRoot = ''
+                  ..modRewriteWorking = false,
               ),
           ),
           corePublicCapabilities: null,

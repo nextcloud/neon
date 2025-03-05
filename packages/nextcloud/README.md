@@ -52,15 +52,15 @@ For an example checkout the [example](https://github.com/nextcloud/neon/blob/mai
 
 | Component                                                                          | Supported versions (1) |
 |------------------------------------------------------------------------------------|------------------------|
-| [Server](https://github.com/nextcloud/server) (2)                                  | 28 - 31                |
+| [Server](https://github.com/nextcloud/server) (2)                                  | 29 - 31                |
 | [Cookbook app](https://github.com/nextcloud/cookbook)                              | 0.11                   |
-| [User account deletion app](https://framagit.org/framasoft/nextcloud/drop_account) | 2.4 - 2.7              |
+| [User account deletion app](https://framagit.org/framasoft/nextcloud/drop_account) | 2.5 - 2.7              |
 | [News app](https://github.com/nextcloud/news)                                      | 25 - 25.3              |
-| [Notes app](https://github.com/nextcloud/notes)                                    | 4.8 - 4.11             |
-| [Notifications app](https://github.com/nextcloud/notifications)                    | 28 - 31                |
-| [Talk app](https://github.com/nextcloud/spreed)                                    | 18 - 21                |
+| [Notes app](https://github.com/nextcloud/notes)                                    | 4.9 - 4.11             |
+| [Notifications app](https://github.com/nextcloud/notifications)                    | 29 - 31                |
+| [Talk app](https://github.com/nextcloud/spreed)                                    | 19 - 21                |
 | [Tables app](https://github.com/nextcloud/tables)                                  | 0.6 - 0.9              |
-| [NextPush app](https://codeberg.org/NextPush/uppush)                               | 1.4 - 2.2              |
+| [NextPush app](https://codeberg.org/NextPush/uppush)                               | 1.4 - 2.3              |
 
 [Do not edit manually above]: #
 

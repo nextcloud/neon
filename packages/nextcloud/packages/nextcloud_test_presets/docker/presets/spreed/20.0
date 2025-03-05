@@ -11,5 +11,5 @@ SPREED_URL=https://github.com/nextcloud-releases/spreed/releases/download/v20.0.
 SPREED_CHECKSUM=sha256:2d253efa0c3bd79b9be8e199059b4bfcd9cb928cf773ebd1effd838a2dd69cea
 TABLES_URL=https://github.com/nextcloud-releases/tables/releases/download/v0.9.0/tables-v0.9.0.tar.gz
 TABLES_CHECKSUM=sha256:c20eb0abb98da1c73afbbf0a2a5303f5df2cfffaacc300a487bbd1ea34123e13
-UPPUSH_URL=https://codeberg.org/NextPush/uppush/archive/2.2.5.tar.gz
-UPPUSH_CHECKSUM=sha256:08cbf8e8d92ae0d2bf909fbdcec36e9753583567b8272908862914161fa7fdf4
+UPPUSH_URL=https://codeberg.org/NextPush/uppush/archive/2.3.0.tar.gz
+UPPUSH_CHECKSUM=sha256:dd00f782d09f86cf6d5ab6e288f3d5ee5631a7319085cdf5ba7499ba472bbcdd

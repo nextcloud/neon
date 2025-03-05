@@ -12224,7 +12224,7 @@ sealed class $CoreCapabilities_CoreInterface {
   @BuiltValueField(wireName: 'reference-regex')
   String get referenceRegex;
   @BuiltValueField(wireName: 'mod-rewrite-working')
-  bool? get modRewriteWorking;
+  bool get modRewriteWorking;
 
   /// Rebuilds the instance.
   ///
@@ -15634,7 +15634,7 @@ sealed class $SpreedCapabilities_ConfigInterface {
   SpreedCapabilities_Config_Call get call;
   SpreedCapabilities_Config_Chat get chat;
   SpreedCapabilities_Config_Conversations get conversations;
-  SpreedCapabilities_Config_Federation? get federation;
+  SpreedCapabilities_Config_Federation get federation;
   SpreedCapabilities_Config_Previews get previews;
   SpreedCapabilities_Config_Signaling get signaling;
 
