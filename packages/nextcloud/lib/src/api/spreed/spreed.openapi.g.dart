@@ -4722,6 +4722,8 @@ class _$RoomSerializer implements StructuredSerializer<Room> {
       serializers.serialize(object.lobbyState, specifiedType: const FullType(int)),
       'lobbyTimer',
       serializers.serialize(object.lobbyTimer, specifiedType: const FullType(int)),
+      'mentionPermissions',
+      serializers.serialize(object.mentionPermissions, specifiedType: const FullType(int)),
       'messageExpiration',
       serializers.serialize(object.messageExpiration, specifiedType: const FullType(int)),
       'name',
@@ -4758,6 +4760,8 @@ class _$RoomSerializer implements StructuredSerializer<Room> {
       serializers.serialize(object.unreadMentionDirect, specifiedType: const FullType(bool)),
       'unreadMessages',
       serializers.serialize(object.unreadMessages, specifiedType: const FullType(int)),
+      'isArchived',
+      serializers.serialize(object.isArchived, specifiedType: const FullType(bool)),
     ];
     Object? value;
     value = object.invitedActorId;
@@ -4777,12 +4781,6 @@ class _$RoomSerializer implements StructuredSerializer<Room> {
       result
         ..add('lastMessage')
         ..add(serializers.serialize(value, specifiedType: const FullType(RoomLastMessage)));
-    }
-    value = object.mentionPermissions;
-    if (value != null) {
-      result
-        ..add('mentionPermissions')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
     value = object.remoteServer;
     if (value != null) {
@@ -4819,12 +4817,6 @@ class _$RoomSerializer implements StructuredSerializer<Room> {
       result
         ..add('statusMessage')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.isArchived;
-    if (value != null) {
-      result
-        ..add('isArchived')
-        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
     }
     return result;
   }
@@ -4941,7 +4933,7 @@ class _$RoomSerializer implements StructuredSerializer<Room> {
           result.lobbyTimer = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
         case 'mentionPermissions':
-          result.mentionPermissions = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          result.mentionPermissions = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
         case 'messageExpiration':
           result.messageExpiration = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
@@ -5016,7 +5008,7 @@ class _$RoomSerializer implements StructuredSerializer<Room> {
           result.unreadMessages = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
         case 'isArchived':
-          result.isArchived = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          result.isArchived = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -13044,6 +13036,10 @@ class _$SignalingSessionSerializer implements StructuredSerializer<SignalingSess
   Iterable<Object?> serialize(Serializers serializers, SignalingSession object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
+      'actorId',
+      serializers.serialize(object.actorId, specifiedType: const FullType(String)),
+      'actorType',
+      serializers.serialize(object.actorType, specifiedType: const FullType(ActorTypes)),
       'inCall',
       serializers.serialize(object.inCall, specifiedType: const FullType(int)),
       'lastPing',
@@ -13057,19 +13053,7 @@ class _$SignalingSessionSerializer implements StructuredSerializer<SignalingSess
       'userId',
       serializers.serialize(object.userId, specifiedType: const FullType(String)),
     ];
-    Object? value;
-    value = object.actorId;
-    if (value != null) {
-      result
-        ..add('actorId')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.actorType;
-    if (value != null) {
-      result
-        ..add('actorType')
-        ..add(serializers.serialize(value, specifiedType: const FullType(ActorTypes)));
-    }
+
     return result;
   }
 
@@ -13085,10 +13069,10 @@ class _$SignalingSessionSerializer implements StructuredSerializer<SignalingSess
       final Object? value = iterator.current;
       switch (key) {
         case 'actorId':
-          result.actorId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.actorId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'actorType':
-          result.actorType = serializers.deserialize(value, specifiedType: const FullType(ActorTypes)) as ActorTypes?;
+          result.actorType = serializers.deserialize(value, specifiedType: const FullType(ActorTypes))! as ActorTypes;
           break;
         case 'inCall':
           result.inCall = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
@@ -25915,7 +25899,7 @@ class _$Room extends Room {
   @override
   final int lobbyTimer;
   @override
-  final int? mentionPermissions;
+  final int mentionPermissions;
   @override
   final int messageExpiration;
   @override
@@ -25965,7 +25949,7 @@ class _$Room extends Room {
   @override
   final int unreadMessages;
   @override
-  final bool? isArchived;
+  final bool isArchived;
 
   factory _$Room([void Function(RoomBuilder)? updates]) => (new RoomBuilder()..update(updates))._build();
 
@@ -26003,7 +25987,7 @@ class _$Room extends Room {
       required this.listable,
       required this.lobbyState,
       required this.lobbyTimer,
-      this.mentionPermissions,
+      required this.mentionPermissions,
       required this.messageExpiration,
       required this.name,
       required this.notificationCalls,
@@ -26028,7 +26012,7 @@ class _$Room extends Room {
       required this.unreadMention,
       required this.unreadMentionDirect,
       required this.unreadMessages,
-      this.isArchived})
+      required this.isArchived})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(actorId, r'Room', 'actorId');
     BuiltValueNullFieldError.checkNotNull(actorType, r'Room', 'actorType');
@@ -26060,6 +26044,7 @@ class _$Room extends Room {
     BuiltValueNullFieldError.checkNotNull(listable, r'Room', 'listable');
     BuiltValueNullFieldError.checkNotNull(lobbyState, r'Room', 'lobbyState');
     BuiltValueNullFieldError.checkNotNull(lobbyTimer, r'Room', 'lobbyTimer');
+    BuiltValueNullFieldError.checkNotNull(mentionPermissions, r'Room', 'mentionPermissions');
     BuiltValueNullFieldError.checkNotNull(messageExpiration, r'Room', 'messageExpiration');
     BuiltValueNullFieldError.checkNotNull(name, r'Room', 'name');
     BuiltValueNullFieldError.checkNotNull(notificationCalls, r'Room', 'notificationCalls');
@@ -26078,6 +26063,7 @@ class _$Room extends Room {
     BuiltValueNullFieldError.checkNotNull(unreadMention, r'Room', 'unreadMention');
     BuiltValueNullFieldError.checkNotNull(unreadMentionDirect, r'Room', 'unreadMentionDirect');
     BuiltValueNullFieldError.checkNotNull(unreadMessages, r'Room', 'unreadMessages');
+    BuiltValueNullFieldError.checkNotNull(isArchived, r'Room', 'isArchived');
   }
 
   @override
@@ -26651,7 +26637,7 @@ class RoomBuilder implements Builder<Room, RoomBuilder>, $RoomInterfaceBuilder {
           listable: BuiltValueNullFieldError.checkNotNull(listable, r'Room', 'listable'),
           lobbyState: BuiltValueNullFieldError.checkNotNull(lobbyState, r'Room', 'lobbyState'),
           lobbyTimer: BuiltValueNullFieldError.checkNotNull(lobbyTimer, r'Room', 'lobbyTimer'),
-          mentionPermissions: mentionPermissions,
+          mentionPermissions: BuiltValueNullFieldError.checkNotNull(mentionPermissions, r'Room', 'mentionPermissions'),
           messageExpiration: BuiltValueNullFieldError.checkNotNull(messageExpiration, r'Room', 'messageExpiration'),
           name: BuiltValueNullFieldError.checkNotNull(name, r'Room', 'name'),
           notificationCalls: BuiltValueNullFieldError.checkNotNull(notificationCalls, r'Room', 'notificationCalls'),
@@ -26677,7 +26663,7 @@ class RoomBuilder implements Builder<Room, RoomBuilder>, $RoomInterfaceBuilder {
           unreadMentionDirect:
               BuiltValueNullFieldError.checkNotNull(unreadMentionDirect, r'Room', 'unreadMentionDirect'),
           unreadMessages: BuiltValueNullFieldError.checkNotNull(unreadMessages, r'Room', 'unreadMessages'),
-          isArchived: isArchived,
+          isArchived: BuiltValueNullFieldError.checkNotNull(isArchived, r'Room', 'isArchived'),
         );
     replace(_$result);
     return _$result;
@@ -46871,9 +46857,9 @@ abstract mixin class $SignalingSessionInterfaceBuilder {
 
 class _$SignalingSession extends SignalingSession {
   @override
-  final String? actorId;
+  final String actorId;
   @override
-  final ActorTypes? actorType;
+  final ActorTypes actorType;
   @override
   final int inCall;
   @override
@@ -46891,8 +46877,8 @@ class _$SignalingSession extends SignalingSession {
       (new SignalingSessionBuilder()..update(updates))._build();
 
   _$SignalingSession._(
-      {this.actorId,
-      this.actorType,
+      {required this.actorId,
+      required this.actorType,
       required this.inCall,
       required this.lastPing,
       required this.participantPermissions,
@@ -46900,6 +46886,8 @@ class _$SignalingSession extends SignalingSession {
       required this.sessionId,
       required this.userId})
       : super._() {
+    BuiltValueNullFieldError.checkNotNull(actorId, r'SignalingSession', 'actorId');
+    BuiltValueNullFieldError.checkNotNull(actorType, r'SignalingSession', 'actorType');
     BuiltValueNullFieldError.checkNotNull(inCall, r'SignalingSession', 'inCall');
     BuiltValueNullFieldError.checkNotNull(lastPing, r'SignalingSession', 'lastPing');
     BuiltValueNullFieldError.checkNotNull(participantPermissions, r'SignalingSession', 'participantPermissions');
@@ -47033,8 +47021,8 @@ class SignalingSessionBuilder
     SignalingSession._validate(this);
     final _$result = _$v ??
         new _$SignalingSession._(
-          actorId: actorId,
-          actorType: actorType,
+          actorId: BuiltValueNullFieldError.checkNotNull(actorId, r'SignalingSession', 'actorId'),
+          actorType: BuiltValueNullFieldError.checkNotNull(actorType, r'SignalingSession', 'actorType'),
           inCall: BuiltValueNullFieldError.checkNotNull(inCall, r'SignalingSession', 'inCall'),
           lastPing: BuiltValueNullFieldError.checkNotNull(lastPing, r'SignalingSession', 'lastPing'),
           participantPermissions: BuiltValueNullFieldError.checkNotNull(
