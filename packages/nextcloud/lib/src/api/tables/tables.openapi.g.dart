@@ -1330,6 +1330,8 @@ class _$TableSerializer implements StructuredSerializer<Table> {
       serializers.serialize(object.title, specifiedType: const FullType(String)),
       'ownership',
       serializers.serialize(object.ownership, specifiedType: const FullType(String)),
+      'ownerDisplayName',
+      serializers.serialize(object.ownerDisplayName, specifiedType: const FullType(String)),
       'createdBy',
       serializers.serialize(object.createdBy, specifiedType: const FullType(String)),
       'createdAt',
@@ -1338,6 +1340,10 @@ class _$TableSerializer implements StructuredSerializer<Table> {
       serializers.serialize(object.lastEditBy, specifiedType: const FullType(String)),
       'lastEditAt',
       serializers.serialize(object.lastEditAt, specifiedType: const FullType(String)),
+      'archived',
+      serializers.serialize(object.archived, specifiedType: const FullType(bool)),
+      'favorite',
+      serializers.serialize(object.favorite, specifiedType: const FullType(bool)),
       'isShared',
       serializers.serialize(object.isShared, specifiedType: const FullType(bool)),
       'hasShares',
@@ -1355,24 +1361,6 @@ class _$TableSerializer implements StructuredSerializer<Table> {
       result
         ..add('emoji')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.ownerDisplayName;
-    if (value != null) {
-      result
-        ..add('ownerDisplayName')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.archived;
-    if (value != null) {
-      result
-        ..add('archived')
-        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
-    value = object.favorite;
-    if (value != null) {
-      result
-        ..add('favorite')
-        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
     }
     value = object.onSharePermissions;
     if (value != null) {
@@ -1407,7 +1395,7 @@ class _$TableSerializer implements StructuredSerializer<Table> {
           result.ownership = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'ownerDisplayName':
-          result.ownerDisplayName = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.ownerDisplayName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'createdBy':
           result.createdBy = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -1422,10 +1410,10 @@ class _$TableSerializer implements StructuredSerializer<Table> {
           result.lastEditAt = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'archived':
-          result.archived = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          result.archived = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'favorite':
-          result.favorite = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          result.favorite = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'isShared':
           result.isShared = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -8644,7 +8632,7 @@ class _$Table extends Table {
   @override
   final String ownership;
   @override
-  final String? ownerDisplayName;
+  final String ownerDisplayName;
   @override
   final String createdBy;
   @override
@@ -8654,9 +8642,9 @@ class _$Table extends Table {
   @override
   final String lastEditAt;
   @override
-  final bool? archived;
+  final bool archived;
   @override
-  final bool? favorite;
+  final bool favorite;
   @override
   final bool isShared;
   @override
@@ -8677,13 +8665,13 @@ class _$Table extends Table {
       required this.title,
       this.emoji,
       required this.ownership,
-      this.ownerDisplayName,
+      required this.ownerDisplayName,
       required this.createdBy,
       required this.createdAt,
       required this.lastEditBy,
       required this.lastEditAt,
-      this.archived,
-      this.favorite,
+      required this.archived,
+      required this.favorite,
       required this.isShared,
       this.onSharePermissions,
       required this.hasShares,
@@ -8694,10 +8682,13 @@ class _$Table extends Table {
     BuiltValueNullFieldError.checkNotNull(id, r'Table', 'id');
     BuiltValueNullFieldError.checkNotNull(title, r'Table', 'title');
     BuiltValueNullFieldError.checkNotNull(ownership, r'Table', 'ownership');
+    BuiltValueNullFieldError.checkNotNull(ownerDisplayName, r'Table', 'ownerDisplayName');
     BuiltValueNullFieldError.checkNotNull(createdBy, r'Table', 'createdBy');
     BuiltValueNullFieldError.checkNotNull(createdAt, r'Table', 'createdAt');
     BuiltValueNullFieldError.checkNotNull(lastEditBy, r'Table', 'lastEditBy');
     BuiltValueNullFieldError.checkNotNull(lastEditAt, r'Table', 'lastEditAt');
+    BuiltValueNullFieldError.checkNotNull(archived, r'Table', 'archived');
+    BuiltValueNullFieldError.checkNotNull(favorite, r'Table', 'favorite');
     BuiltValueNullFieldError.checkNotNull(isShared, r'Table', 'isShared');
     BuiltValueNullFieldError.checkNotNull(hasShares, r'Table', 'hasShares');
     BuiltValueNullFieldError.checkNotNull(rowsCount, r'Table', 'rowsCount');
@@ -8908,13 +8899,13 @@ class TableBuilder implements Builder<Table, TableBuilder>, $TableInterfaceBuild
             title: BuiltValueNullFieldError.checkNotNull(title, r'Table', 'title'),
             emoji: emoji,
             ownership: BuiltValueNullFieldError.checkNotNull(ownership, r'Table', 'ownership'),
-            ownerDisplayName: ownerDisplayName,
+            ownerDisplayName: BuiltValueNullFieldError.checkNotNull(ownerDisplayName, r'Table', 'ownerDisplayName'),
             createdBy: BuiltValueNullFieldError.checkNotNull(createdBy, r'Table', 'createdBy'),
             createdAt: BuiltValueNullFieldError.checkNotNull(createdAt, r'Table', 'createdAt'),
             lastEditBy: BuiltValueNullFieldError.checkNotNull(lastEditBy, r'Table', 'lastEditBy'),
             lastEditAt: BuiltValueNullFieldError.checkNotNull(lastEditAt, r'Table', 'lastEditAt'),
-            archived: archived,
-            favorite: favorite,
+            archived: BuiltValueNullFieldError.checkNotNull(archived, r'Table', 'archived'),
+            favorite: BuiltValueNullFieldError.checkNotNull(favorite, r'Table', 'favorite'),
             isShared: BuiltValueNullFieldError.checkNotNull(isShared, r'Table', 'isShared'),
             onSharePermissions: _onSharePermissions?.build(),
             hasShares: BuiltValueNullFieldError.checkNotNull(hasShares, r'Table', 'hasShares'),
