@@ -30,8 +30,8 @@ dependencies:
 
 dev_dependencies:
   build_runner: ^2.4.15
-  built_value_generator: ^8.9.4
-  built_value_test: ^8.9.4
+  built_value_generator: ^8.9.5
+  built_value_test: ^8.9.5
   # https://github.com/invertase/melos/issues/755
   flutter:
     sdk: flutter
