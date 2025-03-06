@@ -27,10 +27,7 @@ dependencies:
       url: https://github.com/nextcloud/neon
       path: packages/neon_framework
   nextcloud: ^8.1.0
-  open_filex:
-    git:
-      url: https://github.com/mufassalhussain/open_filex
-      ref: 7ec56421afc37bb2cc3cb751b9775999cd2d9a61
+  open_filex: ^4.7.0
   path: ^1.0.0
   path_provider: ^2.0.0
   queue: ^3.0.0
