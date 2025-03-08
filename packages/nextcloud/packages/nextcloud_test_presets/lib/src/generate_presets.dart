@@ -17,16 +17,7 @@ Future<void> generatePresets() async {
     'uppush',
     'drop_account',
   ];
-  final releaseFallbacks = <String, Map<Version, String>>{
-    'news': {
-      Version(28, 0, 14): 'https://github.com/nextcloud/news/releases/download/25.0.0-alpha9/news.tar.gz',
-    },
-    'cookbook': {
-      // No compatible version available yet
-      Version(31, 0, 0):
-          'https://github.com/christianlupus-nextcloud/cookbook-releases/releases/download/v0.11.2/cookbook-0.11.2.tar.gz',
-    },
-  };
+  final releaseFallbacks = <String, Map<Version, String>>{};
 
   final httpClient = http.Client();
 
