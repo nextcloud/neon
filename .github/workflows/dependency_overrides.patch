@@ -432,7 +432,7 @@ diff --git a/packages/nextcloud/pubspec.yaml b/packages/nextcloud/pubspec.yaml
 +++ b/packages/nextcloud/pubspec.yaml
 @@ -57,6 +57,10 @@ dev_dependencies:
    test_api: ^0.7.3
-   xml_serializable: ^2.5.3
+   xml_serializable: ^2.5.4
  
 +dependency_overrides:
 +  frontend_server_client: ^4.0.0
