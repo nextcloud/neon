@@ -36,19 +36,11 @@ part 'notes.openapi.g.dart';
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
-  $Client(
-    super.baseURL, {
-    super.httpClient,
-    super.authentications,
-  });
+  $Client(super.baseURL, {super.httpClient, super.authentications});
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   /// Builds a serializer to parse the response of [$getNotes_Request].
   @_i2.experimental
@@ -104,13 +96,13 @@ class $Client extends _i1.DynamiteClient {
     final __chunkCursor = _$jsonSerializers.serialize(chunkCursor, specifiedType: const FullType(String));
     _parameters['chunkCursor'] = __chunkCursor;
 
-    final _path =
-        _i4.UriTemplate('/index.php/apps/notes/api/v1/notes{?category*,exclude*,pruneBefore*,chunkSize*,chunkCursor*}')
-            .expand(_parameters);
+    final _path = _i4.UriTemplate(
+      '/index.php/apps/notes/api/v1/notes{?category*,exclude*,pruneBefore*,chunkSize*,chunkCursor*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -119,14 +111,12 @@ class $Client extends _i1.DynamiteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     final __ifNoneMatch = _$jsonSerializers.serialize(ifNoneMatch, specifiedType: const FullType(String));
     if (__ifNoneMatch != null) {
       _request.headers['If-None-Match'] = const _i6.HeaderEncoder().convert(__ifNoneMatch);
@@ -201,13 +191,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [createNote] for a method executing this request and parsing the response.
   ///  * [$createNote_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $createNote_Request({
-    String? category,
-    String? title,
-    String? content,
-    int? modified,
-    int? favorite,
-  }) {
+  _i3.Request $createNote_Request({String? category, String? title, String? content, int? modified, int? favorite}) {
     final _parameters = <String, Object?>{};
     var __category = _$jsonSerializers.serialize(category, specifiedType: const FullType(String));
     __category ??= '';
@@ -229,12 +213,13 @@ class $Client extends _i1.DynamiteClient {
     __favorite ??= 0;
     _parameters['favorite'] = __favorite;
 
-    final _path = _i4.UriTemplate('/index.php/apps/notes/api/v1/notes{?category*,title*,content*,modified*,favorite*}')
-        .expand(_parameters);
+    final _path = _i4.UriTemplate(
+      '/index.php/apps/notes/api/v1/notes{?category*,title*,content*,modified*,favorite*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -243,14 +228,12 @@ class $Client extends _i1.DynamiteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -314,11 +297,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [getNote] for a method executing this request and parsing the response.
   ///  * [$getNote_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getNote_Request({
-    required int id,
-    String? exclude,
-    String? ifNoneMatch,
-  }) {
+  _i3.Request $getNote_Request({required int id, String? exclude, String? ifNoneMatch}) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = __id;
@@ -331,7 +310,7 @@ class $Client extends _i1.DynamiteClient {
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -340,14 +319,12 @@ class $Client extends _i1.DynamiteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     final __ifNoneMatch = _$jsonSerializers.serialize(ifNoneMatch, specifiedType: const FullType(String));
     if (__ifNoneMatch != null) {
       _request.headers['If-None-Match'] = const _i6.HeaderEncoder().convert(__ifNoneMatch);
@@ -369,16 +346,8 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [$getNote_Request] for the request send by this method.
   ///  * [$getNote_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<Note, void>> getNote({
-    required int id,
-    String? exclude,
-    String? ifNoneMatch,
-  }) async {
-    final _request = $getNote_Request(
-      id: id,
-      exclude: exclude,
-      ifNoneMatch: ifNoneMatch,
-    );
+  Future<_i1.DynamiteResponse<Note, void>> getNote({required int id, String? exclude, String? ifNoneMatch}) async {
+    final _request = $getNote_Request(id: id, exclude: exclude, ifNoneMatch: ifNoneMatch);
     final _streamedResponse = await httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -441,13 +410,13 @@ class $Client extends _i1.DynamiteClient {
     final __favorite = _$jsonSerializers.serialize(favorite, specifiedType: const FullType(int));
     _parameters['favorite'] = __favorite;
 
-    final _path =
-        _i4.UriTemplate('/index.php/apps/notes/api/v1/notes/{id}{?content*,modified*,title*,category*,favorite*}')
-            .expand(_parameters);
+    final _path = _i4.UriTemplate(
+      '/index.php/apps/notes/api/v1/notes/{id}{?content*,modified*,title*,category*,favorite*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -456,14 +425,12 @@ class $Client extends _i1.DynamiteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     final __ifMatch = _$jsonSerializers.serialize(ifMatch, specifiedType: const FullType(String));
     if (__ifMatch != null) {
       _request.headers['If-Match'] = const _i6.HeaderEncoder().convert(__ifMatch);
@@ -542,7 +509,7 @@ class $Client extends _i1.DynamiteClient {
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -551,14 +518,12 @@ class $Client extends _i1.DynamiteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -572,9 +537,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$deleteNote_Request] for the request send by this method.
   ///  * [$deleteNote_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<BuiltList<Never>, void>> deleteNote({required int id}) async {
-    final _request = $deleteNote_Request(
-      id: id,
-    );
+    final _request = $deleteNote_Request(id: id);
     final _streamedResponse = await httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -606,7 +569,7 @@ class $Client extends _i1.DynamiteClient {
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -615,14 +578,12 @@ class $Client extends _i1.DynamiteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -668,7 +629,7 @@ class $Client extends _i1.DynamiteClient {
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -677,14 +638,12 @@ class $Client extends _i1.DynamiteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(Settings)));
     return _request;
@@ -700,9 +659,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$updateSettings_Request] for the request send by this method.
   ///  * [$updateSettings_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Settings, void>> updateSettings({required Settings $body}) async {
-    final _request = $updateSettings_Request(
-      $body: $body,
-    );
+    final _request = $updateSettings_Request($body: $body);
     final _streamedResponse = await httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 

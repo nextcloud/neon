@@ -146,16 +146,10 @@ extension $e1c7ecea8e5fdae7b94cd86c0dc4f1baExtension on _$e1c7ecea8e5fdae7b94cd8
   List<String> get _names => const ['base', r'$int', 'jsonObject'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i1.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i1.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i1.validateAnyOf(
-        _values,
-        _names,
-      );
+  void validateAnyOf() => _i1.validateAnyOf(_values, _names);
   static Serializer<_$e1c7ecea8e5fdae7b94cd86c0dc4f1ba> get _serializer =>
       const _$e1c7ecea8e5fdae7b94cd86c0dc4f1baSerializer();
   static _$e1c7ecea8e5fdae7b94cd86c0dc4f1ba _fromJson(Object? json) =>
@@ -195,7 +189,7 @@ class _$e1c7ecea8e5fdae7b94cd86c0dc4f1baSerializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(JsonObject))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
@@ -207,24 +201,15 @@ class _$e1c7ecea8e5fdae7b94cd86c0dc4f1baSerializer implements PrimitiveSerialize
   }) {
     Base? base;
     try {
-      base = serializers.deserialize(
-        data,
-        specifiedType: const FullType(Base),
-      )! as Base;
+      base = serializers.deserialize(data, specifiedType: const FullType(Base))! as Base;
     } catch (_) {}
     int? $int;
     try {
-      $int = serializers.deserialize(
-        data,
-        specifiedType: const FullType(int),
-      )! as int;
+      $int = serializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     JsonObject? jsonObject;
     try {
-      jsonObject = serializers.deserialize(
-        data,
-        specifiedType: const FullType(JsonObject),
-      )! as JsonObject;
+      jsonObject = serializers.deserialize(data, specifiedType: const FullType(JsonObject))! as JsonObject;
     } catch (_) {}
     return (base: base, $int: $int, jsonObject: jsonObject);
   }

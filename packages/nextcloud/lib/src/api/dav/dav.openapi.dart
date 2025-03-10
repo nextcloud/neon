@@ -35,19 +35,11 @@ part 'dav.openapi.g.dart';
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
-  $Client(
-    super.baseURL, {
-    super.httpClient,
-    super.authentications,
-  });
+  $Client(super.baseURL, {super.httpClient, super.authentications});
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $DirectClient direct = $DirectClient(this);
 
@@ -89,15 +81,12 @@ class $DirectClient {
   ///  * [getUrl] for a method executing this request and parsing the response.
   ///  * [$getUrl_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getUrl_Request({
-    required DirectGetUrlRequestApplicationJson $body,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $getUrl_Request({required DirectGetUrlRequestApplicationJson $body, bool? oCSAPIRequest}) {
     const _path = '/ocs/v2.php/apps/dav/api/v1/direct';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -106,21 +95,20 @@ class $DirectClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = json
-        .encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(DirectGetUrlRequestApplicationJson)));
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(DirectGetUrlRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -145,10 +133,7 @@ class $DirectClient {
     required DirectGetUrlRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getUrl_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $getUrl_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -190,10 +175,7 @@ class $OutOfOfficeClient {
   ///  * [getCurrentOutOfOfficeData] for a method executing this request and parsing the response.
   ///  * [$getCurrentOutOfOfficeData_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getCurrentOutOfOfficeData_Request({
-    required String userId,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $getCurrentOutOfOfficeData_Request({required String userId, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
     _parameters['userId'] = __userId;
@@ -202,7 +184,7 @@ class $OutOfOfficeClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -211,14 +193,12 @@ class $OutOfOfficeClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -243,20 +223,15 @@ class $OutOfOfficeClient {
   ///  * [$getCurrentOutOfOfficeData_Request] for the request send by this method.
   ///  * [$getCurrentOutOfOfficeData_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>>
-      getCurrentOutOfOfficeData({
-    required String userId,
-    bool? oCSAPIRequest,
-  }) async {
-    final _request = $getCurrentOutOfOfficeData_Request(
-      userId: userId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+      getCurrentOutOfOfficeData({required String userId, bool? oCSAPIRequest}) async {
+    final _request = $getCurrentOutOfOfficeData_Request(userId: userId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getCurrentOutOfOfficeData_Serializer();
-    return _i1.ResponseConverter<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getOutOfOffice_Request].
@@ -286,10 +261,7 @@ class $OutOfOfficeClient {
   ///  * [getOutOfOffice] for a method executing this request and parsing the response.
   ///  * [$getOutOfOffice_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getOutOfOffice_Request({
-    required String userId,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $getOutOfOffice_Request({required String userId, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
     _parameters['userId'] = __userId;
@@ -298,7 +270,7 @@ class $OutOfOfficeClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -307,14 +279,12 @@ class $OutOfOfficeClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -342,16 +312,14 @@ class $OutOfOfficeClient {
     required String userId,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getOutOfOffice_Request(
-      userId: userId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getOutOfOffice_Request(userId: userId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getOutOfOffice_Serializer();
-    return _i1.ResponseConverter<OutOfOfficeGetOutOfOfficeResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<OutOfOfficeGetOutOfOfficeResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$setOutOfOffice_Request].
@@ -396,7 +364,7 @@ class $OutOfOfficeClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -405,14 +373,12 @@ class $OutOfOfficeClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -450,17 +416,14 @@ class $OutOfOfficeClient {
     required OutOfOfficeSetOutOfOfficeRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $setOutOfOffice_Request(
-      userId: userId,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $setOutOfOffice_Request(userId: userId, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setOutOfOffice_Serializer();
-    return _i1.ResponseConverter<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$clearOutOfOffice_Request].
@@ -490,10 +453,7 @@ class $OutOfOfficeClient {
   ///  * [clearOutOfOffice] for a method executing this request and parsing the response.
   ///  * [$clearOutOfOffice_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $clearOutOfOffice_Request({
-    required String userId,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $clearOutOfOffice_Request({required String userId, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
     _parameters['userId'] = __userId;
@@ -502,7 +462,7 @@ class $OutOfOfficeClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -511,14 +471,12 @@ class $OutOfOfficeClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -546,16 +504,14 @@ class $OutOfOfficeClient {
     required String userId,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $clearOutOfOffice_Request(
-      userId: userId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $clearOutOfOffice_Request(userId: userId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $clearOutOfOffice_Serializer();
-    return _i1.ResponseConverter<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 }
 
@@ -592,10 +548,7 @@ class $UpcomingEventsClient {
   ///  * [getEvents] for a method executing this request and parsing the response.
   ///  * [$getEvents_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getEvents_Request({
-    String? location,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $getEvents_Request({String? location, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __location = _$jsonSerializers.serialize(location, specifiedType: const FullType(String));
     _parameters['location'] = __location;
@@ -604,7 +557,7 @@ class $UpcomingEventsClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -613,14 +566,12 @@ class $UpcomingEventsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -648,10 +599,7 @@ class $UpcomingEventsClient {
     String? location,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getEvents_Request(
-      location: location,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getEvents_Request(location: location, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 

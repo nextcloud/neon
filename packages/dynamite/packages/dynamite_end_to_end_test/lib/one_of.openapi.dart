@@ -414,16 +414,10 @@ extension $6c828020e1dac1d58ded0a29ef8b0c41Extension on _$6c828020e1dac1d58ded0a
   List<String> get _names => const ['objectOneOf0', 'objectOneOf1'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i1.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i1.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i1.validateAnyOf(
-        _values,
-        _names,
-      );
+  void validateAnyOf() => _i1.validateAnyOf(_values, _names);
   static Serializer<_$6c828020e1dac1d58ded0a29ef8b0c41> get _serializer =>
       const _$6c828020e1dac1d58ded0a29ef8b0c41Serializer();
   static _$6c828020e1dac1d58ded0a29ef8b0c41 _fromJson(Object? json) =>
@@ -459,7 +453,7 @@ class _$6c828020e1dac1d58ded0a29ef8b0c41Serializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(ObjectOneOf1))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
@@ -471,17 +465,11 @@ class _$6c828020e1dac1d58ded0a29ef8b0c41Serializer implements PrimitiveSerialize
   }) {
     ObjectOneOf0? objectOneOf0;
     try {
-      objectOneOf0 = serializers.deserialize(
-        data,
-        specifiedType: const FullType(ObjectOneOf0),
-      )! as ObjectOneOf0;
+      objectOneOf0 = serializers.deserialize(data, specifiedType: const FullType(ObjectOneOf0))! as ObjectOneOf0;
     } catch (_) {}
     ObjectOneOf1? objectOneOf1;
     try {
-      objectOneOf1 = serializers.deserialize(
-        data,
-        specifiedType: const FullType(ObjectOneOf1),
-      )! as ObjectOneOf1;
+      objectOneOf1 = serializers.deserialize(data, specifiedType: const FullType(ObjectOneOf1))! as ObjectOneOf1;
     } catch (_) {}
     return (objectOneOf0: objectOneOf0, objectOneOf1: objectOneOf1);
   }
@@ -496,16 +484,10 @@ extension $d1b40dfcebdca2dfa1f3e52ac98462a5Extension on _$d1b40dfcebdca2dfa1f3e5
   List<String> get _names => const ['mixedOneOf1', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i1.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i1.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i1.validateAnyOf(
-        _values,
-        _names,
-      );
+  void validateAnyOf() => _i1.validateAnyOf(_values, _names);
   static Serializer<_$d1b40dfcebdca2dfa1f3e52ac98462a5> get _serializer =>
       const _$d1b40dfcebdca2dfa1f3e52ac98462a5Serializer();
   static _$d1b40dfcebdca2dfa1f3e52ac98462a5 _fromJson(Object? json) =>
@@ -541,7 +523,7 @@ class _$d1b40dfcebdca2dfa1f3e52ac98462a5Serializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(String))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
@@ -553,17 +535,11 @@ class _$d1b40dfcebdca2dfa1f3e52ac98462a5Serializer implements PrimitiveSerialize
   }) {
     MixedOneOf1? mixedOneOf1;
     try {
-      mixedOneOf1 = serializers.deserialize(
-        data,
-        specifiedType: const FullType(MixedOneOf1),
-      )! as MixedOneOf1;
+      mixedOneOf1 = serializers.deserialize(data, specifiedType: const FullType(MixedOneOf1))! as MixedOneOf1;
     } catch (_) {}
     String? string;
     try {
-      string = serializers.deserialize(
-        data,
-        specifiedType: const FullType(String),
-      )! as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     return (mixedOneOf1: mixedOneOf1, string: string);
   }
@@ -578,16 +554,10 @@ extension $b6d67dc2a96424d2f407f8e51557f3deExtension on _$b6d67dc2a96424d2f407f8
   List<String> get _names => const [r'$num', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i1.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i1.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i1.validateAnyOf(
-        _values,
-        _names,
-      );
+  void validateAnyOf() => _i1.validateAnyOf(_values, _names);
   static Serializer<_$b6d67dc2a96424d2f407f8e51557f3de> get _serializer =>
       const _$b6d67dc2a96424d2f407f8e51557f3deSerializer();
   static _$b6d67dc2a96424d2f407f8e51557f3de _fromJson(Object? json) =>
@@ -623,7 +593,7 @@ class _$b6d67dc2a96424d2f407f8e51557f3deSerializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(String))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
@@ -635,17 +605,11 @@ class _$b6d67dc2a96424d2f407f8e51557f3deSerializer implements PrimitiveSerialize
   }) {
     num? $num;
     try {
-      $num = serializers.deserialize(
-        data,
-        specifiedType: const FullType(num),
-      )! as num;
+      $num = serializers.deserialize(data, specifiedType: const FullType(num))! as num;
     } catch (_) {}
     String? string;
     try {
-      string = serializers.deserialize(
-        data,
-        specifiedType: const FullType(String),
-      )! as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     return ($num: $num, string: string);
   }
@@ -663,16 +627,10 @@ extension $00f31f9753d01398a2c3705cd335c56eExtension on _$00f31f9753d01398a2c370
   List<String> get _names => const ['builtListJsonObject', 'oneOfUnspecifiedArray0'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i1.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i1.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i1.validateAnyOf(
-        _values,
-        _names,
-      );
+  void validateAnyOf() => _i1.validateAnyOf(_values, _names);
   static Serializer<_$00f31f9753d01398a2c3705cd335c56e> get _serializer =>
       const _$00f31f9753d01398a2c3705cd335c56eSerializer();
   static _$00f31f9753d01398a2c3705cd335c56e _fromJson(Object? json) =>
@@ -708,7 +666,7 @@ class _$00f31f9753d01398a2c3705cd335c56eSerializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(OneOfUnspecifiedArray0))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
@@ -727,10 +685,8 @@ class _$00f31f9753d01398a2c3705cd335c56eSerializer implements PrimitiveSerialize
     } catch (_) {}
     OneOfUnspecifiedArray0? oneOfUnspecifiedArray0;
     try {
-      oneOfUnspecifiedArray0 = serializers.deserialize(
-        data,
-        specifiedType: const FullType(OneOfUnspecifiedArray0),
-      )! as OneOfUnspecifiedArray0;
+      oneOfUnspecifiedArray0 = serializers.deserialize(data, specifiedType: const FullType(OneOfUnspecifiedArray0))!
+          as OneOfUnspecifiedArray0;
     } catch (_) {}
     return (builtListJsonObject: builtListJsonObject, oneOfUnspecifiedArray0: oneOfUnspecifiedArray0);
   }
@@ -748,16 +704,10 @@ extension $5fb8a7f8bbb305dd61a4a05d6996c58bExtension on _$5fb8a7f8bbb305dd61a4a0
   List<String> get _names => const ['builtListString', 'oneOfStringArray0'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i1.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i1.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i1.validateAnyOf(
-        _values,
-        _names,
-      );
+  void validateAnyOf() => _i1.validateAnyOf(_values, _names);
   static Serializer<_$5fb8a7f8bbb305dd61a4a05d6996c58b> get _serializer =>
       const _$5fb8a7f8bbb305dd61a4a05d6996c58bSerializer();
   static _$5fb8a7f8bbb305dd61a4a05d6996c58b _fromJson(Object? json) =>
@@ -793,7 +743,7 @@ class _$5fb8a7f8bbb305dd61a4a05d6996c58bSerializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(OneOfStringArray0))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
@@ -805,17 +755,13 @@ class _$5fb8a7f8bbb305dd61a4a05d6996c58bSerializer implements PrimitiveSerialize
   }) {
     BuiltList<String>? builtListString;
     try {
-      builtListString = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(String)]),
-      )! as BuiltList<String>;
+      builtListString = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(String)]))!
+          as BuiltList<String>;
     } catch (_) {}
     OneOfStringArray0? oneOfStringArray0;
     try {
-      oneOfStringArray0 = serializers.deserialize(
-        data,
-        specifiedType: const FullType(OneOfStringArray0),
-      )! as OneOfStringArray0;
+      oneOfStringArray0 =
+          serializers.deserialize(data, specifiedType: const FullType(OneOfStringArray0))! as OneOfStringArray0;
     } catch (_) {}
     return (builtListString: builtListString, oneOfStringArray0: oneOfStringArray0);
   }

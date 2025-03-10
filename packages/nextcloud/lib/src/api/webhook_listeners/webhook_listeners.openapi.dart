@@ -35,19 +35,11 @@ part 'webhook_listeners.openapi.g.dart';
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
-  $Client(
-    super.baseURL, {
-    super.httpClient,
-    super.authentications,
-  });
+  $Client(super.baseURL, {super.httpClient, super.authentications});
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $WebhooksClient webhooks = $WebhooksClient(this);
 }
@@ -85,10 +77,7 @@ class $WebhooksClient {
   ///  * [index] for a method executing this request and parsing the response.
   ///  * [$index_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $index_Request({
-    String? uri,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $index_Request({String? uri, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __uri = _$jsonSerializers.serialize(uri, specifiedType: const FullType(String));
     _parameters['uri'] = __uri;
@@ -97,7 +86,7 @@ class $WebhooksClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -106,14 +95,12 @@ class $WebhooksClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -142,10 +129,7 @@ class $WebhooksClient {
     String? uri,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $index_Request(
-      uri: uri,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $index_Request(uri: uri, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -181,15 +165,12 @@ class $WebhooksClient {
   ///  * [create] for a method executing this request and parsing the response.
   ///  * [$create_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $create_Request({
-    required WebhooksCreateRequestApplicationJson $body,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $create_Request({required WebhooksCreateRequestApplicationJson $body, bool? oCSAPIRequest}) {
     const _path = '/ocs/v2.php/apps/webhook_listeners/api/v1/webhooks';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -198,14 +179,12 @@ class $WebhooksClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -239,10 +218,7 @@ class $WebhooksClient {
     required WebhooksCreateRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $create_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $create_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -278,10 +254,7 @@ class $WebhooksClient {
   ///  * [$show] for a method executing this request and parsing the response.
   ///  * [$$show_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $$show_Request({
-    required int id,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $$show_Request({required int id, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = __id;
@@ -290,7 +263,7 @@ class $WebhooksClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -299,14 +272,12 @@ class $WebhooksClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -336,10 +307,7 @@ class $WebhooksClient {
     required int id,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $$show_Request(
-      id: id,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $$show_Request(id: id, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -389,7 +357,7 @@ class $WebhooksClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -398,14 +366,12 @@ class $WebhooksClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -441,11 +407,7 @@ class $WebhooksClient {
     required WebhooksUpdateRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $$update_Request(
-      id: id,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $$update_Request(id: id, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -482,10 +444,7 @@ class $WebhooksClient {
   ///  * [destroy] for a method executing this request and parsing the response.
   ///  * [$destroy_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $destroy_Request({
-    required int id,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $destroy_Request({required int id, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = __id;
@@ -494,7 +453,7 @@ class $WebhooksClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -503,14 +462,12 @@ class $WebhooksClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -541,10 +498,7 @@ class $WebhooksClient {
     required int id,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $destroy_Request(
-      id: id,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $destroy_Request(id: id, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -582,20 +536,18 @@ class $WebhooksClient {
   ///  * [deleteByAppId] for a method executing this request and parsing the response.
   ///  * [$deleteByAppId_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $deleteByAppId_Request({
-    required String appid,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $deleteByAppId_Request({required String appid, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __appid = _$jsonSerializers.serialize(appid, specifiedType: const FullType(String));
     _parameters['appid'] = __appid;
 
-    final _path =
-        _i4.UriTemplate('/ocs/v2.php/apps/webhook_listeners/api/v1/webhooks/byappid/{appid}').expand(_parameters);
+    final _path = _i4.UriTemplate(
+      '/ocs/v2.php/apps/webhook_listeners/api/v1/webhooks/byappid/{appid}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -604,14 +556,12 @@ class $WebhooksClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -642,10 +592,7 @@ class $WebhooksClient {
     required String appid,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $deleteByAppId_Request(
-      appid: appid,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $deleteByAppId_Request(appid: appid, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 

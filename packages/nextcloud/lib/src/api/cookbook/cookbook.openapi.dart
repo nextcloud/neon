@@ -45,19 +45,11 @@ part 'cookbook.openapi.g.dart';
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
-  $Client(
-    super.baseURL, {
-    super.httpClient,
-    super.authentications,
-  });
+  $Client(super.baseURL, {super.httpClient, super.authentications});
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   /// Access to the categories of the recipes.
   late final $CategoriesClient categories = $CategoriesClient(this);
@@ -107,7 +99,7 @@ class $CategoriesClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -116,14 +108,12 @@ class $CategoriesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for app_password');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -185,7 +175,7 @@ class $CategoriesClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -194,14 +184,12 @@ class $CategoriesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for app_password');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -223,9 +211,7 @@ class $CategoriesClient {
   ///  * [$recipesInCategory_Request] for the request send by this method.
   ///  * [$recipesInCategory_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<BuiltList<RecipeStub>, void>> recipesInCategory({required String category}) async {
-    final _request = $recipesInCategory_Request(
-      category: category,
-    );
+    final _request = $recipesInCategory_Request(category: category);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -261,10 +247,7 @@ class $CategoriesClient {
   ///  * [renameCategory] for a method executing this request and parsing the response.
   ///  * [$renameCategory_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $renameCategory_Request({
-    required String category,
-    required RenameCategoryRequestApplicationJson $body,
-  }) {
+  _i3.Request $renameCategory_Request({required String category, required RenameCategoryRequestApplicationJson $body}) {
     final _parameters = <String, Object?>{};
     final __category = _$jsonSerializers.serialize(category, specifiedType: const FullType(String));
     _parameters['category'] = __category;
@@ -273,7 +256,7 @@ class $CategoriesClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -282,14 +265,12 @@ class $CategoriesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for app_password');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
       _$jsonSerializers.serialize($body, specifiedType: const FullType(RenameCategoryRequestApplicationJson)),
@@ -319,10 +300,7 @@ class $CategoriesClient {
     required String category,
     required RenameCategoryRequestApplicationJson $body,
   }) async {
-    final _request = $renameCategory_Request(
-      category: category,
-      $body: $body,
-    );
+    final _request = $renameCategory_Request(category: category, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -364,7 +342,7 @@ class $MiscClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -373,14 +351,12 @@ class $MiscClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for app_password');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -430,7 +406,7 @@ class $MiscClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -439,14 +415,12 @@ class $MiscClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for app_password');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -496,7 +470,7 @@ class $MiscClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -505,14 +479,12 @@ class $MiscClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for app_password');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -562,7 +534,7 @@ class $MiscClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -571,14 +543,12 @@ class $MiscClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for app_password');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(Config)));
     return _request;
@@ -596,9 +566,7 @@ class $MiscClient {
   ///  * [$setConfig_Request] for the request send by this method.
   ///  * [$setConfig_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<String, void>> setConfig({required Config $body}) async {
-    final _request = $setConfig_Request(
-      $body: $body,
-    );
+    final _request = $setConfig_Request($body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -642,7 +610,7 @@ class $RecipesClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -651,14 +619,12 @@ class $RecipesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for app_password');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(Url)));
     return _request;
@@ -678,9 +644,7 @@ class $RecipesClient {
   ///  * [$$import_Request] for the request send by this method.
   ///  * [$$import_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Recipe, void>> $import({required Url $body}) async {
-    final _request = $$import_Request(
-      $body: $body,
-    );
+    final _request = $$import_Request($body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -717,10 +681,7 @@ class $RecipesClient {
   ///  * [getImage] for a method executing this request and parsing the response.
   ///  * [$getImage_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getImage_Request({
-    required String id,
-    GetImageSize? size,
-  }) {
+  _i3.Request $getImage_Request({required String id, GetImageSize? size}) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
     _parameters['id'] = __id;
@@ -732,7 +693,7 @@ class $RecipesClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'image/jpeg,image/svg+xml';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -741,14 +702,12 @@ class $RecipesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for app_password');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -771,14 +730,8 @@ class $RecipesClient {
   /// See:
   ///  * [$getImage_Request] for the request send by this method.
   ///  * [$getImage_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<Uint8List, void>> getImage({
-    required String id,
-    GetImageSize? size,
-  }) async {
-    final _request = $getImage_Request(
-      id: id,
-      size: size,
-    );
+  Future<_i1.DynamiteResponse<Uint8List, void>> getImage({required String id, GetImageSize? size}) async {
+    final _request = $getImage_Request(id: id, size: size);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -817,7 +770,7 @@ class $RecipesClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -826,14 +779,12 @@ class $RecipesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for app_password');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -850,9 +801,7 @@ class $RecipesClient {
   ///  * [$search_Request] for the request send by this method.
   ///  * [$search_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<BuiltList<RecipeStub>, void>> search({required String query}) async {
-    final _request = $search_Request(
-      query: query,
-    );
+    final _request = $search_Request(query: query);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -886,7 +835,7 @@ class $RecipesClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -895,14 +844,12 @@ class $RecipesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for app_password');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -959,7 +906,7 @@ class $RecipesClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -968,14 +915,12 @@ class $RecipesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for app_password');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(Recipe)));
     return _request;
@@ -1000,9 +945,7 @@ class $RecipesClient {
   ///  * [$newRecipe_Request] for the request send by this method.
   ///  * [$newRecipe_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<int, void>> newRecipe({required Recipe $body}) async {
-    final _request = $newRecipe_Request(
-      $body: $body,
-    );
+    final _request = $newRecipe_Request($body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1041,7 +984,7 @@ class $RecipesClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1050,14 +993,12 @@ class $RecipesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for app_password');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -1074,9 +1015,7 @@ class $RecipesClient {
   ///  * [$recipeDetails_Request] for the request send by this method.
   ///  * [$recipeDetails_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Recipe, void>> recipeDetails({required String id}) async {
-    final _request = $recipeDetails_Request(
-      id: id,
-    );
+    final _request = $recipeDetails_Request(id: id);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1106,10 +1045,7 @@ class $RecipesClient {
   ///  * [updateRecipe] for a method executing this request and parsing the response.
   ///  * [$updateRecipe_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $updateRecipe_Request({
-    required String id,
-    required Recipe $body,
-  }) {
+  _i3.Request $updateRecipe_Request({required String id, required Recipe $body}) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
     _parameters['id'] = __id;
@@ -1118,7 +1054,7 @@ class $RecipesClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1127,14 +1063,12 @@ class $RecipesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for app_password');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(Recipe)));
     return _request;
@@ -1152,14 +1086,8 @@ class $RecipesClient {
   /// See:
   ///  * [$updateRecipe_Request] for the request send by this method.
   ///  * [$updateRecipe_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<int, void>> updateRecipe({
-    required String id,
-    required Recipe $body,
-  }) async {
-    final _request = $updateRecipe_Request(
-      id: id,
-      $body: $body,
-    );
+  Future<_i1.DynamiteResponse<int, void>> updateRecipe({required String id, required Recipe $body}) async {
+    final _request = $updateRecipe_Request(id: id, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1198,7 +1126,7 @@ class $RecipesClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1207,14 +1135,12 @@ class $RecipesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for app_password');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -1231,9 +1157,7 @@ class $RecipesClient {
   ///  * [$deleteRecipe_Request] for the request send by this method.
   ///  * [$deleteRecipe_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<String, void>> deleteRecipe({required String id}) async {
-    final _request = $deleteRecipe_Request(
-      id: id,
-    );
+    final _request = $deleteRecipe_Request(id: id);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1275,7 +1199,7 @@ class $TagsClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1284,14 +1208,12 @@ class $TagsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for app_password');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -1349,7 +1271,7 @@ class $TagsClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1358,14 +1280,12 @@ class $TagsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for app_password');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -1385,9 +1305,7 @@ class $TagsClient {
   ///  * [$recipesWithKeyword_Request] for the request send by this method.
   ///  * [$recipesWithKeyword_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<BuiltList<RecipeStub>, void>> recipesWithKeyword({required String keywords}) async {
-    final _request = $recipesWithKeyword_Request(
-      keywords: keywords,
-    );
+    final _request = $recipesWithKeyword_Request(keywords: keywords);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1534,20 +1452,12 @@ abstract class Category implements $CategoryInterface, Built<Category, CategoryB
 /// The very basic information of a recipe.
 @BuiltValue(instantiable: false)
 sealed class $RecipeStubInformationInterface {
-  static final _$keywords = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$keywords = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$imageUrl = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$imageUrl = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$imagePlaceholderUrl = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$imagePlaceholderUrl =
+      _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
   /// The name of the recipe.
   String get name;
@@ -2069,10 +1979,8 @@ abstract class Url implements $UrlInterface, Built<Url, UrlBuilder> {
 
 @BuiltValue(instantiable: false)
 sealed class $NutritionInterface {
-  static final _$type = _$jsonSerializers.deserialize(
-    'NutritionInformation',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$type =
+      _$jsonSerializers.deserialize('NutritionInformation', specifiedType: const FullType(String))! as String;
 
   /// Schema.org object description.
   @BuiltValueField(wireName: '@type')
@@ -2170,35 +2078,17 @@ abstract class Nutrition implements $NutritionInterface, Built<Nutrition, Nutrit
 /// A recipe according to [schema.org](http://schema.org/Recipe).
 @BuiltValue(instantiable: false)
 sealed class $RecipeInterface implements $RecipeStubInformationInterface {
-  static final _$type = _$jsonSerializers.deserialize(
-    'Recipe',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$type = _$jsonSerializers.deserialize('Recipe', specifiedType: const FullType(String))! as String;
 
-  static final _$description = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$description = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$url = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$url = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$image = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$image = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$recipeYield = _$jsonSerializers.deserialize(
-    1,
-    specifiedType: const FullType(int),
-  )! as int;
+  static final _$recipeYield = _$jsonSerializers.deserialize(1, specifiedType: const FullType(int))! as int;
 
-  static final _$recipeCategory = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$recipeCategory = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
   /// Schema.org object type identifier.
   @BuiltValueField(wireName: '@type')
@@ -2349,11 +2239,7 @@ class _$GetImageSizeSerializer implements PrimitiveSerializer<GetImageSize> {
   String get wireName => 'GetImageSize';
 
   @override
-  Object serialize(
-    Serializers serializers,
-    GetImageSize object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
+  Object serialize(Serializers serializers, GetImageSize object, {FullType specifiedType = FullType.unspecified}) =>
       _toWire[object]!;
 
   @override

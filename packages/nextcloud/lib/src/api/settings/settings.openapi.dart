@@ -35,19 +35,11 @@ part 'settings.openapi.g.dart';
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
-  $Client(
-    super.baseURL, {
-    super.httpClient,
-    super.authentications,
-  });
+  $Client(super.baseURL, {super.httpClient, super.authentications});
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $DeclarativeSettingsClient declarativeSettings = $DeclarativeSettingsClient(this);
 
@@ -95,7 +87,7 @@ class $DeclarativeSettingsClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -104,14 +96,12 @@ class $DeclarativeSettingsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -146,16 +136,14 @@ class $DeclarativeSettingsClient {
     required DeclarativeSettingsSetValueRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $setValue_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $setValue_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setValue_Serializer();
-    return _i1.ResponseConverter<DeclarativeSettingsSetValueResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<DeclarativeSettingsSetValueResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getForms_Request].
@@ -189,7 +177,7 @@ class $DeclarativeSettingsClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -198,14 +186,12 @@ class $DeclarativeSettingsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -231,15 +217,14 @@ class $DeclarativeSettingsClient {
   Future<_i1.DynamiteResponse<DeclarativeSettingsGetFormsResponseApplicationJson, void>> getForms({
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getForms_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getForms_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getForms_Serializer();
-    return _i1.ResponseConverter<DeclarativeSettingsGetFormsResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<DeclarativeSettingsGetFormsResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 }
 
@@ -278,7 +263,7 @@ class $LogSettingsClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/octet-stream';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -287,14 +272,12 @@ class $LogSettingsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -1244,16 +1227,10 @@ extension $ecd8d9fe35935410da9dc2662cd86d27Extension on _$ecd8d9fe35935410da9dc2
   List<String> get _names => const ['declarativeFormFieldOptions1', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i5.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i5.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i5.validateAnyOf(
-        _values,
-        _names,
-      );
+  void validateAnyOf() => _i5.validateAnyOf(_values, _names);
   static Serializer<_$ecd8d9fe35935410da9dc2662cd86d27> get _serializer =>
       const _$ecd8d9fe35935410da9dc2662cd86d27Serializer();
   static _$ecd8d9fe35935410da9dc2662cd86d27 _fromJson(Object? json) =>
@@ -1289,7 +1266,7 @@ class _$ecd8d9fe35935410da9dc2662cd86d27Serializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(String))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
@@ -1308,10 +1285,7 @@ class _$ecd8d9fe35935410da9dc2662cd86d27Serializer implements PrimitiveSerialize
     } catch (_) {}
     String? string;
     try {
-      string = serializers.deserialize(
-        data,
-        specifiedType: const FullType(String),
-      )! as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     return (declarativeFormFieldOptions1: declarativeFormFieldOptions1, string: string);
   }
@@ -1331,16 +1305,10 @@ extension $bb4e9af94b69347c125c27e03a648d24Extension on _$bb4e9af94b69347c125c27
   List<String> get _names => const [r'$bool', 'builtListString', r'$num', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i5.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i5.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i5.validateAnyOf(
-        _values,
-        _names,
-      );
+  void validateAnyOf() => _i5.validateAnyOf(_values, _names);
   static Serializer<_$bb4e9af94b69347c125c27e03a648d24> get _serializer =>
       const _$bb4e9af94b69347c125c27e03a648d24Serializer();
   static _$bb4e9af94b69347c125c27e03a648d24 _fromJson(Object? json) =>
@@ -1384,7 +1352,7 @@ class _$bb4e9af94b69347c125c27e03a648d24Serializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(String))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
@@ -1396,31 +1364,20 @@ class _$bb4e9af94b69347c125c27e03a648d24Serializer implements PrimitiveSerialize
   }) {
     bool? $bool;
     try {
-      $bool = serializers.deserialize(
-        data,
-        specifiedType: const FullType(bool),
-      )! as bool;
+      $bool = serializers.deserialize(data, specifiedType: const FullType(bool))! as bool;
     } catch (_) {}
     BuiltList<String>? builtListString;
     try {
-      builtListString = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(String)]),
-      )! as BuiltList<String>;
+      builtListString = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(String)]))!
+          as BuiltList<String>;
     } catch (_) {}
     num? $num;
     try {
-      $num = serializers.deserialize(
-        data,
-        specifiedType: const FullType(num),
-      )! as num;
+      $num = serializers.deserialize(data, specifiedType: const FullType(num))! as num;
     } catch (_) {}
     String? string;
     try {
-      string = serializers.deserialize(
-        data,
-        specifiedType: const FullType(String),
-      )! as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     return ($bool: $bool, builtListString: builtListString, $num: $num, string: string);
   }
@@ -1499,10 +1456,7 @@ final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..add(_i6.DynamiteDoubleSerializer())
       ..addPlugin(
         _i7.StandardJsonPlugin(
-          typesToLeaveAsList: const {
-            _$ecd8d9fe35935410da9dc2662cd86d27,
-            _$bb4e9af94b69347c125c27e03a648d24,
-          },
+          typesToLeaveAsList: const {_$ecd8d9fe35935410da9dc2662cd86d27, _$bb4e9af94b69347c125c27e03a648d24},
         ),
       )
       ..addPlugin(const _i6.HeaderPlugin())

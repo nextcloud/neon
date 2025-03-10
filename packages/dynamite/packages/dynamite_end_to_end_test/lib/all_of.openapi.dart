@@ -281,10 +281,7 @@ abstract class OneValueAllOf implements $OneValueAllOfInterface, Built<OneValueA
 
 @BuiltValue(instantiable: false)
 sealed class $SuperObjectInterface {
-  static final _$value = _$jsonSerializers.deserialize(
-    '123',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$value = _$jsonSerializers.deserialize('123', specifiedType: const FullType(String))! as String;
 
   String get value;
 
@@ -303,13 +300,7 @@ sealed class $SuperObjectInterface {
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($SuperObjectInterfaceBuilder b) {
-    _i1.checkString(
-      b.value,
-      'value',
-      pattern: RegExp(r'^[0-9]*$'),
-      minLength: 3,
-      maxLength: 20,
-    );
+    _i1.checkString(b.value, 'value', pattern: RegExp(r'^[0-9]*$'), minLength: 3, maxLength: 20);
   }
 }
 

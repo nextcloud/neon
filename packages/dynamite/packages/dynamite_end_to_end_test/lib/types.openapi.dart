@@ -64,11 +64,7 @@ sealed class $BaseInterface {
   static void _defaults($BaseInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($BaseInterfaceBuilder b) {
-    _i1.checkIterable(
-      b.listNever,
-      'listNever',
-      maxItems: 0,
-    );
+    _i1.checkIterable(b.listNever, 'listNever', maxItems: 0);
   }
 }
 
@@ -104,53 +100,41 @@ abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
 
 @BuiltValue(instantiable: false)
 sealed class $DefaultsInterface {
-  static final _$$bool = _$jsonSerializers.deserialize(
-    true,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  static final _$$bool = _$jsonSerializers.deserialize(true, specifiedType: const FullType(bool))! as bool;
 
-  static final _$integer = _$jsonSerializers.deserialize(
-    1,
-    specifiedType: const FullType(int),
-  )! as int;
+  static final _$integer = _$jsonSerializers.deserialize(1, specifiedType: const FullType(int))! as int;
 
-  static final _$$double = _$jsonSerializers.deserialize(
-    1.0,
-    specifiedType: const FullType(double),
-  )! as double;
+  static final _$$double = _$jsonSerializers.deserialize(1.0, specifiedType: const FullType(double))! as double;
 
-  static final _$$num = _$jsonSerializers.deserialize(
-    0,
-    specifiedType: const FullType(num),
-  )! as num;
+  static final _$$num = _$jsonSerializers.deserialize(0, specifiedType: const FullType(num))! as num;
 
-  static final _$string = _$jsonSerializers.deserialize(
-    'default',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$string = _$jsonSerializers.deserialize('default', specifiedType: const FullType(String))! as String;
 
   static final _$contentString = _$jsonSerializers.deserialize(
     '1',
     specifiedType: const FullType(ContentString, [FullType(int)]),
   )! as ContentString<int>;
 
-  static final _$stringBinary = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(Uint8List),
-  )! as Uint8List;
+  static final _$stringBinary =
+      _$jsonSerializers.deserialize('', specifiedType: const FullType(Uint8List))! as Uint8List;
 
   static final _$list = _$jsonSerializers.deserialize(
-    const ['default-item', true, 1.0],
+    const [
+      'default-item',
+      true,
+      1.0,
+    ],
     specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
   )! as BuiltList<JsonObject>;
 
-  static final _$listNever = _$jsonSerializers.deserialize(
-    const [],
-    specifiedType: const FullType(BuiltList, [FullType(Never)]),
-  )! as BuiltList<Never>;
+  static final _$listNever = _$jsonSerializers
+      .deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(Never)]))! as BuiltList<Never>;
 
   static final _$listString = _$jsonSerializers.deserialize(
-    const ['default-item', 'item'],
+    const [
+      'default-item',
+      'item',
+    ],
     specifiedType: const FullType(BuiltList, [FullType(String)]),
   )! as BuiltList<String>;
 
@@ -164,15 +148,11 @@ sealed class $DefaultsInterface {
     specifiedType: const FullType(JsonObject),
   )! as JsonObject;
 
-  static final _$objectArray = _$jsonSerializers.deserialize(
-    const ['default-item', true, 1.0],
-    specifiedType: const FullType(JsonObject),
-  )! as JsonObject;
+  static final _$objectArray = _$jsonSerializers
+      .deserialize(const ['default-item', true, 1.0], specifiedType: const FullType(JsonObject))! as JsonObject;
 
-  static final _$objectBool = _$jsonSerializers.deserialize(
-    true,
-    specifiedType: const FullType(JsonObject),
-  )! as JsonObject;
+  static final _$objectBool =
+      _$jsonSerializers.deserialize(true, specifiedType: const FullType(JsonObject))! as JsonObject;
 
   @BuiltValueField(wireName: 'bool')
   bool get $bool;
@@ -225,11 +205,7 @@ sealed class $DefaultsInterface {
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($DefaultsInterfaceBuilder b) {
-    _i1.checkIterable(
-      b.listNever,
-      'listNever',
-      maxItems: 0,
-    );
+    _i1.checkIterable(b.listNever, 'listNever', maxItems: 0);
   }
 }
 
@@ -372,7 +348,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
         const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
         MapBuilder<String, JsonObject?>.new,
       )
-      ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(bool)]), MapBuilder<String, bool>.new)
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(bool)]),
+        MapBuilder<String, bool>.new,
+      )
       ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)
       ..addBuilderFactory(
         const FullType(BuiltMap, [FullType(String), FullType(double)]),

@@ -8,4 +8,6 @@ cd "$(dirname "$0")/.."
   fvm dart run build_runner build --delete-conflicting-outputs
   fvm dart fix --apply lib/
   melos run format
+  fvm dart fix --apply lib/
+  melos run format
 )

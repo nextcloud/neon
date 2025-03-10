@@ -35,19 +35,11 @@ part 'user_ldap.openapi.g.dart';
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
-  $Client(
-    super.baseURL, {
-    super.httpClient,
-    super.authentications,
-  });
+  $Client(super.baseURL, {super.httpClient, super.authentications});
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $ConfigapiClient configapi = $ConfigapiClient(this);
 }
@@ -89,7 +81,7 @@ class $ConfigapiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -98,14 +90,12 @@ class $ConfigapiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -130,9 +120,7 @@ class $ConfigapiClient {
   ///  * [$create_Request] for the request send by this method.
   ///  * [$create_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ConfigapiCreateResponseApplicationJson, void>> create({bool? oCSAPIRequest}) async {
-    final _request = $create_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $create_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -170,26 +158,25 @@ class $ConfigapiClient {
   ///  * [$show] for a method executing this request and parsing the response.
   ///  * [$$show_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $$show_Request({
-    required String configID,
-    ConfigapiShowShowPassword? showPassword,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $$show_Request({required String configID, ConfigapiShowShowPassword? showPassword, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __configID = _$jsonSerializers.serialize(configID, specifiedType: const FullType(String));
     _parameters['configID'] = __configID;
 
-    var __showPassword =
-        _$jsonSerializers.serialize(showPassword, specifiedType: const FullType(ConfigapiShowShowPassword));
+    var __showPassword = _$jsonSerializers.serialize(
+      showPassword,
+      specifiedType: const FullType(ConfigapiShowShowPassword),
+    );
     __showPassword ??= 0;
     _parameters['showPassword'] = __showPassword;
 
-    final _path =
-        _i6.UriTemplate('/ocs/v2.php/apps/user_ldap/api/v1/config/{configID}{?showPassword*}').expand(_parameters);
+    final _path = _i6.UriTemplate(
+      '/ocs/v2.php/apps/user_ldap/api/v1/config/{configID}{?showPassword*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -198,14 +185,12 @@ class $ConfigapiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -238,11 +223,7 @@ class $ConfigapiClient {
     ConfigapiShowShowPassword? showPassword,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $$show_Request(
-      configID: configID,
-      showPassword: showPassword,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $$show_Request(configID: configID, showPassword: showPassword, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -292,7 +273,7 @@ class $ConfigapiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -301,14 +282,12 @@ class $ConfigapiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -344,11 +323,7 @@ class $ConfigapiClient {
     required ConfigapiModifyRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $modify_Request(
-      configID: configID,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $modify_Request(configID: configID, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -384,10 +359,7 @@ class $ConfigapiClient {
   ///  * [delete] for a method executing this request and parsing the response.
   ///  * [$delete_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $delete_Request({
-    required String configID,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $delete_Request({required String configID, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __configID = _$jsonSerializers.serialize(configID, specifiedType: const FullType(String));
     _parameters['configID'] = __configID;
@@ -396,7 +368,7 @@ class $ConfigapiClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -405,14 +377,12 @@ class $ConfigapiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
@@ -442,10 +412,7 @@ class $ConfigapiClient {
     required String configID,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $delete_Request(
-      configID: configID,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $delete_Request(configID: configID, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 

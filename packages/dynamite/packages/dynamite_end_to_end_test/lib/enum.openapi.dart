@@ -68,19 +68,11 @@ class _$EnumStringSerializer implements PrimitiveSerializer<EnumString> {
   String get wireName => 'EnumString';
 
   @override
-  Object serialize(
-    Serializers serializers,
-    EnumString object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
+  Object serialize(Serializers serializers, EnumString object, {FullType specifiedType = FullType.unspecified}) =>
       _toWire[object]!;
 
   @override
-  EnumString deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
+  EnumString deserialize(Serializers serializers, Object serialized, {FullType specifiedType = FullType.unspecified}) =>
       _fromWire[serialized]!;
 }
 
@@ -116,17 +108,9 @@ class EnumInt extends EnumClass {
 class _$EnumIntSerializer implements PrimitiveSerializer<EnumInt> {
   const _$EnumIntSerializer();
 
-  static const Map<EnumInt, Object> _toWire = <EnumInt, Object>{
-    EnumInt.$0: 0,
-    EnumInt.$1: 1,
-    EnumInt.$2: 2,
-  };
+  static const Map<EnumInt, Object> _toWire = <EnumInt, Object>{EnumInt.$0: 0, EnumInt.$1: 1, EnumInt.$2: 2};
 
-  static const Map<Object, EnumInt> _fromWire = <Object, EnumInt>{
-    0: EnumInt.$0,
-    1: EnumInt.$1,
-    2: EnumInt.$2,
-  };
+  static const Map<Object, EnumInt> _fromWire = <Object, EnumInt>{0: EnumInt.$0, 1: EnumInt.$1, 2: EnumInt.$2};
 
   @override
   Iterable<Type> get types => const [EnumInt];
@@ -135,19 +119,11 @@ class _$EnumIntSerializer implements PrimitiveSerializer<EnumInt> {
   String get wireName => 'EnumInt';
 
   @override
-  Object serialize(
-    Serializers serializers,
-    EnumInt object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
+  Object serialize(Serializers serializers, EnumInt object, {FullType specifiedType = FullType.unspecified}) =>
       _toWire[object]!;
 
   @override
-  EnumInt deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
+  EnumInt deserialize(Serializers serializers, Object serialized, {FullType specifiedType = FullType.unspecified}) =>
       _fromWire[serialized]!;
 }
 
@@ -201,11 +177,7 @@ class _$EnumDynamicSerializer implements PrimitiveSerializer<EnumDynamic> {
   String get wireName => 'EnumDynamic';
 
   @override
-  Object serialize(
-    Serializers serializers,
-    EnumDynamic object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
+  Object serialize(Serializers serializers, EnumDynamic object, {FullType specifiedType = FullType.unspecified}) =>
       _toWire[object]!;
 
   @override

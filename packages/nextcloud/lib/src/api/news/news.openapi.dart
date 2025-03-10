@@ -35,19 +35,11 @@ part 'news.openapi.g.dart';
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
-  $Client(
-    super.baseURL, {
-    super.httpClient,
-    super.authentications,
-  });
+  $Client(super.baseURL, {super.httpClient, super.authentications});
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $FeedsClient feeds = $FeedsClient(this);
 
@@ -79,7 +71,7 @@ class $Client extends _i1.DynamiteClient {
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -88,14 +80,12 @@ class $Client extends _i1.DynamiteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -148,7 +138,7 @@ class $FeedsClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -157,14 +147,12 @@ class $FeedsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -209,10 +197,7 @@ class $FeedsClient {
   ///  * [addFeed] for a method executing this request and parsing the response.
   ///  * [$addFeed_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $addFeed_Request({
-    required String url,
-    int? folderId,
-  }) {
+  _i3.Request $addFeed_Request({required String url, int? folderId}) {
     final _parameters = <String, Object?>{};
     final __url = _$jsonSerializers.serialize(url, specifiedType: const FullType(String));
     _parameters['url'] = __url;
@@ -224,7 +209,7 @@ class $FeedsClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -233,14 +218,12 @@ class $FeedsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -257,14 +240,8 @@ class $FeedsClient {
   /// See:
   ///  * [$addFeed_Request] for the request send by this method.
   ///  * [$addFeed_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<ListFeeds, void>> addFeed({
-    required String url,
-    int? folderId,
-  }) async {
-    final _request = $addFeed_Request(
-      url: url,
-      folderId: folderId,
-    );
+  Future<_i1.DynamiteResponse<ListFeeds, void>> addFeed({required String url, int? folderId}) async {
+    final _request = $addFeed_Request(url: url, folderId: folderId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -299,7 +276,7 @@ class $FeedsClient {
     final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -308,14 +285,12 @@ class $FeedsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -329,9 +304,7 @@ class $FeedsClient {
   ///  * [$deleteFeed_Request] for the request send by this method.
   ///  * [$deleteFeed_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<void, void>> deleteFeed({required int feedId}) async {
-    final _request = $deleteFeed_Request(
-      feedId: feedId,
-    );
+    final _request = $deleteFeed_Request(feedId: feedId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -361,10 +334,7 @@ class $FeedsClient {
   ///  * [moveFeed] for a method executing this request and parsing the response.
   ///  * [$moveFeed_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $moveFeed_Request({
-    required int feedId,
-    int? folderId,
-  }) {
+  _i3.Request $moveFeed_Request({required int feedId, int? folderId}) {
     final _parameters = <String, Object?>{};
     final __feedId = _$jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
     _parameters['feedId'] = __feedId;
@@ -375,7 +345,7 @@ class $FeedsClient {
     final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/move{?folderId*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -384,14 +354,12 @@ class $FeedsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -407,14 +375,8 @@ class $FeedsClient {
   /// See:
   ///  * [$moveFeed_Request] for the request send by this method.
   ///  * [$moveFeed_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<void, void>> moveFeed({
-    required int feedId,
-    int? folderId,
-  }) async {
-    final _request = $moveFeed_Request(
-      feedId: feedId,
-      folderId: folderId,
-    );
+  Future<_i1.DynamiteResponse<void, void>> moveFeed({required int feedId, int? folderId}) async {
+    final _request = $moveFeed_Request(feedId: feedId, folderId: folderId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -444,10 +406,7 @@ class $FeedsClient {
   ///  * [renameFeed] for a method executing this request and parsing the response.
   ///  * [$renameFeed_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $renameFeed_Request({
-    required int feedId,
-    required String feedTitle,
-  }) {
+  _i3.Request $renameFeed_Request({required int feedId, required String feedTitle}) {
     final _parameters = <String, Object?>{};
     final __feedId = _$jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
     _parameters['feedId'] = __feedId;
@@ -455,11 +414,12 @@ class $FeedsClient {
     final __feedTitle = _$jsonSerializers.serialize(feedTitle, specifiedType: const FullType(String));
     _parameters['feedTitle'] = __feedTitle;
 
-    final _path =
-        _i5.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/rename{?feedTitle*}').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/index.php/apps/news/api/v1-3/feeds/{feedId}/rename{?feedTitle*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -468,14 +428,12 @@ class $FeedsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -491,14 +449,8 @@ class $FeedsClient {
   /// See:
   ///  * [$renameFeed_Request] for the request send by this method.
   ///  * [$renameFeed_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<void, void>> renameFeed({
-    required int feedId,
-    required String feedTitle,
-  }) async {
-    final _request = $renameFeed_Request(
-      feedId: feedId,
-      feedTitle: feedTitle,
-    );
+  Future<_i1.DynamiteResponse<void, void>> renameFeed({required int feedId, required String feedTitle}) async {
+    final _request = $renameFeed_Request(feedId: feedId, feedTitle: feedTitle);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -528,10 +480,7 @@ class $FeedsClient {
   ///  * [markFeedAsRead] for a method executing this request and parsing the response.
   ///  * [$markFeedAsRead_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $markFeedAsRead_Request({
-    required int feedId,
-    required int newestItemId,
-  }) {
+  _i3.Request $markFeedAsRead_Request({required int feedId, required int newestItemId}) {
     final _parameters = <String, Object?>{};
     final __feedId = _$jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
     _parameters['feedId'] = __feedId;
@@ -539,11 +488,12 @@ class $FeedsClient {
     final __newestItemId = _$jsonSerializers.serialize(newestItemId, specifiedType: const FullType(int));
     _parameters['newestItemId'] = __newestItemId;
 
-    final _path =
-        _i5.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/read{?newestItemId*}').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/index.php/apps/news/api/v1-3/feeds/{feedId}/read{?newestItemId*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -552,14 +502,12 @@ class $FeedsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -575,14 +523,8 @@ class $FeedsClient {
   /// See:
   ///  * [$markFeedAsRead_Request] for the request send by this method.
   ///  * [$markFeedAsRead_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<void, void>> markFeedAsRead({
-    required int feedId,
-    required int newestItemId,
-  }) async {
-    final _request = $markFeedAsRead_Request(
-      feedId: feedId,
-      newestItemId: newestItemId,
-    );
+  Future<_i1.DynamiteResponse<void, void>> markFeedAsRead({required int feedId, required int newestItemId}) async {
+    final _request = $markFeedAsRead_Request(feedId: feedId, newestItemId: newestItemId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -621,7 +563,7 @@ class $FoldersClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -630,14 +572,12 @@ class $FoldersClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -690,7 +630,7 @@ class $FoldersClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -699,14 +639,12 @@ class $FoldersClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -723,9 +661,7 @@ class $FoldersClient {
   ///  * [$createFolder_Request] for the request send by this method.
   ///  * [$createFolder_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ListFolders, void>> createFolder({required String name}) async {
-    final _request = $createFolder_Request(
-      name: name,
-    );
+    final _request = $createFolder_Request(name: name);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -755,10 +691,7 @@ class $FoldersClient {
   ///  * [renameFolder] for a method executing this request and parsing the response.
   ///  * [$renameFolder_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $renameFolder_Request({
-    required int folderId,
-    required String name,
-  }) {
+  _i3.Request $renameFolder_Request({required int folderId, required String name}) {
     final _parameters = <String, Object?>{};
     final __folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
     _parameters['folderId'] = __folderId;
@@ -769,7 +702,7 @@ class $FoldersClient {
     final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}{?name*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -778,14 +711,12 @@ class $FoldersClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -801,14 +732,8 @@ class $FoldersClient {
   /// See:
   ///  * [$renameFolder_Request] for the request send by this method.
   ///  * [$renameFolder_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<void, void>> renameFolder({
-    required int folderId,
-    required String name,
-  }) async {
-    final _request = $renameFolder_Request(
-      folderId: folderId,
-      name: name,
-    );
+  Future<_i1.DynamiteResponse<void, void>> renameFolder({required int folderId, required String name}) async {
+    final _request = $renameFolder_Request(folderId: folderId, name: name);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -843,7 +768,7 @@ class $FoldersClient {
     final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -852,14 +777,12 @@ class $FoldersClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -873,9 +796,7 @@ class $FoldersClient {
   ///  * [$deleteFolder_Request] for the request send by this method.
   ///  * [$deleteFolder_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<void, void>> deleteFolder({required int folderId}) async {
-    final _request = $deleteFolder_Request(
-      folderId: folderId,
-    );
+    final _request = $deleteFolder_Request(folderId: folderId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -905,10 +826,7 @@ class $FoldersClient {
   ///  * [markFolderAsRead] for a method executing this request and parsing the response.
   ///  * [$markFolderAsRead_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $markFolderAsRead_Request({
-    required int folderId,
-    required int newestItemId,
-  }) {
+  _i3.Request $markFolderAsRead_Request({required int folderId, required int newestItemId}) {
     final _parameters = <String, Object?>{};
     final __folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
     _parameters['folderId'] = __folderId;
@@ -916,11 +834,12 @@ class $FoldersClient {
     final __newestItemId = _$jsonSerializers.serialize(newestItemId, specifiedType: const FullType(int));
     _parameters['newestItemId'] = __newestItemId;
 
-    final _path =
-        _i5.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}/read{?newestItemId*}').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/index.php/apps/news/api/v1-3/folders/{folderId}/read{?newestItemId*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -929,14 +848,12 @@ class $FoldersClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -952,14 +869,8 @@ class $FoldersClient {
   /// See:
   ///  * [$markFolderAsRead_Request] for the request send by this method.
   ///  * [$markFolderAsRead_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<void, void>> markFolderAsRead({
-    required int folderId,
-    required int newestItemId,
-  }) async {
-    final _request = $markFolderAsRead_Request(
-      folderId: folderId,
-      newestItemId: newestItemId,
-    );
+  Future<_i1.DynamiteResponse<void, void>> markFolderAsRead({required int folderId, required int newestItemId}) async {
+    final _request = $markFolderAsRead_Request(folderId: folderId, newestItemId: newestItemId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1001,14 +912,7 @@ class $ItemsClient {
   ///  * [listArticles] for a method executing this request and parsing the response.
   ///  * [$listArticles_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $listArticles_Request({
-    int? type,
-    int? id,
-    int? getRead,
-    int? batchSize,
-    int? offset,
-    int? oldestFirst,
-  }) {
+  _i3.Request $listArticles_Request({int? type, int? id, int? getRead, int? batchSize, int? offset, int? oldestFirst}) {
     final _parameters = <String, Object?>{};
     var __type = _$jsonSerializers.serialize(type, specifiedType: const FullType(int));
     __type ??= 3;
@@ -1034,13 +938,13 @@ class $ItemsClient {
     __oldestFirst ??= 0;
     _parameters['oldestFirst'] = __oldestFirst;
 
-    final _path =
-        _i5.UriTemplate('/index.php/apps/news/api/v1-3/items{?type*,id*,getRead*,batchSize*,offset*,oldestFirst*}')
-            .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/index.php/apps/news/api/v1-3/items{?type*,id*,getRead*,batchSize*,offset*,oldestFirst*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1049,14 +953,12 @@ class $ItemsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -1124,11 +1026,7 @@ class $ItemsClient {
   ///  * [listUpdatedArticles] for a method executing this request and parsing the response.
   ///  * [$listUpdatedArticles_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $listUpdatedArticles_Request({
-    int? type,
-    int? id,
-    int? lastModified,
-  }) {
+  _i3.Request $listUpdatedArticles_Request({int? type, int? id, int? lastModified}) {
     final _parameters = <String, Object?>{};
     var __type = _$jsonSerializers.serialize(type, specifiedType: const FullType(int));
     __type ??= 3;
@@ -1142,12 +1040,13 @@ class $ItemsClient {
     __lastModified ??= 0;
     _parameters['lastModified'] = __lastModified;
 
-    final _path =
-        _i5.UriTemplate('/index.php/apps/news/api/v1-3/items/updated{?type*,id*,lastModified*}').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/index.php/apps/news/api/v1-3/items/updated{?type*,id*,lastModified*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1156,14 +1055,12 @@ class $ItemsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -1181,16 +1078,8 @@ class $ItemsClient {
   /// See:
   ///  * [$listUpdatedArticles_Request] for the request send by this method.
   ///  * [$listUpdatedArticles_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<ListArticles, void>> listUpdatedArticles({
-    int? type,
-    int? id,
-    int? lastModified,
-  }) async {
-    final _request = $listUpdatedArticles_Request(
-      type: type,
-      id: id,
-      lastModified: lastModified,
-    );
+  Future<_i1.DynamiteResponse<ListArticles, void>> listUpdatedArticles({int? type, int? id, int? lastModified}) async {
+    final _request = $listUpdatedArticles_Request(type: type, id: id, lastModified: lastModified);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1225,7 +1114,7 @@ class $ItemsClient {
     final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/read').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1234,14 +1123,12 @@ class $ItemsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -1255,9 +1142,7 @@ class $ItemsClient {
   ///  * [$markArticleAsRead_Request] for the request send by this method.
   ///  * [$markArticleAsRead_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<void, void>> markArticleAsRead({required int itemId}) async {
-    final _request = $markArticleAsRead_Request(
-      itemId: itemId,
-    );
+    final _request = $markArticleAsRead_Request(itemId: itemId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1292,7 +1177,7 @@ class $ItemsClient {
     final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unread').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1301,14 +1186,12 @@ class $ItemsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -1322,9 +1205,7 @@ class $ItemsClient {
   ///  * [$markArticleAsUnread_Request] for the request send by this method.
   ///  * [$markArticleAsUnread_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<void, void>> markArticleAsUnread({required int itemId}) async {
-    final _request = $markArticleAsUnread_Request(
-      itemId: itemId,
-    );
+    final _request = $markArticleAsUnread_Request(itemId: itemId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1355,7 +1236,7 @@ class $ItemsClient {
     const _path = '/index.php/apps/news/api/v1-3/items/read/multiple';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1364,14 +1245,12 @@ class $ItemsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
       _$jsonSerializers.serialize($body, specifiedType: const FullType(ReadMultipleArticlesRequestApplicationJson)),
@@ -1391,9 +1270,7 @@ class $ItemsClient {
   Future<_i1.DynamiteResponse<void, void>> readMultipleArticles({
     required ReadMultipleArticlesRequestApplicationJson $body,
   }) async {
-    final _request = $readMultipleArticles_Request(
-      $body: $body,
-    );
+    final _request = $readMultipleArticles_Request($body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1424,7 +1301,7 @@ class $ItemsClient {
     const _path = '/index.php/apps/news/api/v1-3/items/unread/multiple';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1433,20 +1310,15 @@ class $ItemsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
-      _$jsonSerializers.serialize(
-        $body,
-        specifiedType: const FullType(UnreadMultipleArticlesRequestApplicationJson),
-      ),
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(UnreadMultipleArticlesRequestApplicationJson)),
     );
     return _request;
   }
@@ -1463,9 +1335,7 @@ class $ItemsClient {
   Future<_i1.DynamiteResponse<void, void>> unreadMultipleArticles({
     required UnreadMultipleArticlesRequestApplicationJson $body,
   }) async {
-    final _request = $unreadMultipleArticles_Request(
-      $body: $body,
-    );
+    final _request = $unreadMultipleArticles_Request($body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1500,7 +1370,7 @@ class $ItemsClient {
     final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/star').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1509,14 +1379,12 @@ class $ItemsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -1530,9 +1398,7 @@ class $ItemsClient {
   ///  * [$starArticle_Request] for the request send by this method.
   ///  * [$starArticle_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<void, void>> starArticle({required int itemId}) async {
-    final _request = $starArticle_Request(
-      itemId: itemId,
-    );
+    final _request = $starArticle_Request(itemId: itemId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1567,7 +1433,7 @@ class $ItemsClient {
     final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unstar').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1576,14 +1442,12 @@ class $ItemsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -1597,9 +1461,7 @@ class $ItemsClient {
   ///  * [$unstarArticle_Request] for the request send by this method.
   ///  * [$unstarArticle_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<void, void>> unstarArticle({required int itemId}) async {
-    final _request = $unstarArticle_Request(
-      itemId: itemId,
-    );
+    final _request = $unstarArticle_Request(itemId: itemId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1630,7 +1492,7 @@ class $ItemsClient {
     const _path = '/index.php/apps/news/api/v1-3/items/star/multiple';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1639,14 +1501,12 @@ class $ItemsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
       _$jsonSerializers.serialize($body, specifiedType: const FullType(StarMultipleArticlesRequestApplicationJson)),
@@ -1666,9 +1526,7 @@ class $ItemsClient {
   Future<_i1.DynamiteResponse<void, void>> starMultipleArticles({
     required StarMultipleArticlesRequestApplicationJson $body,
   }) async {
-    final _request = $starMultipleArticles_Request(
-      $body: $body,
-    );
+    final _request = $starMultipleArticles_Request($body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1699,7 +1557,7 @@ class $ItemsClient {
     const _path = '/index.php/apps/news/api/v1-3/items/unstar/multiple';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1708,20 +1566,15 @@ class $ItemsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
-      _$jsonSerializers.serialize(
-        $body,
-        specifiedType: const FullType(UnstarMultipleArticlesRequestApplicationJson),
-      ),
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(UnstarMultipleArticlesRequestApplicationJson)),
     );
     return _request;
   }
@@ -1738,9 +1591,7 @@ class $ItemsClient {
   Future<_i1.DynamiteResponse<void, void>> unstarMultipleArticles({
     required UnstarMultipleArticlesRequestApplicationJson $body,
   }) async {
-    final _request = $unstarMultipleArticles_Request(
-      $body: $body,
-    );
+    final _request = $unstarMultipleArticles_Request($body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 

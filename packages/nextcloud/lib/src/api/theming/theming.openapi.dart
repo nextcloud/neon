@@ -36,19 +36,11 @@ part 'theming.openapi.g.dart';
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
-  $Client(
-    super.baseURL, {
-    super.httpClient,
-    super.authentications,
-  });
+  $Client(super.baseURL, {super.httpClient, super.authentications});
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $IconClient icon = $IconClient(this);
 
@@ -101,7 +93,7 @@ class $IconClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'image/x-icon';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -110,12 +102,10 @@ class $IconClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -136,9 +126,7 @@ class $IconClient {
   ///  * [$getFavicon_Request] for the request send by this method.
   ///  * [$getFavicon_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Uint8List, void>> getFavicon({String? app}) async {
-    final _request = $getFavicon_Request(
-      app: app,
-    );
+    final _request = $getFavicon_Request(app: app);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -182,7 +170,7 @@ class $IconClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'image/png';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -191,12 +179,10 @@ class $IconClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -217,9 +203,7 @@ class $IconClient {
   ///  * [$getTouchIcon_Request] for the request send by this method.
   ///  * [$getTouchIcon_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Uint8List, void>> getTouchIcon({String? app}) async {
-    final _request = $getTouchIcon_Request(
-      app: app,
-    );
+    final _request = $getTouchIcon_Request(app: app);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -254,27 +238,20 @@ class $IconClient {
   ///  * [getThemedIcon] for a method executing this request and parsing the response.
   ///  * [$getThemedIcon_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getThemedIcon_Request({
-    required String app,
-    required String image,
-  }) {
+  _i3.Request $getThemedIcon_Request({required String app, required String image}) {
     final _parameters = <String, Object?>{};
     final __app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
     _parameters['app'] = __app;
 
     final __image = _$jsonSerializers.serialize(image, specifiedType: const FullType(String));
-    _i6.checkString(
-      __image,
-      'image',
-      pattern: RegExp(r'^.+$'),
-    );
+    _i6.checkString(__image, 'image', pattern: RegExp(r'^.+$'));
     _parameters['image'] = __image;
 
     final _path = _i4.UriTemplate('/index.php/apps/theming/img/{app}/{image}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'image/svg+xml';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -283,12 +260,10 @@ class $IconClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -309,14 +284,8 @@ class $IconClient {
   /// See:
   ///  * [$getThemedIcon_Request] for the request send by this method.
   ///  * [$getThemedIcon_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<Uint8List, void>> getThemedIcon({
-    required String app,
-    required String image,
-  }) async {
-    final _request = $getThemedIcon_Request(
-      app: app,
-      image: image,
-    );
+  Future<_i1.DynamiteResponse<Uint8List, void>> getThemedIcon({required String app, required String image}) async {
+    final _request = $getThemedIcon_Request(app: app, image: image);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -380,12 +349,13 @@ class $ThemingClient {
     __withCustomCss ??= 0;
     _parameters['withCustomCss'] = __withCustomCss;
 
-    final _path =
-        _i4.UriTemplate('/index.php/apps/theming/theme/{themeId}.css{?plain*,withCustomCss*}').expand(_parameters);
+    final _path = _i4.UriTemplate(
+      '/index.php/apps/theming/theme/{themeId}.css{?plain*,withCustomCss*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'text/css';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -394,12 +364,10 @@ class $ThemingClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -425,11 +393,7 @@ class $ThemingClient {
     ThemingGetThemeStylesheetPlain? plain,
     ThemingGetThemeStylesheetWithCustomCss? withCustomCss,
   }) async {
-    final _request = $getThemeStylesheet_Request(
-      themeId: themeId,
-      plain: plain,
-      withCustomCss: withCustomCss,
-    );
+    final _request = $getThemeStylesheet_Request(themeId: themeId, plain: plain, withCustomCss: withCustomCss);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -464,10 +428,7 @@ class $ThemingClient {
   ///  * [getImage] for a method executing this request and parsing the response.
   ///  * [$getImage_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getImage_Request({
-    required String key,
-    ThemingGetImageUseSvg? useSvg,
-  }) {
+  _i3.Request $getImage_Request({required String key, ThemingGetImageUseSvg? useSvg}) {
     final _parameters = <String, Object?>{};
     final __key = _$jsonSerializers.serialize(key, specifiedType: const FullType(String));
     _parameters['key'] = __key;
@@ -480,7 +441,7 @@ class $ThemingClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -489,12 +450,10 @@ class $ThemingClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -515,14 +474,8 @@ class $ThemingClient {
   /// See:
   ///  * [$getImage_Request] for the request send by this method.
   ///  * [$getImage_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<Uint8List, void>> getImage({
-    required String key,
-    ThemingGetImageUseSvg? useSvg,
-  }) async {
-    final _request = $getImage_Request(
-      key: key,
-      useSvg: useSvg,
-    );
+  Future<_i1.DynamiteResponse<Uint8List, void>> getImage({required String key, ThemingGetImageUseSvg? useSvg}) async {
+    final _request = $getImage_Request(key: key, useSvg: useSvg);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -566,7 +519,7 @@ class $ThemingClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -575,12 +528,10 @@ class $ThemingClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -600,9 +551,7 @@ class $ThemingClient {
   ///  * [$getManifest_Request] for the request send by this method.
   ///  * [$getManifest_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ThemingGetManifestResponseApplicationJson, void>> getManifest({String? app}) async {
-    final _request = $getManifest_Request(
-      app: app,
-    );
+    final _request = $getManifest_Request(app: app);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -647,7 +596,7 @@ class $UserThemeClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -656,14 +605,12 @@ class $UserThemeClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -687,9 +634,7 @@ class $UserThemeClient {
   ///  * [$getBackground_Request] for the request send by this method.
   ///  * [$getBackground_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Uint8List, void>> getBackground({bool? oCSAPIRequest}) async {
-    final _request = $getBackground_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getBackground_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -737,7 +682,7 @@ class $UserThemeClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -746,14 +691,12 @@ class $UserThemeClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -797,11 +740,7 @@ class $UserThemeClient {
     bool? oCSAPIRequest,
     UserThemeSetBackgroundRequestApplicationJson? $body,
   }) async {
-    final _request = $setBackground_Request(
-      type: type,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $setBackground_Request(type: type, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -838,7 +777,7 @@ class $UserThemeClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -847,14 +786,12 @@ class $UserThemeClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -877,9 +814,7 @@ class $UserThemeClient {
   ///  * [$deleteBackground_Request] for the request send by this method.
   ///  * [$deleteBackground_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Background, void>> deleteBackground({bool? oCSAPIRequest}) async {
-    final _request = $deleteBackground_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $deleteBackground_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -915,10 +850,7 @@ class $UserThemeClient {
   ///  * [enableTheme] for a method executing this request and parsing the response.
   ///  * [$enableTheme_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $enableTheme_Request({
-    required String themeId,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $enableTheme_Request({required String themeId, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __themeId = _$jsonSerializers.serialize(themeId, specifiedType: const FullType(String));
     _parameters['themeId'] = __themeId;
@@ -927,7 +859,7 @@ class $UserThemeClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -936,14 +868,12 @@ class $UserThemeClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -972,10 +902,7 @@ class $UserThemeClient {
     required String themeId,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $enableTheme_Request(
-      themeId: themeId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $enableTheme_Request(themeId: themeId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1011,10 +938,7 @@ class $UserThemeClient {
   ///  * [disableTheme] for a method executing this request and parsing the response.
   ///  * [$disableTheme_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $disableTheme_Request({
-    required String themeId,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $disableTheme_Request({required String themeId, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __themeId = _$jsonSerializers.serialize(themeId, specifiedType: const FullType(String));
     _parameters['themeId'] = __themeId;
@@ -1023,7 +947,7 @@ class $UserThemeClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1032,14 +956,12 @@ class $UserThemeClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1068,10 +990,7 @@ class $UserThemeClient {
     required String themeId,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $disableTheme_Request(
-      themeId: themeId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $disableTheme_Request(themeId: themeId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1295,11 +1214,7 @@ sealed class $ThemingGetManifestResponseApplicationJson_IconsInterface {
   static void _defaults($ThemingGetManifestResponseApplicationJson_IconsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($ThemingGetManifestResponseApplicationJson_IconsInterfaceBuilder b) {
-    _i6.checkString(
-      b.src,
-      'src',
-      minLength: 1,
-    );
+    _i6.checkString(b.src, 'src', minLength: 1);
   }
 }
 
@@ -1422,10 +1337,7 @@ abstract class ThemingGetManifestResponseApplicationJson
 
 @BuiltValue(instantiable: false)
 sealed class $UserThemeSetBackgroundRequestApplicationJsonInterface {
-  static final _$value = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$value = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
   /// Path of the background image.
   String get value;

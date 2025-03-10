@@ -28,18 +28,11 @@ part 'parameters.openapi.g.dart';
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
-  $Client(
-    super.baseURL, {
-    super.httpClient,
-  });
+  $Client(super.baseURL, {super.httpClient});
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   /// Builds a serializer to parse the response of [$$get_Request].
   @_i2.experimental
@@ -109,12 +102,16 @@ class $Client extends _i1.DynamiteClient {
     );
     _parameters['content_parameter'] = __contentParameter;
 
-    final __array =
-        _$jsonSerializers.serialize(array, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]));
+    final __array = _$jsonSerializers.serialize(
+      array,
+      specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
+    );
     _parameters['array'] = __array;
 
-    final __arrayString =
-        _$jsonSerializers.serialize(arrayString, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    final __arrayString = _$jsonSerializers.serialize(
+      arrayString,
+      specifiedType: const FullType(BuiltList, [FullType(String)]),
+    );
     _parameters['array_string'] = __arrayString;
 
     final __$bool = _$jsonSerializers.serialize($bool, specifiedType: const FullType(bool));
@@ -145,11 +142,7 @@ class $Client extends _i1.DynamiteClient {
     _parameters['anyOf'] = __anyOf;
 
     final __enumPattern = _$jsonSerializers.serialize(enumPattern, specifiedType: const FullType(GetEnumPattern));
-    _i4.checkString(
-      __enumPattern,
-      'enumPattern',
-      pattern: RegExp('[a-z]'),
-    );
+    _i4.checkString(__enumPattern, 'enumPattern', pattern: RegExp('[a-z]'));
     _parameters['enum_pattern'] = __enumPattern;
 
     final _path = _i5.UriTemplate(
@@ -298,8 +291,10 @@ class $Client extends _i1.DynamiteClient {
     __array ??= const ['default-item', true, 1.0];
     _parameters['array'] = __array;
 
-    var __arrayString =
-        _$jsonSerializers.serialize(arrayString, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    var __arrayString = _$jsonSerializers.serialize(
+      arrayString,
+      specifiedType: const FullType(BuiltList, [FullType(String)]),
+    );
     __arrayString ??= const ['default-item', 'item'];
     _parameters['array_string'] = __arrayString;
 
@@ -346,11 +341,7 @@ class $Client extends _i1.DynamiteClient {
 
     var __enumPattern = _$jsonSerializers.serialize(enumPattern, specifiedType: const FullType(GetDefaultsEnumPattern));
     __enumPattern ??= 'a';
-    _i4.checkString(
-      __enumPattern,
-      'enumPattern',
-      pattern: RegExp('[a-z]'),
-    );
+    _i4.checkString(__enumPattern, 'enumPattern', pattern: RegExp('[a-z]'));
     _parameters['enum_pattern'] = __enumPattern;
 
     final _path = _i5.UriTemplate(
@@ -501,14 +492,18 @@ class $Client extends _i1.DynamiteClient {
       _request.headers['content_parameter'] = const _i4.HeaderEncoder().convert(__contentParameter);
     }
 
-    final __array =
-        _$jsonSerializers.serialize(array, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]));
+    final __array = _$jsonSerializers.serialize(
+      array,
+      specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
+    );
     if (__array != null) {
       _request.headers['array'] = const _i4.HeaderEncoder().convert(__array);
     }
 
-    final __arrayString =
-        _$jsonSerializers.serialize(arrayString, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    final __arrayString = _$jsonSerializers.serialize(
+      arrayString,
+      specifiedType: const FullType(BuiltList, [FullType(String)]),
+    );
     if (__arrayString != null) {
       _request.headers['array_string'] = const _i4.HeaderEncoder().convert(__arrayString);
     }
@@ -558,13 +553,11 @@ class $Client extends _i1.DynamiteClient {
       _request.headers['anyOf'] = const _i4.HeaderEncoder().convert(__anyOf);
     }
 
-    final __enumPattern =
-        _$jsonSerializers.serialize(enumPattern, specifiedType: const FullType(GetHeadersEnumPattern));
-    _i4.checkString(
-      __enumPattern,
-      'enumPattern',
-      pattern: RegExp('[a-z]'),
+    final __enumPattern = _$jsonSerializers.serialize(
+      enumPattern,
+      specifiedType: const FullType(GetHeadersEnumPattern),
     );
+    _i4.checkString(__enumPattern, 'enumPattern', pattern: RegExp('[a-z]'));
     if (__enumPattern != null) {
       _request.headers['enum_pattern'] = const _i4.HeaderEncoder().convert(__enumPattern);
     }
@@ -677,9 +670,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$getPathParameter_Request] for the request send by this method.
   ///  * [$getPathParameter_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<JsonObject, void>> getPathParameter({required String pathParameter}) async {
-    final _request = $getPathParameter_Request(
-      pathParameter: pathParameter,
-    );
+    final _request = $getPathParameter_Request(pathParameter: pathParameter);
     final _streamedResponse = await httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -822,11 +813,7 @@ class _$GetEnumPatternSerializer implements PrimitiveSerializer<GetEnumPattern> 
   String get wireName => 'GetEnumPattern';
 
   @override
-  Object serialize(
-    Serializers serializers,
-    GetEnumPattern object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
+  Object serialize(Serializers serializers, GetEnumPattern object, {FullType specifiedType = FullType.unspecified}) =>
       _toWire[object]!;
 
   @override
@@ -1045,16 +1032,10 @@ extension $93403da1a64cb6a7b1597c7a05e9b2beExtension on _$93403da1a64cb6a7b1597c
   List<String> get _names => const [r'$bool', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i4.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i4.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i4.validateAnyOf(
-        _values,
-        _names,
-      );
+  void validateAnyOf() => _i4.validateAnyOf(_values, _names);
   static Serializer<_$93403da1a64cb6a7b1597c7a05e9b2be> get _serializer =>
       const _$93403da1a64cb6a7b1597c7a05e9b2beSerializer();
   static _$93403da1a64cb6a7b1597c7a05e9b2be _fromJson(Object? json) =>
@@ -1090,7 +1071,7 @@ class _$93403da1a64cb6a7b1597c7a05e9b2beSerializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(String))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
@@ -1102,17 +1083,11 @@ class _$93403da1a64cb6a7b1597c7a05e9b2beSerializer implements PrimitiveSerialize
   }) {
     bool? $bool;
     try {
-      $bool = serializers.deserialize(
-        data,
-        specifiedType: const FullType(bool),
-      )! as bool;
+      $bool = serializers.deserialize(data, specifiedType: const FullType(bool))! as bool;
     } catch (_) {}
     String? string;
     try {
-      string = serializers.deserialize(
-        data,
-        specifiedType: const FullType(String),
-      )! as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     return ($bool: $bool, string: string);
   }

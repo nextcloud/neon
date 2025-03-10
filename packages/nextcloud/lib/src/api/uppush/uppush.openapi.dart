@@ -31,19 +31,11 @@ part 'uppush.openapi.g.dart';
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
-  $Client(
-    super.baseURL, {
-    super.httpClient,
-    super.authentications,
-  });
+  $Client(super.baseURL, {super.httpClient, super.authentications});
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   /// Builds a serializer to parse the response of [$check_Request].
   @_i2.experimental
@@ -71,7 +63,7 @@ class $Client extends _i1.DynamiteClient {
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -80,14 +72,12 @@ class $Client extends _i1.DynamiteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -147,7 +137,7 @@ class $Client extends _i1.DynamiteClient {
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -156,14 +146,12 @@ class $Client extends _i1.DynamiteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -184,9 +172,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$setKeepalive_Request] for the request send by this method.
   ///  * [$setKeepalive_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<SetKeepaliveResponseApplicationJson, void>> setKeepalive({required int keepalive}) async {
-    final _request = $setKeepalive_Request(
-      keepalive: keepalive,
-    );
+    final _request = $setKeepalive_Request(keepalive: keepalive);
     final _streamedResponse = await httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -228,7 +214,7 @@ class $Client extends _i1.DynamiteClient {
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -237,14 +223,12 @@ class $Client extends _i1.DynamiteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -265,9 +249,7 @@ class $Client extends _i1.DynamiteClient {
   Future<_i1.DynamiteResponse<CreateDeviceResponseApplicationJson, void>> createDevice({
     required String deviceName,
   }) async {
-    final _request = $createDevice_Request(
-      deviceName: deviceName,
-    );
+    final _request = $createDevice_Request(deviceName: deviceName);
     final _streamedResponse = await httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -307,7 +289,7 @@ class $Client extends _i1.DynamiteClient {
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -316,14 +298,12 @@ class $Client extends _i1.DynamiteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -341,9 +321,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$syncDevice_Request] for the request send by this method.
   ///  * [$syncDevice_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<SyncDeviceResponseApplicationJson, void>> syncDevice({required String deviceId}) async {
-    final _request = $syncDevice_Request(
-      deviceId: deviceId,
-    );
+    final _request = $syncDevice_Request(deviceId: deviceId);
     final _streamedResponse = await httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -382,7 +360,7 @@ class $Client extends _i1.DynamiteClient {
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -391,14 +369,12 @@ class $Client extends _i1.DynamiteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -416,9 +392,7 @@ class $Client extends _i1.DynamiteClient {
   Future<_i1.DynamiteResponse<DeleteDeviceResponseApplicationJson, void>> deleteDevice({
     required String deviceId,
   }) async {
-    final _request = $deleteDevice_Request(
-      deviceId: deviceId,
-    );
+    final _request = $deleteDevice_Request(deviceId: deviceId);
     final _streamedResponse = await httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -451,10 +425,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [createApp] for a method executing this request and parsing the response.
   ///  * [$createApp_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $createApp_Request({
-    required String deviceId,
-    required String appName,
-  }) {
+  _i3.Request $createApp_Request({required String deviceId, required String appName}) {
     final _parameters = <String, Object?>{};
     final __deviceId = _$jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
     _parameters['deviceId'] = __deviceId;
@@ -466,7 +437,7 @@ class $Client extends _i1.DynamiteClient {
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -475,14 +446,12 @@ class $Client extends _i1.DynamiteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -505,10 +474,7 @@ class $Client extends _i1.DynamiteClient {
     required String deviceId,
     required String appName,
   }) async {
-    final _request = $createApp_Request(
-      deviceId: deviceId,
-      appName: appName,
-    );
+    final _request = $createApp_Request(deviceId: deviceId, appName: appName);
     final _streamedResponse = await httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -546,7 +512,7 @@ class $Client extends _i1.DynamiteClient {
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -555,14 +521,12 @@ class $Client extends _i1.DynamiteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -578,9 +542,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$deleteApp_Request] for the request send by this method.
   ///  * [$deleteApp_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<DeleteAppResponseApplicationJson, void>> deleteApp({required String token}) async {
-    final _request = $deleteApp_Request(
-      token: token,
-    );
+    final _request = $deleteApp_Request(token: token);
     final _streamedResponse = await httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -619,7 +581,7 @@ class $Client extends _i1.DynamiteClient {
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -628,14 +590,12 @@ class $Client extends _i1.DynamiteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -653,9 +613,7 @@ class $Client extends _i1.DynamiteClient {
   Future<_i1.DynamiteResponse<UnifiedpushDiscoveryResponseApplicationJson, void>> unifiedpushDiscovery({
     required String token,
   }) async {
-    final _request = $unifiedpushDiscovery_Request(
-      token: token,
-    );
+    final _request = $unifiedpushDiscovery_Request(token: token);
     final _streamedResponse = await httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -693,7 +651,7 @@ class $Client extends _i1.DynamiteClient {
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -702,14 +660,12 @@ class $Client extends _i1.DynamiteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -725,9 +681,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$push_Request] for the request send by this method.
   ///  * [$push_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<PushResponseApplicationJson, void>> push({required String token}) async {
-    final _request = $push_Request(
-      token: token,
-    );
+    final _request = $push_Request(token: token);
     final _streamedResponse = await httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -762,7 +716,7 @@ class $Client extends _i1.DynamiteClient {
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -771,14 +725,12 @@ class $Client extends _i1.DynamiteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -829,7 +781,7 @@ class $Client extends _i1.DynamiteClient {
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -838,14 +790,12 @@ class $Client extends _i1.DynamiteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -1705,9 +1655,15 @@ final Serializers _$serializers = (Serializers().toBuilder()
         DeleteDeviceResponseApplicationJsonBuilder.new,
       )
       ..add(DeleteDeviceResponseApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(CreateAppResponseApplicationJson), CreateAppResponseApplicationJsonBuilder.new)
+      ..addBuilderFactory(
+        const FullType(CreateAppResponseApplicationJson),
+        CreateAppResponseApplicationJsonBuilder.new,
+      )
       ..add(CreateAppResponseApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(DeleteAppResponseApplicationJson), DeleteAppResponseApplicationJsonBuilder.new)
+      ..addBuilderFactory(
+        const FullType(DeleteAppResponseApplicationJson),
+        DeleteAppResponseApplicationJsonBuilder.new,
+      )
       ..add(DeleteAppResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UnifiedpushDiscoveryResponseApplicationJson),

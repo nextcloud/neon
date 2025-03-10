@@ -35,19 +35,11 @@ part 'tables.openapi.g.dart';
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
-  $Client(
-    super.baseURL, {
-    super.httpClient,
-    super.authentications,
-  });
+  $Client(super.baseURL, {super.httpClient, super.authentications});
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $Api1Client api1 = $Api1Client(this);
 
@@ -97,7 +89,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -106,14 +98,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -165,7 +155,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -174,14 +164,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
       _$jsonSerializers.serialize($body, specifiedType: const FullType(Api1CreateTableRequestApplicationJson)),
@@ -202,9 +190,7 @@ class $Api1Client {
   ///  * [$createTable_Request] for the request send by this method.
   ///  * [$createTable_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Table, void>> createTable({required Api1CreateTableRequestApplicationJson $body}) async {
-    final _request = $createTable_Request(
-      $body: $body,
-    );
+    final _request = $createTable_Request($body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -248,7 +234,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -257,14 +243,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -286,9 +270,7 @@ class $Api1Client {
   ///  * [$getTable_Request] for the request send by this method.
   ///  * [$getTable_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Table, void>> getTable({required int tableId}) async {
-    final _request = $getTable_Request(
-      tableId: tableId,
-    );
+    final _request = $getTable_Request(tableId: tableId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -323,10 +305,7 @@ class $Api1Client {
   ///  * [updateTable] for a method executing this request and parsing the response.
   ///  * [$updateTable_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $updateTable_Request({
-    required int tableId,
-    Api1UpdateTableRequestApplicationJson? $body,
-  }) {
+  _i3.Request $updateTable_Request({required int tableId, Api1UpdateTableRequestApplicationJson? $body}) {
     final _parameters = <String, Object?>{};
     final __tableId = _$jsonSerializers.serialize(tableId, specifiedType: const FullType(int));
     _parameters['tableId'] = __tableId;
@@ -335,7 +314,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -344,14 +323,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = $body != null
         ? json.encode(
@@ -387,10 +364,7 @@ class $Api1Client {
     required int tableId,
     Api1UpdateTableRequestApplicationJson? $body,
   }) async {
-    final _request = $updateTable_Request(
-      tableId: tableId,
-      $body: $body,
-    );
+    final _request = $updateTable_Request(tableId: tableId, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -434,7 +408,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -443,14 +417,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -472,9 +444,7 @@ class $Api1Client {
   ///  * [$deleteTable_Request] for the request send by this method.
   ///  * [$deleteTable_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Table, void>> deleteTable({required int tableId}) async {
-    final _request = $deleteTable_Request(
-      tableId: tableId,
-    );
+    final _request = $deleteTable_Request(tableId: tableId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -518,7 +488,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -527,14 +497,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -556,9 +524,7 @@ class $Api1Client {
   ///  * [$showScheme_Request] for the request send by this method.
   ///  * [$showScheme_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Table, Api1Api1ShowSchemeHeaders>> showScheme({required int tableId}) async {
-    final _request = $showScheme_Request(
-      tableId: tableId,
-    );
+    final _request = $showScheme_Request(tableId: tableId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -602,7 +568,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -611,14 +577,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -640,9 +604,7 @@ class $Api1Client {
   ///  * [$indexViews_Request] for the request send by this method.
   ///  * [$indexViews_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<BuiltList<View>, void>> indexViews({required int tableId}) async {
-    final _request = $indexViews_Request(
-      tableId: tableId,
-    );
+    final _request = $indexViews_Request(tableId: tableId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -677,10 +639,7 @@ class $Api1Client {
   ///  * [createView] for a method executing this request and parsing the response.
   ///  * [$createView_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $createView_Request({
-    required int tableId,
-    required Api1CreateViewRequestApplicationJson $body,
-  }) {
+  _i3.Request $createView_Request({required int tableId, required Api1CreateViewRequestApplicationJson $body}) {
     final _parameters = <String, Object?>{};
     final __tableId = _$jsonSerializers.serialize(tableId, specifiedType: const FullType(int));
     _parameters['tableId'] = __tableId;
@@ -689,7 +648,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -698,14 +657,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
       _$jsonSerializers.serialize($body, specifiedType: const FullType(Api1CreateViewRequestApplicationJson)),
@@ -734,10 +691,7 @@ class $Api1Client {
     required int tableId,
     required Api1CreateViewRequestApplicationJson $body,
   }) async {
-    final _request = $createView_Request(
-      tableId: tableId,
-      $body: $body,
-    );
+    final _request = $createView_Request(tableId: tableId, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -781,7 +735,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -790,14 +744,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -819,9 +771,7 @@ class $Api1Client {
   ///  * [$getView_Request] for the request send by this method.
   ///  * [$getView_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<View, void>> getView({required int viewId}) async {
-    final _request = $getView_Request(
-      viewId: viewId,
-    );
+    final _request = $getView_Request(viewId: viewId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -856,10 +806,7 @@ class $Api1Client {
   ///  * [updateView] for a method executing this request and parsing the response.
   ///  * [$updateView_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $updateView_Request({
-    required int viewId,
-    required Api1UpdateViewRequestApplicationJson $body,
-  }) {
+  _i3.Request $updateView_Request({required int viewId, required Api1UpdateViewRequestApplicationJson $body}) {
     final _parameters = <String, Object?>{};
     final __viewId = _$jsonSerializers.serialize(viewId, specifiedType: const FullType(int));
     _parameters['viewId'] = __viewId;
@@ -868,7 +815,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -877,14 +824,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
       _$jsonSerializers.serialize($body, specifiedType: const FullType(Api1UpdateViewRequestApplicationJson)),
@@ -913,10 +858,7 @@ class $Api1Client {
     required int viewId,
     required Api1UpdateViewRequestApplicationJson $body,
   }) async {
-    final _request = $updateView_Request(
-      viewId: viewId,
-      $body: $body,
-    );
+    final _request = $updateView_Request(viewId: viewId, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -960,7 +902,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -969,14 +911,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -998,9 +938,7 @@ class $Api1Client {
   ///  * [$deleteView_Request] for the request send by this method.
   ///  * [$deleteView_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<View, void>> deleteView({required int viewId}) async {
-    final _request = $deleteView_Request(
-      viewId: viewId,
-    );
+    final _request = $deleteView_Request(viewId: viewId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1044,7 +982,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1053,14 +991,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -1082,9 +1018,7 @@ class $Api1Client {
   ///  * [$getShare_Request] for the request send by this method.
   ///  * [$getShare_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Share, void>> getShare({required int shareId}) async {
-    final _request = $getShare_Request(
-      shareId: shareId,
-    );
+    final _request = $getShare_Request(shareId: shareId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1131,7 +1065,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1140,14 +1074,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
       _$jsonSerializers.serialize(
@@ -1179,10 +1111,7 @@ class $Api1Client {
     required int shareId,
     required Api1UpdateSharePermissionsRequestApplicationJson $body,
   }) async {
-    final _request = $updateSharePermissions_Request(
-      shareId: shareId,
-      $body: $body,
-    );
+    final _request = $updateSharePermissions_Request(shareId: shareId, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1226,7 +1155,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1235,14 +1164,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -1264,9 +1191,7 @@ class $Api1Client {
   ///  * [$deleteShare_Request] for the request send by this method.
   ///  * [$deleteShare_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Share, void>> deleteShare({required int shareId}) async {
-    final _request = $deleteShare_Request(
-      shareId: shareId,
-    );
+    final _request = $deleteShare_Request(shareId: shareId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1308,7 +1233,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1317,14 +1242,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -1344,9 +1267,7 @@ class $Api1Client {
   ///  * [$indexViewShares_Request] for the request send by this method.
   ///  * [$indexViewShares_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<BuiltList<Share>, void>> indexViewShares({required int viewId}) async {
-    final _request = $indexViewShares_Request(
-      viewId: viewId,
-    );
+    final _request = $indexViewShares_Request(viewId: viewId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1388,7 +1309,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1397,14 +1318,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -1424,9 +1343,7 @@ class $Api1Client {
   ///  * [$indexTableShares_Request] for the request send by this method.
   ///  * [$indexTableShares_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<BuiltList<Share>, void>> indexTableShares({required int tableId}) async {
-    final _request = $indexTableShares_Request(
-      tableId: tableId,
-    );
+    final _request = $indexTableShares_Request(tableId: tableId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1473,7 +1390,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1482,14 +1399,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
       _$jsonSerializers.serialize($body, specifiedType: const FullType(Api1CreateTableShareRequestApplicationJson)),
@@ -1518,10 +1433,7 @@ class $Api1Client {
     required int tableId,
     required Api1CreateTableShareRequestApplicationJson $body,
   }) async {
-    final _request = $createTableShare_Request(
-      tableId: tableId,
-      $body: $body,
-    );
+    final _request = $createTableShare_Request(tableId: tableId, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1558,7 +1470,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1567,14 +1479,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
       _$jsonSerializers.serialize($body, specifiedType: const FullType(Api1CreateShareRequestApplicationJson)),
@@ -1597,9 +1507,7 @@ class $Api1Client {
   ///  * [$createShare_Request] for the request send by this method.
   ///  * [$createShare_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Share, void>> createShare({required Api1CreateShareRequestApplicationJson $body}) async {
-    final _request = $createShare_Request(
-      $body: $body,
-    );
+    final _request = $createShare_Request($body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1647,7 +1555,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1656,14 +1564,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
       _$jsonSerializers.serialize(
@@ -1696,10 +1602,7 @@ class $Api1Client {
     required int shareId,
     required Api1UpdateShareDisplayModeRequestApplicationJson $body,
   }) async {
-    final _request = $updateShareDisplayMode_Request(
-      shareId: shareId,
-      $body: $body,
-    );
+    final _request = $updateShareDisplayMode_Request(shareId: shareId, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1735,10 +1638,7 @@ class $Api1Client {
   ///  * [indexTableColumns] for a method executing this request and parsing the response.
   ///  * [$indexTableColumns_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $indexTableColumns_Request({
-    required int tableId,
-    int? viewId,
-  }) {
+  _i3.Request $indexTableColumns_Request({required int tableId, int? viewId}) {
     final _parameters = <String, Object?>{};
     final __tableId = _$jsonSerializers.serialize(tableId, specifiedType: const FullType(int));
     _parameters['tableId'] = __tableId;
@@ -1746,12 +1646,13 @@ class $Api1Client {
     final __viewId = _$jsonSerializers.serialize(viewId, specifiedType: const FullType(int));
     _parameters['viewId'] = __viewId;
 
-    final _path =
-        _i5.UriTemplate('/index.php/apps/tables/api/1/tables/{tableId}/columns{?viewId*}').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/index.php/apps/tables/api/1/tables/{tableId}/columns{?viewId*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1760,14 +1661,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -1789,14 +1688,8 @@ class $Api1Client {
   /// See:
   ///  * [$indexTableColumns_Request] for the request send by this method.
   ///  * [$indexTableColumns_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<BuiltList<Column>, void>> indexTableColumns({
-    required int tableId,
-    int? viewId,
-  }) async {
-    final _request = $indexTableColumns_Request(
-      tableId: tableId,
-      viewId: viewId,
-    );
+  Future<_i1.DynamiteResponse<BuiltList<Column>, void>> indexTableColumns({required int tableId, int? viewId}) async {
+    final _request = $indexTableColumns_Request(tableId: tableId, viewId: viewId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1843,7 +1736,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1852,14 +1745,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
       _$jsonSerializers.serialize($body, specifiedType: const FullType(Api1CreateTableColumnRequestApplicationJson)),
@@ -1888,10 +1779,7 @@ class $Api1Client {
     required int tableId,
     required Api1CreateTableColumnRequestApplicationJson $body,
   }) async {
-    final _request = $createTableColumn_Request(
-      tableId: tableId,
-      $body: $body,
-    );
+    final _request = $createTableColumn_Request(tableId: tableId, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1935,7 +1823,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1944,14 +1832,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -1973,9 +1859,7 @@ class $Api1Client {
   ///  * [$indexViewColumns_Request] for the request send by this method.
   ///  * [$indexViewColumns_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<BuiltList<Column>, void>> indexViewColumns({required int viewId}) async {
-    final _request = $indexViewColumns_Request(
-      viewId: viewId,
-    );
+    final _request = $indexViewColumns_Request(viewId: viewId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -2012,7 +1896,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2021,14 +1905,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
       _$jsonSerializers.serialize($body, specifiedType: const FullType(Api1CreateColumnRequestApplicationJson)),
@@ -2053,9 +1935,7 @@ class $Api1Client {
   Future<_i1.DynamiteResponse<Column, void>> createColumn({
     required Api1CreateColumnRequestApplicationJson $body,
   }) async {
-    final _request = $createColumn_Request(
-      $body: $body,
-    );
+    final _request = $createColumn_Request($body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -2099,7 +1979,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2108,14 +1988,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -2137,9 +2015,7 @@ class $Api1Client {
   ///  * [$getColumn_Request] for the request send by this method.
   ///  * [$getColumn_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Column, void>> getColumn({required int columnId}) async {
-    final _request = $getColumn_Request(
-      columnId: columnId,
-    );
+    final _request = $getColumn_Request(columnId: columnId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -2172,10 +2048,7 @@ class $Api1Client {
   ///  * [updateColumn] for a method executing this request and parsing the response.
   ///  * [$updateColumn_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $updateColumn_Request({
-    required int columnId,
-    required Api1UpdateColumnRequestApplicationJson $body,
-  }) {
+  _i3.Request $updateColumn_Request({required int columnId, required Api1UpdateColumnRequestApplicationJson $body}) {
     final _parameters = <String, Object?>{};
     final __columnId = _$jsonSerializers.serialize(columnId, specifiedType: const FullType(int));
     _parameters['columnId'] = __columnId;
@@ -2184,7 +2057,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2193,14 +2066,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
       _$jsonSerializers.serialize($body, specifiedType: const FullType(Api1UpdateColumnRequestApplicationJson)),
@@ -2227,10 +2098,7 @@ class $Api1Client {
     required int columnId,
     required Api1UpdateColumnRequestApplicationJson $body,
   }) async {
-    final _request = $updateColumn_Request(
-      columnId: columnId,
-      $body: $body,
-    );
+    final _request = $updateColumn_Request(columnId: columnId, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -2274,7 +2142,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2283,14 +2151,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -2312,9 +2178,7 @@ class $Api1Client {
   ///  * [$deleteColumn_Request] for the request send by this method.
   ///  * [$deleteColumn_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Column, void>> deleteColumn({required int columnId}) async {
-    final _request = $deleteColumn_Request(
-      columnId: columnId,
-    );
+    final _request = $deleteColumn_Request(columnId: columnId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -2351,11 +2215,7 @@ class $Api1Client {
   ///  * [indexTableRowsSimple] for a method executing this request and parsing the response.
   ///  * [$indexTableRowsSimple_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $indexTableRowsSimple_Request({
-    required int tableId,
-    int? limit,
-    int? offset,
-  }) {
+  _i3.Request $indexTableRowsSimple_Request({required int tableId, int? limit, int? offset}) {
     final _parameters = <String, Object?>{};
     final __tableId = _$jsonSerializers.serialize(tableId, specifiedType: const FullType(int));
     _parameters['tableId'] = __tableId;
@@ -2366,12 +2226,13 @@ class $Api1Client {
     final __offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
     _parameters['offset'] = __offset;
 
-    final _path = _i5.UriTemplate('/index.php/apps/tables/api/1/tables/{tableId}/rows/simple{?limit*,offset*}')
-        .expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/index.php/apps/tables/api/1/tables/{tableId}/rows/simple{?limit*,offset*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2380,14 +2241,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -2415,11 +2274,7 @@ class $Api1Client {
     int? limit,
     int? offset,
   }) async {
-    final _request = $indexTableRowsSimple_Request(
-      tableId: tableId,
-      limit: limit,
-      offset: offset,
-    );
+    final _request = $indexTableRowsSimple_Request(tableId: tableId, limit: limit, offset: offset);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -2456,11 +2311,7 @@ class $Api1Client {
   ///  * [indexTableRows] for a method executing this request and parsing the response.
   ///  * [$indexTableRows_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $indexTableRows_Request({
-    required int tableId,
-    int? limit,
-    int? offset,
-  }) {
+  _i3.Request $indexTableRows_Request({required int tableId, int? limit, int? offset}) {
     final _parameters = <String, Object?>{};
     final __tableId = _$jsonSerializers.serialize(tableId, specifiedType: const FullType(int));
     _parameters['tableId'] = __tableId;
@@ -2471,12 +2322,13 @@ class $Api1Client {
     final __offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
     _parameters['offset'] = __offset;
 
-    final _path =
-        _i5.UriTemplate('/index.php/apps/tables/api/1/tables/{tableId}/rows{?limit*,offset*}').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/index.php/apps/tables/api/1/tables/{tableId}/rows{?limit*,offset*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2485,14 +2337,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -2520,11 +2370,7 @@ class $Api1Client {
     int? limit,
     int? offset,
   }) async {
-    final _request = $indexTableRows_Request(
-      tableId: tableId,
-      limit: limit,
-      offset: offset,
-    );
+    final _request = $indexTableRows_Request(tableId: tableId, limit: limit, offset: offset);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -2570,7 +2416,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2579,14 +2425,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
       _$jsonSerializers.serialize($body, specifiedType: const FullType(Api1CreateRowInTableRequestApplicationJson)),
@@ -2614,10 +2458,7 @@ class $Api1Client {
     required int tableId,
     required Api1CreateRowInTableRequestApplicationJson $body,
   }) async {
-    final _request = $createRowInTable_Request(
-      tableId: tableId,
-      $body: $body,
-    );
+    final _request = $createRowInTable_Request(tableId: tableId, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -2654,11 +2495,7 @@ class $Api1Client {
   ///  * [indexViewRows] for a method executing this request and parsing the response.
   ///  * [$indexViewRows_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $indexViewRows_Request({
-    required int viewId,
-    int? limit,
-    int? offset,
-  }) {
+  _i3.Request $indexViewRows_Request({required int viewId, int? limit, int? offset}) {
     final _parameters = <String, Object?>{};
     final __viewId = _$jsonSerializers.serialize(viewId, specifiedType: const FullType(int));
     _parameters['viewId'] = __viewId;
@@ -2669,12 +2506,13 @@ class $Api1Client {
     final __offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
     _parameters['offset'] = __offset;
 
-    final _path =
-        _i5.UriTemplate('/index.php/apps/tables/api/1/views/{viewId}/rows{?limit*,offset*}').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/index.php/apps/tables/api/1/views/{viewId}/rows{?limit*,offset*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2683,14 +2521,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -2718,11 +2554,7 @@ class $Api1Client {
     int? limit,
     int? offset,
   }) async {
-    final _request = $indexViewRows_Request(
-      viewId: viewId,
-      limit: limit,
-      offset: offset,
-    );
+    final _request = $indexViewRows_Request(viewId: viewId, limit: limit, offset: offset);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -2768,7 +2600,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2777,14 +2609,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
       _$jsonSerializers.serialize($body, specifiedType: const FullType(Api1CreateRowInViewRequestApplicationJson)),
@@ -2812,10 +2642,7 @@ class $Api1Client {
     required int viewId,
     required Api1CreateRowInViewRequestApplicationJson $body,
   }) async {
-    final _request = $createRowInView_Request(
-      viewId: viewId,
-      $body: $body,
-    );
+    final _request = $createRowInView_Request(viewId: viewId, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -2859,7 +2686,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2868,14 +2695,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -2897,9 +2722,7 @@ class $Api1Client {
   ///  * [$getRow_Request] for the request send by this method.
   ///  * [$getRow_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Row, void>> getRow({required int rowId}) async {
-    final _request = $getRow_Request(
-      rowId: rowId,
-    );
+    final _request = $getRow_Request(rowId: rowId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -2934,10 +2757,7 @@ class $Api1Client {
   ///  * [updateRow] for a method executing this request and parsing the response.
   ///  * [$updateRow_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $updateRow_Request({
-    required int rowId,
-    required Api1UpdateRowRequestApplicationJson $body,
-  }) {
+  _i3.Request $updateRow_Request({required int rowId, required Api1UpdateRowRequestApplicationJson $body}) {
     final _parameters = <String, Object?>{};
     final __rowId = _$jsonSerializers.serialize(rowId, specifiedType: const FullType(int));
     _parameters['rowId'] = __rowId;
@@ -2946,7 +2766,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -2955,17 +2775,16 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = json
-        .encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(Api1UpdateRowRequestApplicationJson)));
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(Api1UpdateRowRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -2990,10 +2809,7 @@ class $Api1Client {
     required int rowId,
     required Api1UpdateRowRequestApplicationJson $body,
   }) async {
-    final _request = $updateRow_Request(
-      rowId: rowId,
-      $body: $body,
-    );
+    final _request = $updateRow_Request(rowId: rowId, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -3037,7 +2853,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3046,14 +2862,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -3075,9 +2889,7 @@ class $Api1Client {
   ///  * [$deleteRow_Request] for the request send by this method.
   ///  * [$deleteRow_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Row, void>> deleteRow({required int rowId}) async {
-    final _request = $deleteRow_Request(
-      rowId: rowId,
-    );
+    final _request = $deleteRow_Request(rowId: rowId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -3113,10 +2925,7 @@ class $Api1Client {
   ///  * [deleteRowByView] for a method executing this request and parsing the response.
   ///  * [$deleteRowByView_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $deleteRowByView_Request({
-    required int viewId,
-    required int rowId,
-  }) {
+  _i3.Request $deleteRowByView_Request({required int viewId, required int rowId}) {
     final _parameters = <String, Object?>{};
     final __viewId = _$jsonSerializers.serialize(viewId, specifiedType: const FullType(int));
     _parameters['viewId'] = __viewId;
@@ -3128,7 +2937,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3137,14 +2946,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     return _request;
   }
 
@@ -3166,14 +2973,8 @@ class $Api1Client {
   /// See:
   ///  * [$deleteRowByView_Request] for the request send by this method.
   ///  * [$deleteRowByView_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<Row, void>> deleteRowByView({
-    required int viewId,
-    required int rowId,
-  }) async {
-    final _request = $deleteRowByView_Request(
-      viewId: viewId,
-      rowId: rowId,
-    );
+  Future<_i1.DynamiteResponse<Row, void>> deleteRowByView({required int viewId, required int rowId}) async {
+    final _request = $deleteRowByView_Request(viewId: viewId, rowId: rowId);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -3208,10 +3009,7 @@ class $Api1Client {
   ///  * [importInTable] for a method executing this request and parsing the response.
   ///  * [$importInTable_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $importInTable_Request({
-    required int tableId,
-    required Api1ImportInTableRequestApplicationJson $body,
-  }) {
+  _i3.Request $importInTable_Request({required int tableId, required Api1ImportInTableRequestApplicationJson $body}) {
     final _parameters = <String, Object?>{};
     final __tableId = _$jsonSerializers.serialize(tableId, specifiedType: const FullType(int));
     _parameters['tableId'] = __tableId;
@@ -3220,7 +3018,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3229,14 +3027,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
       _$jsonSerializers.serialize($body, specifiedType: const FullType(Api1ImportInTableRequestApplicationJson)),
@@ -3265,10 +3061,7 @@ class $Api1Client {
     required int tableId,
     required Api1ImportInTableRequestApplicationJson $body,
   }) async {
-    final _request = $importInTable_Request(
-      tableId: tableId,
-      $body: $body,
-    );
+    final _request = $importInTable_Request(tableId: tableId, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -3303,10 +3096,7 @@ class $Api1Client {
   ///  * [importInView] for a method executing this request and parsing the response.
   ///  * [$importInView_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $importInView_Request({
-    required int viewId,
-    required Api1ImportInViewRequestApplicationJson $body,
-  }) {
+  _i3.Request $importInView_Request({required int viewId, required Api1ImportInViewRequestApplicationJson $body}) {
     final _parameters = <String, Object?>{};
     final __viewId = _$jsonSerializers.serialize(viewId, specifiedType: const FullType(int));
     _parameters['viewId'] = __viewId;
@@ -3315,7 +3105,7 @@ class $Api1Client {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3324,14 +3114,12 @@ class $Api1Client {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
       _$jsonSerializers.serialize($body, specifiedType: const FullType(Api1ImportInViewRequestApplicationJson)),
@@ -3360,10 +3148,7 @@ class $Api1Client {
     required int viewId,
     required Api1ImportInViewRequestApplicationJson $body,
   }) async {
-    final _request = $importInView_Request(
-      viewId: viewId,
-      $body: $body,
-    );
+    final _request = $importInView_Request(viewId: viewId, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -3409,11 +3194,7 @@ class $ApiColumnsClient {
   ///  * [index] for a method executing this request and parsing the response.
   ///  * [$index_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $index_Request({
-    required ApiColumnsIndexNodeType nodeType,
-    required int nodeId,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $index_Request({required ApiColumnsIndexNodeType nodeType, required int nodeId, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __nodeType = _$jsonSerializers.serialize(nodeType, specifiedType: const FullType(ApiColumnsIndexNodeType));
     _parameters['nodeType'] = __nodeType;
@@ -3425,7 +3206,7 @@ class $ApiColumnsClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3434,14 +3215,12 @@ class $ApiColumnsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -3475,11 +3254,7 @@ class $ApiColumnsClient {
     required int nodeId,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $index_Request(
-      nodeType: nodeType,
-      nodeId: nodeId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $index_Request(nodeType: nodeType, nodeId: nodeId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -3515,10 +3290,7 @@ class $ApiColumnsClient {
   ///  * [$show] for a method executing this request and parsing the response.
   ///  * [$$show_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $$show_Request({
-    required int id,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $$show_Request({required int id, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = __id;
@@ -3527,7 +3299,7 @@ class $ApiColumnsClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3536,14 +3308,12 @@ class $ApiColumnsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -3573,10 +3343,7 @@ class $ApiColumnsClient {
     required int id,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $$show_Request(
-      id: id,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $$show_Request(id: id, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -3622,7 +3389,7 @@ class $ApiColumnsClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3631,14 +3398,12 @@ class $ApiColumnsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -3676,16 +3441,14 @@ class $ApiColumnsClient {
     required ApiColumnsCreateNumberColumnRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $createNumberColumn_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $createNumberColumn_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $createNumberColumn_Serializer();
-    return _i1.ResponseConverter<ApiColumnsCreateNumberColumnResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<ApiColumnsCreateNumberColumnResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$createTextColumn_Request].
@@ -3726,7 +3489,7 @@ class $ApiColumnsClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3735,14 +3498,12 @@ class $ApiColumnsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -3780,16 +3541,14 @@ class $ApiColumnsClient {
     required ApiColumnsCreateTextColumnRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $createTextColumn_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $createTextColumn_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $createTextColumn_Serializer();
-    return _i1.ResponseConverter<ApiColumnsCreateTextColumnResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<ApiColumnsCreateTextColumnResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$createSelectionColumn_Request].
@@ -3830,7 +3589,7 @@ class $ApiColumnsClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3839,14 +3598,12 @@ class $ApiColumnsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -3884,16 +3641,14 @@ class $ApiColumnsClient {
     required ApiColumnsCreateSelectionColumnRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $createSelectionColumn_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $createSelectionColumn_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $createSelectionColumn_Serializer();
-    return _i1.ResponseConverter<ApiColumnsCreateSelectionColumnResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<ApiColumnsCreateSelectionColumnResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$createDatetimeColumn_Request].
@@ -3934,7 +3689,7 @@ class $ApiColumnsClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -3943,14 +3698,12 @@ class $ApiColumnsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -3988,16 +3741,14 @@ class $ApiColumnsClient {
     required ApiColumnsCreateDatetimeColumnRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $createDatetimeColumn_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $createDatetimeColumn_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $createDatetimeColumn_Serializer();
-    return _i1.ResponseConverter<ApiColumnsCreateDatetimeColumnResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<ApiColumnsCreateDatetimeColumnResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$createUsergroupColumn_Request].
@@ -4036,7 +3787,7 @@ class $ApiColumnsClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4045,14 +3796,12 @@ class $ApiColumnsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4088,16 +3837,14 @@ class $ApiColumnsClient {
     required ApiColumnsCreateUsergroupColumnRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $createUsergroupColumn_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $createUsergroupColumn_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $createUsergroupColumn_Serializer();
-    return _i1.ResponseConverter<ApiColumnsCreateUsergroupColumnResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<ApiColumnsCreateUsergroupColumnResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 }
 
@@ -4136,11 +3883,7 @@ class $ApiFavoriteClient {
   ///  * [create] for a method executing this request and parsing the response.
   ///  * [$create_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $create_Request({
-    required int nodeType,
-    required int nodeId,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $create_Request({required int nodeType, required int nodeId, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __nodeType = _$jsonSerializers.serialize(nodeType, specifiedType: const FullType(int));
     _parameters['nodeType'] = __nodeType;
@@ -4152,7 +3895,7 @@ class $ApiFavoriteClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4161,14 +3904,12 @@ class $ApiFavoriteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4200,11 +3941,7 @@ class $ApiFavoriteClient {
     required int nodeId,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $create_Request(
-      nodeType: nodeType,
-      nodeId: nodeId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $create_Request(nodeType: nodeType, nodeId: nodeId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -4242,11 +3979,7 @@ class $ApiFavoriteClient {
   ///  * [destroy] for a method executing this request and parsing the response.
   ///  * [$destroy_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $destroy_Request({
-    required int nodeType,
-    required int nodeId,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $destroy_Request({required int nodeType, required int nodeId, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __nodeType = _$jsonSerializers.serialize(nodeType, specifiedType: const FullType(int));
     _parameters['nodeType'] = __nodeType;
@@ -4258,7 +3991,7 @@ class $ApiFavoriteClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4267,14 +4000,12 @@ class $ApiFavoriteClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4306,11 +4037,7 @@ class $ApiFavoriteClient {
     required int nodeId,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $destroy_Request(
-      nodeType: nodeType,
-      nodeId: nodeId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $destroy_Request(nodeType: nodeType, nodeId: nodeId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -4357,7 +4084,7 @@ class $ApiGeneralClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4366,14 +4093,12 @@ class $ApiGeneralClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4399,9 +4124,7 @@ class $ApiGeneralClient {
   ///  * [$index_Request] for the request send by this method.
   ///  * [$index_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ApiGeneralIndexResponseApplicationJson, void>> index({bool? oCSAPIRequest}) async {
-    final _request = $index_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $index_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -4446,7 +4169,7 @@ class $ApiTablesClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4455,14 +4178,12 @@ class $ApiTablesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4486,9 +4207,7 @@ class $ApiTablesClient {
   ///  * [$index_Request] for the request send by this method.
   ///  * [$index_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ApiTablesIndexResponseApplicationJson, void>> index({bool? oCSAPIRequest}) async {
-    final _request = $index_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $index_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -4521,15 +4240,12 @@ class $ApiTablesClient {
   ///  * [create] for a method executing this request and parsing the response.
   ///  * [$create_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $create_Request({
-    required ApiTablesCreateRequestApplicationJson $body,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $create_Request({required ApiTablesCreateRequestApplicationJson $body, bool? oCSAPIRequest}) {
     const _path = '/ocs/v2.php/apps/tables/api/2/tables';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4538,14 +4254,12 @@ class $ApiTablesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4576,10 +4290,7 @@ class $ApiTablesClient {
     required ApiTablesCreateRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $create_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $create_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -4615,10 +4326,7 @@ class $ApiTablesClient {
   ///  * [$show] for a method executing this request and parsing the response.
   ///  * [$$show_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $$show_Request({
-    required int id,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $$show_Request({required int id, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = __id;
@@ -4627,7 +4335,7 @@ class $ApiTablesClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4636,14 +4344,12 @@ class $ApiTablesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4673,10 +4379,7 @@ class $ApiTablesClient {
     required int id,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $$show_Request(
-      id: id,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $$show_Request(id: id, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -4712,11 +4415,7 @@ class $ApiTablesClient {
   ///  * [$update] for a method executing this request and parsing the response.
   ///  * [$$update_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $$update_Request({
-    required int id,
-    bool? oCSAPIRequest,
-    ApiTablesUpdateRequestApplicationJson? $body,
-  }) {
+  _i3.Request $$update_Request({required int id, bool? oCSAPIRequest, ApiTablesUpdateRequestApplicationJson? $body}) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = __id;
@@ -4725,7 +4424,7 @@ class $ApiTablesClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4734,14 +4433,12 @@ class $ApiTablesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4783,11 +4480,7 @@ class $ApiTablesClient {
     bool? oCSAPIRequest,
     ApiTablesUpdateRequestApplicationJson? $body,
   }) async {
-    final _request = $$update_Request(
-      id: id,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $$update_Request(id: id, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -4823,10 +4516,7 @@ class $ApiTablesClient {
   ///  * [destroy] for a method executing this request and parsing the response.
   ///  * [$destroy_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $destroy_Request({
-    required int id,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $destroy_Request({required int id, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = __id;
@@ -4835,7 +4525,7 @@ class $ApiTablesClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4844,14 +4534,12 @@ class $ApiTablesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4881,10 +4569,7 @@ class $ApiTablesClient {
     required int id,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $destroy_Request(
-      id: id,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $destroy_Request(id: id, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -4921,10 +4606,7 @@ class $ApiTablesClient {
   ///  * [showScheme] for a method executing this request and parsing the response.
   ///  * [$showScheme_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $showScheme_Request({
-    required int id,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $showScheme_Request({required int id, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = __id;
@@ -4933,7 +4615,7 @@ class $ApiTablesClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -4942,14 +4624,12 @@ class $ApiTablesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -4979,10 +4659,7 @@ class $ApiTablesClient {
     required int id,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $showScheme_Request(
-      id: id,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $showScheme_Request(id: id, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -5024,7 +4701,7 @@ class $ApiTablesClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5033,14 +4710,12 @@ class $ApiTablesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5074,16 +4749,14 @@ class $ApiTablesClient {
     required ApiTablesCreateFromSchemeRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $createFromScheme_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $createFromScheme_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $createFromScheme_Serializer();
-    return _i1.ResponseConverter<ApiTablesCreateFromSchemeResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<ApiTablesCreateFromSchemeResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$transfer_Request].
@@ -5130,7 +4803,7 @@ class $ApiTablesClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5139,14 +4812,12 @@ class $ApiTablesClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5183,11 +4854,7 @@ class $ApiTablesClient {
     required ApiTablesTransferRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $transfer_Request(
-      id: id,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $transfer_Request(id: id, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -5234,7 +4901,7 @@ class $ContextClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5243,14 +4910,12 @@ class $ContextClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5276,9 +4941,7 @@ class $ContextClient {
   ///  * [$index_Request] for the request send by this method.
   ///  * [$index_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ContextIndexResponseApplicationJson, void>> index({bool? oCSAPIRequest}) async {
-    final _request = $index_Request(
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $index_Request(oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -5313,15 +4976,12 @@ class $ContextClient {
   ///  * [create] for a method executing this request and parsing the response.
   ///  * [$create_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $create_Request({
-    required ContextCreateRequestApplicationJson $body,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $create_Request({required ContextCreateRequestApplicationJson $body, bool? oCSAPIRequest}) {
     const _path = '/ocs/v2.php/apps/tables/api/2/contexts';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5330,21 +4990,20 @@ class $ContextClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = json
-        .encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(ContextCreateRequestApplicationJson)));
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(ContextCreateRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -5369,10 +5028,7 @@ class $ContextClient {
     required ContextCreateRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $create_Request(
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $create_Request(oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -5407,10 +5063,7 @@ class $ContextClient {
   ///  * [$show] for a method executing this request and parsing the response.
   ///  * [$$show_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $$show_Request({
-    required int contextId,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $$show_Request({required int contextId, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __contextId = _$jsonSerializers.serialize(contextId, specifiedType: const FullType(int));
     _parameters['contextId'] = __contextId;
@@ -5419,7 +5072,7 @@ class $ContextClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5428,14 +5081,12 @@ class $ContextClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5464,10 +5115,7 @@ class $ContextClient {
     required int contextId,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $$show_Request(
-      contextId: contextId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $$show_Request(contextId: contextId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -5516,7 +5164,7 @@ class $ContextClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5525,14 +5173,12 @@ class $ContextClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5574,11 +5220,7 @@ class $ContextClient {
     bool? oCSAPIRequest,
     ContextUpdateRequestApplicationJson? $body,
   }) async {
-    final _request = $$update_Request(
-      contextId: contextId,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $$update_Request(contextId: contextId, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -5613,10 +5255,7 @@ class $ContextClient {
   ///  * [destroy] for a method executing this request and parsing the response.
   ///  * [$destroy_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $destroy_Request({
-    required int contextId,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $destroy_Request({required int contextId, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __contextId = _$jsonSerializers.serialize(contextId, specifiedType: const FullType(int));
     _parameters['contextId'] = __contextId;
@@ -5625,7 +5264,7 @@ class $ContextClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5634,14 +5273,12 @@ class $ContextClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5670,10 +5307,7 @@ class $ContextClient {
     required int contextId,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $destroy_Request(
-      contextId: contextId,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $destroy_Request(contextId: contextId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -5716,18 +5350,14 @@ class $ContextClient {
   }) {
     final _parameters = <String, Object?>{};
     final __contextId = _$jsonSerializers.serialize(contextId, specifiedType: const FullType(int));
-    _i6.checkNumber(
-      __contextId,
-      'contextId',
-      minimum: 0,
-    );
+    _i6.checkNumber(__contextId, 'contextId', minimum: 0);
     _parameters['contextId'] = __contextId;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/tables/api/2/contexts/{contextId}/transfer').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5736,14 +5366,12 @@ class $ContextClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5778,11 +5406,7 @@ class $ContextClient {
     required ContextTransferRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $transfer_Request(
-      contextId: contextId,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $transfer_Request(contextId: contextId, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -5833,12 +5457,13 @@ class $ContextClient {
     final __pageId = _$jsonSerializers.serialize(pageId, specifiedType: const FullType(int));
     _parameters['pageId'] = __pageId;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/tables/api/2/contexts/{contextId}/pages/{pageId}').expand(_parameters);
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/tables/api/2/contexts/{contextId}/pages/{pageId}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5847,14 +5472,12 @@ class $ContextClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -5904,8 +5527,9 @@ class $ContextClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $updateContentOrder_Serializer();
-    return _i1.ResponseConverter<ContextUpdateContentOrderResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<ContextUpdateContentOrderResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 }
 
@@ -5953,13 +5577,11 @@ class $RowocsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final __nodeCollection =
-        _$jsonSerializers.serialize(nodeCollection, specifiedType: const FullType(RowocsCreateRowNodeCollection));
-    _i6.checkString(
-      __nodeCollection,
-      'nodeCollection',
-      pattern: RegExp(r'^(tables|views)$'),
+    final __nodeCollection = _$jsonSerializers.serialize(
+      nodeCollection,
+      specifiedType: const FullType(RowocsCreateRowNodeCollection),
     );
+    _i6.checkString(__nodeCollection, 'nodeCollection', pattern: RegExp(r'^(tables|views)$'));
     _parameters['nodeCollection'] = __nodeCollection;
 
     final __nodeId = _$jsonSerializers.serialize(nodeId, specifiedType: const FullType(int));
@@ -5969,7 +5591,7 @@ class $RowocsClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -5978,14 +5600,12 @@ class $RowocsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -6145,11 +5765,7 @@ class _$View_Sort_ModeSerializer implements PrimitiveSerializer<View_Sort_Mode> 
   String get wireName => 'View_Sort_Mode';
 
   @override
-  Object serialize(
-    Serializers serializers,
-    View_Sort_Mode object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
+  Object serialize(Serializers serializers, View_Sort_Mode object, {FullType specifiedType = FullType.unspecified}) =>
       _toWire[object]!;
 
   @override
@@ -6586,10 +6202,7 @@ abstract class Table implements $TableInterface, Built<Table, TableBuilder> {
 
 @BuiltValue(instantiable: false)
 sealed class $Api1CreateTableRequestApplicationJsonInterface {
-  static final _$template = _$jsonSerializers.deserialize(
-    'custom',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$template = _$jsonSerializers.deserialize('custom', specifiedType: const FullType(String))! as String;
 
   /// Title of the table.
   String get title;
@@ -6663,10 +6276,7 @@ abstract class Api1CreateTableRequestApplicationJson
 
 @BuiltValue(instantiable: false)
 sealed class $Api1UpdateTableRequestApplicationJsonInterface {
-  static final _$archived = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  static final _$archived = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
 
   /// New table title.
   String? get title;
@@ -7711,7 +7321,7 @@ typedef Api1UpdateViewRequestApplicationJson_Data = ({
   Api1UpdateViewRequestApplicationJson_Data0? api1UpdateViewRequestApplicationJsonData0,
   Api1UpdateViewRequestApplicationJson_Data1? api1UpdateViewRequestApplicationJsonData1,
   Api1UpdateViewRequestApplicationJson_Data2? api1UpdateViewRequestApplicationJsonData2,
-  Api1UpdateViewRequestApplicationJson_Data3? api1UpdateViewRequestApplicationJsonData3
+  Api1UpdateViewRequestApplicationJson_Data3? api1UpdateViewRequestApplicationJsonData3,
 });
 
 @BuiltValue(instantiable: false)
@@ -8214,35 +7824,17 @@ class _$Api1CreateShareRequestApplicationJson_ReceiverTypeSerializer
 
 @BuiltValue(instantiable: false)
 sealed class $Api1CreateShareRequestApplicationJsonInterface {
-  static final _$permissionRead = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  static final _$permissionRead = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
 
-  static final _$permissionCreate = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  static final _$permissionCreate = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
 
-  static final _$permissionUpdate = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  static final _$permissionUpdate = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
 
-  static final _$permissionDelete = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  static final _$permissionDelete = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
 
-  static final _$permissionManage = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  static final _$permissionManage = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
 
-  static final _$displayMode = _$jsonSerializers.deserialize(
-    2,
-    specifiedType: const FullType(int),
-  )! as int;
+  static final _$displayMode = _$jsonSerializers.deserialize(2, specifiedType: const FullType(int))! as int;
 
   /// Node ID.
   int get nodeId;
@@ -8296,12 +7888,7 @@ sealed class $Api1CreateShareRequestApplicationJsonInterface {
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($Api1CreateShareRequestApplicationJsonInterfaceBuilder b) {
-    _i6.checkNumber(
-      b.displayMode,
-      'displayMode',
-      maximum: 2,
-      minimum: 0,
-    );
+    _i6.checkNumber(b.displayMode, 'displayMode', maximum: 2, minimum: 0);
   }
 }
 
@@ -8448,12 +8035,7 @@ sealed class $Api1UpdateShareDisplayModeRequestApplicationJsonInterface {
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($Api1UpdateShareDisplayModeRequestApplicationJsonInterfaceBuilder b) {
-    _i6.checkNumber(
-      b.displayMode,
-      'displayMode',
-      maximum: 2,
-      minimum: 0,
-    );
+    _i6.checkNumber(b.displayMode, 'displayMode', maximum: 2, minimum: 0);
   }
 }
 
@@ -8732,30 +8314,16 @@ class _$Api1CreateTableColumnRequestApplicationJson_TypeSerializer
 
 @BuiltValue(instantiable: false)
 sealed class $Api1CreateTableColumnRequestApplicationJsonInterface {
-  static final _$selectionOptions = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$selectionOptions = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$selectionDefault = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$selectionDefault = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$datetimeDefault = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$datetimeDefault = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$usergroupDefault = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$usergroupDefault = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$selectedViewIds = _$jsonSerializers.deserialize(
-    const [],
-    specifiedType: const FullType(BuiltList, [FullType(int)]),
-  )! as BuiltList<int>;
+  static final _$selectedViewIds = _$jsonSerializers
+      .deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<int>;
 
   /// Title.
   String get title;
@@ -8982,30 +8550,16 @@ class _$Api1CreateColumnRequestApplicationJson_TypeSerializer
 
 @BuiltValue(instantiable: false)
 sealed class $Api1CreateColumnRequestApplicationJsonInterface {
-  static final _$selectionOptions = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$selectionOptions = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$selectionDefault = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$selectionDefault = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$datetimeDefault = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$datetimeDefault = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$usergroupDefault = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$usergroupDefault = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$selectedViewIds = _$jsonSerializers.deserialize(
-    const [],
-    specifiedType: const FullType(BuiltList, [FullType(int)]),
-  )! as BuiltList<int>;
+  static final _$selectedViewIds = _$jsonSerializers
+      .deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<int>;
 
   /// Table ID.
   int? get tableId;
@@ -9611,10 +9165,8 @@ abstract class Api1UpdateRowRequestApplicationJson
 
 @BuiltValue(instantiable: false)
 sealed class $Api1ImportInTableRequestApplicationJsonInterface {
-  static final _$createMissingColumns = _$jsonSerializers.deserialize(
-    true,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  static final _$createMissingColumns =
+      _$jsonSerializers.deserialize(true, specifiedType: const FullType(bool))! as bool;
 
   /// Path to file.
   String get path;
@@ -9750,10 +9302,8 @@ abstract class ImportState implements $ImportStateInterface, Built<ImportState, 
 
 @BuiltValue(instantiable: false)
 sealed class $Api1ImportInViewRequestApplicationJsonInterface {
-  static final _$createMissingColumns = _$jsonSerializers.deserialize(
-    true,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  static final _$createMissingColumns =
+      _$jsonSerializers.deserialize(true, specifiedType: const FullType(bool))! as bool;
 
   /// Path to file.
   String get path;
@@ -10335,15 +9885,10 @@ class _$ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeTypeSerialize
 
 @BuiltValue(instantiable: false)
 sealed class $ApiColumnsCreateNumberColumnRequestApplicationJsonInterface {
-  static final _$selectedViewIds = _$jsonSerializers.deserialize(
-    const [],
-    specifiedType: const FullType(BuiltList, [FullType(int)]),
-  )! as BuiltList<int>;
+  static final _$selectedViewIds = _$jsonSerializers
+      .deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<int>;
 
-  static final _$mandatory = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  static final _$mandatory = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
 
   static final _$baseNodeType = _$jsonSerializers.deserialize(
     'table',
@@ -10725,15 +10270,10 @@ class _$ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeTypeSerializer
 
 @BuiltValue(instantiable: false)
 sealed class $ApiColumnsCreateTextColumnRequestApplicationJsonInterface {
-  static final _$selectedViewIds = _$jsonSerializers.deserialize(
-    const [],
-    specifiedType: const FullType(BuiltList, [FullType(int)]),
-  )! as BuiltList<int>;
+  static final _$selectedViewIds = _$jsonSerializers
+      .deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<int>;
 
-  static final _$mandatory = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  static final _$mandatory = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
 
   static final _$baseNodeType = _$jsonSerializers.deserialize(
     'table',
@@ -11106,15 +10646,10 @@ class _$ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeTypeSerial
 
 @BuiltValue(instantiable: false)
 sealed class $ApiColumnsCreateSelectionColumnRequestApplicationJsonInterface {
-  static final _$selectedViewIds = _$jsonSerializers.deserialize(
-    const [],
-    specifiedType: const FullType(BuiltList, [FullType(int)]),
-  )! as BuiltList<int>;
+  static final _$selectedViewIds = _$jsonSerializers
+      .deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<int>;
 
-  static final _$mandatory = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  static final _$mandatory = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
 
   static final _$baseNodeType = _$jsonSerializers.deserialize(
     'table',
@@ -11554,15 +11089,10 @@ class _$ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeTypeSeriali
 
 @BuiltValue(instantiable: false)
 sealed class $ApiColumnsCreateDatetimeColumnRequestApplicationJsonInterface {
-  static final _$selectedViewIds = _$jsonSerializers.deserialize(
-    const [],
-    specifiedType: const FullType(BuiltList, [FullType(int)]),
-  )! as BuiltList<int>;
+  static final _$selectedViewIds = _$jsonSerializers
+      .deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<int>;
 
-  static final _$mandatory = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  static final _$mandatory = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
 
   static final _$baseNodeType = _$jsonSerializers.deserialize(
     'table',
@@ -11859,15 +11389,10 @@ class _$ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeTypeSerial
 
 @BuiltValue(instantiable: false)
 sealed class $ApiColumnsCreateUsergroupColumnRequestApplicationJsonInterface {
-  static final _$selectedViewIds = _$jsonSerializers.deserialize(
-    const [],
-    specifiedType: const FullType(BuiltList, [FullType(int)]),
-  )! as BuiltList<int>;
+  static final _$selectedViewIds = _$jsonSerializers
+      .deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<int>;
 
-  static final _$mandatory = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  static final _$mandatory = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
 
   static final _$baseNodeType = _$jsonSerializers.deserialize(
     'table',
@@ -12667,10 +12192,7 @@ abstract class ApiTablesIndexResponseApplicationJson
 
 @BuiltValue(instantiable: false)
 sealed class $ApiTablesCreateRequestApplicationJsonInterface {
-  static final _$template = _$jsonSerializers.deserialize(
-    'custom',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$template = _$jsonSerializers.deserialize('custom', specifiedType: const FullType(String))! as String;
 
   /// Title of the table.
   String get title;
@@ -14094,10 +13616,7 @@ abstract class ContextCreateRequestApplicationJson_Nodes
 
 @BuiltValue(instantiable: false)
 sealed class $ContextCreateRequestApplicationJsonInterface {
-  static final _$description = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$description = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
   static final _$nodes = _$jsonSerializers.deserialize(
     const [],
@@ -14823,10 +14342,7 @@ abstract class ContextDestroyResponseApplicationJson
 
 @BuiltValue(instantiable: false)
 sealed class $ContextTransferRequestApplicationJsonInterface {
-  static final _$newOwnerType = _$jsonSerializers.deserialize(
-    0,
-    specifiedType: const FullType(int),
-  )! as int;
+  static final _$newOwnerType = _$jsonSerializers.deserialize(0, specifiedType: const FullType(int))! as int;
 
   /// ID of the new owner.
   String get newOwnerId;
@@ -14851,12 +14367,7 @@ sealed class $ContextTransferRequestApplicationJsonInterface {
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($ContextTransferRequestApplicationJsonInterfaceBuilder b) {
-    _i6.checkNumber(
-      b.newOwnerType,
-      'newOwnerType',
-      maximum: 0,
-      minimum: 0,
-    );
+    _i6.checkNumber(b.newOwnerType, 'newOwnerType', maximum: 0, minimum: 0);
   }
 }
 
@@ -15768,16 +15279,10 @@ extension $b6d67dc2a96424d2f407f8e51557f3deExtension on _$b6d67dc2a96424d2f407f8
   List<String> get _names => const [r'$num', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i6.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i6.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i6.validateAnyOf(
-        _values,
-        _names,
-      );
+  void validateAnyOf() => _i6.validateAnyOf(_values, _names);
   static Serializer<_$b6d67dc2a96424d2f407f8e51557f3de> get _serializer =>
       const _$b6d67dc2a96424d2f407f8e51557f3deSerializer();
   static _$b6d67dc2a96424d2f407f8e51557f3de _fromJson(Object? json) =>
@@ -15813,7 +15318,7 @@ class _$b6d67dc2a96424d2f407f8e51557f3deSerializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(String))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
@@ -15825,17 +15330,11 @@ class _$b6d67dc2a96424d2f407f8e51557f3deSerializer implements PrimitiveSerialize
   }) {
     num? $num;
     try {
-      $num = serializers.deserialize(
-        data,
-        specifiedType: const FullType(num),
-      )! as num;
+      $num = serializers.deserialize(data, specifiedType: const FullType(num))! as num;
     } catch (_) {}
     String? string;
     try {
-      string = serializers.deserialize(
-        data,
-        specifiedType: const FullType(String),
-      )! as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     return ($num: $num, string: string);
   }
@@ -15845,7 +15344,7 @@ typedef _$8518b50581163640f148d1e5a6a7db2c = ({
   Api1UpdateViewRequestApplicationJson_Data0? api1UpdateViewRequestApplicationJsonData0,
   Api1UpdateViewRequestApplicationJson_Data1? api1UpdateViewRequestApplicationJsonData1,
   Api1UpdateViewRequestApplicationJson_Data2? api1UpdateViewRequestApplicationJsonData2,
-  Api1UpdateViewRequestApplicationJson_Data3? api1UpdateViewRequestApplicationJsonData3
+  Api1UpdateViewRequestApplicationJson_Data3? api1UpdateViewRequestApplicationJsonData3,
 });
 
 /// @nodoc
@@ -15865,16 +15364,10 @@ extension $8518b50581163640f148d1e5a6a7db2cExtension on _$8518b50581163640f148d1
       ];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i6.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i6.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i6.validateAnyOf(
-        _values,
-        _names,
-      );
+  void validateAnyOf() => _i6.validateAnyOf(_values, _names);
   static Serializer<_$8518b50581163640f148d1e5a6a7db2c> get _serializer =>
       const _$8518b50581163640f148d1e5a6a7db2cSerializer();
   static _$8518b50581163640f148d1e5a6a7db2c _fromJson(Object? json) =>
@@ -15918,7 +15411,7 @@ class _$8518b50581163640f148d1e5a6a7db2cSerializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data3))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
@@ -15930,37 +15423,33 @@ class _$8518b50581163640f148d1e5a6a7db2cSerializer implements PrimitiveSerialize
   }) {
     Api1UpdateViewRequestApplicationJson_Data0? api1UpdateViewRequestApplicationJsonData0;
     try {
-      api1UpdateViewRequestApplicationJsonData0 = serializers.deserialize(
-        data,
-        specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data0),
-      )! as Api1UpdateViewRequestApplicationJson_Data0;
+      api1UpdateViewRequestApplicationJsonData0 =
+          serializers.deserialize(data, specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data0))!
+              as Api1UpdateViewRequestApplicationJson_Data0;
     } catch (_) {}
     Api1UpdateViewRequestApplicationJson_Data1? api1UpdateViewRequestApplicationJsonData1;
     try {
-      api1UpdateViewRequestApplicationJsonData1 = serializers.deserialize(
-        data,
-        specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data1),
-      )! as Api1UpdateViewRequestApplicationJson_Data1;
+      api1UpdateViewRequestApplicationJsonData1 =
+          serializers.deserialize(data, specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data1))!
+              as Api1UpdateViewRequestApplicationJson_Data1;
     } catch (_) {}
     Api1UpdateViewRequestApplicationJson_Data2? api1UpdateViewRequestApplicationJsonData2;
     try {
-      api1UpdateViewRequestApplicationJsonData2 = serializers.deserialize(
-        data,
-        specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data2),
-      )! as Api1UpdateViewRequestApplicationJson_Data2;
+      api1UpdateViewRequestApplicationJsonData2 =
+          serializers.deserialize(data, specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data2))!
+              as Api1UpdateViewRequestApplicationJson_Data2;
     } catch (_) {}
     Api1UpdateViewRequestApplicationJson_Data3? api1UpdateViewRequestApplicationJsonData3;
     try {
-      api1UpdateViewRequestApplicationJsonData3 = serializers.deserialize(
-        data,
-        specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data3),
-      )! as Api1UpdateViewRequestApplicationJson_Data3;
+      api1UpdateViewRequestApplicationJsonData3 =
+          serializers.deserialize(data, specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data3))!
+              as Api1UpdateViewRequestApplicationJson_Data3;
     } catch (_) {}
     return (
       api1UpdateViewRequestApplicationJsonData0: api1UpdateViewRequestApplicationJsonData0,
       api1UpdateViewRequestApplicationJsonData1: api1UpdateViewRequestApplicationJsonData1,
       api1UpdateViewRequestApplicationJsonData2: api1UpdateViewRequestApplicationJsonData2,
-      api1UpdateViewRequestApplicationJsonData3: api1UpdateViewRequestApplicationJsonData3
+      api1UpdateViewRequestApplicationJsonData3: api1UpdateViewRequestApplicationJsonData3,
     );
   }
 }
@@ -15974,16 +15463,10 @@ extension $3f5057013fe375112018fdacdf7c966aExtension on _$3f5057013fe375112018fd
   List<String> get _names => const ['builtMapStringJsonObject', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i6.validateOneOf(
-        _values,
-        _names,
-      );
+  void validateOneOf() => _i6.validateOneOf(_values, _names);
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i6.validateAnyOf(
-        _values,
-        _names,
-      );
+  void validateAnyOf() => _i6.validateAnyOf(_values, _names);
   static Serializer<_$3f5057013fe375112018fdacdf7c966a> get _serializer =>
       const _$3f5057013fe375112018fdacdf7c966aSerializer();
   static _$3f5057013fe375112018fdacdf7c966a _fromJson(Object? json) =>
@@ -16022,7 +15505,7 @@ class _$3f5057013fe375112018fdacdf7c966aSerializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(String))!;
     }
-// Should not be possible after validation.
+    // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
@@ -16041,10 +15524,7 @@ class _$3f5057013fe375112018fdacdf7c966aSerializer implements PrimitiveSerialize
     } catch (_) {}
     String? string;
     try {
-      string = serializers.deserialize(
-        data,
-        specifiedType: const FullType(String),
-      )! as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     return (builtMapStringJsonObject: builtMapStringJsonObject, string: string);
   }

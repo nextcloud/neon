@@ -35,19 +35,11 @@ part 'notifications.openapi.g.dart';
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
-  $Client(
-    super.baseURL, {
-    super.httpClient,
-    super.authentications,
-  });
+  $Client(super.baseURL, {super.httpClient, super.authentications});
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $ApiClient api = $ApiClient(this);
 
@@ -108,17 +100,20 @@ class $ApiClient {
     final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
     _parameters['userId'] = __userId;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ApiGenerateNotificationApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(ApiGenerateNotificationApiVersion),
+    );
     __apiVersion ??= 'v2';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/admin_notifications/{userId}')
-        .expand(_parameters);
+    final _path = _i4.UriTemplate(
+      '/ocs/v2.php/apps/notifications/api/{apiVersion}/admin_notifications/{userId}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -127,24 +122,19 @@ class $ApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
     _request.body = json.encode(
-      _$jsonSerializers.serialize(
-        $body,
-        specifiedType: const FullType(ApiGenerateNotificationRequestApplicationJson),
-      ),
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(ApiGenerateNotificationRequestApplicationJson)),
     );
     return _request;
   }
@@ -228,22 +218,19 @@ class $ApiClient {
   }) {
     final _parameters = <String, Object?>{};
     final __apiVersion3 = _$jsonSerializers.serialize(apiVersion3, specifiedType: const FullType(String));
-    _i6.checkString(
-      __apiVersion3,
-      'apiVersion3',
-      pattern: RegExp(r'^(v3)$'),
-    );
+    _i6.checkString(__apiVersion3, 'apiVersion3', pattern: RegExp(r'^(v3)$'));
     _parameters['apiVersion3'] = __apiVersion3;
 
     final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
     _parameters['userId'] = __userId;
 
-    final _path = _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion3}/admin_notifications/{userId}')
-        .expand(_parameters);
+    final _path = _i4.UriTemplate(
+      '/ocs/v2.php/apps/notifications/api/{apiVersion3}/admin_notifications/{userId}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -252,14 +239,12 @@ class $ApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -316,8 +301,9 @@ class $ApiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $generateNotificationV3_Serializer();
-    return _i1.ResponseConverter<ApiGenerateNotificationV3ResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<ApiGenerateNotificationV3ResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$selfTestPush_Request].
@@ -349,24 +335,17 @@ class $ApiClient {
   ///  * [selfTestPush] for a method executing this request and parsing the response.
   ///  * [$selfTestPush_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $selfTestPush_Request({
-    required String apiVersion3,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $selfTestPush_Request({required String apiVersion3, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
     final __apiVersion3 = _$jsonSerializers.serialize(apiVersion3, specifiedType: const FullType(String));
-    _i6.checkString(
-      __apiVersion3,
-      'apiVersion3',
-      pattern: RegExp(r'^(v3)$'),
-    );
+    _i6.checkString(__apiVersion3, 'apiVersion3', pattern: RegExp(r'^(v3)$'));
     _parameters['apiVersion3'] = __apiVersion3;
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion3}/test/self').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -375,14 +354,12 @@ class $ApiClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -412,10 +389,7 @@ class $ApiClient {
     required String apiVersion3,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $selfTestPush_Request(
-      apiVersion3: apiVersion3,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $selfTestPush_Request(apiVersion3: apiVersion3, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -457,13 +431,12 @@ class $EndpointClient {
   ///  * [listNotifications] for a method executing this request and parsing the response.
   ///  * [$listNotifications_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $listNotifications_Request({
-    EndpointListNotificationsApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $listNotifications_Request({EndpointListNotificationsApiVersion? apiVersion, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(EndpointListNotificationsApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(EndpointListNotificationsApiVersion),
+    );
     __apiVersion ??= 'v2';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -471,7 +444,7 @@ class $EndpointClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -480,14 +453,12 @@ class $EndpointClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -514,14 +485,8 @@ class $EndpointClient {
   Future<
           _i1
           .DynamiteResponse<EndpointListNotificationsResponseApplicationJson, EndpointEndpointListNotificationsHeaders>>
-      listNotifications({
-    EndpointListNotificationsApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) async {
-    final _request = $listNotifications_Request(
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+      listNotifications({EndpointListNotificationsApiVersion? apiVersion, bool? oCSAPIRequest}) async {
+    final _request = $listNotifications_Request(apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -574,7 +539,7 @@ class $EndpointClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -583,14 +548,12 @@ class $EndpointClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -618,16 +581,14 @@ class $EndpointClient {
     EndpointDeleteAllNotificationsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $deleteAllNotifications_Request(
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $deleteAllNotifications_Request(apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteAllNotifications_Serializer();
-    return _i1.ResponseConverter<EndpointDeleteAllNotificationsResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<EndpointDeleteAllNotificationsResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getNotification_Request].
@@ -667,17 +628,20 @@ class $EndpointClient {
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = __id;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(EndpointGetNotificationApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(EndpointGetNotificationApiVersion),
+    );
     __apiVersion ??= 'v2';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}').expand(_parameters);
+    final _path = _i4.UriTemplate(
+      '/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -686,14 +650,12 @@ class $EndpointClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -723,11 +685,7 @@ class $EndpointClient {
     EndpointGetNotificationApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getNotification_Request(
-      id: id,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $getNotification_Request(id: id, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -773,17 +731,20 @@ class $EndpointClient {
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = __id;
 
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(EndpointDeleteNotificationApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(EndpointDeleteNotificationApiVersion),
+    );
     __apiVersion ??= 'v2';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}').expand(_parameters);
+    final _path = _i4.UriTemplate(
+      '/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -792,14 +753,12 @@ class $EndpointClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -830,17 +789,14 @@ class $EndpointClient {
     EndpointDeleteNotificationApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $deleteNotification_Request(
-      id: id,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $deleteNotification_Request(id: id, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteNotification_Serializer();
-    return _i1.ResponseConverter<EndpointDeleteNotificationResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<EndpointDeleteNotificationResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$confirmIdsForUser_Request].
@@ -876,17 +832,20 @@ class $EndpointClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(EndpointConfirmIdsForUserApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(EndpointConfirmIdsForUserApiVersion),
+    );
     __apiVersion ??= 'v2';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/exists').expand(_parameters);
+    final _path = _i4.UriTemplate(
+      '/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/exists',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -895,14 +854,12 @@ class $EndpointClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -938,17 +895,14 @@ class $EndpointClient {
     EndpointConfirmIdsForUserApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $confirmIdsForUser_Request(
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $confirmIdsForUser_Request(apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $confirmIdsForUser_Serializer();
-    return _i1.ResponseConverter<EndpointConfirmIdsForUserResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<EndpointConfirmIdsForUserResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
   }
 }
 
@@ -993,8 +947,10 @@ class $PushClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PushRegisterDeviceApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(PushRegisterDeviceApiVersion),
+    );
     __apiVersion ??= 'v2';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -1002,7 +958,7 @@ class $PushClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1011,14 +967,12 @@ class $PushClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1053,11 +1007,7 @@ class $PushClient {
     PushRegisterDeviceApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $registerDevice_Request(
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $registerDevice_Request(apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1094,13 +1044,12 @@ class $PushClient {
   ///  * [removeDevice] for a method executing this request and parsing the response.
   ///  * [$removeDevice_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $removeDevice_Request({
-    PushRemoveDeviceApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
+  _i3.Request $removeDevice_Request({PushRemoveDeviceApiVersion? apiVersion, bool? oCSAPIRequest}) {
     final _parameters = <String, Object?>{};
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PushRemoveDeviceApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(PushRemoveDeviceApiVersion),
+    );
     __apiVersion ??= 'v2';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -1108,7 +1057,7 @@ class $PushClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1117,14 +1066,12 @@ class $PushClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1154,10 +1101,7 @@ class $PushClient {
     PushRemoveDeviceApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $removeDevice_Request(
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
+    final _request = $removeDevice_Request(apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1204,8 +1148,10 @@ class $SettingsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var __apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SettingsPersonalApiVersion));
+    var __apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(SettingsPersonalApiVersion),
+    );
     __apiVersion ??= 'v2';
     _parameters['apiVersion'] = __apiVersion;
 
@@ -1213,7 +1159,7 @@ class $SettingsClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1222,14 +1168,12 @@ class $SettingsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
@@ -1261,11 +1205,7 @@ class $SettingsClient {
     SettingsPersonalApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $personal_Request(
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $personal_Request(apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1314,7 +1254,7 @@ class $SettingsClient {
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
+    // coverage:ignore-start
     final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
@@ -1323,21 +1263,20 @@ class $SettingsClient {
     );
 
     if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
+      _request.headers.addAll(authentication.headers);
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
-// coverage:ignore-end
+    // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = json
-        .encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(SettingsAdminRequestApplicationJson)));
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(SettingsAdminRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -1363,11 +1302,7 @@ class $SettingsClient {
     SettingsAdminApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $admin_Request(
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
-    );
+    final _request = $admin_Request(apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest, $body: $body);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -1440,10 +1375,7 @@ class _$ApiGenerateNotificationApiVersionSerializer implements PrimitiveSerializ
 
 @BuiltValue(instantiable: false)
 sealed class $ApiGenerateNotificationRequestApplicationJsonInterface {
-  static final _$longMessage = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$longMessage = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
   /// Subject of the notification.
   String get shortMessage;
@@ -1701,15 +1633,9 @@ abstract class ApiGenerateNotificationResponseApplicationJson
 
 @BuiltValue(instantiable: false)
 sealed class $ApiGenerateNotificationV3RequestApplicationJsonInterface {
-  static final _$subject = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$subject = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$message = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+  static final _$message = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
   /// Subject of the notification.
   String get subject;

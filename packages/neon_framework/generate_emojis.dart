@@ -11,7 +11,10 @@ import 'package:universal_io/io.dart';
 const unicodeVersion = '15_0';
 
 void main() {
-  final formatter = DartFormatter(pageWidth: 120);
+  final formatter = DartFormatter(
+    pageWidth: 120,
+    languageVersion: DartFormatter.latestLanguageVersion,
+  );
   final emitter = DartEmitter(
     orderDirectives: true,
     useNullSafetySyntax: true,
