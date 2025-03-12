@@ -907,15 +907,11 @@ final BuiltSet<CallDownloadParticipantsForCallApiVersion> _$callDownloadParticip
 
 const CallDownloadParticipantsForCallFormat _$callDownloadParticipantsForCallFormatCsv =
     const CallDownloadParticipantsForCallFormat._('csv');
-const CallDownloadParticipantsForCallFormat _$callDownloadParticipantsForCallFormatPdf =
-    const CallDownloadParticipantsForCallFormat._('pdf');
 
 CallDownloadParticipantsForCallFormat _$valueOfCallDownloadParticipantsForCallFormat(String name) {
   switch (name) {
     case 'csv':
       return _$callDownloadParticipantsForCallFormatCsv;
-    case 'pdf':
-      return _$callDownloadParticipantsForCallFormatPdf;
     default:
       throw new ArgumentError(name);
   }
@@ -924,7 +920,6 @@ CallDownloadParticipantsForCallFormat _$valueOfCallDownloadParticipantsForCallFo
 final BuiltSet<CallDownloadParticipantsForCallFormat> _$callDownloadParticipantsForCallFormatValues =
     new BuiltSet<CallDownloadParticipantsForCallFormat>(const <CallDownloadParticipantsForCallFormat>[
   _$callDownloadParticipantsForCallFormatCsv,
-  _$callDownloadParticipantsForCallFormatPdf,
 ]);
 
 const CallUpdateFederatedCallFlagsApiVersion _$callUpdateFederatedCallFlagsApiVersionV4 =
@@ -2171,6 +2166,38 @@ RoomGetSingleRoomApiVersion _$valueOfRoomGetSingleRoomApiVersion(String name) {
 final BuiltSet<RoomGetSingleRoomApiVersion> _$roomGetSingleRoomApiVersionValues =
     new BuiltSet<RoomGetSingleRoomApiVersion>(const <RoomGetSingleRoomApiVersion>[
   _$roomGetSingleRoomApiVersionV4,
+]);
+
+const RoomRenameRoomApiVersion _$roomRenameRoomApiVersionV4 = const RoomRenameRoomApiVersion._('v4');
+
+RoomRenameRoomApiVersion _$valueOfRoomRenameRoomApiVersion(String name) {
+  switch (name) {
+    case 'v4':
+      return _$roomRenameRoomApiVersionV4;
+    default:
+      throw new ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomRenameRoomApiVersion> _$roomRenameRoomApiVersionValues =
+    new BuiltSet<RoomRenameRoomApiVersion>(const <RoomRenameRoomApiVersion>[
+  _$roomRenameRoomApiVersionV4,
+]);
+
+const RoomDeleteRoomApiVersion _$roomDeleteRoomApiVersionV4 = const RoomDeleteRoomApiVersion._('v4');
+
+RoomDeleteRoomApiVersion _$valueOfRoomDeleteRoomApiVersion(String name) {
+  switch (name) {
+    case 'v4':
+      return _$roomDeleteRoomApiVersionV4;
+    default:
+      throw new ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomDeleteRoomApiVersion> _$roomDeleteRoomApiVersionValues =
+    new BuiltSet<RoomDeleteRoomApiVersion>(const <RoomDeleteRoomApiVersion>[
+  _$roomDeleteRoomApiVersionV4,
 ]);
 
 const RoomGetBreakoutRoomsApiVersion _$roomGetBreakoutRoomsApiVersionV4 = const RoomGetBreakoutRoomsApiVersion._('v4');
@@ -3916,6 +3943,16 @@ Serializer<RoomGetSingleRoomResponseApplicationJson> _$roomGetSingleRoomResponse
     new _$RoomGetSingleRoomResponseApplicationJsonSerializer();
 Serializer<RoomRoomGetSingleRoomHeaders> _$roomRoomGetSingleRoomHeadersSerializer =
     new _$RoomRoomGetSingleRoomHeadersSerializer();
+Serializer<RoomRenameRoomRequestApplicationJson> _$roomRenameRoomRequestApplicationJsonSerializer =
+    new _$RoomRenameRoomRequestApplicationJsonSerializer();
+Serializer<RoomRenameRoomResponseApplicationJson_Ocs> _$roomRenameRoomResponseApplicationJsonOcsSerializer =
+    new _$RoomRenameRoomResponseApplicationJson_OcsSerializer();
+Serializer<RoomRenameRoomResponseApplicationJson> _$roomRenameRoomResponseApplicationJsonSerializer =
+    new _$RoomRenameRoomResponseApplicationJsonSerializer();
+Serializer<RoomDeleteRoomResponseApplicationJson_Ocs> _$roomDeleteRoomResponseApplicationJsonOcsSerializer =
+    new _$RoomDeleteRoomResponseApplicationJson_OcsSerializer();
+Serializer<RoomDeleteRoomResponseApplicationJson> _$roomDeleteRoomResponseApplicationJsonSerializer =
+    new _$RoomDeleteRoomResponseApplicationJsonSerializer();
 Serializer<RoomGetBreakoutRoomsResponseApplicationJson_Ocs> _$roomGetBreakoutRoomsResponseApplicationJsonOcsSerializer =
     new _$RoomGetBreakoutRoomsResponseApplicationJson_OcsSerializer();
 Serializer<RoomGetBreakoutRoomsResponseApplicationJson> _$roomGetBreakoutRoomsResponseApplicationJsonSerializer =
@@ -16884,6 +16921,225 @@ class _$RoomRoomGetSingleRoomHeadersSerializer implements StructuredSerializer<R
       switch (key) {
         case 'x-nextcloud-talk-hash':
           result.xNextcloudTalkHash = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RoomRenameRoomRequestApplicationJsonSerializer
+    implements StructuredSerializer<RoomRenameRoomRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [RoomRenameRoomRequestApplicationJson, _$RoomRenameRoomRequestApplicationJson];
+  @override
+  final String wireName = 'RoomRenameRoomRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RoomRenameRoomRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'roomName',
+      serializers.serialize(object.roomName, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  RoomRenameRoomRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new RoomRenameRoomRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'roomName':
+          result.roomName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RoomRenameRoomResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomRenameRoomResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    RoomRenameRoomResponseApplicationJson_Ocs,
+    _$RoomRenameRoomResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'RoomRenameRoomResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RoomRenameRoomResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Room)),
+    ];
+
+    return result;
+  }
+
+  @override
+  RoomRenameRoomResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new RoomRenameRoomResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(Room))! as Room);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RoomRenameRoomResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomRenameRoomResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [RoomRenameRoomResponseApplicationJson, _$RoomRenameRoomResponseApplicationJson];
+  @override
+  final String wireName = 'RoomRenameRoomResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RoomRenameRoomResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomRenameRoomResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  RoomRenameRoomResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new RoomRenameRoomResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+              serializers.deserialize(value, specifiedType: const FullType(RoomRenameRoomResponseApplicationJson_Ocs))!
+                  as RoomRenameRoomResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RoomDeleteRoomResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomDeleteRoomResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    RoomDeleteRoomResponseApplicationJson_Ocs,
+    _$RoomDeleteRoomResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'RoomDeleteRoomResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RoomDeleteRoomResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+    ];
+    Object? value;
+    value = object.data;
+    if (value != null) {
+      result
+        ..add('data')
+        ..add(serializers.serialize(value, specifiedType: const FullType(JsonObject)));
+    }
+    return result;
+  }
+
+  @override
+  RoomDeleteRoomResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new RoomDeleteRoomResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject)) as JsonObject?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RoomDeleteRoomResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomDeleteRoomResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [RoomDeleteRoomResponseApplicationJson, _$RoomDeleteRoomResponseApplicationJson];
+  @override
+  final String wireName = 'RoomDeleteRoomResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RoomDeleteRoomResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomDeleteRoomResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  RoomDeleteRoomResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new RoomDeleteRoomResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+              serializers.deserialize(value, specifiedType: const FullType(RoomDeleteRoomResponseApplicationJson_Ocs))!
+                  as RoomDeleteRoomResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -56470,6 +56726,567 @@ class RoomRoomGetSingleRoomHeadersBuilder
         new _$RoomRoomGetSingleRoomHeaders._(
           xNextcloudTalkHash: xNextcloudTalkHash,
         );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RoomRenameRoomRequestApplicationJsonInterfaceBuilder {
+  void replace($RoomRenameRoomRequestApplicationJsonInterface other);
+  void update(void Function($RoomRenameRoomRequestApplicationJsonInterfaceBuilder) updates);
+  String? get roomName;
+  set roomName(String? roomName);
+}
+
+class _$RoomRenameRoomRequestApplicationJson extends RoomRenameRoomRequestApplicationJson {
+  @override
+  final String roomName;
+
+  factory _$RoomRenameRoomRequestApplicationJson(
+          [void Function(RoomRenameRoomRequestApplicationJsonBuilder)? updates]) =>
+      (new RoomRenameRoomRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$RoomRenameRoomRequestApplicationJson._({required this.roomName}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(roomName, r'RoomRenameRoomRequestApplicationJson', 'roomName');
+  }
+
+  @override
+  RoomRenameRoomRequestApplicationJson rebuild(void Function(RoomRenameRoomRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RoomRenameRoomRequestApplicationJsonBuilder toBuilder() =>
+      new RoomRenameRoomRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RoomRenameRoomRequestApplicationJson && roomName == other.roomName;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, roomName.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RoomRenameRoomRequestApplicationJson')..add('roomName', roomName)).toString();
+  }
+}
+
+class RoomRenameRoomRequestApplicationJsonBuilder
+    implements
+        Builder<RoomRenameRoomRequestApplicationJson, RoomRenameRoomRequestApplicationJsonBuilder>,
+        $RoomRenameRoomRequestApplicationJsonInterfaceBuilder {
+  _$RoomRenameRoomRequestApplicationJson? _$v;
+
+  String? _roomName;
+  String? get roomName => _$this._roomName;
+  set roomName(covariant String? roomName) => _$this._roomName = roomName;
+
+  RoomRenameRoomRequestApplicationJsonBuilder() {
+    RoomRenameRoomRequestApplicationJson._defaults(this);
+  }
+
+  RoomRenameRoomRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _roomName = $v.roomName;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RoomRenameRoomRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$RoomRenameRoomRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(RoomRenameRoomRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RoomRenameRoomRequestApplicationJson build() => _build();
+
+  _$RoomRenameRoomRequestApplicationJson _build() {
+    RoomRenameRoomRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        new _$RoomRenameRoomRequestApplicationJson._(
+          roomName:
+              BuiltValueNullFieldError.checkNotNull(roomName, r'RoomRenameRoomRequestApplicationJson', 'roomName'),
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RoomRenameRoomResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($RoomRenameRoomResponseApplicationJson_OcsInterface other);
+  void update(void Function($RoomRenameRoomResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  RoomBuilder get data;
+  set data(RoomBuilder? data);
+}
+
+class _$RoomRenameRoomResponseApplicationJson_Ocs extends RoomRenameRoomResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final Room data;
+
+  factory _$RoomRenameRoomResponseApplicationJson_Ocs(
+          [void Function(RoomRenameRoomResponseApplicationJson_OcsBuilder)? updates]) =>
+      (new RoomRenameRoomResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$RoomRenameRoomResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'RoomRenameRoomResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'RoomRenameRoomResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  RoomRenameRoomResponseApplicationJson_Ocs rebuild(
+          void Function(RoomRenameRoomResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RoomRenameRoomResponseApplicationJson_OcsBuilder toBuilder() =>
+      new RoomRenameRoomResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RoomRenameRoomResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RoomRenameRoomResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class RoomRenameRoomResponseApplicationJson_OcsBuilder
+    implements
+        Builder<RoomRenameRoomResponseApplicationJson_Ocs, RoomRenameRoomResponseApplicationJson_OcsBuilder>,
+        $RoomRenameRoomResponseApplicationJson_OcsInterfaceBuilder {
+  _$RoomRenameRoomResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  RoomBuilder? _data;
+  RoomBuilder get data => _$this._data ??= new RoomBuilder();
+  set data(covariant RoomBuilder? data) => _$this._data = data;
+
+  RoomRenameRoomResponseApplicationJson_OcsBuilder() {
+    RoomRenameRoomResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  RoomRenameRoomResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RoomRenameRoomResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$RoomRenameRoomResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(RoomRenameRoomResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RoomRenameRoomResponseApplicationJson_Ocs build() => _build();
+
+  _$RoomRenameRoomResponseApplicationJson_Ocs _build() {
+    RoomRenameRoomResponseApplicationJson_Ocs._validate(this);
+    _$RoomRenameRoomResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          new _$RoomRenameRoomResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(r'RoomRenameRoomResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RoomRenameRoomResponseApplicationJsonInterfaceBuilder {
+  void replace($RoomRenameRoomResponseApplicationJsonInterface other);
+  void update(void Function($RoomRenameRoomResponseApplicationJsonInterfaceBuilder) updates);
+  RoomRenameRoomResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(RoomRenameRoomResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$RoomRenameRoomResponseApplicationJson extends RoomRenameRoomResponseApplicationJson {
+  @override
+  final RoomRenameRoomResponseApplicationJson_Ocs ocs;
+
+  factory _$RoomRenameRoomResponseApplicationJson(
+          [void Function(RoomRenameRoomResponseApplicationJsonBuilder)? updates]) =>
+      (new RoomRenameRoomResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$RoomRenameRoomResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'RoomRenameRoomResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  RoomRenameRoomResponseApplicationJson rebuild(void Function(RoomRenameRoomResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RoomRenameRoomResponseApplicationJsonBuilder toBuilder() =>
+      new RoomRenameRoomResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RoomRenameRoomResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RoomRenameRoomResponseApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class RoomRenameRoomResponseApplicationJsonBuilder
+    implements
+        Builder<RoomRenameRoomResponseApplicationJson, RoomRenameRoomResponseApplicationJsonBuilder>,
+        $RoomRenameRoomResponseApplicationJsonInterfaceBuilder {
+  _$RoomRenameRoomResponseApplicationJson? _$v;
+
+  RoomRenameRoomResponseApplicationJson_OcsBuilder? _ocs;
+  RoomRenameRoomResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= new RoomRenameRoomResponseApplicationJson_OcsBuilder();
+  set ocs(covariant RoomRenameRoomResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  RoomRenameRoomResponseApplicationJsonBuilder() {
+    RoomRenameRoomResponseApplicationJson._defaults(this);
+  }
+
+  RoomRenameRoomResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RoomRenameRoomResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$RoomRenameRoomResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(RoomRenameRoomResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RoomRenameRoomResponseApplicationJson build() => _build();
+
+  _$RoomRenameRoomResponseApplicationJson _build() {
+    RoomRenameRoomResponseApplicationJson._validate(this);
+    _$RoomRenameRoomResponseApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          new _$RoomRenameRoomResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(r'RoomRenameRoomResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RoomDeleteRoomResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($RoomDeleteRoomResponseApplicationJson_OcsInterface other);
+  void update(void Function($RoomDeleteRoomResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
+}
+
+class _$RoomDeleteRoomResponseApplicationJson_Ocs extends RoomDeleteRoomResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final JsonObject? data;
+
+  factory _$RoomDeleteRoomResponseApplicationJson_Ocs(
+          [void Function(RoomDeleteRoomResponseApplicationJson_OcsBuilder)? updates]) =>
+      (new RoomDeleteRoomResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$RoomDeleteRoomResponseApplicationJson_Ocs._({required this.meta, this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'RoomDeleteRoomResponseApplicationJson_Ocs', 'meta');
+  }
+
+  @override
+  RoomDeleteRoomResponseApplicationJson_Ocs rebuild(
+          void Function(RoomDeleteRoomResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RoomDeleteRoomResponseApplicationJson_OcsBuilder toBuilder() =>
+      new RoomDeleteRoomResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RoomDeleteRoomResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RoomDeleteRoomResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class RoomDeleteRoomResponseApplicationJson_OcsBuilder
+    implements
+        Builder<RoomDeleteRoomResponseApplicationJson_Ocs, RoomDeleteRoomResponseApplicationJson_OcsBuilder>,
+        $RoomDeleteRoomResponseApplicationJson_OcsInterfaceBuilder {
+  _$RoomDeleteRoomResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  JsonObject? _data;
+  JsonObject? get data => _$this._data;
+  set data(covariant JsonObject? data) => _$this._data = data;
+
+  RoomDeleteRoomResponseApplicationJson_OcsBuilder() {
+    RoomDeleteRoomResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  RoomDeleteRoomResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RoomDeleteRoomResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$RoomDeleteRoomResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(RoomDeleteRoomResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RoomDeleteRoomResponseApplicationJson_Ocs build() => _build();
+
+  _$RoomDeleteRoomResponseApplicationJson_Ocs _build() {
+    RoomDeleteRoomResponseApplicationJson_Ocs._validate(this);
+    _$RoomDeleteRoomResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          new _$RoomDeleteRoomResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data,
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(r'RoomDeleteRoomResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RoomDeleteRoomResponseApplicationJsonInterfaceBuilder {
+  void replace($RoomDeleteRoomResponseApplicationJsonInterface other);
+  void update(void Function($RoomDeleteRoomResponseApplicationJsonInterfaceBuilder) updates);
+  RoomDeleteRoomResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(RoomDeleteRoomResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$RoomDeleteRoomResponseApplicationJson extends RoomDeleteRoomResponseApplicationJson {
+  @override
+  final RoomDeleteRoomResponseApplicationJson_Ocs ocs;
+
+  factory _$RoomDeleteRoomResponseApplicationJson(
+          [void Function(RoomDeleteRoomResponseApplicationJsonBuilder)? updates]) =>
+      (new RoomDeleteRoomResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$RoomDeleteRoomResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'RoomDeleteRoomResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  RoomDeleteRoomResponseApplicationJson rebuild(void Function(RoomDeleteRoomResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RoomDeleteRoomResponseApplicationJsonBuilder toBuilder() =>
+      new RoomDeleteRoomResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RoomDeleteRoomResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RoomDeleteRoomResponseApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class RoomDeleteRoomResponseApplicationJsonBuilder
+    implements
+        Builder<RoomDeleteRoomResponseApplicationJson, RoomDeleteRoomResponseApplicationJsonBuilder>,
+        $RoomDeleteRoomResponseApplicationJsonInterfaceBuilder {
+  _$RoomDeleteRoomResponseApplicationJson? _$v;
+
+  RoomDeleteRoomResponseApplicationJson_OcsBuilder? _ocs;
+  RoomDeleteRoomResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= new RoomDeleteRoomResponseApplicationJson_OcsBuilder();
+  set ocs(covariant RoomDeleteRoomResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  RoomDeleteRoomResponseApplicationJsonBuilder() {
+    RoomDeleteRoomResponseApplicationJson._defaults(this);
+  }
+
+  RoomDeleteRoomResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RoomDeleteRoomResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$RoomDeleteRoomResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(RoomDeleteRoomResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RoomDeleteRoomResponseApplicationJson build() => _build();
+
+  _$RoomDeleteRoomResponseApplicationJson _build() {
+    RoomDeleteRoomResponseApplicationJson._validate(this);
+    _$RoomDeleteRoomResponseApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          new _$RoomDeleteRoomResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(r'RoomDeleteRoomResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
