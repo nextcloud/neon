@@ -4818,7 +4818,7 @@ class $ChatClient {
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
-  ///   * 201: Summary was scheduled, use the returned taskId to get the status information and output from the TaskProcessing API: https://docs.nextcloud.com/server/latest/developer_manual/client_apis/OCS/ocs-taskprocessing-api.html#fetch-a-task-by-id If the response data contains nextOffset, not all messages could be handled in a single request. After receiving the response a second summary should be requested with the provided nextOffset.
+  ///   * 201: Summary was scheduled, use the returned taskId to get the status information and output from the TaskProcessing API: [OCS TaskProcessing API](https://docs.nextcloud.com/server/latest/developer_manual/client_apis/OCS/ocs-taskprocessing-api.html#fetch-a-task-by-id). If the response data contains nextOffset, not all messages could be handled in a single request. After receiving the response a second summary should be requested with the provided nextOffset.
   ///   * 400: No AI provider available or summarizing failed
   ///   * 204: No messages found to summarize
   ///   * 500
@@ -4888,7 +4888,7 @@ class $ChatClient {
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
-  ///   * 201: Summary was scheduled, use the returned taskId to get the status information and output from the TaskProcessing API: https://docs.nextcloud.com/server/latest/developer_manual/client_apis/OCS/ocs-taskprocessing-api.html#fetch-a-task-by-id If the response data contains nextOffset, not all messages could be handled in a single request. After receiving the response a second summary should be requested with the provided nextOffset.
+  ///   * 201: Summary was scheduled, use the returned taskId to get the status information and output from the TaskProcessing API: [OCS TaskProcessing API](https://docs.nextcloud.com/server/latest/developer_manual/client_apis/OCS/ocs-taskprocessing-api.html#fetch-a-task-by-id). If the response data contains nextOffset, not all messages could be handled in a single request. After receiving the response a second summary should be requested with the provided nextOffset.
   ///   * 400: No AI provider available or summarizing failed
   ///   * 204: No messages found to summarize
   ///   * 500
@@ -10682,6 +10682,205 @@ class $RoomClient {
     return _i1.ResponseConverter<RoomGetSingleRoomResponseApplicationJson, RoomRoomGetSingleRoomHeaders>(
       _serializer,
     ).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$renameRoom_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomRenameRoomResponseApplicationJson, void> $renameRoom_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomRenameRoomResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Rename a room.
+  ///
+  /// Returns a `DynamiteRequest` backing the [renameRoom] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v4"`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Room renamed successfully
+  ///   * 400: Renaming room is not possible
+  ///
+  /// See:
+  ///  * [renameRoom] for a method executing this request and parsing the response.
+  ///  * [$renameRoom_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $renameRoom_Request({
+    required String token,
+    required RoomRenameRoomRequestApplicationJson $body,
+    RoomRenameRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
+    _parameters['token'] = __token;
+
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRenameRoomApiVersion));
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('put', _uri);
+    _request.headers['Accept'] = 'application/json';
+    // coverage:ignore-start
+    final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(authentication.headers);
+    }
+
+    // coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
+
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(RoomRenameRoomRequestApplicationJson)),
+    );
+    return _request;
+  }
+
+  /// Rename a room.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v4"`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Room renamed successfully
+  ///   * 400: Renaming room is not possible
+  ///
+  /// See:
+  ///  * [$renameRoom_Request] for the request send by this method.
+  ///  * [$renameRoom_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<RoomRenameRoomResponseApplicationJson, void>> renameRoom({
+    required String token,
+    required RoomRenameRoomRequestApplicationJson $body,
+    RoomRenameRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $renameRoom_Request(
+      token: token,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $renameRoom_Serializer();
+    return _i1.ResponseConverter<RoomRenameRoomResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$deleteRoom_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomDeleteRoomResponseApplicationJson, void> $deleteRoom_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomDeleteRoomResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200, 400},
+      );
+
+  /// Delete a room.
+  ///
+  /// Returns a `DynamiteRequest` backing the [deleteRoom] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v4"`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Room successfully deleted
+  ///   * 400: Deleting room is not possible
+  ///
+  /// See:
+  ///  * [deleteRoom] for a method executing this request and parsing the response.
+  ///  * [$deleteRoom_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $deleteRoom_Request({required String token, RoomDeleteRoomApiVersion? apiVersion, bool? oCSAPIRequest}) {
+    final _parameters = <String, Object?>{};
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkString(__token, 'token', pattern: RegExp(r'^[a-z0-9]{4,30}$'));
+    _parameters['token'] = __token;
+
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomDeleteRoomApiVersion));
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('delete', _uri);
+    _request.headers['Accept'] = 'application/json';
+    // coverage:ignore-start
+    final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(authentication.headers);
+    }
+
+    // coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Delete a room.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `"v4"`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Room successfully deleted
+  ///   * 400: Deleting room is not possible
+  ///
+  /// See:
+  ///  * [$deleteRoom_Request] for the request send by this method.
+  ///  * [$deleteRoom_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<RoomDeleteRoomResponseApplicationJson, void>> deleteRoom({
+    required String token,
+    RoomDeleteRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $deleteRoom_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $deleteRoom_Serializer();
+    return _i1.ResponseConverter<RoomDeleteRoomResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getBreakoutRooms_Request].
@@ -23712,9 +23911,6 @@ class CallDownloadParticipantsForCallFormat extends EnumClass {
   /// `csv`
   static const CallDownloadParticipantsForCallFormat csv = _$callDownloadParticipantsForCallFormatCsv;
 
-  /// `pdf`
-  static const CallDownloadParticipantsForCallFormat pdf = _$callDownloadParticipantsForCallFormatPdf;
-
   /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<CallDownloadParticipantsForCallFormat> get values => _$callDownloadParticipantsForCallFormatValues;
@@ -23738,16 +23934,10 @@ class _$CallDownloadParticipantsForCallFormatSerializer
   const _$CallDownloadParticipantsForCallFormatSerializer();
 
   static const Map<CallDownloadParticipantsForCallFormat, Object> _toWire =
-      <CallDownloadParticipantsForCallFormat, Object>{
-    CallDownloadParticipantsForCallFormat.csv: 'csv',
-    CallDownloadParticipantsForCallFormat.pdf: 'pdf',
-  };
+      <CallDownloadParticipantsForCallFormat, Object>{CallDownloadParticipantsForCallFormat.csv: 'csv'};
 
   static const Map<Object, CallDownloadParticipantsForCallFormat> _fromWire =
-      <Object, CallDownloadParticipantsForCallFormat>{
-    'csv': CallDownloadParticipantsForCallFormat.csv,
-    'pdf': CallDownloadParticipantsForCallFormat.pdf,
-  };
+      <Object, CallDownloadParticipantsForCallFormat>{'csv': CallDownloadParticipantsForCallFormat.csv};
 
   @override
   Iterable<Type> get types => const [CallDownloadParticipantsForCallFormat];
@@ -39422,6 +39612,433 @@ abstract class RoomRoomGetSingleRoomHeaders
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(RoomRoomGetSingleRoomHeadersBuilder b) {
     $RoomRoomGetSingleRoomHeadersInterface._validate(b);
+  }
+}
+
+class RoomRenameRoomApiVersion extends EnumClass {
+  const RoomRenameRoomApiVersion._(super.name);
+
+  /// `v4`
+  static const RoomRenameRoomApiVersion v4 = _$roomRenameRoomApiVersionV4;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RoomRenameRoomApiVersion> get values => _$roomRenameRoomApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RoomRenameRoomApiVersion valueOf(String name) => _$valueOfRoomRenameRoomApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for RoomRenameRoomApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomRenameRoomApiVersion> get serializer => const _$RoomRenameRoomApiVersionSerializer();
+}
+
+class _$RoomRenameRoomApiVersionSerializer implements PrimitiveSerializer<RoomRenameRoomApiVersion> {
+  const _$RoomRenameRoomApiVersionSerializer();
+
+  static const Map<RoomRenameRoomApiVersion, Object> _toWire = <RoomRenameRoomApiVersion, Object>{
+    RoomRenameRoomApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomRenameRoomApiVersion> _fromWire = <Object, RoomRenameRoomApiVersion>{
+    'v4': RoomRenameRoomApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomRenameRoomApiVersion];
+
+  @override
+  String get wireName => 'RoomRenameRoomApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomRenameRoomApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomRenameRoomApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RoomRenameRoomRequestApplicationJsonInterface {
+  /// New name.
+  String get roomName;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RoomRenameRoomRequestApplicationJsonInterfaceBuilder].
+  $RoomRenameRoomRequestApplicationJsonInterface rebuild(
+    void Function($RoomRenameRoomRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RoomRenameRoomRequestApplicationJsonInterfaceBuilder].
+  $RoomRenameRoomRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomRenameRoomRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomRenameRoomRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class RoomRenameRoomRequestApplicationJson
+    implements
+        $RoomRenameRoomRequestApplicationJsonInterface,
+        Built<RoomRenameRoomRequestApplicationJson, RoomRenameRoomRequestApplicationJsonBuilder> {
+  /// Creates a new RoomRenameRoomRequestApplicationJson object using the builder pattern.
+  factory RoomRenameRoomRequestApplicationJson([void Function(RoomRenameRoomRequestApplicationJsonBuilder)? b]) =
+      _$RoomRenameRoomRequestApplicationJson;
+
+  // coverage:ignore-start
+  const RoomRenameRoomRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomRenameRoomRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomRenameRoomRequestApplicationJson.
+  static Serializer<RoomRenameRoomRequestApplicationJson> get serializer =>
+      _$roomRenameRoomRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomRenameRoomRequestApplicationJsonBuilder b) {
+    $RoomRenameRoomRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomRenameRoomRequestApplicationJsonBuilder b) {
+    $RoomRenameRoomRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RoomRenameRoomResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  Room get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RoomRenameRoomResponseApplicationJson_OcsInterfaceBuilder].
+  $RoomRenameRoomResponseApplicationJson_OcsInterface rebuild(
+    void Function($RoomRenameRoomResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RoomRenameRoomResponseApplicationJson_OcsInterfaceBuilder].
+  $RoomRenameRoomResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomRenameRoomResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomRenameRoomResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class RoomRenameRoomResponseApplicationJson_Ocs
+    implements
+        $RoomRenameRoomResponseApplicationJson_OcsInterface,
+        Built<RoomRenameRoomResponseApplicationJson_Ocs, RoomRenameRoomResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomRenameRoomResponseApplicationJson_Ocs object using the builder pattern.
+  factory RoomRenameRoomResponseApplicationJson_Ocs([
+    void Function(RoomRenameRoomResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$RoomRenameRoomResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const RoomRenameRoomResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomRenameRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomRenameRoomResponseApplicationJson_Ocs.
+  static Serializer<RoomRenameRoomResponseApplicationJson_Ocs> get serializer =>
+      _$roomRenameRoomResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomRenameRoomResponseApplicationJson_OcsBuilder b) {
+    $RoomRenameRoomResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomRenameRoomResponseApplicationJson_OcsBuilder b) {
+    $RoomRenameRoomResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RoomRenameRoomResponseApplicationJsonInterface {
+  RoomRenameRoomResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RoomRenameRoomResponseApplicationJsonInterfaceBuilder].
+  $RoomRenameRoomResponseApplicationJsonInterface rebuild(
+    void Function($RoomRenameRoomResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RoomRenameRoomResponseApplicationJsonInterfaceBuilder].
+  $RoomRenameRoomResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomRenameRoomResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomRenameRoomResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class RoomRenameRoomResponseApplicationJson
+    implements
+        $RoomRenameRoomResponseApplicationJsonInterface,
+        Built<RoomRenameRoomResponseApplicationJson, RoomRenameRoomResponseApplicationJsonBuilder> {
+  /// Creates a new RoomRenameRoomResponseApplicationJson object using the builder pattern.
+  factory RoomRenameRoomResponseApplicationJson([void Function(RoomRenameRoomResponseApplicationJsonBuilder)? b]) =
+      _$RoomRenameRoomResponseApplicationJson;
+
+  // coverage:ignore-start
+  const RoomRenameRoomResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomRenameRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomRenameRoomResponseApplicationJson.
+  static Serializer<RoomRenameRoomResponseApplicationJson> get serializer =>
+      _$roomRenameRoomResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomRenameRoomResponseApplicationJsonBuilder b) {
+    $RoomRenameRoomResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomRenameRoomResponseApplicationJsonBuilder b) {
+    $RoomRenameRoomResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+class RoomDeleteRoomApiVersion extends EnumClass {
+  const RoomDeleteRoomApiVersion._(super.name);
+
+  /// `v4`
+  static const RoomDeleteRoomApiVersion v4 = _$roomDeleteRoomApiVersionV4;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RoomDeleteRoomApiVersion> get values => _$roomDeleteRoomApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RoomDeleteRoomApiVersion valueOf(String name) => _$valueOfRoomDeleteRoomApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for RoomDeleteRoomApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomDeleteRoomApiVersion> get serializer => const _$RoomDeleteRoomApiVersionSerializer();
+}
+
+class _$RoomDeleteRoomApiVersionSerializer implements PrimitiveSerializer<RoomDeleteRoomApiVersion> {
+  const _$RoomDeleteRoomApiVersionSerializer();
+
+  static const Map<RoomDeleteRoomApiVersion, Object> _toWire = <RoomDeleteRoomApiVersion, Object>{
+    RoomDeleteRoomApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomDeleteRoomApiVersion> _fromWire = <Object, RoomDeleteRoomApiVersion>{
+    'v4': RoomDeleteRoomApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomDeleteRoomApiVersion];
+
+  @override
+  String get wireName => 'RoomDeleteRoomApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomDeleteRoomApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomDeleteRoomApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RoomDeleteRoomResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  JsonObject? get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RoomDeleteRoomResponseApplicationJson_OcsInterfaceBuilder].
+  $RoomDeleteRoomResponseApplicationJson_OcsInterface rebuild(
+    void Function($RoomDeleteRoomResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RoomDeleteRoomResponseApplicationJson_OcsInterfaceBuilder].
+  $RoomDeleteRoomResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomDeleteRoomResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomDeleteRoomResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class RoomDeleteRoomResponseApplicationJson_Ocs
+    implements
+        $RoomDeleteRoomResponseApplicationJson_OcsInterface,
+        Built<RoomDeleteRoomResponseApplicationJson_Ocs, RoomDeleteRoomResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomDeleteRoomResponseApplicationJson_Ocs object using the builder pattern.
+  factory RoomDeleteRoomResponseApplicationJson_Ocs([
+    void Function(RoomDeleteRoomResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$RoomDeleteRoomResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const RoomDeleteRoomResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomDeleteRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomDeleteRoomResponseApplicationJson_Ocs.
+  static Serializer<RoomDeleteRoomResponseApplicationJson_Ocs> get serializer =>
+      _$roomDeleteRoomResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomDeleteRoomResponseApplicationJson_OcsBuilder b) {
+    $RoomDeleteRoomResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomDeleteRoomResponseApplicationJson_OcsBuilder b) {
+    $RoomDeleteRoomResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $RoomDeleteRoomResponseApplicationJsonInterface {
+  RoomDeleteRoomResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RoomDeleteRoomResponseApplicationJsonInterfaceBuilder].
+  $RoomDeleteRoomResponseApplicationJsonInterface rebuild(
+    void Function($RoomDeleteRoomResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RoomDeleteRoomResponseApplicationJsonInterfaceBuilder].
+  $RoomDeleteRoomResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomDeleteRoomResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomDeleteRoomResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class RoomDeleteRoomResponseApplicationJson
+    implements
+        $RoomDeleteRoomResponseApplicationJsonInterface,
+        Built<RoomDeleteRoomResponseApplicationJson, RoomDeleteRoomResponseApplicationJsonBuilder> {
+  /// Creates a new RoomDeleteRoomResponseApplicationJson object using the builder pattern.
+  factory RoomDeleteRoomResponseApplicationJson([void Function(RoomDeleteRoomResponseApplicationJsonBuilder)? b]) =
+      _$RoomDeleteRoomResponseApplicationJson;
+
+  // coverage:ignore-start
+  const RoomDeleteRoomResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomDeleteRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomDeleteRoomResponseApplicationJson.
+  static Serializer<RoomDeleteRoomResponseApplicationJson> get serializer =>
+      _$roomDeleteRoomResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomDeleteRoomResponseApplicationJsonBuilder b) {
+    $RoomDeleteRoomResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomDeleteRoomResponseApplicationJsonBuilder b) {
+    $RoomDeleteRoomResponseApplicationJsonInterface._validate(b);
   }
 }
 
@@ -55319,6 +55936,33 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(RoomGetSingleRoomResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(RoomRoomGetSingleRoomHeaders), RoomRoomGetSingleRoomHeadersBuilder.new)
       ..add(RoomRoomGetSingleRoomHeaders.serializer)
+      ..add(RoomRenameRoomApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomRenameRoomRequestApplicationJson),
+        RoomRenameRoomRequestApplicationJsonBuilder.new,
+      )
+      ..add(RoomRenameRoomRequestApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomRenameRoomResponseApplicationJson),
+        RoomRenameRoomResponseApplicationJsonBuilder.new,
+      )
+      ..add(RoomRenameRoomResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomRenameRoomResponseApplicationJson_Ocs),
+        RoomRenameRoomResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(RoomRenameRoomResponseApplicationJson_Ocs.serializer)
+      ..add(RoomDeleteRoomApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomDeleteRoomResponseApplicationJson),
+        RoomDeleteRoomResponseApplicationJsonBuilder.new,
+      )
+      ..add(RoomDeleteRoomResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomDeleteRoomResponseApplicationJson_Ocs),
+        RoomDeleteRoomResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(RoomDeleteRoomResponseApplicationJson_Ocs.serializer)
       ..add(RoomGetBreakoutRoomsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetBreakoutRoomsResponseApplicationJson),
