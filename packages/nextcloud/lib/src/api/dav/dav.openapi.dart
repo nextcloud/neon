@@ -343,7 +343,7 @@ class $OutOfOfficeClient {
   ///
   /// Status codes:
   ///   * 200: Absence data
-  ///   * 400: When the first day is not before the last day
+  ///   * 400: When validation fails, e.g. data range error or the first day is not before the last day
   ///   * 401: When the user is not logged in
   ///   * 404: When the replacementUserId was provided but replacement user was not found
   ///
@@ -404,7 +404,7 @@ class $OutOfOfficeClient {
   ///
   /// Status codes:
   ///   * 200: Absence data
-  ///   * 400: When the first day is not before the last day
+  ///   * 400: When validation fails, e.g. data range error or the first day is not before the last day
   ///   * 401: When the user is not logged in
   ///   * 404: When the replacementUserId was provided but replacement user was not found
   ///
@@ -1383,9 +1383,6 @@ sealed class $OutOfOfficeSetOutOfOfficeRequestApplicationJsonInterface {
 
   /// User id of the replacement user.
   String? get replacementUserId;
-
-  /// Display name of the replacement user.
-  String? get replacementUserDisplayName;
 
   /// Rebuilds the instance.
   ///

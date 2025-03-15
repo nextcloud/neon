@@ -750,12 +750,6 @@ class _$OutOfOfficeSetOutOfOfficeRequestApplicationJsonSerializer
         ..add('replacementUserId')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
-    value = object.replacementUserDisplayName;
-    if (value != null) {
-      result
-        ..add('replacementUserDisplayName')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
     return result;
   }
 
@@ -784,10 +778,6 @@ class _$OutOfOfficeSetOutOfOfficeRequestApplicationJsonSerializer
           break;
         case 'replacementUserId':
           result.replacementUserId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'replacementUserDisplayName':
-          result.replacementUserDisplayName =
-              serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -2952,9 +2942,6 @@ abstract mixin class $OutOfOfficeSetOutOfOfficeRequestApplicationJsonInterfaceBu
 
   String? get replacementUserId;
   set replacementUserId(String? replacementUserId);
-
-  String? get replacementUserDisplayName;
-  set replacementUserDisplayName(String? replacementUserDisplayName);
 }
 
 class _$OutOfOfficeSetOutOfOfficeRequestApplicationJson extends OutOfOfficeSetOutOfOfficeRequestApplicationJson {
@@ -2968,8 +2955,6 @@ class _$OutOfOfficeSetOutOfOfficeRequestApplicationJson extends OutOfOfficeSetOu
   final String message;
   @override
   final String? replacementUserId;
-  @override
-  final String? replacementUserDisplayName;
 
   factory _$OutOfOfficeSetOutOfOfficeRequestApplicationJson(
           [void Function(OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder)? updates]) =>
@@ -2980,8 +2965,7 @@ class _$OutOfOfficeSetOutOfOfficeRequestApplicationJson extends OutOfOfficeSetOu
       required this.lastDay,
       required this.status,
       required this.message,
-      this.replacementUserId,
-      this.replacementUserDisplayName})
+      this.replacementUserId})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(firstDay, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'firstDay');
     BuiltValueNullFieldError.checkNotNull(lastDay, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'lastDay');
@@ -3006,8 +2990,7 @@ class _$OutOfOfficeSetOutOfOfficeRequestApplicationJson extends OutOfOfficeSetOu
         lastDay == other.lastDay &&
         status == other.status &&
         message == other.message &&
-        replacementUserId == other.replacementUserId &&
-        replacementUserDisplayName == other.replacementUserDisplayName;
+        replacementUserId == other.replacementUserId;
   }
 
   @override
@@ -3018,7 +3001,6 @@ class _$OutOfOfficeSetOutOfOfficeRequestApplicationJson extends OutOfOfficeSetOu
     _$hash = $jc(_$hash, status.hashCode);
     _$hash = $jc(_$hash, message.hashCode);
     _$hash = $jc(_$hash, replacementUserId.hashCode);
-    _$hash = $jc(_$hash, replacementUserDisplayName.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -3030,8 +3012,7 @@ class _$OutOfOfficeSetOutOfOfficeRequestApplicationJson extends OutOfOfficeSetOu
           ..add('lastDay', lastDay)
           ..add('status', status)
           ..add('message', message)
-          ..add('replacementUserId', replacementUserId)
-          ..add('replacementUserDisplayName', replacementUserDisplayName))
+          ..add('replacementUserId', replacementUserId))
         .toString();
   }
 }
@@ -3063,11 +3044,6 @@ class OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder
   String? get replacementUserId => _$this._replacementUserId;
   set replacementUserId(covariant String? replacementUserId) => _$this._replacementUserId = replacementUserId;
 
-  String? _replacementUserDisplayName;
-  String? get replacementUserDisplayName => _$this._replacementUserDisplayName;
-  set replacementUserDisplayName(covariant String? replacementUserDisplayName) =>
-      _$this._replacementUserDisplayName = replacementUserDisplayName;
-
   OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder() {
     OutOfOfficeSetOutOfOfficeRequestApplicationJson._defaults(this);
   }
@@ -3080,7 +3056,6 @@ class OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder
       _status = $v.status;
       _message = $v.message;
       _replacementUserId = $v.replacementUserId;
-      _replacementUserDisplayName = $v.replacementUserDisplayName;
       _$v = null;
     }
     return this;
@@ -3113,7 +3088,6 @@ class OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder
           message: BuiltValueNullFieldError.checkNotNull(
               message, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'message'),
           replacementUserId: replacementUserId,
-          replacementUserDisplayName: replacementUserDisplayName,
         );
     replace(_$result);
     return _$result;
