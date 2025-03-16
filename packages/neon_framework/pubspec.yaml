@@ -94,7 +94,7 @@ dev_dependencies:
   crypton: ^2.2.1
   custom_lint: ^0.7.5
   dart_style: ^3.0.1
-  flutter_local_notifications_platform_interface: ^8.0.0
+  flutter_local_notifications_platform_interface: ^9.0.0
   flutter_test:
     sdk: flutter
   go_router_builder: ^2.8.2
