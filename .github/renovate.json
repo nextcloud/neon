@@ -115,13 +115,6 @@
         "bloc_test",
         "flutter_bloc"
       ]
-    },
-    {
-      "groupName": "flutter_local_notifications",
-      "matchPackageNames": [
-        "flutter_local_notifications",
-        "flutter_local_notifications_platform_interface"
-      ]
     }
   ]
 }
