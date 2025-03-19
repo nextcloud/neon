@@ -5,7 +5,7 @@
 [submodule "external/nextcloud-notifications"]
 	path = external/nextcloud-notifications
 	url = https://github.com/nextcloud/notifications.git
-	branch = v31.0.1
+	branch = v31.0.2
 [submodule "external/nextcloud-spreed"]
 	path = external/nextcloud-spreed
 	url = https://github.com/nextcloud/spreed
