@@ -3,6 +3,9 @@ FROM nextcloud:${SERVER_VERSION} AS nextcloud
 
 WORKDIR /usr/src/nextcloud
 
+# TODO: https://github.com/nextcloud/server/pull/51594
+RUN sed -i "s/ = fileowner/ = @fileowner/" ./occ
+
 ADD pre.sh /tmp
 RUN /tmp/pre.sh
 
