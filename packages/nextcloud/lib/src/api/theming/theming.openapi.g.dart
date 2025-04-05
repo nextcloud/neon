@@ -614,6 +614,8 @@ class _$PublicCapabilities_ThemingSerializer implements StructuredSerializer<Pub
       serializers.serialize(object.logo, specifiedType: const FullType(String)),
       'background',
       serializers.serialize(object.background, specifiedType: const FullType(String)),
+      'background-text',
+      serializers.serialize(object.backgroundText, specifiedType: const FullType(String)),
       'background-plain',
       serializers.serialize(object.backgroundPlain, specifiedType: const FullType(bool)),
       'background-default',
@@ -623,13 +625,7 @@ class _$PublicCapabilities_ThemingSerializer implements StructuredSerializer<Pub
       'favicon',
       serializers.serialize(object.favicon, specifiedType: const FullType(String)),
     ];
-    Object? value;
-    value = object.backgroundText;
-    if (value != null) {
-      result
-        ..add('background-text')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
+
     return result;
   }
 
@@ -675,7 +671,7 @@ class _$PublicCapabilities_ThemingSerializer implements StructuredSerializer<Pub
           result.background = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'background-text':
-          result.backgroundText = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.backgroundText = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'background-plain':
           result.backgroundPlain = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -2043,7 +2039,7 @@ class _$PublicCapabilities_Theming extends PublicCapabilities_Theming {
   @override
   final String background;
   @override
-  final String? backgroundText;
+  final String backgroundText;
   @override
   final bool backgroundPlain;
   @override
@@ -2067,7 +2063,7 @@ class _$PublicCapabilities_Theming extends PublicCapabilities_Theming {
       required this.colorElementDark,
       required this.logo,
       required this.background,
-      this.backgroundText,
+      required this.backgroundText,
       required this.backgroundPlain,
       required this.backgroundDefault,
       required this.logoheader,
@@ -2083,6 +2079,7 @@ class _$PublicCapabilities_Theming extends PublicCapabilities_Theming {
     BuiltValueNullFieldError.checkNotNull(colorElementDark, r'PublicCapabilities_Theming', 'colorElementDark');
     BuiltValueNullFieldError.checkNotNull(logo, r'PublicCapabilities_Theming', 'logo');
     BuiltValueNullFieldError.checkNotNull(background, r'PublicCapabilities_Theming', 'background');
+    BuiltValueNullFieldError.checkNotNull(backgroundText, r'PublicCapabilities_Theming', 'backgroundText');
     BuiltValueNullFieldError.checkNotNull(backgroundPlain, r'PublicCapabilities_Theming', 'backgroundPlain');
     BuiltValueNullFieldError.checkNotNull(backgroundDefault, r'PublicCapabilities_Theming', 'backgroundDefault');
     BuiltValueNullFieldError.checkNotNull(logoheader, r'PublicCapabilities_Theming', 'logoheader');
@@ -2285,7 +2282,8 @@ class PublicCapabilities_ThemingBuilder
               colorElementDark, r'PublicCapabilities_Theming', 'colorElementDark'),
           logo: BuiltValueNullFieldError.checkNotNull(logo, r'PublicCapabilities_Theming', 'logo'),
           background: BuiltValueNullFieldError.checkNotNull(background, r'PublicCapabilities_Theming', 'background'),
-          backgroundText: backgroundText,
+          backgroundText:
+              BuiltValueNullFieldError.checkNotNull(backgroundText, r'PublicCapabilities_Theming', 'backgroundText'),
           backgroundPlain:
               BuiltValueNullFieldError.checkNotNull(backgroundPlain, r'PublicCapabilities_Theming', 'backgroundPlain'),
           backgroundDefault: BuiltValueNullFieldError.checkNotNull(

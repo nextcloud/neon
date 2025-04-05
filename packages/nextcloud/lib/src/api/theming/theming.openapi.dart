@@ -1794,7 +1794,7 @@ sealed class $PublicCapabilities_ThemingInterface {
   String get logo;
   String get background;
   @BuiltValueField(wireName: 'background-text')
-  String? get backgroundText;
+  String get backgroundText;
   @BuiltValueField(wireName: 'background-plain')
   bool get backgroundPlain;
   @BuiltValueField(wireName: 'background-default')

@@ -6136,13 +6136,13 @@ sealed class $TableInterface {
   String get title;
   String? get emoji;
   String get ownership;
-  String? get ownerDisplayName;
+  String get ownerDisplayName;
   String get createdBy;
   String get createdAt;
   String get lastEditBy;
   String get lastEditAt;
-  bool? get archived;
-  bool? get favorite;
+  bool get archived;
+  bool get favorite;
   bool get isShared;
   Table_OnSharePermissions? get onSharePermissions;
   bool get hasShares;
