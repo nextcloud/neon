@@ -265,6 +265,7 @@ void main() {
     when(() => chatMessage.actorDisplayName).thenReturn('test');
     when(() => chatMessage.message).thenReturn('message');
     when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
+    when(() => chatMessage.markdown).thenReturn(false);
 
     replyTo.add(chatMessage);
     await tester.pumpAndSettle();
@@ -301,6 +302,7 @@ void main() {
     when(() => chatMessage.actorDisplayName).thenReturn('test');
     when(() => chatMessage.message).thenReturn('message');
     when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
+    when(() => chatMessage.markdown).thenReturn(false);
 
     editing.add(chatMessage);
     await tester.pumpAndSettle();
