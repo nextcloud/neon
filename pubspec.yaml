@@ -9,4 +9,4 @@ dev_dependencies:
   fvm: ^3.2.1
   melos: 6.0.0
   custom_lint: ^0.7.5
-  coverage: ^1.11.1
+  coverage: ^1.12.0
