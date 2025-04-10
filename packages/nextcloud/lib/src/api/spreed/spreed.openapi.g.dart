@@ -2103,6 +2103,26 @@ final BuiltSet<RoomGetRoomsIncludeStatus> _$roomGetRoomsIncludeStatusValues =
   _$roomGetRoomsIncludeStatus$1,
 ]);
 
+const RoomGetRoomsIncludeLastMessage _$roomGetRoomsIncludeLastMessage$0 = const RoomGetRoomsIncludeLastMessage._('\$0');
+const RoomGetRoomsIncludeLastMessage _$roomGetRoomsIncludeLastMessage$1 = const RoomGetRoomsIncludeLastMessage._('\$1');
+
+RoomGetRoomsIncludeLastMessage _$valueOfRoomGetRoomsIncludeLastMessage(String name) {
+  switch (name) {
+    case '\$0':
+      return _$roomGetRoomsIncludeLastMessage$0;
+    case '\$1':
+      return _$roomGetRoomsIncludeLastMessage$1;
+    default:
+      throw new ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomGetRoomsIncludeLastMessage> _$roomGetRoomsIncludeLastMessageValues =
+    new BuiltSet<RoomGetRoomsIncludeLastMessage>(const <RoomGetRoomsIncludeLastMessage>[
+  _$roomGetRoomsIncludeLastMessage$0,
+  _$roomGetRoomsIncludeLastMessage$1,
+]);
+
 const RoomCreateRoomApiVersion _$roomCreateRoomApiVersionV4 = const RoomCreateRoomApiVersion._('v4');
 
 RoomCreateRoomApiVersion _$valueOfRoomCreateRoomApiVersion(String name) {
