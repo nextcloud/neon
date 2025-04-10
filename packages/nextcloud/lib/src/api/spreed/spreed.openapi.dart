@@ -10166,6 +10166,7 @@ class $RoomClient {
   ///   * [noStatusUpdate] When the user status should not be automatically set to online set to 1 (default 0). Defaults to `0`.
   ///   * [includeStatus] Include the user status. Defaults to `0`.
   ///   * [modifiedSince] Filter rooms modified after a timestamp. Defaults to `0`.
+  ///   * [includeLastMessage] Include the last message, clients should opt-out when only rendering a compact list. Defaults to `1`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -10180,6 +10181,7 @@ class $RoomClient {
     RoomGetRoomsNoStatusUpdate? noStatusUpdate,
     RoomGetRoomsIncludeStatus? includeStatus,
     int? modifiedSince,
+    RoomGetRoomsIncludeLastMessage? includeLastMessage,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
@@ -10206,8 +10208,15 @@ class $RoomClient {
     _i4.checkNumber(__modifiedSince, 'modifiedSince', minimum: 0);
     _parameters['modifiedSince'] = __modifiedSince;
 
+    var __includeLastMessage = _$jsonSerializers.serialize(
+      includeLastMessage,
+      specifiedType: const FullType(RoomGetRoomsIncludeLastMessage),
+    );
+    __includeLastMessage ??= 1;
+    _parameters['includeLastMessage'] = __includeLastMessage;
+
     final _path = _i5.UriTemplate(
-      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room{?noStatusUpdate*,includeStatus*,modifiedSince*}',
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room{?noStatusUpdate*,includeStatus*,modifiedSince*,includeLastMessage*}',
     ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
@@ -10244,6 +10253,7 @@ class $RoomClient {
   ///   * [noStatusUpdate] When the user status should not be automatically set to online set to 1 (default 0). Defaults to `0`.
   ///   * [includeStatus] Include the user status. Defaults to `0`.
   ///   * [modifiedSince] Filter rooms modified after a timestamp. Defaults to `0`.
+  ///   * [includeLastMessage] Include the last message, clients should opt-out when only rendering a compact list. Defaults to `1`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -10257,6 +10267,7 @@ class $RoomClient {
     RoomGetRoomsNoStatusUpdate? noStatusUpdate,
     RoomGetRoomsIncludeStatus? includeStatus,
     int? modifiedSince,
+    RoomGetRoomsIncludeLastMessage? includeLastMessage,
     bool? oCSAPIRequest,
   }) async {
     final _request = $getRooms_Request(
@@ -10264,6 +10275,7 @@ class $RoomClient {
       noStatusUpdate: noStatusUpdate,
       includeStatus: includeStatus,
       modifiedSince: modifiedSince,
+      includeLastMessage: includeLastMessage,
       oCSAPIRequest: oCSAPIRequest,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
@@ -38469,6 +38481,70 @@ class _$RoomGetRoomsIncludeStatusSerializer implements PrimitiveSerializer<RoomG
       _fromWire[serialized]!;
 }
 
+class RoomGetRoomsIncludeLastMessage extends EnumClass {
+  const RoomGetRoomsIncludeLastMessage._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const RoomGetRoomsIncludeLastMessage $0 = _$roomGetRoomsIncludeLastMessage$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const RoomGetRoomsIncludeLastMessage $1 = _$roomGetRoomsIncludeLastMessage$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RoomGetRoomsIncludeLastMessage> get values => _$roomGetRoomsIncludeLastMessageValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RoomGetRoomsIncludeLastMessage valueOf(String name) => _$valueOfRoomGetRoomsIncludeLastMessage(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for RoomGetRoomsIncludeLastMessage.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomGetRoomsIncludeLastMessage> get serializer =>
+      const _$RoomGetRoomsIncludeLastMessageSerializer();
+}
+
+class _$RoomGetRoomsIncludeLastMessageSerializer implements PrimitiveSerializer<RoomGetRoomsIncludeLastMessage> {
+  const _$RoomGetRoomsIncludeLastMessageSerializer();
+
+  static const Map<RoomGetRoomsIncludeLastMessage, Object> _toWire = <RoomGetRoomsIncludeLastMessage, Object>{
+    RoomGetRoomsIncludeLastMessage.$0: 0,
+    RoomGetRoomsIncludeLastMessage.$1: 1,
+  };
+
+  static const Map<Object, RoomGetRoomsIncludeLastMessage> _fromWire = <Object, RoomGetRoomsIncludeLastMessage>{
+    0: RoomGetRoomsIncludeLastMessage.$0,
+    1: RoomGetRoomsIncludeLastMessage.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomGetRoomsIncludeLastMessage];
+
+  @override
+  String get wireName => 'RoomGetRoomsIncludeLastMessage';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomGetRoomsIncludeLastMessage object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomGetRoomsIncludeLastMessage deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 @BuiltValue(instantiable: false)
 sealed class $RoomGetRoomsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
@@ -55868,6 +55944,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(RoomGetRoomsApiVersion.serializer)
       ..add(RoomGetRoomsNoStatusUpdate.serializer)
       ..add(RoomGetRoomsIncludeStatus.serializer)
+      ..add(RoomGetRoomsIncludeLastMessage.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetRoomsResponseApplicationJson),
         RoomGetRoomsResponseApplicationJsonBuilder.new,
