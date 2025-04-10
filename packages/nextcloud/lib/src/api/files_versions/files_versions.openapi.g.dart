@@ -6,6 +6,26 @@ part of 'files_versions.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const PreviewGetPreviewMimeFallback _$previewGetPreviewMimeFallback$0 = const PreviewGetPreviewMimeFallback._('\$0');
+const PreviewGetPreviewMimeFallback _$previewGetPreviewMimeFallback$1 = const PreviewGetPreviewMimeFallback._('\$1');
+
+PreviewGetPreviewMimeFallback _$valueOfPreviewGetPreviewMimeFallback(String name) {
+  switch (name) {
+    case '\$0':
+      return _$previewGetPreviewMimeFallback$0;
+    case '\$1':
+      return _$previewGetPreviewMimeFallback$1;
+    default:
+      throw new ArgumentError(name);
+  }
+}
+
+final BuiltSet<PreviewGetPreviewMimeFallback> _$previewGetPreviewMimeFallbackValues =
+    new BuiltSet<PreviewGetPreviewMimeFallback>(const <PreviewGetPreviewMimeFallback>[
+  _$previewGetPreviewMimeFallback$0,
+  _$previewGetPreviewMimeFallback$1,
+]);
+
 Serializer<Capabilities_Files> _$capabilitiesFilesSerializer = new _$Capabilities_FilesSerializer();
 Serializer<Capabilities> _$capabilitiesSerializer = new _$CapabilitiesSerializer();
 

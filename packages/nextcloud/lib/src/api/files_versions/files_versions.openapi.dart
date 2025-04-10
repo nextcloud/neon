@@ -18,6 +18,7 @@ library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
 import 'dart:typed_data';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart' as _i7;
@@ -66,17 +67,25 @@ class $PreviewClient {
   ///   * [x] Width of the preview. Defaults to `44`.
   ///   * [y] Height of the preview. Defaults to `44`.
   ///   * [version] Version of the file to get the preview for. Defaults to `""`.
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
   ///   * 400: Getting preview is not possible
   ///   * 404: Preview not found
+  ///   * 303: Redirect to the mime icon url if mimeFallback is true
   ///
   /// See:
   ///  * [getPreview] for a method executing this request and parsing the response.
   ///  * [$getPreview_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getPreview_Request({String? file, int? x, int? y, String? version}) {
+  _i3.Request $getPreview_Request({
+    String? file,
+    int? x,
+    int? y,
+    String? version,
+    PreviewGetPreviewMimeFallback? mimeFallback,
+  }) {
     final _parameters = <String, Object?>{};
     var __file = _$jsonSerializers.serialize(file, specifiedType: const FullType(String));
     __file ??= '';
@@ -94,7 +103,16 @@ class $PreviewClient {
     __version ??= '';
     _parameters['version'] = __version;
 
-    final _path = _i4.UriTemplate('/index.php/apps/files_versions/preview{?file*,x*,y*,version*}').expand(_parameters);
+    var __mimeFallback = _$jsonSerializers.serialize(
+      mimeFallback,
+      specifiedType: const FullType(PreviewGetPreviewMimeFallback),
+    );
+    __mimeFallback ??= 0;
+    _parameters['mimeFallback'] = __mimeFallback;
+
+    final _path = _i4.UriTemplate(
+      '/index.php/apps/files_versions/preview{?file*,x*,y*,version*,mimeFallback*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
@@ -126,23 +144,94 @@ class $PreviewClient {
   ///   * [x] Width of the preview. Defaults to `44`.
   ///   * [y] Height of the preview. Defaults to `44`.
   ///   * [version] Version of the file to get the preview for. Defaults to `""`.
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
   ///   * 400: Getting preview is not possible
   ///   * 404: Preview not found
+  ///   * 303: Redirect to the mime icon url if mimeFallback is true
   ///
   /// See:
   ///  * [$getPreview_Request] for the request send by this method.
   ///  * [$getPreview_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<Uint8List, void>> getPreview({String? file, int? x, int? y, String? version}) async {
-    final _request = $getPreview_Request(file: file, x: x, y: y, version: version);
+  Future<_i1.DynamiteResponse<Uint8List, void>> getPreview({
+    String? file,
+    int? x,
+    int? y,
+    String? version,
+    PreviewGetPreviewMimeFallback? mimeFallback,
+  }) async {
+    final _request = $getPreview_Request(file: file, x: x, y: y, version: version, mimeFallback: mimeFallback);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getPreview_Serializer();
     return _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
   }
+}
+
+class PreviewGetPreviewMimeFallback extends EnumClass {
+  const PreviewGetPreviewMimeFallback._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const PreviewGetPreviewMimeFallback $0 = _$previewGetPreviewMimeFallback$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const PreviewGetPreviewMimeFallback $1 = _$previewGetPreviewMimeFallback$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<PreviewGetPreviewMimeFallback> get values => _$previewGetPreviewMimeFallbackValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static PreviewGetPreviewMimeFallback valueOf(String name) => _$valueOfPreviewGetPreviewMimeFallback(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for PreviewGetPreviewMimeFallback.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PreviewGetPreviewMimeFallback> get serializer => const _$PreviewGetPreviewMimeFallbackSerializer();
+}
+
+class _$PreviewGetPreviewMimeFallbackSerializer implements PrimitiveSerializer<PreviewGetPreviewMimeFallback> {
+  const _$PreviewGetPreviewMimeFallbackSerializer();
+
+  static const Map<PreviewGetPreviewMimeFallback, Object> _toWire = <PreviewGetPreviewMimeFallback, Object>{
+    PreviewGetPreviewMimeFallback.$0: 0,
+    PreviewGetPreviewMimeFallback.$1: 1,
+  };
+
+  static const Map<Object, PreviewGetPreviewMimeFallback> _fromWire = <Object, PreviewGetPreviewMimeFallback>{
+    0: PreviewGetPreviewMimeFallback.$0,
+    1: PreviewGetPreviewMimeFallback.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PreviewGetPreviewMimeFallback];
+
+  @override
+  String get wireName => 'PreviewGetPreviewMimeFallback';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PreviewGetPreviewMimeFallback object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PreviewGetPreviewMimeFallback deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -267,6 +356,7 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
+      ..add(PreviewGetPreviewMimeFallback.serializer)
       ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
       ..add(Capabilities.serializer)
       ..addBuilderFactory(const FullType(Capabilities_Files), Capabilities_FilesBuilder.new)
