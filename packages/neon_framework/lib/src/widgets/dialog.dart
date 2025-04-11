@@ -744,6 +744,7 @@ class NeonEmojiPickerDialog extends StatelessWidget {
         child: DefaultTabController(
           length: groups.length,
           child: Scaffold(
+            backgroundColor: Colors.transparent,
             appBar: TabBar(
               isScrollable: true,
               tabAlignment: TabAlignment.center,
