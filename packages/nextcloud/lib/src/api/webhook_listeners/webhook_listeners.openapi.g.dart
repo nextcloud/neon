@@ -8,15 +8,15 @@ part of 'webhook_listeners.openapi.dart';
 
 const WebhooksCreateRequestApplicationJson_AuthMethod _$webhooksCreateRequestApplicationJsonAuthMethodNone =
     const WebhooksCreateRequestApplicationJson_AuthMethod._('none');
-const WebhooksCreateRequestApplicationJson_AuthMethod _$webhooksCreateRequestApplicationJsonAuthMethodHeaders =
-    const WebhooksCreateRequestApplicationJson_AuthMethod._('headers');
+const WebhooksCreateRequestApplicationJson_AuthMethod _$webhooksCreateRequestApplicationJsonAuthMethodHeader =
+    const WebhooksCreateRequestApplicationJson_AuthMethod._('header');
 
 WebhooksCreateRequestApplicationJson_AuthMethod _$valueOfWebhooksCreateRequestApplicationJson_AuthMethod(String name) {
   switch (name) {
     case 'none':
       return _$webhooksCreateRequestApplicationJsonAuthMethodNone;
-    case 'headers':
-      return _$webhooksCreateRequestApplicationJsonAuthMethodHeaders;
+    case 'header':
+      return _$webhooksCreateRequestApplicationJsonAuthMethodHeader;
     default:
       throw new ArgumentError(name);
   }
@@ -26,20 +26,20 @@ final BuiltSet<WebhooksCreateRequestApplicationJson_AuthMethod> _$webhooksCreate
     new BuiltSet<
         WebhooksCreateRequestApplicationJson_AuthMethod>(const <WebhooksCreateRequestApplicationJson_AuthMethod>[
   _$webhooksCreateRequestApplicationJsonAuthMethodNone,
-  _$webhooksCreateRequestApplicationJsonAuthMethodHeaders,
+  _$webhooksCreateRequestApplicationJsonAuthMethodHeader,
 ]);
 
 const WebhooksUpdateRequestApplicationJson_AuthMethod _$webhooksUpdateRequestApplicationJsonAuthMethodNone =
     const WebhooksUpdateRequestApplicationJson_AuthMethod._('none');
-const WebhooksUpdateRequestApplicationJson_AuthMethod _$webhooksUpdateRequestApplicationJsonAuthMethodHeaders =
-    const WebhooksUpdateRequestApplicationJson_AuthMethod._('headers');
+const WebhooksUpdateRequestApplicationJson_AuthMethod _$webhooksUpdateRequestApplicationJsonAuthMethodHeader =
+    const WebhooksUpdateRequestApplicationJson_AuthMethod._('header');
 
 WebhooksUpdateRequestApplicationJson_AuthMethod _$valueOfWebhooksUpdateRequestApplicationJson_AuthMethod(String name) {
   switch (name) {
     case 'none':
       return _$webhooksUpdateRequestApplicationJsonAuthMethodNone;
-    case 'headers':
-      return _$webhooksUpdateRequestApplicationJsonAuthMethodHeaders;
+    case 'header':
+      return _$webhooksUpdateRequestApplicationJsonAuthMethodHeader;
     default:
       throw new ArgumentError(name);
   }
@@ -49,7 +49,7 @@ final BuiltSet<WebhooksUpdateRequestApplicationJson_AuthMethod> _$webhooksUpdate
     new BuiltSet<
         WebhooksUpdateRequestApplicationJson_AuthMethod>(const <WebhooksUpdateRequestApplicationJson_AuthMethod>[
   _$webhooksUpdateRequestApplicationJsonAuthMethodNone,
-  _$webhooksUpdateRequestApplicationJsonAuthMethodHeaders,
+  _$webhooksUpdateRequestApplicationJsonAuthMethodHeader,
 ]);
 
 Serializer<OCSMeta> _$oCSMetaSerializer = new _$OCSMetaSerializer();

@@ -856,9 +856,9 @@ class WebhooksCreateRequestApplicationJson_AuthMethod extends EnumClass {
   static const WebhooksCreateRequestApplicationJson_AuthMethod none =
       _$webhooksCreateRequestApplicationJsonAuthMethodNone;
 
-  /// `headers`
-  static const WebhooksCreateRequestApplicationJson_AuthMethod headers =
-      _$webhooksCreateRequestApplicationJsonAuthMethodHeaders;
+  /// `header`
+  static const WebhooksCreateRequestApplicationJson_AuthMethod header =
+      _$webhooksCreateRequestApplicationJsonAuthMethodHeader;
 
   /// Returns a set with all values this enum contains.
   // coverage:ignore-start
@@ -886,13 +886,13 @@ class _$WebhooksCreateRequestApplicationJson_AuthMethodSerializer
   static const Map<WebhooksCreateRequestApplicationJson_AuthMethod, Object> _toWire =
       <WebhooksCreateRequestApplicationJson_AuthMethod, Object>{
     WebhooksCreateRequestApplicationJson_AuthMethod.none: 'none',
-    WebhooksCreateRequestApplicationJson_AuthMethod.headers: 'headers',
+    WebhooksCreateRequestApplicationJson_AuthMethod.header: 'header',
   };
 
   static const Map<Object, WebhooksCreateRequestApplicationJson_AuthMethod> _fromWire =
       <Object, WebhooksCreateRequestApplicationJson_AuthMethod>{
     'none': WebhooksCreateRequestApplicationJson_AuthMethod.none,
-    'headers': WebhooksCreateRequestApplicationJson_AuthMethod.headers,
+    'header': WebhooksCreateRequestApplicationJson_AuthMethod.header,
   };
 
   @override
@@ -1261,9 +1261,9 @@ class WebhooksUpdateRequestApplicationJson_AuthMethod extends EnumClass {
   static const WebhooksUpdateRequestApplicationJson_AuthMethod none =
       _$webhooksUpdateRequestApplicationJsonAuthMethodNone;
 
-  /// `headers`
-  static const WebhooksUpdateRequestApplicationJson_AuthMethod headers =
-      _$webhooksUpdateRequestApplicationJsonAuthMethodHeaders;
+  /// `header`
+  static const WebhooksUpdateRequestApplicationJson_AuthMethod header =
+      _$webhooksUpdateRequestApplicationJsonAuthMethodHeader;
 
   /// Returns a set with all values this enum contains.
   // coverage:ignore-start
@@ -1291,13 +1291,13 @@ class _$WebhooksUpdateRequestApplicationJson_AuthMethodSerializer
   static const Map<WebhooksUpdateRequestApplicationJson_AuthMethod, Object> _toWire =
       <WebhooksUpdateRequestApplicationJson_AuthMethod, Object>{
     WebhooksUpdateRequestApplicationJson_AuthMethod.none: 'none',
-    WebhooksUpdateRequestApplicationJson_AuthMethod.headers: 'headers',
+    WebhooksUpdateRequestApplicationJson_AuthMethod.header: 'header',
   };
 
   static const Map<Object, WebhooksUpdateRequestApplicationJson_AuthMethod> _fromWire =
       <Object, WebhooksUpdateRequestApplicationJson_AuthMethod>{
     'none': WebhooksUpdateRequestApplicationJson_AuthMethod.none,
-    'headers': WebhooksUpdateRequestApplicationJson_AuthMethod.headers,
+    'header': WebhooksUpdateRequestApplicationJson_AuthMethod.header,
   };
 
   @override
