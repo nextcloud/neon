@@ -3,6 +3,7 @@ name: Publish
 on:
   schedule:
     - cron:  '0 5 * * *'
+  pull_request:
 
 concurrency:
   group: publish
@@ -11,7 +12,7 @@ concurrency:
 jobs:
   android:
     name: Android
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
@@ -71,7 +72,7 @@ jobs:
 
   linux:
     name: Linux ${{ matrix.architecture.flutter }}
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     permissions:
       packages: write
     strategy:
