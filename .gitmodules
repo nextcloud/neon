@@ -33,7 +33,7 @@
 [submodule "external/nextcloud-tables"]
 	path = external/nextcloud-tables
 	url = https://github.com/nextcloud/tables
-	branch = v0.9.0
+	branch = v0.9.1
 [submodule "external/emoji-metadata"]
 	path = external/emoji-metadata
 	url = https://github.com/googlefonts/emoji-metadata
