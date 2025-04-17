@@ -5,7 +5,6 @@ import 'package:account_repository/account_repository.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:crypton/crypton.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:flutter_local_notifications_platform_interface/flutter_local_notifications_platform_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:mocktail/mocktail.dart';
