@@ -56,7 +56,7 @@ For an example checkout the [example](https://github.com/nextcloud/neon/blob/mai
 | [Cookbook app](https://github.com/nextcloud/cookbook)                              | 0.11                   |
 | [User account deletion app](https://framagit.org/framasoft/nextcloud/drop_account) | 2.5 - 2.7              |
 | [News app](https://github.com/nextcloud/news)                                      | 25 - 25.3              |
-| [Notes app](https://github.com/nextcloud/notes)                                    | 4.9 - 4.11             |
+| [Notes app](https://github.com/nextcloud/notes)                                    | 4.9 - 4.12             |
 | [Notifications app](https://github.com/nextcloud/notifications)                    | 29 - 31                |
 | [Password Policy app](https://github.com/nextcloud/password_policy)                | 29 - 31                |
 | [Talk app](https://github.com/nextcloud/spreed)                                    | 19 - 21                |
