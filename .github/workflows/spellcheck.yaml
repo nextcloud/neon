@@ -7,6 +7,6 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-      - uses: streetsidesoftware/cspell-action@8485bb4b688c68384c2f6db7ad931f5e3e63f21c # v6
+      - uses: streetsidesoftware/cspell-action@357d91b7153520efd453f404d76424cff0a29797 # v6
         with:
           incremental_files_only: false
