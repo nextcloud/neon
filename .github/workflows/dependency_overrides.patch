@@ -56,7 +56,7 @@ diff --git a/packages/dynamite/packages/dynamite_runtime/pubspec.yaml b/packages
 @@ -29,6 +29,9 @@ dev_dependencies:
        path: packages/neon_lints
    test: ^1.25.15
- 
+
 +dependency_overrides:
 +  frontend_server_client: ^4.0.0
 +
@@ -161,7 +161,7 @@ diff --git a/packages/neon_framework/packages/dashboard_app/pubspec.yaml b/packa
 @@ -38,6 +38,13 @@ dev_dependencies:
    url_launcher_platform_interface: ^2.3.2
    vector_graphics_compiler: ^1.1.16
- 
+
 +dependency_overrides:
 +  archive: ^3.5.0
 +  image_picker: ^0.8.2
@@ -228,7 +228,7 @@ diff --git a/packages/neon_framework/packages/neon_rich_text/pubspec.yaml b/pack
 @@ -34,5 +34,12 @@ dev_dependencies:
    rxdart: ^0.28.0
    url_launcher_platform_interface: ^2.3.2
- 
+
 +dependency_overrides:
 +  archive: ^3.5.0
 +  image_picker: ^0.8.2
@@ -286,7 +286,7 @@ diff --git a/packages/neon_framework/packages/notifications_app/pubspec.yaml b/p
 @@ -47,6 +47,13 @@ dev_dependencies:
    url_launcher_platform_interface: ^2.3.2
    vector_graphics_compiler: ^1.1.16
- 
+
 +dependency_overrides:
 +  archive: ^3.5.0
 +  image_picker: ^0.8.2
@@ -321,7 +321,7 @@ diff --git a/packages/neon_framework/packages/notifications_push_repository/pubs
 @@ -44,3 +44,10 @@ dev_dependencies:
        path: packages/neon_lints
    plugin_platform_interface: ^2.1.8
-   unifiedpush_platform_interface: ^2.0.2
+   unifiedpush_platform_interface: ^3.0.1
 +
 +dependency_overrides:
 +  archive: ^3.5.0
@@ -373,7 +373,7 @@ diff --git a/packages/neon_framework/packages/talk_app/pubspec.yaml b/packages/n
 @@ -50,6 +50,14 @@ dev_dependencies:
    url_launcher_platform_interface: ^2.3.2
    vector_graphics_compiler: ^1.1.16
- 
+
 +dependency_overrides:
 +  archive: ^3.5.0
 +  image_picker: ^0.8.2
@@ -410,7 +410,7 @@ diff --git a/packages/neon_framework/pubspec.yaml b/packages/neon_framework/pubs
 @@ -110,6 +110,14 @@ dev_dependencies:
    vector_graphics_compiler: ^1.1.16
    version: ^3.0.2
- 
+
 +dependency_overrides:
 +  archive: ^3.5.0
 +  image_picker: ^0.8.2
@@ -447,7 +447,7 @@ diff --git a/packages/nextcloud/pubspec.yaml b/packages/nextcloud/pubspec.yaml
 @@ -57,6 +57,10 @@ dev_dependencies:
    test_api: ^0.7.4
    xml_serializable: ^2.5.4
- 
+
 +dependency_overrides:
 +  frontend_server_client: ^4.0.0
 +  quiver: ^3.2.1

@@ -202,7 +202,7 @@ void main() {
         },
       };
 
-      await PushUtils.onMessage(_encryptPushNotifications(keypair, [payload]), account.id);
+      await PushUtils.onMessage(PushMessage(_encryptPushNotifications(keypair, [payload]), true), account.id);
 
       verify(() => localNotificationsPlatform.cancel(PushUtils.getNotificationID(account.id, 1))).called(1);
       verify(() => localNotificationsPlatform.getActiveNotifications()).called(1);
@@ -218,7 +218,7 @@ void main() {
         },
       };
 
-      await PushUtils.onMessage(_encryptPushNotifications(keypair, [payload]), account.id);
+      await PushUtils.onMessage(PushMessage(_encryptPushNotifications(keypair, [payload]), true), account.id);
 
       verify(() => localNotificationsPlatform.cancel(PushUtils.getNotificationID(account.id, 1))).called(1);
       verify(() => localNotificationsPlatform.cancel(PushUtils.getNotificationID(account.id, 2))).called(1);
@@ -234,7 +234,7 @@ void main() {
         },
       };
 
-      await PushUtils.onMessage(_encryptPushNotifications(keypair, [payload]), account.id);
+      await PushUtils.onMessage(PushMessage(_encryptPushNotifications(keypair, [payload]), true), account.id);
 
       verify(() => localNotificationsPlatform.cancelAll()).called(1);
       verify(() => localNotificationsPlatform.getActiveNotifications()).called(1);
@@ -247,7 +247,7 @@ void main() {
         'subject': <String, dynamic>{},
       };
 
-      await PushUtils.onMessage(_encryptPushNotifications(keypair, [payload]), account.id);
+      await PushUtils.onMessage(PushMessage(_encryptPushNotifications(keypair, [payload]), true), account.id);
       verify(() => localNotificationsPlatform.getActiveNotifications()).called(1);
     });
 
@@ -278,7 +278,7 @@ void main() {
         },
       };
 
-      await PushUtils.onMessage(_encryptPushNotifications(keypair, [payload]), account.id);
+      await PushUtils.onMessage(PushMessage(_encryptPushNotifications(keypair, [payload]), true), account.id);
 
       verify(() => localNotificationsPlatform.cancel(PushUtils.getNotificationID(account.id, 1))).called(1);
       verify(() => localNotificationsPlatform.getActiveNotifications()).called(1);
@@ -329,7 +329,7 @@ void main() {
           ...notification,
         });
 
-        await PushUtils.onMessage(_encryptPushNotifications(keypair, [notification]), account.id);
+        await PushUtils.onMessage(PushMessage(_encryptPushNotifications(keypair, [notification]), true), account.id);
 
         verify(
           () => localNotificationsPlatform.show(
@@ -487,7 +487,7 @@ void main() {
         );
 
         await PushUtils.onMessage(
-          _encryptPushNotifications(keypair, [notification]),
+          PushMessage(_encryptPushNotifications(keypair, [notification]), true),
           account.id,
           httpClient: _HttpClientMock(httpRequest),
         );
@@ -564,7 +564,7 @@ void main() {
           ...notification,
         });
 
-        await PushUtils.onMessage(_encryptPushNotifications(keypair, [notification]), account.id);
+        await PushUtils.onMessage(PushMessage(_encryptPushNotifications(keypair, [notification]), true), account.id);
 
         verify(
           () => localNotificationsPlatform.show(

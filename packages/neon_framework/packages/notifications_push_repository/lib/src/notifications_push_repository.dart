@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:account_repository/account_repository.dart';
 import 'package:built_collection/built_collection.dart';
@@ -16,7 +15,7 @@ import 'package:unifiedpush/unifiedpush.dart';
 part 'notifications_push_storage.dart';
 
 /// Signature of the callback triggered by UnifiedPush when a new push notification is received.
-typedef OnMessageCallback = void Function(Uint8List message, String accountID);
+typedef OnMessageCallback = void Function(PushMessage message, String accountID);
 
 final _log = Logger('NotificationsPushRepository');
 
@@ -88,11 +87,11 @@ class NotificationsPushRepository {
 
         final subscriptions = await _storage.readSubscriptions();
         var subscription = subscriptions[account.id] ?? PushSubscription();
-        if (subscription.endpoint == endpoint) {
+        if (subscription.endpoint == endpoint.url) {
           _log.fine('UnifiedPush endpoint not changed for ${account.id}');
           return;
         }
-        subscription = subscription.rebuild((b) => b.endpoint = endpoint);
+        subscription = subscription.rebuild((b) => b.endpoint = endpoint.url);
 
         var pushDevice = subscription.pushDevice;
         if (pushDevice != null) {
@@ -100,7 +99,7 @@ class NotificationsPushRepository {
           subscription = subscription.rebuild((b) => b.pushDevice = null);
         }
 
-        pushDevice = await _registerNextcloud(account, endpoint);
+        pushDevice = await _registerNextcloud(account, endpoint.url);
         subscription = subscription.rebuild((b) {
           if (pushDevice == null) {
             b.pushDevice = null;
@@ -166,7 +165,7 @@ class NotificationsPushRepository {
     for (final account in accounts.where((a) => a.credentials.appPassword != null)) {
       _log.finer('Registering ${account.id} for UnifiedPush');
 
-      await UnifiedPush.registerApp(account.id);
+      await UnifiedPush.register(instance: account.id);
     }
   }
 
