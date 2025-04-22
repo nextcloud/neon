@@ -72,7 +72,7 @@ class PushUtils {
   }
 
   static Future<void> onMessage(
-    Uint8List encryptedPushNotifications,
+    PushMessage encryptedPushNotifications,
     String accountID, {
     @visibleForTesting http.Client? httpClient,
   }) async {
@@ -111,7 +111,11 @@ class PushUtils {
     BuiltList<Account>? accounts;
     Account? account;
 
-    final pushNotifications = await parseEncryptedPushNotifications(storage, encryptedPushNotifications, accountID);
+    final pushNotifications = await parseEncryptedPushNotifications(
+      storage,
+      encryptedPushNotifications.content,
+      accountID,
+    );
     for (final pushNotification in pushNotifications) {
       if (pushNotification.type == 'background') {
         if (pushNotification.subject.delete ?? false) {

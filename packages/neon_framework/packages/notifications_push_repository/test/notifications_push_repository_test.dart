@@ -16,6 +16,7 @@ import 'package:notifications_push_repository/notifications_push_repository.dart
 import 'package:notifications_push_repository/src/models/models.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:unifiedpush/unifiedpush.dart';
 import 'package:unifiedpush_platform_interface/unifiedpush_platform_interface.dart';
 
 class _AccountRepositoryMock extends Mock implements AccountRepository {}
@@ -23,7 +24,7 @@ class _AccountRepositoryMock extends Mock implements AccountRepository {}
 class _StorageMock extends Mock implements NotificationsPushStorage {}
 
 class _OnMessageCallbackMock extends Mock {
-  void call(Uint8List message, String accountID);
+  void call(PushMessage message, String accountID);
 }
 
 class _UnifiedPushPlatformMock extends Mock with MockPlatformInterfaceMixin implements UnifiedPushPlatform {}
@@ -57,9 +58,9 @@ void main() {
     late OnMessageCallback onMessageCallback;
     late UnifiedPushPlatform unifiedPushPlatform;
     late NotificationsPushRepository repository;
-    void Function(String, String)? unifiedPushOnNewEndpoint;
+    void Function(PushEndpoint, String)? unifiedPushOnNewEndpoint;
     void Function(String)? unifiedPushOnUnregistered;
-    void Function(Uint8List, String)? unifiedPushOnMessage;
+    void Function(PushMessage, String)? unifiedPushOnMessage;
 
     setUpAll(() {
       registerFallbackValue(RSAPrivateKey(BigInt.zero, BigInt.zero, BigInt.zero, BigInt.zero));
@@ -67,6 +68,7 @@ void main() {
       registerFallbackValue(Uri());
       registerFallbackValue(BuiltMap<String, String>());
       registerFallbackValue(Uint8List(0));
+      registerFallbackValue(PushMessage(Uint8List(0), true));
 
       FakeNeonStorage.setup();
     });
@@ -95,9 +97,9 @@ void main() {
           onMessage: any(named: 'onMessage'),
         ),
       ).thenAnswer((invocation) async {
-        unifiedPushOnNewEndpoint = invocation.namedArguments[#onNewEndpoint] as void Function(String, String)?;
+        unifiedPushOnNewEndpoint = invocation.namedArguments[#onNewEndpoint] as void Function(PushEndpoint, String)?;
         unifiedPushOnUnregistered = invocation.namedArguments[#onUnregistered] as void Function(String)?;
-        unifiedPushOnMessage = invocation.namedArguments[#onMessage] as void Function(Uint8List, String)?;
+        unifiedPushOnMessage = invocation.namedArguments[#onMessage] as void Function(PushMessage, String)?;
       });
       UnifiedPushPlatform.instance = unifiedPushPlatform;
     });
@@ -184,8 +186,18 @@ void main() {
       );
       await repository.initialize();
 
-      unifiedPushOnMessage!(Uint8List(0), 'test');
-      verify(() => onMessageCallback(Uint8List(0), 'test')).called(1);
+      unifiedPushOnMessage!(PushMessage(Uint8List(0), true), 'test');
+      verify(
+        () => onMessageCallback(
+          any(
+            that: predicate<PushMessage>(
+              (pushMessage) => pushMessage.content.equals(Uint8List(0)),
+              'content',
+            ),
+          ),
+          'test',
+        ),
+      ).called(1);
       verifyNever(() => onMessageCallback(any(), any()));
     });
 
@@ -208,9 +220,9 @@ void main() {
         when(() => unifiedPushPlatform.getDistributor()).thenAnswer((_) async => 'test');
         when(() => unifiedPushPlatform.saveDistributor(any())).thenAnswer((_) async {});
         final endpoint = Uri.parse('https://cloud.example.com:8443/nextcloud/unifiedpush');
-        when(() => unifiedPushPlatform.registerApp(any(), any())).thenAnswer((invocation) async {
+        when(() => unifiedPushPlatform.register(any(), any(), any(), any())).thenAnswer((invocation) async {
           unifiedPushOnNewEndpoint!.call(
-            endpoint.toString(),
+            PushEndpoint(endpoint.toString(), null),
             invocation.positionalArguments[0] as String,
           );
         });
@@ -285,8 +297,8 @@ void main() {
         );
         await repository.initialize();
 
-        verify(() => unifiedPushPlatform.registerApp(account.id, [])).called(1);
-        verifyNever(() => unifiedPushPlatform.registerApp(any(), any()));
+        verify(() => unifiedPushPlatform.register(account.id, [], any(), any())).called(1);
+        verifyNever(() => unifiedPushPlatform.register(any(), any(), any(), any()));
 
         unifiedPushOnUnregistered!(account.id);
         await Future<void>.delayed(const Duration(milliseconds: 1));
@@ -329,8 +341,8 @@ void main() {
         );
         await repository.initialize();
 
-        verify(() => unifiedPushPlatform.registerApp(account.id, [])).called(1);
-        verifyNever(() => unifiedPushPlatform.registerApp(any(), any()));
+        verify(() => unifiedPushPlatform.register(account.id, [], any(), any())).called(1);
+        verifyNever(() => unifiedPushPlatform.register(any(), any(), any(), any()));
 
         unifiedPushOnUnregistered!(account.id);
         await Future<void>.delayed(const Duration(milliseconds: 1));
@@ -493,9 +505,9 @@ void main() {
         when(() => unifiedPushPlatform.getDistributor()).thenAnswer((_) async => 'test');
         when(() => unifiedPushPlatform.saveDistributor(any())).thenAnswer((_) async {});
         endpoint = Uri.parse('https://cloud.example.com:8443/nextcloud/unifiedpush');
-        when(() => unifiedPushPlatform.registerApp(any(), any())).thenAnswer((invocation) async {
+        when(() => unifiedPushPlatform.register(any(), any(), any(), any())).thenAnswer((invocation) async {
           unifiedPushOnNewEndpoint!.call(
-            endpoint.toString(),
+            PushEndpoint(endpoint.toString(), null),
             invocation.positionalArguments[0] as String,
           );
         });
@@ -562,8 +574,8 @@ void main() {
 
             await Future<void>.delayed(const Duration(milliseconds: 1));
 
-            verify(() => unifiedPushPlatform.registerApp(account.id, [])).called(1);
-            verifyNever(() => unifiedPushPlatform.registerApp(any(), any()));
+            verify(() => unifiedPushPlatform.register(account.id, [], any(), any())).called(1);
+            verifyNever(() => unifiedPushPlatform.register(any(), any(), any(), any()));
             verify(
               () => httpRequest(
                 'POST',
@@ -625,8 +637,8 @@ void main() {
 
             await Future<void>.delayed(const Duration(milliseconds: 1));
 
-            verify(() => unifiedPushPlatform.registerApp(account.id, [])).called(1);
-            verifyNever(() => unifiedPushPlatform.registerApp(any(), any()));
+            verify(() => unifiedPushPlatform.register(account.id, [], any(), any())).called(1);
+            verifyNever(() => unifiedPushPlatform.register(any(), any(), any(), any()));
             verify(
               () => httpRequest(
                 'POST',
@@ -745,15 +757,15 @@ void main() {
             );
             await repository.initialize();
 
-            verify(() => unifiedPushPlatform.registerApp(account.id, [])).called(1);
+            verify(() => unifiedPushPlatform.register(account.id, [], any(), any())).called(1);
 
             accountsSubject.add(BuiltList([account, newAccount]));
 
             await Future<void>.delayed(const Duration(milliseconds: 1));
 
-            verify(() => unifiedPushPlatform.registerApp(account.id, [])).called(1);
-            verify(() => unifiedPushPlatform.registerApp(newAccount.id, [])).called(1);
-            verifyNever(() => unifiedPushPlatform.registerApp(any(), any()));
+            verify(() => unifiedPushPlatform.register(account.id, [], any(), any())).called(1);
+            verify(() => unifiedPushPlatform.register(newAccount.id, [], any(), any())).called(1);
+            verifyNever(() => unifiedPushPlatform.register(any(), any(), any(), any()));
             verify(
               () => httpRequest(
                 'POST',
@@ -811,15 +823,15 @@ void main() {
             );
             await repository.initialize();
 
-            verify(() => unifiedPushPlatform.registerApp(account.id, [])).called(1);
+            verify(() => unifiedPushPlatform.register(account.id, [], any(), any())).called(1);
 
             accountsSubject.add(BuiltList([account, newAccount]));
 
             await Future<void>.delayed(const Duration(milliseconds: 1));
 
-            verify(() => unifiedPushPlatform.registerApp(account.id, [])).called(1);
-            verify(() => unifiedPushPlatform.registerApp(newAccount.id, [])).called(1);
-            verifyNever(() => unifiedPushPlatform.registerApp(any(), any()));
+            verify(() => unifiedPushPlatform.register(account.id, [], any(), any())).called(1);
+            verify(() => unifiedPushPlatform.register(newAccount.id, [], any(), any())).called(1);
+            verifyNever(() => unifiedPushPlatform.register(any(), any(), any(), any()));
             verify(
               () => httpRequest(
                 'POST',
@@ -924,8 +936,8 @@ void main() {
             );
             await repository.initialize();
 
-            verify(() => unifiedPushPlatform.registerApp(account.id, [])).called(1);
-            verifyNever(() => unifiedPushPlatform.registerApp(any(), any()));
+            verify(() => unifiedPushPlatform.register(account.id, [], any(), any())).called(1);
+            verifyNever(() => unifiedPushPlatform.register(any(), any(), any(), any()));
 
             await repository.changeDistributor(null);
 
@@ -968,8 +980,8 @@ void main() {
             );
             await repository.initialize();
 
-            verify(() => unifiedPushPlatform.registerApp(account.id, [])).called(1);
-            verifyNever(() => unifiedPushPlatform.registerApp(any(), any()));
+            verify(() => unifiedPushPlatform.register(account.id, [], any(), any())).called(1);
+            verifyNever(() => unifiedPushPlatform.register(any(), any(), any(), any()));
 
             await repository.changeDistributor(null);
 
@@ -1070,8 +1082,8 @@ void main() {
             );
             await repository.initialize();
 
-            verify(() => unifiedPushPlatform.registerApp(account.id, [])).called(1);
-            verifyNever(() => unifiedPushPlatform.registerApp(any(), any()));
+            verify(() => unifiedPushPlatform.register(account.id, [], any(), any())).called(1);
+            verifyNever(() => unifiedPushPlatform.register(any(), any(), any(), any()));
 
             endpoint = Uri.parse('https://cloud.example.com:8443/nextcloud/new-unifiedpush');
 
@@ -1099,8 +1111,8 @@ void main() {
             ).called(1);
             verify(() => storage.updateSubscription(account.id, PushSubscription())).called(1);
 
-            verify(() => unifiedPushPlatform.registerApp(account.id, [])).called(1);
-            verifyNever(() => unifiedPushPlatform.registerApp(any(), any()));
+            verify(() => unifiedPushPlatform.register(account.id, [], any(), any())).called(1);
+            verifyNever(() => unifiedPushPlatform.register(any(), any(), any(), any()));
 
             verify(
               () => httpRequest(
@@ -1194,8 +1206,8 @@ void main() {
               );
               await repository.initialize();
 
-              verify(() => unifiedPushPlatform.registerApp(account.id, [])).called(1);
-              verifyNever(() => unifiedPushPlatform.registerApp(any(), any()));
+              verify(() => unifiedPushPlatform.register(account.id, [], any(), any())).called(1);
+              verifyNever(() => unifiedPushPlatform.register(any(), any(), any(), any()));
 
               endpoint = Uri.parse('https://cloud.example.com:8443/nextcloud/new-unifiedpush');
 
@@ -1223,8 +1235,8 @@ void main() {
               ).called(1);
               verify(() => storage.updateSubscription(account.id, PushSubscription())).called(1);
 
-              verify(() => unifiedPushPlatform.registerApp(account.id, [])).called(1);
-              verifyNever(() => unifiedPushPlatform.registerApp(any(), any()));
+              verify(() => unifiedPushPlatform.register(account.id, [], any(), any())).called(1);
+              verifyNever(() => unifiedPushPlatform.register(any(), any(), any(), any()));
 
               verify(
                 () => httpRequest(
@@ -1313,8 +1325,8 @@ void main() {
               );
               await repository.initialize();
 
-              verify(() => unifiedPushPlatform.registerApp(account.id, [])).called(1);
-              verifyNever(() => unifiedPushPlatform.registerApp(any(), any()));
+              verify(() => unifiedPushPlatform.register(account.id, [], any(), any())).called(1);
+              verifyNever(() => unifiedPushPlatform.register(any(), any(), any(), any()));
 
               endpoint = Uri.parse('https://cloud.example.com:8443/nextcloud/new-unifiedpush');
 
@@ -1342,8 +1354,8 @@ void main() {
               ).called(1);
               verify(() => storage.updateSubscription(account.id, PushSubscription())).called(1);
 
-              verify(() => unifiedPushPlatform.registerApp(account.id, [])).called(1);
-              verifyNever(() => unifiedPushPlatform.registerApp(any(), any()));
+              verify(() => unifiedPushPlatform.register(account.id, [], any(), any())).called(1);
+              verifyNever(() => unifiedPushPlatform.register(any(), any(), any(), any()));
 
               verify(
                 () => httpRequest(
@@ -1456,7 +1468,7 @@ void main() {
 
             endpoint = Uri.parse('https://cloud.example.com:8443/nextcloud/new-unifiedpush');
 
-            unifiedPushOnNewEndpoint!(endpoint.toString(), account.id);
+            unifiedPushOnNewEndpoint!(PushEndpoint(endpoint.toString(), null), account.id);
             await Future<void>.delayed(const Duration(milliseconds: 1));
 
             verify(
@@ -1569,7 +1581,7 @@ void main() {
 
               endpoint = Uri.parse('https://cloud.example.com:8443/nextcloud/new-unifiedpush');
 
-              unifiedPushOnNewEndpoint!(endpoint.toString(), account.id);
+              unifiedPushOnNewEndpoint!(PushEndpoint(endpoint.toString(), null), account.id);
               await Future<void>.delayed(const Duration(milliseconds: 1));
 
               verify(
@@ -1676,7 +1688,7 @@ void main() {
 
               endpoint = Uri.parse('https://cloud.example.com:8443/nextcloud/new-unifiedpush');
 
-              unifiedPushOnNewEndpoint!(endpoint.toString(), account.id);
+              unifiedPushOnNewEndpoint!(PushEndpoint(endpoint.toString(), null), account.id);
               await Future<void>.delayed(const Duration(milliseconds: 1));
 
               verify(
