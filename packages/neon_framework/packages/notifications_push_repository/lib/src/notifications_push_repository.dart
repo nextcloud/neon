@@ -78,6 +78,7 @@ class NotificationsPushRepository {
     _privateKey = await getDevicePrivateKey(_storage);
 
     await UnifiedPush.initialize(
+      linuxDBusName: 'de.provokateurin.neon',
       onNewEndpoint: (endpoint, accountID) async {
         final account = _accountRepository.accountByID(accountID);
         if (account == null) {

@@ -4,6 +4,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/platform/platform.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'package:unifiedpush_linux/unifiedpush_linux.dart';
 import 'package:universal_io/io.dart';
 
 /// Linux specific platform information.
@@ -34,7 +35,7 @@ class LinuxNeonPlatform implements NeonPlatform {
   bool get canUseCamera => false;
 
   @override
-  bool get canUsePushNotifications => false;
+  bool get canUsePushNotifications => true;
 
   @override
   bool get canUseSharing => false;
@@ -59,5 +60,8 @@ class LinuxNeonPlatform implements NeonPlatform {
     if (result != null) {
       await File(result).writeAsBytes(data);
     }
+
+    // TODO: https://codeberg.org/UnifiedPush/flutter-connector/pulls/18
+    UnifiedPushLinux.registerWith();
   }
 }
