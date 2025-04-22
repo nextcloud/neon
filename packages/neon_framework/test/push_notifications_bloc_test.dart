@@ -1,8 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:neon_framework/platform.dart';
 import 'package:neon_framework/settings.dart';
 import 'package:neon_framework/src/blocs/push_notifications.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
+import 'package:neon_framework/testing.dart';
 import 'package:notifications_push_repository/notifications_push_repository.dart';
 import 'package:permission_handler_platform_interface/permission_handler_platform_interface.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
@@ -81,7 +83,37 @@ void main() {
   });
 
   group('Permission', () {
+    test('Not needed', () async {
+      NeonPlatform.instance = MockNeonPlatform();
+      when(() => NeonPlatform.instance.canUsePermissions).thenReturn(false);
+
+      when(() => distributorOption.value).thenReturn('distributor');
+
+      pushNotificationsBloc = PushNotificationsBloc(
+        globalOptions: globalOptions,
+        notificationsPushRepository: notificationsPushRepository,
+      );
+      await Future<void>.delayed(const Duration(milliseconds: 1));
+
+      verify(() => distributorOption.addListener(any())).called(1);
+      verify(() => globalOptions.pushNotificationsDistributor).called(2);
+      verify(() => distributorOption.value).called(1);
+      verifyNever(() => permissionHandlerPlatform.requestPermissions(any()));
+      verify(() => notificationsPushRepository.changeDistributor('distributor')).called(1);
+
+      listener!();
+      await Future<void>.delayed(const Duration(milliseconds: 1));
+
+      verify(() => globalOptions.pushNotificationsDistributor).called(1);
+      verify(() => distributorOption.value).called(1);
+      verifyNever(() => permissionHandlerPlatform.requestPermissions(any()));
+      verify(() => notificationsPushRepository.changeDistributor('distributor')).called(1);
+    });
+
     test('Granted', () async {
+      NeonPlatform.instance = MockNeonPlatform();
+      when(() => NeonPlatform.instance.canUsePermissions).thenReturn(true);
+
       when(() => distributorOption.value).thenReturn('distributor');
 
       when(() => permissionHandlerPlatform.requestPermissions(any())).thenAnswer(
@@ -115,6 +147,9 @@ void main() {
     });
 
     test('Denied', () async {
+      NeonPlatform.instance = MockNeonPlatform();
+      when(() => NeonPlatform.instance.canUsePermissions).thenReturn(true);
+
       when(() => distributorOption.value).thenReturn('distributor');
 
       when(() => permissionHandlerPlatform.requestPermissions(any())).thenAnswer(

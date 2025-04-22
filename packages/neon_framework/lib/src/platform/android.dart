@@ -41,6 +41,9 @@ class AndroidNeonPlatform implements NeonPlatform {
   bool get canUsePaths => true;
 
   @override
+  bool get canUsePermissions => true;
+
+  @override
   void init() {}
 
   @override

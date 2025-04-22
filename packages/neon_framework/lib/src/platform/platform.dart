@@ -64,6 +64,11 @@ abstract interface class NeonPlatform {
   /// The support depends on `https://pub.dev/packages/path_provider`.
   abstract final bool canUsePaths;
 
+  /// Whether this platform can use permissions.
+  ///
+  /// The support depends on https://pub.dev/packages/permission_handler
+  abstract final bool canUsePermissions;
+
   /// Initializes this platform.
   FutureOr<void> init();
 

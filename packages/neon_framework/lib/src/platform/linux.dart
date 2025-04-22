@@ -43,6 +43,9 @@ class LinuxNeonPlatform implements NeonPlatform {
   bool get canUsePaths => true;
 
   @override
+  bool get canUsePermissions => false;
+
+  @override
   void init() {
     sqfliteFfiInit();
     databaseFactory = databaseFactoryFfi;
