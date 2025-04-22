@@ -197,7 +197,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
               if (NeonPlatform.instance.canUseSharing)
                 IconButton(
                   onPressed: () async {
-                    await Share.share(await _getURL());
+                    await SharePlus.instance.share(ShareParams(uri: Uri.parse(await _getURL())));
                   },
                   tooltip: NewsLocalizations.of(context).articleShare,
                   icon: Icon(Icons.adaptive.share),
