@@ -1066,6 +1066,7 @@
                     "listable",
                     "lobbyState",
                     "lobbyTimer",
+                    "mentionPermissions",
                     "messageExpiration",
                     "name",
                     "notificationCalls",
@@ -1083,7 +1084,8 @@
                     "type",
                     "unreadMention",
                     "unreadMentionDirect",
-                    "unreadMessages"
+                    "unreadMessages",
+                    "isArchived"
                 ],
                 "properties": {
                     "actorId": {
@@ -1347,6 +1349,8 @@
             "SignalingSession": {
                 "type": "object",
                 "required": [
+                    "actorId",
+                    "actorType",
                     "inCall",
                     "lastPing",
                     "participantPermissions",
@@ -1388,6 +1392,7 @@
             "SignalingSettings": {
                 "type": "object",
                 "required": [
+                    "federation",
                     "helloAuthParams",
                     "hideWarning",
                     "server",

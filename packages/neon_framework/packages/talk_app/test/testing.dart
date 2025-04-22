@@ -57,6 +57,7 @@ Map<String, dynamic> getRoom({
       'listable': 0,
       'lobbyState': 0,
       'lobbyTimer': 0,
+      'mentionPermissions': 0,
       'messageExpiration': 0,
       'name': '',
       'notificationCalls': 0,
@@ -75,6 +76,7 @@ Map<String, dynamic> getRoom({
       'unreadMention': false,
       'unreadMentionDirect': false,
       'unreadMessages': unreadMessages ?? 0,
+      'isArchived': false,
     };
 
 Map<String, dynamic> getChatMessage({
