@@ -313,6 +313,9 @@ class NeonLocalizationsEn extends NeonLocalizations {
   String get globalOptionsPushNotificationsDistributorConversations => 'Conversations';
 
   @override
+  String get globalOptionsPushNotificationsDistributorKDE => 'KDE';
+
+  @override
   String get globalOptionsStartupMinimized => 'Start minimized';
 
   @override

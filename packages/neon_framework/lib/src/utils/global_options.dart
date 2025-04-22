@@ -53,6 +53,8 @@ class GlobalOptions extends OptionsCollection {
     unifiedPushNextPushID: (context) => NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorNextPush,
     'org.unifiedpush.distributor.noprovider2push': (context) =>
         NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorNoProvider2Push,
+    'org.unifiedpush.Distributor.kde': (context) =>
+        NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorKDE,
   };
 
   @override
