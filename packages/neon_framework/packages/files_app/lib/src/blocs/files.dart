@@ -155,7 +155,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
       () async {
         if (NeonPlatform.instance.canUsePaths) {
           final file = await cacheFile(uri, etag);
-          await Share.shareXFiles([XFile(file.path)]);
+          await SharePlus.instance.share(ShareParams(files: [XFile(file.path)]));
         } else {
           throw UnimplementedError('Sharing is not supported on web');
         }
