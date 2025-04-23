@@ -2,4 +2,3 @@ OPTIONS http://localhost/remote\.php/webdav
 authorization: Bearer mock
 content-type: application/xml
 ocs-apirequest: true
-requesttoken: token
