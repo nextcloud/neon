@@ -619,6 +619,12 @@ abstract class NeonLocalizations {
   /// **'Conversations'**
   String get globalOptionsPushNotificationsDistributorConversations;
 
+  /// No description provided for @globalOptionsPushNotificationsDistributorKDE.
+  ///
+  /// In en, this message translates to:
+  /// **'KDE'**
+  String get globalOptionsPushNotificationsDistributorKDE;
+
   /// No description provided for @globalOptionsStartupMinimized.
   ///
   /// In en, this message translates to:

@@ -39,6 +39,9 @@ class WebNeonPlatform implements NeonPlatform {
   bool get canUsePaths => false;
 
   @override
+  bool get canUsePermissions => false;
+
+  @override
   Future<void> init() async {
     databaseFactory = databaseFactoryFfiWeb;
   }

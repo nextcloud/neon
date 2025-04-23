@@ -172,6 +172,7 @@
   "globalOptionsPushNotificationsDistributorNextPush": "NextPush (FOSS)",
   "globalOptionsPushNotificationsDistributorNoProvider2Push": "NoProvider2Push (FOSS)",
   "globalOptionsPushNotificationsDistributorConversations": "Conversations",
+  "globalOptionsPushNotificationsDistributorKDE": "KDE",
   "globalOptionsStartupMinimized": "Start minimized",
   "globalOptionsStartupMinimizeInsteadOfExit": "Minimize instead of exit",
   "globalOptionsAccountsRememberLastUsedAccount": "Remember last used account",
