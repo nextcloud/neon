@@ -24,24 +24,11 @@ final checksumPattern = RegExp(
 /// WebDavClient class.
 class WebDavClient extends DynamiteClient {
   /// Creates a new `WebDavClient`.
-  ///
-  /// The [httpClient] parameter specifies whether requests should attach a
-  /// CSRF-Token to sent requests.
-  /// Until Nextcloud 30 this is required to work around an authorization bug
-  /// triggered, when cookies are also sent.
   WebDavClient(
     super.baseURL, {
-    http.Client? httpClient,
+    super.httpClient,
     super.authentications,
-    bool useCSRFClient = true,
-  }) : super(
-          httpClient: useCSRFClient
-              ? WebDavCSRFClient(
-                  baseURL,
-                  httpClient: httpClient,
-                )
-              : httpClient,
-        );
+  });
 
   /// Creates a new [WebDavClient] from another [client].
   WebDavClient.fromClient(DynamiteClient client)
@@ -59,7 +46,7 @@ class WebDavClient extends DynamiteClient {
   ///   * http://www.webdav.org/specs/rfc4918.html#HEADER_DAV for more information.
   ///   * [options] for a complete operation executing this request.
   http.Request options_Request() {
-    final request = http.Request('OPTIONS', _constructUri());
+    final request = http.Request('OPTIONS', _constructUri())..headers['OCS-APIRequest'] = 'true';
 
     _addBaseHeaders(request);
     return request;
@@ -92,7 +79,8 @@ class WebDavClient extends DynamiteClient {
     PathUri path, {
     WebDavProp? set,
   }) {
-    final request = http.Request('MKCOL', _constructUri(path));
+    final request = http.Request('MKCOL', _constructUri(path))..headers['OCS-APIRequest'] = 'true';
+
     if (set != null) {
       request.body = WebDavMkcol(
         set: WebDavSet(prop: set),
@@ -134,7 +122,7 @@ class WebDavClient extends DynamiteClient {
   ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_DELETE for more information.
   ///   * [delete] for a complete operation executing this request.
   http.Request delete_Request(PathUri path) {
-    final request = http.Request('DELETE', _constructUri(path));
+    final request = http.Request('DELETE', _constructUri(path))..headers['OCS-APIRequest'] = 'true';
 
     _addBaseHeaders(request);
     return request;
@@ -173,7 +161,9 @@ class WebDavClient extends DynamiteClient {
     DateTime? created,
     String? checksum,
   }) {
-    final request = http.Request('PUT', _constructUri(path))..bodyBytes = localData;
+    final request = http.Request('PUT', _constructUri(path))
+      ..headers['OCS-APIRequest'] = 'true'
+      ..bodyBytes = localData;
 
     _addUploadHeaders(
       request,
@@ -239,7 +229,7 @@ class WebDavClient extends DynamiteClient {
     String? checksum,
     void Function(double progress)? onProgress,
   }) {
-    final request = http.StreamedRequest('PUT', _constructUri(path));
+    final request = http.StreamedRequest('PUT', _constructUri(path))..headers['OCS-APIRequest'] = 'true';
 
     _addBaseHeaders(request);
     _addUploadHeaders(
@@ -383,7 +373,7 @@ class WebDavClient extends DynamiteClient {
   /// See:
   ///   * [get], [getStream] and [getFile] for complete operations executing this request.
   http.Request get_Request(PathUri path) {
-    final request = http.Request('GET', _constructUri(path));
+    final request = http.Request('GET', _constructUri(path))..headers['OCS-APIRequest'] = 'true';
 
     _addBaseHeaders(request);
     return request;
@@ -475,6 +465,7 @@ class WebDavClient extends DynamiteClient {
     WebDavDepth? depth,
   }) {
     final request = http.Request('PROPFIND', _constructUri(path))
+      ..headers['OCS-APIRequest'] = 'true'
       ..body = WebDavPropfind(prop: prop ?? const WebDavPropWithoutValues())
           .toXmlElement(namespaces: namespaces)
           .toXmlString();
@@ -527,6 +518,7 @@ class WebDavClient extends DynamiteClient {
     WebDavPropWithoutValues? prop,
   }) {
     final request = http.Request('REPORT', _constructUri(path))
+      ..headers['OCS-APIRequest'] = 'true'
       ..body = WebDavOcFilterFiles(
         filterRules: filterRules,
         prop: prop ?? const WebDavPropWithoutValues(), // coverage:ignore-line
@@ -577,6 +569,7 @@ class WebDavClient extends DynamiteClient {
     WebDavPropWithoutValues? remove,
   }) {
     final request = http.Request('PROPPATCH', _constructUri(path))
+      ..headers['OCS-APIRequest'] = 'true'
       ..body = WebDavPropertyupdate(
         set: set != null ? WebDavSet(prop: set) : null,
         remove: remove != null ? WebDavRemove(prop: remove) : null,
@@ -635,7 +628,7 @@ class WebDavClient extends DynamiteClient {
     PathUri destinationPath, {
     bool overwrite = false,
   }) {
-    final request = http.Request('MOVE', _constructUri(sourcePath));
+    final request = http.Request('MOVE', _constructUri(sourcePath))..headers['OCS-APIRequest'] = 'true';
 
     _addCopyHeaders(
       request,
@@ -685,7 +678,7 @@ class WebDavClient extends DynamiteClient {
     PathUri destinationPath, {
     bool overwrite = false,
   }) {
-    final request = http.Request('COPY', _constructUri(sourcePath));
+    final request = http.Request('COPY', _constructUri(sourcePath))..headers['OCS-APIRequest'] = 'true';
 
     _addCopyHeaders(
       request,

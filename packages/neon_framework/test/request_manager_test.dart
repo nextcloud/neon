@@ -74,7 +74,6 @@ void main() {
       for (final entry in [
         ('server side', 500, <String, String>{}, kMaxTries),
         ('client side', 401, <String, String>{}, 1),
-        ('webdav authorization', 401, <String, String>{'content-type': 'application/xml; charset=utf-8'}, kMaxTries),
         ('webdav not found', 404, <String, String>{'content-type': 'application/xml; charset=utf-8'}, 1),
       ]) {
         test(entry.$1, () async {

@@ -7,7 +7,6 @@ export 'package:nextcloud/src/api/webdav/webdav.dart'
         HttpDateXMLConverter,
         ISO8601XMLConverter,
         UnixEpochXMLConverter,
-        WebDavCSRFClient,
         constructUri,
         parseWebDavOptions;
 

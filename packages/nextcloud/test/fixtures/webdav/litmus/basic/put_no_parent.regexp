@@ -3,4 +3,3 @@ authorization: Bearer mock
 content-length: 0
 content-type: application/xml
 ocs-apirequest: true
-requesttoken: token

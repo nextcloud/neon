@@ -70,8 +70,6 @@ final class FixtureInterceptor implements HttpInterceptor {
         continue;
       } else if (name == HttpHeaders.authorizationHeader) {
         value = '${value.split(' ').first} mock';
-      } else if (name == 'requesttoken') {
-        value = 'token';
       } else if (name == 'destination') {
         value = Uri.parse(value).replace(port: 80).toString();
       }

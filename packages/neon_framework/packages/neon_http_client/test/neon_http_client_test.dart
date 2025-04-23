@@ -80,20 +80,6 @@ void main() {
       );
     });
 
-    test('adds csrf interceptor after cookie store', () {
-      final cookieStore = _MockCookieStore();
-
-      client = NeonHttpClient(
-        baseURL: Uri(),
-        cookieStore: cookieStore,
-      );
-
-      expect(
-        client.interceptors.last,
-        isA<CSRFInterceptor>(),
-      );
-    });
-
     group('interceptors', () {
       late HttpInterceptor interceptor;
 
