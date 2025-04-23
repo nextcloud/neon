@@ -192,12 +192,7 @@ class RequestManager {
         );
         break;
       } on http.ClientException catch (error, stackTrace) {
-        // Assume the authorization error is from WebDAV if the Content-Type is application/xml,
-        // so we can retry with a new CSRF token in case it expired.
-        if (error case DynamiteStatusCodeException(statusCode: 401)
-            when error.response.headers['content-type']?.split(';').first == 'application/xml') {
-          _log.fine('WebDAV authorization error, retrying request with new CSRF token');
-        } else if (error is! DynamiteStatusCodeException || error.statusCode < 500) {
+        if (error is! DynamiteStatusCodeException || error.statusCode < 500) {
           _log.warning(
             'Unexpected status code. The request will not be retried.',
             error,
