@@ -54,10 +54,6 @@ final class NeonHttpClient extends InterceptorHttpClient {
           ),
         );
       }
-
-      builder.add(
-        CSRFInterceptor(client: baseClient, baseURL: baseURL),
-      );
     });
 
     return NeonHttpClient._(
