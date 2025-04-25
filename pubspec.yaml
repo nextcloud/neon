@@ -33,5 +33,9 @@ workspace:
   - packages/nextcloud/packages/nextcloud_test
   - packages/nextcloud/packages/nextcloud_test_presets
 
+dependencies:
+  flutter:
+    sdk: flutter
+
 dev_dependencies:
   melos: 6.0.0
