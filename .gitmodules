@@ -45,3 +45,7 @@
 	path = external/nextcloud-terms_of_service
 	url = https://github.com/nextcloud/terms_of_service.git
 	branch = v4.4.0
+[submodule "external/nextcloud-groupfolders"]
+	path = external/nextcloud-groupfolders
+	url = https://github.com/nextcloud/groupfolders.git
+	branch = v19.0.4

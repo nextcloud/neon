@@ -59,6 +59,7 @@ core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities(core.S
           filesSharingCapabilities: null,
           filesTrashbinCapabilities: null,
           filesVersionsCapabilities: null,
+          groupfoldersCapabilities: null,
           notesCapabilities: null,
           notificationsCapabilities: null,
           passwordPolicyCapabilities: null,

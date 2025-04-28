@@ -69,6 +69,7 @@ void main() {
         expect(response.body.ocs.data.capabilities.filesSharingCapabilities, isNotNull);
         expect(response.body.ocs.data.capabilities.filesTrashbinCapabilities, isNotNull);
         expect(response.body.ocs.data.capabilities.filesVersionsCapabilities, isNotNull);
+        expect(response.body.ocs.data.capabilities.groupfoldersCapabilities, isNotNull);
         expect(response.body.ocs.data.capabilities.notesCapabilities, isNotNull);
         expect(response.body.ocs.data.capabilities.notificationsCapabilities, isNotNull);
         expect(response.body.ocs.data.capabilities.passwordPolicyCapabilities, isNotNull);

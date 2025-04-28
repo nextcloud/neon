@@ -14014,6 +14014,125 @@ abstract class FilesVersionsCapabilities
 }
 
 @BuiltValue(instantiable: false)
+sealed class $GroupfoldersCapabilities_GroupfoldersInterface {
+  String get appVersion;
+  bool get hasGroupFolders;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$GroupfoldersCapabilities_GroupfoldersInterfaceBuilder].
+  $GroupfoldersCapabilities_GroupfoldersInterface rebuild(
+    void Function($GroupfoldersCapabilities_GroupfoldersInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$GroupfoldersCapabilities_GroupfoldersInterfaceBuilder].
+  $GroupfoldersCapabilities_GroupfoldersInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GroupfoldersCapabilities_GroupfoldersInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GroupfoldersCapabilities_GroupfoldersInterfaceBuilder b) {}
+}
+
+abstract class GroupfoldersCapabilities_Groupfolders
+    implements
+        $GroupfoldersCapabilities_GroupfoldersInterface,
+        Built<GroupfoldersCapabilities_Groupfolders, GroupfoldersCapabilities_GroupfoldersBuilder> {
+  /// Creates a new GroupfoldersCapabilities_Groupfolders object using the builder pattern.
+  factory GroupfoldersCapabilities_Groupfolders([void Function(GroupfoldersCapabilities_GroupfoldersBuilder)? b]) =
+      _$GroupfoldersCapabilities_Groupfolders;
+
+  // coverage:ignore-start
+  const GroupfoldersCapabilities_Groupfolders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory GroupfoldersCapabilities_Groupfolders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for GroupfoldersCapabilities_Groupfolders.
+  static Serializer<GroupfoldersCapabilities_Groupfolders> get serializer =>
+      _$groupfoldersCapabilitiesGroupfoldersSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GroupfoldersCapabilities_GroupfoldersBuilder b) {
+    $GroupfoldersCapabilities_GroupfoldersInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GroupfoldersCapabilities_GroupfoldersBuilder b) {
+    $GroupfoldersCapabilities_GroupfoldersInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $GroupfoldersCapabilitiesInterface {
+  GroupfoldersCapabilities_Groupfolders? get groupfolders;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$GroupfoldersCapabilitiesInterfaceBuilder].
+  $GroupfoldersCapabilitiesInterface rebuild(void Function($GroupfoldersCapabilitiesInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$GroupfoldersCapabilitiesInterfaceBuilder].
+  $GroupfoldersCapabilitiesInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GroupfoldersCapabilitiesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GroupfoldersCapabilitiesInterfaceBuilder b) {}
+}
+
+abstract class GroupfoldersCapabilities
+    implements $GroupfoldersCapabilitiesInterface, Built<GroupfoldersCapabilities, GroupfoldersCapabilitiesBuilder> {
+  /// Creates a new GroupfoldersCapabilities object using the builder pattern.
+  factory GroupfoldersCapabilities([void Function(GroupfoldersCapabilitiesBuilder)? b]) = _$GroupfoldersCapabilities;
+
+  // coverage:ignore-start
+  const GroupfoldersCapabilities._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory GroupfoldersCapabilities.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for GroupfoldersCapabilities.
+  static Serializer<GroupfoldersCapabilities> get serializer => _$groupfoldersCapabilitiesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GroupfoldersCapabilitiesBuilder b) {
+    $GroupfoldersCapabilitiesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GroupfoldersCapabilitiesBuilder b) {
+    $GroupfoldersCapabilitiesInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $NotificationsCapabilities_NotificationsInterface {
   @BuiltValueField(wireName: 'ocs-endpoints')
   BuiltList<String> get ocsEndpoints;
@@ -16639,6 +16758,7 @@ typedef OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities = ({
   FilesSharingCapabilities? filesSharingCapabilities,
   FilesTrashbinCapabilities? filesTrashbinCapabilities,
   FilesVersionsCapabilities? filesVersionsCapabilities,
+  GroupfoldersCapabilities? groupfoldersCapabilities,
   NotesCapabilities? notesCapabilities,
   NotificationsCapabilities? notificationsCapabilities,
   PasswordPolicyCapabilities? passwordPolicyCapabilities,
@@ -28233,13 +28353,13 @@ extension $OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesExtens
   /// Serializer for OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities.
   @BuiltValueSerializer(custom: true)
   static Serializer<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities> get serializer =>
-      $d133a6ea76c2cb6bb2f7f6f4c3fdf958Extension._serializer;
+      $b7e40596f4282be2fff69196ab98a3fdExtension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
   static OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities fromJson(Object? json) =>
-      $d133a6ea76c2cb6bb2f7f6f4c3fdf958Extension._fromJson(json);
+      $b7e40596f4282be2fff69196ab98a3fdExtension._fromJson(json);
 }
 
 /// Serialization extension for `TaskProcessingTaskType_InputShapeDefaults`.
@@ -28382,7 +28502,7 @@ class _$87e48e5649cd72b4d2947aaaea13ccd8Serializer implements PrimitiveSerialize
   }
 }
 
-typedef _$d133a6ea76c2cb6bb2f7f6f4c3fdf958 = ({
+typedef _$b7e40596f4282be2fff69196ab98a3fd = ({
   CommentsCapabilities? commentsCapabilities,
   CoreCapabilities? coreCapabilities,
   CorePublicCapabilities? corePublicCapabilities,
@@ -28392,6 +28512,7 @@ typedef _$d133a6ea76c2cb6bb2f7f6f4c3fdf958 = ({
   FilesSharingCapabilities? filesSharingCapabilities,
   FilesTrashbinCapabilities? filesTrashbinCapabilities,
   FilesVersionsCapabilities? filesVersionsCapabilities,
+  GroupfoldersCapabilities? groupfoldersCapabilities,
   NotesCapabilities? notesCapabilities,
   NotificationsCapabilities? notificationsCapabilities,
   PasswordPolicyCapabilities? passwordPolicyCapabilities,
@@ -28409,7 +28530,7 @@ typedef _$d133a6ea76c2cb6bb2f7f6f4c3fdf958 = ({
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
-extension $d133a6ea76c2cb6bb2f7f6f4c3fdf958Extension on _$d133a6ea76c2cb6bb2f7f6f4c3fdf958 {
+extension $b7e40596f4282be2fff69196ab98a3fdExtension on _$b7e40596f4282be2fff69196ab98a3fd {
   List<dynamic> get _values => [
         commentsCapabilities,
         coreCapabilities,
@@ -28420,6 +28541,7 @@ extension $d133a6ea76c2cb6bb2f7f6f4c3fdf958Extension on _$d133a6ea76c2cb6bb2f7f6
         filesSharingCapabilities,
         filesTrashbinCapabilities,
         filesVersionsCapabilities,
+        groupfoldersCapabilities,
         notesCapabilities,
         notificationsCapabilities,
         passwordPolicyCapabilities,
@@ -28444,6 +28566,7 @@ extension $d133a6ea76c2cb6bb2f7f6f4c3fdf958Extension on _$d133a6ea76c2cb6bb2f7f6
         'filesSharingCapabilities',
         'filesTrashbinCapabilities',
         'filesVersionsCapabilities',
+        'groupfoldersCapabilities',
         'notesCapabilities',
         'notificationsCapabilities',
         'passwordPolicyCapabilities',
@@ -28464,9 +28587,9 @@ extension $d133a6ea76c2cb6bb2f7f6f4c3fdf958Extension on _$d133a6ea76c2cb6bb2f7f6
 
   /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => _i5.validateAnyOf(_values, _names);
-  static Serializer<_$d133a6ea76c2cb6bb2f7f6f4c3fdf958> get _serializer =>
-      const _$d133a6ea76c2cb6bb2f7f6f4c3fdf958Serializer();
-  static _$d133a6ea76c2cb6bb2f7f6f4c3fdf958 _fromJson(Object? json) =>
+  static Serializer<_$b7e40596f4282be2fff69196ab98a3fd> get _serializer =>
+      const _$b7e40596f4282be2fff69196ab98a3fdSerializer();
+  static _$b7e40596f4282be2fff69196ab98a3fd _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 
   /// Parses this object into a json like map.
@@ -28475,19 +28598,19 @@ extension $d133a6ea76c2cb6bb2f7f6f4c3fdf958Extension on _$d133a6ea76c2cb6bb2f7f6
   Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$d133a6ea76c2cb6bb2f7f6f4c3fdf958Serializer implements PrimitiveSerializer<_$d133a6ea76c2cb6bb2f7f6f4c3fdf958> {
-  const _$d133a6ea76c2cb6bb2f7f6f4c3fdf958Serializer();
+class _$b7e40596f4282be2fff69196ab98a3fdSerializer implements PrimitiveSerializer<_$b7e40596f4282be2fff69196ab98a3fd> {
+  const _$b7e40596f4282be2fff69196ab98a3fdSerializer();
 
   @override
-  Iterable<Type> get types => const [_$d133a6ea76c2cb6bb2f7f6f4c3fdf958];
+  Iterable<Type> get types => const [_$b7e40596f4282be2fff69196ab98a3fd];
 
   @override
-  String get wireName => r'_$d133a6ea76c2cb6bb2f7f6f4c3fdf958';
+  String get wireName => r'_$b7e40596f4282be2fff69196ab98a3fd';
 
   @override
   Object serialize(
     Serializers serializers,
-    _$d133a6ea76c2cb6bb2f7f6f4c3fdf958 object, {
+    _$b7e40596f4282be2fff69196ab98a3fd object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -28526,6 +28649,10 @@ class _$d133a6ea76c2cb6bb2f7f6f4c3fdf958Serializer implements PrimitiveSerialize
     value = object.filesVersionsCapabilities;
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(FilesVersionsCapabilities))!;
+    }
+    value = object.groupfoldersCapabilities;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(GroupfoldersCapabilities))!;
     }
     value = object.notesCapabilities;
     if (value != null) {
@@ -28584,7 +28711,7 @@ class _$d133a6ea76c2cb6bb2f7f6f4c3fdf958Serializer implements PrimitiveSerialize
   }
 
   @override
-  _$d133a6ea76c2cb6bb2f7f6f4c3fdf958 deserialize(
+  _$b7e40596f4282be2fff69196ab98a3fd deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -28637,6 +28764,11 @@ class _$d133a6ea76c2cb6bb2f7f6f4c3fdf958Serializer implements PrimitiveSerialize
         data,
         specifiedType: const FullType(FilesVersionsCapabilities),
       )! as FilesVersionsCapabilities;
+    } catch (_) {}
+    GroupfoldersCapabilities? groupfoldersCapabilities;
+    try {
+      groupfoldersCapabilities = serializers.deserialize(data, specifiedType: const FullType(GroupfoldersCapabilities))!
+          as GroupfoldersCapabilities;
     } catch (_) {}
     NotesCapabilities? notesCapabilities;
     try {
@@ -28725,6 +28857,7 @@ class _$d133a6ea76c2cb6bb2f7f6f4c3fdf958Serializer implements PrimitiveSerialize
       filesSharingCapabilities: filesSharingCapabilities,
       filesTrashbinCapabilities: filesTrashbinCapabilities,
       filesVersionsCapabilities: filesVersionsCapabilities,
+      groupfoldersCapabilities: groupfoldersCapabilities,
       notesCapabilities: notesCapabilities,
       notificationsCapabilities: notificationsCapabilities,
       passwordPolicyCapabilities: passwordPolicyCapabilities,
@@ -29447,6 +29580,13 @@ final Serializers _$serializers = (Serializers().toBuilder()
         FilesVersionsCapabilities_FilesBuilder.new,
       )
       ..add(FilesVersionsCapabilities_Files.serializer)
+      ..addBuilderFactory(const FullType(GroupfoldersCapabilities), GroupfoldersCapabilitiesBuilder.new)
+      ..add(GroupfoldersCapabilities.serializer)
+      ..addBuilderFactory(
+        const FullType(GroupfoldersCapabilities_Groupfolders),
+        GroupfoldersCapabilities_GroupfoldersBuilder.new,
+      )
+      ..add(GroupfoldersCapabilities_Groupfolders.serializer)
       ..addBuilderFactory(const FullType(NotificationsCapabilities), NotificationsCapabilitiesBuilder.new)
       ..add(NotificationsCapabilities.serializer)
       ..addBuilderFactory(
@@ -29600,7 +29740,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(NotesCapabilities.serializer)
       ..addBuilderFactory(const FullType(NotesCapabilities_Notes), NotesCapabilities_NotesBuilder.new)
       ..add(NotesCapabilities_Notes.serializer)
-      ..add($d133a6ea76c2cb6bb2f7f6f4c3fdf958Extension._serializer)
+      ..add($b7e40596f4282be2fff69196ab98a3fdExtension._serializer)
       ..add(PreviewGetPreviewA.serializer)
       ..add(PreviewGetPreviewForceIcon.serializer)
       ..add(PreviewGetPreviewMode.serializer)
@@ -30482,7 +30622,7 @@ final Serializers _$jsonSerializers = (_$serializers.toBuilder()
         _i8.StandardJsonPlugin(
           typesToLeaveAsList: const {
             _$87e48e5649cd72b4d2947aaaea13ccd8,
-            _$d133a6ea76c2cb6bb2f7f6f4c3fdf958,
+            _$b7e40596f4282be2fff69196ab98a3fd,
             _$b6d67dc2a96424d2f407f8e51557f3de,
             _$17b504aaa197cb55522acb1f128f183a,
             _$b2c4857c0136baea42828d89c87c757d,

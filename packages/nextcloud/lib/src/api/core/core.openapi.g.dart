@@ -934,6 +934,9 @@ Serializer<FilesVersionsCapabilities_Files> _$filesVersionsCapabilitiesFilesSeri
     new _$FilesVersionsCapabilities_FilesSerializer();
 Serializer<FilesVersionsCapabilities> _$filesVersionsCapabilitiesSerializer =
     new _$FilesVersionsCapabilitiesSerializer();
+Serializer<GroupfoldersCapabilities_Groupfolders> _$groupfoldersCapabilitiesGroupfoldersSerializer =
+    new _$GroupfoldersCapabilities_GroupfoldersSerializer();
+Serializer<GroupfoldersCapabilities> _$groupfoldersCapabilitiesSerializer = new _$GroupfoldersCapabilitiesSerializer();
 Serializer<NotificationsCapabilities_Notifications> _$notificationsCapabilitiesNotificationsSerializer =
     new _$NotificationsCapabilities_NotificationsSerializer();
 Serializer<NotificationsCapabilities> _$notificationsCapabilitiesSerializer =
@@ -6446,6 +6449,93 @@ class _$FilesVersionsCapabilitiesSerializer implements StructuredSerializer<File
         case 'files':
           result.files.replace(serializers.deserialize(value,
               specifiedType: const FullType(FilesVersionsCapabilities_Files))! as FilesVersionsCapabilities_Files);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GroupfoldersCapabilities_GroupfoldersSerializer
+    implements StructuredSerializer<GroupfoldersCapabilities_Groupfolders> {
+  @override
+  final Iterable<Type> types = const [GroupfoldersCapabilities_Groupfolders, _$GroupfoldersCapabilities_Groupfolders];
+  @override
+  final String wireName = 'GroupfoldersCapabilities_Groupfolders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, GroupfoldersCapabilities_Groupfolders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'appVersion',
+      serializers.serialize(object.appVersion, specifiedType: const FullType(String)),
+      'hasGroupFolders',
+      serializers.serialize(object.hasGroupFolders, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  GroupfoldersCapabilities_Groupfolders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new GroupfoldersCapabilities_GroupfoldersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'appVersion':
+          result.appVersion = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'hasGroupFolders':
+          result.hasGroupFolders = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GroupfoldersCapabilitiesSerializer implements StructuredSerializer<GroupfoldersCapabilities> {
+  @override
+  final Iterable<Type> types = const [GroupfoldersCapabilities, _$GroupfoldersCapabilities];
+  @override
+  final String wireName = 'GroupfoldersCapabilities';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, GroupfoldersCapabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.groupfolders;
+    if (value != null) {
+      result
+        ..add('groupfolders')
+        ..add(serializers.serialize(value, specifiedType: const FullType(GroupfoldersCapabilities_Groupfolders)));
+    }
+    return result;
+  }
+
+  @override
+  GroupfoldersCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new GroupfoldersCapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'groupfolders':
+          result.groupfolders.replace(
+              serializers.deserialize(value, specifiedType: const FullType(GroupfoldersCapabilities_Groupfolders))!
+                  as GroupfoldersCapabilities_Groupfolders);
           break;
       }
     }
@@ -29402,6 +29492,226 @@ class FilesVersionsCapabilitiesBuilder
         files.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(r'FilesVersionsCapabilities', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $GroupfoldersCapabilities_GroupfoldersInterfaceBuilder {
+  void replace($GroupfoldersCapabilities_GroupfoldersInterface other);
+  void update(void Function($GroupfoldersCapabilities_GroupfoldersInterfaceBuilder) updates);
+  String? get appVersion;
+  set appVersion(String? appVersion);
+
+  bool? get hasGroupFolders;
+  set hasGroupFolders(bool? hasGroupFolders);
+}
+
+class _$GroupfoldersCapabilities_Groupfolders extends GroupfoldersCapabilities_Groupfolders {
+  @override
+  final String appVersion;
+  @override
+  final bool hasGroupFolders;
+
+  factory _$GroupfoldersCapabilities_Groupfolders(
+          [void Function(GroupfoldersCapabilities_GroupfoldersBuilder)? updates]) =>
+      (new GroupfoldersCapabilities_GroupfoldersBuilder()..update(updates))._build();
+
+  _$GroupfoldersCapabilities_Groupfolders._({required this.appVersion, required this.hasGroupFolders}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(appVersion, r'GroupfoldersCapabilities_Groupfolders', 'appVersion');
+    BuiltValueNullFieldError.checkNotNull(hasGroupFolders, r'GroupfoldersCapabilities_Groupfolders', 'hasGroupFolders');
+  }
+
+  @override
+  GroupfoldersCapabilities_Groupfolders rebuild(void Function(GroupfoldersCapabilities_GroupfoldersBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GroupfoldersCapabilities_GroupfoldersBuilder toBuilder() =>
+      new GroupfoldersCapabilities_GroupfoldersBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GroupfoldersCapabilities_Groupfolders &&
+        appVersion == other.appVersion &&
+        hasGroupFolders == other.hasGroupFolders;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, appVersion.hashCode);
+    _$hash = $jc(_$hash, hasGroupFolders.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GroupfoldersCapabilities_Groupfolders')
+          ..add('appVersion', appVersion)
+          ..add('hasGroupFolders', hasGroupFolders))
+        .toString();
+  }
+}
+
+class GroupfoldersCapabilities_GroupfoldersBuilder
+    implements
+        Builder<GroupfoldersCapabilities_Groupfolders, GroupfoldersCapabilities_GroupfoldersBuilder>,
+        $GroupfoldersCapabilities_GroupfoldersInterfaceBuilder {
+  _$GroupfoldersCapabilities_Groupfolders? _$v;
+
+  String? _appVersion;
+  String? get appVersion => _$this._appVersion;
+  set appVersion(covariant String? appVersion) => _$this._appVersion = appVersion;
+
+  bool? _hasGroupFolders;
+  bool? get hasGroupFolders => _$this._hasGroupFolders;
+  set hasGroupFolders(covariant bool? hasGroupFolders) => _$this._hasGroupFolders = hasGroupFolders;
+
+  GroupfoldersCapabilities_GroupfoldersBuilder() {
+    GroupfoldersCapabilities_Groupfolders._defaults(this);
+  }
+
+  GroupfoldersCapabilities_GroupfoldersBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _appVersion = $v.appVersion;
+      _hasGroupFolders = $v.hasGroupFolders;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant GroupfoldersCapabilities_Groupfolders other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$GroupfoldersCapabilities_Groupfolders;
+  }
+
+  @override
+  void update(void Function(GroupfoldersCapabilities_GroupfoldersBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GroupfoldersCapabilities_Groupfolders build() => _build();
+
+  _$GroupfoldersCapabilities_Groupfolders _build() {
+    GroupfoldersCapabilities_Groupfolders._validate(this);
+    final _$result = _$v ??
+        new _$GroupfoldersCapabilities_Groupfolders._(
+          appVersion:
+              BuiltValueNullFieldError.checkNotNull(appVersion, r'GroupfoldersCapabilities_Groupfolders', 'appVersion'),
+          hasGroupFolders: BuiltValueNullFieldError.checkNotNull(
+              hasGroupFolders, r'GroupfoldersCapabilities_Groupfolders', 'hasGroupFolders'),
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $GroupfoldersCapabilitiesInterfaceBuilder {
+  void replace($GroupfoldersCapabilitiesInterface other);
+  void update(void Function($GroupfoldersCapabilitiesInterfaceBuilder) updates);
+  GroupfoldersCapabilities_GroupfoldersBuilder get groupfolders;
+  set groupfolders(GroupfoldersCapabilities_GroupfoldersBuilder? groupfolders);
+}
+
+class _$GroupfoldersCapabilities extends GroupfoldersCapabilities {
+  @override
+  final GroupfoldersCapabilities_Groupfolders? groupfolders;
+
+  factory _$GroupfoldersCapabilities([void Function(GroupfoldersCapabilitiesBuilder)? updates]) =>
+      (new GroupfoldersCapabilitiesBuilder()..update(updates))._build();
+
+  _$GroupfoldersCapabilities._({this.groupfolders}) : super._();
+
+  @override
+  GroupfoldersCapabilities rebuild(void Function(GroupfoldersCapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GroupfoldersCapabilitiesBuilder toBuilder() => new GroupfoldersCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GroupfoldersCapabilities && groupfolders == other.groupfolders;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, groupfolders.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GroupfoldersCapabilities')..add('groupfolders', groupfolders)).toString();
+  }
+}
+
+class GroupfoldersCapabilitiesBuilder
+    implements
+        Builder<GroupfoldersCapabilities, GroupfoldersCapabilitiesBuilder>,
+        $GroupfoldersCapabilitiesInterfaceBuilder {
+  _$GroupfoldersCapabilities? _$v;
+
+  GroupfoldersCapabilities_GroupfoldersBuilder? _groupfolders;
+  GroupfoldersCapabilities_GroupfoldersBuilder get groupfolders =>
+      _$this._groupfolders ??= new GroupfoldersCapabilities_GroupfoldersBuilder();
+  set groupfolders(covariant GroupfoldersCapabilities_GroupfoldersBuilder? groupfolders) =>
+      _$this._groupfolders = groupfolders;
+
+  GroupfoldersCapabilitiesBuilder() {
+    GroupfoldersCapabilities._defaults(this);
+  }
+
+  GroupfoldersCapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _groupfolders = $v.groupfolders?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant GroupfoldersCapabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$GroupfoldersCapabilities;
+  }
+
+  @override
+  void update(void Function(GroupfoldersCapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GroupfoldersCapabilities build() => _build();
+
+  _$GroupfoldersCapabilities _build() {
+    GroupfoldersCapabilities._validate(this);
+    _$GroupfoldersCapabilities _$result;
+    try {
+      _$result = _$v ??
+          new _$GroupfoldersCapabilities._(
+            groupfolders: _groupfolders?.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'groupfolders';
+        _groupfolders?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(r'GroupfoldersCapabilities', _$failedField, e.toString());
       }
       rethrow;
     }
