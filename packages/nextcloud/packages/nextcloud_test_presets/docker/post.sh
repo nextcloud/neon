@@ -10,3 +10,4 @@ set -eux
 ./occ app:enable tables "$@"
 ./occ app:enable drop_account "$@"
 ./occ app:enable terms_of_service "$@"
+./occ app:enable groupfolders "$@"

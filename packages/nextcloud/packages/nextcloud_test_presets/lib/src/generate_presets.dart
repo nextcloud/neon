@@ -11,6 +11,7 @@ Future<void> generatePresets() async {
   const appIDs = [
     'cookbook',
     'drop_account',
+    'groupfolders',
     'news',
     'notes',
     'spreed',

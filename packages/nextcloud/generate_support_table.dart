@@ -7,6 +7,7 @@ final labels = <String, String>{
   'server': '[Server](https://github.com/nextcloud/server) (2)',
   'cookbook': '[Cookbook app](https://github.com/nextcloud/cookbook)',
   'drop_account': '[User account deletion app](https://framagit.org/framasoft/nextcloud/drop_account)',
+  'groupfolders': '[Team folders app](https://github.com/nextcloud/groupfolders)',
   'news': '[News app](https://github.com/nextcloud/news)',
   'notes': '[Notes app](https://github.com/nextcloud/notes)',
   'notifications': '[Notifications app](https://github.com/nextcloud/notifications)',
@@ -37,6 +38,7 @@ void main() {
     support[app] = (min: versions.first, max: versions.last);
   }
 
+  support['groupfolders'] = support['server']!;
   support['notifications'] = support['server']!;
   support['password_policy'] = support['server']!;
 

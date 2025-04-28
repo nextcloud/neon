@@ -69,6 +69,12 @@ ARG TERMS_OF_SERVICE_CHECKSUM
 ADD --checksum=$TERMS_OF_SERVICE_CHECKSUM $TERMS_OF_SERVICE_URL /tmp/app.tar.gz
 RUN tar -xzf /tmp/app.tar.gz -C /
 
+FROM apps AS groupfolders
+ARG GROUPFOLDERS_URL
+ARG GROUPFOLDERS_CHECKSUM
+ADD --checksum=$GROUPFOLDERS_CHECKSUM $GROUPFOLDERS_URL /tmp/app.tar.gz
+RUN tar -xzf /tmp/app.tar.gz -C /
+
 FROM nextcloud
 
 COPY --from=cookbook /cookbook /usr/src/nextcloud/apps/cookbook
@@ -79,6 +85,7 @@ COPY --from=spreed /spreed /usr/src/nextcloud/apps/spreed
 COPY --from=tables /tables /usr/src/nextcloud/apps/tables
 COPY --from=drop_account /drop_account /usr/src/nextcloud/apps/drop_account
 COPY --from=terms_of_service /terms_of_service /usr/src/nextcloud/apps/terms_of_service
+COPY --from=groupfolders /groupfolders /usr/src/nextcloud/apps/groupfolders
 
 ADD post.sh /tmp
 RUN /tmp/post.sh
