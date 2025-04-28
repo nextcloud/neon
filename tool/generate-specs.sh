@@ -23,7 +23,7 @@ function generate_spec() {
 (
   cd external/nextcloud-server
   composer install
-  git checkout lib/composer/composer # Don't leave a mess behind
+  git checkout lib/composer # Don't leave a mess behind
 
   for path in core apps/*; do
     if [ ! -f "$path/.noopenapi" ] &&
@@ -60,6 +60,14 @@ function generate_spec() {
   cd external/nextcloud-password_policy
   composer install
   generate_spec "." "password_policy"
+)
+(
+  cd external/nextcloud-terms_of_service
+  composer install
+  generate_spec "." "terms_of_service"
+  # https://github.com/nextcloud/terms_of_service/issues/1012
+  git checkout .
+  git clean -fd
 )
 (
   yq -s '.[0]."components"."schemas" = .[1] | .[0] | walk(if type == "object" then with_entries( if (.key == "$ref" and (.value | test("#\/components\/schemas\/") | not)  ) then .value |= sub("#\/"; "#/components/schemas/") else . end ) else . end) | .paths |= with_entries(.key = "/index.php/apps/cookbook\(.key)")' \

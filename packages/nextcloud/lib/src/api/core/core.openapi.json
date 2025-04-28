@@ -2153,6 +2153,32 @@
                     }
                 }
             },
+            "TermsOfServicePublicCapabilities": {
+                "type": "object",
+                "required": [
+                    "terms_of_service"
+                ],
+                "properties": {
+                    "terms_of_service": {
+                        "type": "object",
+                        "required": [
+                            "enabled",
+                            "term_uuid"
+                        ],
+                        "properties": {
+                            "enabled": {
+                                "type": "boolean",
+                                "enum": [
+                                    true
+                                ]
+                            },
+                            "term_uuid": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
             "ThemingPublicCapabilities": {
                 "type": "object",
                 "required": [
@@ -4369,6 +4395,9 @@
                                                                 },
                                                                 {
                                                                     "$ref": "#/components/schemas/TablesCapabilities"
+                                                                },
+                                                                {
+                                                                    "$ref": "#/components/schemas/TermsOfServicePublicCapabilities"
                                                                 },
                                                                 {
                                                                     "$ref": "#/components/schemas/ThemingPublicCapabilities"

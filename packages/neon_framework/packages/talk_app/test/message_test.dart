@@ -70,6 +70,7 @@ core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities(core.S
           ),
           systemtagsCapabilities: null,
           tablesCapabilities: null,
+          termsOfServicePublicCapabilities: null,
           themingPublicCapabilities: null,
           userStatusCapabilities: null,
           weatherStatusCapabilities: null,

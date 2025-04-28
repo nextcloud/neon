@@ -10,12 +10,13 @@ import 'package:nextcloud_test_presets/src/models/models.dart';
 Future<void> generatePresets() async {
   const appIDs = [
     'cookbook',
+    'drop_account',
     'news',
     'notes',
     'spreed',
     'tables',
+    'terms_of_service',
     'uppush',
-    'drop_account',
   ];
   final releaseFallbacks = <String, Map<Version, String>>{};
 

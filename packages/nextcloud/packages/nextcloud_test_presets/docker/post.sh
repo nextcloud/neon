@@ -9,3 +9,4 @@ set -eux
 ./occ talk:turn:add turn,turns staticauth.openrelay.metered.ca:443 udp,tcp --secret openrelayprojectsecret
 ./occ app:enable tables "$@"
 ./occ app:enable drop_account "$@"
+./occ app:enable terms_of_service "$@"

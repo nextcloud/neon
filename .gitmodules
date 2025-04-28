@@ -41,3 +41,7 @@
 	path = external/nextcloud-password_policy
 	url = https://github.com/nextcloud/password_policy.git
 	branch = v31.0.4
+[submodule "external/nextcloud-terms_of_service"]
+	path = external/nextcloud-terms_of_service
+	url = https://github.com/nextcloud/terms_of_service.git
+	branch = v4.4.0
