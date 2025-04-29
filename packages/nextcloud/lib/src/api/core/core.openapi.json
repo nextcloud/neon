@@ -1605,6 +1605,26 @@
                     }
                 }
             },
+            "GroupfoldersCapabilities": {
+                "type": "object",
+                "properties": {
+                    "groupfolders": {
+                        "type": "object",
+                        "required": [
+                            "appVersion",
+                            "hasGroupFolders"
+                        ],
+                        "properties": {
+                            "appVersion": {
+                                "type": "string"
+                            },
+                            "hasGroupFolders": {
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                }
+            },
             "NotificationsCapabilities": {
                 "type": "object",
                 "required": [
@@ -4371,6 +4391,9 @@
                                                                 },
                                                                 {
                                                                     "$ref": "#/components/schemas/FilesVersionsCapabilities"
+                                                                },
+                                                                {
+                                                                    "$ref": "#/components/schemas/GroupfoldersCapabilities"
                                                                 },
                                                                 {
                                                                     "$ref": "#/components/schemas/NotificationsCapabilities"

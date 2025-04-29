@@ -18,6 +18,7 @@ displayname
 etag
 federatedfilesharing
 fediverse
+groupfolders
 groupid
 heavyrain
 heavyrainshowers
@@ -32,6 +33,7 @@ lightrain
 lightrainshowers
 loglevel
 logoheader
+manageacl
 matterbridge
 mdnj
 mimetypes
@@ -55,6 +57,7 @@ rgdnvw
 rgdnvck
 roomid
 rowocs
+setacl
 setsip
 shareapi
 sharebymail
