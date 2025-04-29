@@ -23,7 +23,7 @@ dependencies:
   logging: ^1.0.0
   meta: ^1.0.0
   string_scanner: ^1.1.0
-  timezone: ^0.10.0
+  timezone: ^0.10.1
   universal_io: ^2.0.0
   uri: ^1.0.0
   version: ^3.0.0
