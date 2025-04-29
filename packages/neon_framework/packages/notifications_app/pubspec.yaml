@@ -38,7 +38,7 @@ dev_dependencies:
   mocktail: ^1.0.4
   neon_lints:
     path: ../../../neon_lints
-  provider: ^6.1.4
+  provider: ^6.1.5
   url_launcher_platform_interface: ^2.3.2
   vector_graphics_compiler: ^1.1.16
 
