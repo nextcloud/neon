@@ -1016,6 +1016,15 @@ Serializer<OcsGetCapabilitiesResponseApplicationJson> _$ocsGetCapabilitiesRespon
     new _$OcsGetCapabilitiesResponseApplicationJsonSerializer();
 Serializer<PreviewPreviewGetMimeIconUrlHeaders> _$previewPreviewGetMimeIconUrlHeadersSerializer =
     new _$PreviewPreviewGetMimeIconUrlHeadersSerializer();
+Serializer<ProfileAction> _$profileActionSerializer = new _$ProfileActionSerializer();
+Serializer<ProfileFields> _$profileFieldsSerializer = new _$ProfileFieldsSerializer();
+Serializer<ProfileData> _$profileDataSerializer = new _$ProfileDataSerializer();
+Serializer<ProfileApiGetProfileFieldsResponseApplicationJson_Ocs>
+    _$profileApiGetProfileFieldsResponseApplicationJsonOcsSerializer =
+    new _$ProfileApiGetProfileFieldsResponseApplicationJson_OcsSerializer();
+Serializer<ProfileApiGetProfileFieldsResponseApplicationJson>
+    _$profileApiGetProfileFieldsResponseApplicationJsonSerializer =
+    new _$ProfileApiGetProfileFieldsResponseApplicationJsonSerializer();
 Serializer<ProfileApiSetVisibilityRequestApplicationJson> _$profileApiSetVisibilityRequestApplicationJsonSerializer =
     new _$ProfileApiSetVisibilityRequestApplicationJsonSerializer();
 Serializer<ProfileApiSetVisibilityResponseApplicationJson_Ocs>
@@ -8709,6 +8718,401 @@ class _$PreviewPreviewGetMimeIconUrlHeadersSerializer
       switch (key) {
         case 'location':
           result.location = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ProfileActionSerializer implements StructuredSerializer<ProfileAction> {
+  @override
+  final Iterable<Type> types = const [ProfileAction, _$ProfileAction];
+  @override
+  final String wireName = 'ProfileAction';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ProfileAction object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(String)),
+      'icon',
+      serializers.serialize(object.icon, specifiedType: const FullType(String)),
+      'title',
+      serializers.serialize(object.title, specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.target;
+    if (value != null) {
+      result
+        ..add('target')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  ProfileAction deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new ProfileActionBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'icon':
+          result.icon = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'title':
+          result.title = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'target':
+          result.target = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ProfileFieldsSerializer implements StructuredSerializer<ProfileFields> {
+  @override
+  final Iterable<Type> types = const [ProfileFields, _$ProfileFields];
+  @override
+  final String wireName = 'ProfileFields';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ProfileFields object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'userId',
+      serializers.serialize(object.userId, specifiedType: const FullType(String)),
+      'actions',
+      serializers.serialize(object.actions,
+          specifiedType: const FullType(BuiltList, const [const FullType(ProfileAction)])),
+    ];
+    Object? value;
+    value = object.address;
+    if (value != null) {
+      result
+        ..add('address')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.biography;
+    if (value != null) {
+      result
+        ..add('biography')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.displayname;
+    if (value != null) {
+      result
+        ..add('displayname')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.headline;
+    if (value != null) {
+      result
+        ..add('headline')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.isUserAvatarVisible;
+    if (value != null) {
+      result
+        ..add('isUserAvatarVisible')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.organisation;
+    if (value != null) {
+      result
+        ..add('organisation')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.pronouns;
+    if (value != null) {
+      result
+        ..add('pronouns')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.role;
+    if (value != null) {
+      result
+        ..add('role')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  ProfileFields deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new ProfileFieldsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'userId':
+          result.userId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'address':
+          result.address = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'biography':
+          result.biography = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'displayname':
+          result.displayname = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'headline':
+          result.headline = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'isUserAvatarVisible':
+          result.isUserAvatarVisible = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'organisation':
+          result.organisation = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'pronouns':
+          result.pronouns = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'role':
+          result.role = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'actions':
+          result.actions.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [const FullType(ProfileAction)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ProfileDataSerializer implements StructuredSerializer<ProfileData> {
+  @override
+  final Iterable<Type> types = const [ProfileData, _$ProfileData];
+  @override
+  final String wireName = 'ProfileData';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ProfileData object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'timezone',
+      serializers.serialize(object.timezone, specifiedType: const FullType(String)),
+      'timezoneOffset',
+      serializers.serialize(object.timezoneOffset, specifiedType: const FullType(int)),
+      'userId',
+      serializers.serialize(object.userId, specifiedType: const FullType(String)),
+      'actions',
+      serializers.serialize(object.actions,
+          specifiedType: const FullType(BuiltList, const [const FullType(ProfileAction)])),
+    ];
+    Object? value;
+    value = object.address;
+    if (value != null) {
+      result
+        ..add('address')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.biography;
+    if (value != null) {
+      result
+        ..add('biography')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.displayname;
+    if (value != null) {
+      result
+        ..add('displayname')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.headline;
+    if (value != null) {
+      result
+        ..add('headline')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.isUserAvatarVisible;
+    if (value != null) {
+      result
+        ..add('isUserAvatarVisible')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.organisation;
+    if (value != null) {
+      result
+        ..add('organisation')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.pronouns;
+    if (value != null) {
+      result
+        ..add('pronouns')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.role;
+    if (value != null) {
+      result
+        ..add('role')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  ProfileData deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new ProfileDataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'timezone':
+          result.timezone = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'timezoneOffset':
+          result.timezoneOffset = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'userId':
+          result.userId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'address':
+          result.address = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'biography':
+          result.biography = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'displayname':
+          result.displayname = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'headline':
+          result.headline = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'isUserAvatarVisible':
+          result.isUserAvatarVisible = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'organisation':
+          result.organisation = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'pronouns':
+          result.pronouns = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'role':
+          result.role = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'actions':
+          result.actions.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [const FullType(ProfileAction)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ProfileApiGetProfileFieldsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ProfileApiGetProfileFieldsResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    ProfileApiGetProfileFieldsResponseApplicationJson_Ocs,
+    _$ProfileApiGetProfileFieldsResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'ProfileApiGetProfileFieldsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ProfileApiGetProfileFieldsResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(ProfileData)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ProfileApiGetProfileFieldsResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data
+              .replace(serializers.deserialize(value, specifiedType: const FullType(ProfileData))! as ProfileData);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ProfileApiGetProfileFieldsResponseApplicationJsonSerializer
+    implements StructuredSerializer<ProfileApiGetProfileFieldsResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ProfileApiGetProfileFieldsResponseApplicationJson,
+    _$ProfileApiGetProfileFieldsResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'ProfileApiGetProfileFieldsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ProfileApiGetProfileFieldsResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(ProfileApiGetProfileFieldsResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ProfileApiGetProfileFieldsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new ProfileApiGetProfileFieldsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ProfileApiGetProfileFieldsResponseApplicationJson_Ocs))!
+              as ProfileApiGetProfileFieldsResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -35245,6 +35649,899 @@ class PreviewPreviewGetMimeIconUrlHeadersBuilder
         new _$PreviewPreviewGetMimeIconUrlHeaders._(
           location: location,
         );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ProfileActionInterfaceBuilder {
+  void replace($ProfileActionInterface other);
+  void update(void Function($ProfileActionInterfaceBuilder) updates);
+  String? get id;
+  set id(String? id);
+
+  String? get icon;
+  set icon(String? icon);
+
+  String? get title;
+  set title(String? title);
+
+  String? get target;
+  set target(String? target);
+}
+
+class _$ProfileAction extends ProfileAction {
+  @override
+  final String id;
+  @override
+  final String icon;
+  @override
+  final String title;
+  @override
+  final String? target;
+
+  factory _$ProfileAction([void Function(ProfileActionBuilder)? updates]) =>
+      (new ProfileActionBuilder()..update(updates))._build();
+
+  _$ProfileAction._({required this.id, required this.icon, required this.title, this.target}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(id, r'ProfileAction', 'id');
+    BuiltValueNullFieldError.checkNotNull(icon, r'ProfileAction', 'icon');
+    BuiltValueNullFieldError.checkNotNull(title, r'ProfileAction', 'title');
+  }
+
+  @override
+  ProfileAction rebuild(void Function(ProfileActionBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  ProfileActionBuilder toBuilder() => new ProfileActionBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ProfileAction &&
+        id == other.id &&
+        icon == other.icon &&
+        title == other.title &&
+        target == other.target;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, icon.hashCode);
+    _$hash = $jc(_$hash, title.hashCode);
+    _$hash = $jc(_$hash, target.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ProfileAction')
+          ..add('id', id)
+          ..add('icon', icon)
+          ..add('title', title)
+          ..add('target', target))
+        .toString();
+  }
+}
+
+class ProfileActionBuilder implements Builder<ProfileAction, ProfileActionBuilder>, $ProfileActionInterfaceBuilder {
+  _$ProfileAction? _$v;
+
+  String? _id;
+  String? get id => _$this._id;
+  set id(covariant String? id) => _$this._id = id;
+
+  String? _icon;
+  String? get icon => _$this._icon;
+  set icon(covariant String? icon) => _$this._icon = icon;
+
+  String? _title;
+  String? get title => _$this._title;
+  set title(covariant String? title) => _$this._title = title;
+
+  String? _target;
+  String? get target => _$this._target;
+  set target(covariant String? target) => _$this._target = target;
+
+  ProfileActionBuilder() {
+    ProfileAction._defaults(this);
+  }
+
+  ProfileActionBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _icon = $v.icon;
+      _title = $v.title;
+      _target = $v.target;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ProfileAction other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ProfileAction;
+  }
+
+  @override
+  void update(void Function(ProfileActionBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ProfileAction build() => _build();
+
+  _$ProfileAction _build() {
+    ProfileAction._validate(this);
+    final _$result = _$v ??
+        new _$ProfileAction._(
+          id: BuiltValueNullFieldError.checkNotNull(id, r'ProfileAction', 'id'),
+          icon: BuiltValueNullFieldError.checkNotNull(icon, r'ProfileAction', 'icon'),
+          title: BuiltValueNullFieldError.checkNotNull(title, r'ProfileAction', 'title'),
+          target: target,
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ProfileFieldsInterfaceBuilder {
+  void replace($ProfileFieldsInterface other);
+  void update(void Function($ProfileFieldsInterfaceBuilder) updates);
+  String? get userId;
+  set userId(String? userId);
+
+  String? get address;
+  set address(String? address);
+
+  String? get biography;
+  set biography(String? biography);
+
+  String? get displayname;
+  set displayname(String? displayname);
+
+  String? get headline;
+  set headline(String? headline);
+
+  bool? get isUserAvatarVisible;
+  set isUserAvatarVisible(bool? isUserAvatarVisible);
+
+  String? get organisation;
+  set organisation(String? organisation);
+
+  String? get pronouns;
+  set pronouns(String? pronouns);
+
+  String? get role;
+  set role(String? role);
+
+  ListBuilder<ProfileAction> get actions;
+  set actions(ListBuilder<ProfileAction>? actions);
+}
+
+class _$ProfileFields extends ProfileFields {
+  @override
+  final String userId;
+  @override
+  final String? address;
+  @override
+  final String? biography;
+  @override
+  final String? displayname;
+  @override
+  final String? headline;
+  @override
+  final bool? isUserAvatarVisible;
+  @override
+  final String? organisation;
+  @override
+  final String? pronouns;
+  @override
+  final String? role;
+  @override
+  final BuiltList<ProfileAction> actions;
+
+  factory _$ProfileFields([void Function(ProfileFieldsBuilder)? updates]) =>
+      (new ProfileFieldsBuilder()..update(updates))._build();
+
+  _$ProfileFields._(
+      {required this.userId,
+      this.address,
+      this.biography,
+      this.displayname,
+      this.headline,
+      this.isUserAvatarVisible,
+      this.organisation,
+      this.pronouns,
+      this.role,
+      required this.actions})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(userId, r'ProfileFields', 'userId');
+    BuiltValueNullFieldError.checkNotNull(actions, r'ProfileFields', 'actions');
+  }
+
+  @override
+  ProfileFields rebuild(void Function(ProfileFieldsBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  ProfileFieldsBuilder toBuilder() => new ProfileFieldsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ProfileFields &&
+        userId == other.userId &&
+        address == other.address &&
+        biography == other.biography &&
+        displayname == other.displayname &&
+        headline == other.headline &&
+        isUserAvatarVisible == other.isUserAvatarVisible &&
+        organisation == other.organisation &&
+        pronouns == other.pronouns &&
+        role == other.role &&
+        actions == other.actions;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, userId.hashCode);
+    _$hash = $jc(_$hash, address.hashCode);
+    _$hash = $jc(_$hash, biography.hashCode);
+    _$hash = $jc(_$hash, displayname.hashCode);
+    _$hash = $jc(_$hash, headline.hashCode);
+    _$hash = $jc(_$hash, isUserAvatarVisible.hashCode);
+    _$hash = $jc(_$hash, organisation.hashCode);
+    _$hash = $jc(_$hash, pronouns.hashCode);
+    _$hash = $jc(_$hash, role.hashCode);
+    _$hash = $jc(_$hash, actions.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ProfileFields')
+          ..add('userId', userId)
+          ..add('address', address)
+          ..add('biography', biography)
+          ..add('displayname', displayname)
+          ..add('headline', headline)
+          ..add('isUserAvatarVisible', isUserAvatarVisible)
+          ..add('organisation', organisation)
+          ..add('pronouns', pronouns)
+          ..add('role', role)
+          ..add('actions', actions))
+        .toString();
+  }
+}
+
+class ProfileFieldsBuilder implements Builder<ProfileFields, ProfileFieldsBuilder>, $ProfileFieldsInterfaceBuilder {
+  _$ProfileFields? _$v;
+
+  String? _userId;
+  String? get userId => _$this._userId;
+  set userId(covariant String? userId) => _$this._userId = userId;
+
+  String? _address;
+  String? get address => _$this._address;
+  set address(covariant String? address) => _$this._address = address;
+
+  String? _biography;
+  String? get biography => _$this._biography;
+  set biography(covariant String? biography) => _$this._biography = biography;
+
+  String? _displayname;
+  String? get displayname => _$this._displayname;
+  set displayname(covariant String? displayname) => _$this._displayname = displayname;
+
+  String? _headline;
+  String? get headline => _$this._headline;
+  set headline(covariant String? headline) => _$this._headline = headline;
+
+  bool? _isUserAvatarVisible;
+  bool? get isUserAvatarVisible => _$this._isUserAvatarVisible;
+  set isUserAvatarVisible(covariant bool? isUserAvatarVisible) => _$this._isUserAvatarVisible = isUserAvatarVisible;
+
+  String? _organisation;
+  String? get organisation => _$this._organisation;
+  set organisation(covariant String? organisation) => _$this._organisation = organisation;
+
+  String? _pronouns;
+  String? get pronouns => _$this._pronouns;
+  set pronouns(covariant String? pronouns) => _$this._pronouns = pronouns;
+
+  String? _role;
+  String? get role => _$this._role;
+  set role(covariant String? role) => _$this._role = role;
+
+  ListBuilder<ProfileAction>? _actions;
+  ListBuilder<ProfileAction> get actions => _$this._actions ??= new ListBuilder<ProfileAction>();
+  set actions(covariant ListBuilder<ProfileAction>? actions) => _$this._actions = actions;
+
+  ProfileFieldsBuilder() {
+    ProfileFields._defaults(this);
+  }
+
+  ProfileFieldsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _userId = $v.userId;
+      _address = $v.address;
+      _biography = $v.biography;
+      _displayname = $v.displayname;
+      _headline = $v.headline;
+      _isUserAvatarVisible = $v.isUserAvatarVisible;
+      _organisation = $v.organisation;
+      _pronouns = $v.pronouns;
+      _role = $v.role;
+      _actions = $v.actions.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ProfileFields other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ProfileFields;
+  }
+
+  @override
+  void update(void Function(ProfileFieldsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ProfileFields build() => _build();
+
+  _$ProfileFields _build() {
+    ProfileFields._validate(this);
+    _$ProfileFields _$result;
+    try {
+      _$result = _$v ??
+          new _$ProfileFields._(
+            userId: BuiltValueNullFieldError.checkNotNull(userId, r'ProfileFields', 'userId'),
+            address: address,
+            biography: biography,
+            displayname: displayname,
+            headline: headline,
+            isUserAvatarVisible: isUserAvatarVisible,
+            organisation: organisation,
+            pronouns: pronouns,
+            role: role,
+            actions: actions.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'actions';
+        actions.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(r'ProfileFields', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ProfileDataInterfaceBuilder implements $ProfileFieldsInterfaceBuilder {
+  void replace(covariant $ProfileDataInterface other);
+  void update(void Function($ProfileDataInterfaceBuilder) updates);
+  String? get timezone;
+  set timezone(covariant String? timezone);
+
+  int? get timezoneOffset;
+  set timezoneOffset(covariant int? timezoneOffset);
+
+  String? get userId;
+  set userId(covariant String? userId);
+
+  String? get address;
+  set address(covariant String? address);
+
+  String? get biography;
+  set biography(covariant String? biography);
+
+  String? get displayname;
+  set displayname(covariant String? displayname);
+
+  String? get headline;
+  set headline(covariant String? headline);
+
+  bool? get isUserAvatarVisible;
+  set isUserAvatarVisible(covariant bool? isUserAvatarVisible);
+
+  String? get organisation;
+  set organisation(covariant String? organisation);
+
+  String? get pronouns;
+  set pronouns(covariant String? pronouns);
+
+  String? get role;
+  set role(covariant String? role);
+
+  ListBuilder<ProfileAction> get actions;
+  set actions(covariant ListBuilder<ProfileAction>? actions);
+}
+
+class _$ProfileData extends ProfileData {
+  @override
+  final String timezone;
+  @override
+  final int timezoneOffset;
+  @override
+  final String userId;
+  @override
+  final String? address;
+  @override
+  final String? biography;
+  @override
+  final String? displayname;
+  @override
+  final String? headline;
+  @override
+  final bool? isUserAvatarVisible;
+  @override
+  final String? organisation;
+  @override
+  final String? pronouns;
+  @override
+  final String? role;
+  @override
+  final BuiltList<ProfileAction> actions;
+
+  factory _$ProfileData([void Function(ProfileDataBuilder)? updates]) =>
+      (new ProfileDataBuilder()..update(updates))._build();
+
+  _$ProfileData._(
+      {required this.timezone,
+      required this.timezoneOffset,
+      required this.userId,
+      this.address,
+      this.biography,
+      this.displayname,
+      this.headline,
+      this.isUserAvatarVisible,
+      this.organisation,
+      this.pronouns,
+      this.role,
+      required this.actions})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(timezone, r'ProfileData', 'timezone');
+    BuiltValueNullFieldError.checkNotNull(timezoneOffset, r'ProfileData', 'timezoneOffset');
+    BuiltValueNullFieldError.checkNotNull(userId, r'ProfileData', 'userId');
+    BuiltValueNullFieldError.checkNotNull(actions, r'ProfileData', 'actions');
+  }
+
+  @override
+  ProfileData rebuild(void Function(ProfileDataBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  ProfileDataBuilder toBuilder() => new ProfileDataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ProfileData &&
+        timezone == other.timezone &&
+        timezoneOffset == other.timezoneOffset &&
+        userId == other.userId &&
+        address == other.address &&
+        biography == other.biography &&
+        displayname == other.displayname &&
+        headline == other.headline &&
+        isUserAvatarVisible == other.isUserAvatarVisible &&
+        organisation == other.organisation &&
+        pronouns == other.pronouns &&
+        role == other.role &&
+        actions == other.actions;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, timezone.hashCode);
+    _$hash = $jc(_$hash, timezoneOffset.hashCode);
+    _$hash = $jc(_$hash, userId.hashCode);
+    _$hash = $jc(_$hash, address.hashCode);
+    _$hash = $jc(_$hash, biography.hashCode);
+    _$hash = $jc(_$hash, displayname.hashCode);
+    _$hash = $jc(_$hash, headline.hashCode);
+    _$hash = $jc(_$hash, isUserAvatarVisible.hashCode);
+    _$hash = $jc(_$hash, organisation.hashCode);
+    _$hash = $jc(_$hash, pronouns.hashCode);
+    _$hash = $jc(_$hash, role.hashCode);
+    _$hash = $jc(_$hash, actions.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ProfileData')
+          ..add('timezone', timezone)
+          ..add('timezoneOffset', timezoneOffset)
+          ..add('userId', userId)
+          ..add('address', address)
+          ..add('biography', biography)
+          ..add('displayname', displayname)
+          ..add('headline', headline)
+          ..add('isUserAvatarVisible', isUserAvatarVisible)
+          ..add('organisation', organisation)
+          ..add('pronouns', pronouns)
+          ..add('role', role)
+          ..add('actions', actions))
+        .toString();
+  }
+}
+
+class ProfileDataBuilder implements Builder<ProfileData, ProfileDataBuilder>, $ProfileDataInterfaceBuilder {
+  _$ProfileData? _$v;
+
+  String? _timezone;
+  String? get timezone => _$this._timezone;
+  set timezone(covariant String? timezone) => _$this._timezone = timezone;
+
+  int? _timezoneOffset;
+  int? get timezoneOffset => _$this._timezoneOffset;
+  set timezoneOffset(covariant int? timezoneOffset) => _$this._timezoneOffset = timezoneOffset;
+
+  String? _userId;
+  String? get userId => _$this._userId;
+  set userId(covariant String? userId) => _$this._userId = userId;
+
+  String? _address;
+  String? get address => _$this._address;
+  set address(covariant String? address) => _$this._address = address;
+
+  String? _biography;
+  String? get biography => _$this._biography;
+  set biography(covariant String? biography) => _$this._biography = biography;
+
+  String? _displayname;
+  String? get displayname => _$this._displayname;
+  set displayname(covariant String? displayname) => _$this._displayname = displayname;
+
+  String? _headline;
+  String? get headline => _$this._headline;
+  set headline(covariant String? headline) => _$this._headline = headline;
+
+  bool? _isUserAvatarVisible;
+  bool? get isUserAvatarVisible => _$this._isUserAvatarVisible;
+  set isUserAvatarVisible(covariant bool? isUserAvatarVisible) => _$this._isUserAvatarVisible = isUserAvatarVisible;
+
+  String? _organisation;
+  String? get organisation => _$this._organisation;
+  set organisation(covariant String? organisation) => _$this._organisation = organisation;
+
+  String? _pronouns;
+  String? get pronouns => _$this._pronouns;
+  set pronouns(covariant String? pronouns) => _$this._pronouns = pronouns;
+
+  String? _role;
+  String? get role => _$this._role;
+  set role(covariant String? role) => _$this._role = role;
+
+  ListBuilder<ProfileAction>? _actions;
+  ListBuilder<ProfileAction> get actions => _$this._actions ??= new ListBuilder<ProfileAction>();
+  set actions(covariant ListBuilder<ProfileAction>? actions) => _$this._actions = actions;
+
+  ProfileDataBuilder() {
+    ProfileData._defaults(this);
+  }
+
+  ProfileDataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _timezone = $v.timezone;
+      _timezoneOffset = $v.timezoneOffset;
+      _userId = $v.userId;
+      _address = $v.address;
+      _biography = $v.biography;
+      _displayname = $v.displayname;
+      _headline = $v.headline;
+      _isUserAvatarVisible = $v.isUserAvatarVisible;
+      _organisation = $v.organisation;
+      _pronouns = $v.pronouns;
+      _role = $v.role;
+      _actions = $v.actions.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ProfileData other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ProfileData;
+  }
+
+  @override
+  void update(void Function(ProfileDataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ProfileData build() => _build();
+
+  _$ProfileData _build() {
+    ProfileData._validate(this);
+    _$ProfileData _$result;
+    try {
+      _$result = _$v ??
+          new _$ProfileData._(
+            timezone: BuiltValueNullFieldError.checkNotNull(timezone, r'ProfileData', 'timezone'),
+            timezoneOffset: BuiltValueNullFieldError.checkNotNull(timezoneOffset, r'ProfileData', 'timezoneOffset'),
+            userId: BuiltValueNullFieldError.checkNotNull(userId, r'ProfileData', 'userId'),
+            address: address,
+            biography: biography,
+            displayname: displayname,
+            headline: headline,
+            isUserAvatarVisible: isUserAvatarVisible,
+            organisation: organisation,
+            pronouns: pronouns,
+            role: role,
+            actions: actions.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'actions';
+        actions.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(r'ProfileData', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ProfileApiGetProfileFieldsResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ProfileApiGetProfileFieldsResponseApplicationJson_OcsInterface other);
+  void update(void Function($ProfileApiGetProfileFieldsResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  ProfileDataBuilder get data;
+  set data(ProfileDataBuilder? data);
+}
+
+class _$ProfileApiGetProfileFieldsResponseApplicationJson_Ocs
+    extends ProfileApiGetProfileFieldsResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final ProfileData data;
+
+  factory _$ProfileApiGetProfileFieldsResponseApplicationJson_Ocs(
+          [void Function(ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder)? updates]) =>
+      (new ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$ProfileApiGetProfileFieldsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ProfileApiGetProfileFieldsResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ProfileApiGetProfileFieldsResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  ProfileApiGetProfileFieldsResponseApplicationJson_Ocs rebuild(
+          void Function(ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder toBuilder() =>
+      new ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ProfileApiGetProfileFieldsResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ProfileApiGetProfileFieldsResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder
+    implements
+        Builder<ProfileApiGetProfileFieldsResponseApplicationJson_Ocs,
+            ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder>,
+        $ProfileApiGetProfileFieldsResponseApplicationJson_OcsInterfaceBuilder {
+  _$ProfileApiGetProfileFieldsResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  ProfileDataBuilder? _data;
+  ProfileDataBuilder get data => _$this._data ??= new ProfileDataBuilder();
+  set data(covariant ProfileDataBuilder? data) => _$this._data = data;
+
+  ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder() {
+    ProfileApiGetProfileFieldsResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ProfileApiGetProfileFieldsResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ProfileApiGetProfileFieldsResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ProfileApiGetProfileFieldsResponseApplicationJson_Ocs build() => _build();
+
+  _$ProfileApiGetProfileFieldsResponseApplicationJson_Ocs _build() {
+    ProfileApiGetProfileFieldsResponseApplicationJson_Ocs._validate(this);
+    _$ProfileApiGetProfileFieldsResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          new _$ProfileApiGetProfileFieldsResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'ProfileApiGetProfileFieldsResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ProfileApiGetProfileFieldsResponseApplicationJsonInterfaceBuilder {
+  void replace($ProfileApiGetProfileFieldsResponseApplicationJsonInterface other);
+  void update(void Function($ProfileApiGetProfileFieldsResponseApplicationJsonInterfaceBuilder) updates);
+  ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$ProfileApiGetProfileFieldsResponseApplicationJson extends ProfileApiGetProfileFieldsResponseApplicationJson {
+  @override
+  final ProfileApiGetProfileFieldsResponseApplicationJson_Ocs ocs;
+
+  factory _$ProfileApiGetProfileFieldsResponseApplicationJson(
+          [void Function(ProfileApiGetProfileFieldsResponseApplicationJsonBuilder)? updates]) =>
+      (new ProfileApiGetProfileFieldsResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$ProfileApiGetProfileFieldsResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ProfileApiGetProfileFieldsResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  ProfileApiGetProfileFieldsResponseApplicationJson rebuild(
+          void Function(ProfileApiGetProfileFieldsResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ProfileApiGetProfileFieldsResponseApplicationJsonBuilder toBuilder() =>
+      new ProfileApiGetProfileFieldsResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ProfileApiGetProfileFieldsResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ProfileApiGetProfileFieldsResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class ProfileApiGetProfileFieldsResponseApplicationJsonBuilder
+    implements
+        Builder<ProfileApiGetProfileFieldsResponseApplicationJson,
+            ProfileApiGetProfileFieldsResponseApplicationJsonBuilder>,
+        $ProfileApiGetProfileFieldsResponseApplicationJsonInterfaceBuilder {
+  _$ProfileApiGetProfileFieldsResponseApplicationJson? _$v;
+
+  ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder? _ocs;
+  ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= new ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  ProfileApiGetProfileFieldsResponseApplicationJsonBuilder() {
+    ProfileApiGetProfileFieldsResponseApplicationJson._defaults(this);
+  }
+
+  ProfileApiGetProfileFieldsResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ProfileApiGetProfileFieldsResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ProfileApiGetProfileFieldsResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(ProfileApiGetProfileFieldsResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ProfileApiGetProfileFieldsResponseApplicationJson build() => _build();
+
+  _$ProfileApiGetProfileFieldsResponseApplicationJson _build() {
+    ProfileApiGetProfileFieldsResponseApplicationJson._validate(this);
+    _$ProfileApiGetProfileFieldsResponseApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          new _$ProfileApiGetProfileFieldsResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'ProfileApiGetProfileFieldsResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

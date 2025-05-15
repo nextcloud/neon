@@ -2872,6 +2872,96 @@ class $ProfileApiClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of [$getProfileFields_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<ProfileApiGetProfileFieldsResponseApplicationJson, void> $getProfileFields_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ProfileApiGetProfileFieldsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Get profile fields for another user.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getProfileFields] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [targetUserId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Profile data returned successfully
+  ///   * 400: Profile is disabled
+  ///   * 404: Account not found or disabled
+  ///
+  /// See:
+  ///  * [getProfileFields] for a method executing this request and parsing the response.
+  ///  * [$getProfileFields_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getProfileFields_Request({required String targetUserId, bool? oCSAPIRequest}) {
+    final _parameters = <String, Object?>{};
+    final __targetUserId = _$jsonSerializers.serialize(targetUserId, specifiedType: const FullType(String));
+    _parameters['targetUserId'] = __targetUserId;
+
+    final _path = _i6.UriTemplate('/ocs/v2.php/profile/{targetUserId}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+    // coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(authentication.headers);
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+    // coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get profile fields for another user.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [targetUserId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Profile data returned successfully
+  ///   * 400: Profile is disabled
+  ///   * 404: Account not found or disabled
+  ///
+  /// See:
+  ///  * [$getProfileFields_Request] for the request send by this method.
+  ///  * [$getProfileFields_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<ProfileApiGetProfileFieldsResponseApplicationJson, void>> getProfileFields({
+    required String targetUserId,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $getProfileFields_Request(targetUserId: targetUserId, oCSAPIRequest: oCSAPIRequest);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $getProfileFields_Serializer();
+    return _i1.ResponseConverter<ProfileApiGetProfileFieldsResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
+  }
+
   /// Builds a serializer to parse the response of [$setVisibility_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ProfileApiSetVisibilityResponseApplicationJson, void> $setVisibility_Serializer() =>
@@ -17418,6 +17508,317 @@ abstract class PreviewPreviewGetMimeIconUrlHeaders
 }
 
 @BuiltValue(instantiable: false)
+sealed class $ProfileActionInterface {
+  String get id;
+  String get icon;
+  String get title;
+  String? get target;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ProfileActionInterfaceBuilder].
+  $ProfileActionInterface rebuild(void Function($ProfileActionInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ProfileActionInterfaceBuilder].
+  $ProfileActionInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ProfileActionInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ProfileActionInterfaceBuilder b) {}
+}
+
+abstract class ProfileAction implements $ProfileActionInterface, Built<ProfileAction, ProfileActionBuilder> {
+  /// Creates a new ProfileAction object using the builder pattern.
+  factory ProfileAction([void Function(ProfileActionBuilder)? b]) = _$ProfileAction;
+
+  // coverage:ignore-start
+  const ProfileAction._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ProfileAction.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ProfileAction.
+  static Serializer<ProfileAction> get serializer => _$profileActionSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ProfileActionBuilder b) {
+    $ProfileActionInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ProfileActionBuilder b) {
+    $ProfileActionInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ProfileFieldsInterface {
+  String get userId;
+  String? get address;
+  String? get biography;
+  String? get displayname;
+  String? get headline;
+  bool? get isUserAvatarVisible;
+  String? get organisation;
+  String? get pronouns;
+  String? get role;
+  BuiltList<ProfileAction> get actions;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ProfileFieldsInterfaceBuilder].
+  $ProfileFieldsInterface rebuild(void Function($ProfileFieldsInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ProfileFieldsInterfaceBuilder].
+  $ProfileFieldsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ProfileFieldsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ProfileFieldsInterfaceBuilder b) {}
+}
+
+abstract class ProfileFields implements $ProfileFieldsInterface, Built<ProfileFields, ProfileFieldsBuilder> {
+  /// Creates a new ProfileFields object using the builder pattern.
+  factory ProfileFields([void Function(ProfileFieldsBuilder)? b]) = _$ProfileFields;
+
+  // coverage:ignore-start
+  const ProfileFields._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ProfileFields.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ProfileFields.
+  static Serializer<ProfileFields> get serializer => _$profileFieldsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ProfileFieldsBuilder b) {
+    $ProfileFieldsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ProfileFieldsBuilder b) {
+    $ProfileFieldsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ProfileDataInterface implements $ProfileFieldsInterface {
+  String get timezone;
+  int get timezoneOffset;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ProfileDataInterfaceBuilder].
+  @override
+  $ProfileDataInterface rebuild(void Function($ProfileDataInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ProfileDataInterfaceBuilder].
+  @override
+  $ProfileDataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ProfileDataInterfaceBuilder b) {
+    $ProfileFieldsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ProfileDataInterfaceBuilder b) {
+    $ProfileFieldsInterface._validate(b);
+  }
+}
+
+abstract class ProfileData implements $ProfileDataInterface, Built<ProfileData, ProfileDataBuilder> {
+  /// Creates a new ProfileData object using the builder pattern.
+  factory ProfileData([void Function(ProfileDataBuilder)? b]) = _$ProfileData;
+
+  // coverage:ignore-start
+  const ProfileData._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ProfileData.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ProfileData.
+  static Serializer<ProfileData> get serializer => _$profileDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ProfileDataBuilder b) {
+    $ProfileDataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ProfileDataBuilder b) {
+    $ProfileDataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ProfileApiGetProfileFieldsResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  ProfileData get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ProfileApiGetProfileFieldsResponseApplicationJson_OcsInterfaceBuilder].
+  $ProfileApiGetProfileFieldsResponseApplicationJson_OcsInterface rebuild(
+    void Function($ProfileApiGetProfileFieldsResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ProfileApiGetProfileFieldsResponseApplicationJson_OcsInterfaceBuilder].
+  $ProfileApiGetProfileFieldsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ProfileApiGetProfileFieldsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ProfileApiGetProfileFieldsResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class ProfileApiGetProfileFieldsResponseApplicationJson_Ocs
+    implements
+        $ProfileApiGetProfileFieldsResponseApplicationJson_OcsInterface,
+        Built<ProfileApiGetProfileFieldsResponseApplicationJson_Ocs,
+            ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ProfileApiGetProfileFieldsResponseApplicationJson_Ocs object using the builder pattern.
+  factory ProfileApiGetProfileFieldsResponseApplicationJson_Ocs([
+    void Function(ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$ProfileApiGetProfileFieldsResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const ProfileApiGetProfileFieldsResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ProfileApiGetProfileFieldsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ProfileApiGetProfileFieldsResponseApplicationJson_Ocs.
+  static Serializer<ProfileApiGetProfileFieldsResponseApplicationJson_Ocs> get serializer =>
+      _$profileApiGetProfileFieldsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder b) {
+    $ProfileApiGetProfileFieldsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder b) {
+    $ProfileApiGetProfileFieldsResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ProfileApiGetProfileFieldsResponseApplicationJsonInterface {
+  ProfileApiGetProfileFieldsResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ProfileApiGetProfileFieldsResponseApplicationJsonInterfaceBuilder].
+  $ProfileApiGetProfileFieldsResponseApplicationJsonInterface rebuild(
+    void Function($ProfileApiGetProfileFieldsResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ProfileApiGetProfileFieldsResponseApplicationJsonInterfaceBuilder].
+  $ProfileApiGetProfileFieldsResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ProfileApiGetProfileFieldsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ProfileApiGetProfileFieldsResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ProfileApiGetProfileFieldsResponseApplicationJson
+    implements
+        $ProfileApiGetProfileFieldsResponseApplicationJsonInterface,
+        Built<ProfileApiGetProfileFieldsResponseApplicationJson,
+            ProfileApiGetProfileFieldsResponseApplicationJsonBuilder> {
+  /// Creates a new ProfileApiGetProfileFieldsResponseApplicationJson object using the builder pattern.
+  factory ProfileApiGetProfileFieldsResponseApplicationJson([
+    void Function(ProfileApiGetProfileFieldsResponseApplicationJsonBuilder)? b,
+  ]) = _$ProfileApiGetProfileFieldsResponseApplicationJson;
+
+  // coverage:ignore-start
+  const ProfileApiGetProfileFieldsResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ProfileApiGetProfileFieldsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ProfileApiGetProfileFieldsResponseApplicationJson.
+  static Serializer<ProfileApiGetProfileFieldsResponseApplicationJson> get serializer =>
+      _$profileApiGetProfileFieldsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ProfileApiGetProfileFieldsResponseApplicationJsonBuilder b) {
+    $ProfileApiGetProfileFieldsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ProfileApiGetProfileFieldsResponseApplicationJsonBuilder b) {
+    $ProfileApiGetProfileFieldsResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $ProfileApiSetVisibilityRequestApplicationJsonInterface {
   /// ID of the parameter.
   String get paramId;
@@ -29614,6 +30015,23 @@ final Serializers _$serializers = (Serializers().toBuilder()
         PreviewPreviewGetMimeIconUrlHeadersBuilder.new,
       )
       ..add(PreviewPreviewGetMimeIconUrlHeaders.serializer)
+      ..addBuilderFactory(
+        const FullType(ProfileApiGetProfileFieldsResponseApplicationJson),
+        ProfileApiGetProfileFieldsResponseApplicationJsonBuilder.new,
+      )
+      ..add(ProfileApiGetProfileFieldsResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(ProfileApiGetProfileFieldsResponseApplicationJson_Ocs),
+        ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(ProfileApiGetProfileFieldsResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(ProfileData), ProfileDataBuilder.new)
+      ..add(ProfileData.serializer)
+      ..addBuilderFactory(const FullType(ProfileFields), ProfileFieldsBuilder.new)
+      ..add(ProfileFields.serializer)
+      ..addBuilderFactory(const FullType(ProfileAction), ProfileActionBuilder.new)
+      ..add(ProfileAction.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(ProfileAction)]), ListBuilder<ProfileAction>.new)
       ..addBuilderFactory(
         const FullType(ProfileApiSetVisibilityRequestApplicationJson),
         ProfileApiSetVisibilityRequestApplicationJsonBuilder.new,
