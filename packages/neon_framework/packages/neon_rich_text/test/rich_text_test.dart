@@ -179,31 +179,26 @@ void main() {
         Future<void> Function(WidgetTester tester)? body,
       }) {
         testWidgets(name, (tester) async {
-          late TextSpan span;
-
           await tester.pumpWidgetWithAccessibility(
             MaterialApp(
               theme: ThemeData(
                 fontFamily: defaultFontFamily,
               ),
               home: Scaffold(
-                body: Builder(
-                  builder: (context) {
-                    final style = Theme.of(context).textTheme.bodyMedium!;
-                    span = buildRichTextSpan(
-                      account: MockAccount(),
-                      text: text,
-                      textStyle: style,
-                      parameters: parameters ?? BuiltMap(),
-                      references: BuiltList(),
-                      onReferenceClicked: onReferenceClicked ?? (_) {},
-                      isMarkdown: true,
-                    );
-
-                    return RichText(
-                      text: span,
-                    );
-                  },
+                body: RichText(
+                  text: buildRichTextSpan(
+                    account: MockAccount(),
+                    text: text,
+                    textStyle: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 15,
+                      fontFamily: defaultFontFamily,
+                    ),
+                    parameters: parameters ?? BuiltMap(),
+                    references: BuiltList(),
+                    onReferenceClicked: onReferenceClicked ?? (_) {},
+                    isMarkdown: true,
+                  ),
                 ),
               ),
             ),

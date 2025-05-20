@@ -421,9 +421,9 @@ class WebDavClient extends DynamiteClient {
           onProgress?.call(downloaded / contentLength);
         }
       },
-      onDone: () {
+      onDone: () async {
         onProgress?.call(1);
-        controller.close();
+        await controller.close();
       },
     );
 
