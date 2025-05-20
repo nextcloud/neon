@@ -28,9 +28,9 @@ class AccountSwitcherButton extends StatelessWidget {
           AdaptiveListTile(
             leading: Icon(AdaptiveIcons.settings),
             title: Text(NeonLocalizations.of(context).settings),
-            onTap: () {
+            onTap: () async {
               Navigator.of(context).pop();
-              const SettingsRoute().push<void>(context);
+              await const SettingsRoute().push<void>(context);
             },
           ),
         ],
