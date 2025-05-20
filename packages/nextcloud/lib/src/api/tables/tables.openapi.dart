@@ -8948,7 +8948,7 @@ abstract class Row implements $RowInterface, Built<Row, RowBuilder> {
 /// Data as key - value store.
 typedef Api1CreateRowInTableRequestApplicationJson_Data = ({
   BuiltMap<String, JsonObject>? builtMapStringJsonObject,
-  String? string
+  String? string,
 });
 
 @BuiltValue(instantiable: false)
@@ -9020,7 +9020,7 @@ abstract class Api1CreateRowInTableRequestApplicationJson
 /// Data as key - value store.
 typedef Api1CreateRowInViewRequestApplicationJson_Data = ({
   BuiltMap<String, JsonObject>? builtMapStringJsonObject,
-  String? string
+  String? string,
 });
 
 @BuiltValue(instantiable: false)
@@ -9092,7 +9092,7 @@ abstract class Api1CreateRowInViewRequestApplicationJson
 /// Data as key - value store.
 typedef Api1UpdateRowRequestApplicationJson_Data = ({
   BuiltMap<String, JsonObject>? builtMapStringJsonObject,
-  String? string
+  String? string,
 });
 
 @BuiltValue(instantiable: false)
@@ -14863,7 +14863,7 @@ class _$RowocsCreateRowNodeCollectionSerializer implements PrimitiveSerializer<R
 /// An array containing the column identifiers and their values.
 typedef RowocsCreateRowRequestApplicationJson_Data = ({
   BuiltMap<String, JsonObject>? builtMapStringJsonObject,
-  String? string
+  String? string,
 });
 
 @BuiltValue(instantiable: false)

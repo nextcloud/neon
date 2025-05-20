@@ -20860,7 +20860,7 @@ typedef TaskProcessingIO = ({
   BuiltList<num>? builtListNum,
   BuiltList<String>? builtListString,
   num? $num,
-  String? string
+  String? string,
 });
 
 @BuiltValue(instantiable: false)
@@ -29217,7 +29217,7 @@ typedef _$17b504aaa197cb55522acb1f128f183a = ({
   BuiltList<num>? builtListNum,
   BuiltList<String>? builtListString,
   num? $num,
-  String? string
+  String? string,
 });
 
 /// @nodoc

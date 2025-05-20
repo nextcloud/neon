@@ -290,7 +290,7 @@ abstract class OneOfUnspecifiedArray0
 
 typedef OneOfUnspecifiedArray = ({
   BuiltList<JsonObject>? builtListJsonObject,
-  OneOfUnspecifiedArray0? oneOfUnspecifiedArray0
+  OneOfUnspecifiedArray0? oneOfUnspecifiedArray0,
 });
 
 @BuiltValue(instantiable: false)
@@ -617,7 +617,7 @@ class _$b6d67dc2a96424d2f407f8e51557f3deSerializer implements PrimitiveSerialize
 
 typedef _$00f31f9753d01398a2c3705cd335c56e = ({
   BuiltList<JsonObject>? builtListJsonObject,
-  OneOfUnspecifiedArray0? oneOfUnspecifiedArray0
+  OneOfUnspecifiedArray0? oneOfUnspecifiedArray0,
 });
 
 /// @nodoc
@@ -694,7 +694,7 @@ class _$00f31f9753d01398a2c3705cd335c56eSerializer implements PrimitiveSerialize
 
 typedef _$5fb8a7f8bbb305dd61a4a05d6996c58b = ({
   BuiltList<String>? builtListString,
-  OneOfStringArray0? oneOfStringArray0
+  OneOfStringArray0? oneOfStringArray0,
 });
 
 /// @nodoc
