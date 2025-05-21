@@ -5723,10 +5723,7 @@ class $ChatClient {
     _request.headers['Content-Type'] = 'application/json';
     _request.body = $body != null
         ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(ChatSetReadMarkerRequestApplicationJson),
-            ),
+            _$jsonSerializers.serialize($body, specifiedType: const FullType(ChatSetReadMarkerRequestApplicationJson)),
           )
         : json.encode(
             _$jsonSerializers.serialize(
@@ -30028,7 +30025,7 @@ abstract class SignalingFederationSettings
 
 typedef SignalingSettings_Federation = ({
   BuiltList<Never>? builtListNever,
-  SignalingFederationSettings? signalingFederationSettings
+  SignalingFederationSettings? signalingFederationSettings,
 });
 
 @BuiltValue(instantiable: false)
@@ -32665,7 +32662,7 @@ abstract class SignalingSession
 
 typedef SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data = ({
   BuiltList<SignalingSession>? builtListSignalingSession,
-  String? string
+  String? string,
 });
 
 @BuiltValue(instantiable: false)
@@ -48630,7 +48627,7 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 
 typedef RoomGetCapabilitiesResponseApplicationJson_Ocs_Data = ({
   BuiltMap<String, JsonObject>? builtMapStringJsonObject,
-  Capabilities? capabilities
+  Capabilities? capabilities,
 });
 
 @BuiltValue(instantiable: false)
@@ -54152,7 +54149,7 @@ extension $SettingsSetUserSettingRequestApplicationJson_ValueExtension
 typedef _$bed8482b7c93ae2974fa4be6ae42b9b1 = ({
   BaseMessage? baseMessage,
   BuiltList<Never>? builtListNever,
-  ChatMessage? chatMessage
+  ChatMessage? chatMessage,
 });
 
 /// @nodoc
@@ -54305,7 +54302,7 @@ class _$eef5a337590648ee15c9b8f9dd9d6a36Serializer implements PrimitiveSerialize
 
 typedef _$4f2be900e5f7182901d856e06271b0e6 = ({
   BuiltList<Never>? builtListNever,
-  SignalingFederationSettings? signalingFederationSettings
+  SignalingFederationSettings? signalingFederationSettings,
 });
 
 /// @nodoc
@@ -54526,7 +54523,7 @@ class _$f281c16bc584cda0adb1f4b8d534ee07Serializer implements PrimitiveSerialize
 
 typedef _$eded9c5615e6be3b25806a949699f91f = ({
   BuiltMap<String, JsonObject>? builtMapStringJsonObject,
-  Capabilities? capabilities
+  Capabilities? capabilities,
 });
 
 /// @nodoc

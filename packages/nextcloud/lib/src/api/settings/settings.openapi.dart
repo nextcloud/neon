@@ -1217,7 +1217,7 @@ extension $DeclarativeFormField_ValueExtension on DeclarativeFormField_Value {
 
 typedef _$ecd8d9fe35935410da9dc2662cd86d27 = ({
   DeclarativeFormField_Options1? declarativeFormFieldOptions1,
-  String? string
+  String? string,
 });
 
 /// @nodoc
@@ -1295,7 +1295,7 @@ typedef _$bb4e9af94b69347c125c27e03a648d24 = ({
   bool? $bool,
   BuiltList<String>? builtListString,
   num? $num,
-  String? string
+  String? string,
 });
 
 /// @nodoc
