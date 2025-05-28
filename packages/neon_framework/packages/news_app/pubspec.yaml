@@ -35,7 +35,7 @@ dev_dependencies:
   go_router_builder: ^2.9.0
   neon_lints:
     path: ../../../neon_lints
-  vector_graphics_compiler: ^1.1.16
+  vector_graphics_compiler: ^1.1.17
 
 flutter:
   uses-material-design: true
