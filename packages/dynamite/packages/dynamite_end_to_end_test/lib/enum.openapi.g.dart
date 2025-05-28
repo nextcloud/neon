@@ -19,11 +19,11 @@ EnumString _$valueOfEnumString(String name) {
     case 'dollar':
       return _$enumStringDollar;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<EnumString> _$enumStringValues = new BuiltSet<EnumString>(const <EnumString>[
+final BuiltSet<EnumString> _$enumStringValues = BuiltSet<EnumString>(const <EnumString>[
   _$enumStringTest,
   _$enumString$default,
   _$enumStringDollar,
@@ -42,11 +42,11 @@ EnumInt _$valueOfEnumInt(String name) {
     case '\$2':
       return _$enumInt$2;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<EnumInt> _$enumIntValues = new BuiltSet<EnumInt>(const <EnumInt>[
+final BuiltSet<EnumInt> _$enumIntValues = BuiltSet<EnumInt>(const <EnumInt>[
   _$enumInt$0,
   _$enumInt$1,
   _$enumInt$2,
@@ -65,11 +65,11 @@ EnumDynamic _$valueOfEnumDynamic(String name) {
     case '\$false':
       return _$enumDynamic$false;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<EnumDynamic> _$enumDynamicValues = new BuiltSet<EnumDynamic>(const <EnumDynamic>[
+final BuiltSet<EnumDynamic> _$enumDynamicValues = BuiltSet<EnumDynamic>(const <EnumDynamic>[
   _$enumDynamic$0,
   _$enumDynamicString,
   _$enumDynamic$false,
@@ -85,12 +85,11 @@ WrappedEnum_String _$valueOfWrappedEnum_String(String name) {
     case '\$default':
       return _$wrappedEnumString$default;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<WrappedEnum_String> _$wrappedEnumStringValues =
-    new BuiltSet<WrappedEnum_String>(const <WrappedEnum_String>[
+final BuiltSet<WrappedEnum_String> _$wrappedEnumStringValues = BuiltSet<WrappedEnum_String>(const <WrappedEnum_String>[
   _$wrappedEnumStringTest,
   _$wrappedEnumString$default,
 ]);
@@ -108,19 +107,19 @@ WrappedEnum_Integer _$valueOfWrappedEnum_Integer(String name) {
     case '\$2':
       return _$wrappedEnumInteger$2;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<WrappedEnum_Integer> _$wrappedEnumIntegerValues =
-    new BuiltSet<WrappedEnum_Integer>(const <WrappedEnum_Integer>[
+    BuiltSet<WrappedEnum_Integer>(const <WrappedEnum_Integer>[
   _$wrappedEnumInteger$0,
   _$wrappedEnumInteger$1,
   _$wrappedEnumInteger$2,
 ]);
 
-Serializer<WrappedEnum> _$wrappedEnumSerializer = new _$WrappedEnumSerializer();
-Serializer<EnumReference> _$enumReferenceSerializer = new _$EnumReferenceSerializer();
+Serializer<WrappedEnum> _$wrappedEnumSerializer = _$WrappedEnumSerializer();
+Serializer<EnumReference> _$enumReferenceSerializer = _$EnumReferenceSerializer();
 
 class _$WrappedEnumSerializer implements StructuredSerializer<WrappedEnum> {
   @override
@@ -144,7 +143,7 @@ class _$WrappedEnumSerializer implements StructuredSerializer<WrappedEnum> {
   @override
   WrappedEnum deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new WrappedEnumBuilder();
+    final result = WrappedEnumBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -187,7 +186,7 @@ class _$EnumReferenceSerializer implements StructuredSerializer<EnumReference> {
   @override
   EnumReference deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new EnumReferenceBuilder();
+    final result = EnumReferenceBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -222,18 +221,14 @@ class _$WrappedEnum extends WrappedEnum {
   final WrappedEnum_Integer integer;
 
   factory _$WrappedEnum([void Function(WrappedEnumBuilder)? updates]) =>
-      (new WrappedEnumBuilder()..update(updates))._build();
+      (WrappedEnumBuilder()..update(updates))._build();
 
-  _$WrappedEnum._({required this.string, required this.integer}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(string, r'WrappedEnum', 'string');
-    BuiltValueNullFieldError.checkNotNull(integer, r'WrappedEnum', 'integer');
-  }
-
+  _$WrappedEnum._({required this.string, required this.integer}) : super._();
   @override
   WrappedEnum rebuild(void Function(WrappedEnumBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  WrappedEnumBuilder toBuilder() => new WrappedEnumBuilder()..replace(this);
+  WrappedEnumBuilder toBuilder() => WrappedEnumBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -286,7 +281,6 @@ class WrappedEnumBuilder implements Builder<WrappedEnum, WrappedEnumBuilder>, $W
 
   @override
   void replace(covariant WrappedEnum other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WrappedEnum;
   }
 
@@ -301,7 +295,7 @@ class WrappedEnumBuilder implements Builder<WrappedEnum, WrappedEnumBuilder>, $W
   _$WrappedEnum _build() {
     WrappedEnum._validate(this);
     final _$result = _$v ??
-        new _$WrappedEnum._(
+        _$WrappedEnum._(
           string: BuiltValueNullFieldError.checkNotNull(string, r'WrappedEnum', 'string'),
           integer: BuiltValueNullFieldError.checkNotNull(integer, r'WrappedEnum', 'integer'),
         );
@@ -322,17 +316,14 @@ class _$EnumReference extends EnumReference {
   final EnumString string;
 
   factory _$EnumReference([void Function(EnumReferenceBuilder)? updates]) =>
-      (new EnumReferenceBuilder()..update(updates))._build();
+      (EnumReferenceBuilder()..update(updates))._build();
 
-  _$EnumReference._({required this.string}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(string, r'EnumReference', 'string');
-  }
-
+  _$EnumReference._({required this.string}) : super._();
   @override
   EnumReference rebuild(void Function(EnumReferenceBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  EnumReferenceBuilder toBuilder() => new EnumReferenceBuilder()..replace(this);
+  EnumReferenceBuilder toBuilder() => EnumReferenceBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -376,7 +367,6 @@ class EnumReferenceBuilder implements Builder<EnumReference, EnumReferenceBuilde
 
   @override
   void replace(covariant EnumReference other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$EnumReference;
   }
 
@@ -391,7 +381,7 @@ class EnumReferenceBuilder implements Builder<EnumReference, EnumReferenceBuilde
   _$EnumReference _build() {
     EnumReference._validate(this);
     final _$result = _$v ??
-        new _$EnumReference._(
+        _$EnumReference._(
           string: BuiltValueNullFieldError.checkNotNull(string, r'EnumReference', 'string'),
         );
     replace(_$result);

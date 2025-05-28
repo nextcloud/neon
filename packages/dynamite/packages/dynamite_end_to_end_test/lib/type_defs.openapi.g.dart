@@ -6,8 +6,8 @@ part of 'type_defs.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Base> _$baseSerializer = new _$BaseSerializer();
-Serializer<NestedRedirect> _$nestedRedirectSerializer = new _$NestedRedirectSerializer();
+Serializer<Base> _$baseSerializer = _$BaseSerializer();
+Serializer<NestedRedirect> _$nestedRedirectSerializer = _$NestedRedirectSerializer();
 
 class _$BaseSerializer implements StructuredSerializer<Base> {
   @override
@@ -31,7 +31,7 @@ class _$BaseSerializer implements StructuredSerializer<Base> {
   @override
   Base deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new BaseBuilder();
+    final result = BaseBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -84,7 +84,7 @@ class _$NestedRedirectSerializer implements StructuredSerializer<NestedRedirect>
   @override
   NestedRedirect deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new NestedRedirectBuilder();
+    final result = NestedRedirectBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -120,15 +120,14 @@ class _$Base extends Base {
   @override
   final String? attribute;
 
-  factory _$Base([void Function(BaseBuilder)? updates]) => (new BaseBuilder()..update(updates))._build();
+  factory _$Base([void Function(BaseBuilder)? updates]) => (BaseBuilder()..update(updates))._build();
 
   _$Base._({this.attribute}) : super._();
-
   @override
   Base rebuild(void Function(BaseBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  BaseBuilder toBuilder() => new BaseBuilder()..replace(this);
+  BaseBuilder toBuilder() => BaseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -172,7 +171,6 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
 
   @override
   void replace(covariant Base other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Base;
   }
 
@@ -187,7 +185,7 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
   _$Base _build() {
     Base._validate(this);
     final _$result = _$v ??
-        new _$Base._(
+        _$Base._(
           attribute: attribute,
         );
     replace(_$result);
@@ -217,15 +215,14 @@ class _$NestedRedirect extends NestedRedirect {
   final JsonObject? redirectEmptyType;
 
   factory _$NestedRedirect([void Function(NestedRedirectBuilder)? updates]) =>
-      (new NestedRedirectBuilder()..update(updates))._build();
+      (NestedRedirectBuilder()..update(updates))._build();
 
   _$NestedRedirect._({this.redirect, this.redirectBaseType, this.redirectEmptyType}) : super._();
-
   @override
   NestedRedirect rebuild(void Function(NestedRedirectBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  NestedRedirectBuilder toBuilder() => new NestedRedirectBuilder()..replace(this);
+  NestedRedirectBuilder toBuilder() => NestedRedirectBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -260,7 +257,7 @@ class NestedRedirectBuilder implements Builder<NestedRedirect, NestedRedirectBui
   _$NestedRedirect? _$v;
 
   BaseBuilder? _redirect;
-  BaseBuilder get redirect => _$this._redirect ??= new BaseBuilder();
+  BaseBuilder get redirect => _$this._redirect ??= BaseBuilder();
   set redirect(covariant BaseBuilder? redirect) => _$this._redirect = redirect;
 
   int? _redirectBaseType;
@@ -288,7 +285,6 @@ class NestedRedirectBuilder implements Builder<NestedRedirect, NestedRedirectBui
 
   @override
   void replace(covariant NestedRedirect other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NestedRedirect;
   }
 
@@ -305,7 +301,7 @@ class NestedRedirectBuilder implements Builder<NestedRedirect, NestedRedirectBui
     _$NestedRedirect _$result;
     try {
       _$result = _$v ??
-          new _$NestedRedirect._(
+          _$NestedRedirect._(
             redirect: _redirect?.build(),
             redirectBaseType: redirectBaseType,
             redirectEmptyType: redirectEmptyType,
@@ -316,7 +312,7 @@ class NestedRedirectBuilder implements Builder<NestedRedirect, NestedRedirectBui
         _$failedField = 'redirect';
         _redirect?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'NestedRedirect', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'NestedRedirect', _$failedField, e.toString());
       }
       rethrow;
     }

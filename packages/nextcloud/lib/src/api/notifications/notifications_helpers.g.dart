@@ -6,7 +6,7 @@ part of 'notifications_helpers.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<DecryptedSubject> _$decryptedSubjectSerializer = new _$DecryptedSubjectSerializer();
+Serializer<DecryptedSubject> _$decryptedSubjectSerializer = _$DecryptedSubjectSerializer();
 
 class _$DecryptedSubjectSerializer implements StructuredSerializer<DecryptedSubject> {
   @override
@@ -79,7 +79,7 @@ class _$DecryptedSubjectSerializer implements StructuredSerializer<DecryptedSubj
   @override
   DecryptedSubject deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DecryptedSubjectBuilder();
+    final result = DecryptedSubjectBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -143,7 +143,7 @@ class _$DecryptedSubject extends DecryptedSubject {
   final bool? deleteAll;
 
   factory _$DecryptedSubject([void Function(DecryptedSubjectBuilder)? updates]) =>
-      (new DecryptedSubjectBuilder()..update(updates))._build();
+      (DecryptedSubjectBuilder()..update(updates))._build();
 
   _$DecryptedSubject._(
       {this.nid,
@@ -156,12 +156,11 @@ class _$DecryptedSubject extends DecryptedSubject {
       this.deleteMultiple,
       this.deleteAll})
       : super._();
-
   @override
   DecryptedSubject rebuild(void Function(DecryptedSubjectBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  DecryptedSubjectBuilder toBuilder() => new DecryptedSubjectBuilder()..replace(this);
+  DecryptedSubjectBuilder toBuilder() => DecryptedSubjectBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -218,7 +217,7 @@ class DecryptedSubjectBuilder implements Builder<DecryptedSubject, DecryptedSubj
   set nid(int? nid) => _$this._nid = nid;
 
   ListBuilder<int>? _nids;
-  ListBuilder<int> get nids => _$this._nids ??= new ListBuilder<int>();
+  ListBuilder<int> get nids => _$this._nids ??= ListBuilder<int>();
   set nids(ListBuilder<int>? nids) => _$this._nids = nids;
 
   String? _app;
@@ -270,7 +269,6 @@ class DecryptedSubjectBuilder implements Builder<DecryptedSubject, DecryptedSubj
 
   @override
   void replace(DecryptedSubject other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DecryptedSubject;
   }
 
@@ -286,7 +284,7 @@ class DecryptedSubjectBuilder implements Builder<DecryptedSubject, DecryptedSubj
     _$DecryptedSubject _$result;
     try {
       _$result = _$v ??
-          new _$DecryptedSubject._(
+          _$DecryptedSubject._(
             nid: nid,
             nids: _nids?.build(),
             app: app,
@@ -303,7 +301,7 @@ class DecryptedSubjectBuilder implements Builder<DecryptedSubject, DecryptedSubj
         _$failedField = 'nids';
         _nids?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'DecryptedSubject', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'DecryptedSubject', _$failedField, e.toString());
       }
       rethrow;
     }

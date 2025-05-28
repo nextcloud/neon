@@ -19,31 +19,31 @@ GetImageSize _$valueOfGetImageSize(String name) {
     case 'thumb16':
       return _$getImageSizeThumb16;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<GetImageSize> _$getImageSizeValues = new BuiltSet<GetImageSize>(const <GetImageSize>[
+final BuiltSet<GetImageSize> _$getImageSizeValues = BuiltSet<GetImageSize>(const <GetImageSize>[
   _$getImageSizeFull,
   _$getImageSizeThumb,
   _$getImageSizeThumb16,
 ]);
 
-Serializer<CategoryInformation> _$categoryInformationSerializer = new _$CategoryInformationSerializer();
-Serializer<Category> _$categorySerializer = new _$CategorySerializer();
-Serializer<RecipeStubInformation> _$recipeStubInformationSerializer = new _$RecipeStubInformationSerializer();
-Serializer<RecipeStub> _$recipeStubSerializer = new _$RecipeStubSerializer();
+Serializer<CategoryInformation> _$categoryInformationSerializer = _$CategoryInformationSerializer();
+Serializer<Category> _$categorySerializer = _$CategorySerializer();
+Serializer<RecipeStubInformation> _$recipeStubInformationSerializer = _$RecipeStubInformationSerializer();
+Serializer<RecipeStub> _$recipeStubSerializer = _$RecipeStubSerializer();
 Serializer<RenameCategoryRequestApplicationJson> _$renameCategoryRequestApplicationJsonSerializer =
-    new _$RenameCategoryRequestApplicationJsonSerializer();
-Serializer<APIVersion> _$aPIVersionSerializer = new _$APIVersionSerializer();
-Serializer<Version> _$versionSerializer = new _$VersionSerializer();
-Serializer<VisibleInfoBlocks> _$visibleInfoBlocksSerializer = new _$VisibleInfoBlocksSerializer();
-Serializer<Config> _$configSerializer = new _$ConfigSerializer();
-Serializer<Url> _$urlSerializer = new _$UrlSerializer();
-Serializer<Nutrition> _$nutritionSerializer = new _$NutritionSerializer();
-Serializer<Recipe> _$recipeSerializer = new _$RecipeSerializer();
-Serializer<Keyword> _$keywordSerializer = new _$KeywordSerializer();
-Serializer<Error> _$errorSerializer = new _$ErrorSerializer();
+    _$RenameCategoryRequestApplicationJsonSerializer();
+Serializer<APIVersion> _$aPIVersionSerializer = _$APIVersionSerializer();
+Serializer<Version> _$versionSerializer = _$VersionSerializer();
+Serializer<VisibleInfoBlocks> _$visibleInfoBlocksSerializer = _$VisibleInfoBlocksSerializer();
+Serializer<Config> _$configSerializer = _$ConfigSerializer();
+Serializer<Url> _$urlSerializer = _$UrlSerializer();
+Serializer<Nutrition> _$nutritionSerializer = _$NutritionSerializer();
+Serializer<Recipe> _$recipeSerializer = _$RecipeSerializer();
+Serializer<Keyword> _$keywordSerializer = _$KeywordSerializer();
+Serializer<Error> _$errorSerializer = _$ErrorSerializer();
 
 class _$CategoryInformationSerializer implements StructuredSerializer<CategoryInformation> {
   @override
@@ -67,7 +67,7 @@ class _$CategoryInformationSerializer implements StructuredSerializer<CategoryIn
   @override
   CategoryInformation deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new CategoryInformationBuilder();
+    final result = CategoryInformationBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -110,7 +110,7 @@ class _$CategorySerializer implements StructuredSerializer<Category> {
   @override
   Category deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new CategoryBuilder();
+    final result = CategoryBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -165,7 +165,7 @@ class _$RecipeStubInformationSerializer implements StructuredSerializer<RecipeSt
   @override
   RecipeStubInformation deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new RecipeStubInformationBuilder();
+    final result = RecipeStubInformationBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -236,7 +236,7 @@ class _$RecipeStubSerializer implements StructuredSerializer<RecipeStub> {
   @override
   RecipeStub deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new RecipeStubBuilder();
+    final result = RecipeStubBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -296,7 +296,7 @@ class _$RenameCategoryRequestApplicationJsonSerializer
   @override
   RenameCategoryRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new RenameCategoryRequestApplicationJsonBuilder();
+    final result = RenameCategoryRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -338,7 +338,7 @@ class _$APIVersionSerializer implements StructuredSerializer<APIVersion> {
   @override
   APIVersion deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new APIVersionBuilder();
+    final result = APIVersionBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -392,7 +392,7 @@ class _$VersionSerializer implements StructuredSerializer<Version> {
   @override
   Version deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new VersionBuilder();
+    final result = VersionBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -462,7 +462,7 @@ class _$VisibleInfoBlocksSerializer implements StructuredSerializer<VisibleInfoB
   @override
   VisibleInfoBlocks deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new VisibleInfoBlocksBuilder();
+    final result = VisibleInfoBlocksBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -532,7 +532,7 @@ class _$ConfigSerializer implements StructuredSerializer<Config> {
   @override
   Config deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ConfigBuilder();
+    final result = ConfigBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -579,7 +579,7 @@ class _$UrlSerializer implements StructuredSerializer<Url> {
   @override
   Url deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UrlBuilder();
+    final result = UrlBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -689,7 +689,7 @@ class _$NutritionSerializer implements StructuredSerializer<Nutrition> {
   @override
   Nutrition deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new NutritionBuilder();
+    final result = NutritionBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -823,7 +823,7 @@ class _$RecipeSerializer implements StructuredSerializer<Recipe> {
   @override
   Recipe deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new RecipeBuilder();
+    final result = RecipeBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -924,7 +924,7 @@ class _$KeywordSerializer implements StructuredSerializer<Keyword> {
   @override
   Keyword deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new KeywordBuilder();
+    final result = KeywordBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -979,7 +979,7 @@ class _$ErrorSerializer implements StructuredSerializer<Error> {
   @override
   Error deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ErrorBuilder();
+    final result = ErrorBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1020,19 +1020,15 @@ class _$CategoryInformation extends CategoryInformation {
   final int recipeCount;
 
   factory _$CategoryInformation([void Function(CategoryInformationBuilder)? updates]) =>
-      (new CategoryInformationBuilder()..update(updates))._build();
+      (CategoryInformationBuilder()..update(updates))._build();
 
-  _$CategoryInformation._({required this.name, required this.recipeCount}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(name, r'CategoryInformation', 'name');
-    BuiltValueNullFieldError.checkNotNull(recipeCount, r'CategoryInformation', 'recipeCount');
-  }
-
+  _$CategoryInformation._({required this.name, required this.recipeCount}) : super._();
   @override
   CategoryInformation rebuild(void Function(CategoryInformationBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CategoryInformationBuilder toBuilder() => new CategoryInformationBuilder()..replace(this);
+  CategoryInformationBuilder toBuilder() => CategoryInformationBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1086,7 +1082,6 @@ class CategoryInformationBuilder
 
   @override
   void replace(covariant CategoryInformation other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CategoryInformation;
   }
 
@@ -1101,7 +1096,7 @@ class CategoryInformationBuilder
   _$CategoryInformation _build() {
     CategoryInformation._validate(this);
     final _$result = _$v ??
-        new _$CategoryInformation._(
+        _$CategoryInformation._(
           name: BuiltValueNullFieldError.checkNotNull(name, r'CategoryInformation', 'name'),
           recipeCount: BuiltValueNullFieldError.checkNotNull(recipeCount, r'CategoryInformation', 'recipeCount'),
         );
@@ -1126,18 +1121,14 @@ class _$Category extends Category {
   @override
   final int recipeCount;
 
-  factory _$Category([void Function(CategoryBuilder)? updates]) => (new CategoryBuilder()..update(updates))._build();
+  factory _$Category([void Function(CategoryBuilder)? updates]) => (CategoryBuilder()..update(updates))._build();
 
-  _$Category._({required this.name, required this.recipeCount}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(name, r'Category', 'name');
-    BuiltValueNullFieldError.checkNotNull(recipeCount, r'Category', 'recipeCount');
-  }
-
+  _$Category._({required this.name, required this.recipeCount}) : super._();
   @override
   Category rebuild(void Function(CategoryBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  CategoryBuilder toBuilder() => new CategoryBuilder()..replace(this);
+  CategoryBuilder toBuilder() => CategoryBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1190,7 +1181,6 @@ class CategoryBuilder implements Builder<Category, CategoryBuilder>, $CategoryIn
 
   @override
   void replace(covariant Category other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Category;
   }
 
@@ -1205,7 +1195,7 @@ class CategoryBuilder implements Builder<Category, CategoryBuilder>, $CategoryIn
   _$Category _build() {
     Category._validate(this);
     final _$result = _$v ??
-        new _$Category._(
+        _$Category._(
           name: BuiltValueNullFieldError.checkNotNull(name, r'Category', 'name'),
           recipeCount: BuiltValueNullFieldError.checkNotNull(recipeCount, r'Category', 'recipeCount'),
         );
@@ -1251,7 +1241,7 @@ class _$RecipeStubInformation extends RecipeStubInformation {
   final String imagePlaceholderUrl;
 
   factory _$RecipeStubInformation([void Function(RecipeStubInformationBuilder)? updates]) =>
-      (new RecipeStubInformationBuilder()..update(updates))._build();
+      (RecipeStubInformationBuilder()..update(updates))._build();
 
   _$RecipeStubInformation._(
       {required this.name,
@@ -1260,20 +1250,13 @@ class _$RecipeStubInformation extends RecipeStubInformation {
       this.dateModified,
       required this.imageUrl,
       required this.imagePlaceholderUrl})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(name, r'RecipeStubInformation', 'name');
-    BuiltValueNullFieldError.checkNotNull(keywords, r'RecipeStubInformation', 'keywords');
-    BuiltValueNullFieldError.checkNotNull(dateCreated, r'RecipeStubInformation', 'dateCreated');
-    BuiltValueNullFieldError.checkNotNull(imageUrl, r'RecipeStubInformation', 'imageUrl');
-    BuiltValueNullFieldError.checkNotNull(imagePlaceholderUrl, r'RecipeStubInformation', 'imagePlaceholderUrl');
-  }
-
+      : super._();
   @override
   RecipeStubInformation rebuild(void Function(RecipeStubInformationBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  RecipeStubInformationBuilder toBuilder() => new RecipeStubInformationBuilder()..replace(this);
+  RecipeStubInformationBuilder toBuilder() => RecipeStubInformationBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1361,7 +1344,6 @@ class RecipeStubInformationBuilder
 
   @override
   void replace(covariant RecipeStubInformation other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$RecipeStubInformation;
   }
 
@@ -1376,7 +1358,7 @@ class RecipeStubInformationBuilder
   _$RecipeStubInformation _build() {
     RecipeStubInformation._validate(this);
     final _$result = _$v ??
-        new _$RecipeStubInformation._(
+        _$RecipeStubInformation._(
           name: BuiltValueNullFieldError.checkNotNull(name, r'RecipeStubInformation', 'name'),
           keywords: BuiltValueNullFieldError.checkNotNull(keywords, r'RecipeStubInformation', 'keywords'),
           dateCreated: BuiltValueNullFieldError.checkNotNull(dateCreated, r'RecipeStubInformation', 'dateCreated'),
@@ -1436,8 +1418,7 @@ class _$RecipeStub extends RecipeStub {
   @override
   final String imagePlaceholderUrl;
 
-  factory _$RecipeStub([void Function(RecipeStubBuilder)? updates]) =>
-      (new RecipeStubBuilder()..update(updates))._build();
+  factory _$RecipeStub([void Function(RecipeStubBuilder)? updates]) => (RecipeStubBuilder()..update(updates))._build();
 
   _$RecipeStub._(
       {required this.recipeId,
@@ -1448,21 +1429,12 @@ class _$RecipeStub extends RecipeStub {
       this.dateModified,
       required this.imageUrl,
       required this.imagePlaceholderUrl})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(recipeId, r'RecipeStub', 'recipeId');
-    BuiltValueNullFieldError.checkNotNull(id, r'RecipeStub', 'id');
-    BuiltValueNullFieldError.checkNotNull(name, r'RecipeStub', 'name');
-    BuiltValueNullFieldError.checkNotNull(keywords, r'RecipeStub', 'keywords');
-    BuiltValueNullFieldError.checkNotNull(dateCreated, r'RecipeStub', 'dateCreated');
-    BuiltValueNullFieldError.checkNotNull(imageUrl, r'RecipeStub', 'imageUrl');
-    BuiltValueNullFieldError.checkNotNull(imagePlaceholderUrl, r'RecipeStub', 'imagePlaceholderUrl');
-  }
-
+      : super._();
   @override
   RecipeStub rebuild(void Function(RecipeStubBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  RecipeStubBuilder toBuilder() => new RecipeStubBuilder()..replace(this);
+  RecipeStubBuilder toBuilder() => RecipeStubBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1565,7 +1537,6 @@ class RecipeStubBuilder implements Builder<RecipeStub, RecipeStubBuilder>, $Reci
 
   @override
   void replace(covariant RecipeStub other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$RecipeStub;
   }
 
@@ -1580,7 +1551,7 @@ class RecipeStubBuilder implements Builder<RecipeStub, RecipeStubBuilder>, $Reci
   _$RecipeStub _build() {
     RecipeStub._validate(this);
     final _$result = _$v ??
-        new _$RecipeStub._(
+        _$RecipeStub._(
           recipeId: BuiltValueNullFieldError.checkNotNull(recipeId, r'RecipeStub', 'recipeId'),
           id: BuiltValueNullFieldError.checkNotNull(id, r'RecipeStub', 'id'),
           name: BuiltValueNullFieldError.checkNotNull(name, r'RecipeStub', 'name'),
@@ -1609,19 +1580,16 @@ class _$RenameCategoryRequestApplicationJson extends RenameCategoryRequestApplic
 
   factory _$RenameCategoryRequestApplicationJson(
           [void Function(RenameCategoryRequestApplicationJsonBuilder)? updates]) =>
-      (new RenameCategoryRequestApplicationJsonBuilder()..update(updates))._build();
+      (RenameCategoryRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$RenameCategoryRequestApplicationJson._({required this.name}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(name, r'RenameCategoryRequestApplicationJson', 'name');
-  }
-
+  _$RenameCategoryRequestApplicationJson._({required this.name}) : super._();
   @override
   RenameCategoryRequestApplicationJson rebuild(void Function(RenameCategoryRequestApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   RenameCategoryRequestApplicationJsonBuilder toBuilder() =>
-      new RenameCategoryRequestApplicationJsonBuilder()..replace(this);
+      RenameCategoryRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1668,7 +1636,6 @@ class RenameCategoryRequestApplicationJsonBuilder
 
   @override
   void replace(covariant RenameCategoryRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$RenameCategoryRequestApplicationJson;
   }
 
@@ -1683,7 +1650,7 @@ class RenameCategoryRequestApplicationJsonBuilder
   _$RenameCategoryRequestApplicationJson _build() {
     RenameCategoryRequestApplicationJson._validate(this);
     final _$result = _$v ??
-        new _$RenameCategoryRequestApplicationJson._(
+        _$RenameCategoryRequestApplicationJson._(
           name: BuiltValueNullFieldError.checkNotNull(name, r'RenameCategoryRequestApplicationJson', 'name'),
         );
     replace(_$result);
@@ -1712,20 +1679,14 @@ class _$APIVersion extends APIVersion {
   @override
   final int minor;
 
-  factory _$APIVersion([void Function(APIVersionBuilder)? updates]) =>
-      (new APIVersionBuilder()..update(updates))._build();
+  factory _$APIVersion([void Function(APIVersionBuilder)? updates]) => (APIVersionBuilder()..update(updates))._build();
 
-  _$APIVersion._({required this.epoch, required this.major, required this.minor}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(epoch, r'APIVersion', 'epoch');
-    BuiltValueNullFieldError.checkNotNull(major, r'APIVersion', 'major');
-    BuiltValueNullFieldError.checkNotNull(minor, r'APIVersion', 'minor');
-  }
-
+  _$APIVersion._({required this.epoch, required this.major, required this.minor}) : super._();
   @override
   APIVersion rebuild(void Function(APIVersionBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  APIVersionBuilder toBuilder() => new APIVersionBuilder()..replace(this);
+  APIVersionBuilder toBuilder() => APIVersionBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1785,7 +1746,6 @@ class APIVersionBuilder implements Builder<APIVersion, APIVersionBuilder>, $APIV
 
   @override
   void replace(covariant APIVersion other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$APIVersion;
   }
 
@@ -1800,7 +1760,7 @@ class APIVersionBuilder implements Builder<APIVersion, APIVersionBuilder>, $APIV
   _$APIVersion _build() {
     APIVersion._validate(this);
     final _$result = _$v ??
-        new _$APIVersion._(
+        _$APIVersion._(
           epoch: BuiltValueNullFieldError.checkNotNull(epoch, r'APIVersion', 'epoch'),
           major: BuiltValueNullFieldError.checkNotNull(major, r'APIVersion', 'major'),
           minor: BuiltValueNullFieldError.checkNotNull(minor, r'APIVersion', 'minor'),
@@ -1826,15 +1786,14 @@ class _$Version extends Version {
   @override
   final APIVersion? apiVersion;
 
-  factory _$Version([void Function(VersionBuilder)? updates]) => (new VersionBuilder()..update(updates))._build();
+  factory _$Version([void Function(VersionBuilder)? updates]) => (VersionBuilder()..update(updates))._build();
 
   _$Version._({this.cookbookVersion, this.apiVersion}) : super._();
-
   @override
   Version rebuild(void Function(VersionBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  VersionBuilder toBuilder() => new VersionBuilder()..replace(this);
+  VersionBuilder toBuilder() => VersionBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1864,11 +1823,11 @@ class VersionBuilder implements Builder<Version, VersionBuilder>, $VersionInterf
   _$Version? _$v;
 
   ListBuilder<JsonObject>? _cookbookVersion;
-  ListBuilder<JsonObject> get cookbookVersion => _$this._cookbookVersion ??= new ListBuilder<JsonObject>();
+  ListBuilder<JsonObject> get cookbookVersion => _$this._cookbookVersion ??= ListBuilder<JsonObject>();
   set cookbookVersion(covariant ListBuilder<JsonObject>? cookbookVersion) => _$this._cookbookVersion = cookbookVersion;
 
   APIVersionBuilder? _apiVersion;
-  APIVersionBuilder get apiVersion => _$this._apiVersion ??= new APIVersionBuilder();
+  APIVersionBuilder get apiVersion => _$this._apiVersion ??= APIVersionBuilder();
   set apiVersion(covariant APIVersionBuilder? apiVersion) => _$this._apiVersion = apiVersion;
 
   VersionBuilder() {
@@ -1887,7 +1846,6 @@ class VersionBuilder implements Builder<Version, VersionBuilder>, $VersionInterf
 
   @override
   void replace(covariant Version other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Version;
   }
 
@@ -1904,7 +1862,7 @@ class VersionBuilder implements Builder<Version, VersionBuilder>, $VersionInterf
     _$Version _$result;
     try {
       _$result = _$v ??
-          new _$Version._(
+          _$Version._(
             cookbookVersion: _cookbookVersion?.build(),
             apiVersion: _apiVersion?.build(),
           );
@@ -1916,7 +1874,7 @@ class VersionBuilder implements Builder<Version, VersionBuilder>, $VersionInterf
         _$failedField = 'apiVersion';
         _apiVersion?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'Version', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Version', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1957,16 +1915,15 @@ class _$VisibleInfoBlocks extends VisibleInfoBlocks {
   final bool? tools;
 
   factory _$VisibleInfoBlocks([void Function(VisibleInfoBlocksBuilder)? updates]) =>
-      (new VisibleInfoBlocksBuilder()..update(updates))._build();
+      (VisibleInfoBlocksBuilder()..update(updates))._build();
 
   _$VisibleInfoBlocks._({this.preparationTime, this.cookingTime, this.totalTime, this.nutritionInformation, this.tools})
       : super._();
-
   @override
   VisibleInfoBlocks rebuild(void Function(VisibleInfoBlocksBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  VisibleInfoBlocksBuilder toBuilder() => new VisibleInfoBlocksBuilder()..replace(this);
+  VisibleInfoBlocksBuilder toBuilder() => VisibleInfoBlocksBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2046,7 +2003,6 @@ class VisibleInfoBlocksBuilder
 
   @override
   void replace(covariant VisibleInfoBlocks other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$VisibleInfoBlocks;
   }
 
@@ -2061,7 +2017,7 @@ class VisibleInfoBlocksBuilder
   _$VisibleInfoBlocks _build() {
     VisibleInfoBlocks._validate(this);
     final _$result = _$v ??
-        new _$VisibleInfoBlocks._(
+        _$VisibleInfoBlocks._(
           preparationTime: preparationTime,
           cookingTime: cookingTime,
           totalTime: totalTime,
@@ -2099,15 +2055,14 @@ class _$Config extends Config {
   @override
   final VisibleInfoBlocks? visibleInfoBlocks;
 
-  factory _$Config([void Function(ConfigBuilder)? updates]) => (new ConfigBuilder()..update(updates))._build();
+  factory _$Config([void Function(ConfigBuilder)? updates]) => (ConfigBuilder()..update(updates))._build();
 
   _$Config._({this.folder, this.updateInterval, this.printImage, this.visibleInfoBlocks}) : super._();
-
   @override
   Config rebuild(void Function(ConfigBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  ConfigBuilder toBuilder() => new ConfigBuilder()..replace(this);
+  ConfigBuilder toBuilder() => ConfigBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2157,7 +2112,7 @@ class ConfigBuilder implements Builder<Config, ConfigBuilder>, $ConfigInterfaceB
   set printImage(covariant bool? printImage) => _$this._printImage = printImage;
 
   VisibleInfoBlocksBuilder? _visibleInfoBlocks;
-  VisibleInfoBlocksBuilder get visibleInfoBlocks => _$this._visibleInfoBlocks ??= new VisibleInfoBlocksBuilder();
+  VisibleInfoBlocksBuilder get visibleInfoBlocks => _$this._visibleInfoBlocks ??= VisibleInfoBlocksBuilder();
   set visibleInfoBlocks(covariant VisibleInfoBlocksBuilder? visibleInfoBlocks) =>
       _$this._visibleInfoBlocks = visibleInfoBlocks;
 
@@ -2179,7 +2134,6 @@ class ConfigBuilder implements Builder<Config, ConfigBuilder>, $ConfigInterfaceB
 
   @override
   void replace(covariant Config other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Config;
   }
 
@@ -2196,7 +2150,7 @@ class ConfigBuilder implements Builder<Config, ConfigBuilder>, $ConfigInterfaceB
     _$Config _$result;
     try {
       _$result = _$v ??
-          new _$Config._(
+          _$Config._(
             folder: folder,
             updateInterval: updateInterval,
             printImage: printImage,
@@ -2208,7 +2162,7 @@ class ConfigBuilder implements Builder<Config, ConfigBuilder>, $ConfigInterfaceB
         _$failedField = 'visibleInfoBlocks';
         _visibleInfoBlocks?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'Config', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Config', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2228,17 +2182,14 @@ class _$Url extends Url {
   @override
   final String url;
 
-  factory _$Url([void Function(UrlBuilder)? updates]) => (new UrlBuilder()..update(updates))._build();
+  factory _$Url([void Function(UrlBuilder)? updates]) => (UrlBuilder()..update(updates))._build();
 
-  _$Url._({required this.url}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(url, r'Url', 'url');
-  }
-
+  _$Url._({required this.url}) : super._();
   @override
   Url rebuild(void Function(UrlBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  UrlBuilder toBuilder() => new UrlBuilder()..replace(this);
+  UrlBuilder toBuilder() => UrlBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2282,7 +2233,6 @@ class UrlBuilder implements Builder<Url, UrlBuilder>, $UrlInterfaceBuilder {
 
   @override
   void replace(covariant Url other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Url;
   }
 
@@ -2297,7 +2247,7 @@ class UrlBuilder implements Builder<Url, UrlBuilder>, $UrlInterfaceBuilder {
   _$Url _build() {
     Url._validate(this);
     final _$result = _$v ??
-        new _$Url._(
+        _$Url._(
           url: BuiltValueNullFieldError.checkNotNull(url, r'Url', 'url'),
         );
     replace(_$result);
@@ -2376,7 +2326,7 @@ class _$Nutrition extends Nutrition {
   @override
   final String? unsaturatedFatContent;
 
-  factory _$Nutrition([void Function(NutritionBuilder)? updates]) => (new NutritionBuilder()..update(updates))._build();
+  factory _$Nutrition([void Function(NutritionBuilder)? updates]) => (NutritionBuilder()..update(updates))._build();
 
   _$Nutrition._(
       {required this.type,
@@ -2392,15 +2342,12 @@ class _$Nutrition extends Nutrition {
       this.sugarContent,
       this.transFatContent,
       this.unsaturatedFatContent})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(type, r'Nutrition', 'type');
-  }
-
+      : super._();
   @override
   Nutrition rebuild(void Function(NutritionBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  NutritionBuilder toBuilder() => new NutritionBuilder()..replace(this);
+  NutritionBuilder toBuilder() => NutritionBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2544,7 +2491,6 @@ class NutritionBuilder implements Builder<Nutrition, NutritionBuilder>, $Nutriti
 
   @override
   void replace(covariant Nutrition other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Nutrition;
   }
 
@@ -2559,7 +2505,7 @@ class NutritionBuilder implements Builder<Nutrition, NutritionBuilder>, $Nutriti
   _$Nutrition _build() {
     Nutrition._validate(this);
     final _$result = _$v ??
-        new _$Nutrition._(
+        _$Nutrition._(
           type: BuiltValueNullFieldError.checkNotNull(type, r'Nutrition', 'type'),
           calories: calories,
           carbohydrateContent: carbohydrateContent,
@@ -2685,7 +2631,7 @@ class _$Recipe extends Recipe {
   @override
   final String imagePlaceholderUrl;
 
-  factory _$Recipe([void Function(RecipeBuilder)? updates]) => (new RecipeBuilder()..update(updates))._build();
+  factory _$Recipe([void Function(RecipeBuilder)? updates]) => (RecipeBuilder()..update(updates))._build();
 
   _$Recipe._(
       {required this.type,
@@ -2708,29 +2654,12 @@ class _$Recipe extends Recipe {
       this.dateModified,
       required this.imageUrl,
       required this.imagePlaceholderUrl})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(type, r'Recipe', 'type');
-    BuiltValueNullFieldError.checkNotNull(description, r'Recipe', 'description');
-    BuiltValueNullFieldError.checkNotNull(url, r'Recipe', 'url');
-    BuiltValueNullFieldError.checkNotNull(image, r'Recipe', 'image');
-    BuiltValueNullFieldError.checkNotNull(recipeYield, r'Recipe', 'recipeYield');
-    BuiltValueNullFieldError.checkNotNull(recipeCategory, r'Recipe', 'recipeCategory');
-    BuiltValueNullFieldError.checkNotNull(tool, r'Recipe', 'tool');
-    BuiltValueNullFieldError.checkNotNull(recipeIngredient, r'Recipe', 'recipeIngredient');
-    BuiltValueNullFieldError.checkNotNull(recipeInstructions, r'Recipe', 'recipeInstructions');
-    BuiltValueNullFieldError.checkNotNull(nutrition, r'Recipe', 'nutrition');
-    BuiltValueNullFieldError.checkNotNull(name, r'Recipe', 'name');
-    BuiltValueNullFieldError.checkNotNull(keywords, r'Recipe', 'keywords');
-    BuiltValueNullFieldError.checkNotNull(dateCreated, r'Recipe', 'dateCreated');
-    BuiltValueNullFieldError.checkNotNull(imageUrl, r'Recipe', 'imageUrl');
-    BuiltValueNullFieldError.checkNotNull(imagePlaceholderUrl, r'Recipe', 'imagePlaceholderUrl');
-  }
-
+      : super._();
   @override
   Recipe rebuild(void Function(RecipeBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  RecipeBuilder toBuilder() => new RecipeBuilder()..replace(this);
+  RecipeBuilder toBuilder() => RecipeBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2856,20 +2785,20 @@ class RecipeBuilder implements Builder<Recipe, RecipeBuilder>, $RecipeInterfaceB
   set recipeCategory(covariant String? recipeCategory) => _$this._recipeCategory = recipeCategory;
 
   ListBuilder<String>? _tool;
-  ListBuilder<String> get tool => _$this._tool ??= new ListBuilder<String>();
+  ListBuilder<String> get tool => _$this._tool ??= ListBuilder<String>();
   set tool(covariant ListBuilder<String>? tool) => _$this._tool = tool;
 
   ListBuilder<String>? _recipeIngredient;
-  ListBuilder<String> get recipeIngredient => _$this._recipeIngredient ??= new ListBuilder<String>();
+  ListBuilder<String> get recipeIngredient => _$this._recipeIngredient ??= ListBuilder<String>();
   set recipeIngredient(covariant ListBuilder<String>? recipeIngredient) => _$this._recipeIngredient = recipeIngredient;
 
   ListBuilder<String>? _recipeInstructions;
-  ListBuilder<String> get recipeInstructions => _$this._recipeInstructions ??= new ListBuilder<String>();
+  ListBuilder<String> get recipeInstructions => _$this._recipeInstructions ??= ListBuilder<String>();
   set recipeInstructions(covariant ListBuilder<String>? recipeInstructions) =>
       _$this._recipeInstructions = recipeInstructions;
 
   NutritionBuilder? _nutrition;
-  NutritionBuilder get nutrition => _$this._nutrition ??= new NutritionBuilder();
+  NutritionBuilder get nutrition => _$this._nutrition ??= NutritionBuilder();
   set nutrition(covariant NutritionBuilder? nutrition) => _$this._nutrition = nutrition;
 
   String? _name;
@@ -2930,7 +2859,6 @@ class RecipeBuilder implements Builder<Recipe, RecipeBuilder>, $RecipeInterfaceB
 
   @override
   void replace(covariant Recipe other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Recipe;
   }
 
@@ -2947,7 +2875,7 @@ class RecipeBuilder implements Builder<Recipe, RecipeBuilder>, $RecipeInterfaceB
     _$Recipe _$result;
     try {
       _$result = _$v ??
-          new _$Recipe._(
+          _$Recipe._(
             type: BuiltValueNullFieldError.checkNotNull(type, r'Recipe', 'type'),
             id: id,
             prepTime: prepTime,
@@ -2982,7 +2910,7 @@ class RecipeBuilder implements Builder<Recipe, RecipeBuilder>, $RecipeInterfaceB
         _$failedField = 'nutrition';
         nutrition.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'Recipe', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Recipe', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3007,18 +2935,14 @@ class _$Keyword extends Keyword {
   @override
   final int recipeCount;
 
-  factory _$Keyword([void Function(KeywordBuilder)? updates]) => (new KeywordBuilder()..update(updates))._build();
+  factory _$Keyword([void Function(KeywordBuilder)? updates]) => (KeywordBuilder()..update(updates))._build();
 
-  _$Keyword._({required this.name, required this.recipeCount}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(name, r'Keyword', 'name');
-    BuiltValueNullFieldError.checkNotNull(recipeCount, r'Keyword', 'recipeCount');
-  }
-
+  _$Keyword._({required this.name, required this.recipeCount}) : super._();
   @override
   Keyword rebuild(void Function(KeywordBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  KeywordBuilder toBuilder() => new KeywordBuilder()..replace(this);
+  KeywordBuilder toBuilder() => KeywordBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3071,7 +2995,6 @@ class KeywordBuilder implements Builder<Keyword, KeywordBuilder>, $KeywordInterf
 
   @override
   void replace(covariant Keyword other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Keyword;
   }
 
@@ -3086,7 +3009,7 @@ class KeywordBuilder implements Builder<Keyword, KeywordBuilder>, $KeywordInterf
   _$Keyword _build() {
     Keyword._validate(this);
     final _$result = _$v ??
-        new _$Keyword._(
+        _$Keyword._(
           name: BuiltValueNullFieldError.checkNotNull(name, r'Keyword', 'name'),
           recipeCount: BuiltValueNullFieldError.checkNotNull(recipeCount, r'Keyword', 'recipeCount'),
         );
@@ -3116,15 +3039,14 @@ class _$Error extends Error {
   @override
   final int? line;
 
-  factory _$Error([void Function(ErrorBuilder)? updates]) => (new ErrorBuilder()..update(updates))._build();
+  factory _$Error([void Function(ErrorBuilder)? updates]) => (ErrorBuilder()..update(updates))._build();
 
   _$Error._({this.msg, this.file, this.line}) : super._();
-
   @override
   Error rebuild(void Function(ErrorBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  ErrorBuilder toBuilder() => new ErrorBuilder()..replace(this);
+  ErrorBuilder toBuilder() => ErrorBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3184,7 +3106,6 @@ class ErrorBuilder implements Builder<Error, ErrorBuilder>, $ErrorInterfaceBuild
 
   @override
   void replace(covariant Error other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Error;
   }
 
@@ -3199,7 +3120,7 @@ class ErrorBuilder implements Builder<Error, ErrorBuilder>, $ErrorInterfaceBuild
   _$Error _build() {
     Error._validate(this);
     final _$result = _$v ??
-        new _$Error._(
+        _$Error._(
           msg: msg,
           file: file,
           line: line,

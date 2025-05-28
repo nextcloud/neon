@@ -6,8 +6,8 @@ part of 'comments.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Capabilities_Files> _$capabilitiesFilesSerializer = new _$Capabilities_FilesSerializer();
-Serializer<Capabilities> _$capabilitiesSerializer = new _$CapabilitiesSerializer();
+Serializer<Capabilities_Files> _$capabilitiesFilesSerializer = _$Capabilities_FilesSerializer();
+Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
 
 class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilities_Files> {
   @override
@@ -29,7 +29,7 @@ class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilitie
   @override
   Capabilities_Files deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new Capabilities_FilesBuilder();
+    final result = Capabilities_FilesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -67,7 +67,7 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   @override
   Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new CapabilitiesBuilder();
+    final result = CapabilitiesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -98,18 +98,15 @@ class _$Capabilities_Files extends Capabilities_Files {
   final bool comments;
 
   factory _$Capabilities_Files([void Function(Capabilities_FilesBuilder)? updates]) =>
-      (new Capabilities_FilesBuilder()..update(updates))._build();
+      (Capabilities_FilesBuilder()..update(updates))._build();
 
-  _$Capabilities_Files._({required this.comments}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(comments, r'Capabilities_Files', 'comments');
-  }
-
+  _$Capabilities_Files._({required this.comments}) : super._();
   @override
   Capabilities_Files rebuild(void Function(Capabilities_FilesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  Capabilities_FilesBuilder toBuilder() => new Capabilities_FilesBuilder()..replace(this);
+  Capabilities_FilesBuilder toBuilder() => Capabilities_FilesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -154,7 +151,6 @@ class Capabilities_FilesBuilder
 
   @override
   void replace(covariant Capabilities_Files other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Capabilities_Files;
   }
 
@@ -169,7 +165,7 @@ class Capabilities_FilesBuilder
   _$Capabilities_Files _build() {
     Capabilities_Files._validate(this);
     final _$result = _$v ??
-        new _$Capabilities_Files._(
+        _$Capabilities_Files._(
           comments: BuiltValueNullFieldError.checkNotNull(comments, r'Capabilities_Files', 'comments'),
         );
     replace(_$result);
@@ -189,17 +185,14 @@ class _$Capabilities extends Capabilities {
   final Capabilities_Files files;
 
   factory _$Capabilities([void Function(CapabilitiesBuilder)? updates]) =>
-      (new CapabilitiesBuilder()..update(updates))._build();
+      (CapabilitiesBuilder()..update(updates))._build();
 
-  _$Capabilities._({required this.files}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(files, r'Capabilities', 'files');
-  }
-
+  _$Capabilities._({required this.files}) : super._();
   @override
   Capabilities rebuild(void Function(CapabilitiesBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  CapabilitiesBuilder toBuilder() => new CapabilitiesBuilder()..replace(this);
+  CapabilitiesBuilder toBuilder() => CapabilitiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -225,7 +218,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   _$Capabilities? _$v;
 
   Capabilities_FilesBuilder? _files;
-  Capabilities_FilesBuilder get files => _$this._files ??= new Capabilities_FilesBuilder();
+  Capabilities_FilesBuilder get files => _$this._files ??= Capabilities_FilesBuilder();
   set files(covariant Capabilities_FilesBuilder? files) => _$this._files = files;
 
   CapabilitiesBuilder() {
@@ -243,7 +236,6 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
 
   @override
   void replace(covariant Capabilities other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Capabilities;
   }
 
@@ -260,7 +252,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     _$Capabilities _$result;
     try {
       _$result = _$v ??
-          new _$Capabilities._(
+          _$Capabilities._(
             files: files.build(),
           );
     } catch (_) {
@@ -269,7 +261,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
         _$failedField = 'files';
         files.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
       }
       rethrow;
     }

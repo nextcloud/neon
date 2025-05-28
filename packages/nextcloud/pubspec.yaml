@@ -32,8 +32,8 @@ dependencies:
 
 dev_dependencies:
   build_runner: ^2.4.15
-  built_value_generator: ^8.9.5
-  built_value_test: ^8.9.5
+  built_value_generator: ^8.10.1
+  built_value_test: ^8.10.1
   code_builder: ^4.10.1
   dart_style: ^3.1.0
   dynamite: ^0.5.0+1

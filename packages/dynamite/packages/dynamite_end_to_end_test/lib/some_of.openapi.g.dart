@@ -6,7 +6,7 @@ part of 'some_of.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<OneValueSomeOfInObject> _$oneValueSomeOfInObjectSerializer = new _$OneValueSomeOfInObjectSerializer();
+Serializer<OneValueSomeOfInObject> _$oneValueSomeOfInObjectSerializer = _$OneValueSomeOfInObjectSerializer();
 
 class _$OneValueSomeOfInObjectSerializer implements StructuredSerializer<OneValueSomeOfInObject> {
   @override
@@ -36,7 +36,7 @@ class _$OneValueSomeOfInObjectSerializer implements StructuredSerializer<OneValu
   @override
   OneValueSomeOfInObject deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new OneValueSomeOfInObjectBuilder();
+    final result = OneValueSomeOfInObjectBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -84,19 +84,15 @@ class _$OneValueSomeOfInObject extends OneValueSomeOfInObject {
   final OneValueSomeOfInObject_IntDoubleString? intDoubleString;
 
   factory _$OneValueSomeOfInObject([void Function(OneValueSomeOfInObjectBuilder)? updates]) =>
-      (new OneValueSomeOfInObjectBuilder()..update(updates))._build();
+      (OneValueSomeOfInObjectBuilder()..update(updates))._build();
 
-  _$OneValueSomeOfInObject._({required this.oneValue, required this.intDouble, this.intDoubleString}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(oneValue, r'OneValueSomeOfInObject', 'oneValue');
-    BuiltValueNullFieldError.checkNotNull(intDouble, r'OneValueSomeOfInObject', 'intDouble');
-  }
-
+  _$OneValueSomeOfInObject._({required this.oneValue, required this.intDouble, this.intDoubleString}) : super._();
   @override
   OneValueSomeOfInObject rebuild(void Function(OneValueSomeOfInObjectBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  OneValueSomeOfInObjectBuilder toBuilder() => new OneValueSomeOfInObjectBuilder()..replace(this);
+  OneValueSomeOfInObjectBuilder toBuilder() => OneValueSomeOfInObjectBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -162,7 +158,6 @@ class OneValueSomeOfInObjectBuilder
 
   @override
   void replace(covariant OneValueSomeOfInObject other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OneValueSomeOfInObject;
   }
 
@@ -177,7 +172,7 @@ class OneValueSomeOfInObjectBuilder
   _$OneValueSomeOfInObject _build() {
     OneValueSomeOfInObject._validate(this);
     final _$result = _$v ??
-        new _$OneValueSomeOfInObject._(
+        _$OneValueSomeOfInObject._(
           oneValue: BuiltValueNullFieldError.checkNotNull(oneValue, r'OneValueSomeOfInObject', 'oneValue'),
           intDouble: BuiltValueNullFieldError.checkNotNull(intDouble, r'OneValueSomeOfInObject', 'intDouble'),
           intDoubleString: intDoubleString,

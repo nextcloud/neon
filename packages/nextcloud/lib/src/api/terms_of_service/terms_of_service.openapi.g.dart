@@ -18,12 +18,12 @@ AdminFormData_TosOnPublicShares _$valueOfAdminFormData_TosOnPublicShares(String 
     case '\$1':
       return _$adminFormDataTosOnPublicShares$1;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<AdminFormData_TosOnPublicShares> _$adminFormDataTosOnPublicSharesValues =
-    new BuiltSet<AdminFormData_TosOnPublicShares>(const <AdminFormData_TosOnPublicShares>[
+    BuiltSet<AdminFormData_TosOnPublicShares>(const <AdminFormData_TosOnPublicShares>[
   _$adminFormDataTosOnPublicShares$0,
   _$adminFormDataTosOnPublicShares$1,
 ]);
@@ -38,12 +38,12 @@ AdminFormData_TosForUsers _$valueOfAdminFormData_TosForUsers(String name) {
     case '\$1':
       return _$adminFormDataTosForUsers$1;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<AdminFormData_TosForUsers> _$adminFormDataTosForUsersValues =
-    new BuiltSet<AdminFormData_TosForUsers>(const <AdminFormData_TosForUsers>[
+    BuiltSet<AdminFormData_TosForUsers>(const <AdminFormData_TosForUsers>[
   _$adminFormDataTosForUsers$0,
   _$adminFormDataTosForUsers$1,
 ]);
@@ -56,61 +56,61 @@ PublicCapabilities_TermsOfService_Enabled _$valueOfPublicCapabilities_TermsOfSer
     case '\$true':
       return _$publicCapabilitiesTermsOfServiceEnabled$true;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<PublicCapabilities_TermsOfService_Enabled> _$publicCapabilitiesTermsOfServiceEnabledValues =
-    new BuiltSet<PublicCapabilities_TermsOfService_Enabled>(const <PublicCapabilities_TermsOfService_Enabled>[
+    BuiltSet<PublicCapabilities_TermsOfService_Enabled>(const <PublicCapabilities_TermsOfService_Enabled>[
   _$publicCapabilitiesTermsOfServiceEnabled$true,
 ]);
 
 Serializer<SigningSignTermsRequestApplicationJson> _$signingSignTermsRequestApplicationJsonSerializer =
-    new _$SigningSignTermsRequestApplicationJsonSerializer();
-Serializer<OCSMeta> _$oCSMetaSerializer = new _$OCSMetaSerializer();
+    _$SigningSignTermsRequestApplicationJsonSerializer();
+Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<SigningSignTermsResponseApplicationJson_Ocs> _$signingSignTermsResponseApplicationJsonOcsSerializer =
-    new _$SigningSignTermsResponseApplicationJson_OcsSerializer();
+    _$SigningSignTermsResponseApplicationJson_OcsSerializer();
 Serializer<SigningSignTermsResponseApplicationJson> _$signingSignTermsResponseApplicationJsonSerializer =
-    new _$SigningSignTermsResponseApplicationJsonSerializer();
+    _$SigningSignTermsResponseApplicationJsonSerializer();
 Serializer<SigningResetAllSignatoriesResponseApplicationJson_Ocs>
     _$signingResetAllSignatoriesResponseApplicationJsonOcsSerializer =
-    new _$SigningResetAllSignatoriesResponseApplicationJson_OcsSerializer();
+    _$SigningResetAllSignatoriesResponseApplicationJson_OcsSerializer();
 Serializer<SigningResetAllSignatoriesResponseApplicationJson>
     _$signingResetAllSignatoriesResponseApplicationJsonSerializer =
-    new _$SigningResetAllSignatoriesResponseApplicationJsonSerializer();
+    _$SigningResetAllSignatoriesResponseApplicationJsonSerializer();
 Serializer<SigningSignTermsPublicRequestApplicationJson> _$signingSignTermsPublicRequestApplicationJsonSerializer =
-    new _$SigningSignTermsPublicRequestApplicationJsonSerializer();
+    _$SigningSignTermsPublicRequestApplicationJsonSerializer();
 Serializer<SigningSignTermsPublicResponseApplicationJson_Ocs>
     _$signingSignTermsPublicResponseApplicationJsonOcsSerializer =
-    new _$SigningSignTermsPublicResponseApplicationJson_OcsSerializer();
+    _$SigningSignTermsPublicResponseApplicationJson_OcsSerializer();
 Serializer<SigningSignTermsPublicResponseApplicationJson> _$signingSignTermsPublicResponseApplicationJsonSerializer =
-    new _$SigningSignTermsPublicResponseApplicationJsonSerializer();
-Serializer<Terms> _$termsSerializer = new _$TermsSerializer();
+    _$SigningSignTermsPublicResponseApplicationJsonSerializer();
+Serializer<Terms> _$termsSerializer = _$TermsSerializer();
 Serializer<TermsIndexResponseApplicationJson_Ocs_Data> _$termsIndexResponseApplicationJsonOcsDataSerializer =
-    new _$TermsIndexResponseApplicationJson_Ocs_DataSerializer();
+    _$TermsIndexResponseApplicationJson_Ocs_DataSerializer();
 Serializer<TermsIndexResponseApplicationJson_Ocs> _$termsIndexResponseApplicationJsonOcsSerializer =
-    new _$TermsIndexResponseApplicationJson_OcsSerializer();
+    _$TermsIndexResponseApplicationJson_OcsSerializer();
 Serializer<TermsIndexResponseApplicationJson> _$termsIndexResponseApplicationJsonSerializer =
-    new _$TermsIndexResponseApplicationJsonSerializer();
+    _$TermsIndexResponseApplicationJsonSerializer();
 Serializer<TermsCreateRequestApplicationJson> _$termsCreateRequestApplicationJsonSerializer =
-    new _$TermsCreateRequestApplicationJsonSerializer();
+    _$TermsCreateRequestApplicationJsonSerializer();
 Serializer<TermsCreateResponseApplicationJson_Ocs> _$termsCreateResponseApplicationJsonOcsSerializer =
-    new _$TermsCreateResponseApplicationJson_OcsSerializer();
+    _$TermsCreateResponseApplicationJson_OcsSerializer();
 Serializer<TermsCreateResponseApplicationJson> _$termsCreateResponseApplicationJsonSerializer =
-    new _$TermsCreateResponseApplicationJsonSerializer();
+    _$TermsCreateResponseApplicationJsonSerializer();
 Serializer<TermsDestroyResponseApplicationJson_Ocs> _$termsDestroyResponseApplicationJsonOcsSerializer =
-    new _$TermsDestroyResponseApplicationJson_OcsSerializer();
+    _$TermsDestroyResponseApplicationJson_OcsSerializer();
 Serializer<TermsDestroyResponseApplicationJson> _$termsDestroyResponseApplicationJsonSerializer =
-    new _$TermsDestroyResponseApplicationJsonSerializer();
-Serializer<AdminFormData> _$adminFormDataSerializer = new _$AdminFormDataSerializer();
+    _$TermsDestroyResponseApplicationJsonSerializer();
+Serializer<AdminFormData> _$adminFormDataSerializer = _$AdminFormDataSerializer();
 Serializer<TermsGetAdminFormDataResponseApplicationJson_Ocs>
     _$termsGetAdminFormDataResponseApplicationJsonOcsSerializer =
-    new _$TermsGetAdminFormDataResponseApplicationJson_OcsSerializer();
+    _$TermsGetAdminFormDataResponseApplicationJson_OcsSerializer();
 Serializer<TermsGetAdminFormDataResponseApplicationJson> _$termsGetAdminFormDataResponseApplicationJsonSerializer =
-    new _$TermsGetAdminFormDataResponseApplicationJsonSerializer();
+    _$TermsGetAdminFormDataResponseApplicationJsonSerializer();
 Serializer<PublicCapabilities_TermsOfService> _$publicCapabilitiesTermsOfServiceSerializer =
-    new _$PublicCapabilities_TermsOfServiceSerializer();
-Serializer<PublicCapabilities> _$publicCapabilitiesSerializer = new _$PublicCapabilitiesSerializer();
+    _$PublicCapabilities_TermsOfServiceSerializer();
+Serializer<PublicCapabilities> _$publicCapabilitiesSerializer = _$PublicCapabilitiesSerializer();
 
 class _$SigningSignTermsRequestApplicationJsonSerializer
     implements StructuredSerializer<SigningSignTermsRequestApplicationJson> {
@@ -133,7 +133,7 @@ class _$SigningSignTermsRequestApplicationJsonSerializer
   @override
   SigningSignTermsRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new SigningSignTermsRequestApplicationJsonBuilder();
+    final result = SigningSignTermsRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -191,7 +191,7 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
   OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new OCSMetaBuilder();
+    final result = OCSMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -247,7 +247,7 @@ class _$SigningSignTermsResponseApplicationJson_OcsSerializer
   @override
   SigningSignTermsResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new SigningSignTermsResponseApplicationJson_OcsBuilder();
+    final result = SigningSignTermsResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -292,7 +292,7 @@ class _$SigningSignTermsResponseApplicationJsonSerializer
   @override
   SigningSignTermsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new SigningSignTermsResponseApplicationJsonBuilder();
+    final result = SigningSignTermsResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -339,7 +339,7 @@ class _$SigningResetAllSignatoriesResponseApplicationJson_OcsSerializer
   SigningResetAllSignatoriesResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder();
+    final result = SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -385,7 +385,7 @@ class _$SigningResetAllSignatoriesResponseApplicationJsonSerializer
   @override
   SigningResetAllSignatoriesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new SigningResetAllSignatoriesResponseApplicationJsonBuilder();
+    final result = SigningResetAllSignatoriesResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -429,7 +429,7 @@ class _$SigningSignTermsPublicRequestApplicationJsonSerializer
   @override
   SigningSignTermsPublicRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new SigningSignTermsPublicRequestApplicationJsonBuilder();
+    final result = SigningSignTermsPublicRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -473,7 +473,7 @@ class _$SigningSignTermsPublicResponseApplicationJson_OcsSerializer
   @override
   SigningSignTermsPublicResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new SigningSignTermsPublicResponseApplicationJson_OcsBuilder();
+    final result = SigningSignTermsPublicResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -519,7 +519,7 @@ class _$SigningSignTermsPublicResponseApplicationJsonSerializer
   @override
   SigningSignTermsPublicResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new SigningSignTermsPublicResponseApplicationJsonBuilder();
+    final result = SigningSignTermsPublicResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -566,7 +566,7 @@ class _$TermsSerializer implements StructuredSerializer<Terms> {
   @override
   Terms deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new TermsBuilder();
+    final result = TermsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -625,7 +625,7 @@ class _$TermsIndexResponseApplicationJson_Ocs_DataSerializer
   @override
   TermsIndexResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new TermsIndexResponseApplicationJson_Ocs_DataBuilder();
+    final result = TermsIndexResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -674,7 +674,7 @@ class _$TermsIndexResponseApplicationJson_OcsSerializer
   @override
   TermsIndexResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new TermsIndexResponseApplicationJson_OcsBuilder();
+    final result = TermsIndexResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -717,7 +717,7 @@ class _$TermsIndexResponseApplicationJsonSerializer implements StructuredSeriali
   @override
   TermsIndexResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new TermsIndexResponseApplicationJsonBuilder();
+    final result = TermsIndexResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -761,7 +761,7 @@ class _$TermsCreateRequestApplicationJsonSerializer implements StructuredSeriali
   @override
   TermsCreateRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new TermsCreateRequestApplicationJsonBuilder();
+    final result = TermsCreateRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -808,7 +808,7 @@ class _$TermsCreateResponseApplicationJson_OcsSerializer
   @override
   TermsCreateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new TermsCreateResponseApplicationJson_OcsBuilder();
+    final result = TermsCreateResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -850,7 +850,7 @@ class _$TermsCreateResponseApplicationJsonSerializer
   @override
   TermsCreateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new TermsCreateResponseApplicationJsonBuilder();
+    final result = TermsCreateResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -896,7 +896,7 @@ class _$TermsDestroyResponseApplicationJson_OcsSerializer
   @override
   TermsDestroyResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new TermsDestroyResponseApplicationJson_OcsBuilder();
+    final result = TermsDestroyResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -938,7 +938,7 @@ class _$TermsDestroyResponseApplicationJsonSerializer
   @override
   TermsDestroyResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new TermsDestroyResponseApplicationJsonBuilder();
+    final result = TermsDestroyResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -989,7 +989,7 @@ class _$AdminFormDataSerializer implements StructuredSerializer<AdminFormData> {
   @override
   AdminFormData deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new AdminFormDataBuilder();
+    final result = AdminFormDataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1050,7 +1050,7 @@ class _$TermsGetAdminFormDataResponseApplicationJson_OcsSerializer
   @override
   TermsGetAdminFormDataResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new TermsGetAdminFormDataResponseApplicationJson_OcsBuilder();
+    final result = TermsGetAdminFormDataResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1097,7 +1097,7 @@ class _$TermsGetAdminFormDataResponseApplicationJsonSerializer
   @override
   TermsGetAdminFormDataResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new TermsGetAdminFormDataResponseApplicationJsonBuilder();
+    final result = TermsGetAdminFormDataResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1139,7 +1139,7 @@ class _$PublicCapabilities_TermsOfServiceSerializer implements StructuredSeriali
   @override
   PublicCapabilities_TermsOfService deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new PublicCapabilities_TermsOfServiceBuilder();
+    final result = PublicCapabilities_TermsOfServiceBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1182,7 +1182,7 @@ class _$PublicCapabilitiesSerializer implements StructuredSerializer<PublicCapab
   @override
   PublicCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new PublicCapabilitiesBuilder();
+    final result = PublicCapabilitiesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1214,12 +1214,9 @@ class _$SigningSignTermsRequestApplicationJson extends SigningSignTermsRequestAp
 
   factory _$SigningSignTermsRequestApplicationJson(
           [void Function(SigningSignTermsRequestApplicationJsonBuilder)? updates]) =>
-      (new SigningSignTermsRequestApplicationJsonBuilder()..update(updates))._build();
+      (SigningSignTermsRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$SigningSignTermsRequestApplicationJson._({required this.termId}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(termId, r'SigningSignTermsRequestApplicationJson', 'termId');
-  }
-
+  _$SigningSignTermsRequestApplicationJson._({required this.termId}) : super._();
   @override
   SigningSignTermsRequestApplicationJson rebuild(
           void Function(SigningSignTermsRequestApplicationJsonBuilder) updates) =>
@@ -1227,7 +1224,7 @@ class _$SigningSignTermsRequestApplicationJson extends SigningSignTermsRequestAp
 
   @override
   SigningSignTermsRequestApplicationJsonBuilder toBuilder() =>
-      new SigningSignTermsRequestApplicationJsonBuilder()..replace(this);
+      SigningSignTermsRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1274,7 +1271,6 @@ class SigningSignTermsRequestApplicationJsonBuilder
 
   @override
   void replace(covariant SigningSignTermsRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SigningSignTermsRequestApplicationJson;
   }
 
@@ -1289,7 +1285,7 @@ class SigningSignTermsRequestApplicationJsonBuilder
   _$SigningSignTermsRequestApplicationJson _build() {
     SigningSignTermsRequestApplicationJson._validate(this);
     final _$result = _$v ??
-        new _$SigningSignTermsRequestApplicationJson._(
+        _$SigningSignTermsRequestApplicationJson._(
           termId: BuiltValueNullFieldError.checkNotNull(termId, r'SigningSignTermsRequestApplicationJson', 'termId'),
         );
     replace(_$result);
@@ -1328,19 +1324,15 @@ class _$OCSMeta extends OCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (new OCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status');
-    BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode');
-  }
-
+      : super._();
   @override
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  OCSMetaBuilder toBuilder() => new OCSMetaBuilder()..replace(this);
+  OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1419,7 +1411,6 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
   @override
   void replace(covariant OCSMeta other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OCSMeta;
   }
 
@@ -1434,7 +1425,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   _$OCSMeta _build() {
     OCSMeta._validate(this);
     final _$result = _$v ??
-        new _$OCSMeta._(
+        _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
           message: message,
@@ -1464,13 +1455,9 @@ class _$SigningSignTermsResponseApplicationJson_Ocs extends SigningSignTermsResp
 
   factory _$SigningSignTermsResponseApplicationJson_Ocs(
           [void Function(SigningSignTermsResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new SigningSignTermsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (SigningSignTermsResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$SigningSignTermsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'SigningSignTermsResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'SigningSignTermsResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$SigningSignTermsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   SigningSignTermsResponseApplicationJson_Ocs rebuild(
           void Function(SigningSignTermsResponseApplicationJson_OcsBuilder) updates) =>
@@ -1478,7 +1465,7 @@ class _$SigningSignTermsResponseApplicationJson_Ocs extends SigningSignTermsResp
 
   @override
   SigningSignTermsResponseApplicationJson_OcsBuilder toBuilder() =>
-      new SigningSignTermsResponseApplicationJson_OcsBuilder()..replace(this);
+      SigningSignTermsResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1511,7 +1498,7 @@ class SigningSignTermsResponseApplicationJson_OcsBuilder
   _$SigningSignTermsResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
@@ -1534,7 +1521,6 @@ class SigningSignTermsResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant SigningSignTermsResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SigningSignTermsResponseApplicationJson_Ocs;
   }
 
@@ -1551,7 +1537,7 @@ class SigningSignTermsResponseApplicationJson_OcsBuilder
     _$SigningSignTermsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$SigningSignTermsResponseApplicationJson_Ocs._(
+          _$SigningSignTermsResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(data, r'SigningSignTermsResponseApplicationJson_Ocs', 'data'),
           );
@@ -1561,8 +1547,7 @@ class SigningSignTermsResponseApplicationJson_OcsBuilder
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'SigningSignTermsResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'SigningSignTermsResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1584,12 +1569,9 @@ class _$SigningSignTermsResponseApplicationJson extends SigningSignTermsResponse
 
   factory _$SigningSignTermsResponseApplicationJson(
           [void Function(SigningSignTermsResponseApplicationJsonBuilder)? updates]) =>
-      (new SigningSignTermsResponseApplicationJsonBuilder()..update(updates))._build();
+      (SigningSignTermsResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$SigningSignTermsResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'SigningSignTermsResponseApplicationJson', 'ocs');
-  }
-
+  _$SigningSignTermsResponseApplicationJson._({required this.ocs}) : super._();
   @override
   SigningSignTermsResponseApplicationJson rebuild(
           void Function(SigningSignTermsResponseApplicationJsonBuilder) updates) =>
@@ -1597,7 +1579,7 @@ class _$SigningSignTermsResponseApplicationJson extends SigningSignTermsResponse
 
   @override
   SigningSignTermsResponseApplicationJsonBuilder toBuilder() =>
-      new SigningSignTermsResponseApplicationJsonBuilder()..replace(this);
+      SigningSignTermsResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1627,7 +1609,7 @@ class SigningSignTermsResponseApplicationJsonBuilder
 
   SigningSignTermsResponseApplicationJson_OcsBuilder? _ocs;
   SigningSignTermsResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new SigningSignTermsResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= SigningSignTermsResponseApplicationJson_OcsBuilder();
   set ocs(covariant SigningSignTermsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   SigningSignTermsResponseApplicationJsonBuilder() {
@@ -1645,7 +1627,6 @@ class SigningSignTermsResponseApplicationJsonBuilder
 
   @override
   void replace(covariant SigningSignTermsResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SigningSignTermsResponseApplicationJson;
   }
 
@@ -1662,7 +1643,7 @@ class SigningSignTermsResponseApplicationJsonBuilder
     _$SigningSignTermsResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$SigningSignTermsResponseApplicationJson._(
+          _$SigningSignTermsResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -1671,7 +1652,7 @@ class SigningSignTermsResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'SigningSignTermsResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'SigningSignTermsResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1699,13 +1680,9 @@ class _$SigningResetAllSignatoriesResponseApplicationJson_Ocs
 
   factory _$SigningResetAllSignatoriesResponseApplicationJson_Ocs(
           [void Function(SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$SigningResetAllSignatoriesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'SigningResetAllSignatoriesResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'SigningResetAllSignatoriesResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$SigningResetAllSignatoriesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   SigningResetAllSignatoriesResponseApplicationJson_Ocs rebuild(
           void Function(SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder) updates) =>
@@ -1713,7 +1690,7 @@ class _$SigningResetAllSignatoriesResponseApplicationJson_Ocs
 
   @override
   SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder toBuilder() =>
-      new SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder()..replace(this);
+      SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1747,7 +1724,7 @@ class SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder
   _$SigningResetAllSignatoriesResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
@@ -1770,7 +1747,6 @@ class SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant SigningResetAllSignatoriesResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SigningResetAllSignatoriesResponseApplicationJson_Ocs;
   }
 
@@ -1787,7 +1763,7 @@ class SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder
     _$SigningResetAllSignatoriesResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$SigningResetAllSignatoriesResponseApplicationJson_Ocs._(
+          _$SigningResetAllSignatoriesResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(
                 data, r'SigningResetAllSignatoriesResponseApplicationJson_Ocs', 'data'),
@@ -1798,7 +1774,7 @@ class SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'SigningResetAllSignatoriesResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -1821,12 +1797,9 @@ class _$SigningResetAllSignatoriesResponseApplicationJson extends SigningResetAl
 
   factory _$SigningResetAllSignatoriesResponseApplicationJson(
           [void Function(SigningResetAllSignatoriesResponseApplicationJsonBuilder)? updates]) =>
-      (new SigningResetAllSignatoriesResponseApplicationJsonBuilder()..update(updates))._build();
+      (SigningResetAllSignatoriesResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$SigningResetAllSignatoriesResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'SigningResetAllSignatoriesResponseApplicationJson', 'ocs');
-  }
-
+  _$SigningResetAllSignatoriesResponseApplicationJson._({required this.ocs}) : super._();
   @override
   SigningResetAllSignatoriesResponseApplicationJson rebuild(
           void Function(SigningResetAllSignatoriesResponseApplicationJsonBuilder) updates) =>
@@ -1834,7 +1807,7 @@ class _$SigningResetAllSignatoriesResponseApplicationJson extends SigningResetAl
 
   @override
   SigningResetAllSignatoriesResponseApplicationJsonBuilder toBuilder() =>
-      new SigningResetAllSignatoriesResponseApplicationJsonBuilder()..replace(this);
+      SigningResetAllSignatoriesResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1866,7 +1839,7 @@ class SigningResetAllSignatoriesResponseApplicationJsonBuilder
 
   SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder? _ocs;
   SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder();
   set ocs(covariant SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   SigningResetAllSignatoriesResponseApplicationJsonBuilder() {
@@ -1884,7 +1857,6 @@ class SigningResetAllSignatoriesResponseApplicationJsonBuilder
 
   @override
   void replace(covariant SigningResetAllSignatoriesResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SigningResetAllSignatoriesResponseApplicationJson;
   }
 
@@ -1901,7 +1873,7 @@ class SigningResetAllSignatoriesResponseApplicationJsonBuilder
     _$SigningResetAllSignatoriesResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$SigningResetAllSignatoriesResponseApplicationJson._(
+          _$SigningResetAllSignatoriesResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -1910,7 +1882,7 @@ class SigningResetAllSignatoriesResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'SigningResetAllSignatoriesResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -1933,12 +1905,9 @@ class _$SigningSignTermsPublicRequestApplicationJson extends SigningSignTermsPub
 
   factory _$SigningSignTermsPublicRequestApplicationJson(
           [void Function(SigningSignTermsPublicRequestApplicationJsonBuilder)? updates]) =>
-      (new SigningSignTermsPublicRequestApplicationJsonBuilder()..update(updates))._build();
+      (SigningSignTermsPublicRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$SigningSignTermsPublicRequestApplicationJson._({required this.termId}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(termId, r'SigningSignTermsPublicRequestApplicationJson', 'termId');
-  }
-
+  _$SigningSignTermsPublicRequestApplicationJson._({required this.termId}) : super._();
   @override
   SigningSignTermsPublicRequestApplicationJson rebuild(
           void Function(SigningSignTermsPublicRequestApplicationJsonBuilder) updates) =>
@@ -1946,7 +1915,7 @@ class _$SigningSignTermsPublicRequestApplicationJson extends SigningSignTermsPub
 
   @override
   SigningSignTermsPublicRequestApplicationJsonBuilder toBuilder() =>
-      new SigningSignTermsPublicRequestApplicationJsonBuilder()..replace(this);
+      SigningSignTermsPublicRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1994,7 +1963,6 @@ class SigningSignTermsPublicRequestApplicationJsonBuilder
 
   @override
   void replace(covariant SigningSignTermsPublicRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SigningSignTermsPublicRequestApplicationJson;
   }
 
@@ -2009,7 +1977,7 @@ class SigningSignTermsPublicRequestApplicationJsonBuilder
   _$SigningSignTermsPublicRequestApplicationJson _build() {
     SigningSignTermsPublicRequestApplicationJson._validate(this);
     final _$result = _$v ??
-        new _$SigningSignTermsPublicRequestApplicationJson._(
+        _$SigningSignTermsPublicRequestApplicationJson._(
           termId:
               BuiltValueNullFieldError.checkNotNull(termId, r'SigningSignTermsPublicRequestApplicationJson', 'termId'),
         );
@@ -2036,13 +2004,9 @@ class _$SigningSignTermsPublicResponseApplicationJson_Ocs extends SigningSignTer
 
   factory _$SigningSignTermsPublicResponseApplicationJson_Ocs(
           [void Function(SigningSignTermsPublicResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new SigningSignTermsPublicResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (SigningSignTermsPublicResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$SigningSignTermsPublicResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'SigningSignTermsPublicResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'SigningSignTermsPublicResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$SigningSignTermsPublicResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   SigningSignTermsPublicResponseApplicationJson_Ocs rebuild(
           void Function(SigningSignTermsPublicResponseApplicationJson_OcsBuilder) updates) =>
@@ -2050,7 +2014,7 @@ class _$SigningSignTermsPublicResponseApplicationJson_Ocs extends SigningSignTer
 
   @override
   SigningSignTermsPublicResponseApplicationJson_OcsBuilder toBuilder() =>
-      new SigningSignTermsPublicResponseApplicationJson_OcsBuilder()..replace(this);
+      SigningSignTermsPublicResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2084,7 +2048,7 @@ class SigningSignTermsPublicResponseApplicationJson_OcsBuilder
   _$SigningSignTermsPublicResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
@@ -2107,7 +2071,6 @@ class SigningSignTermsPublicResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant SigningSignTermsPublicResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SigningSignTermsPublicResponseApplicationJson_Ocs;
   }
 
@@ -2124,7 +2087,7 @@ class SigningSignTermsPublicResponseApplicationJson_OcsBuilder
     _$SigningSignTermsPublicResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$SigningSignTermsPublicResponseApplicationJson_Ocs._(
+          _$SigningSignTermsPublicResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(
                 data, r'SigningSignTermsPublicResponseApplicationJson_Ocs', 'data'),
@@ -2135,7 +2098,7 @@ class SigningSignTermsPublicResponseApplicationJson_OcsBuilder
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'SigningSignTermsPublicResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -2158,12 +2121,9 @@ class _$SigningSignTermsPublicResponseApplicationJson extends SigningSignTermsPu
 
   factory _$SigningSignTermsPublicResponseApplicationJson(
           [void Function(SigningSignTermsPublicResponseApplicationJsonBuilder)? updates]) =>
-      (new SigningSignTermsPublicResponseApplicationJsonBuilder()..update(updates))._build();
+      (SigningSignTermsPublicResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$SigningSignTermsPublicResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'SigningSignTermsPublicResponseApplicationJson', 'ocs');
-  }
-
+  _$SigningSignTermsPublicResponseApplicationJson._({required this.ocs}) : super._();
   @override
   SigningSignTermsPublicResponseApplicationJson rebuild(
           void Function(SigningSignTermsPublicResponseApplicationJsonBuilder) updates) =>
@@ -2171,7 +2131,7 @@ class _$SigningSignTermsPublicResponseApplicationJson extends SigningSignTermsPu
 
   @override
   SigningSignTermsPublicResponseApplicationJsonBuilder toBuilder() =>
-      new SigningSignTermsPublicResponseApplicationJsonBuilder()..replace(this);
+      SigningSignTermsPublicResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2201,7 +2161,7 @@ class SigningSignTermsPublicResponseApplicationJsonBuilder
 
   SigningSignTermsPublicResponseApplicationJson_OcsBuilder? _ocs;
   SigningSignTermsPublicResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new SigningSignTermsPublicResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= SigningSignTermsPublicResponseApplicationJson_OcsBuilder();
   set ocs(covariant SigningSignTermsPublicResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   SigningSignTermsPublicResponseApplicationJsonBuilder() {
@@ -2219,7 +2179,6 @@ class SigningSignTermsPublicResponseApplicationJsonBuilder
 
   @override
   void replace(covariant SigningSignTermsPublicResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SigningSignTermsPublicResponseApplicationJson;
   }
 
@@ -2236,7 +2195,7 @@ class SigningSignTermsPublicResponseApplicationJsonBuilder
     _$SigningSignTermsPublicResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$SigningSignTermsPublicResponseApplicationJson._(
+          _$SigningSignTermsPublicResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -2245,8 +2204,7 @@ class SigningSignTermsPublicResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'SigningSignTermsPublicResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'SigningSignTermsPublicResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2286,7 +2244,7 @@ class _$Terms extends Terms {
   @override
   final String renderedBody;
 
-  factory _$Terms([void Function(TermsBuilder)? updates]) => (new TermsBuilder()..update(updates))._build();
+  factory _$Terms([void Function(TermsBuilder)? updates]) => (TermsBuilder()..update(updates))._build();
 
   _$Terms._(
       {required this.id,
@@ -2294,19 +2252,12 @@ class _$Terms extends Terms {
       required this.languageCode,
       required this.body,
       required this.renderedBody})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'Terms', 'id');
-    BuiltValueNullFieldError.checkNotNull(countryCode, r'Terms', 'countryCode');
-    BuiltValueNullFieldError.checkNotNull(languageCode, r'Terms', 'languageCode');
-    BuiltValueNullFieldError.checkNotNull(body, r'Terms', 'body');
-    BuiltValueNullFieldError.checkNotNull(renderedBody, r'Terms', 'renderedBody');
-  }
-
+      : super._();
   @override
   Terms rebuild(void Function(TermsBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  TermsBuilder toBuilder() => new TermsBuilder()..replace(this);
+  TermsBuilder toBuilder() => TermsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2385,7 +2336,6 @@ class TermsBuilder implements Builder<Terms, TermsBuilder>, $TermsInterfaceBuild
 
   @override
   void replace(covariant Terms other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Terms;
   }
 
@@ -2400,7 +2350,7 @@ class TermsBuilder implements Builder<Terms, TermsBuilder>, $TermsInterfaceBuild
   _$Terms _build() {
     Terms._validate(this);
     final _$result = _$v ??
-        new _$Terms._(
+        _$Terms._(
           id: BuiltValueNullFieldError.checkNotNull(id, r'Terms', 'id'),
           countryCode: BuiltValueNullFieldError.checkNotNull(countryCode, r'Terms', 'countryCode'),
           languageCode: BuiltValueNullFieldError.checkNotNull(languageCode, r'Terms', 'languageCode'),
@@ -2435,16 +2385,11 @@ class _$TermsIndexResponseApplicationJson_Ocs_Data extends TermsIndexResponseApp
 
   factory _$TermsIndexResponseApplicationJson_Ocs_Data(
           [void Function(TermsIndexResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (new TermsIndexResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+      (TermsIndexResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
   _$TermsIndexResponseApplicationJson_Ocs_Data._(
       {required this.terms, required this.languages, required this.hasSigned})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(terms, r'TermsIndexResponseApplicationJson_Ocs_Data', 'terms');
-    BuiltValueNullFieldError.checkNotNull(languages, r'TermsIndexResponseApplicationJson_Ocs_Data', 'languages');
-    BuiltValueNullFieldError.checkNotNull(hasSigned, r'TermsIndexResponseApplicationJson_Ocs_Data', 'hasSigned');
-  }
-
+      : super._();
   @override
   TermsIndexResponseApplicationJson_Ocs_Data rebuild(
           void Function(TermsIndexResponseApplicationJson_Ocs_DataBuilder) updates) =>
@@ -2452,7 +2397,7 @@ class _$TermsIndexResponseApplicationJson_Ocs_Data extends TermsIndexResponseApp
 
   @override
   TermsIndexResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
-      new TermsIndexResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+      TermsIndexResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2490,11 +2435,11 @@ class TermsIndexResponseApplicationJson_Ocs_DataBuilder
   _$TermsIndexResponseApplicationJson_Ocs_Data? _$v;
 
   ListBuilder<Terms>? _terms;
-  ListBuilder<Terms> get terms => _$this._terms ??= new ListBuilder<Terms>();
+  ListBuilder<Terms> get terms => _$this._terms ??= ListBuilder<Terms>();
   set terms(covariant ListBuilder<Terms>? terms) => _$this._terms = terms;
 
   MapBuilder<String, String>? _languages;
-  MapBuilder<String, String> get languages => _$this._languages ??= new MapBuilder<String, String>();
+  MapBuilder<String, String> get languages => _$this._languages ??= MapBuilder<String, String>();
   set languages(covariant MapBuilder<String, String>? languages) => _$this._languages = languages;
 
   bool? _hasSigned;
@@ -2518,7 +2463,6 @@ class TermsIndexResponseApplicationJson_Ocs_DataBuilder
 
   @override
   void replace(covariant TermsIndexResponseApplicationJson_Ocs_Data other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TermsIndexResponseApplicationJson_Ocs_Data;
   }
 
@@ -2535,7 +2479,7 @@ class TermsIndexResponseApplicationJson_Ocs_DataBuilder
     _$TermsIndexResponseApplicationJson_Ocs_Data _$result;
     try {
       _$result = _$v ??
-          new _$TermsIndexResponseApplicationJson_Ocs_Data._(
+          _$TermsIndexResponseApplicationJson_Ocs_Data._(
             terms: terms.build(),
             languages: languages.build(),
             hasSigned: BuiltValueNullFieldError.checkNotNull(
@@ -2549,8 +2493,7 @@ class TermsIndexResponseApplicationJson_Ocs_DataBuilder
         _$failedField = 'languages';
         languages.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'TermsIndexResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'TermsIndexResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2577,20 +2520,16 @@ class _$TermsIndexResponseApplicationJson_Ocs extends TermsIndexResponseApplicat
 
   factory _$TermsIndexResponseApplicationJson_Ocs(
           [void Function(TermsIndexResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new TermsIndexResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (TermsIndexResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$TermsIndexResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'TermsIndexResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'TermsIndexResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$TermsIndexResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   TermsIndexResponseApplicationJson_Ocs rebuild(void Function(TermsIndexResponseApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   TermsIndexResponseApplicationJson_OcsBuilder toBuilder() =>
-      new TermsIndexResponseApplicationJson_OcsBuilder()..replace(this);
+      TermsIndexResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2623,12 +2562,12 @@ class TermsIndexResponseApplicationJson_OcsBuilder
   _$TermsIndexResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   TermsIndexResponseApplicationJson_Ocs_DataBuilder? _data;
   TermsIndexResponseApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= new TermsIndexResponseApplicationJson_Ocs_DataBuilder();
+      _$this._data ??= TermsIndexResponseApplicationJson_Ocs_DataBuilder();
   set data(covariant TermsIndexResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   TermsIndexResponseApplicationJson_OcsBuilder() {
@@ -2647,7 +2586,6 @@ class TermsIndexResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant TermsIndexResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TermsIndexResponseApplicationJson_Ocs;
   }
 
@@ -2664,7 +2602,7 @@ class TermsIndexResponseApplicationJson_OcsBuilder
     _$TermsIndexResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$TermsIndexResponseApplicationJson_Ocs._(
+          _$TermsIndexResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -2676,7 +2614,7 @@ class TermsIndexResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'TermsIndexResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'TermsIndexResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2697,18 +2635,15 @@ class _$TermsIndexResponseApplicationJson extends TermsIndexResponseApplicationJ
   final TermsIndexResponseApplicationJson_Ocs ocs;
 
   factory _$TermsIndexResponseApplicationJson([void Function(TermsIndexResponseApplicationJsonBuilder)? updates]) =>
-      (new TermsIndexResponseApplicationJsonBuilder()..update(updates))._build();
+      (TermsIndexResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$TermsIndexResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'TermsIndexResponseApplicationJson', 'ocs');
-  }
-
+  _$TermsIndexResponseApplicationJson._({required this.ocs}) : super._();
   @override
   TermsIndexResponseApplicationJson rebuild(void Function(TermsIndexResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  TermsIndexResponseApplicationJsonBuilder toBuilder() => new TermsIndexResponseApplicationJsonBuilder()..replace(this);
+  TermsIndexResponseApplicationJsonBuilder toBuilder() => TermsIndexResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2738,7 +2673,7 @@ class TermsIndexResponseApplicationJsonBuilder
 
   TermsIndexResponseApplicationJson_OcsBuilder? _ocs;
   TermsIndexResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new TermsIndexResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= TermsIndexResponseApplicationJson_OcsBuilder();
   set ocs(covariant TermsIndexResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   TermsIndexResponseApplicationJsonBuilder() {
@@ -2756,7 +2691,6 @@ class TermsIndexResponseApplicationJsonBuilder
 
   @override
   void replace(covariant TermsIndexResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TermsIndexResponseApplicationJson;
   }
 
@@ -2773,7 +2707,7 @@ class TermsIndexResponseApplicationJsonBuilder
     _$TermsIndexResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$TermsIndexResponseApplicationJson._(
+          _$TermsIndexResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -2782,7 +2716,7 @@ class TermsIndexResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'TermsIndexResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'TermsIndexResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2813,21 +2747,16 @@ class _$TermsCreateRequestApplicationJson extends TermsCreateRequestApplicationJ
   final String body;
 
   factory _$TermsCreateRequestApplicationJson([void Function(TermsCreateRequestApplicationJsonBuilder)? updates]) =>
-      (new TermsCreateRequestApplicationJsonBuilder()..update(updates))._build();
+      (TermsCreateRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$TermsCreateRequestApplicationJson._({required this.countryCode, required this.languageCode, required this.body})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(countryCode, r'TermsCreateRequestApplicationJson', 'countryCode');
-    BuiltValueNullFieldError.checkNotNull(languageCode, r'TermsCreateRequestApplicationJson', 'languageCode');
-    BuiltValueNullFieldError.checkNotNull(body, r'TermsCreateRequestApplicationJson', 'body');
-  }
-
+      : super._();
   @override
   TermsCreateRequestApplicationJson rebuild(void Function(TermsCreateRequestApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  TermsCreateRequestApplicationJsonBuilder toBuilder() => new TermsCreateRequestApplicationJsonBuilder()..replace(this);
+  TermsCreateRequestApplicationJsonBuilder toBuilder() => TermsCreateRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2893,7 +2822,6 @@ class TermsCreateRequestApplicationJsonBuilder
 
   @override
   void replace(covariant TermsCreateRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TermsCreateRequestApplicationJson;
   }
 
@@ -2908,7 +2836,7 @@ class TermsCreateRequestApplicationJsonBuilder
   _$TermsCreateRequestApplicationJson _build() {
     TermsCreateRequestApplicationJson._validate(this);
     final _$result = _$v ??
-        new _$TermsCreateRequestApplicationJson._(
+        _$TermsCreateRequestApplicationJson._(
           countryCode:
               BuiltValueNullFieldError.checkNotNull(countryCode, r'TermsCreateRequestApplicationJson', 'countryCode'),
           languageCode:
@@ -2938,13 +2866,9 @@ class _$TermsCreateResponseApplicationJson_Ocs extends TermsCreateResponseApplic
 
   factory _$TermsCreateResponseApplicationJson_Ocs(
           [void Function(TermsCreateResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new TermsCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (TermsCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$TermsCreateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'TermsCreateResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'TermsCreateResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$TermsCreateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   TermsCreateResponseApplicationJson_Ocs rebuild(
           void Function(TermsCreateResponseApplicationJson_OcsBuilder) updates) =>
@@ -2952,7 +2876,7 @@ class _$TermsCreateResponseApplicationJson_Ocs extends TermsCreateResponseApplic
 
   @override
   TermsCreateResponseApplicationJson_OcsBuilder toBuilder() =>
-      new TermsCreateResponseApplicationJson_OcsBuilder()..replace(this);
+      TermsCreateResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2985,11 +2909,11 @@ class TermsCreateResponseApplicationJson_OcsBuilder
   _$TermsCreateResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   TermsBuilder? _data;
-  TermsBuilder get data => _$this._data ??= new TermsBuilder();
+  TermsBuilder get data => _$this._data ??= TermsBuilder();
   set data(covariant TermsBuilder? data) => _$this._data = data;
 
   TermsCreateResponseApplicationJson_OcsBuilder() {
@@ -3008,7 +2932,6 @@ class TermsCreateResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant TermsCreateResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TermsCreateResponseApplicationJson_Ocs;
   }
 
@@ -3025,7 +2948,7 @@ class TermsCreateResponseApplicationJson_OcsBuilder
     _$TermsCreateResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$TermsCreateResponseApplicationJson_Ocs._(
+          _$TermsCreateResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -3037,7 +2960,7 @@ class TermsCreateResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'TermsCreateResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'TermsCreateResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3058,19 +2981,15 @@ class _$TermsCreateResponseApplicationJson extends TermsCreateResponseApplicatio
   final TermsCreateResponseApplicationJson_Ocs ocs;
 
   factory _$TermsCreateResponseApplicationJson([void Function(TermsCreateResponseApplicationJsonBuilder)? updates]) =>
-      (new TermsCreateResponseApplicationJsonBuilder()..update(updates))._build();
+      (TermsCreateResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$TermsCreateResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'TermsCreateResponseApplicationJson', 'ocs');
-  }
-
+  _$TermsCreateResponseApplicationJson._({required this.ocs}) : super._();
   @override
   TermsCreateResponseApplicationJson rebuild(void Function(TermsCreateResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  TermsCreateResponseApplicationJsonBuilder toBuilder() =>
-      new TermsCreateResponseApplicationJsonBuilder()..replace(this);
+  TermsCreateResponseApplicationJsonBuilder toBuilder() => TermsCreateResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3100,7 +3019,7 @@ class TermsCreateResponseApplicationJsonBuilder
 
   TermsCreateResponseApplicationJson_OcsBuilder? _ocs;
   TermsCreateResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new TermsCreateResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= TermsCreateResponseApplicationJson_OcsBuilder();
   set ocs(covariant TermsCreateResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   TermsCreateResponseApplicationJsonBuilder() {
@@ -3118,7 +3037,6 @@ class TermsCreateResponseApplicationJsonBuilder
 
   @override
   void replace(covariant TermsCreateResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TermsCreateResponseApplicationJson;
   }
 
@@ -3135,7 +3053,7 @@ class TermsCreateResponseApplicationJsonBuilder
     _$TermsCreateResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$TermsCreateResponseApplicationJson._(
+          _$TermsCreateResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -3144,7 +3062,7 @@ class TermsCreateResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'TermsCreateResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'TermsCreateResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3171,13 +3089,9 @@ class _$TermsDestroyResponseApplicationJson_Ocs extends TermsDestroyResponseAppl
 
   factory _$TermsDestroyResponseApplicationJson_Ocs(
           [void Function(TermsDestroyResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new TermsDestroyResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (TermsDestroyResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$TermsDestroyResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'TermsDestroyResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'TermsDestroyResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$TermsDestroyResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   TermsDestroyResponseApplicationJson_Ocs rebuild(
           void Function(TermsDestroyResponseApplicationJson_OcsBuilder) updates) =>
@@ -3185,7 +3099,7 @@ class _$TermsDestroyResponseApplicationJson_Ocs extends TermsDestroyResponseAppl
 
   @override
   TermsDestroyResponseApplicationJson_OcsBuilder toBuilder() =>
-      new TermsDestroyResponseApplicationJson_OcsBuilder()..replace(this);
+      TermsDestroyResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3218,7 +3132,7 @@ class TermsDestroyResponseApplicationJson_OcsBuilder
   _$TermsDestroyResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
@@ -3241,7 +3155,6 @@ class TermsDestroyResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant TermsDestroyResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TermsDestroyResponseApplicationJson_Ocs;
   }
 
@@ -3258,7 +3171,7 @@ class TermsDestroyResponseApplicationJson_OcsBuilder
     _$TermsDestroyResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$TermsDestroyResponseApplicationJson_Ocs._(
+          _$TermsDestroyResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(data, r'TermsDestroyResponseApplicationJson_Ocs', 'data'),
           );
@@ -3268,7 +3181,7 @@ class TermsDestroyResponseApplicationJson_OcsBuilder
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'TermsDestroyResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'TermsDestroyResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3289,19 +3202,15 @@ class _$TermsDestroyResponseApplicationJson extends TermsDestroyResponseApplicat
   final TermsDestroyResponseApplicationJson_Ocs ocs;
 
   factory _$TermsDestroyResponseApplicationJson([void Function(TermsDestroyResponseApplicationJsonBuilder)? updates]) =>
-      (new TermsDestroyResponseApplicationJsonBuilder()..update(updates))._build();
+      (TermsDestroyResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$TermsDestroyResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'TermsDestroyResponseApplicationJson', 'ocs');
-  }
-
+  _$TermsDestroyResponseApplicationJson._({required this.ocs}) : super._();
   @override
   TermsDestroyResponseApplicationJson rebuild(void Function(TermsDestroyResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  TermsDestroyResponseApplicationJsonBuilder toBuilder() =>
-      new TermsDestroyResponseApplicationJsonBuilder()..replace(this);
+  TermsDestroyResponseApplicationJsonBuilder toBuilder() => TermsDestroyResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3331,7 +3240,7 @@ class TermsDestroyResponseApplicationJsonBuilder
 
   TermsDestroyResponseApplicationJson_OcsBuilder? _ocs;
   TermsDestroyResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new TermsDestroyResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= TermsDestroyResponseApplicationJson_OcsBuilder();
   set ocs(covariant TermsDestroyResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   TermsDestroyResponseApplicationJsonBuilder() {
@@ -3349,7 +3258,6 @@ class TermsDestroyResponseApplicationJsonBuilder
 
   @override
   void replace(covariant TermsDestroyResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TermsDestroyResponseApplicationJson;
   }
 
@@ -3366,7 +3274,7 @@ class TermsDestroyResponseApplicationJsonBuilder
     _$TermsDestroyResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$TermsDestroyResponseApplicationJson._(
+          _$TermsDestroyResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -3375,7 +3283,7 @@ class TermsDestroyResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'TermsDestroyResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'TermsDestroyResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3416,7 +3324,7 @@ class _$AdminFormData extends AdminFormData {
   final AdminFormData_TosForUsers tosForUsers;
 
   factory _$AdminFormData([void Function(AdminFormDataBuilder)? updates]) =>
-      (new AdminFormDataBuilder()..update(updates))._build();
+      (AdminFormDataBuilder()..update(updates))._build();
 
   _$AdminFormData._(
       {required this.terms,
@@ -3424,19 +3332,12 @@ class _$AdminFormData extends AdminFormData {
       required this.languages,
       required this.tosOnPublicShares,
       required this.tosForUsers})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(terms, r'AdminFormData', 'terms');
-    BuiltValueNullFieldError.checkNotNull(countries, r'AdminFormData', 'countries');
-    BuiltValueNullFieldError.checkNotNull(languages, r'AdminFormData', 'languages');
-    BuiltValueNullFieldError.checkNotNull(tosOnPublicShares, r'AdminFormData', 'tosOnPublicShares');
-    BuiltValueNullFieldError.checkNotNull(tosForUsers, r'AdminFormData', 'tosForUsers');
-  }
-
+      : super._();
   @override
   AdminFormData rebuild(void Function(AdminFormDataBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  AdminFormDataBuilder toBuilder() => new AdminFormDataBuilder()..replace(this);
+  AdminFormDataBuilder toBuilder() => AdminFormDataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3477,15 +3378,15 @@ class AdminFormDataBuilder implements Builder<AdminFormData, AdminFormDataBuilde
   _$AdminFormData? _$v;
 
   MapBuilder<String, Terms>? _terms;
-  MapBuilder<String, Terms> get terms => _$this._terms ??= new MapBuilder<String, Terms>();
+  MapBuilder<String, Terms> get terms => _$this._terms ??= MapBuilder<String, Terms>();
   set terms(covariant MapBuilder<String, Terms>? terms) => _$this._terms = terms;
 
   MapBuilder<String, String>? _countries;
-  MapBuilder<String, String> get countries => _$this._countries ??= new MapBuilder<String, String>();
+  MapBuilder<String, String> get countries => _$this._countries ??= MapBuilder<String, String>();
   set countries(covariant MapBuilder<String, String>? countries) => _$this._countries = countries;
 
   MapBuilder<String, String>? _languages;
-  MapBuilder<String, String> get languages => _$this._languages ??= new MapBuilder<String, String>();
+  MapBuilder<String, String> get languages => _$this._languages ??= MapBuilder<String, String>();
   set languages(covariant MapBuilder<String, String>? languages) => _$this._languages = languages;
 
   AdminFormData_TosOnPublicShares? _tosOnPublicShares;
@@ -3516,7 +3417,6 @@ class AdminFormDataBuilder implements Builder<AdminFormData, AdminFormDataBuilde
 
   @override
   void replace(covariant AdminFormData other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AdminFormData;
   }
 
@@ -3533,7 +3433,7 @@ class AdminFormDataBuilder implements Builder<AdminFormData, AdminFormDataBuilde
     _$AdminFormData _$result;
     try {
       _$result = _$v ??
-          new _$AdminFormData._(
+          _$AdminFormData._(
             terms: terms.build(),
             countries: countries.build(),
             languages: languages.build(),
@@ -3551,7 +3451,7 @@ class AdminFormDataBuilder implements Builder<AdminFormData, AdminFormDataBuilde
         _$failedField = 'languages';
         languages.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'AdminFormData', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'AdminFormData', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3578,13 +3478,9 @@ class _$TermsGetAdminFormDataResponseApplicationJson_Ocs extends TermsGetAdminFo
 
   factory _$TermsGetAdminFormDataResponseApplicationJson_Ocs(
           [void Function(TermsGetAdminFormDataResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new TermsGetAdminFormDataResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (TermsGetAdminFormDataResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$TermsGetAdminFormDataResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'TermsGetAdminFormDataResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'TermsGetAdminFormDataResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$TermsGetAdminFormDataResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   TermsGetAdminFormDataResponseApplicationJson_Ocs rebuild(
           void Function(TermsGetAdminFormDataResponseApplicationJson_OcsBuilder) updates) =>
@@ -3592,7 +3488,7 @@ class _$TermsGetAdminFormDataResponseApplicationJson_Ocs extends TermsGetAdminFo
 
   @override
   TermsGetAdminFormDataResponseApplicationJson_OcsBuilder toBuilder() =>
-      new TermsGetAdminFormDataResponseApplicationJson_OcsBuilder()..replace(this);
+      TermsGetAdminFormDataResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3626,11 +3522,11 @@ class TermsGetAdminFormDataResponseApplicationJson_OcsBuilder
   _$TermsGetAdminFormDataResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   AdminFormDataBuilder? _data;
-  AdminFormDataBuilder get data => _$this._data ??= new AdminFormDataBuilder();
+  AdminFormDataBuilder get data => _$this._data ??= AdminFormDataBuilder();
   set data(covariant AdminFormDataBuilder? data) => _$this._data = data;
 
   TermsGetAdminFormDataResponseApplicationJson_OcsBuilder() {
@@ -3649,7 +3545,6 @@ class TermsGetAdminFormDataResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant TermsGetAdminFormDataResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TermsGetAdminFormDataResponseApplicationJson_Ocs;
   }
 
@@ -3666,7 +3561,7 @@ class TermsGetAdminFormDataResponseApplicationJson_OcsBuilder
     _$TermsGetAdminFormDataResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$TermsGetAdminFormDataResponseApplicationJson_Ocs._(
+          _$TermsGetAdminFormDataResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -3678,7 +3573,7 @@ class TermsGetAdminFormDataResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'TermsGetAdminFormDataResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -3701,12 +3596,9 @@ class _$TermsGetAdminFormDataResponseApplicationJson extends TermsGetAdminFormDa
 
   factory _$TermsGetAdminFormDataResponseApplicationJson(
           [void Function(TermsGetAdminFormDataResponseApplicationJsonBuilder)? updates]) =>
-      (new TermsGetAdminFormDataResponseApplicationJsonBuilder()..update(updates))._build();
+      (TermsGetAdminFormDataResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$TermsGetAdminFormDataResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'TermsGetAdminFormDataResponseApplicationJson', 'ocs');
-  }
-
+  _$TermsGetAdminFormDataResponseApplicationJson._({required this.ocs}) : super._();
   @override
   TermsGetAdminFormDataResponseApplicationJson rebuild(
           void Function(TermsGetAdminFormDataResponseApplicationJsonBuilder) updates) =>
@@ -3714,7 +3606,7 @@ class _$TermsGetAdminFormDataResponseApplicationJson extends TermsGetAdminFormDa
 
   @override
   TermsGetAdminFormDataResponseApplicationJsonBuilder toBuilder() =>
-      new TermsGetAdminFormDataResponseApplicationJsonBuilder()..replace(this);
+      TermsGetAdminFormDataResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3744,7 +3636,7 @@ class TermsGetAdminFormDataResponseApplicationJsonBuilder
 
   TermsGetAdminFormDataResponseApplicationJson_OcsBuilder? _ocs;
   TermsGetAdminFormDataResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new TermsGetAdminFormDataResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= TermsGetAdminFormDataResponseApplicationJson_OcsBuilder();
   set ocs(covariant TermsGetAdminFormDataResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   TermsGetAdminFormDataResponseApplicationJsonBuilder() {
@@ -3762,7 +3654,6 @@ class TermsGetAdminFormDataResponseApplicationJsonBuilder
 
   @override
   void replace(covariant TermsGetAdminFormDataResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TermsGetAdminFormDataResponseApplicationJson;
   }
 
@@ -3779,7 +3670,7 @@ class TermsGetAdminFormDataResponseApplicationJsonBuilder
     _$TermsGetAdminFormDataResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$TermsGetAdminFormDataResponseApplicationJson._(
+          _$TermsGetAdminFormDataResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -3788,8 +3679,7 @@ class TermsGetAdminFormDataResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'TermsGetAdminFormDataResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'TermsGetAdminFormDataResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3815,19 +3705,15 @@ class _$PublicCapabilities_TermsOfService extends PublicCapabilities_TermsOfServ
   final String termUuid;
 
   factory _$PublicCapabilities_TermsOfService([void Function(PublicCapabilities_TermsOfServiceBuilder)? updates]) =>
-      (new PublicCapabilities_TermsOfServiceBuilder()..update(updates))._build();
+      (PublicCapabilities_TermsOfServiceBuilder()..update(updates))._build();
 
-  _$PublicCapabilities_TermsOfService._({required this.enabled, required this.termUuid}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(enabled, r'PublicCapabilities_TermsOfService', 'enabled');
-    BuiltValueNullFieldError.checkNotNull(termUuid, r'PublicCapabilities_TermsOfService', 'termUuid');
-  }
-
+  _$PublicCapabilities_TermsOfService._({required this.enabled, required this.termUuid}) : super._();
   @override
   PublicCapabilities_TermsOfService rebuild(void Function(PublicCapabilities_TermsOfServiceBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PublicCapabilities_TermsOfServiceBuilder toBuilder() => new PublicCapabilities_TermsOfServiceBuilder()..replace(this);
+  PublicCapabilities_TermsOfServiceBuilder toBuilder() => PublicCapabilities_TermsOfServiceBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3883,7 +3769,6 @@ class PublicCapabilities_TermsOfServiceBuilder
 
   @override
   void replace(covariant PublicCapabilities_TermsOfService other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PublicCapabilities_TermsOfService;
   }
 
@@ -3898,7 +3783,7 @@ class PublicCapabilities_TermsOfServiceBuilder
   _$PublicCapabilities_TermsOfService _build() {
     PublicCapabilities_TermsOfService._validate(this);
     final _$result = _$v ??
-        new _$PublicCapabilities_TermsOfService._(
+        _$PublicCapabilities_TermsOfService._(
           enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'PublicCapabilities_TermsOfService', 'enabled'),
           termUuid: BuiltValueNullFieldError.checkNotNull(termUuid, r'PublicCapabilities_TermsOfService', 'termUuid'),
         );
@@ -3919,18 +3804,15 @@ class _$PublicCapabilities extends PublicCapabilities {
   final PublicCapabilities_TermsOfService termsOfService;
 
   factory _$PublicCapabilities([void Function(PublicCapabilitiesBuilder)? updates]) =>
-      (new PublicCapabilitiesBuilder()..update(updates))._build();
+      (PublicCapabilitiesBuilder()..update(updates))._build();
 
-  _$PublicCapabilities._({required this.termsOfService}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(termsOfService, r'PublicCapabilities', 'termsOfService');
-  }
-
+  _$PublicCapabilities._({required this.termsOfService}) : super._();
   @override
   PublicCapabilities rebuild(void Function(PublicCapabilitiesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PublicCapabilitiesBuilder toBuilder() => new PublicCapabilitiesBuilder()..replace(this);
+  PublicCapabilitiesBuilder toBuilder() => PublicCapabilitiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3958,7 +3840,7 @@ class PublicCapabilitiesBuilder
 
   PublicCapabilities_TermsOfServiceBuilder? _termsOfService;
   PublicCapabilities_TermsOfServiceBuilder get termsOfService =>
-      _$this._termsOfService ??= new PublicCapabilities_TermsOfServiceBuilder();
+      _$this._termsOfService ??= PublicCapabilities_TermsOfServiceBuilder();
   set termsOfService(covariant PublicCapabilities_TermsOfServiceBuilder? termsOfService) =>
       _$this._termsOfService = termsOfService;
 
@@ -3977,7 +3859,6 @@ class PublicCapabilitiesBuilder
 
   @override
   void replace(covariant PublicCapabilities other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PublicCapabilities;
   }
 
@@ -3994,7 +3875,7 @@ class PublicCapabilitiesBuilder
     _$PublicCapabilities _$result;
     try {
       _$result = _$v ??
-          new _$PublicCapabilities._(
+          _$PublicCapabilities._(
             termsOfService: termsOfService.build(),
           );
     } catch (_) {
@@ -4003,7 +3884,7 @@ class PublicCapabilitiesBuilder
         _$failedField = 'termsOfService';
         termsOfService.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'PublicCapabilities', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'PublicCapabilities', _$failedField, e.toString());
       }
       rethrow;
     }
