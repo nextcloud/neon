@@ -6,10 +6,10 @@ part of 'headers.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<GetHeaders> _$getHeadersSerializer = new _$GetHeadersSerializer();
+Serializer<GetHeaders> _$getHeadersSerializer = _$GetHeadersSerializer();
 Serializer<WithContentOperationIdHeaders> _$withContentOperationIdHeadersSerializer =
-    new _$WithContentOperationIdHeadersSerializer();
-Serializer<GetWithContentHeaders> _$getWithContentHeadersSerializer = new _$GetWithContentHeadersSerializer();
+    _$WithContentOperationIdHeadersSerializer();
+Serializer<GetWithContentHeaders> _$getWithContentHeadersSerializer = _$GetWithContentHeadersSerializer();
 
 class _$GetHeadersSerializer implements StructuredSerializer<GetHeaders> {
   @override
@@ -34,7 +34,7 @@ class _$GetHeadersSerializer implements StructuredSerializer<GetHeaders> {
   @override
   GetHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GetHeadersBuilder();
+    final result = GetHeadersBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -75,7 +75,7 @@ class _$WithContentOperationIdHeadersSerializer implements StructuredSerializer<
   @override
   WithContentOperationIdHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new WithContentOperationIdHeadersBuilder();
+    final result = WithContentOperationIdHeadersBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -116,7 +116,7 @@ class _$GetWithContentHeadersSerializer implements StructuredSerializer<GetWithC
   @override
   GetWithContentHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GetWithContentHeadersBuilder();
+    final result = GetWithContentHeadersBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -145,16 +145,14 @@ class _$GetHeaders extends GetHeaders {
   @override
   final String? myHeader;
 
-  factory _$GetHeaders([void Function(GetHeadersBuilder)? updates]) =>
-      (new GetHeadersBuilder()..update(updates))._build();
+  factory _$GetHeaders([void Function(GetHeadersBuilder)? updates]) => (GetHeadersBuilder()..update(updates))._build();
 
   _$GetHeaders._({this.myHeader}) : super._();
-
   @override
   GetHeaders rebuild(void Function(GetHeadersBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  GetHeadersBuilder toBuilder() => new GetHeadersBuilder()..replace(this);
+  GetHeadersBuilder toBuilder() => GetHeadersBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -198,7 +196,6 @@ class GetHeadersBuilder implements Builder<GetHeaders, GetHeadersBuilder>, $GetH
 
   @override
   void replace(covariant GetHeaders other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GetHeaders;
   }
 
@@ -213,7 +210,7 @@ class GetHeadersBuilder implements Builder<GetHeaders, GetHeadersBuilder>, $GetH
   _$GetHeaders _build() {
     GetHeaders._validate(this);
     final _$result = _$v ??
-        new _$GetHeaders._(
+        _$GetHeaders._(
           myHeader: myHeader,
         );
     replace(_$result);
@@ -233,16 +230,15 @@ class _$WithContentOperationIdHeaders extends WithContentOperationIdHeaders {
   final String? myHeader;
 
   factory _$WithContentOperationIdHeaders([void Function(WithContentOperationIdHeadersBuilder)? updates]) =>
-      (new WithContentOperationIdHeadersBuilder()..update(updates))._build();
+      (WithContentOperationIdHeadersBuilder()..update(updates))._build();
 
   _$WithContentOperationIdHeaders._({this.myHeader}) : super._();
-
   @override
   WithContentOperationIdHeaders rebuild(void Function(WithContentOperationIdHeadersBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  WithContentOperationIdHeadersBuilder toBuilder() => new WithContentOperationIdHeadersBuilder()..replace(this);
+  WithContentOperationIdHeadersBuilder toBuilder() => WithContentOperationIdHeadersBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -289,7 +285,6 @@ class WithContentOperationIdHeadersBuilder
 
   @override
   void replace(covariant WithContentOperationIdHeaders other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WithContentOperationIdHeaders;
   }
 
@@ -304,7 +299,7 @@ class WithContentOperationIdHeadersBuilder
   _$WithContentOperationIdHeaders _build() {
     WithContentOperationIdHeaders._validate(this);
     final _$result = _$v ??
-        new _$WithContentOperationIdHeaders._(
+        _$WithContentOperationIdHeaders._(
           myHeader: myHeader,
         );
     replace(_$result);
@@ -324,16 +319,15 @@ class _$GetWithContentHeaders extends GetWithContentHeaders {
   final String? myHeader;
 
   factory _$GetWithContentHeaders([void Function(GetWithContentHeadersBuilder)? updates]) =>
-      (new GetWithContentHeadersBuilder()..update(updates))._build();
+      (GetWithContentHeadersBuilder()..update(updates))._build();
 
   _$GetWithContentHeaders._({this.myHeader}) : super._();
-
   @override
   GetWithContentHeaders rebuild(void Function(GetWithContentHeadersBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GetWithContentHeadersBuilder toBuilder() => new GetWithContentHeadersBuilder()..replace(this);
+  GetWithContentHeadersBuilder toBuilder() => GetWithContentHeadersBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -378,7 +372,6 @@ class GetWithContentHeadersBuilder
 
   @override
   void replace(covariant GetWithContentHeaders other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GetWithContentHeaders;
   }
 
@@ -393,7 +386,7 @@ class GetWithContentHeadersBuilder
   _$GetWithContentHeaders _build() {
     GetWithContentHeaders._validate(this);
     final _$result = _$v ??
-        new _$GetWithContentHeaders._(
+        _$GetWithContentHeaders._(
           myHeader: myHeader,
         );
     replace(_$result);

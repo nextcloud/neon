@@ -6,13 +6,13 @@ part of 'all_of.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<ObjectAllOf> _$objectAllOfSerializer = new _$ObjectAllOfSerializer();
-Serializer<OneObjectAllOf> _$oneObjectAllOfSerializer = new _$OneObjectAllOfSerializer();
-Serializer<PrimitiveAllOf> _$primitiveAllOfSerializer = new _$PrimitiveAllOfSerializer();
-Serializer<MixedAllOf> _$mixedAllOfSerializer = new _$MixedAllOfSerializer();
-Serializer<OneValueAllOf> _$oneValueAllOfSerializer = new _$OneValueAllOfSerializer();
-Serializer<SuperObject> _$superObjectSerializer = new _$SuperObjectSerializer();
-Serializer<SubObject> _$subObjectSerializer = new _$SubObjectSerializer();
+Serializer<ObjectAllOf> _$objectAllOfSerializer = _$ObjectAllOfSerializer();
+Serializer<OneObjectAllOf> _$oneObjectAllOfSerializer = _$OneObjectAllOfSerializer();
+Serializer<PrimitiveAllOf> _$primitiveAllOfSerializer = _$PrimitiveAllOfSerializer();
+Serializer<MixedAllOf> _$mixedAllOfSerializer = _$MixedAllOfSerializer();
+Serializer<OneValueAllOf> _$oneValueAllOfSerializer = _$OneValueAllOfSerializer();
+Serializer<SuperObject> _$superObjectSerializer = _$SuperObjectSerializer();
+Serializer<SubObject> _$subObjectSerializer = _$SubObjectSerializer();
 
 class _$ObjectAllOfSerializer implements StructuredSerializer<ObjectAllOf> {
   @override
@@ -36,7 +36,7 @@ class _$ObjectAllOfSerializer implements StructuredSerializer<ObjectAllOf> {
   @override
   ObjectAllOf deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ObjectAllOfBuilder();
+    final result = ObjectAllOfBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -77,7 +77,7 @@ class _$OneObjectAllOfSerializer implements StructuredSerializer<OneObjectAllOf>
   @override
   OneObjectAllOf deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new OneObjectAllOfBuilder();
+    final result = OneObjectAllOfBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -117,7 +117,7 @@ class _$PrimitiveAllOfSerializer implements StructuredSerializer<PrimitiveAllOf>
   @override
   PrimitiveAllOf deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new PrimitiveAllOfBuilder();
+    final result = PrimitiveAllOfBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -160,7 +160,7 @@ class _$MixedAllOfSerializer implements StructuredSerializer<MixedAllOf> {
   @override
   MixedAllOf deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new MixedAllOfBuilder();
+    final result = MixedAllOfBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -201,7 +201,7 @@ class _$OneValueAllOfSerializer implements StructuredSerializer<OneValueAllOf> {
   @override
   OneValueAllOf deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new OneValueAllOfBuilder();
+    final result = OneValueAllOfBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -239,7 +239,7 @@ class _$SuperObjectSerializer implements StructuredSerializer<SuperObject> {
   @override
   SuperObject deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new SuperObjectBuilder();
+    final result = SuperObjectBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -277,7 +277,7 @@ class _$SubObjectSerializer implements StructuredSerializer<SubObject> {
   @override
   SubObject deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new SubObjectBuilder();
+    final result = SubObjectBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -312,18 +312,14 @@ class _$ObjectAllOf extends ObjectAllOf {
   final String attribute2AllOf;
 
   factory _$ObjectAllOf([void Function(ObjectAllOfBuilder)? updates]) =>
-      (new ObjectAllOfBuilder()..update(updates))._build();
+      (ObjectAllOfBuilder()..update(updates))._build();
 
-  _$ObjectAllOf._({required this.attribute1AllOf, required this.attribute2AllOf}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(attribute1AllOf, r'ObjectAllOf', 'attribute1AllOf');
-    BuiltValueNullFieldError.checkNotNull(attribute2AllOf, r'ObjectAllOf', 'attribute2AllOf');
-  }
-
+  _$ObjectAllOf._({required this.attribute1AllOf, required this.attribute2AllOf}) : super._();
   @override
   ObjectAllOf rebuild(void Function(ObjectAllOfBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  ObjectAllOfBuilder toBuilder() => new ObjectAllOfBuilder()..replace(this);
+  ObjectAllOfBuilder toBuilder() => ObjectAllOfBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -376,7 +372,6 @@ class ObjectAllOfBuilder implements Builder<ObjectAllOf, ObjectAllOfBuilder>, $O
 
   @override
   void replace(covariant ObjectAllOf other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ObjectAllOf;
   }
 
@@ -391,7 +386,7 @@ class ObjectAllOfBuilder implements Builder<ObjectAllOf, ObjectAllOfBuilder>, $O
   _$ObjectAllOf _build() {
     ObjectAllOf._validate(this);
     final _$result = _$v ??
-        new _$ObjectAllOf._(
+        _$ObjectAllOf._(
           attribute1AllOf: BuiltValueNullFieldError.checkNotNull(attribute1AllOf, r'ObjectAllOf', 'attribute1AllOf'),
           attribute2AllOf: BuiltValueNullFieldError.checkNotNull(attribute2AllOf, r'ObjectAllOf', 'attribute2AllOf'),
         );
@@ -412,17 +407,14 @@ class _$OneObjectAllOf extends OneObjectAllOf {
   final String attributeAllOf;
 
   factory _$OneObjectAllOf([void Function(OneObjectAllOfBuilder)? updates]) =>
-      (new OneObjectAllOfBuilder()..update(updates))._build();
+      (OneObjectAllOfBuilder()..update(updates))._build();
 
-  _$OneObjectAllOf._({required this.attributeAllOf}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'OneObjectAllOf', 'attributeAllOf');
-  }
-
+  _$OneObjectAllOf._({required this.attributeAllOf}) : super._();
   @override
   OneObjectAllOf rebuild(void Function(OneObjectAllOfBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  OneObjectAllOfBuilder toBuilder() => new OneObjectAllOfBuilder()..replace(this);
+  OneObjectAllOfBuilder toBuilder() => OneObjectAllOfBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -466,7 +458,6 @@ class OneObjectAllOfBuilder implements Builder<OneObjectAllOf, OneObjectAllOfBui
 
   @override
   void replace(covariant OneObjectAllOf other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OneObjectAllOf;
   }
 
@@ -481,7 +472,7 @@ class OneObjectAllOfBuilder implements Builder<OneObjectAllOf, OneObjectAllOfBui
   _$OneObjectAllOf _build() {
     OneObjectAllOf._validate(this);
     final _$result = _$v ??
-        new _$OneObjectAllOf._(
+        _$OneObjectAllOf._(
           attributeAllOf: BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'OneObjectAllOf', 'attributeAllOf'),
         );
     replace(_$result);
@@ -506,18 +497,14 @@ class _$PrimitiveAllOf extends PrimitiveAllOf {
   final String string;
 
   factory _$PrimitiveAllOf([void Function(PrimitiveAllOfBuilder)? updates]) =>
-      (new PrimitiveAllOfBuilder()..update(updates))._build();
+      (PrimitiveAllOfBuilder()..update(updates))._build();
 
-  _$PrimitiveAllOf._({required this.$int, required this.string}) : super._() {
-    BuiltValueNullFieldError.checkNotNull($int, r'PrimitiveAllOf', '\$int');
-    BuiltValueNullFieldError.checkNotNull(string, r'PrimitiveAllOf', 'string');
-  }
-
+  _$PrimitiveAllOf._({required this.$int, required this.string}) : super._();
   @override
   PrimitiveAllOf rebuild(void Function(PrimitiveAllOfBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  PrimitiveAllOfBuilder toBuilder() => new PrimitiveAllOfBuilder()..replace(this);
+  PrimitiveAllOfBuilder toBuilder() => PrimitiveAllOfBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -570,7 +557,6 @@ class PrimitiveAllOfBuilder implements Builder<PrimitiveAllOf, PrimitiveAllOfBui
 
   @override
   void replace(covariant PrimitiveAllOf other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PrimitiveAllOf;
   }
 
@@ -585,7 +571,7 @@ class PrimitiveAllOfBuilder implements Builder<PrimitiveAllOf, PrimitiveAllOfBui
   _$PrimitiveAllOf _build() {
     PrimitiveAllOf._validate(this);
     final _$result = _$v ??
-        new _$PrimitiveAllOf._(
+        _$PrimitiveAllOf._(
           $int: BuiltValueNullFieldError.checkNotNull($int, r'PrimitiveAllOf', '\$int'),
           string: BuiltValueNullFieldError.checkNotNull(string, r'PrimitiveAllOf', 'string'),
         );
@@ -610,19 +596,14 @@ class _$MixedAllOf extends MixedAllOf {
   @override
   final String attributeAllOf;
 
-  factory _$MixedAllOf([void Function(MixedAllOfBuilder)? updates]) =>
-      (new MixedAllOfBuilder()..update(updates))._build();
+  factory _$MixedAllOf([void Function(MixedAllOfBuilder)? updates]) => (MixedAllOfBuilder()..update(updates))._build();
 
-  _$MixedAllOf._({required this.string, required this.attributeAllOf}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(string, r'MixedAllOf', 'string');
-    BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'MixedAllOf', 'attributeAllOf');
-  }
-
+  _$MixedAllOf._({required this.string, required this.attributeAllOf}) : super._();
   @override
   MixedAllOf rebuild(void Function(MixedAllOfBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  MixedAllOfBuilder toBuilder() => new MixedAllOfBuilder()..replace(this);
+  MixedAllOfBuilder toBuilder() => MixedAllOfBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -675,7 +656,6 @@ class MixedAllOfBuilder implements Builder<MixedAllOf, MixedAllOfBuilder>, $Mixe
 
   @override
   void replace(covariant MixedAllOf other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MixedAllOf;
   }
 
@@ -690,7 +670,7 @@ class MixedAllOfBuilder implements Builder<MixedAllOf, MixedAllOfBuilder>, $Mixe
   _$MixedAllOf _build() {
     MixedAllOf._validate(this);
     final _$result = _$v ??
-        new _$MixedAllOf._(
+        _$MixedAllOf._(
           string: BuiltValueNullFieldError.checkNotNull(string, r'MixedAllOf', 'string'),
           attributeAllOf: BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'MixedAllOf', 'attributeAllOf'),
         );
@@ -711,17 +691,14 @@ class _$OneValueAllOf extends OneValueAllOf {
   final String string;
 
   factory _$OneValueAllOf([void Function(OneValueAllOfBuilder)? updates]) =>
-      (new OneValueAllOfBuilder()..update(updates))._build();
+      (OneValueAllOfBuilder()..update(updates))._build();
 
-  _$OneValueAllOf._({required this.string}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(string, r'OneValueAllOf', 'string');
-  }
-
+  _$OneValueAllOf._({required this.string}) : super._();
   @override
   OneValueAllOf rebuild(void Function(OneValueAllOfBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  OneValueAllOfBuilder toBuilder() => new OneValueAllOfBuilder()..replace(this);
+  OneValueAllOfBuilder toBuilder() => OneValueAllOfBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -765,7 +742,6 @@ class OneValueAllOfBuilder implements Builder<OneValueAllOf, OneValueAllOfBuilde
 
   @override
   void replace(covariant OneValueAllOf other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OneValueAllOf;
   }
 
@@ -780,7 +756,7 @@ class OneValueAllOfBuilder implements Builder<OneValueAllOf, OneValueAllOfBuilde
   _$OneValueAllOf _build() {
     OneValueAllOf._validate(this);
     final _$result = _$v ??
-        new _$OneValueAllOf._(
+        _$OneValueAllOf._(
           string: BuiltValueNullFieldError.checkNotNull(string, r'OneValueAllOf', 'string'),
         );
     replace(_$result);
@@ -800,17 +776,14 @@ class _$SuperObject extends SuperObject {
   final String value;
 
   factory _$SuperObject([void Function(SuperObjectBuilder)? updates]) =>
-      (new SuperObjectBuilder()..update(updates))._build();
+      (SuperObjectBuilder()..update(updates))._build();
 
-  _$SuperObject._({required this.value}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(value, r'SuperObject', 'value');
-  }
-
+  _$SuperObject._({required this.value}) : super._();
   @override
   SuperObject rebuild(void Function(SuperObjectBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  SuperObjectBuilder toBuilder() => new SuperObjectBuilder()..replace(this);
+  SuperObjectBuilder toBuilder() => SuperObjectBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -854,7 +827,6 @@ class SuperObjectBuilder implements Builder<SuperObject, SuperObjectBuilder>, $S
 
   @override
   void replace(covariant SuperObject other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SuperObject;
   }
 
@@ -869,7 +841,7 @@ class SuperObjectBuilder implements Builder<SuperObject, SuperObjectBuilder>, $S
   _$SuperObject _build() {
     SuperObject._validate(this);
     final _$result = _$v ??
-        new _$SuperObject._(
+        _$SuperObject._(
           value: BuiltValueNullFieldError.checkNotNull(value, r'SuperObject', 'value'),
         );
     replace(_$result);
@@ -888,17 +860,14 @@ class _$SubObject extends SubObject {
   @override
   final String value;
 
-  factory _$SubObject([void Function(SubObjectBuilder)? updates]) => (new SubObjectBuilder()..update(updates))._build();
+  factory _$SubObject([void Function(SubObjectBuilder)? updates]) => (SubObjectBuilder()..update(updates))._build();
 
-  _$SubObject._({required this.value}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(value, r'SubObject', 'value');
-  }
-
+  _$SubObject._({required this.value}) : super._();
   @override
   SubObject rebuild(void Function(SubObjectBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  SubObjectBuilder toBuilder() => new SubObjectBuilder()..replace(this);
+  SubObjectBuilder toBuilder() => SubObjectBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -942,7 +911,6 @@ class SubObjectBuilder implements Builder<SubObject, SubObjectBuilder>, $SubObje
 
   @override
   void replace(covariant SubObject other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SubObject;
   }
 
@@ -957,7 +925,7 @@ class SubObjectBuilder implements Builder<SubObject, SubObjectBuilder>, $SubObje
   _$SubObject _build() {
     SubObject._validate(this);
     final _$result = _$v ??
-        new _$SubObject._(
+        _$SubObject._(
           value: BuiltValueNullFieldError.checkNotNull(value, r'SubObject', 'value'),
         );
     replace(_$result);

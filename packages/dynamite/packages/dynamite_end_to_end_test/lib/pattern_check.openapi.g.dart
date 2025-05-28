@@ -6,8 +6,8 @@ part of 'pattern_check.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<TestObject> _$testObjectSerializer = new _$TestObjectSerializer();
-Serializer<TestObjectUnspecified> _$testObjectUnspecifiedSerializer = new _$TestObjectUnspecifiedSerializer();
+Serializer<TestObject> _$testObjectSerializer = _$TestObjectSerializer();
+Serializer<TestObjectUnspecified> _$testObjectUnspecifiedSerializer = _$TestObjectUnspecifiedSerializer();
 
 class _$TestObjectSerializer implements StructuredSerializer<TestObject> {
   @override
@@ -110,7 +110,7 @@ class _$TestObjectSerializer implements StructuredSerializer<TestObject> {
   @override
   TestObject deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new TestObjectBuilder();
+    final result = TestObjectBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -195,7 +195,7 @@ class _$TestObjectUnspecifiedSerializer implements StructuredSerializer<TestObje
   @override
   TestObjectUnspecified deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new TestObjectUnspecifiedBuilder();
+    final result = TestObjectUnspecifiedBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -289,8 +289,7 @@ class _$TestObject extends TestObject {
   @override
   final num? numberMultipleChecks;
 
-  factory _$TestObject([void Function(TestObjectBuilder)? updates]) =>
-      (new TestObjectBuilder()..update(updates))._build();
+  factory _$TestObject([void Function(TestObjectBuilder)? updates]) => (TestObjectBuilder()..update(updates))._build();
 
   _$TestObject._(
       {this.onlyNumbers,
@@ -308,12 +307,11 @@ class _$TestObject extends TestObject {
       this.exclusiveMinimum,
       this.numberMultipleChecks})
       : super._();
-
   @override
   TestObject rebuild(void Function(TestObjectBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  TestObjectBuilder toBuilder() => new TestObjectBuilder()..replace(this);
+  TestObjectBuilder toBuilder() => TestObjectBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -398,19 +396,19 @@ class TestObjectBuilder implements Builder<TestObject, TestObjectBuilder>, $Test
       _$this._stringMultipleChecks = stringMultipleChecks;
 
   ListBuilder<int>? _minItems;
-  ListBuilder<int> get minItems => _$this._minItems ??= new ListBuilder<int>();
+  ListBuilder<int> get minItems => _$this._minItems ??= ListBuilder<int>();
   set minItems(covariant ListBuilder<int>? minItems) => _$this._minItems = minItems;
 
   ListBuilder<int>? _maxItems;
-  ListBuilder<int> get maxItems => _$this._maxItems ??= new ListBuilder<int>();
+  ListBuilder<int> get maxItems => _$this._maxItems ??= ListBuilder<int>();
   set maxItems(covariant ListBuilder<int>? maxItems) => _$this._maxItems = maxItems;
 
   SetBuilder<int>? _arrayUnique;
-  SetBuilder<int> get arrayUnique => _$this._arrayUnique ??= new SetBuilder<int>();
+  SetBuilder<int> get arrayUnique => _$this._arrayUnique ??= SetBuilder<int>();
   set arrayUnique(covariant SetBuilder<int>? arrayUnique) => _$this._arrayUnique = arrayUnique;
 
   SetBuilder<int>? _arrayMultipleChecks;
-  SetBuilder<int> get arrayMultipleChecks => _$this._arrayMultipleChecks ??= new SetBuilder<int>();
+  SetBuilder<int> get arrayMultipleChecks => _$this._arrayMultipleChecks ??= SetBuilder<int>();
   set arrayMultipleChecks(covariant SetBuilder<int>? arrayMultipleChecks) =>
       _$this._arrayMultipleChecks = arrayMultipleChecks;
 
@@ -466,7 +464,6 @@ class TestObjectBuilder implements Builder<TestObject, TestObjectBuilder>, $Test
 
   @override
   void replace(covariant TestObject other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TestObject;
   }
 
@@ -483,7 +480,7 @@ class TestObjectBuilder implements Builder<TestObject, TestObjectBuilder>, $Test
     _$TestObject _$result;
     try {
       _$result = _$v ??
-          new _$TestObject._(
+          _$TestObject._(
             onlyNumbers: onlyNumbers,
             minLength: minLength,
             maxLength: maxLength,
@@ -511,7 +508,7 @@ class TestObjectBuilder implements Builder<TestObject, TestObjectBuilder>, $Test
         _$failedField = 'arrayMultipleChecks';
         _arrayMultipleChecks?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'TestObject', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'TestObject', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -532,16 +529,15 @@ class _$TestObjectUnspecified extends TestObjectUnspecified {
   final JsonObject? value;
 
   factory _$TestObjectUnspecified([void Function(TestObjectUnspecifiedBuilder)? updates]) =>
-      (new TestObjectUnspecifiedBuilder()..update(updates))._build();
+      (TestObjectUnspecifiedBuilder()..update(updates))._build();
 
   _$TestObjectUnspecified._({this.value}) : super._();
-
   @override
   TestObjectUnspecified rebuild(void Function(TestObjectUnspecifiedBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  TestObjectUnspecifiedBuilder toBuilder() => new TestObjectUnspecifiedBuilder()..replace(this);
+  TestObjectUnspecifiedBuilder toBuilder() => TestObjectUnspecifiedBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -586,7 +582,6 @@ class TestObjectUnspecifiedBuilder
 
   @override
   void replace(covariant TestObjectUnspecified other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TestObjectUnspecified;
   }
 
@@ -601,7 +596,7 @@ class TestObjectUnspecifiedBuilder
   _$TestObjectUnspecified _build() {
     TestObjectUnspecified._validate(this);
     final _$result = _$v ??
-        new _$TestObjectUnspecified._(
+        _$TestObjectUnspecified._(
           value: value,
         );
     replace(_$result);

@@ -6,67 +6,67 @@ part of 'dashboard.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<OCSMeta> _$oCSMetaSerializer = new _$OCSMetaSerializer();
-Serializer<WidgetItem> _$widgetItemSerializer = new _$WidgetItemSerializer();
+Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
+Serializer<WidgetItem> _$widgetItemSerializer = _$WidgetItemSerializer();
 Serializer<DashboardApiGetWidgetItemsResponseApplicationJson_Ocs>
     _$dashboardApiGetWidgetItemsResponseApplicationJsonOcsSerializer =
-    new _$DashboardApiGetWidgetItemsResponseApplicationJson_OcsSerializer();
+    _$DashboardApiGetWidgetItemsResponseApplicationJson_OcsSerializer();
 Serializer<DashboardApiGetWidgetItemsResponseApplicationJson>
     _$dashboardApiGetWidgetItemsResponseApplicationJsonSerializer =
-    new _$DashboardApiGetWidgetItemsResponseApplicationJsonSerializer();
-Serializer<WidgetItems> _$widgetItemsSerializer = new _$WidgetItemsSerializer();
+    _$DashboardApiGetWidgetItemsResponseApplicationJsonSerializer();
+Serializer<WidgetItems> _$widgetItemsSerializer = _$WidgetItemsSerializer();
 Serializer<DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs>
     _$dashboardApiGetWidgetItemsV2ResponseApplicationJsonOcsSerializer =
-    new _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsSerializer();
+    _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsSerializer();
 Serializer<DashboardApiGetWidgetItemsV2ResponseApplicationJson>
     _$dashboardApiGetWidgetItemsV2ResponseApplicationJsonSerializer =
-    new _$DashboardApiGetWidgetItemsV2ResponseApplicationJsonSerializer();
-Serializer<Widget_Buttons> _$widgetButtonsSerializer = new _$Widget_ButtonsSerializer();
-Serializer<Widget> _$widgetSerializer = new _$WidgetSerializer();
+    _$DashboardApiGetWidgetItemsV2ResponseApplicationJsonSerializer();
+Serializer<Widget_Buttons> _$widgetButtonsSerializer = _$Widget_ButtonsSerializer();
+Serializer<Widget> _$widgetSerializer = _$WidgetSerializer();
 Serializer<DashboardApiGetWidgetsResponseApplicationJson_Ocs>
     _$dashboardApiGetWidgetsResponseApplicationJsonOcsSerializer =
-    new _$DashboardApiGetWidgetsResponseApplicationJson_OcsSerializer();
+    _$DashboardApiGetWidgetsResponseApplicationJson_OcsSerializer();
 Serializer<DashboardApiGetWidgetsResponseApplicationJson> _$dashboardApiGetWidgetsResponseApplicationJsonSerializer =
-    new _$DashboardApiGetWidgetsResponseApplicationJsonSerializer();
+    _$DashboardApiGetWidgetsResponseApplicationJsonSerializer();
 Serializer<DashboardApiGetLayoutResponseApplicationJson_Ocs_Data>
     _$dashboardApiGetLayoutResponseApplicationJsonOcsDataSerializer =
-    new _$DashboardApiGetLayoutResponseApplicationJson_Ocs_DataSerializer();
+    _$DashboardApiGetLayoutResponseApplicationJson_Ocs_DataSerializer();
 Serializer<DashboardApiGetLayoutResponseApplicationJson_Ocs>
     _$dashboardApiGetLayoutResponseApplicationJsonOcsSerializer =
-    new _$DashboardApiGetLayoutResponseApplicationJson_OcsSerializer();
+    _$DashboardApiGetLayoutResponseApplicationJson_OcsSerializer();
 Serializer<DashboardApiGetLayoutResponseApplicationJson> _$dashboardApiGetLayoutResponseApplicationJsonSerializer =
-    new _$DashboardApiGetLayoutResponseApplicationJsonSerializer();
+    _$DashboardApiGetLayoutResponseApplicationJsonSerializer();
 Serializer<DashboardApiUpdateLayoutRequestApplicationJson> _$dashboardApiUpdateLayoutRequestApplicationJsonSerializer =
-    new _$DashboardApiUpdateLayoutRequestApplicationJsonSerializer();
+    _$DashboardApiUpdateLayoutRequestApplicationJsonSerializer();
 Serializer<DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data>
     _$dashboardApiUpdateLayoutResponseApplicationJsonOcsDataSerializer =
-    new _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataSerializer();
+    _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataSerializer();
 Serializer<DashboardApiUpdateLayoutResponseApplicationJson_Ocs>
     _$dashboardApiUpdateLayoutResponseApplicationJsonOcsSerializer =
-    new _$DashboardApiUpdateLayoutResponseApplicationJson_OcsSerializer();
+    _$DashboardApiUpdateLayoutResponseApplicationJson_OcsSerializer();
 Serializer<DashboardApiUpdateLayoutResponseApplicationJson>
     _$dashboardApiUpdateLayoutResponseApplicationJsonSerializer =
-    new _$DashboardApiUpdateLayoutResponseApplicationJsonSerializer();
+    _$DashboardApiUpdateLayoutResponseApplicationJsonSerializer();
 Serializer<DashboardApiGetStatusesResponseApplicationJson_Ocs_Data>
     _$dashboardApiGetStatusesResponseApplicationJsonOcsDataSerializer =
-    new _$DashboardApiGetStatusesResponseApplicationJson_Ocs_DataSerializer();
+    _$DashboardApiGetStatusesResponseApplicationJson_Ocs_DataSerializer();
 Serializer<DashboardApiGetStatusesResponseApplicationJson_Ocs>
     _$dashboardApiGetStatusesResponseApplicationJsonOcsSerializer =
-    new _$DashboardApiGetStatusesResponseApplicationJson_OcsSerializer();
+    _$DashboardApiGetStatusesResponseApplicationJson_OcsSerializer();
 Serializer<DashboardApiGetStatusesResponseApplicationJson> _$dashboardApiGetStatusesResponseApplicationJsonSerializer =
-    new _$DashboardApiGetStatusesResponseApplicationJsonSerializer();
+    _$DashboardApiGetStatusesResponseApplicationJsonSerializer();
 Serializer<DashboardApiUpdateStatusesRequestApplicationJson>
     _$dashboardApiUpdateStatusesRequestApplicationJsonSerializer =
-    new _$DashboardApiUpdateStatusesRequestApplicationJsonSerializer();
+    _$DashboardApiUpdateStatusesRequestApplicationJsonSerializer();
 Serializer<DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data>
     _$dashboardApiUpdateStatusesResponseApplicationJsonOcsDataSerializer =
-    new _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataSerializer();
+    _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataSerializer();
 Serializer<DashboardApiUpdateStatusesResponseApplicationJson_Ocs>
     _$dashboardApiUpdateStatusesResponseApplicationJsonOcsSerializer =
-    new _$DashboardApiUpdateStatusesResponseApplicationJson_OcsSerializer();
+    _$DashboardApiUpdateStatusesResponseApplicationJson_OcsSerializer();
 Serializer<DashboardApiUpdateStatusesResponseApplicationJson>
     _$dashboardApiUpdateStatusesResponseApplicationJsonSerializer =
-    new _$DashboardApiUpdateStatusesResponseApplicationJsonSerializer();
+    _$DashboardApiUpdateStatusesResponseApplicationJsonSerializer();
 
 class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
@@ -108,7 +108,7 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
   OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new OCSMetaBuilder();
+    final result = OCSMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -168,7 +168,7 @@ class _$WidgetItemSerializer implements StructuredSerializer<WidgetItem> {
   @override
   WidgetItem deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new WidgetItemBuilder();
+    final result = WidgetItemBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -232,7 +232,7 @@ class _$DashboardApiGetWidgetItemsResponseApplicationJson_OcsSerializer
   DashboardApiGetWidgetItemsResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder();
+    final result = DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -282,7 +282,7 @@ class _$DashboardApiGetWidgetItemsResponseApplicationJsonSerializer
   @override
   DashboardApiGetWidgetItemsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DashboardApiGetWidgetItemsResponseApplicationJsonBuilder();
+    final result = DashboardApiGetWidgetItemsResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -326,7 +326,7 @@ class _$WidgetItemsSerializer implements StructuredSerializer<WidgetItems> {
   @override
   WidgetItems deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new WidgetItemsBuilder();
+    final result = WidgetItemsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -380,7 +380,7 @@ class _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsSerializer
   DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder();
+    final result = DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -427,7 +427,7 @@ class _$DashboardApiGetWidgetItemsV2ResponseApplicationJsonSerializer
   @override
   DashboardApiGetWidgetItemsV2ResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder();
+    final result = DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -471,7 +471,7 @@ class _$Widget_ButtonsSerializer implements StructuredSerializer<Widget_Buttons>
   @override
   Widget_Buttons deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new Widget_ButtonsBuilder();
+    final result = Widget_ButtonsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -542,7 +542,7 @@ class _$WidgetSerializer implements StructuredSerializer<Widget> {
   @override
   Widget deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new WidgetBuilder();
+    final result = WidgetBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -616,7 +616,7 @@ class _$DashboardApiGetWidgetsResponseApplicationJson_OcsSerializer
   @override
   DashboardApiGetWidgetsResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder();
+    final result = DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -663,7 +663,7 @@ class _$DashboardApiGetWidgetsResponseApplicationJsonSerializer
   @override
   DashboardApiGetWidgetsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DashboardApiGetWidgetsResponseApplicationJsonBuilder();
+    final result = DashboardApiGetWidgetsResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -708,7 +708,7 @@ class _$DashboardApiGetLayoutResponseApplicationJson_Ocs_DataSerializer
   DashboardApiGetLayoutResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder();
+    final result = DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -754,7 +754,7 @@ class _$DashboardApiGetLayoutResponseApplicationJson_OcsSerializer
   @override
   DashboardApiGetLayoutResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DashboardApiGetLayoutResponseApplicationJson_OcsBuilder();
+    final result = DashboardApiGetLayoutResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -802,7 +802,7 @@ class _$DashboardApiGetLayoutResponseApplicationJsonSerializer
   @override
   DashboardApiGetLayoutResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DashboardApiGetLayoutResponseApplicationJsonBuilder();
+    final result = DashboardApiGetLayoutResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -846,7 +846,7 @@ class _$DashboardApiUpdateLayoutRequestApplicationJsonSerializer
   @override
   DashboardApiUpdateLayoutRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DashboardApiUpdateLayoutRequestApplicationJsonBuilder();
+    final result = DashboardApiUpdateLayoutRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -890,7 +890,7 @@ class _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataSerializer
   DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder();
+    final result = DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -936,7 +936,7 @@ class _$DashboardApiUpdateLayoutResponseApplicationJson_OcsSerializer
   @override
   DashboardApiUpdateLayoutResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder();
+    final result = DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -984,7 +984,7 @@ class _$DashboardApiUpdateLayoutResponseApplicationJsonSerializer
   @override
   DashboardApiUpdateLayoutResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DashboardApiUpdateLayoutResponseApplicationJsonBuilder();
+    final result = DashboardApiUpdateLayoutResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1029,7 +1029,7 @@ class _$DashboardApiGetStatusesResponseApplicationJson_Ocs_DataSerializer
   DashboardApiGetStatusesResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder();
+    final result = DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1075,7 +1075,7 @@ class _$DashboardApiGetStatusesResponseApplicationJson_OcsSerializer
   @override
   DashboardApiGetStatusesResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DashboardApiGetStatusesResponseApplicationJson_OcsBuilder();
+    final result = DashboardApiGetStatusesResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1123,7 +1123,7 @@ class _$DashboardApiGetStatusesResponseApplicationJsonSerializer
   @override
   DashboardApiGetStatusesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DashboardApiGetStatusesResponseApplicationJsonBuilder();
+    final result = DashboardApiGetStatusesResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1167,7 +1167,7 @@ class _$DashboardApiUpdateStatusesRequestApplicationJsonSerializer
   @override
   DashboardApiUpdateStatusesRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DashboardApiUpdateStatusesRequestApplicationJsonBuilder();
+    final result = DashboardApiUpdateStatusesRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1212,7 +1212,7 @@ class _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataSerializer
   DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder();
+    final result = DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1259,7 +1259,7 @@ class _$DashboardApiUpdateStatusesResponseApplicationJson_OcsSerializer
   DashboardApiUpdateStatusesResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder();
+    final result = DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1307,7 +1307,7 @@ class _$DashboardApiUpdateStatusesResponseApplicationJsonSerializer
   @override
   DashboardApiUpdateStatusesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DashboardApiUpdateStatusesResponseApplicationJsonBuilder();
+    final result = DashboardApiUpdateStatusesResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1358,19 +1358,15 @@ class _$OCSMeta extends OCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (new OCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status');
-    BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode');
-  }
-
+      : super._();
   @override
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  OCSMetaBuilder toBuilder() => new OCSMetaBuilder()..replace(this);
+  OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1449,7 +1445,6 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
   @override
   void replace(covariant OCSMeta other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OCSMeta;
   }
 
@@ -1464,7 +1459,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   _$OCSMeta _build() {
     OCSMeta._validate(this);
     final _$result = _$v ??
-        new _$OCSMeta._(
+        _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
           message: message,
@@ -1512,8 +1507,7 @@ class _$WidgetItem extends WidgetItem {
   @override
   final String sinceId;
 
-  factory _$WidgetItem([void Function(WidgetItemBuilder)? updates]) =>
-      (new WidgetItemBuilder()..update(updates))._build();
+  factory _$WidgetItem([void Function(WidgetItemBuilder)? updates]) => (WidgetItemBuilder()..update(updates))._build();
 
   _$WidgetItem._(
       {required this.subtitle,
@@ -1522,20 +1516,12 @@ class _$WidgetItem extends WidgetItem {
       required this.iconUrl,
       required this.overlayIconUrl,
       required this.sinceId})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(subtitle, r'WidgetItem', 'subtitle');
-    BuiltValueNullFieldError.checkNotNull(title, r'WidgetItem', 'title');
-    BuiltValueNullFieldError.checkNotNull(link, r'WidgetItem', 'link');
-    BuiltValueNullFieldError.checkNotNull(iconUrl, r'WidgetItem', 'iconUrl');
-    BuiltValueNullFieldError.checkNotNull(overlayIconUrl, r'WidgetItem', 'overlayIconUrl');
-    BuiltValueNullFieldError.checkNotNull(sinceId, r'WidgetItem', 'sinceId');
-  }
-
+      : super._();
   @override
   WidgetItem rebuild(void Function(WidgetItemBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  WidgetItemBuilder toBuilder() => new WidgetItemBuilder()..replace(this);
+  WidgetItemBuilder toBuilder() => WidgetItemBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1622,7 +1608,6 @@ class WidgetItemBuilder implements Builder<WidgetItem, WidgetItemBuilder>, $Widg
 
   @override
   void replace(covariant WidgetItem other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WidgetItem;
   }
 
@@ -1637,7 +1622,7 @@ class WidgetItemBuilder implements Builder<WidgetItem, WidgetItemBuilder>, $Widg
   _$WidgetItem _build() {
     WidgetItem._validate(this);
     final _$result = _$v ??
-        new _$WidgetItem._(
+        _$WidgetItem._(
           subtitle: BuiltValueNullFieldError.checkNotNull(subtitle, r'WidgetItem', 'subtitle'),
           title: BuiltValueNullFieldError.checkNotNull(title, r'WidgetItem', 'title'),
           link: BuiltValueNullFieldError.checkNotNull(link, r'WidgetItem', 'link'),
@@ -1669,13 +1654,9 @@ class _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
 
   factory _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs(
           [void Function(DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'DashboardApiGetWidgetItemsResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'DashboardApiGetWidgetItemsResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   DashboardApiGetWidgetItemsResponseApplicationJson_Ocs rebuild(
           void Function(DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder) updates) =>
@@ -1683,7 +1664,7 @@ class _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
 
   @override
   DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder toBuilder() =>
-      new DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder()..replace(this);
+      DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1717,12 +1698,11 @@ class DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder
   _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   MapBuilder<String, BuiltList<WidgetItem>>? _data;
-  MapBuilder<String, BuiltList<WidgetItem>> get data =>
-      _$this._data ??= new MapBuilder<String, BuiltList<WidgetItem>>();
+  MapBuilder<String, BuiltList<WidgetItem>> get data => _$this._data ??= MapBuilder<String, BuiltList<WidgetItem>>();
   set data(covariant MapBuilder<String, BuiltList<WidgetItem>>? data) => _$this._data = data;
 
   DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder() {
@@ -1741,7 +1721,6 @@ class DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant DashboardApiGetWidgetItemsResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs;
   }
 
@@ -1758,7 +1737,7 @@ class DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder
     _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs._(
+          _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -1770,7 +1749,7 @@ class DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DashboardApiGetWidgetItemsResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -1793,12 +1772,9 @@ class _$DashboardApiGetWidgetItemsResponseApplicationJson extends DashboardApiGe
 
   factory _$DashboardApiGetWidgetItemsResponseApplicationJson(
           [void Function(DashboardApiGetWidgetItemsResponseApplicationJsonBuilder)? updates]) =>
-      (new DashboardApiGetWidgetItemsResponseApplicationJsonBuilder()..update(updates))._build();
+      (DashboardApiGetWidgetItemsResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$DashboardApiGetWidgetItemsResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'DashboardApiGetWidgetItemsResponseApplicationJson', 'ocs');
-  }
-
+  _$DashboardApiGetWidgetItemsResponseApplicationJson._({required this.ocs}) : super._();
   @override
   DashboardApiGetWidgetItemsResponseApplicationJson rebuild(
           void Function(DashboardApiGetWidgetItemsResponseApplicationJsonBuilder) updates) =>
@@ -1806,7 +1782,7 @@ class _$DashboardApiGetWidgetItemsResponseApplicationJson extends DashboardApiGe
 
   @override
   DashboardApiGetWidgetItemsResponseApplicationJsonBuilder toBuilder() =>
-      new DashboardApiGetWidgetItemsResponseApplicationJsonBuilder()..replace(this);
+      DashboardApiGetWidgetItemsResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1838,7 +1814,7 @@ class DashboardApiGetWidgetItemsResponseApplicationJsonBuilder
 
   DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder? _ocs;
   DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder();
   set ocs(covariant DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   DashboardApiGetWidgetItemsResponseApplicationJsonBuilder() {
@@ -1856,7 +1832,6 @@ class DashboardApiGetWidgetItemsResponseApplicationJsonBuilder
 
   @override
   void replace(covariant DashboardApiGetWidgetItemsResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardApiGetWidgetItemsResponseApplicationJson;
   }
 
@@ -1873,7 +1848,7 @@ class DashboardApiGetWidgetItemsResponseApplicationJsonBuilder
     _$DashboardApiGetWidgetItemsResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$DashboardApiGetWidgetItemsResponseApplicationJson._(
+          _$DashboardApiGetWidgetItemsResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -1882,7 +1857,7 @@ class DashboardApiGetWidgetItemsResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DashboardApiGetWidgetItemsResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -1914,20 +1889,15 @@ class _$WidgetItems extends WidgetItems {
   final String halfEmptyContentMessage;
 
   factory _$WidgetItems([void Function(WidgetItemsBuilder)? updates]) =>
-      (new WidgetItemsBuilder()..update(updates))._build();
+      (WidgetItemsBuilder()..update(updates))._build();
 
   _$WidgetItems._({required this.items, required this.emptyContentMessage, required this.halfEmptyContentMessage})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(items, r'WidgetItems', 'items');
-    BuiltValueNullFieldError.checkNotNull(emptyContentMessage, r'WidgetItems', 'emptyContentMessage');
-    BuiltValueNullFieldError.checkNotNull(halfEmptyContentMessage, r'WidgetItems', 'halfEmptyContentMessage');
-  }
-
+      : super._();
   @override
   WidgetItems rebuild(void Function(WidgetItemsBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  WidgetItemsBuilder toBuilder() => new WidgetItemsBuilder()..replace(this);
+  WidgetItemsBuilder toBuilder() => WidgetItemsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1962,7 +1932,7 @@ class WidgetItemsBuilder implements Builder<WidgetItems, WidgetItemsBuilder>, $W
   _$WidgetItems? _$v;
 
   ListBuilder<WidgetItem>? _items;
-  ListBuilder<WidgetItem> get items => _$this._items ??= new ListBuilder<WidgetItem>();
+  ListBuilder<WidgetItem> get items => _$this._items ??= ListBuilder<WidgetItem>();
   set items(covariant ListBuilder<WidgetItem>? items) => _$this._items = items;
 
   String? _emptyContentMessage;
@@ -1991,7 +1961,6 @@ class WidgetItemsBuilder implements Builder<WidgetItems, WidgetItemsBuilder>, $W
 
   @override
   void replace(covariant WidgetItems other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WidgetItems;
   }
 
@@ -2008,7 +1977,7 @@ class WidgetItemsBuilder implements Builder<WidgetItems, WidgetItemsBuilder>, $W
     _$WidgetItems _$result;
     try {
       _$result = _$v ??
-          new _$WidgetItems._(
+          _$WidgetItems._(
             items: items.build(),
             emptyContentMessage:
                 BuiltValueNullFieldError.checkNotNull(emptyContentMessage, r'WidgetItems', 'emptyContentMessage'),
@@ -2021,7 +1990,7 @@ class WidgetItemsBuilder implements Builder<WidgetItems, WidgetItemsBuilder>, $W
         _$failedField = 'items';
         items.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'WidgetItems', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'WidgetItems', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2049,13 +2018,9 @@ class _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
 
   factory _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs(
           [void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs rebuild(
           void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder) updates) =>
@@ -2063,7 +2028,7 @@ class _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
 
   @override
   DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder toBuilder() =>
-      new DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder()..replace(this);
+      DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2097,11 +2062,11 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder
   _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   MapBuilder<String, WidgetItems>? _data;
-  MapBuilder<String, WidgetItems> get data => _$this._data ??= new MapBuilder<String, WidgetItems>();
+  MapBuilder<String, WidgetItems> get data => _$this._data ??= MapBuilder<String, WidgetItems>();
   set data(covariant MapBuilder<String, WidgetItems>? data) => _$this._data = data;
 
   DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder() {
@@ -2120,7 +2085,6 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs;
   }
 
@@ -2137,7 +2101,7 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder
     _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs._(
+          _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -2149,7 +2113,7 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -2173,12 +2137,9 @@ class _$DashboardApiGetWidgetItemsV2ResponseApplicationJson
 
   factory _$DashboardApiGetWidgetItemsV2ResponseApplicationJson(
           [void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder)? updates]) =>
-      (new DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder()..update(updates))._build();
+      (DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$DashboardApiGetWidgetItemsV2ResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'DashboardApiGetWidgetItemsV2ResponseApplicationJson', 'ocs');
-  }
-
+  _$DashboardApiGetWidgetItemsV2ResponseApplicationJson._({required this.ocs}) : super._();
   @override
   DashboardApiGetWidgetItemsV2ResponseApplicationJson rebuild(
           void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder) updates) =>
@@ -2186,7 +2147,7 @@ class _$DashboardApiGetWidgetItemsV2ResponseApplicationJson
 
   @override
   DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder toBuilder() =>
-      new DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder()..replace(this);
+      DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2218,7 +2179,7 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder
 
   DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder? _ocs;
   DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder();
   set ocs(covariant DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder() {
@@ -2236,7 +2197,6 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder
 
   @override
   void replace(covariant DashboardApiGetWidgetItemsV2ResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardApiGetWidgetItemsV2ResponseApplicationJson;
   }
 
@@ -2253,7 +2213,7 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder
     _$DashboardApiGetWidgetItemsV2ResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$DashboardApiGetWidgetItemsV2ResponseApplicationJson._(
+          _$DashboardApiGetWidgetItemsV2ResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -2262,7 +2222,7 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DashboardApiGetWidgetItemsV2ResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -2294,19 +2254,14 @@ class _$Widget_Buttons extends Widget_Buttons {
   final String link;
 
   factory _$Widget_Buttons([void Function(Widget_ButtonsBuilder)? updates]) =>
-      (new Widget_ButtonsBuilder()..update(updates))._build();
+      (Widget_ButtonsBuilder()..update(updates))._build();
 
-  _$Widget_Buttons._({required this.type, required this.text, required this.link}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(type, r'Widget_Buttons', 'type');
-    BuiltValueNullFieldError.checkNotNull(text, r'Widget_Buttons', 'text');
-    BuiltValueNullFieldError.checkNotNull(link, r'Widget_Buttons', 'link');
-  }
-
+  _$Widget_Buttons._({required this.type, required this.text, required this.link}) : super._();
   @override
   Widget_Buttons rebuild(void Function(Widget_ButtonsBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  Widget_ButtonsBuilder toBuilder() => new Widget_ButtonsBuilder()..replace(this);
+  Widget_ButtonsBuilder toBuilder() => Widget_ButtonsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2366,7 +2321,6 @@ class Widget_ButtonsBuilder implements Builder<Widget_Buttons, Widget_ButtonsBui
 
   @override
   void replace(covariant Widget_Buttons other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Widget_Buttons;
   }
 
@@ -2381,7 +2335,7 @@ class Widget_ButtonsBuilder implements Builder<Widget_Buttons, Widget_ButtonsBui
   _$Widget_Buttons _build() {
     Widget_Buttons._validate(this);
     final _$result = _$v ??
-        new _$Widget_Buttons._(
+        _$Widget_Buttons._(
           type: BuiltValueNullFieldError.checkNotNull(type, r'Widget_Buttons', 'type'),
           text: BuiltValueNullFieldError.checkNotNull(text, r'Widget_Buttons', 'text'),
           link: BuiltValueNullFieldError.checkNotNull(link, r'Widget_Buttons', 'link'),
@@ -2447,7 +2401,7 @@ class _$Widget extends Widget {
   @override
   final BuiltList<Widget_Buttons>? buttons;
 
-  factory _$Widget([void Function(WidgetBuilder)? updates]) => (new WidgetBuilder()..update(updates))._build();
+  factory _$Widget([void Function(WidgetBuilder)? updates]) => (WidgetBuilder()..update(updates))._build();
 
   _$Widget._(
       {required this.id,
@@ -2460,22 +2414,12 @@ class _$Widget extends Widget {
       required this.itemApiVersions,
       required this.reloadInterval,
       this.buttons})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'Widget', 'id');
-    BuiltValueNullFieldError.checkNotNull(title, r'Widget', 'title');
-    BuiltValueNullFieldError.checkNotNull(order, r'Widget', 'order');
-    BuiltValueNullFieldError.checkNotNull(iconClass, r'Widget', 'iconClass');
-    BuiltValueNullFieldError.checkNotNull(iconUrl, r'Widget', 'iconUrl');
-    BuiltValueNullFieldError.checkNotNull(itemIconsRound, r'Widget', 'itemIconsRound');
-    BuiltValueNullFieldError.checkNotNull(itemApiVersions, r'Widget', 'itemApiVersions');
-    BuiltValueNullFieldError.checkNotNull(reloadInterval, r'Widget', 'reloadInterval');
-  }
-
+      : super._();
   @override
   Widget rebuild(void Function(WidgetBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  WidgetBuilder toBuilder() => new WidgetBuilder()..replace(this);
+  WidgetBuilder toBuilder() => WidgetBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2559,7 +2503,7 @@ class WidgetBuilder implements Builder<Widget, WidgetBuilder>, $WidgetInterfaceB
   set itemIconsRound(covariant bool? itemIconsRound) => _$this._itemIconsRound = itemIconsRound;
 
   ListBuilder<int>? _itemApiVersions;
-  ListBuilder<int> get itemApiVersions => _$this._itemApiVersions ??= new ListBuilder<int>();
+  ListBuilder<int> get itemApiVersions => _$this._itemApiVersions ??= ListBuilder<int>();
   set itemApiVersions(covariant ListBuilder<int>? itemApiVersions) => _$this._itemApiVersions = itemApiVersions;
 
   int? _reloadInterval;
@@ -2567,7 +2511,7 @@ class WidgetBuilder implements Builder<Widget, WidgetBuilder>, $WidgetInterfaceB
   set reloadInterval(covariant int? reloadInterval) => _$this._reloadInterval = reloadInterval;
 
   ListBuilder<Widget_Buttons>? _buttons;
-  ListBuilder<Widget_Buttons> get buttons => _$this._buttons ??= new ListBuilder<Widget_Buttons>();
+  ListBuilder<Widget_Buttons> get buttons => _$this._buttons ??= ListBuilder<Widget_Buttons>();
   set buttons(covariant ListBuilder<Widget_Buttons>? buttons) => _$this._buttons = buttons;
 
   WidgetBuilder() {
@@ -2594,7 +2538,6 @@ class WidgetBuilder implements Builder<Widget, WidgetBuilder>, $WidgetInterfaceB
 
   @override
   void replace(covariant Widget other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Widget;
   }
 
@@ -2611,7 +2554,7 @@ class WidgetBuilder implements Builder<Widget, WidgetBuilder>, $WidgetInterfaceB
     _$Widget _$result;
     try {
       _$result = _$v ??
-          new _$Widget._(
+          _$Widget._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'Widget', 'id'),
             title: BuiltValueNullFieldError.checkNotNull(title, r'Widget', 'title'),
             order: BuiltValueNullFieldError.checkNotNull(order, r'Widget', 'order'),
@@ -2632,7 +2575,7 @@ class WidgetBuilder implements Builder<Widget, WidgetBuilder>, $WidgetInterfaceB
         _$failedField = 'buttons';
         _buttons?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'Widget', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Widget', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2659,13 +2602,9 @@ class _$DashboardApiGetWidgetsResponseApplicationJson_Ocs extends DashboardApiGe
 
   factory _$DashboardApiGetWidgetsResponseApplicationJson_Ocs(
           [void Function(DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$DashboardApiGetWidgetsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'DashboardApiGetWidgetsResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'DashboardApiGetWidgetsResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$DashboardApiGetWidgetsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   DashboardApiGetWidgetsResponseApplicationJson_Ocs rebuild(
           void Function(DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder) updates) =>
@@ -2673,7 +2612,7 @@ class _$DashboardApiGetWidgetsResponseApplicationJson_Ocs extends DashboardApiGe
 
   @override
   DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder toBuilder() =>
-      new DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder()..replace(this);
+      DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2707,11 +2646,11 @@ class DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder
   _$DashboardApiGetWidgetsResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   MapBuilder<String, Widget>? _data;
-  MapBuilder<String, Widget> get data => _$this._data ??= new MapBuilder<String, Widget>();
+  MapBuilder<String, Widget> get data => _$this._data ??= MapBuilder<String, Widget>();
   set data(covariant MapBuilder<String, Widget>? data) => _$this._data = data;
 
   DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder() {
@@ -2730,7 +2669,6 @@ class DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant DashboardApiGetWidgetsResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardApiGetWidgetsResponseApplicationJson_Ocs;
   }
 
@@ -2747,7 +2685,7 @@ class DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder
     _$DashboardApiGetWidgetsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$DashboardApiGetWidgetsResponseApplicationJson_Ocs._(
+          _$DashboardApiGetWidgetsResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -2759,7 +2697,7 @@ class DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DashboardApiGetWidgetsResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -2782,12 +2720,9 @@ class _$DashboardApiGetWidgetsResponseApplicationJson extends DashboardApiGetWid
 
   factory _$DashboardApiGetWidgetsResponseApplicationJson(
           [void Function(DashboardApiGetWidgetsResponseApplicationJsonBuilder)? updates]) =>
-      (new DashboardApiGetWidgetsResponseApplicationJsonBuilder()..update(updates))._build();
+      (DashboardApiGetWidgetsResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$DashboardApiGetWidgetsResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'DashboardApiGetWidgetsResponseApplicationJson', 'ocs');
-  }
-
+  _$DashboardApiGetWidgetsResponseApplicationJson._({required this.ocs}) : super._();
   @override
   DashboardApiGetWidgetsResponseApplicationJson rebuild(
           void Function(DashboardApiGetWidgetsResponseApplicationJsonBuilder) updates) =>
@@ -2795,7 +2730,7 @@ class _$DashboardApiGetWidgetsResponseApplicationJson extends DashboardApiGetWid
 
   @override
   DashboardApiGetWidgetsResponseApplicationJsonBuilder toBuilder() =>
-      new DashboardApiGetWidgetsResponseApplicationJsonBuilder()..replace(this);
+      DashboardApiGetWidgetsResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2825,7 +2760,7 @@ class DashboardApiGetWidgetsResponseApplicationJsonBuilder
 
   DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder? _ocs;
   DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder();
   set ocs(covariant DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   DashboardApiGetWidgetsResponseApplicationJsonBuilder() {
@@ -2843,7 +2778,6 @@ class DashboardApiGetWidgetsResponseApplicationJsonBuilder
 
   @override
   void replace(covariant DashboardApiGetWidgetsResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardApiGetWidgetsResponseApplicationJson;
   }
 
@@ -2860,7 +2794,7 @@ class DashboardApiGetWidgetsResponseApplicationJsonBuilder
     _$DashboardApiGetWidgetsResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$DashboardApiGetWidgetsResponseApplicationJson._(
+          _$DashboardApiGetWidgetsResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -2869,8 +2803,7 @@ class DashboardApiGetWidgetsResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'DashboardApiGetWidgetsResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'DashboardApiGetWidgetsResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2893,12 +2826,9 @@ class _$DashboardApiGetLayoutResponseApplicationJson_Ocs_Data
 
   factory _$DashboardApiGetLayoutResponseApplicationJson_Ocs_Data(
           [void Function(DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (new DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+      (DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$DashboardApiGetLayoutResponseApplicationJson_Ocs_Data._({required this.layout}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(layout, r'DashboardApiGetLayoutResponseApplicationJson_Ocs_Data', 'layout');
-  }
-
+  _$DashboardApiGetLayoutResponseApplicationJson_Ocs_Data._({required this.layout}) : super._();
   @override
   DashboardApiGetLayoutResponseApplicationJson_Ocs_Data rebuild(
           void Function(DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder) updates) =>
@@ -2906,7 +2836,7 @@ class _$DashboardApiGetLayoutResponseApplicationJson_Ocs_Data
 
   @override
   DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
-      new DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+      DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2938,7 +2868,7 @@ class DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder
   _$DashboardApiGetLayoutResponseApplicationJson_Ocs_Data? _$v;
 
   ListBuilder<String>? _layout;
-  ListBuilder<String> get layout => _$this._layout ??= new ListBuilder<String>();
+  ListBuilder<String> get layout => _$this._layout ??= ListBuilder<String>();
   set layout(covariant ListBuilder<String>? layout) => _$this._layout = layout;
 
   DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder() {
@@ -2956,7 +2886,6 @@ class DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder
 
   @override
   void replace(covariant DashboardApiGetLayoutResponseApplicationJson_Ocs_Data other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardApiGetLayoutResponseApplicationJson_Ocs_Data;
   }
 
@@ -2973,7 +2902,7 @@ class DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder
     _$DashboardApiGetLayoutResponseApplicationJson_Ocs_Data _$result;
     try {
       _$result = _$v ??
-          new _$DashboardApiGetLayoutResponseApplicationJson_Ocs_Data._(
+          _$DashboardApiGetLayoutResponseApplicationJson_Ocs_Data._(
             layout: layout.build(),
           );
     } catch (_) {
@@ -2982,7 +2911,7 @@ class DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder
         _$failedField = 'layout';
         layout.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DashboardApiGetLayoutResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
       }
       rethrow;
@@ -3010,13 +2939,9 @@ class _$DashboardApiGetLayoutResponseApplicationJson_Ocs extends DashboardApiGet
 
   factory _$DashboardApiGetLayoutResponseApplicationJson_Ocs(
           [void Function(DashboardApiGetLayoutResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new DashboardApiGetLayoutResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (DashboardApiGetLayoutResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$DashboardApiGetLayoutResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'DashboardApiGetLayoutResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'DashboardApiGetLayoutResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$DashboardApiGetLayoutResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   DashboardApiGetLayoutResponseApplicationJson_Ocs rebuild(
           void Function(DashboardApiGetLayoutResponseApplicationJson_OcsBuilder) updates) =>
@@ -3024,7 +2949,7 @@ class _$DashboardApiGetLayoutResponseApplicationJson_Ocs extends DashboardApiGet
 
   @override
   DashboardApiGetLayoutResponseApplicationJson_OcsBuilder toBuilder() =>
-      new DashboardApiGetLayoutResponseApplicationJson_OcsBuilder()..replace(this);
+      DashboardApiGetLayoutResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3058,12 +2983,12 @@ class DashboardApiGetLayoutResponseApplicationJson_OcsBuilder
   _$DashboardApiGetLayoutResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder? _data;
   DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= new DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder();
+      _$this._data ??= DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder();
   set data(covariant DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   DashboardApiGetLayoutResponseApplicationJson_OcsBuilder() {
@@ -3082,7 +3007,6 @@ class DashboardApiGetLayoutResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant DashboardApiGetLayoutResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardApiGetLayoutResponseApplicationJson_Ocs;
   }
 
@@ -3099,7 +3023,7 @@ class DashboardApiGetLayoutResponseApplicationJson_OcsBuilder
     _$DashboardApiGetLayoutResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$DashboardApiGetLayoutResponseApplicationJson_Ocs._(
+          _$DashboardApiGetLayoutResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -3111,7 +3035,7 @@ class DashboardApiGetLayoutResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DashboardApiGetLayoutResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -3134,12 +3058,9 @@ class _$DashboardApiGetLayoutResponseApplicationJson extends DashboardApiGetLayo
 
   factory _$DashboardApiGetLayoutResponseApplicationJson(
           [void Function(DashboardApiGetLayoutResponseApplicationJsonBuilder)? updates]) =>
-      (new DashboardApiGetLayoutResponseApplicationJsonBuilder()..update(updates))._build();
+      (DashboardApiGetLayoutResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$DashboardApiGetLayoutResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'DashboardApiGetLayoutResponseApplicationJson', 'ocs');
-  }
-
+  _$DashboardApiGetLayoutResponseApplicationJson._({required this.ocs}) : super._();
   @override
   DashboardApiGetLayoutResponseApplicationJson rebuild(
           void Function(DashboardApiGetLayoutResponseApplicationJsonBuilder) updates) =>
@@ -3147,7 +3068,7 @@ class _$DashboardApiGetLayoutResponseApplicationJson extends DashboardApiGetLayo
 
   @override
   DashboardApiGetLayoutResponseApplicationJsonBuilder toBuilder() =>
-      new DashboardApiGetLayoutResponseApplicationJsonBuilder()..replace(this);
+      DashboardApiGetLayoutResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3177,7 +3098,7 @@ class DashboardApiGetLayoutResponseApplicationJsonBuilder
 
   DashboardApiGetLayoutResponseApplicationJson_OcsBuilder? _ocs;
   DashboardApiGetLayoutResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new DashboardApiGetLayoutResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= DashboardApiGetLayoutResponseApplicationJson_OcsBuilder();
   set ocs(covariant DashboardApiGetLayoutResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   DashboardApiGetLayoutResponseApplicationJsonBuilder() {
@@ -3195,7 +3116,6 @@ class DashboardApiGetLayoutResponseApplicationJsonBuilder
 
   @override
   void replace(covariant DashboardApiGetLayoutResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardApiGetLayoutResponseApplicationJson;
   }
 
@@ -3212,7 +3132,7 @@ class DashboardApiGetLayoutResponseApplicationJsonBuilder
     _$DashboardApiGetLayoutResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$DashboardApiGetLayoutResponseApplicationJson._(
+          _$DashboardApiGetLayoutResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -3221,8 +3141,7 @@ class DashboardApiGetLayoutResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'DashboardApiGetLayoutResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'DashboardApiGetLayoutResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3244,12 +3163,9 @@ class _$DashboardApiUpdateLayoutRequestApplicationJson extends DashboardApiUpdat
 
   factory _$DashboardApiUpdateLayoutRequestApplicationJson(
           [void Function(DashboardApiUpdateLayoutRequestApplicationJsonBuilder)? updates]) =>
-      (new DashboardApiUpdateLayoutRequestApplicationJsonBuilder()..update(updates))._build();
+      (DashboardApiUpdateLayoutRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$DashboardApiUpdateLayoutRequestApplicationJson._({required this.layout}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(layout, r'DashboardApiUpdateLayoutRequestApplicationJson', 'layout');
-  }
-
+  _$DashboardApiUpdateLayoutRequestApplicationJson._({required this.layout}) : super._();
   @override
   DashboardApiUpdateLayoutRequestApplicationJson rebuild(
           void Function(DashboardApiUpdateLayoutRequestApplicationJsonBuilder) updates) =>
@@ -3257,7 +3173,7 @@ class _$DashboardApiUpdateLayoutRequestApplicationJson extends DashboardApiUpdat
 
   @override
   DashboardApiUpdateLayoutRequestApplicationJsonBuilder toBuilder() =>
-      new DashboardApiUpdateLayoutRequestApplicationJsonBuilder()..replace(this);
+      DashboardApiUpdateLayoutRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3287,7 +3203,7 @@ class DashboardApiUpdateLayoutRequestApplicationJsonBuilder
   _$DashboardApiUpdateLayoutRequestApplicationJson? _$v;
 
   ListBuilder<String>? _layout;
-  ListBuilder<String> get layout => _$this._layout ??= new ListBuilder<String>();
+  ListBuilder<String> get layout => _$this._layout ??= ListBuilder<String>();
   set layout(covariant ListBuilder<String>? layout) => _$this._layout = layout;
 
   DashboardApiUpdateLayoutRequestApplicationJsonBuilder() {
@@ -3305,7 +3221,6 @@ class DashboardApiUpdateLayoutRequestApplicationJsonBuilder
 
   @override
   void replace(covariant DashboardApiUpdateLayoutRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardApiUpdateLayoutRequestApplicationJson;
   }
 
@@ -3322,7 +3237,7 @@ class DashboardApiUpdateLayoutRequestApplicationJsonBuilder
     _$DashboardApiUpdateLayoutRequestApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$DashboardApiUpdateLayoutRequestApplicationJson._(
+          _$DashboardApiUpdateLayoutRequestApplicationJson._(
             layout: layout.build(),
           );
     } catch (_) {
@@ -3331,7 +3246,7 @@ class DashboardApiUpdateLayoutRequestApplicationJsonBuilder
         _$failedField = 'layout';
         layout.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DashboardApiUpdateLayoutRequestApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -3355,13 +3270,9 @@ class _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data
 
   factory _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data(
           [void Function(DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (new DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+      (DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data._({required this.layout}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        layout, r'DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data', 'layout');
-  }
-
+  _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data._({required this.layout}) : super._();
   @override
   DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data rebuild(
           void Function(DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder) updates) =>
@@ -3369,7 +3280,7 @@ class _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data
 
   @override
   DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
-      new DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+      DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3401,7 +3312,7 @@ class DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder
   _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data? _$v;
 
   ListBuilder<String>? _layout;
-  ListBuilder<String> get layout => _$this._layout ??= new ListBuilder<String>();
+  ListBuilder<String> get layout => _$this._layout ??= ListBuilder<String>();
   set layout(covariant ListBuilder<String>? layout) => _$this._layout = layout;
 
   DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder() {
@@ -3419,7 +3330,6 @@ class DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder
 
   @override
   void replace(covariant DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data;
   }
 
@@ -3436,7 +3346,7 @@ class DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder
     _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data _$result;
     try {
       _$result = _$v ??
-          new _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data._(
+          _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data._(
             layout: layout.build(),
           );
     } catch (_) {
@@ -3445,7 +3355,7 @@ class DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder
         _$failedField = 'layout';
         layout.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
       }
       rethrow;
@@ -3474,13 +3384,9 @@ class _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs
 
   factory _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs(
           [void Function(DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'DashboardApiUpdateLayoutResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'DashboardApiUpdateLayoutResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   DashboardApiUpdateLayoutResponseApplicationJson_Ocs rebuild(
           void Function(DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder) updates) =>
@@ -3488,7 +3394,7 @@ class _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs
 
   @override
   DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder toBuilder() =>
-      new DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder()..replace(this);
+      DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3522,12 +3428,12 @@ class DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder
   _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder? _data;
   DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= new DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder();
+      _$this._data ??= DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder();
   set data(covariant DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder() {
@@ -3546,7 +3452,6 @@ class DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant DashboardApiUpdateLayoutResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs;
   }
 
@@ -3563,7 +3468,7 @@ class DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder
     _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs._(
+          _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -3575,7 +3480,7 @@ class DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DashboardApiUpdateLayoutResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -3598,12 +3503,9 @@ class _$DashboardApiUpdateLayoutResponseApplicationJson extends DashboardApiUpda
 
   factory _$DashboardApiUpdateLayoutResponseApplicationJson(
           [void Function(DashboardApiUpdateLayoutResponseApplicationJsonBuilder)? updates]) =>
-      (new DashboardApiUpdateLayoutResponseApplicationJsonBuilder()..update(updates))._build();
+      (DashboardApiUpdateLayoutResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$DashboardApiUpdateLayoutResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'DashboardApiUpdateLayoutResponseApplicationJson', 'ocs');
-  }
-
+  _$DashboardApiUpdateLayoutResponseApplicationJson._({required this.ocs}) : super._();
   @override
   DashboardApiUpdateLayoutResponseApplicationJson rebuild(
           void Function(DashboardApiUpdateLayoutResponseApplicationJsonBuilder) updates) =>
@@ -3611,7 +3513,7 @@ class _$DashboardApiUpdateLayoutResponseApplicationJson extends DashboardApiUpda
 
   @override
   DashboardApiUpdateLayoutResponseApplicationJsonBuilder toBuilder() =>
-      new DashboardApiUpdateLayoutResponseApplicationJsonBuilder()..replace(this);
+      DashboardApiUpdateLayoutResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3643,7 +3545,7 @@ class DashboardApiUpdateLayoutResponseApplicationJsonBuilder
 
   DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder? _ocs;
   DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder();
   set ocs(covariant DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   DashboardApiUpdateLayoutResponseApplicationJsonBuilder() {
@@ -3661,7 +3563,6 @@ class DashboardApiUpdateLayoutResponseApplicationJsonBuilder
 
   @override
   void replace(covariant DashboardApiUpdateLayoutResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardApiUpdateLayoutResponseApplicationJson;
   }
 
@@ -3678,7 +3579,7 @@ class DashboardApiUpdateLayoutResponseApplicationJsonBuilder
     _$DashboardApiUpdateLayoutResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$DashboardApiUpdateLayoutResponseApplicationJson._(
+          _$DashboardApiUpdateLayoutResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -3687,7 +3588,7 @@ class DashboardApiUpdateLayoutResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DashboardApiUpdateLayoutResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -3711,13 +3612,9 @@ class _$DashboardApiGetStatusesResponseApplicationJson_Ocs_Data
 
   factory _$DashboardApiGetStatusesResponseApplicationJson_Ocs_Data(
           [void Function(DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (new DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+      (DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$DashboardApiGetStatusesResponseApplicationJson_Ocs_Data._({required this.statuses}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        statuses, r'DashboardApiGetStatusesResponseApplicationJson_Ocs_Data', 'statuses');
-  }
-
+  _$DashboardApiGetStatusesResponseApplicationJson_Ocs_Data._({required this.statuses}) : super._();
   @override
   DashboardApiGetStatusesResponseApplicationJson_Ocs_Data rebuild(
           void Function(DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder) updates) =>
@@ -3725,7 +3622,7 @@ class _$DashboardApiGetStatusesResponseApplicationJson_Ocs_Data
 
   @override
   DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
-      new DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+      DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3757,7 +3654,7 @@ class DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder
   _$DashboardApiGetStatusesResponseApplicationJson_Ocs_Data? _$v;
 
   ListBuilder<String>? _statuses;
-  ListBuilder<String> get statuses => _$this._statuses ??= new ListBuilder<String>();
+  ListBuilder<String> get statuses => _$this._statuses ??= ListBuilder<String>();
   set statuses(covariant ListBuilder<String>? statuses) => _$this._statuses = statuses;
 
   DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder() {
@@ -3775,7 +3672,6 @@ class DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder
 
   @override
   void replace(covariant DashboardApiGetStatusesResponseApplicationJson_Ocs_Data other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardApiGetStatusesResponseApplicationJson_Ocs_Data;
   }
 
@@ -3792,7 +3688,7 @@ class DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder
     _$DashboardApiGetStatusesResponseApplicationJson_Ocs_Data _$result;
     try {
       _$result = _$v ??
-          new _$DashboardApiGetStatusesResponseApplicationJson_Ocs_Data._(
+          _$DashboardApiGetStatusesResponseApplicationJson_Ocs_Data._(
             statuses: statuses.build(),
           );
     } catch (_) {
@@ -3801,7 +3697,7 @@ class DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder
         _$failedField = 'statuses';
         statuses.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DashboardApiGetStatusesResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
       }
       rethrow;
@@ -3829,13 +3725,9 @@ class _$DashboardApiGetStatusesResponseApplicationJson_Ocs extends DashboardApiG
 
   factory _$DashboardApiGetStatusesResponseApplicationJson_Ocs(
           [void Function(DashboardApiGetStatusesResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new DashboardApiGetStatusesResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (DashboardApiGetStatusesResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$DashboardApiGetStatusesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'DashboardApiGetStatusesResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'DashboardApiGetStatusesResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$DashboardApiGetStatusesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   DashboardApiGetStatusesResponseApplicationJson_Ocs rebuild(
           void Function(DashboardApiGetStatusesResponseApplicationJson_OcsBuilder) updates) =>
@@ -3843,7 +3735,7 @@ class _$DashboardApiGetStatusesResponseApplicationJson_Ocs extends DashboardApiG
 
   @override
   DashboardApiGetStatusesResponseApplicationJson_OcsBuilder toBuilder() =>
-      new DashboardApiGetStatusesResponseApplicationJson_OcsBuilder()..replace(this);
+      DashboardApiGetStatusesResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3877,12 +3769,12 @@ class DashboardApiGetStatusesResponseApplicationJson_OcsBuilder
   _$DashboardApiGetStatusesResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder? _data;
   DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= new DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder();
+      _$this._data ??= DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder();
   set data(covariant DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   DashboardApiGetStatusesResponseApplicationJson_OcsBuilder() {
@@ -3901,7 +3793,6 @@ class DashboardApiGetStatusesResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant DashboardApiGetStatusesResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardApiGetStatusesResponseApplicationJson_Ocs;
   }
 
@@ -3918,7 +3809,7 @@ class DashboardApiGetStatusesResponseApplicationJson_OcsBuilder
     _$DashboardApiGetStatusesResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$DashboardApiGetStatusesResponseApplicationJson_Ocs._(
+          _$DashboardApiGetStatusesResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -3930,7 +3821,7 @@ class DashboardApiGetStatusesResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DashboardApiGetStatusesResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -3953,12 +3844,9 @@ class _$DashboardApiGetStatusesResponseApplicationJson extends DashboardApiGetSt
 
   factory _$DashboardApiGetStatusesResponseApplicationJson(
           [void Function(DashboardApiGetStatusesResponseApplicationJsonBuilder)? updates]) =>
-      (new DashboardApiGetStatusesResponseApplicationJsonBuilder()..update(updates))._build();
+      (DashboardApiGetStatusesResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$DashboardApiGetStatusesResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'DashboardApiGetStatusesResponseApplicationJson', 'ocs');
-  }
-
+  _$DashboardApiGetStatusesResponseApplicationJson._({required this.ocs}) : super._();
   @override
   DashboardApiGetStatusesResponseApplicationJson rebuild(
           void Function(DashboardApiGetStatusesResponseApplicationJsonBuilder) updates) =>
@@ -3966,7 +3854,7 @@ class _$DashboardApiGetStatusesResponseApplicationJson extends DashboardApiGetSt
 
   @override
   DashboardApiGetStatusesResponseApplicationJsonBuilder toBuilder() =>
-      new DashboardApiGetStatusesResponseApplicationJsonBuilder()..replace(this);
+      DashboardApiGetStatusesResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3996,7 +3884,7 @@ class DashboardApiGetStatusesResponseApplicationJsonBuilder
 
   DashboardApiGetStatusesResponseApplicationJson_OcsBuilder? _ocs;
   DashboardApiGetStatusesResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new DashboardApiGetStatusesResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= DashboardApiGetStatusesResponseApplicationJson_OcsBuilder();
   set ocs(covariant DashboardApiGetStatusesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   DashboardApiGetStatusesResponseApplicationJsonBuilder() {
@@ -4014,7 +3902,6 @@ class DashboardApiGetStatusesResponseApplicationJsonBuilder
 
   @override
   void replace(covariant DashboardApiGetStatusesResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardApiGetStatusesResponseApplicationJson;
   }
 
@@ -4031,7 +3918,7 @@ class DashboardApiGetStatusesResponseApplicationJsonBuilder
     _$DashboardApiGetStatusesResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$DashboardApiGetStatusesResponseApplicationJson._(
+          _$DashboardApiGetStatusesResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -4040,7 +3927,7 @@ class DashboardApiGetStatusesResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DashboardApiGetStatusesResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -4063,12 +3950,9 @@ class _$DashboardApiUpdateStatusesRequestApplicationJson extends DashboardApiUpd
 
   factory _$DashboardApiUpdateStatusesRequestApplicationJson(
           [void Function(DashboardApiUpdateStatusesRequestApplicationJsonBuilder)? updates]) =>
-      (new DashboardApiUpdateStatusesRequestApplicationJsonBuilder()..update(updates))._build();
+      (DashboardApiUpdateStatusesRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$DashboardApiUpdateStatusesRequestApplicationJson._({required this.statuses}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(statuses, r'DashboardApiUpdateStatusesRequestApplicationJson', 'statuses');
-  }
-
+  _$DashboardApiUpdateStatusesRequestApplicationJson._({required this.statuses}) : super._();
   @override
   DashboardApiUpdateStatusesRequestApplicationJson rebuild(
           void Function(DashboardApiUpdateStatusesRequestApplicationJsonBuilder) updates) =>
@@ -4076,7 +3960,7 @@ class _$DashboardApiUpdateStatusesRequestApplicationJson extends DashboardApiUpd
 
   @override
   DashboardApiUpdateStatusesRequestApplicationJsonBuilder toBuilder() =>
-      new DashboardApiUpdateStatusesRequestApplicationJsonBuilder()..replace(this);
+      DashboardApiUpdateStatusesRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4107,7 +3991,7 @@ class DashboardApiUpdateStatusesRequestApplicationJsonBuilder
   _$DashboardApiUpdateStatusesRequestApplicationJson? _$v;
 
   ListBuilder<String>? _statuses;
-  ListBuilder<String> get statuses => _$this._statuses ??= new ListBuilder<String>();
+  ListBuilder<String> get statuses => _$this._statuses ??= ListBuilder<String>();
   set statuses(covariant ListBuilder<String>? statuses) => _$this._statuses = statuses;
 
   DashboardApiUpdateStatusesRequestApplicationJsonBuilder() {
@@ -4125,7 +4009,6 @@ class DashboardApiUpdateStatusesRequestApplicationJsonBuilder
 
   @override
   void replace(covariant DashboardApiUpdateStatusesRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardApiUpdateStatusesRequestApplicationJson;
   }
 
@@ -4142,7 +4025,7 @@ class DashboardApiUpdateStatusesRequestApplicationJsonBuilder
     _$DashboardApiUpdateStatusesRequestApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$DashboardApiUpdateStatusesRequestApplicationJson._(
+          _$DashboardApiUpdateStatusesRequestApplicationJson._(
             statuses: statuses.build(),
           );
     } catch (_) {
@@ -4151,7 +4034,7 @@ class DashboardApiUpdateStatusesRequestApplicationJsonBuilder
         _$failedField = 'statuses';
         statuses.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DashboardApiUpdateStatusesRequestApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -4175,13 +4058,9 @@ class _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data
 
   factory _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data(
           [void Function(DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (new DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+      (DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data._({required this.statuses}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        statuses, r'DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data', 'statuses');
-  }
-
+  _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data._({required this.statuses}) : super._();
   @override
   DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data rebuild(
           void Function(DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder) updates) =>
@@ -4189,7 +4068,7 @@ class _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data
 
   @override
   DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
-      new DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+      DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4221,7 +4100,7 @@ class DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder
   _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data? _$v;
 
   ListBuilder<String>? _statuses;
-  ListBuilder<String> get statuses => _$this._statuses ??= new ListBuilder<String>();
+  ListBuilder<String> get statuses => _$this._statuses ??= ListBuilder<String>();
   set statuses(covariant ListBuilder<String>? statuses) => _$this._statuses = statuses;
 
   DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder() {
@@ -4239,7 +4118,6 @@ class DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder
 
   @override
   void replace(covariant DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data;
   }
 
@@ -4256,7 +4134,7 @@ class DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder
     _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data _$result;
     try {
       _$result = _$v ??
-          new _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data._(
+          _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data._(
             statuses: statuses.build(),
           );
     } catch (_) {
@@ -4265,7 +4143,7 @@ class DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder
         _$failedField = 'statuses';
         statuses.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
       }
       rethrow;
@@ -4294,13 +4172,9 @@ class _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs
 
   factory _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs(
           [void Function(DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'DashboardApiUpdateStatusesResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'DashboardApiUpdateStatusesResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   DashboardApiUpdateStatusesResponseApplicationJson_Ocs rebuild(
           void Function(DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder) updates) =>
@@ -4308,7 +4182,7 @@ class _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs
 
   @override
   DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder toBuilder() =>
-      new DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder()..replace(this);
+      DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4342,12 +4216,12 @@ class DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder
   _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder? _data;
   DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= new DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder();
+      _$this._data ??= DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder();
   set data(covariant DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder() {
@@ -4366,7 +4240,6 @@ class DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant DashboardApiUpdateStatusesResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs;
   }
 
@@ -4383,7 +4256,7 @@ class DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder
     _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs._(
+          _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -4395,7 +4268,7 @@ class DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DashboardApiUpdateStatusesResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -4418,12 +4291,9 @@ class _$DashboardApiUpdateStatusesResponseApplicationJson extends DashboardApiUp
 
   factory _$DashboardApiUpdateStatusesResponseApplicationJson(
           [void Function(DashboardApiUpdateStatusesResponseApplicationJsonBuilder)? updates]) =>
-      (new DashboardApiUpdateStatusesResponseApplicationJsonBuilder()..update(updates))._build();
+      (DashboardApiUpdateStatusesResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$DashboardApiUpdateStatusesResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'DashboardApiUpdateStatusesResponseApplicationJson', 'ocs');
-  }
-
+  _$DashboardApiUpdateStatusesResponseApplicationJson._({required this.ocs}) : super._();
   @override
   DashboardApiUpdateStatusesResponseApplicationJson rebuild(
           void Function(DashboardApiUpdateStatusesResponseApplicationJsonBuilder) updates) =>
@@ -4431,7 +4301,7 @@ class _$DashboardApiUpdateStatusesResponseApplicationJson extends DashboardApiUp
 
   @override
   DashboardApiUpdateStatusesResponseApplicationJsonBuilder toBuilder() =>
-      new DashboardApiUpdateStatusesResponseApplicationJsonBuilder()..replace(this);
+      DashboardApiUpdateStatusesResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4463,7 +4333,7 @@ class DashboardApiUpdateStatusesResponseApplicationJsonBuilder
 
   DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder? _ocs;
   DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder();
   set ocs(covariant DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   DashboardApiUpdateStatusesResponseApplicationJsonBuilder() {
@@ -4481,7 +4351,6 @@ class DashboardApiUpdateStatusesResponseApplicationJsonBuilder
 
   @override
   void replace(covariant DashboardApiUpdateStatusesResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DashboardApiUpdateStatusesResponseApplicationJson;
   }
 
@@ -4498,7 +4367,7 @@ class DashboardApiUpdateStatusesResponseApplicationJsonBuilder
     _$DashboardApiUpdateStatusesResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$DashboardApiUpdateStatusesResponseApplicationJson._(
+          _$DashboardApiUpdateStatusesResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -4507,7 +4376,7 @@ class DashboardApiUpdateStatusesResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DashboardApiUpdateStatusesResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;

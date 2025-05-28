@@ -7,55 +7,55 @@ part of 'dav.openapi.dart';
 // **************************************************************************
 
 Serializer<DirectGetUrlRequestApplicationJson> _$directGetUrlRequestApplicationJsonSerializer =
-    new _$DirectGetUrlRequestApplicationJsonSerializer();
-Serializer<OCSMeta> _$oCSMetaSerializer = new _$OCSMetaSerializer();
+    _$DirectGetUrlRequestApplicationJsonSerializer();
+Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<DirectGetUrlResponseApplicationJson_Ocs_Data> _$directGetUrlResponseApplicationJsonOcsDataSerializer =
-    new _$DirectGetUrlResponseApplicationJson_Ocs_DataSerializer();
+    _$DirectGetUrlResponseApplicationJson_Ocs_DataSerializer();
 Serializer<DirectGetUrlResponseApplicationJson_Ocs> _$directGetUrlResponseApplicationJsonOcsSerializer =
-    new _$DirectGetUrlResponseApplicationJson_OcsSerializer();
+    _$DirectGetUrlResponseApplicationJson_OcsSerializer();
 Serializer<DirectGetUrlResponseApplicationJson> _$directGetUrlResponseApplicationJsonSerializer =
-    new _$DirectGetUrlResponseApplicationJsonSerializer();
-Serializer<OutOfOfficeDataCommon> _$outOfOfficeDataCommonSerializer = new _$OutOfOfficeDataCommonSerializer();
-Serializer<CurrentOutOfOfficeData> _$currentOutOfOfficeDataSerializer = new _$CurrentOutOfOfficeDataSerializer();
+    _$DirectGetUrlResponseApplicationJsonSerializer();
+Serializer<OutOfOfficeDataCommon> _$outOfOfficeDataCommonSerializer = _$OutOfOfficeDataCommonSerializer();
+Serializer<CurrentOutOfOfficeData> _$currentOutOfOfficeDataSerializer = _$CurrentOutOfOfficeDataSerializer();
 Serializer<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs>
     _$outOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonOcsSerializer =
-    new _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsSerializer();
+    _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsSerializer();
 Serializer<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson>
     _$outOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonSerializer =
-    new _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonSerializer();
-Serializer<OutOfOfficeData> _$outOfOfficeDataSerializer = new _$OutOfOfficeDataSerializer();
+    _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonSerializer();
+Serializer<OutOfOfficeData> _$outOfOfficeDataSerializer = _$OutOfOfficeDataSerializer();
 Serializer<OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs>
     _$outOfOfficeGetOutOfOfficeResponseApplicationJsonOcsSerializer =
-    new _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsSerializer();
+    _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsSerializer();
 Serializer<OutOfOfficeGetOutOfOfficeResponseApplicationJson>
     _$outOfOfficeGetOutOfOfficeResponseApplicationJsonSerializer =
-    new _$OutOfOfficeGetOutOfOfficeResponseApplicationJsonSerializer();
+    _$OutOfOfficeGetOutOfOfficeResponseApplicationJsonSerializer();
 Serializer<OutOfOfficeSetOutOfOfficeRequestApplicationJson>
     _$outOfOfficeSetOutOfOfficeRequestApplicationJsonSerializer =
-    new _$OutOfOfficeSetOutOfOfficeRequestApplicationJsonSerializer();
+    _$OutOfOfficeSetOutOfOfficeRequestApplicationJsonSerializer();
 Serializer<OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs>
     _$outOfOfficeSetOutOfOfficeResponseApplicationJsonOcsSerializer =
-    new _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsSerializer();
+    _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsSerializer();
 Serializer<OutOfOfficeSetOutOfOfficeResponseApplicationJson>
     _$outOfOfficeSetOutOfOfficeResponseApplicationJsonSerializer =
-    new _$OutOfOfficeSetOutOfOfficeResponseApplicationJsonSerializer();
+    _$OutOfOfficeSetOutOfOfficeResponseApplicationJsonSerializer();
 Serializer<OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs>
     _$outOfOfficeClearOutOfOfficeResponseApplicationJsonOcsSerializer =
-    new _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsSerializer();
+    _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsSerializer();
 Serializer<OutOfOfficeClearOutOfOfficeResponseApplicationJson>
     _$outOfOfficeClearOutOfOfficeResponseApplicationJsonSerializer =
-    new _$OutOfOfficeClearOutOfOfficeResponseApplicationJsonSerializer();
-Serializer<UpcomingEvent> _$upcomingEventSerializer = new _$UpcomingEventSerializer();
+    _$OutOfOfficeClearOutOfOfficeResponseApplicationJsonSerializer();
+Serializer<UpcomingEvent> _$upcomingEventSerializer = _$UpcomingEventSerializer();
 Serializer<UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data>
     _$upcomingEventsGetEventsResponseApplicationJsonOcsDataSerializer =
-    new _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataSerializer();
+    _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataSerializer();
 Serializer<UpcomingEventsGetEventsResponseApplicationJson_Ocs>
     _$upcomingEventsGetEventsResponseApplicationJsonOcsSerializer =
-    new _$UpcomingEventsGetEventsResponseApplicationJson_OcsSerializer();
+    _$UpcomingEventsGetEventsResponseApplicationJson_OcsSerializer();
 Serializer<UpcomingEventsGetEventsResponseApplicationJson> _$upcomingEventsGetEventsResponseApplicationJsonSerializer =
-    new _$UpcomingEventsGetEventsResponseApplicationJsonSerializer();
-Serializer<Capabilities_Dav> _$capabilitiesDavSerializer = new _$Capabilities_DavSerializer();
-Serializer<Capabilities> _$capabilitiesSerializer = new _$CapabilitiesSerializer();
+    _$UpcomingEventsGetEventsResponseApplicationJsonSerializer();
+Serializer<Capabilities_Dav> _$capabilitiesDavSerializer = _$Capabilities_DavSerializer();
+Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
 
 class _$DirectGetUrlRequestApplicationJsonSerializer
     implements StructuredSerializer<DirectGetUrlRequestApplicationJson> {
@@ -80,7 +80,7 @@ class _$DirectGetUrlRequestApplicationJsonSerializer
   @override
   DirectGetUrlRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DirectGetUrlRequestApplicationJsonBuilder();
+    final result = DirectGetUrlRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -141,7 +141,7 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
   OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new OCSMetaBuilder();
+    final result = OCSMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -195,7 +195,7 @@ class _$DirectGetUrlResponseApplicationJson_Ocs_DataSerializer
   @override
   DirectGetUrlResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DirectGetUrlResponseApplicationJson_Ocs_DataBuilder();
+    final result = DirectGetUrlResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -239,7 +239,7 @@ class _$DirectGetUrlResponseApplicationJson_OcsSerializer
   @override
   DirectGetUrlResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DirectGetUrlResponseApplicationJson_OcsBuilder();
+    final result = DirectGetUrlResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -283,7 +283,7 @@ class _$DirectGetUrlResponseApplicationJsonSerializer
   @override
   DirectGetUrlResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DirectGetUrlResponseApplicationJsonBuilder();
+    final result = DirectGetUrlResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -337,7 +337,7 @@ class _$OutOfOfficeDataCommonSerializer implements StructuredSerializer<OutOfOff
   @override
   OutOfOfficeDataCommon deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new OutOfOfficeDataCommonBuilder();
+    final result = OutOfOfficeDataCommonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -407,7 +407,7 @@ class _$CurrentOutOfOfficeDataSerializer implements StructuredSerializer<Current
   @override
   CurrentOutOfOfficeData deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new CurrentOutOfOfficeDataBuilder();
+    final result = CurrentOutOfOfficeDataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -475,7 +475,7 @@ class _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsSerialize
   OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder();
+    final result = OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -524,7 +524,7 @@ class _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonSerializer
   OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder();
+    final result = OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -586,7 +586,7 @@ class _$OutOfOfficeDataSerializer implements StructuredSerializer<OutOfOfficeDat
   @override
   OutOfOfficeData deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new OutOfOfficeDataBuilder();
+    final result = OutOfOfficeDataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -653,7 +653,7 @@ class _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsSerializer
   OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder();
+    final result = OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -700,7 +700,7 @@ class _$OutOfOfficeGetOutOfOfficeResponseApplicationJsonSerializer
   @override
   OutOfOfficeGetOutOfOfficeResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder();
+    final result = OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -756,7 +756,7 @@ class _$OutOfOfficeSetOutOfOfficeRequestApplicationJsonSerializer
   @override
   OutOfOfficeSetOutOfOfficeRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder();
+    final result = OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -813,7 +813,7 @@ class _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsSerializer
   OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder();
+    final result = OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -860,7 +860,7 @@ class _$OutOfOfficeSetOutOfOfficeResponseApplicationJsonSerializer
   @override
   OutOfOfficeSetOutOfOfficeResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder();
+    final result = OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -911,7 +911,7 @@ class _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsSerializer
   OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder();
+    final result = OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -957,7 +957,7 @@ class _$OutOfOfficeClearOutOfOfficeResponseApplicationJsonSerializer
   @override
   OutOfOfficeClearOutOfOfficeResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder();
+    final result = OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1017,7 +1017,7 @@ class _$UpcomingEventSerializer implements StructuredSerializer<UpcomingEvent> {
   @override
   UpcomingEvent deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UpcomingEventBuilder();
+    final result = UpcomingEventBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1073,7 +1073,7 @@ class _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataSerializer
   UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder();
+    final result = UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1119,7 +1119,7 @@ class _$UpcomingEventsGetEventsResponseApplicationJson_OcsSerializer
   @override
   UpcomingEventsGetEventsResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder();
+    final result = UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1167,7 +1167,7 @@ class _$UpcomingEventsGetEventsResponseApplicationJsonSerializer
   @override
   UpcomingEventsGetEventsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UpcomingEventsGetEventsResponseApplicationJsonBuilder();
+    final result = UpcomingEventsGetEventsResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1225,7 +1225,7 @@ class _$Capabilities_DavSerializer implements StructuredSerializer<Capabilities_
   @override
   Capabilities_Dav deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new Capabilities_DavBuilder();
+    final result = Capabilities_DavBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1272,7 +1272,7 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   @override
   Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new CapabilitiesBuilder();
+    final result = CapabilitiesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1308,20 +1308,15 @@ class _$DirectGetUrlRequestApplicationJson extends DirectGetUrlRequestApplicatio
   final int expirationTime;
 
   factory _$DirectGetUrlRequestApplicationJson([void Function(DirectGetUrlRequestApplicationJsonBuilder)? updates]) =>
-      (new DirectGetUrlRequestApplicationJsonBuilder()..update(updates))._build();
+      (DirectGetUrlRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$DirectGetUrlRequestApplicationJson._({required this.fileId, required this.expirationTime}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(fileId, r'DirectGetUrlRequestApplicationJson', 'fileId');
-    BuiltValueNullFieldError.checkNotNull(expirationTime, r'DirectGetUrlRequestApplicationJson', 'expirationTime');
-  }
-
+  _$DirectGetUrlRequestApplicationJson._({required this.fileId, required this.expirationTime}) : super._();
   @override
   DirectGetUrlRequestApplicationJson rebuild(void Function(DirectGetUrlRequestApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  DirectGetUrlRequestApplicationJsonBuilder toBuilder() =>
-      new DirectGetUrlRequestApplicationJsonBuilder()..replace(this);
+  DirectGetUrlRequestApplicationJsonBuilder toBuilder() => DirectGetUrlRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1379,7 +1374,6 @@ class DirectGetUrlRequestApplicationJsonBuilder
 
   @override
   void replace(covariant DirectGetUrlRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DirectGetUrlRequestApplicationJson;
   }
 
@@ -1394,7 +1388,7 @@ class DirectGetUrlRequestApplicationJsonBuilder
   _$DirectGetUrlRequestApplicationJson _build() {
     DirectGetUrlRequestApplicationJson._validate(this);
     final _$result = _$v ??
-        new _$DirectGetUrlRequestApplicationJson._(
+        _$DirectGetUrlRequestApplicationJson._(
           fileId: BuiltValueNullFieldError.checkNotNull(fileId, r'DirectGetUrlRequestApplicationJson', 'fileId'),
           expirationTime: BuiltValueNullFieldError.checkNotNull(
               expirationTime, r'DirectGetUrlRequestApplicationJson', 'expirationTime'),
@@ -1435,19 +1429,15 @@ class _$OCSMeta extends OCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (new OCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status');
-    BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode');
-  }
-
+      : super._();
   @override
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  OCSMetaBuilder toBuilder() => new OCSMetaBuilder()..replace(this);
+  OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1526,7 +1516,6 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
   @override
   void replace(covariant OCSMeta other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OCSMeta;
   }
 
@@ -1541,7 +1530,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   _$OCSMeta _build() {
     OCSMeta._validate(this);
     final _$result = _$v ??
-        new _$OCSMeta._(
+        _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
           message: message,
@@ -1566,12 +1555,9 @@ class _$DirectGetUrlResponseApplicationJson_Ocs_Data extends DirectGetUrlRespons
 
   factory _$DirectGetUrlResponseApplicationJson_Ocs_Data(
           [void Function(DirectGetUrlResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (new DirectGetUrlResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+      (DirectGetUrlResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$DirectGetUrlResponseApplicationJson_Ocs_Data._({required this.url}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(url, r'DirectGetUrlResponseApplicationJson_Ocs_Data', 'url');
-  }
-
+  _$DirectGetUrlResponseApplicationJson_Ocs_Data._({required this.url}) : super._();
   @override
   DirectGetUrlResponseApplicationJson_Ocs_Data rebuild(
           void Function(DirectGetUrlResponseApplicationJson_Ocs_DataBuilder) updates) =>
@@ -1579,7 +1565,7 @@ class _$DirectGetUrlResponseApplicationJson_Ocs_Data extends DirectGetUrlRespons
 
   @override
   DirectGetUrlResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
-      new DirectGetUrlResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+      DirectGetUrlResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1626,7 +1612,6 @@ class DirectGetUrlResponseApplicationJson_Ocs_DataBuilder
 
   @override
   void replace(covariant DirectGetUrlResponseApplicationJson_Ocs_Data other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DirectGetUrlResponseApplicationJson_Ocs_Data;
   }
 
@@ -1641,7 +1626,7 @@ class DirectGetUrlResponseApplicationJson_Ocs_DataBuilder
   _$DirectGetUrlResponseApplicationJson_Ocs_Data _build() {
     DirectGetUrlResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
-        new _$DirectGetUrlResponseApplicationJson_Ocs_Data._(
+        _$DirectGetUrlResponseApplicationJson_Ocs_Data._(
           url: BuiltValueNullFieldError.checkNotNull(url, r'DirectGetUrlResponseApplicationJson_Ocs_Data', 'url'),
         );
     replace(_$result);
@@ -1667,13 +1652,9 @@ class _$DirectGetUrlResponseApplicationJson_Ocs extends DirectGetUrlResponseAppl
 
   factory _$DirectGetUrlResponseApplicationJson_Ocs(
           [void Function(DirectGetUrlResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new DirectGetUrlResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (DirectGetUrlResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$DirectGetUrlResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'DirectGetUrlResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'DirectGetUrlResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$DirectGetUrlResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   DirectGetUrlResponseApplicationJson_Ocs rebuild(
           void Function(DirectGetUrlResponseApplicationJson_OcsBuilder) updates) =>
@@ -1681,7 +1662,7 @@ class _$DirectGetUrlResponseApplicationJson_Ocs extends DirectGetUrlResponseAppl
 
   @override
   DirectGetUrlResponseApplicationJson_OcsBuilder toBuilder() =>
-      new DirectGetUrlResponseApplicationJson_OcsBuilder()..replace(this);
+      DirectGetUrlResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1714,12 +1695,12 @@ class DirectGetUrlResponseApplicationJson_OcsBuilder
   _$DirectGetUrlResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   DirectGetUrlResponseApplicationJson_Ocs_DataBuilder? _data;
   DirectGetUrlResponseApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= new DirectGetUrlResponseApplicationJson_Ocs_DataBuilder();
+      _$this._data ??= DirectGetUrlResponseApplicationJson_Ocs_DataBuilder();
   set data(covariant DirectGetUrlResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   DirectGetUrlResponseApplicationJson_OcsBuilder() {
@@ -1738,7 +1719,6 @@ class DirectGetUrlResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant DirectGetUrlResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DirectGetUrlResponseApplicationJson_Ocs;
   }
 
@@ -1755,7 +1735,7 @@ class DirectGetUrlResponseApplicationJson_OcsBuilder
     _$DirectGetUrlResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$DirectGetUrlResponseApplicationJson_Ocs._(
+          _$DirectGetUrlResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -1767,7 +1747,7 @@ class DirectGetUrlResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'DirectGetUrlResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'DirectGetUrlResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1788,19 +1768,15 @@ class _$DirectGetUrlResponseApplicationJson extends DirectGetUrlResponseApplicat
   final DirectGetUrlResponseApplicationJson_Ocs ocs;
 
   factory _$DirectGetUrlResponseApplicationJson([void Function(DirectGetUrlResponseApplicationJsonBuilder)? updates]) =>
-      (new DirectGetUrlResponseApplicationJsonBuilder()..update(updates))._build();
+      (DirectGetUrlResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$DirectGetUrlResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'DirectGetUrlResponseApplicationJson', 'ocs');
-  }
-
+  _$DirectGetUrlResponseApplicationJson._({required this.ocs}) : super._();
   @override
   DirectGetUrlResponseApplicationJson rebuild(void Function(DirectGetUrlResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  DirectGetUrlResponseApplicationJsonBuilder toBuilder() =>
-      new DirectGetUrlResponseApplicationJsonBuilder()..replace(this);
+  DirectGetUrlResponseApplicationJsonBuilder toBuilder() => DirectGetUrlResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1830,7 +1806,7 @@ class DirectGetUrlResponseApplicationJsonBuilder
 
   DirectGetUrlResponseApplicationJson_OcsBuilder? _ocs;
   DirectGetUrlResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new DirectGetUrlResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= DirectGetUrlResponseApplicationJson_OcsBuilder();
   set ocs(covariant DirectGetUrlResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   DirectGetUrlResponseApplicationJsonBuilder() {
@@ -1848,7 +1824,6 @@ class DirectGetUrlResponseApplicationJsonBuilder
 
   @override
   void replace(covariant DirectGetUrlResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DirectGetUrlResponseApplicationJson;
   }
 
@@ -1865,7 +1840,7 @@ class DirectGetUrlResponseApplicationJsonBuilder
     _$DirectGetUrlResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$DirectGetUrlResponseApplicationJson._(
+          _$DirectGetUrlResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -1874,7 +1849,7 @@ class DirectGetUrlResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'DirectGetUrlResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'DirectGetUrlResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1910,21 +1885,17 @@ class _$OutOfOfficeDataCommon extends OutOfOfficeDataCommon {
   final String? replacementUserDisplayName;
 
   factory _$OutOfOfficeDataCommon([void Function(OutOfOfficeDataCommonBuilder)? updates]) =>
-      (new OutOfOfficeDataCommonBuilder()..update(updates))._build();
+      (OutOfOfficeDataCommonBuilder()..update(updates))._build();
 
   _$OutOfOfficeDataCommon._(
       {required this.userId, required this.message, this.replacementUserId, this.replacementUserDisplayName})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(userId, r'OutOfOfficeDataCommon', 'userId');
-    BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeDataCommon', 'message');
-  }
-
+      : super._();
   @override
   OutOfOfficeDataCommon rebuild(void Function(OutOfOfficeDataCommonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  OutOfOfficeDataCommonBuilder toBuilder() => new OutOfOfficeDataCommonBuilder()..replace(this);
+  OutOfOfficeDataCommonBuilder toBuilder() => OutOfOfficeDataCommonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1997,7 +1968,6 @@ class OutOfOfficeDataCommonBuilder
 
   @override
   void replace(covariant OutOfOfficeDataCommon other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OutOfOfficeDataCommon;
   }
 
@@ -2012,7 +1982,7 @@ class OutOfOfficeDataCommonBuilder
   _$OutOfOfficeDataCommon _build() {
     OutOfOfficeDataCommon._validate(this);
     final _$result = _$v ??
-        new _$OutOfOfficeDataCommon._(
+        _$OutOfOfficeDataCommon._(
           userId: BuiltValueNullFieldError.checkNotNull(userId, r'OutOfOfficeDataCommon', 'userId'),
           message: BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeDataCommon', 'message'),
           replacementUserId: replacementUserId,
@@ -2070,7 +2040,7 @@ class _$CurrentOutOfOfficeData extends CurrentOutOfOfficeData {
   final String? replacementUserDisplayName;
 
   factory _$CurrentOutOfOfficeData([void Function(CurrentOutOfOfficeDataBuilder)? updates]) =>
-      (new CurrentOutOfOfficeDataBuilder()..update(updates))._build();
+      (CurrentOutOfOfficeDataBuilder()..update(updates))._build();
 
   _$CurrentOutOfOfficeData._(
       {required this.id,
@@ -2081,21 +2051,13 @@ class _$CurrentOutOfOfficeData extends CurrentOutOfOfficeData {
       required this.message,
       this.replacementUserId,
       this.replacementUserDisplayName})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'CurrentOutOfOfficeData', 'id');
-    BuiltValueNullFieldError.checkNotNull(startDate, r'CurrentOutOfOfficeData', 'startDate');
-    BuiltValueNullFieldError.checkNotNull(endDate, r'CurrentOutOfOfficeData', 'endDate');
-    BuiltValueNullFieldError.checkNotNull(shortMessage, r'CurrentOutOfOfficeData', 'shortMessage');
-    BuiltValueNullFieldError.checkNotNull(userId, r'CurrentOutOfOfficeData', 'userId');
-    BuiltValueNullFieldError.checkNotNull(message, r'CurrentOutOfOfficeData', 'message');
-  }
-
+      : super._();
   @override
   CurrentOutOfOfficeData rebuild(void Function(CurrentOutOfOfficeDataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CurrentOutOfOfficeDataBuilder toBuilder() => new CurrentOutOfOfficeDataBuilder()..replace(this);
+  CurrentOutOfOfficeDataBuilder toBuilder() => CurrentOutOfOfficeDataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2200,7 +2162,6 @@ class CurrentOutOfOfficeDataBuilder
 
   @override
   void replace(covariant CurrentOutOfOfficeData other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CurrentOutOfOfficeData;
   }
 
@@ -2215,7 +2176,7 @@ class CurrentOutOfOfficeDataBuilder
   _$CurrentOutOfOfficeData _build() {
     CurrentOutOfOfficeData._validate(this);
     final _$result = _$v ??
-        new _$CurrentOutOfOfficeData._(
+        _$CurrentOutOfOfficeData._(
           id: BuiltValueNullFieldError.checkNotNull(id, r'CurrentOutOfOfficeData', 'id'),
           startDate: BuiltValueNullFieldError.checkNotNull(startDate, r'CurrentOutOfOfficeData', 'startDate'),
           endDate: BuiltValueNullFieldError.checkNotNull(endDate, r'CurrentOutOfOfficeData', 'endDate'),
@@ -2249,16 +2210,10 @@ class _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs
 
   factory _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs(
           [void Function(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs._({required this.meta, required this.data})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        meta, r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(
-        data, r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs', 'data');
-  }
-
+      : super._();
   @override
   OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs rebuild(
           void Function(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder) updates) =>
@@ -2266,7 +2221,7 @@ class _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs
 
   @override
   OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder toBuilder() =>
-      new OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder()..replace(this);
+      OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2302,11 +2257,11 @@ class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder
   _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   CurrentOutOfOfficeDataBuilder? _data;
-  CurrentOutOfOfficeDataBuilder get data => _$this._data ??= new CurrentOutOfOfficeDataBuilder();
+  CurrentOutOfOfficeDataBuilder get data => _$this._data ??= CurrentOutOfOfficeDataBuilder();
   set data(covariant CurrentOutOfOfficeDataBuilder? data) => _$this._data = data;
 
   OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder() {
@@ -2325,7 +2280,6 @@ class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs;
   }
 
@@ -2342,7 +2296,7 @@ class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder
     _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs._(
+          _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -2354,7 +2308,7 @@ class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -2378,12 +2332,9 @@ class _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson
 
   factory _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson(
           [void Function(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder)? updates]) =>
-      (new OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder()..update(updates))._build();
+      (OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson', 'ocs');
-  }
-
+  _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson._({required this.ocs}) : super._();
   @override
   OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson rebuild(
           void Function(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder) updates) =>
@@ -2391,7 +2342,7 @@ class _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson
 
   @override
   OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder toBuilder() =>
-      new OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder()..replace(this);
+      OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2424,7 +2375,7 @@ class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder
 
   OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder? _ocs;
   OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder();
   set ocs(covariant OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder() {
@@ -2442,7 +2393,6 @@ class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder
 
   @override
   void replace(covariant OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson;
   }
 
@@ -2459,7 +2409,7 @@ class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder
     _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson._(
+          _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -2468,7 +2418,7 @@ class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -2525,7 +2475,7 @@ class _$OutOfOfficeData extends OutOfOfficeData {
   final String? replacementUserDisplayName;
 
   factory _$OutOfOfficeData([void Function(OutOfOfficeDataBuilder)? updates]) =>
-      (new OutOfOfficeDataBuilder()..update(updates))._build();
+      (OutOfOfficeDataBuilder()..update(updates))._build();
 
   _$OutOfOfficeData._(
       {required this.id,
@@ -2536,20 +2486,12 @@ class _$OutOfOfficeData extends OutOfOfficeData {
       required this.message,
       this.replacementUserId,
       this.replacementUserDisplayName})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'OutOfOfficeData', 'id');
-    BuiltValueNullFieldError.checkNotNull(firstDay, r'OutOfOfficeData', 'firstDay');
-    BuiltValueNullFieldError.checkNotNull(lastDay, r'OutOfOfficeData', 'lastDay');
-    BuiltValueNullFieldError.checkNotNull(status, r'OutOfOfficeData', 'status');
-    BuiltValueNullFieldError.checkNotNull(userId, r'OutOfOfficeData', 'userId');
-    BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeData', 'message');
-  }
-
+      : super._();
   @override
   OutOfOfficeData rebuild(void Function(OutOfOfficeDataBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  OutOfOfficeDataBuilder toBuilder() => new OutOfOfficeDataBuilder()..replace(this);
+  OutOfOfficeDataBuilder toBuilder() => OutOfOfficeDataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2654,7 +2596,6 @@ class OutOfOfficeDataBuilder
 
   @override
   void replace(covariant OutOfOfficeData other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OutOfOfficeData;
   }
 
@@ -2669,7 +2610,7 @@ class OutOfOfficeDataBuilder
   _$OutOfOfficeData _build() {
     OutOfOfficeData._validate(this);
     final _$result = _$v ??
-        new _$OutOfOfficeData._(
+        _$OutOfOfficeData._(
           id: BuiltValueNullFieldError.checkNotNull(id, r'OutOfOfficeData', 'id'),
           firstDay: BuiltValueNullFieldError.checkNotNull(firstDay, r'OutOfOfficeData', 'firstDay'),
           lastDay: BuiltValueNullFieldError.checkNotNull(lastDay, r'OutOfOfficeData', 'lastDay'),
@@ -2703,13 +2644,9 @@ class _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs
 
   factory _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs(
           [void Function(OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs rebuild(
           void Function(OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder) updates) =>
@@ -2717,7 +2654,7 @@ class _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs
 
   @override
   OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder toBuilder() =>
-      new OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder()..replace(this);
+      OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2751,11 +2688,11 @@ class OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder
   _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   OutOfOfficeDataBuilder? _data;
-  OutOfOfficeDataBuilder get data => _$this._data ??= new OutOfOfficeDataBuilder();
+  OutOfOfficeDataBuilder get data => _$this._data ??= OutOfOfficeDataBuilder();
   set data(covariant OutOfOfficeDataBuilder? data) => _$this._data = data;
 
   OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder() {
@@ -2774,7 +2711,6 @@ class OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs;
   }
 
@@ -2791,7 +2727,7 @@ class OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder
     _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs._(
+          _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -2803,7 +2739,7 @@ class OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -2826,12 +2762,9 @@ class _$OutOfOfficeGetOutOfOfficeResponseApplicationJson extends OutOfOfficeGetO
 
   factory _$OutOfOfficeGetOutOfOfficeResponseApplicationJson(
           [void Function(OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder)? updates]) =>
-      (new OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder()..update(updates))._build();
+      (OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$OutOfOfficeGetOutOfOfficeResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'OutOfOfficeGetOutOfOfficeResponseApplicationJson', 'ocs');
-  }
-
+  _$OutOfOfficeGetOutOfOfficeResponseApplicationJson._({required this.ocs}) : super._();
   @override
   OutOfOfficeGetOutOfOfficeResponseApplicationJson rebuild(
           void Function(OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder) updates) =>
@@ -2839,7 +2772,7 @@ class _$OutOfOfficeGetOutOfOfficeResponseApplicationJson extends OutOfOfficeGetO
 
   @override
   OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder toBuilder() =>
-      new OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder()..replace(this);
+      OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2871,7 +2804,7 @@ class OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder
 
   OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder? _ocs;
   OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder();
   set ocs(covariant OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder() {
@@ -2889,7 +2822,6 @@ class OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder
 
   @override
   void replace(covariant OutOfOfficeGetOutOfOfficeResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OutOfOfficeGetOutOfOfficeResponseApplicationJson;
   }
 
@@ -2906,7 +2838,7 @@ class OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder
     _$OutOfOfficeGetOutOfOfficeResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$OutOfOfficeGetOutOfOfficeResponseApplicationJson._(
+          _$OutOfOfficeGetOutOfOfficeResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -2915,7 +2847,7 @@ class OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'OutOfOfficeGetOutOfOfficeResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -2958,7 +2890,7 @@ class _$OutOfOfficeSetOutOfOfficeRequestApplicationJson extends OutOfOfficeSetOu
 
   factory _$OutOfOfficeSetOutOfOfficeRequestApplicationJson(
           [void Function(OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder)? updates]) =>
-      (new OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder()..update(updates))._build();
+      (OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$OutOfOfficeSetOutOfOfficeRequestApplicationJson._(
       {required this.firstDay,
@@ -2966,13 +2898,7 @@ class _$OutOfOfficeSetOutOfOfficeRequestApplicationJson extends OutOfOfficeSetOu
       required this.status,
       required this.message,
       this.replacementUserId})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(firstDay, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'firstDay');
-    BuiltValueNullFieldError.checkNotNull(lastDay, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'lastDay');
-    BuiltValueNullFieldError.checkNotNull(status, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'status');
-    BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'message');
-  }
-
+      : super._();
   @override
   OutOfOfficeSetOutOfOfficeRequestApplicationJson rebuild(
           void Function(OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder) updates) =>
@@ -2980,7 +2906,7 @@ class _$OutOfOfficeSetOutOfOfficeRequestApplicationJson extends OutOfOfficeSetOu
 
   @override
   OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder toBuilder() =>
-      new OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder()..replace(this);
+      OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3063,7 +2989,6 @@ class OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder
 
   @override
   void replace(covariant OutOfOfficeSetOutOfOfficeRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OutOfOfficeSetOutOfOfficeRequestApplicationJson;
   }
 
@@ -3078,7 +3003,7 @@ class OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder
   _$OutOfOfficeSetOutOfOfficeRequestApplicationJson _build() {
     OutOfOfficeSetOutOfOfficeRequestApplicationJson._validate(this);
     final _$result = _$v ??
-        new _$OutOfOfficeSetOutOfOfficeRequestApplicationJson._(
+        _$OutOfOfficeSetOutOfOfficeRequestApplicationJson._(
           firstDay: BuiltValueNullFieldError.checkNotNull(
               firstDay, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'firstDay'),
           lastDay: BuiltValueNullFieldError.checkNotNull(
@@ -3113,13 +3038,9 @@ class _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs
 
   factory _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs(
           [void Function(OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs rebuild(
           void Function(OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder) updates) =>
@@ -3127,7 +3048,7 @@ class _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs
 
   @override
   OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder toBuilder() =>
-      new OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder()..replace(this);
+      OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3161,11 +3082,11 @@ class OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder
   _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   OutOfOfficeDataBuilder? _data;
-  OutOfOfficeDataBuilder get data => _$this._data ??= new OutOfOfficeDataBuilder();
+  OutOfOfficeDataBuilder get data => _$this._data ??= OutOfOfficeDataBuilder();
   set data(covariant OutOfOfficeDataBuilder? data) => _$this._data = data;
 
   OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder() {
@@ -3184,7 +3105,6 @@ class OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs;
   }
 
@@ -3201,7 +3121,7 @@ class OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder
     _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs._(
+          _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -3213,7 +3133,7 @@ class OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -3236,12 +3156,9 @@ class _$OutOfOfficeSetOutOfOfficeResponseApplicationJson extends OutOfOfficeSetO
 
   factory _$OutOfOfficeSetOutOfOfficeResponseApplicationJson(
           [void Function(OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder)? updates]) =>
-      (new OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder()..update(updates))._build();
+      (OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$OutOfOfficeSetOutOfOfficeResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'OutOfOfficeSetOutOfOfficeResponseApplicationJson', 'ocs');
-  }
-
+  _$OutOfOfficeSetOutOfOfficeResponseApplicationJson._({required this.ocs}) : super._();
   @override
   OutOfOfficeSetOutOfOfficeResponseApplicationJson rebuild(
           void Function(OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder) updates) =>
@@ -3249,7 +3166,7 @@ class _$OutOfOfficeSetOutOfOfficeResponseApplicationJson extends OutOfOfficeSetO
 
   @override
   OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder toBuilder() =>
-      new OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder()..replace(this);
+      OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3281,7 +3198,7 @@ class OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder
 
   OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder? _ocs;
   OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder();
   set ocs(covariant OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder() {
@@ -3299,7 +3216,6 @@ class OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder
 
   @override
   void replace(covariant OutOfOfficeSetOutOfOfficeResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OutOfOfficeSetOutOfOfficeResponseApplicationJson;
   }
 
@@ -3316,7 +3232,7 @@ class OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder
     _$OutOfOfficeSetOutOfOfficeResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$OutOfOfficeSetOutOfOfficeResponseApplicationJson._(
+          _$OutOfOfficeSetOutOfOfficeResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -3325,7 +3241,7 @@ class OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'OutOfOfficeSetOutOfOfficeResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -3354,12 +3270,9 @@ class _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs
 
   factory _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs(
           [void Function(OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs._({required this.meta, this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs', 'meta');
-  }
-
+  _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs._({required this.meta, this.data}) : super._();
   @override
   OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs rebuild(
           void Function(OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder) updates) =>
@@ -3367,7 +3280,7 @@ class _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs
 
   @override
   OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder toBuilder() =>
-      new OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder()..replace(this);
+      OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3401,7 +3314,7 @@ class OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder
   _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
@@ -3424,7 +3337,6 @@ class OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs;
   }
 
@@ -3441,7 +3353,7 @@ class OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder
     _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs._(
+          _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data,
           );
@@ -3451,7 +3363,7 @@ class OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -3474,12 +3386,9 @@ class _$OutOfOfficeClearOutOfOfficeResponseApplicationJson extends OutOfOfficeCl
 
   factory _$OutOfOfficeClearOutOfOfficeResponseApplicationJson(
           [void Function(OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder)? updates]) =>
-      (new OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder()..update(updates))._build();
+      (OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$OutOfOfficeClearOutOfOfficeResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'OutOfOfficeClearOutOfOfficeResponseApplicationJson', 'ocs');
-  }
-
+  _$OutOfOfficeClearOutOfOfficeResponseApplicationJson._({required this.ocs}) : super._();
   @override
   OutOfOfficeClearOutOfOfficeResponseApplicationJson rebuild(
           void Function(OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder) updates) =>
@@ -3487,7 +3396,7 @@ class _$OutOfOfficeClearOutOfOfficeResponseApplicationJson extends OutOfOfficeCl
 
   @override
   OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder toBuilder() =>
-      new OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder()..replace(this);
+      OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3519,7 +3428,7 @@ class OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder
 
   OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder? _ocs;
   OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder();
   set ocs(covariant OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder() {
@@ -3537,7 +3446,6 @@ class OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder
 
   @override
   void replace(covariant OutOfOfficeClearOutOfOfficeResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OutOfOfficeClearOutOfOfficeResponseApplicationJson;
   }
 
@@ -3554,7 +3462,7 @@ class OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder
     _$OutOfOfficeClearOutOfOfficeResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$OutOfOfficeClearOutOfOfficeResponseApplicationJson._(
+          _$OutOfOfficeClearOutOfOfficeResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -3563,7 +3471,7 @@ class OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'OutOfOfficeClearOutOfOfficeResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -3605,19 +3513,15 @@ class _$UpcomingEvent extends UpcomingEvent {
   final String? location;
 
   factory _$UpcomingEvent([void Function(UpcomingEventBuilder)? updates]) =>
-      (new UpcomingEventBuilder()..update(updates))._build();
+      (UpcomingEventBuilder()..update(updates))._build();
 
   _$UpcomingEvent._({required this.uri, required this.calendarUri, this.start, this.summary, this.location})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(uri, r'UpcomingEvent', 'uri');
-    BuiltValueNullFieldError.checkNotNull(calendarUri, r'UpcomingEvent', 'calendarUri');
-  }
-
+      : super._();
   @override
   UpcomingEvent rebuild(void Function(UpcomingEventBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  UpcomingEventBuilder toBuilder() => new UpcomingEventBuilder()..replace(this);
+  UpcomingEventBuilder toBuilder() => UpcomingEventBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3696,7 +3600,6 @@ class UpcomingEventBuilder implements Builder<UpcomingEvent, UpcomingEventBuilde
 
   @override
   void replace(covariant UpcomingEvent other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UpcomingEvent;
   }
 
@@ -3711,7 +3614,7 @@ class UpcomingEventBuilder implements Builder<UpcomingEvent, UpcomingEventBuilde
   _$UpcomingEvent _build() {
     UpcomingEvent._validate(this);
     final _$result = _$v ??
-        new _$UpcomingEvent._(
+        _$UpcomingEvent._(
           uri: BuiltValueNullFieldError.checkNotNull(uri, r'UpcomingEvent', 'uri'),
           calendarUri: BuiltValueNullFieldError.checkNotNull(calendarUri, r'UpcomingEvent', 'calendarUri'),
           start: start,
@@ -3737,12 +3640,9 @@ class _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data
 
   factory _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data(
           [void Function(UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (new UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+      (UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data._({required this.events}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(events, r'UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data', 'events');
-  }
-
+  _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data._({required this.events}) : super._();
   @override
   UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data rebuild(
           void Function(UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder) updates) =>
@@ -3750,7 +3650,7 @@ class _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data
 
   @override
   UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
-      new UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+      UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3782,7 +3682,7 @@ class UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder
   _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data? _$v;
 
   ListBuilder<UpcomingEvent>? _events;
-  ListBuilder<UpcomingEvent> get events => _$this._events ??= new ListBuilder<UpcomingEvent>();
+  ListBuilder<UpcomingEvent> get events => _$this._events ??= ListBuilder<UpcomingEvent>();
   set events(covariant ListBuilder<UpcomingEvent>? events) => _$this._events = events;
 
   UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder() {
@@ -3800,7 +3700,6 @@ class UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder
 
   @override
   void replace(covariant UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data;
   }
 
@@ -3817,7 +3716,7 @@ class UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder
     _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data _$result;
     try {
       _$result = _$v ??
-          new _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data._(
+          _$UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data._(
             events: events.build(),
           );
     } catch (_) {
@@ -3826,7 +3725,7 @@ class UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder
         _$failedField = 'events';
         events.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
       }
       rethrow;
@@ -3854,13 +3753,9 @@ class _$UpcomingEventsGetEventsResponseApplicationJson_Ocs extends UpcomingEvent
 
   factory _$UpcomingEventsGetEventsResponseApplicationJson_Ocs(
           [void Function(UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$UpcomingEventsGetEventsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'UpcomingEventsGetEventsResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'UpcomingEventsGetEventsResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$UpcomingEventsGetEventsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   UpcomingEventsGetEventsResponseApplicationJson_Ocs rebuild(
           void Function(UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder) updates) =>
@@ -3868,7 +3763,7 @@ class _$UpcomingEventsGetEventsResponseApplicationJson_Ocs extends UpcomingEvent
 
   @override
   UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder toBuilder() =>
-      new UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder()..replace(this);
+      UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3902,12 +3797,12 @@ class UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder
   _$UpcomingEventsGetEventsResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder? _data;
   UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= new UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder();
+      _$this._data ??= UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder();
   set data(covariant UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder() {
@@ -3926,7 +3821,6 @@ class UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant UpcomingEventsGetEventsResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UpcomingEventsGetEventsResponseApplicationJson_Ocs;
   }
 
@@ -3943,7 +3837,7 @@ class UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder
     _$UpcomingEventsGetEventsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$UpcomingEventsGetEventsResponseApplicationJson_Ocs._(
+          _$UpcomingEventsGetEventsResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -3955,7 +3849,7 @@ class UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UpcomingEventsGetEventsResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -3978,12 +3872,9 @@ class _$UpcomingEventsGetEventsResponseApplicationJson extends UpcomingEventsGet
 
   factory _$UpcomingEventsGetEventsResponseApplicationJson(
           [void Function(UpcomingEventsGetEventsResponseApplicationJsonBuilder)? updates]) =>
-      (new UpcomingEventsGetEventsResponseApplicationJsonBuilder()..update(updates))._build();
+      (UpcomingEventsGetEventsResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$UpcomingEventsGetEventsResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'UpcomingEventsGetEventsResponseApplicationJson', 'ocs');
-  }
-
+  _$UpcomingEventsGetEventsResponseApplicationJson._({required this.ocs}) : super._();
   @override
   UpcomingEventsGetEventsResponseApplicationJson rebuild(
           void Function(UpcomingEventsGetEventsResponseApplicationJsonBuilder) updates) =>
@@ -3991,7 +3882,7 @@ class _$UpcomingEventsGetEventsResponseApplicationJson extends UpcomingEventsGet
 
   @override
   UpcomingEventsGetEventsResponseApplicationJsonBuilder toBuilder() =>
-      new UpcomingEventsGetEventsResponseApplicationJsonBuilder()..replace(this);
+      UpcomingEventsGetEventsResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4021,7 +3912,7 @@ class UpcomingEventsGetEventsResponseApplicationJsonBuilder
 
   UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder? _ocs;
   UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder();
   set ocs(covariant UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   UpcomingEventsGetEventsResponseApplicationJsonBuilder() {
@@ -4039,7 +3930,6 @@ class UpcomingEventsGetEventsResponseApplicationJsonBuilder
 
   @override
   void replace(covariant UpcomingEventsGetEventsResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UpcomingEventsGetEventsResponseApplicationJson;
   }
 
@@ -4056,7 +3946,7 @@ class UpcomingEventsGetEventsResponseApplicationJsonBuilder
     _$UpcomingEventsGetEventsResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$UpcomingEventsGetEventsResponseApplicationJson._(
+          _$UpcomingEventsGetEventsResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -4065,7 +3955,7 @@ class UpcomingEventsGetEventsResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UpcomingEventsGetEventsResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -4102,18 +3992,15 @@ class _$Capabilities_Dav extends Capabilities_Dav {
   final bool? absenceReplacement;
 
   factory _$Capabilities_Dav([void Function(Capabilities_DavBuilder)? updates]) =>
-      (new Capabilities_DavBuilder()..update(updates))._build();
+      (Capabilities_DavBuilder()..update(updates))._build();
 
   _$Capabilities_Dav._({required this.chunking, this.bulkupload, this.absenceSupported, this.absenceReplacement})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(chunking, r'Capabilities_Dav', 'chunking');
-  }
-
+      : super._();
   @override
   Capabilities_Dav rebuild(void Function(Capabilities_DavBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  Capabilities_DavBuilder toBuilder() => new Capabilities_DavBuilder()..replace(this);
+  Capabilities_DavBuilder toBuilder() => Capabilities_DavBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4185,7 +4072,6 @@ class Capabilities_DavBuilder
 
   @override
   void replace(covariant Capabilities_Dav other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Capabilities_Dav;
   }
 
@@ -4200,7 +4086,7 @@ class Capabilities_DavBuilder
   _$Capabilities_Dav _build() {
     Capabilities_Dav._validate(this);
     final _$result = _$v ??
-        new _$Capabilities_Dav._(
+        _$Capabilities_Dav._(
           chunking: BuiltValueNullFieldError.checkNotNull(chunking, r'Capabilities_Dav', 'chunking'),
           bulkupload: bulkupload,
           absenceSupported: absenceSupported,
@@ -4223,17 +4109,14 @@ class _$Capabilities extends Capabilities {
   final Capabilities_Dav dav;
 
   factory _$Capabilities([void Function(CapabilitiesBuilder)? updates]) =>
-      (new CapabilitiesBuilder()..update(updates))._build();
+      (CapabilitiesBuilder()..update(updates))._build();
 
-  _$Capabilities._({required this.dav}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(dav, r'Capabilities', 'dav');
-  }
-
+  _$Capabilities._({required this.dav}) : super._();
   @override
   Capabilities rebuild(void Function(CapabilitiesBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  CapabilitiesBuilder toBuilder() => new CapabilitiesBuilder()..replace(this);
+  CapabilitiesBuilder toBuilder() => CapabilitiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4259,7 +4142,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   _$Capabilities? _$v;
 
   Capabilities_DavBuilder? _dav;
-  Capabilities_DavBuilder get dav => _$this._dav ??= new Capabilities_DavBuilder();
+  Capabilities_DavBuilder get dav => _$this._dav ??= Capabilities_DavBuilder();
   set dav(covariant Capabilities_DavBuilder? dav) => _$this._dav = dav;
 
   CapabilitiesBuilder() {
@@ -4277,7 +4160,6 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
 
   @override
   void replace(covariant Capabilities other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Capabilities;
   }
 
@@ -4294,7 +4176,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     _$Capabilities _$result;
     try {
       _$result = _$v ??
-          new _$Capabilities._(
+          _$Capabilities._(
             dav: dav.build(),
           );
     } catch (_) {
@@ -4303,7 +4185,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
         _$failedField = 'dav';
         dav.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
       }
       rethrow;
     }

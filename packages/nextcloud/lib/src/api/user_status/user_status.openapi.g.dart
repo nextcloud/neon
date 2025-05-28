@@ -28,11 +28,11 @@ $Type _$valueOf$Type(String name) {
     case 'invisible':
       return _$$typeInvisible;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<$Type> _$$typeValues = new BuiltSet<$Type>(const <$Type>[
+final BuiltSet<$Type> _$$typeValues = BuiltSet<$Type>(const <$Type>[
   _$$typeOnline,
   _$$typeAway,
   _$$typeDnd,
@@ -51,11 +51,11 @@ ClearAt_Type _$valueOfClearAt_Type(String name) {
     case 'endOf':
       return _$clearAtTypeEndOf;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<ClearAt_Type> _$clearAtTypeValues = new BuiltSet<ClearAt_Type>(const <ClearAt_Type>[
+final BuiltSet<ClearAt_Type> _$clearAtTypeValues = BuiltSet<ClearAt_Type>(const <ClearAt_Type>[
   _$clearAtTypePeriod,
   _$clearAtTypeEndOf,
 ]);
@@ -70,79 +70,79 @@ ClearAtTimeType _$valueOfClearAtTimeType(String name) {
     case 'week':
       return _$clearAtTimeTypeWeek;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<ClearAtTimeType> _$clearAtTimeTypeValues = new BuiltSet<ClearAtTimeType>(const <ClearAtTimeType>[
+final BuiltSet<ClearAtTimeType> _$clearAtTimeTypeValues = BuiltSet<ClearAtTimeType>(const <ClearAtTimeType>[
   _$clearAtTimeTypeDay,
   _$clearAtTimeTypeWeek,
 ]);
 
 Serializer<HeartbeatHeartbeatRequestApplicationJson> _$heartbeatHeartbeatRequestApplicationJsonSerializer =
-    new _$HeartbeatHeartbeatRequestApplicationJsonSerializer();
-Serializer<OCSMeta> _$oCSMetaSerializer = new _$OCSMetaSerializer();
-Serializer<Public> _$publicSerializer = new _$PublicSerializer();
-Serializer<Private> _$privateSerializer = new _$PrivateSerializer();
+    _$HeartbeatHeartbeatRequestApplicationJsonSerializer();
+Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
+Serializer<Public> _$publicSerializer = _$PublicSerializer();
+Serializer<Private> _$privateSerializer = _$PrivateSerializer();
 Serializer<HeartbeatHeartbeatResponseApplicationJson_Ocs> _$heartbeatHeartbeatResponseApplicationJsonOcsSerializer =
-    new _$HeartbeatHeartbeatResponseApplicationJson_OcsSerializer();
+    _$HeartbeatHeartbeatResponseApplicationJson_OcsSerializer();
 Serializer<HeartbeatHeartbeatResponseApplicationJson> _$heartbeatHeartbeatResponseApplicationJsonSerializer =
-    new _$HeartbeatHeartbeatResponseApplicationJsonSerializer();
-Serializer<ClearAt> _$clearAtSerializer = new _$ClearAtSerializer();
-Serializer<Predefined> _$predefinedSerializer = new _$PredefinedSerializer();
+    _$HeartbeatHeartbeatResponseApplicationJsonSerializer();
+Serializer<ClearAt> _$clearAtSerializer = _$ClearAtSerializer();
+Serializer<Predefined> _$predefinedSerializer = _$PredefinedSerializer();
 Serializer<PredefinedStatusFindAllResponseApplicationJson_Ocs>
     _$predefinedStatusFindAllResponseApplicationJsonOcsSerializer =
-    new _$PredefinedStatusFindAllResponseApplicationJson_OcsSerializer();
+    _$PredefinedStatusFindAllResponseApplicationJson_OcsSerializer();
 Serializer<PredefinedStatusFindAllResponseApplicationJson> _$predefinedStatusFindAllResponseApplicationJsonSerializer =
-    new _$PredefinedStatusFindAllResponseApplicationJsonSerializer();
+    _$PredefinedStatusFindAllResponseApplicationJsonSerializer();
 Serializer<StatusesFindAllResponseApplicationJson_Ocs> _$statusesFindAllResponseApplicationJsonOcsSerializer =
-    new _$StatusesFindAllResponseApplicationJson_OcsSerializer();
+    _$StatusesFindAllResponseApplicationJson_OcsSerializer();
 Serializer<StatusesFindAllResponseApplicationJson> _$statusesFindAllResponseApplicationJsonSerializer =
-    new _$StatusesFindAllResponseApplicationJsonSerializer();
+    _$StatusesFindAllResponseApplicationJsonSerializer();
 Serializer<StatusesFindResponseApplicationJson_Ocs> _$statusesFindResponseApplicationJsonOcsSerializer =
-    new _$StatusesFindResponseApplicationJson_OcsSerializer();
+    _$StatusesFindResponseApplicationJson_OcsSerializer();
 Serializer<StatusesFindResponseApplicationJson> _$statusesFindResponseApplicationJsonSerializer =
-    new _$StatusesFindResponseApplicationJsonSerializer();
+    _$StatusesFindResponseApplicationJsonSerializer();
 Serializer<UserStatusGetStatusResponseApplicationJson_Ocs> _$userStatusGetStatusResponseApplicationJsonOcsSerializer =
-    new _$UserStatusGetStatusResponseApplicationJson_OcsSerializer();
+    _$UserStatusGetStatusResponseApplicationJson_OcsSerializer();
 Serializer<UserStatusGetStatusResponseApplicationJson> _$userStatusGetStatusResponseApplicationJsonSerializer =
-    new _$UserStatusGetStatusResponseApplicationJsonSerializer();
+    _$UserStatusGetStatusResponseApplicationJsonSerializer();
 Serializer<UserStatusSetStatusRequestApplicationJson> _$userStatusSetStatusRequestApplicationJsonSerializer =
-    new _$UserStatusSetStatusRequestApplicationJsonSerializer();
+    _$UserStatusSetStatusRequestApplicationJsonSerializer();
 Serializer<UserStatusSetStatusResponseApplicationJson_Ocs> _$userStatusSetStatusResponseApplicationJsonOcsSerializer =
-    new _$UserStatusSetStatusResponseApplicationJson_OcsSerializer();
+    _$UserStatusSetStatusResponseApplicationJson_OcsSerializer();
 Serializer<UserStatusSetStatusResponseApplicationJson> _$userStatusSetStatusResponseApplicationJsonSerializer =
-    new _$UserStatusSetStatusResponseApplicationJsonSerializer();
+    _$UserStatusSetStatusResponseApplicationJsonSerializer();
 Serializer<UserStatusSetPredefinedMessageRequestApplicationJson>
     _$userStatusSetPredefinedMessageRequestApplicationJsonSerializer =
-    new _$UserStatusSetPredefinedMessageRequestApplicationJsonSerializer();
+    _$UserStatusSetPredefinedMessageRequestApplicationJsonSerializer();
 Serializer<UserStatusSetPredefinedMessageResponseApplicationJson_Ocs>
     _$userStatusSetPredefinedMessageResponseApplicationJsonOcsSerializer =
-    new _$UserStatusSetPredefinedMessageResponseApplicationJson_OcsSerializer();
+    _$UserStatusSetPredefinedMessageResponseApplicationJson_OcsSerializer();
 Serializer<UserStatusSetPredefinedMessageResponseApplicationJson>
     _$userStatusSetPredefinedMessageResponseApplicationJsonSerializer =
-    new _$UserStatusSetPredefinedMessageResponseApplicationJsonSerializer();
+    _$UserStatusSetPredefinedMessageResponseApplicationJsonSerializer();
 Serializer<UserStatusSetCustomMessageRequestApplicationJson>
     _$userStatusSetCustomMessageRequestApplicationJsonSerializer =
-    new _$UserStatusSetCustomMessageRequestApplicationJsonSerializer();
+    _$UserStatusSetCustomMessageRequestApplicationJsonSerializer();
 Serializer<UserStatusSetCustomMessageResponseApplicationJson_Ocs>
     _$userStatusSetCustomMessageResponseApplicationJsonOcsSerializer =
-    new _$UserStatusSetCustomMessageResponseApplicationJson_OcsSerializer();
+    _$UserStatusSetCustomMessageResponseApplicationJson_OcsSerializer();
 Serializer<UserStatusSetCustomMessageResponseApplicationJson>
     _$userStatusSetCustomMessageResponseApplicationJsonSerializer =
-    new _$UserStatusSetCustomMessageResponseApplicationJsonSerializer();
+    _$UserStatusSetCustomMessageResponseApplicationJsonSerializer();
 Serializer<UserStatusClearMessageResponseApplicationJson_Ocs>
     _$userStatusClearMessageResponseApplicationJsonOcsSerializer =
-    new _$UserStatusClearMessageResponseApplicationJson_OcsSerializer();
+    _$UserStatusClearMessageResponseApplicationJson_OcsSerializer();
 Serializer<UserStatusClearMessageResponseApplicationJson> _$userStatusClearMessageResponseApplicationJsonSerializer =
-    new _$UserStatusClearMessageResponseApplicationJsonSerializer();
+    _$UserStatusClearMessageResponseApplicationJsonSerializer();
 Serializer<UserStatusRevertStatusResponseApplicationJson_Ocs>
     _$userStatusRevertStatusResponseApplicationJsonOcsSerializer =
-    new _$UserStatusRevertStatusResponseApplicationJson_OcsSerializer();
+    _$UserStatusRevertStatusResponseApplicationJson_OcsSerializer();
 Serializer<UserStatusRevertStatusResponseApplicationJson> _$userStatusRevertStatusResponseApplicationJsonSerializer =
-    new _$UserStatusRevertStatusResponseApplicationJsonSerializer();
-Serializer<Capabilities_UserStatus> _$capabilitiesUserStatusSerializer = new _$Capabilities_UserStatusSerializer();
-Serializer<Capabilities> _$capabilitiesSerializer = new _$CapabilitiesSerializer();
+    _$UserStatusRevertStatusResponseApplicationJsonSerializer();
+Serializer<Capabilities_UserStatus> _$capabilitiesUserStatusSerializer = _$Capabilities_UserStatusSerializer();
+Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
 
 class _$HeartbeatHeartbeatRequestApplicationJsonSerializer
     implements StructuredSerializer<HeartbeatHeartbeatRequestApplicationJson> {
@@ -168,7 +168,7 @@ class _$HeartbeatHeartbeatRequestApplicationJsonSerializer
   @override
   HeartbeatHeartbeatRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new HeartbeatHeartbeatRequestApplicationJsonBuilder();
+    final result = HeartbeatHeartbeatRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -226,7 +226,7 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
   OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new OCSMetaBuilder();
+    final result = OCSMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -295,7 +295,7 @@ class _$PublicSerializer implements StructuredSerializer<Public> {
   @override
   Public deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new PublicBuilder();
+    final result = PublicBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -375,7 +375,7 @@ class _$PrivateSerializer implements StructuredSerializer<Private> {
   @override
   Private deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new PrivateBuilder();
+    final result = PrivateBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -440,7 +440,7 @@ class _$HeartbeatHeartbeatResponseApplicationJson_OcsSerializer
   @override
   HeartbeatHeartbeatResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new HeartbeatHeartbeatResponseApplicationJson_OcsBuilder();
+    final result = HeartbeatHeartbeatResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -485,7 +485,7 @@ class _$HeartbeatHeartbeatResponseApplicationJsonSerializer
   @override
   HeartbeatHeartbeatResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new HeartbeatHeartbeatResponseApplicationJsonBuilder();
+    final result = HeartbeatHeartbeatResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -527,7 +527,7 @@ class _$ClearAtSerializer implements StructuredSerializer<ClearAt> {
   @override
   ClearAt deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ClearAtBuilder();
+    final result = ClearAtBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -578,7 +578,7 @@ class _$PredefinedSerializer implements StructuredSerializer<Predefined> {
   @override
   Predefined deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new PredefinedBuilder();
+    final result = PredefinedBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -631,7 +631,7 @@ class _$PredefinedStatusFindAllResponseApplicationJson_OcsSerializer
   @override
   PredefinedStatusFindAllResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new PredefinedStatusFindAllResponseApplicationJson_OcsBuilder();
+    final result = PredefinedStatusFindAllResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -678,7 +678,7 @@ class _$PredefinedStatusFindAllResponseApplicationJsonSerializer
   @override
   PredefinedStatusFindAllResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new PredefinedStatusFindAllResponseApplicationJsonBuilder();
+    final result = PredefinedStatusFindAllResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -724,7 +724,7 @@ class _$StatusesFindAllResponseApplicationJson_OcsSerializer
   @override
   StatusesFindAllResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new StatusesFindAllResponseApplicationJson_OcsBuilder();
+    final result = StatusesFindAllResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -767,7 +767,7 @@ class _$StatusesFindAllResponseApplicationJsonSerializer
   @override
   StatusesFindAllResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new StatusesFindAllResponseApplicationJsonBuilder();
+    final result = StatusesFindAllResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -813,7 +813,7 @@ class _$StatusesFindResponseApplicationJson_OcsSerializer
   @override
   StatusesFindResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new StatusesFindResponseApplicationJson_OcsBuilder();
+    final result = StatusesFindResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -855,7 +855,7 @@ class _$StatusesFindResponseApplicationJsonSerializer
   @override
   StatusesFindResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new StatusesFindResponseApplicationJsonBuilder();
+    final result = StatusesFindResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -901,7 +901,7 @@ class _$UserStatusGetStatusResponseApplicationJson_OcsSerializer
   @override
   UserStatusGetStatusResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserStatusGetStatusResponseApplicationJson_OcsBuilder();
+    final result = UserStatusGetStatusResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -946,7 +946,7 @@ class _$UserStatusGetStatusResponseApplicationJsonSerializer
   @override
   UserStatusGetStatusResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserStatusGetStatusResponseApplicationJsonBuilder();
+    final result = UserStatusGetStatusResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -990,7 +990,7 @@ class _$UserStatusSetStatusRequestApplicationJsonSerializer
   @override
   UserStatusSetStatusRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserStatusSetStatusRequestApplicationJsonBuilder();
+    final result = UserStatusSetStatusRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1034,7 +1034,7 @@ class _$UserStatusSetStatusResponseApplicationJson_OcsSerializer
   @override
   UserStatusSetStatusResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserStatusSetStatusResponseApplicationJson_OcsBuilder();
+    final result = UserStatusSetStatusResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1079,7 +1079,7 @@ class _$UserStatusSetStatusResponseApplicationJsonSerializer
   @override
   UserStatusSetStatusResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserStatusSetStatusResponseApplicationJsonBuilder();
+    final result = UserStatusSetStatusResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1130,7 +1130,7 @@ class _$UserStatusSetPredefinedMessageRequestApplicationJsonSerializer
   UserStatusSetPredefinedMessageRequestApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserStatusSetPredefinedMessageRequestApplicationJsonBuilder();
+    final result = UserStatusSetPredefinedMessageRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1178,7 +1178,7 @@ class _$UserStatusSetPredefinedMessageResponseApplicationJson_OcsSerializer
   UserStatusSetPredefinedMessageResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder();
+    final result = UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1225,7 +1225,7 @@ class _$UserStatusSetPredefinedMessageResponseApplicationJsonSerializer
   UserStatusSetPredefinedMessageResponseApplicationJson deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserStatusSetPredefinedMessageResponseApplicationJsonBuilder();
+    final result = UserStatusSetPredefinedMessageResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1284,7 +1284,7 @@ class _$UserStatusSetCustomMessageRequestApplicationJsonSerializer
   @override
   UserStatusSetCustomMessageRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserStatusSetCustomMessageRequestApplicationJsonBuilder();
+    final result = UserStatusSetCustomMessageRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1335,7 +1335,7 @@ class _$UserStatusSetCustomMessageResponseApplicationJson_OcsSerializer
   UserStatusSetCustomMessageResponseApplicationJson_Ocs deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder();
+    final result = UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1381,7 +1381,7 @@ class _$UserStatusSetCustomMessageResponseApplicationJsonSerializer
   @override
   UserStatusSetCustomMessageResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserStatusSetCustomMessageResponseApplicationJsonBuilder();
+    final result = UserStatusSetCustomMessageResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1427,7 +1427,7 @@ class _$UserStatusClearMessageResponseApplicationJson_OcsSerializer
   @override
   UserStatusClearMessageResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserStatusClearMessageResponseApplicationJson_OcsBuilder();
+    final result = UserStatusClearMessageResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1473,7 +1473,7 @@ class _$UserStatusClearMessageResponseApplicationJsonSerializer
   @override
   UserStatusClearMessageResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserStatusClearMessageResponseApplicationJsonBuilder();
+    final result = UserStatusClearMessageResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1520,7 +1520,7 @@ class _$UserStatusRevertStatusResponseApplicationJson_OcsSerializer
   @override
   UserStatusRevertStatusResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserStatusRevertStatusResponseApplicationJson_OcsBuilder();
+    final result = UserStatusRevertStatusResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1568,7 +1568,7 @@ class _$UserStatusRevertStatusResponseApplicationJsonSerializer
   @override
   UserStatusRevertStatusResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserStatusRevertStatusResponseApplicationJsonBuilder();
+    final result = UserStatusRevertStatusResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1612,7 +1612,7 @@ class _$Capabilities_UserStatusSerializer implements StructuredSerializer<Capabi
   @override
   Capabilities_UserStatus deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new Capabilities_UserStatusBuilder();
+    final result = Capabilities_UserStatusBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1656,7 +1656,7 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   @override
   Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new CapabilitiesBuilder();
+    final result = CapabilitiesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1688,12 +1688,9 @@ class _$HeartbeatHeartbeatRequestApplicationJson extends HeartbeatHeartbeatReque
 
   factory _$HeartbeatHeartbeatRequestApplicationJson(
           [void Function(HeartbeatHeartbeatRequestApplicationJsonBuilder)? updates]) =>
-      (new HeartbeatHeartbeatRequestApplicationJsonBuilder()..update(updates))._build();
+      (HeartbeatHeartbeatRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$HeartbeatHeartbeatRequestApplicationJson._({required this.status}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(status, r'HeartbeatHeartbeatRequestApplicationJson', 'status');
-  }
-
+  _$HeartbeatHeartbeatRequestApplicationJson._({required this.status}) : super._();
   @override
   HeartbeatHeartbeatRequestApplicationJson rebuild(
           void Function(HeartbeatHeartbeatRequestApplicationJsonBuilder) updates) =>
@@ -1701,7 +1698,7 @@ class _$HeartbeatHeartbeatRequestApplicationJson extends HeartbeatHeartbeatReque
 
   @override
   HeartbeatHeartbeatRequestApplicationJsonBuilder toBuilder() =>
-      new HeartbeatHeartbeatRequestApplicationJsonBuilder()..replace(this);
+      HeartbeatHeartbeatRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1748,7 +1745,6 @@ class HeartbeatHeartbeatRequestApplicationJsonBuilder
 
   @override
   void replace(covariant HeartbeatHeartbeatRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$HeartbeatHeartbeatRequestApplicationJson;
   }
 
@@ -1763,7 +1759,7 @@ class HeartbeatHeartbeatRequestApplicationJsonBuilder
   _$HeartbeatHeartbeatRequestApplicationJson _build() {
     HeartbeatHeartbeatRequestApplicationJson._validate(this);
     final _$result = _$v ??
-        new _$HeartbeatHeartbeatRequestApplicationJson._(
+        _$HeartbeatHeartbeatRequestApplicationJson._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'HeartbeatHeartbeatRequestApplicationJson', 'status'),
         );
     replace(_$result);
@@ -1802,19 +1798,15 @@ class _$OCSMeta extends OCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (new OCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status');
-    BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode');
-  }
-
+      : super._();
   @override
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  OCSMetaBuilder toBuilder() => new OCSMetaBuilder()..replace(this);
+  OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1893,7 +1885,6 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
   @override
   void replace(covariant OCSMeta other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OCSMeta;
   }
 
@@ -1908,7 +1899,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   _$OCSMeta _build() {
     OCSMeta._validate(this);
     final _$result = _$v ??
-        new _$OCSMeta._(
+        _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
           message: message,
@@ -1951,18 +1942,14 @@ class _$Public extends Public {
   @override
   final $Type status;
 
-  factory _$Public([void Function(PublicBuilder)? updates]) => (new PublicBuilder()..update(updates))._build();
+  factory _$Public([void Function(PublicBuilder)? updates]) => (PublicBuilder()..update(updates))._build();
 
-  _$Public._({required this.userId, this.message, this.icon, this.clearAt, required this.status}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(userId, r'Public', 'userId');
-    BuiltValueNullFieldError.checkNotNull(status, r'Public', 'status');
-  }
-
+  _$Public._({required this.userId, this.message, this.icon, this.clearAt, required this.status}) : super._();
   @override
   Public rebuild(void Function(PublicBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  PublicBuilder toBuilder() => new PublicBuilder()..replace(this);
+  PublicBuilder toBuilder() => PublicBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2041,7 +2028,6 @@ class PublicBuilder implements Builder<Public, PublicBuilder>, $PublicInterfaceB
 
   @override
   void replace(covariant Public other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Public;
   }
 
@@ -2056,7 +2042,7 @@ class PublicBuilder implements Builder<Public, PublicBuilder>, $PublicInterfaceB
   _$Public _build() {
     Public._validate(this);
     final _$result = _$v ??
-        new _$Public._(
+        _$Public._(
           userId: BuiltValueNullFieldError.checkNotNull(userId, r'Public', 'userId'),
           message: message,
           icon: icon,
@@ -2114,7 +2100,7 @@ class _$Private extends Private {
   @override
   final $Type status;
 
-  factory _$Private([void Function(PrivateBuilder)? updates]) => (new PrivateBuilder()..update(updates))._build();
+  factory _$Private([void Function(PrivateBuilder)? updates]) => (PrivateBuilder()..update(updates))._build();
 
   _$Private._(
       {this.messageId,
@@ -2125,18 +2111,12 @@ class _$Private extends Private {
       this.icon,
       this.clearAt,
       required this.status})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(messageIsPredefined, r'Private', 'messageIsPredefined');
-    BuiltValueNullFieldError.checkNotNull(statusIsUserDefined, r'Private', 'statusIsUserDefined');
-    BuiltValueNullFieldError.checkNotNull(userId, r'Private', 'userId');
-    BuiltValueNullFieldError.checkNotNull(status, r'Private', 'status');
-  }
-
+      : super._();
   @override
   Private rebuild(void Function(PrivateBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  PrivateBuilder toBuilder() => new PrivateBuilder()..replace(this);
+  PrivateBuilder toBuilder() => PrivateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2239,7 +2219,6 @@ class PrivateBuilder implements Builder<Private, PrivateBuilder>, $PrivateInterf
 
   @override
   void replace(covariant Private other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Private;
   }
 
@@ -2254,7 +2233,7 @@ class PrivateBuilder implements Builder<Private, PrivateBuilder>, $PrivateInterf
   _$Private _build() {
     Private._validate(this);
     final _$result = _$v ??
-        new _$Private._(
+        _$Private._(
           messageId: messageId,
           messageIsPredefined:
               BuiltValueNullFieldError.checkNotNull(messageIsPredefined, r'Private', 'messageIsPredefined'),
@@ -2289,13 +2268,9 @@ class _$HeartbeatHeartbeatResponseApplicationJson_Ocs extends HeartbeatHeartbeat
 
   factory _$HeartbeatHeartbeatResponseApplicationJson_Ocs(
           [void Function(HeartbeatHeartbeatResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new HeartbeatHeartbeatResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (HeartbeatHeartbeatResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$HeartbeatHeartbeatResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'HeartbeatHeartbeatResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'HeartbeatHeartbeatResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$HeartbeatHeartbeatResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   HeartbeatHeartbeatResponseApplicationJson_Ocs rebuild(
           void Function(HeartbeatHeartbeatResponseApplicationJson_OcsBuilder) updates) =>
@@ -2303,7 +2278,7 @@ class _$HeartbeatHeartbeatResponseApplicationJson_Ocs extends HeartbeatHeartbeat
 
   @override
   HeartbeatHeartbeatResponseApplicationJson_OcsBuilder toBuilder() =>
-      new HeartbeatHeartbeatResponseApplicationJson_OcsBuilder()..replace(this);
+      HeartbeatHeartbeatResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2336,11 +2311,11 @@ class HeartbeatHeartbeatResponseApplicationJson_OcsBuilder
   _$HeartbeatHeartbeatResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   PrivateBuilder? _data;
-  PrivateBuilder get data => _$this._data ??= new PrivateBuilder();
+  PrivateBuilder get data => _$this._data ??= PrivateBuilder();
   set data(covariant PrivateBuilder? data) => _$this._data = data;
 
   HeartbeatHeartbeatResponseApplicationJson_OcsBuilder() {
@@ -2359,7 +2334,6 @@ class HeartbeatHeartbeatResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant HeartbeatHeartbeatResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$HeartbeatHeartbeatResponseApplicationJson_Ocs;
   }
 
@@ -2376,7 +2350,7 @@ class HeartbeatHeartbeatResponseApplicationJson_OcsBuilder
     _$HeartbeatHeartbeatResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$HeartbeatHeartbeatResponseApplicationJson_Ocs._(
+          _$HeartbeatHeartbeatResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -2388,8 +2362,7 @@ class HeartbeatHeartbeatResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'HeartbeatHeartbeatResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'HeartbeatHeartbeatResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2411,12 +2384,9 @@ class _$HeartbeatHeartbeatResponseApplicationJson extends HeartbeatHeartbeatResp
 
   factory _$HeartbeatHeartbeatResponseApplicationJson(
           [void Function(HeartbeatHeartbeatResponseApplicationJsonBuilder)? updates]) =>
-      (new HeartbeatHeartbeatResponseApplicationJsonBuilder()..update(updates))._build();
+      (HeartbeatHeartbeatResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$HeartbeatHeartbeatResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'HeartbeatHeartbeatResponseApplicationJson', 'ocs');
-  }
-
+  _$HeartbeatHeartbeatResponseApplicationJson._({required this.ocs}) : super._();
   @override
   HeartbeatHeartbeatResponseApplicationJson rebuild(
           void Function(HeartbeatHeartbeatResponseApplicationJsonBuilder) updates) =>
@@ -2424,7 +2394,7 @@ class _$HeartbeatHeartbeatResponseApplicationJson extends HeartbeatHeartbeatResp
 
   @override
   HeartbeatHeartbeatResponseApplicationJsonBuilder toBuilder() =>
-      new HeartbeatHeartbeatResponseApplicationJsonBuilder()..replace(this);
+      HeartbeatHeartbeatResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2454,7 +2424,7 @@ class HeartbeatHeartbeatResponseApplicationJsonBuilder
 
   HeartbeatHeartbeatResponseApplicationJson_OcsBuilder? _ocs;
   HeartbeatHeartbeatResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new HeartbeatHeartbeatResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= HeartbeatHeartbeatResponseApplicationJson_OcsBuilder();
   set ocs(covariant HeartbeatHeartbeatResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   HeartbeatHeartbeatResponseApplicationJsonBuilder() {
@@ -2472,7 +2442,6 @@ class HeartbeatHeartbeatResponseApplicationJsonBuilder
 
   @override
   void replace(covariant HeartbeatHeartbeatResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$HeartbeatHeartbeatResponseApplicationJson;
   }
 
@@ -2489,7 +2458,7 @@ class HeartbeatHeartbeatResponseApplicationJsonBuilder
     _$HeartbeatHeartbeatResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$HeartbeatHeartbeatResponseApplicationJson._(
+          _$HeartbeatHeartbeatResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -2498,7 +2467,7 @@ class HeartbeatHeartbeatResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'HeartbeatHeartbeatResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'HeartbeatHeartbeatResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2523,18 +2492,14 @@ class _$ClearAt extends ClearAt {
   @override
   final ClearAt_Time time;
 
-  factory _$ClearAt([void Function(ClearAtBuilder)? updates]) => (new ClearAtBuilder()..update(updates))._build();
+  factory _$ClearAt([void Function(ClearAtBuilder)? updates]) => (ClearAtBuilder()..update(updates))._build();
 
-  _$ClearAt._({required this.type, required this.time}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(type, r'ClearAt', 'type');
-    BuiltValueNullFieldError.checkNotNull(time, r'ClearAt', 'time');
-  }
-
+  _$ClearAt._({required this.type, required this.time}) : super._();
   @override
   ClearAt rebuild(void Function(ClearAtBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  ClearAtBuilder toBuilder() => new ClearAtBuilder()..replace(this);
+  ClearAtBuilder toBuilder() => ClearAtBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2588,7 +2553,6 @@ class ClearAtBuilder implements Builder<ClearAt, ClearAtBuilder>, $ClearAtInterf
 
   @override
   void replace(covariant ClearAt other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ClearAt;
   }
 
@@ -2603,7 +2567,7 @@ class ClearAtBuilder implements Builder<ClearAt, ClearAtBuilder>, $ClearAtInterf
   _$ClearAt _build() {
     ClearAt._validate(this);
     final _$result = _$v ??
-        new _$ClearAt._(
+        _$ClearAt._(
           type: BuiltValueNullFieldError.checkNotNull(type, r'ClearAt', 'type'),
           time: BuiltValueNullFieldError.checkNotNull(time, r'ClearAt', 'time'),
         );
@@ -2638,20 +2602,14 @@ class _$Predefined extends Predefined {
   @override
   final ClearAt? clearAt;
 
-  factory _$Predefined([void Function(PredefinedBuilder)? updates]) =>
-      (new PredefinedBuilder()..update(updates))._build();
+  factory _$Predefined([void Function(PredefinedBuilder)? updates]) => (PredefinedBuilder()..update(updates))._build();
 
-  _$Predefined._({required this.id, required this.icon, required this.message, this.clearAt}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'Predefined', 'id');
-    BuiltValueNullFieldError.checkNotNull(icon, r'Predefined', 'icon');
-    BuiltValueNullFieldError.checkNotNull(message, r'Predefined', 'message');
-  }
-
+  _$Predefined._({required this.id, required this.icon, required this.message, this.clearAt}) : super._();
   @override
   Predefined rebuild(void Function(PredefinedBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  PredefinedBuilder toBuilder() => new PredefinedBuilder()..replace(this);
+  PredefinedBuilder toBuilder() => PredefinedBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2701,7 +2659,7 @@ class PredefinedBuilder implements Builder<Predefined, PredefinedBuilder>, $Pred
   set message(covariant String? message) => _$this._message = message;
 
   ClearAtBuilder? _clearAt;
-  ClearAtBuilder get clearAt => _$this._clearAt ??= new ClearAtBuilder();
+  ClearAtBuilder get clearAt => _$this._clearAt ??= ClearAtBuilder();
   set clearAt(covariant ClearAtBuilder? clearAt) => _$this._clearAt = clearAt;
 
   PredefinedBuilder() {
@@ -2722,7 +2680,6 @@ class PredefinedBuilder implements Builder<Predefined, PredefinedBuilder>, $Pred
 
   @override
   void replace(covariant Predefined other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Predefined;
   }
 
@@ -2739,7 +2696,7 @@ class PredefinedBuilder implements Builder<Predefined, PredefinedBuilder>, $Pred
     _$Predefined _$result;
     try {
       _$result = _$v ??
-          new _$Predefined._(
+          _$Predefined._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'Predefined', 'id'),
             icon: BuiltValueNullFieldError.checkNotNull(icon, r'Predefined', 'icon'),
             message: BuiltValueNullFieldError.checkNotNull(message, r'Predefined', 'message'),
@@ -2751,7 +2708,7 @@ class PredefinedBuilder implements Builder<Predefined, PredefinedBuilder>, $Pred
         _$failedField = 'clearAt';
         _clearAt?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'Predefined', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Predefined', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2778,13 +2735,9 @@ class _$PredefinedStatusFindAllResponseApplicationJson_Ocs extends PredefinedSta
 
   factory _$PredefinedStatusFindAllResponseApplicationJson_Ocs(
           [void Function(PredefinedStatusFindAllResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new PredefinedStatusFindAllResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (PredefinedStatusFindAllResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$PredefinedStatusFindAllResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'PredefinedStatusFindAllResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'PredefinedStatusFindAllResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$PredefinedStatusFindAllResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   PredefinedStatusFindAllResponseApplicationJson_Ocs rebuild(
           void Function(PredefinedStatusFindAllResponseApplicationJson_OcsBuilder) updates) =>
@@ -2792,7 +2745,7 @@ class _$PredefinedStatusFindAllResponseApplicationJson_Ocs extends PredefinedSta
 
   @override
   PredefinedStatusFindAllResponseApplicationJson_OcsBuilder toBuilder() =>
-      new PredefinedStatusFindAllResponseApplicationJson_OcsBuilder()..replace(this);
+      PredefinedStatusFindAllResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2826,11 +2779,11 @@ class PredefinedStatusFindAllResponseApplicationJson_OcsBuilder
   _$PredefinedStatusFindAllResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<Predefined>? _data;
-  ListBuilder<Predefined> get data => _$this._data ??= new ListBuilder<Predefined>();
+  ListBuilder<Predefined> get data => _$this._data ??= ListBuilder<Predefined>();
   set data(covariant ListBuilder<Predefined>? data) => _$this._data = data;
 
   PredefinedStatusFindAllResponseApplicationJson_OcsBuilder() {
@@ -2849,7 +2802,6 @@ class PredefinedStatusFindAllResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant PredefinedStatusFindAllResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PredefinedStatusFindAllResponseApplicationJson_Ocs;
   }
 
@@ -2866,7 +2818,7 @@ class PredefinedStatusFindAllResponseApplicationJson_OcsBuilder
     _$PredefinedStatusFindAllResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$PredefinedStatusFindAllResponseApplicationJson_Ocs._(
+          _$PredefinedStatusFindAllResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -2878,7 +2830,7 @@ class PredefinedStatusFindAllResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PredefinedStatusFindAllResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -2901,12 +2853,9 @@ class _$PredefinedStatusFindAllResponseApplicationJson extends PredefinedStatusF
 
   factory _$PredefinedStatusFindAllResponseApplicationJson(
           [void Function(PredefinedStatusFindAllResponseApplicationJsonBuilder)? updates]) =>
-      (new PredefinedStatusFindAllResponseApplicationJsonBuilder()..update(updates))._build();
+      (PredefinedStatusFindAllResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$PredefinedStatusFindAllResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'PredefinedStatusFindAllResponseApplicationJson', 'ocs');
-  }
-
+  _$PredefinedStatusFindAllResponseApplicationJson._({required this.ocs}) : super._();
   @override
   PredefinedStatusFindAllResponseApplicationJson rebuild(
           void Function(PredefinedStatusFindAllResponseApplicationJsonBuilder) updates) =>
@@ -2914,7 +2863,7 @@ class _$PredefinedStatusFindAllResponseApplicationJson extends PredefinedStatusF
 
   @override
   PredefinedStatusFindAllResponseApplicationJsonBuilder toBuilder() =>
-      new PredefinedStatusFindAllResponseApplicationJsonBuilder()..replace(this);
+      PredefinedStatusFindAllResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2944,7 +2893,7 @@ class PredefinedStatusFindAllResponseApplicationJsonBuilder
 
   PredefinedStatusFindAllResponseApplicationJson_OcsBuilder? _ocs;
   PredefinedStatusFindAllResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new PredefinedStatusFindAllResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= PredefinedStatusFindAllResponseApplicationJson_OcsBuilder();
   set ocs(covariant PredefinedStatusFindAllResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   PredefinedStatusFindAllResponseApplicationJsonBuilder() {
@@ -2962,7 +2911,6 @@ class PredefinedStatusFindAllResponseApplicationJsonBuilder
 
   @override
   void replace(covariant PredefinedStatusFindAllResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PredefinedStatusFindAllResponseApplicationJson;
   }
 
@@ -2979,7 +2927,7 @@ class PredefinedStatusFindAllResponseApplicationJsonBuilder
     _$PredefinedStatusFindAllResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$PredefinedStatusFindAllResponseApplicationJson._(
+          _$PredefinedStatusFindAllResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -2988,7 +2936,7 @@ class PredefinedStatusFindAllResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PredefinedStatusFindAllResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -3016,13 +2964,9 @@ class _$StatusesFindAllResponseApplicationJson_Ocs extends StatusesFindAllRespon
 
   factory _$StatusesFindAllResponseApplicationJson_Ocs(
           [void Function(StatusesFindAllResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new StatusesFindAllResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (StatusesFindAllResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$StatusesFindAllResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'StatusesFindAllResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'StatusesFindAllResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$StatusesFindAllResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   StatusesFindAllResponseApplicationJson_Ocs rebuild(
           void Function(StatusesFindAllResponseApplicationJson_OcsBuilder) updates) =>
@@ -3030,7 +2974,7 @@ class _$StatusesFindAllResponseApplicationJson_Ocs extends StatusesFindAllRespon
 
   @override
   StatusesFindAllResponseApplicationJson_OcsBuilder toBuilder() =>
-      new StatusesFindAllResponseApplicationJson_OcsBuilder()..replace(this);
+      StatusesFindAllResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3063,11 +3007,11 @@ class StatusesFindAllResponseApplicationJson_OcsBuilder
   _$StatusesFindAllResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<Public>? _data;
-  ListBuilder<Public> get data => _$this._data ??= new ListBuilder<Public>();
+  ListBuilder<Public> get data => _$this._data ??= ListBuilder<Public>();
   set data(covariant ListBuilder<Public>? data) => _$this._data = data;
 
   StatusesFindAllResponseApplicationJson_OcsBuilder() {
@@ -3086,7 +3030,6 @@ class StatusesFindAllResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant StatusesFindAllResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$StatusesFindAllResponseApplicationJson_Ocs;
   }
 
@@ -3103,7 +3046,7 @@ class StatusesFindAllResponseApplicationJson_OcsBuilder
     _$StatusesFindAllResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$StatusesFindAllResponseApplicationJson_Ocs._(
+          _$StatusesFindAllResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -3115,8 +3058,7 @@ class StatusesFindAllResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'StatusesFindAllResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'StatusesFindAllResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3138,12 +3080,9 @@ class _$StatusesFindAllResponseApplicationJson extends StatusesFindAllResponseAp
 
   factory _$StatusesFindAllResponseApplicationJson(
           [void Function(StatusesFindAllResponseApplicationJsonBuilder)? updates]) =>
-      (new StatusesFindAllResponseApplicationJsonBuilder()..update(updates))._build();
+      (StatusesFindAllResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$StatusesFindAllResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'StatusesFindAllResponseApplicationJson', 'ocs');
-  }
-
+  _$StatusesFindAllResponseApplicationJson._({required this.ocs}) : super._();
   @override
   StatusesFindAllResponseApplicationJson rebuild(
           void Function(StatusesFindAllResponseApplicationJsonBuilder) updates) =>
@@ -3151,7 +3090,7 @@ class _$StatusesFindAllResponseApplicationJson extends StatusesFindAllResponseAp
 
   @override
   StatusesFindAllResponseApplicationJsonBuilder toBuilder() =>
-      new StatusesFindAllResponseApplicationJsonBuilder()..replace(this);
+      StatusesFindAllResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3181,7 +3120,7 @@ class StatusesFindAllResponseApplicationJsonBuilder
 
   StatusesFindAllResponseApplicationJson_OcsBuilder? _ocs;
   StatusesFindAllResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new StatusesFindAllResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= StatusesFindAllResponseApplicationJson_OcsBuilder();
   set ocs(covariant StatusesFindAllResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   StatusesFindAllResponseApplicationJsonBuilder() {
@@ -3199,7 +3138,6 @@ class StatusesFindAllResponseApplicationJsonBuilder
 
   @override
   void replace(covariant StatusesFindAllResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$StatusesFindAllResponseApplicationJson;
   }
 
@@ -3216,7 +3154,7 @@ class StatusesFindAllResponseApplicationJsonBuilder
     _$StatusesFindAllResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$StatusesFindAllResponseApplicationJson._(
+          _$StatusesFindAllResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -3225,7 +3163,7 @@ class StatusesFindAllResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'StatusesFindAllResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'StatusesFindAllResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3252,13 +3190,9 @@ class _$StatusesFindResponseApplicationJson_Ocs extends StatusesFindResponseAppl
 
   factory _$StatusesFindResponseApplicationJson_Ocs(
           [void Function(StatusesFindResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new StatusesFindResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (StatusesFindResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$StatusesFindResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'StatusesFindResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'StatusesFindResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$StatusesFindResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   StatusesFindResponseApplicationJson_Ocs rebuild(
           void Function(StatusesFindResponseApplicationJson_OcsBuilder) updates) =>
@@ -3266,7 +3200,7 @@ class _$StatusesFindResponseApplicationJson_Ocs extends StatusesFindResponseAppl
 
   @override
   StatusesFindResponseApplicationJson_OcsBuilder toBuilder() =>
-      new StatusesFindResponseApplicationJson_OcsBuilder()..replace(this);
+      StatusesFindResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3299,11 +3233,11 @@ class StatusesFindResponseApplicationJson_OcsBuilder
   _$StatusesFindResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   PublicBuilder? _data;
-  PublicBuilder get data => _$this._data ??= new PublicBuilder();
+  PublicBuilder get data => _$this._data ??= PublicBuilder();
   set data(covariant PublicBuilder? data) => _$this._data = data;
 
   StatusesFindResponseApplicationJson_OcsBuilder() {
@@ -3322,7 +3256,6 @@ class StatusesFindResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant StatusesFindResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$StatusesFindResponseApplicationJson_Ocs;
   }
 
@@ -3339,7 +3272,7 @@ class StatusesFindResponseApplicationJson_OcsBuilder
     _$StatusesFindResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$StatusesFindResponseApplicationJson_Ocs._(
+          _$StatusesFindResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -3351,7 +3284,7 @@ class StatusesFindResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'StatusesFindResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'StatusesFindResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3372,19 +3305,15 @@ class _$StatusesFindResponseApplicationJson extends StatusesFindResponseApplicat
   final StatusesFindResponseApplicationJson_Ocs ocs;
 
   factory _$StatusesFindResponseApplicationJson([void Function(StatusesFindResponseApplicationJsonBuilder)? updates]) =>
-      (new StatusesFindResponseApplicationJsonBuilder()..update(updates))._build();
+      (StatusesFindResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$StatusesFindResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'StatusesFindResponseApplicationJson', 'ocs');
-  }
-
+  _$StatusesFindResponseApplicationJson._({required this.ocs}) : super._();
   @override
   StatusesFindResponseApplicationJson rebuild(void Function(StatusesFindResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  StatusesFindResponseApplicationJsonBuilder toBuilder() =>
-      new StatusesFindResponseApplicationJsonBuilder()..replace(this);
+  StatusesFindResponseApplicationJsonBuilder toBuilder() => StatusesFindResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3414,7 +3343,7 @@ class StatusesFindResponseApplicationJsonBuilder
 
   StatusesFindResponseApplicationJson_OcsBuilder? _ocs;
   StatusesFindResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new StatusesFindResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= StatusesFindResponseApplicationJson_OcsBuilder();
   set ocs(covariant StatusesFindResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   StatusesFindResponseApplicationJsonBuilder() {
@@ -3432,7 +3361,6 @@ class StatusesFindResponseApplicationJsonBuilder
 
   @override
   void replace(covariant StatusesFindResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$StatusesFindResponseApplicationJson;
   }
 
@@ -3449,7 +3377,7 @@ class StatusesFindResponseApplicationJsonBuilder
     _$StatusesFindResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$StatusesFindResponseApplicationJson._(
+          _$StatusesFindResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -3458,7 +3386,7 @@ class StatusesFindResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'StatusesFindResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'StatusesFindResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3485,13 +3413,9 @@ class _$UserStatusGetStatusResponseApplicationJson_Ocs extends UserStatusGetStat
 
   factory _$UserStatusGetStatusResponseApplicationJson_Ocs(
           [void Function(UserStatusGetStatusResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new UserStatusGetStatusResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (UserStatusGetStatusResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$UserStatusGetStatusResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'UserStatusGetStatusResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'UserStatusGetStatusResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$UserStatusGetStatusResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   UserStatusGetStatusResponseApplicationJson_Ocs rebuild(
           void Function(UserStatusGetStatusResponseApplicationJson_OcsBuilder) updates) =>
@@ -3499,7 +3423,7 @@ class _$UserStatusGetStatusResponseApplicationJson_Ocs extends UserStatusGetStat
 
   @override
   UserStatusGetStatusResponseApplicationJson_OcsBuilder toBuilder() =>
-      new UserStatusGetStatusResponseApplicationJson_OcsBuilder()..replace(this);
+      UserStatusGetStatusResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3532,11 +3456,11 @@ class UserStatusGetStatusResponseApplicationJson_OcsBuilder
   _$UserStatusGetStatusResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   PrivateBuilder? _data;
-  PrivateBuilder get data => _$this._data ??= new PrivateBuilder();
+  PrivateBuilder get data => _$this._data ??= PrivateBuilder();
   set data(covariant PrivateBuilder? data) => _$this._data = data;
 
   UserStatusGetStatusResponseApplicationJson_OcsBuilder() {
@@ -3555,7 +3479,6 @@ class UserStatusGetStatusResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant UserStatusGetStatusResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserStatusGetStatusResponseApplicationJson_Ocs;
   }
 
@@ -3572,7 +3495,7 @@ class UserStatusGetStatusResponseApplicationJson_OcsBuilder
     _$UserStatusGetStatusResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$UserStatusGetStatusResponseApplicationJson_Ocs._(
+          _$UserStatusGetStatusResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -3584,7 +3507,7 @@ class UserStatusGetStatusResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserStatusGetStatusResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -3607,12 +3530,9 @@ class _$UserStatusGetStatusResponseApplicationJson extends UserStatusGetStatusRe
 
   factory _$UserStatusGetStatusResponseApplicationJson(
           [void Function(UserStatusGetStatusResponseApplicationJsonBuilder)? updates]) =>
-      (new UserStatusGetStatusResponseApplicationJsonBuilder()..update(updates))._build();
+      (UserStatusGetStatusResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$UserStatusGetStatusResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'UserStatusGetStatusResponseApplicationJson', 'ocs');
-  }
-
+  _$UserStatusGetStatusResponseApplicationJson._({required this.ocs}) : super._();
   @override
   UserStatusGetStatusResponseApplicationJson rebuild(
           void Function(UserStatusGetStatusResponseApplicationJsonBuilder) updates) =>
@@ -3620,7 +3540,7 @@ class _$UserStatusGetStatusResponseApplicationJson extends UserStatusGetStatusRe
 
   @override
   UserStatusGetStatusResponseApplicationJsonBuilder toBuilder() =>
-      new UserStatusGetStatusResponseApplicationJsonBuilder()..replace(this);
+      UserStatusGetStatusResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3650,7 +3570,7 @@ class UserStatusGetStatusResponseApplicationJsonBuilder
 
   UserStatusGetStatusResponseApplicationJson_OcsBuilder? _ocs;
   UserStatusGetStatusResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new UserStatusGetStatusResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= UserStatusGetStatusResponseApplicationJson_OcsBuilder();
   set ocs(covariant UserStatusGetStatusResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   UserStatusGetStatusResponseApplicationJsonBuilder() {
@@ -3668,7 +3588,6 @@ class UserStatusGetStatusResponseApplicationJsonBuilder
 
   @override
   void replace(covariant UserStatusGetStatusResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserStatusGetStatusResponseApplicationJson;
   }
 
@@ -3685,7 +3604,7 @@ class UserStatusGetStatusResponseApplicationJsonBuilder
     _$UserStatusGetStatusResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$UserStatusGetStatusResponseApplicationJson._(
+          _$UserStatusGetStatusResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -3694,8 +3613,7 @@ class UserStatusGetStatusResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'UserStatusGetStatusResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'UserStatusGetStatusResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3717,12 +3635,9 @@ class _$UserStatusSetStatusRequestApplicationJson extends UserStatusSetStatusReq
 
   factory _$UserStatusSetStatusRequestApplicationJson(
           [void Function(UserStatusSetStatusRequestApplicationJsonBuilder)? updates]) =>
-      (new UserStatusSetStatusRequestApplicationJsonBuilder()..update(updates))._build();
+      (UserStatusSetStatusRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$UserStatusSetStatusRequestApplicationJson._({required this.statusType}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(statusType, r'UserStatusSetStatusRequestApplicationJson', 'statusType');
-  }
-
+  _$UserStatusSetStatusRequestApplicationJson._({required this.statusType}) : super._();
   @override
   UserStatusSetStatusRequestApplicationJson rebuild(
           void Function(UserStatusSetStatusRequestApplicationJsonBuilder) updates) =>
@@ -3730,7 +3645,7 @@ class _$UserStatusSetStatusRequestApplicationJson extends UserStatusSetStatusReq
 
   @override
   UserStatusSetStatusRequestApplicationJsonBuilder toBuilder() =>
-      new UserStatusSetStatusRequestApplicationJsonBuilder()..replace(this);
+      UserStatusSetStatusRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3778,7 +3693,6 @@ class UserStatusSetStatusRequestApplicationJsonBuilder
 
   @override
   void replace(covariant UserStatusSetStatusRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserStatusSetStatusRequestApplicationJson;
   }
 
@@ -3793,7 +3707,7 @@ class UserStatusSetStatusRequestApplicationJsonBuilder
   _$UserStatusSetStatusRequestApplicationJson _build() {
     UserStatusSetStatusRequestApplicationJson._validate(this);
     final _$result = _$v ??
-        new _$UserStatusSetStatusRequestApplicationJson._(
+        _$UserStatusSetStatusRequestApplicationJson._(
           statusType: BuiltValueNullFieldError.checkNotNull(
               statusType, r'UserStatusSetStatusRequestApplicationJson', 'statusType'),
         );
@@ -3820,13 +3734,9 @@ class _$UserStatusSetStatusResponseApplicationJson_Ocs extends UserStatusSetStat
 
   factory _$UserStatusSetStatusResponseApplicationJson_Ocs(
           [void Function(UserStatusSetStatusResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new UserStatusSetStatusResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (UserStatusSetStatusResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$UserStatusSetStatusResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'UserStatusSetStatusResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'UserStatusSetStatusResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$UserStatusSetStatusResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   UserStatusSetStatusResponseApplicationJson_Ocs rebuild(
           void Function(UserStatusSetStatusResponseApplicationJson_OcsBuilder) updates) =>
@@ -3834,7 +3744,7 @@ class _$UserStatusSetStatusResponseApplicationJson_Ocs extends UserStatusSetStat
 
   @override
   UserStatusSetStatusResponseApplicationJson_OcsBuilder toBuilder() =>
-      new UserStatusSetStatusResponseApplicationJson_OcsBuilder()..replace(this);
+      UserStatusSetStatusResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3867,11 +3777,11 @@ class UserStatusSetStatusResponseApplicationJson_OcsBuilder
   _$UserStatusSetStatusResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   PrivateBuilder? _data;
-  PrivateBuilder get data => _$this._data ??= new PrivateBuilder();
+  PrivateBuilder get data => _$this._data ??= PrivateBuilder();
   set data(covariant PrivateBuilder? data) => _$this._data = data;
 
   UserStatusSetStatusResponseApplicationJson_OcsBuilder() {
@@ -3890,7 +3800,6 @@ class UserStatusSetStatusResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant UserStatusSetStatusResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserStatusSetStatusResponseApplicationJson_Ocs;
   }
 
@@ -3907,7 +3816,7 @@ class UserStatusSetStatusResponseApplicationJson_OcsBuilder
     _$UserStatusSetStatusResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$UserStatusSetStatusResponseApplicationJson_Ocs._(
+          _$UserStatusSetStatusResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -3919,7 +3828,7 @@ class UserStatusSetStatusResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserStatusSetStatusResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -3942,12 +3851,9 @@ class _$UserStatusSetStatusResponseApplicationJson extends UserStatusSetStatusRe
 
   factory _$UserStatusSetStatusResponseApplicationJson(
           [void Function(UserStatusSetStatusResponseApplicationJsonBuilder)? updates]) =>
-      (new UserStatusSetStatusResponseApplicationJsonBuilder()..update(updates))._build();
+      (UserStatusSetStatusResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$UserStatusSetStatusResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'UserStatusSetStatusResponseApplicationJson', 'ocs');
-  }
-
+  _$UserStatusSetStatusResponseApplicationJson._({required this.ocs}) : super._();
   @override
   UserStatusSetStatusResponseApplicationJson rebuild(
           void Function(UserStatusSetStatusResponseApplicationJsonBuilder) updates) =>
@@ -3955,7 +3861,7 @@ class _$UserStatusSetStatusResponseApplicationJson extends UserStatusSetStatusRe
 
   @override
   UserStatusSetStatusResponseApplicationJsonBuilder toBuilder() =>
-      new UserStatusSetStatusResponseApplicationJsonBuilder()..replace(this);
+      UserStatusSetStatusResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3985,7 +3891,7 @@ class UserStatusSetStatusResponseApplicationJsonBuilder
 
   UserStatusSetStatusResponseApplicationJson_OcsBuilder? _ocs;
   UserStatusSetStatusResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new UserStatusSetStatusResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= UserStatusSetStatusResponseApplicationJson_OcsBuilder();
   set ocs(covariant UserStatusSetStatusResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   UserStatusSetStatusResponseApplicationJsonBuilder() {
@@ -4003,7 +3909,6 @@ class UserStatusSetStatusResponseApplicationJsonBuilder
 
   @override
   void replace(covariant UserStatusSetStatusResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserStatusSetStatusResponseApplicationJson;
   }
 
@@ -4020,7 +3925,7 @@ class UserStatusSetStatusResponseApplicationJsonBuilder
     _$UserStatusSetStatusResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$UserStatusSetStatusResponseApplicationJson._(
+          _$UserStatusSetStatusResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -4029,8 +3934,7 @@ class UserStatusSetStatusResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'UserStatusSetStatusResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'UserStatusSetStatusResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -4058,13 +3962,9 @@ class _$UserStatusSetPredefinedMessageRequestApplicationJson
 
   factory _$UserStatusSetPredefinedMessageRequestApplicationJson(
           [void Function(UserStatusSetPredefinedMessageRequestApplicationJsonBuilder)? updates]) =>
-      (new UserStatusSetPredefinedMessageRequestApplicationJsonBuilder()..update(updates))._build();
+      (UserStatusSetPredefinedMessageRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$UserStatusSetPredefinedMessageRequestApplicationJson._({required this.messageId, this.clearAt}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        messageId, r'UserStatusSetPredefinedMessageRequestApplicationJson', 'messageId');
-  }
-
+  _$UserStatusSetPredefinedMessageRequestApplicationJson._({required this.messageId, this.clearAt}) : super._();
   @override
   UserStatusSetPredefinedMessageRequestApplicationJson rebuild(
           void Function(UserStatusSetPredefinedMessageRequestApplicationJsonBuilder) updates) =>
@@ -4072,7 +3972,7 @@ class _$UserStatusSetPredefinedMessageRequestApplicationJson
 
   @override
   UserStatusSetPredefinedMessageRequestApplicationJsonBuilder toBuilder() =>
-      new UserStatusSetPredefinedMessageRequestApplicationJsonBuilder()..replace(this);
+      UserStatusSetPredefinedMessageRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4131,7 +4031,6 @@ class UserStatusSetPredefinedMessageRequestApplicationJsonBuilder
 
   @override
   void replace(covariant UserStatusSetPredefinedMessageRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserStatusSetPredefinedMessageRequestApplicationJson;
   }
 
@@ -4146,7 +4045,7 @@ class UserStatusSetPredefinedMessageRequestApplicationJsonBuilder
   _$UserStatusSetPredefinedMessageRequestApplicationJson _build() {
     UserStatusSetPredefinedMessageRequestApplicationJson._validate(this);
     final _$result = _$v ??
-        new _$UserStatusSetPredefinedMessageRequestApplicationJson._(
+        _$UserStatusSetPredefinedMessageRequestApplicationJson._(
           messageId: BuiltValueNullFieldError.checkNotNull(
               messageId, r'UserStatusSetPredefinedMessageRequestApplicationJson', 'messageId'),
           clearAt: clearAt,
@@ -4175,13 +4074,9 @@ class _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs
 
   factory _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs(
           [void Function(UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'UserStatusSetPredefinedMessageResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'UserStatusSetPredefinedMessageResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   UserStatusSetPredefinedMessageResponseApplicationJson_Ocs rebuild(
           void Function(UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder) updates) =>
@@ -4189,7 +4084,7 @@ class _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs
 
   @override
   UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder toBuilder() =>
-      new UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder()..replace(this);
+      UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4225,11 +4120,11 @@ class UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder
   _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   PrivateBuilder? _data;
-  PrivateBuilder get data => _$this._data ??= new PrivateBuilder();
+  PrivateBuilder get data => _$this._data ??= PrivateBuilder();
   set data(covariant PrivateBuilder? data) => _$this._data = data;
 
   UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder() {
@@ -4248,7 +4143,6 @@ class UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant UserStatusSetPredefinedMessageResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs;
   }
 
@@ -4265,7 +4159,7 @@ class UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder
     _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs._(
+          _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -4277,7 +4171,7 @@ class UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserStatusSetPredefinedMessageResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -4301,12 +4195,9 @@ class _$UserStatusSetPredefinedMessageResponseApplicationJson
 
   factory _$UserStatusSetPredefinedMessageResponseApplicationJson(
           [void Function(UserStatusSetPredefinedMessageResponseApplicationJsonBuilder)? updates]) =>
-      (new UserStatusSetPredefinedMessageResponseApplicationJsonBuilder()..update(updates))._build();
+      (UserStatusSetPredefinedMessageResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$UserStatusSetPredefinedMessageResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'UserStatusSetPredefinedMessageResponseApplicationJson', 'ocs');
-  }
-
+  _$UserStatusSetPredefinedMessageResponseApplicationJson._({required this.ocs}) : super._();
   @override
   UserStatusSetPredefinedMessageResponseApplicationJson rebuild(
           void Function(UserStatusSetPredefinedMessageResponseApplicationJsonBuilder) updates) =>
@@ -4314,7 +4205,7 @@ class _$UserStatusSetPredefinedMessageResponseApplicationJson
 
   @override
   UserStatusSetPredefinedMessageResponseApplicationJsonBuilder toBuilder() =>
-      new UserStatusSetPredefinedMessageResponseApplicationJsonBuilder()..replace(this);
+      UserStatusSetPredefinedMessageResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4346,7 +4237,7 @@ class UserStatusSetPredefinedMessageResponseApplicationJsonBuilder
 
   UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder? _ocs;
   UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder();
   set ocs(covariant UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   UserStatusSetPredefinedMessageResponseApplicationJsonBuilder() {
@@ -4364,7 +4255,6 @@ class UserStatusSetPredefinedMessageResponseApplicationJsonBuilder
 
   @override
   void replace(covariant UserStatusSetPredefinedMessageResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserStatusSetPredefinedMessageResponseApplicationJson;
   }
 
@@ -4381,7 +4271,7 @@ class UserStatusSetPredefinedMessageResponseApplicationJsonBuilder
     _$UserStatusSetPredefinedMessageResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$UserStatusSetPredefinedMessageResponseApplicationJson._(
+          _$UserStatusSetPredefinedMessageResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -4390,7 +4280,7 @@ class UserStatusSetPredefinedMessageResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserStatusSetPredefinedMessageResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -4423,10 +4313,9 @@ class _$UserStatusSetCustomMessageRequestApplicationJson extends UserStatusSetCu
 
   factory _$UserStatusSetCustomMessageRequestApplicationJson(
           [void Function(UserStatusSetCustomMessageRequestApplicationJsonBuilder)? updates]) =>
-      (new UserStatusSetCustomMessageRequestApplicationJsonBuilder()..update(updates))._build();
+      (UserStatusSetCustomMessageRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$UserStatusSetCustomMessageRequestApplicationJson._({this.statusIcon, this.message, this.clearAt}) : super._();
-
   @override
   UserStatusSetCustomMessageRequestApplicationJson rebuild(
           void Function(UserStatusSetCustomMessageRequestApplicationJsonBuilder) updates) =>
@@ -4434,7 +4323,7 @@ class _$UserStatusSetCustomMessageRequestApplicationJson extends UserStatusSetCu
 
   @override
   UserStatusSetCustomMessageRequestApplicationJsonBuilder toBuilder() =>
-      new UserStatusSetCustomMessageRequestApplicationJsonBuilder()..replace(this);
+      UserStatusSetCustomMessageRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4501,7 +4390,6 @@ class UserStatusSetCustomMessageRequestApplicationJsonBuilder
 
   @override
   void replace(covariant UserStatusSetCustomMessageRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserStatusSetCustomMessageRequestApplicationJson;
   }
 
@@ -4516,7 +4404,7 @@ class UserStatusSetCustomMessageRequestApplicationJsonBuilder
   _$UserStatusSetCustomMessageRequestApplicationJson _build() {
     UserStatusSetCustomMessageRequestApplicationJson._validate(this);
     final _$result = _$v ??
-        new _$UserStatusSetCustomMessageRequestApplicationJson._(
+        _$UserStatusSetCustomMessageRequestApplicationJson._(
           statusIcon: statusIcon,
           message: message,
           clearAt: clearAt,
@@ -4545,13 +4433,9 @@ class _$UserStatusSetCustomMessageResponseApplicationJson_Ocs
 
   factory _$UserStatusSetCustomMessageResponseApplicationJson_Ocs(
           [void Function(UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$UserStatusSetCustomMessageResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'UserStatusSetCustomMessageResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'UserStatusSetCustomMessageResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$UserStatusSetCustomMessageResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   UserStatusSetCustomMessageResponseApplicationJson_Ocs rebuild(
           void Function(UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder) updates) =>
@@ -4559,7 +4443,7 @@ class _$UserStatusSetCustomMessageResponseApplicationJson_Ocs
 
   @override
   UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder toBuilder() =>
-      new UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder()..replace(this);
+      UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4593,11 +4477,11 @@ class UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder
   _$UserStatusSetCustomMessageResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   PrivateBuilder? _data;
-  PrivateBuilder get data => _$this._data ??= new PrivateBuilder();
+  PrivateBuilder get data => _$this._data ??= PrivateBuilder();
   set data(covariant PrivateBuilder? data) => _$this._data = data;
 
   UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder() {
@@ -4616,7 +4500,6 @@ class UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant UserStatusSetCustomMessageResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserStatusSetCustomMessageResponseApplicationJson_Ocs;
   }
 
@@ -4633,7 +4516,7 @@ class UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder
     _$UserStatusSetCustomMessageResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$UserStatusSetCustomMessageResponseApplicationJson_Ocs._(
+          _$UserStatusSetCustomMessageResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -4645,7 +4528,7 @@ class UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserStatusSetCustomMessageResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -4668,12 +4551,9 @@ class _$UserStatusSetCustomMessageResponseApplicationJson extends UserStatusSetC
 
   factory _$UserStatusSetCustomMessageResponseApplicationJson(
           [void Function(UserStatusSetCustomMessageResponseApplicationJsonBuilder)? updates]) =>
-      (new UserStatusSetCustomMessageResponseApplicationJsonBuilder()..update(updates))._build();
+      (UserStatusSetCustomMessageResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$UserStatusSetCustomMessageResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'UserStatusSetCustomMessageResponseApplicationJson', 'ocs');
-  }
-
+  _$UserStatusSetCustomMessageResponseApplicationJson._({required this.ocs}) : super._();
   @override
   UserStatusSetCustomMessageResponseApplicationJson rebuild(
           void Function(UserStatusSetCustomMessageResponseApplicationJsonBuilder) updates) =>
@@ -4681,7 +4561,7 @@ class _$UserStatusSetCustomMessageResponseApplicationJson extends UserStatusSetC
 
   @override
   UserStatusSetCustomMessageResponseApplicationJsonBuilder toBuilder() =>
-      new UserStatusSetCustomMessageResponseApplicationJsonBuilder()..replace(this);
+      UserStatusSetCustomMessageResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4713,7 +4593,7 @@ class UserStatusSetCustomMessageResponseApplicationJsonBuilder
 
   UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder? _ocs;
   UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder();
   set ocs(covariant UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   UserStatusSetCustomMessageResponseApplicationJsonBuilder() {
@@ -4731,7 +4611,6 @@ class UserStatusSetCustomMessageResponseApplicationJsonBuilder
 
   @override
   void replace(covariant UserStatusSetCustomMessageResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserStatusSetCustomMessageResponseApplicationJson;
   }
 
@@ -4748,7 +4627,7 @@ class UserStatusSetCustomMessageResponseApplicationJsonBuilder
     _$UserStatusSetCustomMessageResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$UserStatusSetCustomMessageResponseApplicationJson._(
+          _$UserStatusSetCustomMessageResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -4757,7 +4636,7 @@ class UserStatusSetCustomMessageResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserStatusSetCustomMessageResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
@@ -4785,13 +4664,9 @@ class _$UserStatusClearMessageResponseApplicationJson_Ocs extends UserStatusClea
 
   factory _$UserStatusClearMessageResponseApplicationJson_Ocs(
           [void Function(UserStatusClearMessageResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new UserStatusClearMessageResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (UserStatusClearMessageResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$UserStatusClearMessageResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'UserStatusClearMessageResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'UserStatusClearMessageResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$UserStatusClearMessageResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   UserStatusClearMessageResponseApplicationJson_Ocs rebuild(
           void Function(UserStatusClearMessageResponseApplicationJson_OcsBuilder) updates) =>
@@ -4799,7 +4674,7 @@ class _$UserStatusClearMessageResponseApplicationJson_Ocs extends UserStatusClea
 
   @override
   UserStatusClearMessageResponseApplicationJson_OcsBuilder toBuilder() =>
-      new UserStatusClearMessageResponseApplicationJson_OcsBuilder()..replace(this);
+      UserStatusClearMessageResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4833,7 +4708,7 @@ class UserStatusClearMessageResponseApplicationJson_OcsBuilder
   _$UserStatusClearMessageResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
@@ -4856,7 +4731,6 @@ class UserStatusClearMessageResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant UserStatusClearMessageResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserStatusClearMessageResponseApplicationJson_Ocs;
   }
 
@@ -4873,7 +4747,7 @@ class UserStatusClearMessageResponseApplicationJson_OcsBuilder
     _$UserStatusClearMessageResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$UserStatusClearMessageResponseApplicationJson_Ocs._(
+          _$UserStatusClearMessageResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(
                 data, r'UserStatusClearMessageResponseApplicationJson_Ocs', 'data'),
@@ -4884,7 +4758,7 @@ class UserStatusClearMessageResponseApplicationJson_OcsBuilder
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserStatusClearMessageResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -4907,12 +4781,9 @@ class _$UserStatusClearMessageResponseApplicationJson extends UserStatusClearMes
 
   factory _$UserStatusClearMessageResponseApplicationJson(
           [void Function(UserStatusClearMessageResponseApplicationJsonBuilder)? updates]) =>
-      (new UserStatusClearMessageResponseApplicationJsonBuilder()..update(updates))._build();
+      (UserStatusClearMessageResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$UserStatusClearMessageResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'UserStatusClearMessageResponseApplicationJson', 'ocs');
-  }
-
+  _$UserStatusClearMessageResponseApplicationJson._({required this.ocs}) : super._();
   @override
   UserStatusClearMessageResponseApplicationJson rebuild(
           void Function(UserStatusClearMessageResponseApplicationJsonBuilder) updates) =>
@@ -4920,7 +4791,7 @@ class _$UserStatusClearMessageResponseApplicationJson extends UserStatusClearMes
 
   @override
   UserStatusClearMessageResponseApplicationJsonBuilder toBuilder() =>
-      new UserStatusClearMessageResponseApplicationJsonBuilder()..replace(this);
+      UserStatusClearMessageResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -4950,7 +4821,7 @@ class UserStatusClearMessageResponseApplicationJsonBuilder
 
   UserStatusClearMessageResponseApplicationJson_OcsBuilder? _ocs;
   UserStatusClearMessageResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new UserStatusClearMessageResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= UserStatusClearMessageResponseApplicationJson_OcsBuilder();
   set ocs(covariant UserStatusClearMessageResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   UserStatusClearMessageResponseApplicationJsonBuilder() {
@@ -4968,7 +4839,6 @@ class UserStatusClearMessageResponseApplicationJsonBuilder
 
   @override
   void replace(covariant UserStatusClearMessageResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserStatusClearMessageResponseApplicationJson;
   }
 
@@ -4985,7 +4855,7 @@ class UserStatusClearMessageResponseApplicationJsonBuilder
     _$UserStatusClearMessageResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$UserStatusClearMessageResponseApplicationJson._(
+          _$UserStatusClearMessageResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -4994,8 +4864,7 @@ class UserStatusClearMessageResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'UserStatusClearMessageResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'UserStatusClearMessageResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -5022,13 +4891,9 @@ class _$UserStatusRevertStatusResponseApplicationJson_Ocs extends UserStatusReve
 
   factory _$UserStatusRevertStatusResponseApplicationJson_Ocs(
           [void Function(UserStatusRevertStatusResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new UserStatusRevertStatusResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (UserStatusRevertStatusResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$UserStatusRevertStatusResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'UserStatusRevertStatusResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'UserStatusRevertStatusResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$UserStatusRevertStatusResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   UserStatusRevertStatusResponseApplicationJson_Ocs rebuild(
           void Function(UserStatusRevertStatusResponseApplicationJson_OcsBuilder) updates) =>
@@ -5036,7 +4901,7 @@ class _$UserStatusRevertStatusResponseApplicationJson_Ocs extends UserStatusReve
 
   @override
   UserStatusRevertStatusResponseApplicationJson_OcsBuilder toBuilder() =>
-      new UserStatusRevertStatusResponseApplicationJson_OcsBuilder()..replace(this);
+      UserStatusRevertStatusResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -5073,7 +4938,7 @@ class UserStatusRevertStatusResponseApplicationJson_OcsBuilder
   _$UserStatusRevertStatusResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   UserStatusRevertStatusResponseApplicationJson_Ocs_Data? _data;
@@ -5096,7 +4961,6 @@ class UserStatusRevertStatusResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant UserStatusRevertStatusResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserStatusRevertStatusResponseApplicationJson_Ocs;
   }
 
@@ -5113,7 +4977,7 @@ class UserStatusRevertStatusResponseApplicationJson_OcsBuilder
     _$UserStatusRevertStatusResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$UserStatusRevertStatusResponseApplicationJson_Ocs._(
+          _$UserStatusRevertStatusResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(
                 data, r'UserStatusRevertStatusResponseApplicationJson_Ocs', 'data'),
@@ -5124,7 +4988,7 @@ class UserStatusRevertStatusResponseApplicationJson_OcsBuilder
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserStatusRevertStatusResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -5147,12 +5011,9 @@ class _$UserStatusRevertStatusResponseApplicationJson extends UserStatusRevertSt
 
   factory _$UserStatusRevertStatusResponseApplicationJson(
           [void Function(UserStatusRevertStatusResponseApplicationJsonBuilder)? updates]) =>
-      (new UserStatusRevertStatusResponseApplicationJsonBuilder()..update(updates))._build();
+      (UserStatusRevertStatusResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$UserStatusRevertStatusResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'UserStatusRevertStatusResponseApplicationJson', 'ocs');
-  }
-
+  _$UserStatusRevertStatusResponseApplicationJson._({required this.ocs}) : super._();
   @override
   UserStatusRevertStatusResponseApplicationJson rebuild(
           void Function(UserStatusRevertStatusResponseApplicationJsonBuilder) updates) =>
@@ -5160,7 +5021,7 @@ class _$UserStatusRevertStatusResponseApplicationJson extends UserStatusRevertSt
 
   @override
   UserStatusRevertStatusResponseApplicationJsonBuilder toBuilder() =>
-      new UserStatusRevertStatusResponseApplicationJsonBuilder()..replace(this);
+      UserStatusRevertStatusResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -5190,7 +5051,7 @@ class UserStatusRevertStatusResponseApplicationJsonBuilder
 
   UserStatusRevertStatusResponseApplicationJson_OcsBuilder? _ocs;
   UserStatusRevertStatusResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new UserStatusRevertStatusResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= UserStatusRevertStatusResponseApplicationJson_OcsBuilder();
   set ocs(covariant UserStatusRevertStatusResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   UserStatusRevertStatusResponseApplicationJsonBuilder() {
@@ -5208,7 +5069,6 @@ class UserStatusRevertStatusResponseApplicationJsonBuilder
 
   @override
   void replace(covariant UserStatusRevertStatusResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserStatusRevertStatusResponseApplicationJson;
   }
 
@@ -5225,7 +5085,7 @@ class UserStatusRevertStatusResponseApplicationJsonBuilder
     _$UserStatusRevertStatusResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$UserStatusRevertStatusResponseApplicationJson._(
+          _$UserStatusRevertStatusResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -5234,8 +5094,7 @@ class UserStatusRevertStatusResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'UserStatusRevertStatusResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'UserStatusRevertStatusResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -5266,20 +5125,15 @@ class _$Capabilities_UserStatus extends Capabilities_UserStatus {
   final bool supportsEmoji;
 
   factory _$Capabilities_UserStatus([void Function(Capabilities_UserStatusBuilder)? updates]) =>
-      (new Capabilities_UserStatusBuilder()..update(updates))._build();
+      (Capabilities_UserStatusBuilder()..update(updates))._build();
 
-  _$Capabilities_UserStatus._({required this.enabled, required this.restore, required this.supportsEmoji}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_UserStatus', 'enabled');
-    BuiltValueNullFieldError.checkNotNull(restore, r'Capabilities_UserStatus', 'restore');
-    BuiltValueNullFieldError.checkNotNull(supportsEmoji, r'Capabilities_UserStatus', 'supportsEmoji');
-  }
-
+  _$Capabilities_UserStatus._({required this.enabled, required this.restore, required this.supportsEmoji}) : super._();
   @override
   Capabilities_UserStatus rebuild(void Function(Capabilities_UserStatusBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  Capabilities_UserStatusBuilder toBuilder() => new Capabilities_UserStatusBuilder()..replace(this);
+  Capabilities_UserStatusBuilder toBuilder() => Capabilities_UserStatusBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -5345,7 +5199,6 @@ class Capabilities_UserStatusBuilder
 
   @override
   void replace(covariant Capabilities_UserStatus other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Capabilities_UserStatus;
   }
 
@@ -5360,7 +5213,7 @@ class Capabilities_UserStatusBuilder
   _$Capabilities_UserStatus _build() {
     Capabilities_UserStatus._validate(this);
     final _$result = _$v ??
-        new _$Capabilities_UserStatus._(
+        _$Capabilities_UserStatus._(
           enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_UserStatus', 'enabled'),
           restore: BuiltValueNullFieldError.checkNotNull(restore, r'Capabilities_UserStatus', 'restore'),
           supportsEmoji:
@@ -5383,17 +5236,14 @@ class _$Capabilities extends Capabilities {
   final Capabilities_UserStatus userStatus;
 
   factory _$Capabilities([void Function(CapabilitiesBuilder)? updates]) =>
-      (new CapabilitiesBuilder()..update(updates))._build();
+      (CapabilitiesBuilder()..update(updates))._build();
 
-  _$Capabilities._({required this.userStatus}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(userStatus, r'Capabilities', 'userStatus');
-  }
-
+  _$Capabilities._({required this.userStatus}) : super._();
   @override
   Capabilities rebuild(void Function(CapabilitiesBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  CapabilitiesBuilder toBuilder() => new CapabilitiesBuilder()..replace(this);
+  CapabilitiesBuilder toBuilder() => CapabilitiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -5419,7 +5269,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   _$Capabilities? _$v;
 
   Capabilities_UserStatusBuilder? _userStatus;
-  Capabilities_UserStatusBuilder get userStatus => _$this._userStatus ??= new Capabilities_UserStatusBuilder();
+  Capabilities_UserStatusBuilder get userStatus => _$this._userStatus ??= Capabilities_UserStatusBuilder();
   set userStatus(covariant Capabilities_UserStatusBuilder? userStatus) => _$this._userStatus = userStatus;
 
   CapabilitiesBuilder() {
@@ -5437,7 +5287,6 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
 
   @override
   void replace(covariant Capabilities other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Capabilities;
   }
 
@@ -5454,7 +5303,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     _$Capabilities _$result;
     try {
       _$result = _$v ??
-          new _$Capabilities._(
+          _$Capabilities._(
             userStatus: userStatus.build(),
           );
     } catch (_) {
@@ -5463,7 +5312,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
         _$failedField = 'userStatus';
         userStatus.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
       }
       rethrow;
     }

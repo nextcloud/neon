@@ -14,17 +14,17 @@ Capabilities_Systemtags_Enabled _$valueOfCapabilities_Systemtags_Enabled(String 
     case '\$true':
       return _$capabilitiesSystemtagsEnabled$true;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<Capabilities_Systemtags_Enabled> _$capabilitiesSystemtagsEnabledValues =
-    new BuiltSet<Capabilities_Systemtags_Enabled>(const <Capabilities_Systemtags_Enabled>[
+    BuiltSet<Capabilities_Systemtags_Enabled>(const <Capabilities_Systemtags_Enabled>[
   _$capabilitiesSystemtagsEnabled$true,
 ]);
 
-Serializer<Capabilities_Systemtags> _$capabilitiesSystemtagsSerializer = new _$Capabilities_SystemtagsSerializer();
-Serializer<Capabilities> _$capabilitiesSerializer = new _$CapabilitiesSerializer();
+Serializer<Capabilities_Systemtags> _$capabilitiesSystemtagsSerializer = _$Capabilities_SystemtagsSerializer();
+Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
 
 class _$Capabilities_SystemtagsSerializer implements StructuredSerializer<Capabilities_Systemtags> {
   @override
@@ -46,7 +46,7 @@ class _$Capabilities_SystemtagsSerializer implements StructuredSerializer<Capabi
   @override
   Capabilities_Systemtags deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new Capabilities_SystemtagsBuilder();
+    final result = Capabilities_SystemtagsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -85,7 +85,7 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   @override
   Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new CapabilitiesBuilder();
+    final result = CapabilitiesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -116,18 +116,15 @@ class _$Capabilities_Systemtags extends Capabilities_Systemtags {
   final Capabilities_Systemtags_Enabled enabled;
 
   factory _$Capabilities_Systemtags([void Function(Capabilities_SystemtagsBuilder)? updates]) =>
-      (new Capabilities_SystemtagsBuilder()..update(updates))._build();
+      (Capabilities_SystemtagsBuilder()..update(updates))._build();
 
-  _$Capabilities_Systemtags._({required this.enabled}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_Systemtags', 'enabled');
-  }
-
+  _$Capabilities_Systemtags._({required this.enabled}) : super._();
   @override
   Capabilities_Systemtags rebuild(void Function(Capabilities_SystemtagsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  Capabilities_SystemtagsBuilder toBuilder() => new Capabilities_SystemtagsBuilder()..replace(this);
+  Capabilities_SystemtagsBuilder toBuilder() => Capabilities_SystemtagsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -174,7 +171,6 @@ class Capabilities_SystemtagsBuilder
 
   @override
   void replace(covariant Capabilities_Systemtags other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Capabilities_Systemtags;
   }
 
@@ -189,7 +185,7 @@ class Capabilities_SystemtagsBuilder
   _$Capabilities_Systemtags _build() {
     Capabilities_Systemtags._validate(this);
     final _$result = _$v ??
-        new _$Capabilities_Systemtags._(
+        _$Capabilities_Systemtags._(
           enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_Systemtags', 'enabled'),
         );
     replace(_$result);
@@ -209,17 +205,14 @@ class _$Capabilities extends Capabilities {
   final Capabilities_Systemtags systemtags;
 
   factory _$Capabilities([void Function(CapabilitiesBuilder)? updates]) =>
-      (new CapabilitiesBuilder()..update(updates))._build();
+      (CapabilitiesBuilder()..update(updates))._build();
 
-  _$Capabilities._({required this.systemtags}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(systemtags, r'Capabilities', 'systemtags');
-  }
-
+  _$Capabilities._({required this.systemtags}) : super._();
   @override
   Capabilities rebuild(void Function(CapabilitiesBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  CapabilitiesBuilder toBuilder() => new CapabilitiesBuilder()..replace(this);
+  CapabilitiesBuilder toBuilder() => CapabilitiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -245,7 +238,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   _$Capabilities? _$v;
 
   Capabilities_SystemtagsBuilder? _systemtags;
-  Capabilities_SystemtagsBuilder get systemtags => _$this._systemtags ??= new Capabilities_SystemtagsBuilder();
+  Capabilities_SystemtagsBuilder get systemtags => _$this._systemtags ??= Capabilities_SystemtagsBuilder();
   set systemtags(covariant Capabilities_SystemtagsBuilder? systemtags) => _$this._systemtags = systemtags;
 
   CapabilitiesBuilder() {
@@ -263,7 +256,6 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
 
   @override
   void replace(covariant Capabilities other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Capabilities;
   }
 
@@ -280,7 +272,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     _$Capabilities _$result;
     try {
       _$result = _$v ??
-          new _$Capabilities._(
+          _$Capabilities._(
             systemtags: systemtags.build(),
           );
     } catch (_) {
@@ -289,7 +281,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
         _$failedField = 'systemtags';
         systemtags.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
       }
       rethrow;
     }

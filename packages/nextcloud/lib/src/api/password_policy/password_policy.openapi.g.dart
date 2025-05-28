@@ -6,28 +6,28 @@ part of 'password_policy.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<OCSMeta> _$oCSMetaSerializer = new _$OCSMetaSerializer();
+Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<ApiGenerateResponseApplicationJson_Ocs_Data> _$apiGenerateResponseApplicationJsonOcsDataSerializer =
-    new _$ApiGenerateResponseApplicationJson_Ocs_DataSerializer();
+    _$ApiGenerateResponseApplicationJson_Ocs_DataSerializer();
 Serializer<ApiGenerateResponseApplicationJson_Ocs> _$apiGenerateResponseApplicationJsonOcsSerializer =
-    new _$ApiGenerateResponseApplicationJson_OcsSerializer();
+    _$ApiGenerateResponseApplicationJson_OcsSerializer();
 Serializer<ApiGenerateResponseApplicationJson> _$apiGenerateResponseApplicationJsonSerializer =
-    new _$ApiGenerateResponseApplicationJsonSerializer();
+    _$ApiGenerateResponseApplicationJsonSerializer();
 Serializer<ApiValidateRequestApplicationJson> _$apiValidateRequestApplicationJsonSerializer =
-    new _$ApiValidateRequestApplicationJsonSerializer();
+    _$ApiValidateRequestApplicationJsonSerializer();
 Serializer<ApiValidateResponseApplicationJson_Ocs_Data> _$apiValidateResponseApplicationJsonOcsDataSerializer =
-    new _$ApiValidateResponseApplicationJson_Ocs_DataSerializer();
+    _$ApiValidateResponseApplicationJson_Ocs_DataSerializer();
 Serializer<ApiValidateResponseApplicationJson_Ocs> _$apiValidateResponseApplicationJsonOcsSerializer =
-    new _$ApiValidateResponseApplicationJson_OcsSerializer();
+    _$ApiValidateResponseApplicationJson_OcsSerializer();
 Serializer<ApiValidateResponseApplicationJson> _$apiValidateResponseApplicationJsonSerializer =
-    new _$ApiValidateResponseApplicationJsonSerializer();
+    _$ApiValidateResponseApplicationJsonSerializer();
 Serializer<Capabilities_PasswordPolicy_Api> _$capabilitiesPasswordPolicyApiSerializer =
-    new _$Capabilities_PasswordPolicy_ApiSerializer();
+    _$Capabilities_PasswordPolicy_ApiSerializer();
 Serializer<Capabilities_PasswordPolicy_Policies> _$capabilitiesPasswordPolicyPoliciesSerializer =
-    new _$Capabilities_PasswordPolicy_PoliciesSerializer();
+    _$Capabilities_PasswordPolicy_PoliciesSerializer();
 Serializer<Capabilities_PasswordPolicy> _$capabilitiesPasswordPolicySerializer =
-    new _$Capabilities_PasswordPolicySerializer();
-Serializer<Capabilities> _$capabilitiesSerializer = new _$CapabilitiesSerializer();
+    _$Capabilities_PasswordPolicySerializer();
+Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
 
 class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
@@ -69,7 +69,7 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
   OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new OCSMetaBuilder();
+    final result = OCSMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -123,7 +123,7 @@ class _$ApiGenerateResponseApplicationJson_Ocs_DataSerializer
   @override
   ApiGenerateResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ApiGenerateResponseApplicationJson_Ocs_DataBuilder();
+    final result = ApiGenerateResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -164,7 +164,7 @@ class _$ApiGenerateResponseApplicationJson_OcsSerializer
   @override
   ApiGenerateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ApiGenerateResponseApplicationJson_OcsBuilder();
+    final result = ApiGenerateResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -208,7 +208,7 @@ class _$ApiGenerateResponseApplicationJsonSerializer
   @override
   ApiGenerateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ApiGenerateResponseApplicationJsonBuilder();
+    final result = ApiGenerateResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -248,7 +248,7 @@ class _$ApiValidateRequestApplicationJsonSerializer implements StructuredSeriali
   @override
   ApiValidateRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ApiValidateRequestApplicationJsonBuilder();
+    final result = ApiValidateRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -296,7 +296,7 @@ class _$ApiValidateResponseApplicationJson_Ocs_DataSerializer
   @override
   ApiValidateResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ApiValidateResponseApplicationJson_Ocs_DataBuilder();
+    final result = ApiValidateResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -340,7 +340,7 @@ class _$ApiValidateResponseApplicationJson_OcsSerializer
   @override
   ApiValidateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ApiValidateResponseApplicationJson_OcsBuilder();
+    final result = ApiValidateResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -384,7 +384,7 @@ class _$ApiValidateResponseApplicationJsonSerializer
   @override
   ApiValidateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ApiValidateResponseApplicationJsonBuilder();
+    final result = ApiValidateResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -426,7 +426,7 @@ class _$Capabilities_PasswordPolicy_ApiSerializer implements StructuredSerialize
   @override
   Capabilities_PasswordPolicy_Api deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new Capabilities_PasswordPolicy_ApiBuilder();
+    final result = Capabilities_PasswordPolicy_ApiBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -478,7 +478,7 @@ class _$Capabilities_PasswordPolicy_PoliciesSerializer
   @override
   Capabilities_PasswordPolicy_Policies deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new Capabilities_PasswordPolicy_PoliciesBuilder();
+    final result = Capabilities_PasswordPolicy_PoliciesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -548,7 +548,7 @@ class _$Capabilities_PasswordPolicySerializer implements StructuredSerializer<Ca
   @override
   Capabilities_PasswordPolicy deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new Capabilities_PasswordPolicyBuilder();
+    final result = Capabilities_PasswordPolicyBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -610,7 +610,7 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   @override
   Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new CapabilitiesBuilder();
+    final result = CapabilitiesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -660,19 +660,15 @@ class _$OCSMeta extends OCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (new OCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status');
-    BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode');
-  }
-
+      : super._();
   @override
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  OCSMetaBuilder toBuilder() => new OCSMetaBuilder()..replace(this);
+  OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -751,7 +747,6 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
   @override
   void replace(covariant OCSMeta other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OCSMeta;
   }
 
@@ -766,7 +761,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   _$OCSMeta _build() {
     OCSMeta._validate(this);
     final _$result = _$v ??
-        new _$OCSMeta._(
+        _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
           message: message,
@@ -791,12 +786,9 @@ class _$ApiGenerateResponseApplicationJson_Ocs_Data extends ApiGenerateResponseA
 
   factory _$ApiGenerateResponseApplicationJson_Ocs_Data(
           [void Function(ApiGenerateResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (new ApiGenerateResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+      (ApiGenerateResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$ApiGenerateResponseApplicationJson_Ocs_Data._({required this.password}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(password, r'ApiGenerateResponseApplicationJson_Ocs_Data', 'password');
-  }
-
+  _$ApiGenerateResponseApplicationJson_Ocs_Data._({required this.password}) : super._();
   @override
   ApiGenerateResponseApplicationJson_Ocs_Data rebuild(
           void Function(ApiGenerateResponseApplicationJson_Ocs_DataBuilder) updates) =>
@@ -804,7 +796,7 @@ class _$ApiGenerateResponseApplicationJson_Ocs_Data extends ApiGenerateResponseA
 
   @override
   ApiGenerateResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
-      new ApiGenerateResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+      ApiGenerateResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -852,7 +844,6 @@ class ApiGenerateResponseApplicationJson_Ocs_DataBuilder
 
   @override
   void replace(covariant ApiGenerateResponseApplicationJson_Ocs_Data other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ApiGenerateResponseApplicationJson_Ocs_Data;
   }
 
@@ -867,7 +858,7 @@ class ApiGenerateResponseApplicationJson_Ocs_DataBuilder
   _$ApiGenerateResponseApplicationJson_Ocs_Data _build() {
     ApiGenerateResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
-        new _$ApiGenerateResponseApplicationJson_Ocs_Data._(
+        _$ApiGenerateResponseApplicationJson_Ocs_Data._(
           password: BuiltValueNullFieldError.checkNotNull(
               password, r'ApiGenerateResponseApplicationJson_Ocs_Data', 'password'),
         );
@@ -894,13 +885,9 @@ class _$ApiGenerateResponseApplicationJson_Ocs extends ApiGenerateResponseApplic
 
   factory _$ApiGenerateResponseApplicationJson_Ocs(
           [void Function(ApiGenerateResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new ApiGenerateResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (ApiGenerateResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$ApiGenerateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'ApiGenerateResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'ApiGenerateResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$ApiGenerateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ApiGenerateResponseApplicationJson_Ocs rebuild(
           void Function(ApiGenerateResponseApplicationJson_OcsBuilder) updates) =>
@@ -908,7 +895,7 @@ class _$ApiGenerateResponseApplicationJson_Ocs extends ApiGenerateResponseApplic
 
   @override
   ApiGenerateResponseApplicationJson_OcsBuilder toBuilder() =>
-      new ApiGenerateResponseApplicationJson_OcsBuilder()..replace(this);
+      ApiGenerateResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -941,12 +928,12 @@ class ApiGenerateResponseApplicationJson_OcsBuilder
   _$ApiGenerateResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   ApiGenerateResponseApplicationJson_Ocs_DataBuilder? _data;
   ApiGenerateResponseApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= new ApiGenerateResponseApplicationJson_Ocs_DataBuilder();
+      _$this._data ??= ApiGenerateResponseApplicationJson_Ocs_DataBuilder();
   set data(covariant ApiGenerateResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   ApiGenerateResponseApplicationJson_OcsBuilder() {
@@ -965,7 +952,6 @@ class ApiGenerateResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant ApiGenerateResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ApiGenerateResponseApplicationJson_Ocs;
   }
 
@@ -982,7 +968,7 @@ class ApiGenerateResponseApplicationJson_OcsBuilder
     _$ApiGenerateResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$ApiGenerateResponseApplicationJson_Ocs._(
+          _$ApiGenerateResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -994,7 +980,7 @@ class ApiGenerateResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'ApiGenerateResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ApiGenerateResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1015,19 +1001,15 @@ class _$ApiGenerateResponseApplicationJson extends ApiGenerateResponseApplicatio
   final ApiGenerateResponseApplicationJson_Ocs ocs;
 
   factory _$ApiGenerateResponseApplicationJson([void Function(ApiGenerateResponseApplicationJsonBuilder)? updates]) =>
-      (new ApiGenerateResponseApplicationJsonBuilder()..update(updates))._build();
+      (ApiGenerateResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$ApiGenerateResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'ApiGenerateResponseApplicationJson', 'ocs');
-  }
-
+  _$ApiGenerateResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ApiGenerateResponseApplicationJson rebuild(void Function(ApiGenerateResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ApiGenerateResponseApplicationJsonBuilder toBuilder() =>
-      new ApiGenerateResponseApplicationJsonBuilder()..replace(this);
+  ApiGenerateResponseApplicationJsonBuilder toBuilder() => ApiGenerateResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1057,7 +1039,7 @@ class ApiGenerateResponseApplicationJsonBuilder
 
   ApiGenerateResponseApplicationJson_OcsBuilder? _ocs;
   ApiGenerateResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new ApiGenerateResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= ApiGenerateResponseApplicationJson_OcsBuilder();
   set ocs(covariant ApiGenerateResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ApiGenerateResponseApplicationJsonBuilder() {
@@ -1075,7 +1057,6 @@ class ApiGenerateResponseApplicationJsonBuilder
 
   @override
   void replace(covariant ApiGenerateResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ApiGenerateResponseApplicationJson;
   }
 
@@ -1092,7 +1073,7 @@ class ApiGenerateResponseApplicationJsonBuilder
     _$ApiGenerateResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$ApiGenerateResponseApplicationJson._(
+          _$ApiGenerateResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -1101,7 +1082,7 @@ class ApiGenerateResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'ApiGenerateResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ApiGenerateResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1122,18 +1103,15 @@ class _$ApiValidateRequestApplicationJson extends ApiValidateRequestApplicationJ
   final String password;
 
   factory _$ApiValidateRequestApplicationJson([void Function(ApiValidateRequestApplicationJsonBuilder)? updates]) =>
-      (new ApiValidateRequestApplicationJsonBuilder()..update(updates))._build();
+      (ApiValidateRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$ApiValidateRequestApplicationJson._({required this.password}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(password, r'ApiValidateRequestApplicationJson', 'password');
-  }
-
+  _$ApiValidateRequestApplicationJson._({required this.password}) : super._();
   @override
   ApiValidateRequestApplicationJson rebuild(void Function(ApiValidateRequestApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ApiValidateRequestApplicationJsonBuilder toBuilder() => new ApiValidateRequestApplicationJsonBuilder()..replace(this);
+  ApiValidateRequestApplicationJsonBuilder toBuilder() => ApiValidateRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1180,7 +1158,6 @@ class ApiValidateRequestApplicationJsonBuilder
 
   @override
   void replace(covariant ApiValidateRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ApiValidateRequestApplicationJson;
   }
 
@@ -1195,7 +1172,7 @@ class ApiValidateRequestApplicationJsonBuilder
   _$ApiValidateRequestApplicationJson _build() {
     ApiValidateRequestApplicationJson._validate(this);
     final _$result = _$v ??
-        new _$ApiValidateRequestApplicationJson._(
+        _$ApiValidateRequestApplicationJson._(
           password: BuiltValueNullFieldError.checkNotNull(password, r'ApiValidateRequestApplicationJson', 'password'),
         );
     replace(_$result);
@@ -1221,12 +1198,9 @@ class _$ApiValidateResponseApplicationJson_Ocs_Data extends ApiValidateResponseA
 
   factory _$ApiValidateResponseApplicationJson_Ocs_Data(
           [void Function(ApiValidateResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (new ApiValidateResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+      (ApiValidateResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$ApiValidateResponseApplicationJson_Ocs_Data._({required this.passed, this.reason}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(passed, r'ApiValidateResponseApplicationJson_Ocs_Data', 'passed');
-  }
-
+  _$ApiValidateResponseApplicationJson_Ocs_Data._({required this.passed, this.reason}) : super._();
   @override
   ApiValidateResponseApplicationJson_Ocs_Data rebuild(
           void Function(ApiValidateResponseApplicationJson_Ocs_DataBuilder) updates) =>
@@ -1234,7 +1208,7 @@ class _$ApiValidateResponseApplicationJson_Ocs_Data extends ApiValidateResponseA
 
   @override
   ApiValidateResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
-      new ApiValidateResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+      ApiValidateResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1290,7 +1264,6 @@ class ApiValidateResponseApplicationJson_Ocs_DataBuilder
 
   @override
   void replace(covariant ApiValidateResponseApplicationJson_Ocs_Data other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ApiValidateResponseApplicationJson_Ocs_Data;
   }
 
@@ -1305,7 +1278,7 @@ class ApiValidateResponseApplicationJson_Ocs_DataBuilder
   _$ApiValidateResponseApplicationJson_Ocs_Data _build() {
     ApiValidateResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
-        new _$ApiValidateResponseApplicationJson_Ocs_Data._(
+        _$ApiValidateResponseApplicationJson_Ocs_Data._(
           passed:
               BuiltValueNullFieldError.checkNotNull(passed, r'ApiValidateResponseApplicationJson_Ocs_Data', 'passed'),
           reason: reason,
@@ -1333,13 +1306,9 @@ class _$ApiValidateResponseApplicationJson_Ocs extends ApiValidateResponseApplic
 
   factory _$ApiValidateResponseApplicationJson_Ocs(
           [void Function(ApiValidateResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new ApiValidateResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (ApiValidateResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$ApiValidateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'ApiValidateResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'ApiValidateResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$ApiValidateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ApiValidateResponseApplicationJson_Ocs rebuild(
           void Function(ApiValidateResponseApplicationJson_OcsBuilder) updates) =>
@@ -1347,7 +1316,7 @@ class _$ApiValidateResponseApplicationJson_Ocs extends ApiValidateResponseApplic
 
   @override
   ApiValidateResponseApplicationJson_OcsBuilder toBuilder() =>
-      new ApiValidateResponseApplicationJson_OcsBuilder()..replace(this);
+      ApiValidateResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1380,12 +1349,12 @@ class ApiValidateResponseApplicationJson_OcsBuilder
   _$ApiValidateResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   ApiValidateResponseApplicationJson_Ocs_DataBuilder? _data;
   ApiValidateResponseApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= new ApiValidateResponseApplicationJson_Ocs_DataBuilder();
+      _$this._data ??= ApiValidateResponseApplicationJson_Ocs_DataBuilder();
   set data(covariant ApiValidateResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   ApiValidateResponseApplicationJson_OcsBuilder() {
@@ -1404,7 +1373,6 @@ class ApiValidateResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant ApiValidateResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ApiValidateResponseApplicationJson_Ocs;
   }
 
@@ -1421,7 +1389,7 @@ class ApiValidateResponseApplicationJson_OcsBuilder
     _$ApiValidateResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$ApiValidateResponseApplicationJson_Ocs._(
+          _$ApiValidateResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -1433,7 +1401,7 @@ class ApiValidateResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'ApiValidateResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ApiValidateResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1454,19 +1422,15 @@ class _$ApiValidateResponseApplicationJson extends ApiValidateResponseApplicatio
   final ApiValidateResponseApplicationJson_Ocs ocs;
 
   factory _$ApiValidateResponseApplicationJson([void Function(ApiValidateResponseApplicationJsonBuilder)? updates]) =>
-      (new ApiValidateResponseApplicationJsonBuilder()..update(updates))._build();
+      (ApiValidateResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$ApiValidateResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'ApiValidateResponseApplicationJson', 'ocs');
-  }
-
+  _$ApiValidateResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ApiValidateResponseApplicationJson rebuild(void Function(ApiValidateResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ApiValidateResponseApplicationJsonBuilder toBuilder() =>
-      new ApiValidateResponseApplicationJsonBuilder()..replace(this);
+  ApiValidateResponseApplicationJsonBuilder toBuilder() => ApiValidateResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1496,7 +1460,7 @@ class ApiValidateResponseApplicationJsonBuilder
 
   ApiValidateResponseApplicationJson_OcsBuilder? _ocs;
   ApiValidateResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new ApiValidateResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= ApiValidateResponseApplicationJson_OcsBuilder();
   set ocs(covariant ApiValidateResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ApiValidateResponseApplicationJsonBuilder() {
@@ -1514,7 +1478,6 @@ class ApiValidateResponseApplicationJsonBuilder
 
   @override
   void replace(covariant ApiValidateResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ApiValidateResponseApplicationJson;
   }
 
@@ -1531,7 +1494,7 @@ class ApiValidateResponseApplicationJsonBuilder
     _$ApiValidateResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$ApiValidateResponseApplicationJson._(
+          _$ApiValidateResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -1540,7 +1503,7 @@ class ApiValidateResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'ApiValidateResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ApiValidateResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1566,19 +1529,15 @@ class _$Capabilities_PasswordPolicy_Api extends Capabilities_PasswordPolicy_Api 
   final String validate;
 
   factory _$Capabilities_PasswordPolicy_Api([void Function(Capabilities_PasswordPolicy_ApiBuilder)? updates]) =>
-      (new Capabilities_PasswordPolicy_ApiBuilder()..update(updates))._build();
+      (Capabilities_PasswordPolicy_ApiBuilder()..update(updates))._build();
 
-  _$Capabilities_PasswordPolicy_Api._({required this.generate, required this.validate}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(generate, r'Capabilities_PasswordPolicy_Api', 'generate');
-    BuiltValueNullFieldError.checkNotNull(validate, r'Capabilities_PasswordPolicy_Api', 'validate');
-  }
-
+  _$Capabilities_PasswordPolicy_Api._({required this.generate, required this.validate}) : super._();
   @override
   Capabilities_PasswordPolicy_Api rebuild(void Function(Capabilities_PasswordPolicy_ApiBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  Capabilities_PasswordPolicy_ApiBuilder toBuilder() => new Capabilities_PasswordPolicy_ApiBuilder()..replace(this);
+  Capabilities_PasswordPolicy_ApiBuilder toBuilder() => Capabilities_PasswordPolicy_ApiBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1634,7 +1593,6 @@ class Capabilities_PasswordPolicy_ApiBuilder
 
   @override
   void replace(covariant Capabilities_PasswordPolicy_Api other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Capabilities_PasswordPolicy_Api;
   }
 
@@ -1649,7 +1607,7 @@ class Capabilities_PasswordPolicy_ApiBuilder
   _$Capabilities_PasswordPolicy_Api _build() {
     Capabilities_PasswordPolicy_Api._validate(this);
     final _$result = _$v ??
-        new _$Capabilities_PasswordPolicy_Api._(
+        _$Capabilities_PasswordPolicy_Api._(
           generate: BuiltValueNullFieldError.checkNotNull(generate, r'Capabilities_PasswordPolicy_Api', 'generate'),
           validate: BuiltValueNullFieldError.checkNotNull(validate, r'Capabilities_PasswordPolicy_Api', 'validate'),
         );
@@ -1696,7 +1654,7 @@ class _$Capabilities_PasswordPolicy_Policies extends Capabilities_PasswordPolicy
 
   factory _$Capabilities_PasswordPolicy_Policies(
           [void Function(Capabilities_PasswordPolicy_PoliciesBuilder)? updates]) =>
-      (new Capabilities_PasswordPolicy_PoliciesBuilder()..update(updates))._build();
+      (Capabilities_PasswordPolicy_PoliciesBuilder()..update(updates))._build();
 
   _$Capabilities_PasswordPolicy_Policies._(
       {required this.minLength,
@@ -1705,27 +1663,14 @@ class _$Capabilities_PasswordPolicy_Policies extends Capabilities_PasswordPolicy
       required this.enforceNumericCharacters,
       required this.enforceSpecialCharacters,
       required this.enforceUpperLowerCase})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(minLength, r'Capabilities_PasswordPolicy_Policies', 'minLength');
-    BuiltValueNullFieldError.checkNotNull(
-        enforceHaveIBeenPwned, r'Capabilities_PasswordPolicy_Policies', 'enforceHaveIBeenPwned');
-    BuiltValueNullFieldError.checkNotNull(
-        enforceNonCommonPassword, r'Capabilities_PasswordPolicy_Policies', 'enforceNonCommonPassword');
-    BuiltValueNullFieldError.checkNotNull(
-        enforceNumericCharacters, r'Capabilities_PasswordPolicy_Policies', 'enforceNumericCharacters');
-    BuiltValueNullFieldError.checkNotNull(
-        enforceSpecialCharacters, r'Capabilities_PasswordPolicy_Policies', 'enforceSpecialCharacters');
-    BuiltValueNullFieldError.checkNotNull(
-        enforceUpperLowerCase, r'Capabilities_PasswordPolicy_Policies', 'enforceUpperLowerCase');
-  }
-
+      : super._();
   @override
   Capabilities_PasswordPolicy_Policies rebuild(void Function(Capabilities_PasswordPolicy_PoliciesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   Capabilities_PasswordPolicy_PoliciesBuilder toBuilder() =>
-      new Capabilities_PasswordPolicy_PoliciesBuilder()..replace(this);
+      Capabilities_PasswordPolicy_PoliciesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1820,7 +1765,6 @@ class Capabilities_PasswordPolicy_PoliciesBuilder
 
   @override
   void replace(covariant Capabilities_PasswordPolicy_Policies other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Capabilities_PasswordPolicy_Policies;
   }
 
@@ -1835,7 +1779,7 @@ class Capabilities_PasswordPolicy_PoliciesBuilder
   _$Capabilities_PasswordPolicy_Policies _build() {
     Capabilities_PasswordPolicy_Policies._validate(this);
     final _$result = _$v ??
-        new _$Capabilities_PasswordPolicy_Policies._(
+        _$Capabilities_PasswordPolicy_Policies._(
           minLength:
               BuiltValueNullFieldError.checkNotNull(minLength, r'Capabilities_PasswordPolicy_Policies', 'minLength'),
           enforceHaveIBeenPwned: BuiltValueNullFieldError.checkNotNull(
@@ -1896,7 +1840,7 @@ class _$Capabilities_PasswordPolicy extends Capabilities_PasswordPolicy {
   final bool enforceUpperLowerCase;
 
   factory _$Capabilities_PasswordPolicy([void Function(Capabilities_PasswordPolicyBuilder)? updates]) =>
-      (new Capabilities_PasswordPolicyBuilder()..update(updates))._build();
+      (Capabilities_PasswordPolicyBuilder()..update(updates))._build();
 
   _$Capabilities_PasswordPolicy._(
       {required this.api,
@@ -1906,26 +1850,13 @@ class _$Capabilities_PasswordPolicy extends Capabilities_PasswordPolicy {
       required this.enforceNumericCharacters,
       required this.enforceSpecialCharacters,
       required this.enforceUpperLowerCase})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(api, r'Capabilities_PasswordPolicy', 'api');
-    BuiltValueNullFieldError.checkNotNull(policies, r'Capabilities_PasswordPolicy', 'policies');
-    BuiltValueNullFieldError.checkNotNull(minLength, r'Capabilities_PasswordPolicy', 'minLength');
-    BuiltValueNullFieldError.checkNotNull(
-        enforceNonCommonPassword, r'Capabilities_PasswordPolicy', 'enforceNonCommonPassword');
-    BuiltValueNullFieldError.checkNotNull(
-        enforceNumericCharacters, r'Capabilities_PasswordPolicy', 'enforceNumericCharacters');
-    BuiltValueNullFieldError.checkNotNull(
-        enforceSpecialCharacters, r'Capabilities_PasswordPolicy', 'enforceSpecialCharacters');
-    BuiltValueNullFieldError.checkNotNull(
-        enforceUpperLowerCase, r'Capabilities_PasswordPolicy', 'enforceUpperLowerCase');
-  }
-
+      : super._();
   @override
   Capabilities_PasswordPolicy rebuild(void Function(Capabilities_PasswordPolicyBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  Capabilities_PasswordPolicyBuilder toBuilder() => new Capabilities_PasswordPolicyBuilder()..replace(this);
+  Capabilities_PasswordPolicyBuilder toBuilder() => Capabilities_PasswordPolicyBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1975,12 +1906,12 @@ class Capabilities_PasswordPolicyBuilder
   _$Capabilities_PasswordPolicy? _$v;
 
   Capabilities_PasswordPolicy_ApiBuilder? _api;
-  Capabilities_PasswordPolicy_ApiBuilder get api => _$this._api ??= new Capabilities_PasswordPolicy_ApiBuilder();
+  Capabilities_PasswordPolicy_ApiBuilder get api => _$this._api ??= Capabilities_PasswordPolicy_ApiBuilder();
   set api(covariant Capabilities_PasswordPolicy_ApiBuilder? api) => _$this._api = api;
 
   MapBuilder<String, Capabilities_PasswordPolicy_Policies>? _policies;
   MapBuilder<String, Capabilities_PasswordPolicy_Policies> get policies =>
-      _$this._policies ??= new MapBuilder<String, Capabilities_PasswordPolicy_Policies>();
+      _$this._policies ??= MapBuilder<String, Capabilities_PasswordPolicy_Policies>();
   set policies(covariant MapBuilder<String, Capabilities_PasswordPolicy_Policies>? policies) =>
       _$this._policies = policies;
 
@@ -2029,7 +1960,6 @@ class Capabilities_PasswordPolicyBuilder
 
   @override
   void replace(covariant Capabilities_PasswordPolicy other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Capabilities_PasswordPolicy;
   }
 
@@ -2046,7 +1976,7 @@ class Capabilities_PasswordPolicyBuilder
     _$Capabilities_PasswordPolicy _$result;
     try {
       _$result = _$v ??
-          new _$Capabilities_PasswordPolicy._(
+          _$Capabilities_PasswordPolicy._(
             api: api.build(),
             policies: policies.build(),
             minLength: BuiltValueNullFieldError.checkNotNull(minLength, r'Capabilities_PasswordPolicy', 'minLength'),
@@ -2067,7 +1997,7 @@ class Capabilities_PasswordPolicyBuilder
         _$failedField = 'policies';
         policies.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'Capabilities_PasswordPolicy', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Capabilities_PasswordPolicy', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2088,17 +2018,14 @@ class _$Capabilities extends Capabilities {
   final Capabilities_PasswordPolicy passwordPolicy;
 
   factory _$Capabilities([void Function(CapabilitiesBuilder)? updates]) =>
-      (new CapabilitiesBuilder()..update(updates))._build();
+      (CapabilitiesBuilder()..update(updates))._build();
 
-  _$Capabilities._({required this.passwordPolicy}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(passwordPolicy, r'Capabilities', 'passwordPolicy');
-  }
-
+  _$Capabilities._({required this.passwordPolicy}) : super._();
   @override
   Capabilities rebuild(void Function(CapabilitiesBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  CapabilitiesBuilder toBuilder() => new CapabilitiesBuilder()..replace(this);
+  CapabilitiesBuilder toBuilder() => CapabilitiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2125,7 +2052,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
 
   Capabilities_PasswordPolicyBuilder? _passwordPolicy;
   Capabilities_PasswordPolicyBuilder get passwordPolicy =>
-      _$this._passwordPolicy ??= new Capabilities_PasswordPolicyBuilder();
+      _$this._passwordPolicy ??= Capabilities_PasswordPolicyBuilder();
   set passwordPolicy(covariant Capabilities_PasswordPolicyBuilder? passwordPolicy) =>
       _$this._passwordPolicy = passwordPolicy;
 
@@ -2144,7 +2071,6 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
 
   @override
   void replace(covariant Capabilities other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Capabilities;
   }
 
@@ -2161,7 +2087,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     _$Capabilities _$result;
     try {
       _$result = _$v ??
-          new _$Capabilities._(
+          _$Capabilities._(
             passwordPolicy: passwordPolicy.build(),
           );
     } catch (_) {
@@ -2170,7 +2096,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
         _$failedField = 'passwordPolicy';
         passwordPolicy.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
       }
       rethrow;
     }

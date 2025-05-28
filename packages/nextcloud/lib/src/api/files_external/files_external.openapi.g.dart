@@ -13,11 +13,11 @@ Mount_Type _$valueOfMount_Type(String name) {
     case 'dir':
       return _$mountTypeDir;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<Mount_Type> _$mountTypeValues = new BuiltSet<Mount_Type>(const <Mount_Type>[
+final BuiltSet<Mount_Type> _$mountTypeValues = BuiltSet<Mount_Type>(const <Mount_Type>[
   _$mountTypeDir,
 ]);
 
@@ -31,11 +31,11 @@ Mount_Scope _$valueOfMount_Scope(String name) {
     case 'personal':
       return _$mountScopePersonal;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<Mount_Scope> _$mountScopeValues = new BuiltSet<Mount_Scope>(const <Mount_Scope>[
+final BuiltSet<Mount_Scope> _$mountScopeValues = BuiltSet<Mount_Scope>(const <Mount_Scope>[
   _$mountScopeSystem,
   _$mountScopePersonal,
 ]);
@@ -50,23 +50,22 @@ StorageConfig_Type _$valueOfStorageConfig_Type(String name) {
     case 'system':
       return _$storageConfigTypeSystem;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<StorageConfig_Type> _$storageConfigTypeValues =
-    new BuiltSet<StorageConfig_Type>(const <StorageConfig_Type>[
+final BuiltSet<StorageConfig_Type> _$storageConfigTypeValues = BuiltSet<StorageConfig_Type>(const <StorageConfig_Type>[
   _$storageConfigTypePersonal,
   _$storageConfigTypeSystem,
 ]);
 
-Serializer<OCSMeta> _$oCSMetaSerializer = new _$OCSMetaSerializer();
-Serializer<StorageConfig> _$storageConfigSerializer = new _$StorageConfigSerializer();
-Serializer<Mount> _$mountSerializer = new _$MountSerializer();
+Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
+Serializer<StorageConfig> _$storageConfigSerializer = _$StorageConfigSerializer();
+Serializer<Mount> _$mountSerializer = _$MountSerializer();
 Serializer<ApiGetUserMountsResponseApplicationJson_Ocs> _$apiGetUserMountsResponseApplicationJsonOcsSerializer =
-    new _$ApiGetUserMountsResponseApplicationJson_OcsSerializer();
+    _$ApiGetUserMountsResponseApplicationJson_OcsSerializer();
 Serializer<ApiGetUserMountsResponseApplicationJson> _$apiGetUserMountsResponseApplicationJsonSerializer =
-    new _$ApiGetUserMountsResponseApplicationJsonSerializer();
+    _$ApiGetUserMountsResponseApplicationJsonSerializer();
 
 class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
@@ -108,7 +107,7 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
   OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new OCSMetaBuilder();
+    final result = OCSMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -212,7 +211,7 @@ class _$StorageConfigSerializer implements StructuredSerializer<StorageConfig> {
   @override
   StorageConfig deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new StorageConfigBuilder();
+    final result = StorageConfigBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -306,7 +305,7 @@ class _$MountSerializer implements StructuredSerializer<Mount> {
   @override
   Mount deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new MountBuilder();
+    final result = MountBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -375,7 +374,7 @@ class _$ApiGetUserMountsResponseApplicationJson_OcsSerializer
   @override
   ApiGetUserMountsResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ApiGetUserMountsResponseApplicationJson_OcsBuilder();
+    final result = ApiGetUserMountsResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -421,7 +420,7 @@ class _$ApiGetUserMountsResponseApplicationJsonSerializer
   @override
   ApiGetUserMountsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ApiGetUserMountsResponseApplicationJsonBuilder();
+    final result = ApiGetUserMountsResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -472,19 +471,15 @@ class _$OCSMeta extends OCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (new OCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status');
-    BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode');
-  }
-
+      : super._();
   @override
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  OCSMetaBuilder toBuilder() => new OCSMetaBuilder()..replace(this);
+  OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -563,7 +558,6 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
   @override
   void replace(covariant OCSMeta other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OCSMeta;
   }
 
@@ -578,7 +572,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   _$OCSMeta _build() {
     OCSMeta._validate(this);
     final _$result = _$v ??
-        new _$OCSMeta._(
+        _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
           message: message,
@@ -662,7 +656,7 @@ class _$StorageConfig extends StorageConfig {
   final bool userProvided;
 
   factory _$StorageConfig([void Function(StorageConfigBuilder)? updates]) =>
-      (new StorageConfigBuilder()..update(updates))._build();
+      (StorageConfigBuilder()..update(updates))._build();
 
   _$StorageConfig._(
       {this.applicableGroups,
@@ -678,20 +672,12 @@ class _$StorageConfig extends StorageConfig {
       this.statusMessage,
       required this.type,
       required this.userProvided})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(authMechanism, r'StorageConfig', 'authMechanism');
-    BuiltValueNullFieldError.checkNotNull(backend, r'StorageConfig', 'backend');
-    BuiltValueNullFieldError.checkNotNull(backendOptions, r'StorageConfig', 'backendOptions');
-    BuiltValueNullFieldError.checkNotNull(mountPoint, r'StorageConfig', 'mountPoint');
-    BuiltValueNullFieldError.checkNotNull(type, r'StorageConfig', 'type');
-    BuiltValueNullFieldError.checkNotNull(userProvided, r'StorageConfig', 'userProvided');
-  }
-
+      : super._();
   @override
   StorageConfig rebuild(void Function(StorageConfigBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  StorageConfigBuilder toBuilder() => new StorageConfigBuilder()..replace(this);
+  StorageConfigBuilder toBuilder() => StorageConfigBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -756,11 +742,11 @@ class StorageConfigBuilder implements Builder<StorageConfig, StorageConfigBuilde
   _$StorageConfig? _$v;
 
   ListBuilder<String>? _applicableGroups;
-  ListBuilder<String> get applicableGroups => _$this._applicableGroups ??= new ListBuilder<String>();
+  ListBuilder<String> get applicableGroups => _$this._applicableGroups ??= ListBuilder<String>();
   set applicableGroups(covariant ListBuilder<String>? applicableGroups) => _$this._applicableGroups = applicableGroups;
 
   ListBuilder<String>? _applicableUsers;
-  ListBuilder<String> get applicableUsers => _$this._applicableUsers ??= new ListBuilder<String>();
+  ListBuilder<String> get applicableUsers => _$this._applicableUsers ??= ListBuilder<String>();
   set applicableUsers(covariant ListBuilder<String>? applicableUsers) => _$this._applicableUsers = applicableUsers;
 
   String? _authMechanism;
@@ -772,7 +758,7 @@ class StorageConfigBuilder implements Builder<StorageConfig, StorageConfigBuilde
   set backend(covariant String? backend) => _$this._backend = backend;
 
   MapBuilder<String, JsonObject>? _backendOptions;
-  MapBuilder<String, JsonObject> get backendOptions => _$this._backendOptions ??= new MapBuilder<String, JsonObject>();
+  MapBuilder<String, JsonObject> get backendOptions => _$this._backendOptions ??= MapBuilder<String, JsonObject>();
   set backendOptions(covariant MapBuilder<String, JsonObject>? backendOptions) =>
       _$this._backendOptions = backendOptions;
 
@@ -781,7 +767,7 @@ class StorageConfigBuilder implements Builder<StorageConfig, StorageConfigBuilde
   set id(covariant int? id) => _$this._id = id;
 
   MapBuilder<String, JsonObject>? _mountOptions;
-  MapBuilder<String, JsonObject> get mountOptions => _$this._mountOptions ??= new MapBuilder<String, JsonObject>();
+  MapBuilder<String, JsonObject> get mountOptions => _$this._mountOptions ??= MapBuilder<String, JsonObject>();
   set mountOptions(covariant MapBuilder<String, JsonObject>? mountOptions) => _$this._mountOptions = mountOptions;
 
   String? _mountPoint;
@@ -835,7 +821,6 @@ class StorageConfigBuilder implements Builder<StorageConfig, StorageConfigBuilde
 
   @override
   void replace(covariant StorageConfig other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$StorageConfig;
   }
 
@@ -852,7 +837,7 @@ class StorageConfigBuilder implements Builder<StorageConfig, StorageConfigBuilde
     _$StorageConfig _$result;
     try {
       _$result = _$v ??
-          new _$StorageConfig._(
+          _$StorageConfig._(
             applicableGroups: _applicableGroups?.build(),
             applicableUsers: _applicableUsers?.build(),
             authMechanism: BuiltValueNullFieldError.checkNotNull(authMechanism, r'StorageConfig', 'authMechanism'),
@@ -881,7 +866,7 @@ class StorageConfigBuilder implements Builder<StorageConfig, StorageConfigBuilde
         _$failedField = 'mountOptions';
         _mountOptions?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'StorageConfig', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'StorageConfig', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -941,7 +926,7 @@ class _$Mount extends Mount {
   @override
   final StorageConfig config;
 
-  factory _$Mount([void Function(MountBuilder)? updates]) => (new MountBuilder()..update(updates))._build();
+  factory _$Mount([void Function(MountBuilder)? updates]) => (MountBuilder()..update(updates))._build();
 
   _$Mount._(
       {required this.name,
@@ -953,23 +938,12 @@ class _$Mount extends Mount {
       required this.id,
       required this.$class,
       required this.config})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(name, r'Mount', 'name');
-    BuiltValueNullFieldError.checkNotNull(path, r'Mount', 'path');
-    BuiltValueNullFieldError.checkNotNull(type, r'Mount', 'type');
-    BuiltValueNullFieldError.checkNotNull(backend, r'Mount', 'backend');
-    BuiltValueNullFieldError.checkNotNull(scope, r'Mount', 'scope');
-    BuiltValueNullFieldError.checkNotNull(permissions, r'Mount', 'permissions');
-    BuiltValueNullFieldError.checkNotNull(id, r'Mount', 'id');
-    BuiltValueNullFieldError.checkNotNull($class, r'Mount', '\$class');
-    BuiltValueNullFieldError.checkNotNull(config, r'Mount', 'config');
-  }
-
+      : super._();
   @override
   Mount rebuild(void Function(MountBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  MountBuilder toBuilder() => new MountBuilder()..replace(this);
+  MountBuilder toBuilder() => MountBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1054,7 +1028,7 @@ class MountBuilder implements Builder<Mount, MountBuilder>, $MountInterfaceBuild
   set $class(covariant String? $class) => _$this._$class = $class;
 
   StorageConfigBuilder? _config;
-  StorageConfigBuilder get config => _$this._config ??= new StorageConfigBuilder();
+  StorageConfigBuilder get config => _$this._config ??= StorageConfigBuilder();
   set config(covariant StorageConfigBuilder? config) => _$this._config = config;
 
   MountBuilder() {
@@ -1080,7 +1054,6 @@ class MountBuilder implements Builder<Mount, MountBuilder>, $MountInterfaceBuild
 
   @override
   void replace(covariant Mount other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Mount;
   }
 
@@ -1097,7 +1070,7 @@ class MountBuilder implements Builder<Mount, MountBuilder>, $MountInterfaceBuild
     _$Mount _$result;
     try {
       _$result = _$v ??
-          new _$Mount._(
+          _$Mount._(
             name: BuiltValueNullFieldError.checkNotNull(name, r'Mount', 'name'),
             path: BuiltValueNullFieldError.checkNotNull(path, r'Mount', 'path'),
             type: BuiltValueNullFieldError.checkNotNull(type, r'Mount', 'type'),
@@ -1114,7 +1087,7 @@ class MountBuilder implements Builder<Mount, MountBuilder>, $MountInterfaceBuild
         _$failedField = 'config';
         config.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'Mount', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Mount', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1141,13 +1114,9 @@ class _$ApiGetUserMountsResponseApplicationJson_Ocs extends ApiGetUserMountsResp
 
   factory _$ApiGetUserMountsResponseApplicationJson_Ocs(
           [void Function(ApiGetUserMountsResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new ApiGetUserMountsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (ApiGetUserMountsResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$ApiGetUserMountsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'ApiGetUserMountsResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'ApiGetUserMountsResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$ApiGetUserMountsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ApiGetUserMountsResponseApplicationJson_Ocs rebuild(
           void Function(ApiGetUserMountsResponseApplicationJson_OcsBuilder) updates) =>
@@ -1155,7 +1124,7 @@ class _$ApiGetUserMountsResponseApplicationJson_Ocs extends ApiGetUserMountsResp
 
   @override
   ApiGetUserMountsResponseApplicationJson_OcsBuilder toBuilder() =>
-      new ApiGetUserMountsResponseApplicationJson_OcsBuilder()..replace(this);
+      ApiGetUserMountsResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1188,11 +1157,11 @@ class ApiGetUserMountsResponseApplicationJson_OcsBuilder
   _$ApiGetUserMountsResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<Mount>? _data;
-  ListBuilder<Mount> get data => _$this._data ??= new ListBuilder<Mount>();
+  ListBuilder<Mount> get data => _$this._data ??= ListBuilder<Mount>();
   set data(covariant ListBuilder<Mount>? data) => _$this._data = data;
 
   ApiGetUserMountsResponseApplicationJson_OcsBuilder() {
@@ -1211,7 +1180,6 @@ class ApiGetUserMountsResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant ApiGetUserMountsResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ApiGetUserMountsResponseApplicationJson_Ocs;
   }
 
@@ -1228,7 +1196,7 @@ class ApiGetUserMountsResponseApplicationJson_OcsBuilder
     _$ApiGetUserMountsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$ApiGetUserMountsResponseApplicationJson_Ocs._(
+          _$ApiGetUserMountsResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -1240,8 +1208,7 @@ class ApiGetUserMountsResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'ApiGetUserMountsResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ApiGetUserMountsResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1263,12 +1230,9 @@ class _$ApiGetUserMountsResponseApplicationJson extends ApiGetUserMountsResponse
 
   factory _$ApiGetUserMountsResponseApplicationJson(
           [void Function(ApiGetUserMountsResponseApplicationJsonBuilder)? updates]) =>
-      (new ApiGetUserMountsResponseApplicationJsonBuilder()..update(updates))._build();
+      (ApiGetUserMountsResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$ApiGetUserMountsResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'ApiGetUserMountsResponseApplicationJson', 'ocs');
-  }
-
+  _$ApiGetUserMountsResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ApiGetUserMountsResponseApplicationJson rebuild(
           void Function(ApiGetUserMountsResponseApplicationJsonBuilder) updates) =>
@@ -1276,7 +1240,7 @@ class _$ApiGetUserMountsResponseApplicationJson extends ApiGetUserMountsResponse
 
   @override
   ApiGetUserMountsResponseApplicationJsonBuilder toBuilder() =>
-      new ApiGetUserMountsResponseApplicationJsonBuilder()..replace(this);
+      ApiGetUserMountsResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1306,7 +1270,7 @@ class ApiGetUserMountsResponseApplicationJsonBuilder
 
   ApiGetUserMountsResponseApplicationJson_OcsBuilder? _ocs;
   ApiGetUserMountsResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new ApiGetUserMountsResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= ApiGetUserMountsResponseApplicationJson_OcsBuilder();
   set ocs(covariant ApiGetUserMountsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   ApiGetUserMountsResponseApplicationJsonBuilder() {
@@ -1324,7 +1288,6 @@ class ApiGetUserMountsResponseApplicationJsonBuilder
 
   @override
   void replace(covariant ApiGetUserMountsResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ApiGetUserMountsResponseApplicationJson;
   }
 
@@ -1341,7 +1304,7 @@ class ApiGetUserMountsResponseApplicationJsonBuilder
     _$ApiGetUserMountsResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$ApiGetUserMountsResponseApplicationJson._(
+          _$ApiGetUserMountsResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -1350,7 +1313,7 @@ class ApiGetUserMountsResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'ApiGetUserMountsResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ApiGetUserMountsResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

@@ -16,12 +16,12 @@ ThemingGetThemeStylesheetPlain _$valueOfThemingGetThemeStylesheetPlain(String na
     case '\$1':
       return _$themingGetThemeStylesheetPlain$1;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<ThemingGetThemeStylesheetPlain> _$themingGetThemeStylesheetPlainValues =
-    new BuiltSet<ThemingGetThemeStylesheetPlain>(const <ThemingGetThemeStylesheetPlain>[
+    BuiltSet<ThemingGetThemeStylesheetPlain>(const <ThemingGetThemeStylesheetPlain>[
   _$themingGetThemeStylesheetPlain$0,
   _$themingGetThemeStylesheetPlain$1,
 ]);
@@ -38,12 +38,12 @@ ThemingGetThemeStylesheetWithCustomCss _$valueOfThemingGetThemeStylesheetWithCus
     case '\$1':
       return _$themingGetThemeStylesheetWithCustomCss$1;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<ThemingGetThemeStylesheetWithCustomCss> _$themingGetThemeStylesheetWithCustomCssValues =
-    new BuiltSet<ThemingGetThemeStylesheetWithCustomCss>(const <ThemingGetThemeStylesheetWithCustomCss>[
+    BuiltSet<ThemingGetThemeStylesheetWithCustomCss>(const <ThemingGetThemeStylesheetWithCustomCss>[
   _$themingGetThemeStylesheetWithCustomCss$0,
   _$themingGetThemeStylesheetWithCustomCss$1,
 ]);
@@ -58,36 +58,35 @@ ThemingGetImageUseSvg _$valueOfThemingGetImageUseSvg(String name) {
     case '\$1':
       return _$themingGetImageUseSvg$1;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<ThemingGetImageUseSvg> _$themingGetImageUseSvgValues =
-    new BuiltSet<ThemingGetImageUseSvg>(const <ThemingGetImageUseSvg>[
+    BuiltSet<ThemingGetImageUseSvg>(const <ThemingGetImageUseSvg>[
   _$themingGetImageUseSvg$0,
   _$themingGetImageUseSvg$1,
 ]);
 
 Serializer<ThemingGetManifestResponseApplicationJson_Icons> _$themingGetManifestResponseApplicationJsonIconsSerializer =
-    new _$ThemingGetManifestResponseApplicationJson_IconsSerializer();
+    _$ThemingGetManifestResponseApplicationJson_IconsSerializer();
 Serializer<ThemingGetManifestResponseApplicationJson> _$themingGetManifestResponseApplicationJsonSerializer =
-    new _$ThemingGetManifestResponseApplicationJsonSerializer();
+    _$ThemingGetManifestResponseApplicationJsonSerializer();
 Serializer<UserThemeSetBackgroundRequestApplicationJson> _$userThemeSetBackgroundRequestApplicationJsonSerializer =
-    new _$UserThemeSetBackgroundRequestApplicationJsonSerializer();
-Serializer<Background> _$backgroundSerializer = new _$BackgroundSerializer();
-Serializer<OCSMeta> _$oCSMetaSerializer = new _$OCSMetaSerializer();
+    _$UserThemeSetBackgroundRequestApplicationJsonSerializer();
+Serializer<Background> _$backgroundSerializer = _$BackgroundSerializer();
+Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<UserThemeEnableThemeResponseApplicationJson_Ocs> _$userThemeEnableThemeResponseApplicationJsonOcsSerializer =
-    new _$UserThemeEnableThemeResponseApplicationJson_OcsSerializer();
+    _$UserThemeEnableThemeResponseApplicationJson_OcsSerializer();
 Serializer<UserThemeEnableThemeResponseApplicationJson> _$userThemeEnableThemeResponseApplicationJsonSerializer =
-    new _$UserThemeEnableThemeResponseApplicationJsonSerializer();
+    _$UserThemeEnableThemeResponseApplicationJsonSerializer();
 Serializer<UserThemeDisableThemeResponseApplicationJson_Ocs>
     _$userThemeDisableThemeResponseApplicationJsonOcsSerializer =
-    new _$UserThemeDisableThemeResponseApplicationJson_OcsSerializer();
+    _$UserThemeDisableThemeResponseApplicationJson_OcsSerializer();
 Serializer<UserThemeDisableThemeResponseApplicationJson> _$userThemeDisableThemeResponseApplicationJsonSerializer =
-    new _$UserThemeDisableThemeResponseApplicationJsonSerializer();
-Serializer<PublicCapabilities_Theming> _$publicCapabilitiesThemingSerializer =
-    new _$PublicCapabilities_ThemingSerializer();
-Serializer<PublicCapabilities> _$publicCapabilitiesSerializer = new _$PublicCapabilitiesSerializer();
+    _$UserThemeDisableThemeResponseApplicationJsonSerializer();
+Serializer<PublicCapabilities_Theming> _$publicCapabilitiesThemingSerializer = _$PublicCapabilities_ThemingSerializer();
+Serializer<PublicCapabilities> _$publicCapabilitiesSerializer = _$PublicCapabilitiesSerializer();
 
 class _$ThemingGetManifestResponseApplicationJson_IconsSerializer
     implements StructuredSerializer<ThemingGetManifestResponseApplicationJson_Icons> {
@@ -117,7 +116,7 @@ class _$ThemingGetManifestResponseApplicationJson_IconsSerializer
   @override
   ThemingGetManifestResponseApplicationJson_Icons deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ThemingGetManifestResponseApplicationJson_IconsBuilder();
+    final result = ThemingGetManifestResponseApplicationJson_IconsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -181,7 +180,7 @@ class _$ThemingGetManifestResponseApplicationJsonSerializer
   @override
   ThemingGetManifestResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ThemingGetManifestResponseApplicationJsonBuilder();
+    final result = ThemingGetManifestResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -253,7 +252,7 @@ class _$UserThemeSetBackgroundRequestApplicationJsonSerializer
   @override
   UserThemeSetBackgroundRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserThemeSetBackgroundRequestApplicationJsonBuilder();
+    final result = UserThemeSetBackgroundRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -304,7 +303,7 @@ class _$BackgroundSerializer implements StructuredSerializer<Background> {
   @override
   Background deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new BackgroundBuilder();
+    final result = BackgroundBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -371,7 +370,7 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
   OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new OCSMetaBuilder();
+    final result = OCSMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -427,7 +426,7 @@ class _$UserThemeEnableThemeResponseApplicationJson_OcsSerializer
   @override
   UserThemeEnableThemeResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserThemeEnableThemeResponseApplicationJson_OcsBuilder();
+    final result = UserThemeEnableThemeResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -472,7 +471,7 @@ class _$UserThemeEnableThemeResponseApplicationJsonSerializer
   @override
   UserThemeEnableThemeResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserThemeEnableThemeResponseApplicationJsonBuilder();
+    final result = UserThemeEnableThemeResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -518,7 +517,7 @@ class _$UserThemeDisableThemeResponseApplicationJson_OcsSerializer
   @override
   UserThemeDisableThemeResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserThemeDisableThemeResponseApplicationJson_OcsBuilder();
+    final result = UserThemeDisableThemeResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -564,7 +563,7 @@ class _$UserThemeDisableThemeResponseApplicationJsonSerializer
   @override
   UserThemeDisableThemeResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserThemeDisableThemeResponseApplicationJsonBuilder();
+    final result = UserThemeDisableThemeResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -632,7 +631,7 @@ class _$PublicCapabilities_ThemingSerializer implements StructuredSerializer<Pub
   @override
   PublicCapabilities_Theming deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new PublicCapabilities_ThemingBuilder();
+    final result = PublicCapabilities_ThemingBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -712,7 +711,7 @@ class _$PublicCapabilitiesSerializer implements StructuredSerializer<PublicCapab
   @override
   PublicCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new PublicCapabilitiesBuilder();
+    final result = PublicCapabilitiesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -754,15 +753,10 @@ class _$ThemingGetManifestResponseApplicationJson_Icons extends ThemingGetManife
 
   factory _$ThemingGetManifestResponseApplicationJson_Icons(
           [void Function(ThemingGetManifestResponseApplicationJson_IconsBuilder)? updates]) =>
-      (new ThemingGetManifestResponseApplicationJson_IconsBuilder()..update(updates))._build();
+      (ThemingGetManifestResponseApplicationJson_IconsBuilder()..update(updates))._build();
 
   _$ThemingGetManifestResponseApplicationJson_Icons._({required this.src, required this.type, required this.sizes})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(src, r'ThemingGetManifestResponseApplicationJson_Icons', 'src');
-    BuiltValueNullFieldError.checkNotNull(type, r'ThemingGetManifestResponseApplicationJson_Icons', 'type');
-    BuiltValueNullFieldError.checkNotNull(sizes, r'ThemingGetManifestResponseApplicationJson_Icons', 'sizes');
-  }
-
+      : super._();
   @override
   ThemingGetManifestResponseApplicationJson_Icons rebuild(
           void Function(ThemingGetManifestResponseApplicationJson_IconsBuilder) updates) =>
@@ -770,7 +764,7 @@ class _$ThemingGetManifestResponseApplicationJson_Icons extends ThemingGetManife
 
   @override
   ThemingGetManifestResponseApplicationJson_IconsBuilder toBuilder() =>
-      new ThemingGetManifestResponseApplicationJson_IconsBuilder()..replace(this);
+      ThemingGetManifestResponseApplicationJson_IconsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -837,7 +831,6 @@ class ThemingGetManifestResponseApplicationJson_IconsBuilder
 
   @override
   void replace(covariant ThemingGetManifestResponseApplicationJson_Icons other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ThemingGetManifestResponseApplicationJson_Icons;
   }
 
@@ -852,7 +845,7 @@ class ThemingGetManifestResponseApplicationJson_IconsBuilder
   _$ThemingGetManifestResponseApplicationJson_Icons _build() {
     ThemingGetManifestResponseApplicationJson_Icons._validate(this);
     final _$result = _$v ??
-        new _$ThemingGetManifestResponseApplicationJson_Icons._(
+        _$ThemingGetManifestResponseApplicationJson_Icons._(
           src: BuiltValueNullFieldError.checkNotNull(src, r'ThemingGetManifestResponseApplicationJson_Icons', 'src'),
           type: BuiltValueNullFieldError.checkNotNull(type, r'ThemingGetManifestResponseApplicationJson_Icons', 'type'),
           sizes:
@@ -911,7 +904,7 @@ class _$ThemingGetManifestResponseApplicationJson extends ThemingGetManifestResp
 
   factory _$ThemingGetManifestResponseApplicationJson(
           [void Function(ThemingGetManifestResponseApplicationJsonBuilder)? updates]) =>
-      (new ThemingGetManifestResponseApplicationJsonBuilder()..update(updates))._build();
+      (ThemingGetManifestResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ThemingGetManifestResponseApplicationJson._(
       {required this.name,
@@ -922,18 +915,7 @@ class _$ThemingGetManifestResponseApplicationJson extends ThemingGetManifestResp
       required this.description,
       required this.icons,
       required this.display})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(name, r'ThemingGetManifestResponseApplicationJson', 'name');
-    BuiltValueNullFieldError.checkNotNull(shortName, r'ThemingGetManifestResponseApplicationJson', 'shortName');
-    BuiltValueNullFieldError.checkNotNull(startUrl, r'ThemingGetManifestResponseApplicationJson', 'startUrl');
-    BuiltValueNullFieldError.checkNotNull(themeColor, r'ThemingGetManifestResponseApplicationJson', 'themeColor');
-    BuiltValueNullFieldError.checkNotNull(
-        backgroundColor, r'ThemingGetManifestResponseApplicationJson', 'backgroundColor');
-    BuiltValueNullFieldError.checkNotNull(description, r'ThemingGetManifestResponseApplicationJson', 'description');
-    BuiltValueNullFieldError.checkNotNull(icons, r'ThemingGetManifestResponseApplicationJson', 'icons');
-    BuiltValueNullFieldError.checkNotNull(display, r'ThemingGetManifestResponseApplicationJson', 'display');
-  }
-
+      : super._();
   @override
   ThemingGetManifestResponseApplicationJson rebuild(
           void Function(ThemingGetManifestResponseApplicationJsonBuilder) updates) =>
@@ -941,7 +923,7 @@ class _$ThemingGetManifestResponseApplicationJson extends ThemingGetManifestResp
 
   @override
   ThemingGetManifestResponseApplicationJsonBuilder toBuilder() =>
-      new ThemingGetManifestResponseApplicationJsonBuilder()..replace(this);
+      ThemingGetManifestResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1019,7 +1001,7 @@ class ThemingGetManifestResponseApplicationJsonBuilder
 
   ListBuilder<ThemingGetManifestResponseApplicationJson_Icons>? _icons;
   ListBuilder<ThemingGetManifestResponseApplicationJson_Icons> get icons =>
-      _$this._icons ??= new ListBuilder<ThemingGetManifestResponseApplicationJson_Icons>();
+      _$this._icons ??= ListBuilder<ThemingGetManifestResponseApplicationJson_Icons>();
   set icons(covariant ListBuilder<ThemingGetManifestResponseApplicationJson_Icons>? icons) => _$this._icons = icons;
 
   String? _display;
@@ -1048,7 +1030,6 @@ class ThemingGetManifestResponseApplicationJsonBuilder
 
   @override
   void replace(covariant ThemingGetManifestResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ThemingGetManifestResponseApplicationJson;
   }
 
@@ -1065,7 +1046,7 @@ class ThemingGetManifestResponseApplicationJsonBuilder
     _$ThemingGetManifestResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$ThemingGetManifestResponseApplicationJson._(
+          _$ThemingGetManifestResponseApplicationJson._(
             name: BuiltValueNullFieldError.checkNotNull(name, r'ThemingGetManifestResponseApplicationJson', 'name'),
             shortName: BuiltValueNullFieldError.checkNotNull(
                 shortName, r'ThemingGetManifestResponseApplicationJson', 'shortName'),
@@ -1087,7 +1068,7 @@ class ThemingGetManifestResponseApplicationJsonBuilder
         _$failedField = 'icons';
         icons.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'ThemingGetManifestResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'ThemingGetManifestResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1114,12 +1095,9 @@ class _$UserThemeSetBackgroundRequestApplicationJson extends UserThemeSetBackgro
 
   factory _$UserThemeSetBackgroundRequestApplicationJson(
           [void Function(UserThemeSetBackgroundRequestApplicationJsonBuilder)? updates]) =>
-      (new UserThemeSetBackgroundRequestApplicationJsonBuilder()..update(updates))._build();
+      (UserThemeSetBackgroundRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$UserThemeSetBackgroundRequestApplicationJson._({required this.value, this.color}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(value, r'UserThemeSetBackgroundRequestApplicationJson', 'value');
-  }
-
+  _$UserThemeSetBackgroundRequestApplicationJson._({required this.value, this.color}) : super._();
   @override
   UserThemeSetBackgroundRequestApplicationJson rebuild(
           void Function(UserThemeSetBackgroundRequestApplicationJsonBuilder) updates) =>
@@ -1127,7 +1105,7 @@ class _$UserThemeSetBackgroundRequestApplicationJson extends UserThemeSetBackgro
 
   @override
   UserThemeSetBackgroundRequestApplicationJsonBuilder toBuilder() =>
-      new UserThemeSetBackgroundRequestApplicationJsonBuilder()..replace(this);
+      UserThemeSetBackgroundRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1183,7 +1161,6 @@ class UserThemeSetBackgroundRequestApplicationJsonBuilder
 
   @override
   void replace(covariant UserThemeSetBackgroundRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserThemeSetBackgroundRequestApplicationJson;
   }
 
@@ -1198,7 +1175,7 @@ class UserThemeSetBackgroundRequestApplicationJsonBuilder
   _$UserThemeSetBackgroundRequestApplicationJson _build() {
     UserThemeSetBackgroundRequestApplicationJson._validate(this);
     final _$result = _$v ??
-        new _$UserThemeSetBackgroundRequestApplicationJson._(
+        _$UserThemeSetBackgroundRequestApplicationJson._(
           value: BuiltValueNullFieldError.checkNotNull(value, r'UserThemeSetBackgroundRequestApplicationJson', 'value'),
           color: color,
         );
@@ -1233,22 +1210,16 @@ class _$Background extends Background {
   @override
   final int version;
 
-  factory _$Background([void Function(BackgroundBuilder)? updates]) =>
-      (new BackgroundBuilder()..update(updates))._build();
+  factory _$Background([void Function(BackgroundBuilder)? updates]) => (BackgroundBuilder()..update(updates))._build();
 
   _$Background._(
       {this.backgroundImage, required this.backgroundColor, required this.primaryColor, required this.version})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(backgroundColor, r'Background', 'backgroundColor');
-    BuiltValueNullFieldError.checkNotNull(primaryColor, r'Background', 'primaryColor');
-    BuiltValueNullFieldError.checkNotNull(version, r'Background', 'version');
-  }
-
+      : super._();
   @override
   Background rebuild(void Function(BackgroundBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  BackgroundBuilder toBuilder() => new BackgroundBuilder()..replace(this);
+  BackgroundBuilder toBuilder() => BackgroundBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1319,7 +1290,6 @@ class BackgroundBuilder implements Builder<Background, BackgroundBuilder>, $Back
 
   @override
   void replace(covariant Background other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Background;
   }
 
@@ -1334,7 +1304,7 @@ class BackgroundBuilder implements Builder<Background, BackgroundBuilder>, $Back
   _$Background _build() {
     Background._validate(this);
     final _$result = _$v ??
-        new _$Background._(
+        _$Background._(
           backgroundImage: backgroundImage,
           backgroundColor: BuiltValueNullFieldError.checkNotNull(backgroundColor, r'Background', 'backgroundColor'),
           primaryColor: BuiltValueNullFieldError.checkNotNull(primaryColor, r'Background', 'primaryColor'),
@@ -1376,19 +1346,15 @@ class _$OCSMeta extends OCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (new OCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status');
-    BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode');
-  }
-
+      : super._();
   @override
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  OCSMetaBuilder toBuilder() => new OCSMetaBuilder()..replace(this);
+  OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1467,7 +1433,6 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
   @override
   void replace(covariant OCSMeta other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OCSMeta;
   }
 
@@ -1482,7 +1447,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   _$OCSMeta _build() {
     OCSMeta._validate(this);
     final _$result = _$v ??
-        new _$OCSMeta._(
+        _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
           message: message,
@@ -1512,13 +1477,9 @@ class _$UserThemeEnableThemeResponseApplicationJson_Ocs extends UserThemeEnableT
 
   factory _$UserThemeEnableThemeResponseApplicationJson_Ocs(
           [void Function(UserThemeEnableThemeResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new UserThemeEnableThemeResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (UserThemeEnableThemeResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$UserThemeEnableThemeResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'UserThemeEnableThemeResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'UserThemeEnableThemeResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$UserThemeEnableThemeResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   UserThemeEnableThemeResponseApplicationJson_Ocs rebuild(
           void Function(UserThemeEnableThemeResponseApplicationJson_OcsBuilder) updates) =>
@@ -1526,7 +1487,7 @@ class _$UserThemeEnableThemeResponseApplicationJson_Ocs extends UserThemeEnableT
 
   @override
   UserThemeEnableThemeResponseApplicationJson_OcsBuilder toBuilder() =>
-      new UserThemeEnableThemeResponseApplicationJson_OcsBuilder()..replace(this);
+      UserThemeEnableThemeResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1560,7 +1521,7 @@ class UserThemeEnableThemeResponseApplicationJson_OcsBuilder
   _$UserThemeEnableThemeResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
@@ -1583,7 +1544,6 @@ class UserThemeEnableThemeResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant UserThemeEnableThemeResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserThemeEnableThemeResponseApplicationJson_Ocs;
   }
 
@@ -1600,7 +1560,7 @@ class UserThemeEnableThemeResponseApplicationJson_OcsBuilder
     _$UserThemeEnableThemeResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$UserThemeEnableThemeResponseApplicationJson_Ocs._(
+          _$UserThemeEnableThemeResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data:
                 BuiltValueNullFieldError.checkNotNull(data, r'UserThemeEnableThemeResponseApplicationJson_Ocs', 'data'),
@@ -1611,7 +1571,7 @@ class UserThemeEnableThemeResponseApplicationJson_OcsBuilder
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserThemeEnableThemeResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -1634,12 +1594,9 @@ class _$UserThemeEnableThemeResponseApplicationJson extends UserThemeEnableTheme
 
   factory _$UserThemeEnableThemeResponseApplicationJson(
           [void Function(UserThemeEnableThemeResponseApplicationJsonBuilder)? updates]) =>
-      (new UserThemeEnableThemeResponseApplicationJsonBuilder()..update(updates))._build();
+      (UserThemeEnableThemeResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$UserThemeEnableThemeResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'UserThemeEnableThemeResponseApplicationJson', 'ocs');
-  }
-
+  _$UserThemeEnableThemeResponseApplicationJson._({required this.ocs}) : super._();
   @override
   UserThemeEnableThemeResponseApplicationJson rebuild(
           void Function(UserThemeEnableThemeResponseApplicationJsonBuilder) updates) =>
@@ -1647,7 +1604,7 @@ class _$UserThemeEnableThemeResponseApplicationJson extends UserThemeEnableTheme
 
   @override
   UserThemeEnableThemeResponseApplicationJsonBuilder toBuilder() =>
-      new UserThemeEnableThemeResponseApplicationJsonBuilder()..replace(this);
+      UserThemeEnableThemeResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1677,7 +1634,7 @@ class UserThemeEnableThemeResponseApplicationJsonBuilder
 
   UserThemeEnableThemeResponseApplicationJson_OcsBuilder? _ocs;
   UserThemeEnableThemeResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new UserThemeEnableThemeResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= UserThemeEnableThemeResponseApplicationJson_OcsBuilder();
   set ocs(covariant UserThemeEnableThemeResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   UserThemeEnableThemeResponseApplicationJsonBuilder() {
@@ -1695,7 +1652,6 @@ class UserThemeEnableThemeResponseApplicationJsonBuilder
 
   @override
   void replace(covariant UserThemeEnableThemeResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserThemeEnableThemeResponseApplicationJson;
   }
 
@@ -1712,7 +1668,7 @@ class UserThemeEnableThemeResponseApplicationJsonBuilder
     _$UserThemeEnableThemeResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$UserThemeEnableThemeResponseApplicationJson._(
+          _$UserThemeEnableThemeResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -1721,8 +1677,7 @@ class UserThemeEnableThemeResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'UserThemeEnableThemeResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'UserThemeEnableThemeResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1749,13 +1704,9 @@ class _$UserThemeDisableThemeResponseApplicationJson_Ocs extends UserThemeDisabl
 
   factory _$UserThemeDisableThemeResponseApplicationJson_Ocs(
           [void Function(UserThemeDisableThemeResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new UserThemeDisableThemeResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (UserThemeDisableThemeResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$UserThemeDisableThemeResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'UserThemeDisableThemeResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'UserThemeDisableThemeResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$UserThemeDisableThemeResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   UserThemeDisableThemeResponseApplicationJson_Ocs rebuild(
           void Function(UserThemeDisableThemeResponseApplicationJson_OcsBuilder) updates) =>
@@ -1763,7 +1714,7 @@ class _$UserThemeDisableThemeResponseApplicationJson_Ocs extends UserThemeDisabl
 
   @override
   UserThemeDisableThemeResponseApplicationJson_OcsBuilder toBuilder() =>
-      new UserThemeDisableThemeResponseApplicationJson_OcsBuilder()..replace(this);
+      UserThemeDisableThemeResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1797,7 +1748,7 @@ class UserThemeDisableThemeResponseApplicationJson_OcsBuilder
   _$UserThemeDisableThemeResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
@@ -1820,7 +1771,6 @@ class UserThemeDisableThemeResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant UserThemeDisableThemeResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserThemeDisableThemeResponseApplicationJson_Ocs;
   }
 
@@ -1837,7 +1787,7 @@ class UserThemeDisableThemeResponseApplicationJson_OcsBuilder
     _$UserThemeDisableThemeResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$UserThemeDisableThemeResponseApplicationJson_Ocs._(
+          _$UserThemeDisableThemeResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(
                 data, r'UserThemeDisableThemeResponseApplicationJson_Ocs', 'data'),
@@ -1848,7 +1798,7 @@ class UserThemeDisableThemeResponseApplicationJson_OcsBuilder
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserThemeDisableThemeResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -1871,12 +1821,9 @@ class _$UserThemeDisableThemeResponseApplicationJson extends UserThemeDisableThe
 
   factory _$UserThemeDisableThemeResponseApplicationJson(
           [void Function(UserThemeDisableThemeResponseApplicationJsonBuilder)? updates]) =>
-      (new UserThemeDisableThemeResponseApplicationJsonBuilder()..update(updates))._build();
+      (UserThemeDisableThemeResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$UserThemeDisableThemeResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'UserThemeDisableThemeResponseApplicationJson', 'ocs');
-  }
-
+  _$UserThemeDisableThemeResponseApplicationJson._({required this.ocs}) : super._();
   @override
   UserThemeDisableThemeResponseApplicationJson rebuild(
           void Function(UserThemeDisableThemeResponseApplicationJsonBuilder) updates) =>
@@ -1884,7 +1831,7 @@ class _$UserThemeDisableThemeResponseApplicationJson extends UserThemeDisableThe
 
   @override
   UserThemeDisableThemeResponseApplicationJsonBuilder toBuilder() =>
-      new UserThemeDisableThemeResponseApplicationJsonBuilder()..replace(this);
+      UserThemeDisableThemeResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1914,7 +1861,7 @@ class UserThemeDisableThemeResponseApplicationJsonBuilder
 
   UserThemeDisableThemeResponseApplicationJson_OcsBuilder? _ocs;
   UserThemeDisableThemeResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new UserThemeDisableThemeResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= UserThemeDisableThemeResponseApplicationJson_OcsBuilder();
   set ocs(covariant UserThemeDisableThemeResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   UserThemeDisableThemeResponseApplicationJsonBuilder() {
@@ -1932,7 +1879,6 @@ class UserThemeDisableThemeResponseApplicationJsonBuilder
 
   @override
   void replace(covariant UserThemeDisableThemeResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserThemeDisableThemeResponseApplicationJson;
   }
 
@@ -1949,7 +1895,7 @@ class UserThemeDisableThemeResponseApplicationJsonBuilder
     _$UserThemeDisableThemeResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$UserThemeDisableThemeResponseApplicationJson._(
+          _$UserThemeDisableThemeResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -1958,8 +1904,7 @@ class UserThemeDisableThemeResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'UserThemeDisableThemeResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'UserThemeDisableThemeResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2050,7 +1995,7 @@ class _$PublicCapabilities_Theming extends PublicCapabilities_Theming {
   final String favicon;
 
   factory _$PublicCapabilities_Theming([void Function(PublicCapabilities_ThemingBuilder)? updates]) =>
-      (new PublicCapabilities_ThemingBuilder()..update(updates))._build();
+      (PublicCapabilities_ThemingBuilder()..update(updates))._build();
 
   _$PublicCapabilities_Theming._(
       {required this.name,
@@ -2068,30 +2013,13 @@ class _$PublicCapabilities_Theming extends PublicCapabilities_Theming {
       required this.backgroundDefault,
       required this.logoheader,
       required this.favicon})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(name, r'PublicCapabilities_Theming', 'name');
-    BuiltValueNullFieldError.checkNotNull(url, r'PublicCapabilities_Theming', 'url');
-    BuiltValueNullFieldError.checkNotNull(slogan, r'PublicCapabilities_Theming', 'slogan');
-    BuiltValueNullFieldError.checkNotNull(color, r'PublicCapabilities_Theming', 'color');
-    BuiltValueNullFieldError.checkNotNull(colorText, r'PublicCapabilities_Theming', 'colorText');
-    BuiltValueNullFieldError.checkNotNull(colorElement, r'PublicCapabilities_Theming', 'colorElement');
-    BuiltValueNullFieldError.checkNotNull(colorElementBright, r'PublicCapabilities_Theming', 'colorElementBright');
-    BuiltValueNullFieldError.checkNotNull(colorElementDark, r'PublicCapabilities_Theming', 'colorElementDark');
-    BuiltValueNullFieldError.checkNotNull(logo, r'PublicCapabilities_Theming', 'logo');
-    BuiltValueNullFieldError.checkNotNull(background, r'PublicCapabilities_Theming', 'background');
-    BuiltValueNullFieldError.checkNotNull(backgroundText, r'PublicCapabilities_Theming', 'backgroundText');
-    BuiltValueNullFieldError.checkNotNull(backgroundPlain, r'PublicCapabilities_Theming', 'backgroundPlain');
-    BuiltValueNullFieldError.checkNotNull(backgroundDefault, r'PublicCapabilities_Theming', 'backgroundDefault');
-    BuiltValueNullFieldError.checkNotNull(logoheader, r'PublicCapabilities_Theming', 'logoheader');
-    BuiltValueNullFieldError.checkNotNull(favicon, r'PublicCapabilities_Theming', 'favicon');
-  }
-
+      : super._();
   @override
   PublicCapabilities_Theming rebuild(void Function(PublicCapabilities_ThemingBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PublicCapabilities_ThemingBuilder toBuilder() => new PublicCapabilities_ThemingBuilder()..replace(this);
+  PublicCapabilities_ThemingBuilder toBuilder() => PublicCapabilities_ThemingBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2253,7 +2181,6 @@ class PublicCapabilities_ThemingBuilder
 
   @override
   void replace(covariant PublicCapabilities_Theming other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PublicCapabilities_Theming;
   }
 
@@ -2268,7 +2195,7 @@ class PublicCapabilities_ThemingBuilder
   _$PublicCapabilities_Theming _build() {
     PublicCapabilities_Theming._validate(this);
     final _$result = _$v ??
-        new _$PublicCapabilities_Theming._(
+        _$PublicCapabilities_Theming._(
           name: BuiltValueNullFieldError.checkNotNull(name, r'PublicCapabilities_Theming', 'name'),
           url: BuiltValueNullFieldError.checkNotNull(url, r'PublicCapabilities_Theming', 'url'),
           slogan: BuiltValueNullFieldError.checkNotNull(slogan, r'PublicCapabilities_Theming', 'slogan'),
@@ -2308,18 +2235,15 @@ class _$PublicCapabilities extends PublicCapabilities {
   final PublicCapabilities_Theming theming;
 
   factory _$PublicCapabilities([void Function(PublicCapabilitiesBuilder)? updates]) =>
-      (new PublicCapabilitiesBuilder()..update(updates))._build();
+      (PublicCapabilitiesBuilder()..update(updates))._build();
 
-  _$PublicCapabilities._({required this.theming}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(theming, r'PublicCapabilities', 'theming');
-  }
-
+  _$PublicCapabilities._({required this.theming}) : super._();
   @override
   PublicCapabilities rebuild(void Function(PublicCapabilitiesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PublicCapabilitiesBuilder toBuilder() => new PublicCapabilitiesBuilder()..replace(this);
+  PublicCapabilitiesBuilder toBuilder() => PublicCapabilitiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2346,7 +2270,7 @@ class PublicCapabilitiesBuilder
   _$PublicCapabilities? _$v;
 
   PublicCapabilities_ThemingBuilder? _theming;
-  PublicCapabilities_ThemingBuilder get theming => _$this._theming ??= new PublicCapabilities_ThemingBuilder();
+  PublicCapabilities_ThemingBuilder get theming => _$this._theming ??= PublicCapabilities_ThemingBuilder();
   set theming(covariant PublicCapabilities_ThemingBuilder? theming) => _$this._theming = theming;
 
   PublicCapabilitiesBuilder() {
@@ -2364,7 +2288,6 @@ class PublicCapabilitiesBuilder
 
   @override
   void replace(covariant PublicCapabilities other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PublicCapabilities;
   }
 
@@ -2381,7 +2304,7 @@ class PublicCapabilitiesBuilder
     _$PublicCapabilities _$result;
     try {
       _$result = _$v ??
-          new _$PublicCapabilities._(
+          _$PublicCapabilities._(
             theming: theming.build(),
           );
     } catch (_) {
@@ -2390,7 +2313,7 @@ class PublicCapabilitiesBuilder
         _$failedField = 'theming';
         theming.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'PublicCapabilities', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'PublicCapabilities', _$failedField, e.toString());
       }
       rethrow;
     }

@@ -16,11 +16,11 @@ GetEnumPattern _$valueOfGetEnumPattern(String name) {
     case '\$0':
       return _$getEnumPattern$0;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<GetEnumPattern> _$getEnumPatternValues = new BuiltSet<GetEnumPattern>(const <GetEnumPattern>[
+final BuiltSet<GetEnumPattern> _$getEnumPatternValues = BuiltSet<GetEnumPattern>(const <GetEnumPattern>[
   _$getEnumPatternA,
   _$getEnumPattern$0,
 ]);
@@ -35,12 +35,12 @@ GetDefaultsEnumPattern _$valueOfGetDefaultsEnumPattern(String name) {
     case '\$0':
       return _$getDefaultsEnumPattern$0;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<GetDefaultsEnumPattern> _$getDefaultsEnumPatternValues =
-    new BuiltSet<GetDefaultsEnumPattern>(const <GetDefaultsEnumPattern>[
+    BuiltSet<GetDefaultsEnumPattern>(const <GetDefaultsEnumPattern>[
   _$getDefaultsEnumPatternA,
   _$getDefaultsEnumPattern$0,
 ]);
@@ -55,12 +55,12 @@ GetHeadersEnumPattern _$valueOfGetHeadersEnumPattern(String name) {
     case '\$0':
       return _$getHeadersEnumPattern$0;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<GetHeadersEnumPattern> _$getHeadersEnumPatternValues =
-    new BuiltSet<GetHeadersEnumPattern>(const <GetHeadersEnumPattern>[
+    BuiltSet<GetHeadersEnumPattern>(const <GetHeadersEnumPattern>[
   _$getHeadersEnumPatternA,
   _$getHeadersEnumPattern$0,
 ]);

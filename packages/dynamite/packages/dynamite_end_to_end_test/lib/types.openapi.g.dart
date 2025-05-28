@@ -6,9 +6,9 @@ part of 'types.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Base> _$baseSerializer = new _$BaseSerializer();
-Serializer<Defaults> _$defaultsSerializer = new _$DefaultsSerializer();
-Serializer<AdditionalProperties> _$additionalPropertiesSerializer = new _$AdditionalPropertiesSerializer();
+Serializer<Base> _$baseSerializer = _$BaseSerializer();
+Serializer<Defaults> _$defaultsSerializer = _$DefaultsSerializer();
+Serializer<AdditionalProperties> _$additionalPropertiesSerializer = _$AdditionalPropertiesSerializer();
 
 class _$BaseSerializer implements StructuredSerializer<Base> {
   @override
@@ -87,7 +87,7 @@ class _$BaseSerializer implements StructuredSerializer<Base> {
   @override
   Base deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new BaseBuilder();
+    final result = BaseBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -185,7 +185,7 @@ class _$DefaultsSerializer implements StructuredSerializer<Defaults> {
   @override
   Defaults deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DefaultsBuilder();
+    final result = DefaultsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -381,7 +381,7 @@ class _$AdditionalPropertiesSerializer implements StructuredSerializer<Additiona
   @override
   AdditionalProperties deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new AdditionalPropertiesBuilder();
+    final result = AdditionalPropertiesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -528,7 +528,7 @@ class _$Base extends Base {
   @override
   final BuiltList<String>? listString;
 
-  factory _$Base([void Function(BaseBuilder)? updates]) => (new BaseBuilder()..update(updates))._build();
+  factory _$Base([void Function(BaseBuilder)? updates]) => (BaseBuilder()..update(updates))._build();
 
   _$Base._(
       {this.$bool,
@@ -542,12 +542,11 @@ class _$Base extends Base {
       this.listNever,
       this.listString})
       : super._();
-
   @override
   Base rebuild(void Function(BaseBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  BaseBuilder toBuilder() => new BaseBuilder()..replace(this);
+  BaseBuilder toBuilder() => BaseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -623,7 +622,7 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
   set string(covariant String? string) => _$this._string = string;
 
   ContentStringBuilder<int>? _contentString;
-  ContentStringBuilder<int> get contentString => _$this._contentString ??= new ContentStringBuilder<int>();
+  ContentStringBuilder<int> get contentString => _$this._contentString ??= ContentStringBuilder<int>();
   set contentString(covariant ContentStringBuilder<int>? contentString) => _$this._contentString = contentString;
 
   Uint8List? _stringBinary;
@@ -631,15 +630,15 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
   set stringBinary(covariant Uint8List? stringBinary) => _$this._stringBinary = stringBinary;
 
   ListBuilder<JsonObject>? _list;
-  ListBuilder<JsonObject> get list => _$this._list ??= new ListBuilder<JsonObject>();
+  ListBuilder<JsonObject> get list => _$this._list ??= ListBuilder<JsonObject>();
   set list(covariant ListBuilder<JsonObject>? list) => _$this._list = list;
 
   ListBuilder<Never>? _listNever;
-  ListBuilder<Never> get listNever => _$this._listNever ??= new ListBuilder<Never>();
+  ListBuilder<Never> get listNever => _$this._listNever ??= ListBuilder<Never>();
   set listNever(covariant ListBuilder<Never>? listNever) => _$this._listNever = listNever;
 
   ListBuilder<String>? _listString;
-  ListBuilder<String> get listString => _$this._listString ??= new ListBuilder<String>();
+  ListBuilder<String> get listString => _$this._listString ??= ListBuilder<String>();
   set listString(covariant ListBuilder<String>? listString) => _$this._listString = listString;
 
   BaseBuilder() {
@@ -666,7 +665,6 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
 
   @override
   void replace(covariant Base other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Base;
   }
 
@@ -683,7 +681,7 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
     _$Base _$result;
     try {
       _$result = _$v ??
-          new _$Base._(
+          _$Base._(
             $bool: $bool,
             integer: integer,
             $double: $double,
@@ -708,7 +706,7 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
         _$failedField = 'listString';
         _listString?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'Base', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Base', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -788,7 +786,7 @@ class _$Defaults extends Defaults {
   @override
   final JsonObject objectBool;
 
-  factory _$Defaults([void Function(DefaultsBuilder)? updates]) => (new DefaultsBuilder()..update(updates))._build();
+  factory _$Defaults([void Function(DefaultsBuilder)? updates]) => (DefaultsBuilder()..update(updates))._build();
 
   _$Defaults._(
       {required this.$bool,
@@ -804,26 +802,12 @@ class _$Defaults extends Defaults {
       required this.objectMap,
       required this.objectArray,
       required this.objectBool})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull($bool, r'Defaults', '\$bool');
-    BuiltValueNullFieldError.checkNotNull(integer, r'Defaults', 'integer');
-    BuiltValueNullFieldError.checkNotNull($double, r'Defaults', '\$double');
-    BuiltValueNullFieldError.checkNotNull($num, r'Defaults', '\$num');
-    BuiltValueNullFieldError.checkNotNull(string, r'Defaults', 'string');
-    BuiltValueNullFieldError.checkNotNull(stringBinary, r'Defaults', 'stringBinary');
-    BuiltValueNullFieldError.checkNotNull(list, r'Defaults', 'list');
-    BuiltValueNullFieldError.checkNotNull(listNever, r'Defaults', 'listNever');
-    BuiltValueNullFieldError.checkNotNull(listString, r'Defaults', 'listString');
-    BuiltValueNullFieldError.checkNotNull(objectMap, r'Defaults', 'objectMap');
-    BuiltValueNullFieldError.checkNotNull(objectArray, r'Defaults', 'objectArray');
-    BuiltValueNullFieldError.checkNotNull(objectBool, r'Defaults', 'objectBool');
-  }
-
+      : super._();
   @override
   Defaults rebuild(void Function(DefaultsBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  DefaultsBuilder toBuilder() => new DefaultsBuilder()..replace(this);
+  DefaultsBuilder toBuilder() => DefaultsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -908,7 +892,7 @@ class DefaultsBuilder implements Builder<Defaults, DefaultsBuilder>, $DefaultsIn
   set string(covariant String? string) => _$this._string = string;
 
   ContentStringBuilder<int>? _contentString;
-  ContentStringBuilder<int> get contentString => _$this._contentString ??= new ContentStringBuilder<int>();
+  ContentStringBuilder<int> get contentString => _$this._contentString ??= ContentStringBuilder<int>();
   set contentString(covariant ContentStringBuilder<int>? contentString) => _$this._contentString = contentString;
 
   Uint8List? _stringBinary;
@@ -916,15 +900,15 @@ class DefaultsBuilder implements Builder<Defaults, DefaultsBuilder>, $DefaultsIn
   set stringBinary(covariant Uint8List? stringBinary) => _$this._stringBinary = stringBinary;
 
   ListBuilder<JsonObject>? _list;
-  ListBuilder<JsonObject> get list => _$this._list ??= new ListBuilder<JsonObject>();
+  ListBuilder<JsonObject> get list => _$this._list ??= ListBuilder<JsonObject>();
   set list(covariant ListBuilder<JsonObject>? list) => _$this._list = list;
 
   ListBuilder<Never>? _listNever;
-  ListBuilder<Never> get listNever => _$this._listNever ??= new ListBuilder<Never>();
+  ListBuilder<Never> get listNever => _$this._listNever ??= ListBuilder<Never>();
   set listNever(covariant ListBuilder<Never>? listNever) => _$this._listNever = listNever;
 
   ListBuilder<String>? _listString;
-  ListBuilder<String> get listString => _$this._listString ??= new ListBuilder<String>();
+  ListBuilder<String> get listString => _$this._listString ??= ListBuilder<String>();
   set listString(covariant ListBuilder<String>? listString) => _$this._listString = listString;
 
   JsonObject? _objectMap;
@@ -966,7 +950,6 @@ class DefaultsBuilder implements Builder<Defaults, DefaultsBuilder>, $DefaultsIn
 
   @override
   void replace(covariant Defaults other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Defaults;
   }
 
@@ -983,7 +966,7 @@ class DefaultsBuilder implements Builder<Defaults, DefaultsBuilder>, $DefaultsIn
     _$Defaults _$result;
     try {
       _$result = _$v ??
-          new _$Defaults._(
+          _$Defaults._(
             $bool: BuiltValueNullFieldError.checkNotNull($bool, r'Defaults', '\$bool'),
             integer: BuiltValueNullFieldError.checkNotNull(integer, r'Defaults', 'integer'),
             $double: BuiltValueNullFieldError.checkNotNull($double, r'Defaults', '\$double'),
@@ -1011,7 +994,7 @@ class DefaultsBuilder implements Builder<Defaults, DefaultsBuilder>, $DefaultsIn
         _$failedField = 'listString';
         listString.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'Defaults', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Defaults', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1102,7 +1085,7 @@ class _$AdditionalProperties extends AdditionalProperties {
   final BuiltMap<String, BuiltList<String>>? listString;
 
   factory _$AdditionalProperties([void Function(AdditionalPropertiesBuilder)? updates]) =>
-      (new AdditionalPropertiesBuilder()..update(updates))._build();
+      (AdditionalPropertiesBuilder()..update(updates))._build();
 
   _$AdditionalProperties._(
       {this.emptySchemaBool,
@@ -1121,13 +1104,12 @@ class _$AdditionalProperties extends AdditionalProperties {
       this.listNever,
       this.listString})
       : super._();
-
   @override
   AdditionalProperties rebuild(void Function(AdditionalPropertiesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  AdditionalPropertiesBuilder toBuilder() => new AdditionalPropertiesBuilder()..replace(this);
+  AdditionalPropertiesBuilder toBuilder() => AdditionalPropertiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1199,73 +1181,69 @@ class AdditionalPropertiesBuilder
   _$AdditionalProperties? _$v;
 
   MapBuilder<String, JsonObject>? _emptySchemaBool;
-  MapBuilder<String, JsonObject> get emptySchemaBool =>
-      _$this._emptySchemaBool ??= new MapBuilder<String, JsonObject>();
+  MapBuilder<String, JsonObject> get emptySchemaBool => _$this._emptySchemaBool ??= MapBuilder<String, JsonObject>();
   set emptySchemaBool(covariant MapBuilder<String, JsonObject>? emptySchemaBool) =>
       _$this._emptySchemaBool = emptySchemaBool;
 
   MapBuilder<String, JsonObject>? _emptySchema;
-  MapBuilder<String, JsonObject> get emptySchema => _$this._emptySchema ??= new MapBuilder<String, JsonObject>();
+  MapBuilder<String, JsonObject> get emptySchema => _$this._emptySchema ??= MapBuilder<String, JsonObject>();
   set emptySchema(covariant MapBuilder<String, JsonObject>? emptySchema) => _$this._emptySchema = emptySchema;
 
   MapBuilder<String, BuiltMap<String, JsonObject>>? _nested;
   MapBuilder<String, BuiltMap<String, JsonObject>> get nested =>
-      _$this._nested ??= new MapBuilder<String, BuiltMap<String, JsonObject>>();
+      _$this._nested ??= MapBuilder<String, BuiltMap<String, JsonObject>>();
   set nested(covariant MapBuilder<String, BuiltMap<String, JsonObject>>? nested) => _$this._nested = nested;
 
   MapBuilder<String, JsonObject>? _object;
-  MapBuilder<String, JsonObject> get object => _$this._object ??= new MapBuilder<String, JsonObject>();
+  MapBuilder<String, JsonObject> get object => _$this._object ??= MapBuilder<String, JsonObject>();
   set object(covariant MapBuilder<String, JsonObject>? object) => _$this._object = object;
 
   MapBuilder<String, JsonObject?>? _objectNullable;
-  MapBuilder<String, JsonObject?> get objectNullable =>
-      _$this._objectNullable ??= new MapBuilder<String, JsonObject?>();
+  MapBuilder<String, JsonObject?> get objectNullable => _$this._objectNullable ??= MapBuilder<String, JsonObject?>();
   set objectNullable(covariant MapBuilder<String, JsonObject?>? objectNullable) =>
       _$this._objectNullable = objectNullable;
 
   MapBuilder<String, bool>? _$bool;
-  MapBuilder<String, bool> get $bool => _$this._$bool ??= new MapBuilder<String, bool>();
+  MapBuilder<String, bool> get $bool => _$this._$bool ??= MapBuilder<String, bool>();
   set $bool(covariant MapBuilder<String, bool>? $bool) => _$this._$bool = $bool;
 
   MapBuilder<String, int>? _integer;
-  MapBuilder<String, int> get integer => _$this._integer ??= new MapBuilder<String, int>();
+  MapBuilder<String, int> get integer => _$this._integer ??= MapBuilder<String, int>();
   set integer(covariant MapBuilder<String, int>? integer) => _$this._integer = integer;
 
   MapBuilder<String, double>? _$double;
-  MapBuilder<String, double> get $double => _$this._$double ??= new MapBuilder<String, double>();
+  MapBuilder<String, double> get $double => _$this._$double ??= MapBuilder<String, double>();
   set $double(covariant MapBuilder<String, double>? $double) => _$this._$double = $double;
 
   MapBuilder<String, num>? _$num;
-  MapBuilder<String, num> get $num => _$this._$num ??= new MapBuilder<String, num>();
+  MapBuilder<String, num> get $num => _$this._$num ??= MapBuilder<String, num>();
   set $num(covariant MapBuilder<String, num>? $num) => _$this._$num = $num;
 
   MapBuilder<String, String>? _string;
-  MapBuilder<String, String> get string => _$this._string ??= new MapBuilder<String, String>();
+  MapBuilder<String, String> get string => _$this._string ??= MapBuilder<String, String>();
   set string(covariant MapBuilder<String, String>? string) => _$this._string = string;
 
   MapBuilder<String, ContentString<int>?>? _contentString;
   MapBuilder<String, ContentString<int>?> get contentString =>
-      _$this._contentString ??= new MapBuilder<String, ContentString<int>?>();
+      _$this._contentString ??= MapBuilder<String, ContentString<int>?>();
   set contentString(covariant MapBuilder<String, ContentString<int>?>? contentString) =>
       _$this._contentString = contentString;
 
   MapBuilder<String, Uint8List>? _stringBinary;
-  MapBuilder<String, Uint8List> get stringBinary => _$this._stringBinary ??= new MapBuilder<String, Uint8List>();
+  MapBuilder<String, Uint8List> get stringBinary => _$this._stringBinary ??= MapBuilder<String, Uint8List>();
   set stringBinary(covariant MapBuilder<String, Uint8List>? stringBinary) => _$this._stringBinary = stringBinary;
 
   MapBuilder<String, BuiltList<JsonObject>>? _list;
-  MapBuilder<String, BuiltList<JsonObject>> get list =>
-      _$this._list ??= new MapBuilder<String, BuiltList<JsonObject>>();
+  MapBuilder<String, BuiltList<JsonObject>> get list => _$this._list ??= MapBuilder<String, BuiltList<JsonObject>>();
   set list(covariant MapBuilder<String, BuiltList<JsonObject>>? list) => _$this._list = list;
 
   MapBuilder<String, BuiltList<Never>>? _listNever;
-  MapBuilder<String, BuiltList<Never>> get listNever =>
-      _$this._listNever ??= new MapBuilder<String, BuiltList<Never>>();
+  MapBuilder<String, BuiltList<Never>> get listNever => _$this._listNever ??= MapBuilder<String, BuiltList<Never>>();
   set listNever(covariant MapBuilder<String, BuiltList<Never>>? listNever) => _$this._listNever = listNever;
 
   MapBuilder<String, BuiltList<String>>? _listString;
   MapBuilder<String, BuiltList<String>> get listString =>
-      _$this._listString ??= new MapBuilder<String, BuiltList<String>>();
+      _$this._listString ??= MapBuilder<String, BuiltList<String>>();
   set listString(covariant MapBuilder<String, BuiltList<String>>? listString) => _$this._listString = listString;
 
   AdditionalPropertiesBuilder() {
@@ -1297,7 +1275,6 @@ class AdditionalPropertiesBuilder
 
   @override
   void replace(covariant AdditionalProperties other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AdditionalProperties;
   }
 
@@ -1314,7 +1291,7 @@ class AdditionalPropertiesBuilder
     _$AdditionalProperties _$result;
     try {
       _$result = _$v ??
-          new _$AdditionalProperties._(
+          _$AdditionalProperties._(
             emptySchemaBool: _emptySchemaBool?.build(),
             emptySchema: _emptySchema?.build(),
             nested: _nested?.build(),
@@ -1365,7 +1342,7 @@ class AdditionalPropertiesBuilder
         _$failedField = 'listString';
         _listString?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'AdditionalProperties', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'AdditionalProperties', _$failedField, e.toString());
       }
       rethrow;
     }

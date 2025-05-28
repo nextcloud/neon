@@ -18,13 +18,12 @@ WebhooksCreateRequestApplicationJson_AuthMethod _$valueOfWebhooksCreateRequestAp
     case 'header':
       return _$webhooksCreateRequestApplicationJsonAuthMethodHeader;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<WebhooksCreateRequestApplicationJson_AuthMethod> _$webhooksCreateRequestApplicationJsonAuthMethodValues =
-    new BuiltSet<
-        WebhooksCreateRequestApplicationJson_AuthMethod>(const <WebhooksCreateRequestApplicationJson_AuthMethod>[
+    BuiltSet<WebhooksCreateRequestApplicationJson_AuthMethod>(const <WebhooksCreateRequestApplicationJson_AuthMethod>[
   _$webhooksCreateRequestApplicationJsonAuthMethodNone,
   _$webhooksCreateRequestApplicationJsonAuthMethodHeader,
 ]);
@@ -41,48 +40,47 @@ WebhooksUpdateRequestApplicationJson_AuthMethod _$valueOfWebhooksUpdateRequestAp
     case 'header':
       return _$webhooksUpdateRequestApplicationJsonAuthMethodHeader;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<WebhooksUpdateRequestApplicationJson_AuthMethod> _$webhooksUpdateRequestApplicationJsonAuthMethodValues =
-    new BuiltSet<
-        WebhooksUpdateRequestApplicationJson_AuthMethod>(const <WebhooksUpdateRequestApplicationJson_AuthMethod>[
+    BuiltSet<WebhooksUpdateRequestApplicationJson_AuthMethod>(const <WebhooksUpdateRequestApplicationJson_AuthMethod>[
   _$webhooksUpdateRequestApplicationJsonAuthMethodNone,
   _$webhooksUpdateRequestApplicationJsonAuthMethodHeader,
 ]);
 
-Serializer<OCSMeta> _$oCSMetaSerializer = new _$OCSMetaSerializer();
-Serializer<WebhookInfo> _$webhookInfoSerializer = new _$WebhookInfoSerializer();
+Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
+Serializer<WebhookInfo> _$webhookInfoSerializer = _$WebhookInfoSerializer();
 Serializer<WebhooksIndexResponseApplicationJson_Ocs> _$webhooksIndexResponseApplicationJsonOcsSerializer =
-    new _$WebhooksIndexResponseApplicationJson_OcsSerializer();
+    _$WebhooksIndexResponseApplicationJson_OcsSerializer();
 Serializer<WebhooksIndexResponseApplicationJson> _$webhooksIndexResponseApplicationJsonSerializer =
-    new _$WebhooksIndexResponseApplicationJsonSerializer();
+    _$WebhooksIndexResponseApplicationJsonSerializer();
 Serializer<WebhooksCreateRequestApplicationJson> _$webhooksCreateRequestApplicationJsonSerializer =
-    new _$WebhooksCreateRequestApplicationJsonSerializer();
+    _$WebhooksCreateRequestApplicationJsonSerializer();
 Serializer<WebhooksCreateResponseApplicationJson_Ocs> _$webhooksCreateResponseApplicationJsonOcsSerializer =
-    new _$WebhooksCreateResponseApplicationJson_OcsSerializer();
+    _$WebhooksCreateResponseApplicationJson_OcsSerializer();
 Serializer<WebhooksCreateResponseApplicationJson> _$webhooksCreateResponseApplicationJsonSerializer =
-    new _$WebhooksCreateResponseApplicationJsonSerializer();
+    _$WebhooksCreateResponseApplicationJsonSerializer();
 Serializer<WebhooksShowResponseApplicationJson_Ocs> _$webhooksShowResponseApplicationJsonOcsSerializer =
-    new _$WebhooksShowResponseApplicationJson_OcsSerializer();
+    _$WebhooksShowResponseApplicationJson_OcsSerializer();
 Serializer<WebhooksShowResponseApplicationJson> _$webhooksShowResponseApplicationJsonSerializer =
-    new _$WebhooksShowResponseApplicationJsonSerializer();
+    _$WebhooksShowResponseApplicationJsonSerializer();
 Serializer<WebhooksUpdateRequestApplicationJson> _$webhooksUpdateRequestApplicationJsonSerializer =
-    new _$WebhooksUpdateRequestApplicationJsonSerializer();
+    _$WebhooksUpdateRequestApplicationJsonSerializer();
 Serializer<WebhooksUpdateResponseApplicationJson_Ocs> _$webhooksUpdateResponseApplicationJsonOcsSerializer =
-    new _$WebhooksUpdateResponseApplicationJson_OcsSerializer();
+    _$WebhooksUpdateResponseApplicationJson_OcsSerializer();
 Serializer<WebhooksUpdateResponseApplicationJson> _$webhooksUpdateResponseApplicationJsonSerializer =
-    new _$WebhooksUpdateResponseApplicationJsonSerializer();
+    _$WebhooksUpdateResponseApplicationJsonSerializer();
 Serializer<WebhooksDestroyResponseApplicationJson_Ocs> _$webhooksDestroyResponseApplicationJsonOcsSerializer =
-    new _$WebhooksDestroyResponseApplicationJson_OcsSerializer();
+    _$WebhooksDestroyResponseApplicationJson_OcsSerializer();
 Serializer<WebhooksDestroyResponseApplicationJson> _$webhooksDestroyResponseApplicationJsonSerializer =
-    new _$WebhooksDestroyResponseApplicationJsonSerializer();
+    _$WebhooksDestroyResponseApplicationJsonSerializer();
 Serializer<WebhooksDeleteByAppIdResponseApplicationJson_Ocs>
     _$webhooksDeleteByAppIdResponseApplicationJsonOcsSerializer =
-    new _$WebhooksDeleteByAppIdResponseApplicationJson_OcsSerializer();
+    _$WebhooksDeleteByAppIdResponseApplicationJson_OcsSerializer();
 Serializer<WebhooksDeleteByAppIdResponseApplicationJson> _$webhooksDeleteByAppIdResponseApplicationJsonSerializer =
-    new _$WebhooksDeleteByAppIdResponseApplicationJsonSerializer();
+    _$WebhooksDeleteByAppIdResponseApplicationJsonSerializer();
 
 class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
@@ -124,7 +122,7 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
   OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new OCSMetaBuilder();
+    final result = OCSMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -215,7 +213,7 @@ class _$WebhookInfoSerializer implements StructuredSerializer<WebhookInfo> {
   @override
   WebhookInfo deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new WebhookInfoBuilder();
+    final result = WebhookInfoBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -289,7 +287,7 @@ class _$WebhooksIndexResponseApplicationJson_OcsSerializer
   @override
   WebhooksIndexResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new WebhooksIndexResponseApplicationJson_OcsBuilder();
+    final result = WebhooksIndexResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -332,7 +330,7 @@ class _$WebhooksIndexResponseApplicationJsonSerializer
   @override
   WebhooksIndexResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new WebhooksIndexResponseApplicationJsonBuilder();
+    final result = WebhooksIndexResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -411,7 +409,7 @@ class _$WebhooksCreateRequestApplicationJsonSerializer
   @override
   WebhooksCreateRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new WebhooksCreateRequestApplicationJsonBuilder();
+    final result = WebhooksCreateRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -481,7 +479,7 @@ class _$WebhooksCreateResponseApplicationJson_OcsSerializer
   @override
   WebhooksCreateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new WebhooksCreateResponseApplicationJson_OcsBuilder();
+    final result = WebhooksCreateResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -524,7 +522,7 @@ class _$WebhooksCreateResponseApplicationJsonSerializer
   @override
   WebhooksCreateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new WebhooksCreateResponseApplicationJsonBuilder();
+    final result = WebhooksCreateResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -570,7 +568,7 @@ class _$WebhooksShowResponseApplicationJson_OcsSerializer
   @override
   WebhooksShowResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new WebhooksShowResponseApplicationJson_OcsBuilder();
+    final result = WebhooksShowResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -613,7 +611,7 @@ class _$WebhooksShowResponseApplicationJsonSerializer
   @override
   WebhooksShowResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new WebhooksShowResponseApplicationJsonBuilder();
+    final result = WebhooksShowResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -692,7 +690,7 @@ class _$WebhooksUpdateRequestApplicationJsonSerializer
   @override
   WebhooksUpdateRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new WebhooksUpdateRequestApplicationJsonBuilder();
+    final result = WebhooksUpdateRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -762,7 +760,7 @@ class _$WebhooksUpdateResponseApplicationJson_OcsSerializer
   @override
   WebhooksUpdateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new WebhooksUpdateResponseApplicationJson_OcsBuilder();
+    final result = WebhooksUpdateResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -805,7 +803,7 @@ class _$WebhooksUpdateResponseApplicationJsonSerializer
   @override
   WebhooksUpdateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new WebhooksUpdateResponseApplicationJsonBuilder();
+    final result = WebhooksUpdateResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -851,7 +849,7 @@ class _$WebhooksDestroyResponseApplicationJson_OcsSerializer
   @override
   WebhooksDestroyResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new WebhooksDestroyResponseApplicationJson_OcsBuilder();
+    final result = WebhooksDestroyResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -893,7 +891,7 @@ class _$WebhooksDestroyResponseApplicationJsonSerializer
   @override
   WebhooksDestroyResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new WebhooksDestroyResponseApplicationJsonBuilder();
+    final result = WebhooksDestroyResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -939,7 +937,7 @@ class _$WebhooksDeleteByAppIdResponseApplicationJson_OcsSerializer
   @override
   WebhooksDeleteByAppIdResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder();
+    final result = WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -985,7 +983,7 @@ class _$WebhooksDeleteByAppIdResponseApplicationJsonSerializer
   @override
   WebhooksDeleteByAppIdResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new WebhooksDeleteByAppIdResponseApplicationJsonBuilder();
+    final result = WebhooksDeleteByAppIdResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1036,19 +1034,15 @@ class _$OCSMeta extends OCSMeta {
   @override
   final String? itemsperpage;
 
-  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (new OCSMetaBuilder()..update(updates))._build();
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status');
-    BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode');
-  }
-
+      : super._();
   @override
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  OCSMetaBuilder toBuilder() => new OCSMetaBuilder()..replace(this);
+  OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1127,7 +1121,6 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
   @override
   void replace(covariant OCSMeta other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OCSMeta;
   }
 
@@ -1142,7 +1135,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   _$OCSMeta _build() {
     OCSMeta._validate(this);
     final _$result = _$v ??
-        new _$OCSMeta._(
+        _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
           message: message,
@@ -1211,7 +1204,7 @@ class _$WebhookInfo extends WebhookInfo {
   final BuiltMap<String, JsonObject>? authData;
 
   factory _$WebhookInfo([void Function(WebhookInfoBuilder)? updates]) =>
-      (new WebhookInfoBuilder()..update(updates))._build();
+      (WebhookInfoBuilder()..update(updates))._build();
 
   _$WebhookInfo._(
       {required this.id,
@@ -1224,19 +1217,12 @@ class _$WebhookInfo extends WebhookInfo {
       this.headers,
       required this.authMethod,
       this.authData})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'WebhookInfo', 'id');
-    BuiltValueNullFieldError.checkNotNull(userId, r'WebhookInfo', 'userId');
-    BuiltValueNullFieldError.checkNotNull(httpMethod, r'WebhookInfo', 'httpMethod');
-    BuiltValueNullFieldError.checkNotNull(uri, r'WebhookInfo', 'uri');
-    BuiltValueNullFieldError.checkNotNull(authMethod, r'WebhookInfo', 'authMethod');
-  }
-
+      : super._();
   @override
   WebhookInfo rebuild(void Function(WebhookInfoBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  WebhookInfoBuilder toBuilder() => new WebhookInfoBuilder()..replace(this);
+  WebhookInfoBuilder toBuilder() => WebhookInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1312,7 +1298,7 @@ class WebhookInfoBuilder implements Builder<WebhookInfo, WebhookInfoBuilder>, $W
   set event(covariant String? event) => _$this._event = event;
 
   MapBuilder<String, JsonObject>? _eventFilter;
-  MapBuilder<String, JsonObject> get eventFilter => _$this._eventFilter ??= new MapBuilder<String, JsonObject>();
+  MapBuilder<String, JsonObject> get eventFilter => _$this._eventFilter ??= MapBuilder<String, JsonObject>();
   set eventFilter(covariant MapBuilder<String, JsonObject>? eventFilter) => _$this._eventFilter = eventFilter;
 
   String? _userIdFilter;
@@ -1320,7 +1306,7 @@ class WebhookInfoBuilder implements Builder<WebhookInfo, WebhookInfoBuilder>, $W
   set userIdFilter(covariant String? userIdFilter) => _$this._userIdFilter = userIdFilter;
 
   MapBuilder<String, String>? _headers;
-  MapBuilder<String, String> get headers => _$this._headers ??= new MapBuilder<String, String>();
+  MapBuilder<String, String> get headers => _$this._headers ??= MapBuilder<String, String>();
   set headers(covariant MapBuilder<String, String>? headers) => _$this._headers = headers;
 
   String? _authMethod;
@@ -1328,7 +1314,7 @@ class WebhookInfoBuilder implements Builder<WebhookInfo, WebhookInfoBuilder>, $W
   set authMethod(covariant String? authMethod) => _$this._authMethod = authMethod;
 
   MapBuilder<String, JsonObject>? _authData;
-  MapBuilder<String, JsonObject> get authData => _$this._authData ??= new MapBuilder<String, JsonObject>();
+  MapBuilder<String, JsonObject> get authData => _$this._authData ??= MapBuilder<String, JsonObject>();
   set authData(covariant MapBuilder<String, JsonObject>? authData) => _$this._authData = authData;
 
   WebhookInfoBuilder() {
@@ -1355,7 +1341,6 @@ class WebhookInfoBuilder implements Builder<WebhookInfo, WebhookInfoBuilder>, $W
 
   @override
   void replace(covariant WebhookInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WebhookInfo;
   }
 
@@ -1372,7 +1357,7 @@ class WebhookInfoBuilder implements Builder<WebhookInfo, WebhookInfoBuilder>, $W
     _$WebhookInfo _$result;
     try {
       _$result = _$v ??
-          new _$WebhookInfo._(
+          _$WebhookInfo._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'WebhookInfo', 'id'),
             userId: BuiltValueNullFieldError.checkNotNull(userId, r'WebhookInfo', 'userId'),
             httpMethod: BuiltValueNullFieldError.checkNotNull(httpMethod, r'WebhookInfo', 'httpMethod'),
@@ -1396,7 +1381,7 @@ class WebhookInfoBuilder implements Builder<WebhookInfo, WebhookInfoBuilder>, $W
         _$failedField = 'authData';
         _authData?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'WebhookInfo', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'WebhookInfo', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1423,13 +1408,9 @@ class _$WebhooksIndexResponseApplicationJson_Ocs extends WebhooksIndexResponseAp
 
   factory _$WebhooksIndexResponseApplicationJson_Ocs(
           [void Function(WebhooksIndexResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new WebhooksIndexResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (WebhooksIndexResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$WebhooksIndexResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'WebhooksIndexResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'WebhooksIndexResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$WebhooksIndexResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   WebhooksIndexResponseApplicationJson_Ocs rebuild(
           void Function(WebhooksIndexResponseApplicationJson_OcsBuilder) updates) =>
@@ -1437,7 +1418,7 @@ class _$WebhooksIndexResponseApplicationJson_Ocs extends WebhooksIndexResponseAp
 
   @override
   WebhooksIndexResponseApplicationJson_OcsBuilder toBuilder() =>
-      new WebhooksIndexResponseApplicationJson_OcsBuilder()..replace(this);
+      WebhooksIndexResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1470,11 +1451,11 @@ class WebhooksIndexResponseApplicationJson_OcsBuilder
   _$WebhooksIndexResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   ListBuilder<WebhookInfo>? _data;
-  ListBuilder<WebhookInfo> get data => _$this._data ??= new ListBuilder<WebhookInfo>();
+  ListBuilder<WebhookInfo> get data => _$this._data ??= ListBuilder<WebhookInfo>();
   set data(covariant ListBuilder<WebhookInfo>? data) => _$this._data = data;
 
   WebhooksIndexResponseApplicationJson_OcsBuilder() {
@@ -1493,7 +1474,6 @@ class WebhooksIndexResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant WebhooksIndexResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WebhooksIndexResponseApplicationJson_Ocs;
   }
 
@@ -1510,7 +1490,7 @@ class WebhooksIndexResponseApplicationJson_OcsBuilder
     _$WebhooksIndexResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$WebhooksIndexResponseApplicationJson_Ocs._(
+          _$WebhooksIndexResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -1522,7 +1502,7 @@ class WebhooksIndexResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'WebhooksIndexResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'WebhooksIndexResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1544,19 +1524,16 @@ class _$WebhooksIndexResponseApplicationJson extends WebhooksIndexResponseApplic
 
   factory _$WebhooksIndexResponseApplicationJson(
           [void Function(WebhooksIndexResponseApplicationJsonBuilder)? updates]) =>
-      (new WebhooksIndexResponseApplicationJsonBuilder()..update(updates))._build();
+      (WebhooksIndexResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$WebhooksIndexResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'WebhooksIndexResponseApplicationJson', 'ocs');
-  }
-
+  _$WebhooksIndexResponseApplicationJson._({required this.ocs}) : super._();
   @override
   WebhooksIndexResponseApplicationJson rebuild(void Function(WebhooksIndexResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   WebhooksIndexResponseApplicationJsonBuilder toBuilder() =>
-      new WebhooksIndexResponseApplicationJsonBuilder()..replace(this);
+      WebhooksIndexResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1586,7 +1563,7 @@ class WebhooksIndexResponseApplicationJsonBuilder
 
   WebhooksIndexResponseApplicationJson_OcsBuilder? _ocs;
   WebhooksIndexResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new WebhooksIndexResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= WebhooksIndexResponseApplicationJson_OcsBuilder();
   set ocs(covariant WebhooksIndexResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   WebhooksIndexResponseApplicationJsonBuilder() {
@@ -1604,7 +1581,6 @@ class WebhooksIndexResponseApplicationJsonBuilder
 
   @override
   void replace(covariant WebhooksIndexResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WebhooksIndexResponseApplicationJson;
   }
 
@@ -1621,7 +1597,7 @@ class WebhooksIndexResponseApplicationJsonBuilder
     _$WebhooksIndexResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$WebhooksIndexResponseApplicationJson._(
+          _$WebhooksIndexResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -1630,7 +1606,7 @@ class WebhooksIndexResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'WebhooksIndexResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'WebhooksIndexResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1687,7 +1663,7 @@ class _$WebhooksCreateRequestApplicationJson extends WebhooksCreateRequestApplic
 
   factory _$WebhooksCreateRequestApplicationJson(
           [void Function(WebhooksCreateRequestApplicationJsonBuilder)? updates]) =>
-      (new WebhooksCreateRequestApplicationJsonBuilder()..update(updates))._build();
+      (WebhooksCreateRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$WebhooksCreateRequestApplicationJson._(
       {required this.httpMethod,
@@ -1698,19 +1674,14 @@ class _$WebhooksCreateRequestApplicationJson extends WebhooksCreateRequestApplic
       this.headers,
       this.authMethod,
       this.authData})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(httpMethod, r'WebhooksCreateRequestApplicationJson', 'httpMethod');
-    BuiltValueNullFieldError.checkNotNull(uri, r'WebhooksCreateRequestApplicationJson', 'uri');
-    BuiltValueNullFieldError.checkNotNull(event, r'WebhooksCreateRequestApplicationJson', 'event');
-  }
-
+      : super._();
   @override
   WebhooksCreateRequestApplicationJson rebuild(void Function(WebhooksCreateRequestApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   WebhooksCreateRequestApplicationJsonBuilder toBuilder() =>
-      new WebhooksCreateRequestApplicationJsonBuilder()..replace(this);
+      WebhooksCreateRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1775,7 +1746,7 @@ class WebhooksCreateRequestApplicationJsonBuilder
   set event(covariant String? event) => _$this._event = event;
 
   MapBuilder<String, JsonObject>? _eventFilter;
-  MapBuilder<String, JsonObject> get eventFilter => _$this._eventFilter ??= new MapBuilder<String, JsonObject>();
+  MapBuilder<String, JsonObject> get eventFilter => _$this._eventFilter ??= MapBuilder<String, JsonObject>();
   set eventFilter(covariant MapBuilder<String, JsonObject>? eventFilter) => _$this._eventFilter = eventFilter;
 
   String? _userIdFilter;
@@ -1783,7 +1754,7 @@ class WebhooksCreateRequestApplicationJsonBuilder
   set userIdFilter(covariant String? userIdFilter) => _$this._userIdFilter = userIdFilter;
 
   MapBuilder<String, String>? _headers;
-  MapBuilder<String, String> get headers => _$this._headers ??= new MapBuilder<String, String>();
+  MapBuilder<String, String> get headers => _$this._headers ??= MapBuilder<String, String>();
   set headers(covariant MapBuilder<String, String>? headers) => _$this._headers = headers;
 
   WebhooksCreateRequestApplicationJson_AuthMethod? _authMethod;
@@ -1792,7 +1763,7 @@ class WebhooksCreateRequestApplicationJsonBuilder
       _$this._authMethod = authMethod;
 
   MapBuilder<String, JsonObject>? _authData;
-  MapBuilder<String, JsonObject> get authData => _$this._authData ??= new MapBuilder<String, JsonObject>();
+  MapBuilder<String, JsonObject> get authData => _$this._authData ??= MapBuilder<String, JsonObject>();
   set authData(covariant MapBuilder<String, JsonObject>? authData) => _$this._authData = authData;
 
   WebhooksCreateRequestApplicationJsonBuilder() {
@@ -1817,7 +1788,6 @@ class WebhooksCreateRequestApplicationJsonBuilder
 
   @override
   void replace(covariant WebhooksCreateRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WebhooksCreateRequestApplicationJson;
   }
 
@@ -1834,7 +1804,7 @@ class WebhooksCreateRequestApplicationJsonBuilder
     _$WebhooksCreateRequestApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$WebhooksCreateRequestApplicationJson._(
+          _$WebhooksCreateRequestApplicationJson._(
             httpMethod: BuiltValueNullFieldError.checkNotNull(
                 httpMethod, r'WebhooksCreateRequestApplicationJson', 'httpMethod'),
             uri: BuiltValueNullFieldError.checkNotNull(uri, r'WebhooksCreateRequestApplicationJson', 'uri'),
@@ -1857,7 +1827,7 @@ class WebhooksCreateRequestApplicationJsonBuilder
         _$failedField = 'authData';
         _authData?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'WebhooksCreateRequestApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'WebhooksCreateRequestApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1884,13 +1854,9 @@ class _$WebhooksCreateResponseApplicationJson_Ocs extends WebhooksCreateResponse
 
   factory _$WebhooksCreateResponseApplicationJson_Ocs(
           [void Function(WebhooksCreateResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new WebhooksCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (WebhooksCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$WebhooksCreateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'WebhooksCreateResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'WebhooksCreateResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$WebhooksCreateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   WebhooksCreateResponseApplicationJson_Ocs rebuild(
           void Function(WebhooksCreateResponseApplicationJson_OcsBuilder) updates) =>
@@ -1898,7 +1864,7 @@ class _$WebhooksCreateResponseApplicationJson_Ocs extends WebhooksCreateResponse
 
   @override
   WebhooksCreateResponseApplicationJson_OcsBuilder toBuilder() =>
-      new WebhooksCreateResponseApplicationJson_OcsBuilder()..replace(this);
+      WebhooksCreateResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1931,11 +1897,11 @@ class WebhooksCreateResponseApplicationJson_OcsBuilder
   _$WebhooksCreateResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   WebhookInfoBuilder? _data;
-  WebhookInfoBuilder get data => _$this._data ??= new WebhookInfoBuilder();
+  WebhookInfoBuilder get data => _$this._data ??= WebhookInfoBuilder();
   set data(covariant WebhookInfoBuilder? data) => _$this._data = data;
 
   WebhooksCreateResponseApplicationJson_OcsBuilder() {
@@ -1954,7 +1920,6 @@ class WebhooksCreateResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant WebhooksCreateResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WebhooksCreateResponseApplicationJson_Ocs;
   }
 
@@ -1971,7 +1936,7 @@ class WebhooksCreateResponseApplicationJson_OcsBuilder
     _$WebhooksCreateResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$WebhooksCreateResponseApplicationJson_Ocs._(
+          _$WebhooksCreateResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -1983,7 +1948,7 @@ class WebhooksCreateResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'WebhooksCreateResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'WebhooksCreateResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2005,19 +1970,16 @@ class _$WebhooksCreateResponseApplicationJson extends WebhooksCreateResponseAppl
 
   factory _$WebhooksCreateResponseApplicationJson(
           [void Function(WebhooksCreateResponseApplicationJsonBuilder)? updates]) =>
-      (new WebhooksCreateResponseApplicationJsonBuilder()..update(updates))._build();
+      (WebhooksCreateResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$WebhooksCreateResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'WebhooksCreateResponseApplicationJson', 'ocs');
-  }
-
+  _$WebhooksCreateResponseApplicationJson._({required this.ocs}) : super._();
   @override
   WebhooksCreateResponseApplicationJson rebuild(void Function(WebhooksCreateResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   WebhooksCreateResponseApplicationJsonBuilder toBuilder() =>
-      new WebhooksCreateResponseApplicationJsonBuilder()..replace(this);
+      WebhooksCreateResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2047,7 +2009,7 @@ class WebhooksCreateResponseApplicationJsonBuilder
 
   WebhooksCreateResponseApplicationJson_OcsBuilder? _ocs;
   WebhooksCreateResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new WebhooksCreateResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= WebhooksCreateResponseApplicationJson_OcsBuilder();
   set ocs(covariant WebhooksCreateResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   WebhooksCreateResponseApplicationJsonBuilder() {
@@ -2065,7 +2027,6 @@ class WebhooksCreateResponseApplicationJsonBuilder
 
   @override
   void replace(covariant WebhooksCreateResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WebhooksCreateResponseApplicationJson;
   }
 
@@ -2082,7 +2043,7 @@ class WebhooksCreateResponseApplicationJsonBuilder
     _$WebhooksCreateResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$WebhooksCreateResponseApplicationJson._(
+          _$WebhooksCreateResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -2091,7 +2052,7 @@ class WebhooksCreateResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'WebhooksCreateResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'WebhooksCreateResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2118,13 +2079,9 @@ class _$WebhooksShowResponseApplicationJson_Ocs extends WebhooksShowResponseAppl
 
   factory _$WebhooksShowResponseApplicationJson_Ocs(
           [void Function(WebhooksShowResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new WebhooksShowResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (WebhooksShowResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$WebhooksShowResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'WebhooksShowResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'WebhooksShowResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$WebhooksShowResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   WebhooksShowResponseApplicationJson_Ocs rebuild(
           void Function(WebhooksShowResponseApplicationJson_OcsBuilder) updates) =>
@@ -2132,7 +2089,7 @@ class _$WebhooksShowResponseApplicationJson_Ocs extends WebhooksShowResponseAppl
 
   @override
   WebhooksShowResponseApplicationJson_OcsBuilder toBuilder() =>
-      new WebhooksShowResponseApplicationJson_OcsBuilder()..replace(this);
+      WebhooksShowResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2165,11 +2122,11 @@ class WebhooksShowResponseApplicationJson_OcsBuilder
   _$WebhooksShowResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   WebhookInfoBuilder? _data;
-  WebhookInfoBuilder get data => _$this._data ??= new WebhookInfoBuilder();
+  WebhookInfoBuilder get data => _$this._data ??= WebhookInfoBuilder();
   set data(covariant WebhookInfoBuilder? data) => _$this._data = data;
 
   WebhooksShowResponseApplicationJson_OcsBuilder() {
@@ -2188,7 +2145,6 @@ class WebhooksShowResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant WebhooksShowResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WebhooksShowResponseApplicationJson_Ocs;
   }
 
@@ -2205,7 +2161,7 @@ class WebhooksShowResponseApplicationJson_OcsBuilder
     _$WebhooksShowResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$WebhooksShowResponseApplicationJson_Ocs._(
+          _$WebhooksShowResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -2217,7 +2173,7 @@ class WebhooksShowResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'WebhooksShowResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'WebhooksShowResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2238,19 +2194,15 @@ class _$WebhooksShowResponseApplicationJson extends WebhooksShowResponseApplicat
   final WebhooksShowResponseApplicationJson_Ocs ocs;
 
   factory _$WebhooksShowResponseApplicationJson([void Function(WebhooksShowResponseApplicationJsonBuilder)? updates]) =>
-      (new WebhooksShowResponseApplicationJsonBuilder()..update(updates))._build();
+      (WebhooksShowResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$WebhooksShowResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'WebhooksShowResponseApplicationJson', 'ocs');
-  }
-
+  _$WebhooksShowResponseApplicationJson._({required this.ocs}) : super._();
   @override
   WebhooksShowResponseApplicationJson rebuild(void Function(WebhooksShowResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  WebhooksShowResponseApplicationJsonBuilder toBuilder() =>
-      new WebhooksShowResponseApplicationJsonBuilder()..replace(this);
+  WebhooksShowResponseApplicationJsonBuilder toBuilder() => WebhooksShowResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2280,7 +2232,7 @@ class WebhooksShowResponseApplicationJsonBuilder
 
   WebhooksShowResponseApplicationJson_OcsBuilder? _ocs;
   WebhooksShowResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new WebhooksShowResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= WebhooksShowResponseApplicationJson_OcsBuilder();
   set ocs(covariant WebhooksShowResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   WebhooksShowResponseApplicationJsonBuilder() {
@@ -2298,7 +2250,6 @@ class WebhooksShowResponseApplicationJsonBuilder
 
   @override
   void replace(covariant WebhooksShowResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WebhooksShowResponseApplicationJson;
   }
 
@@ -2315,7 +2266,7 @@ class WebhooksShowResponseApplicationJsonBuilder
     _$WebhooksShowResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$WebhooksShowResponseApplicationJson._(
+          _$WebhooksShowResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -2324,7 +2275,7 @@ class WebhooksShowResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'WebhooksShowResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'WebhooksShowResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2381,7 +2332,7 @@ class _$WebhooksUpdateRequestApplicationJson extends WebhooksUpdateRequestApplic
 
   factory _$WebhooksUpdateRequestApplicationJson(
           [void Function(WebhooksUpdateRequestApplicationJsonBuilder)? updates]) =>
-      (new WebhooksUpdateRequestApplicationJsonBuilder()..update(updates))._build();
+      (WebhooksUpdateRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$WebhooksUpdateRequestApplicationJson._(
       {required this.httpMethod,
@@ -2392,19 +2343,14 @@ class _$WebhooksUpdateRequestApplicationJson extends WebhooksUpdateRequestApplic
       this.headers,
       this.authMethod,
       this.authData})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(httpMethod, r'WebhooksUpdateRequestApplicationJson', 'httpMethod');
-    BuiltValueNullFieldError.checkNotNull(uri, r'WebhooksUpdateRequestApplicationJson', 'uri');
-    BuiltValueNullFieldError.checkNotNull(event, r'WebhooksUpdateRequestApplicationJson', 'event');
-  }
-
+      : super._();
   @override
   WebhooksUpdateRequestApplicationJson rebuild(void Function(WebhooksUpdateRequestApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   WebhooksUpdateRequestApplicationJsonBuilder toBuilder() =>
-      new WebhooksUpdateRequestApplicationJsonBuilder()..replace(this);
+      WebhooksUpdateRequestApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2469,7 +2415,7 @@ class WebhooksUpdateRequestApplicationJsonBuilder
   set event(covariant String? event) => _$this._event = event;
 
   MapBuilder<String, JsonObject>? _eventFilter;
-  MapBuilder<String, JsonObject> get eventFilter => _$this._eventFilter ??= new MapBuilder<String, JsonObject>();
+  MapBuilder<String, JsonObject> get eventFilter => _$this._eventFilter ??= MapBuilder<String, JsonObject>();
   set eventFilter(covariant MapBuilder<String, JsonObject>? eventFilter) => _$this._eventFilter = eventFilter;
 
   String? _userIdFilter;
@@ -2477,7 +2423,7 @@ class WebhooksUpdateRequestApplicationJsonBuilder
   set userIdFilter(covariant String? userIdFilter) => _$this._userIdFilter = userIdFilter;
 
   MapBuilder<String, String>? _headers;
-  MapBuilder<String, String> get headers => _$this._headers ??= new MapBuilder<String, String>();
+  MapBuilder<String, String> get headers => _$this._headers ??= MapBuilder<String, String>();
   set headers(covariant MapBuilder<String, String>? headers) => _$this._headers = headers;
 
   WebhooksUpdateRequestApplicationJson_AuthMethod? _authMethod;
@@ -2486,7 +2432,7 @@ class WebhooksUpdateRequestApplicationJsonBuilder
       _$this._authMethod = authMethod;
 
   MapBuilder<String, JsonObject>? _authData;
-  MapBuilder<String, JsonObject> get authData => _$this._authData ??= new MapBuilder<String, JsonObject>();
+  MapBuilder<String, JsonObject> get authData => _$this._authData ??= MapBuilder<String, JsonObject>();
   set authData(covariant MapBuilder<String, JsonObject>? authData) => _$this._authData = authData;
 
   WebhooksUpdateRequestApplicationJsonBuilder() {
@@ -2511,7 +2457,6 @@ class WebhooksUpdateRequestApplicationJsonBuilder
 
   @override
   void replace(covariant WebhooksUpdateRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WebhooksUpdateRequestApplicationJson;
   }
 
@@ -2528,7 +2473,7 @@ class WebhooksUpdateRequestApplicationJsonBuilder
     _$WebhooksUpdateRequestApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$WebhooksUpdateRequestApplicationJson._(
+          _$WebhooksUpdateRequestApplicationJson._(
             httpMethod: BuiltValueNullFieldError.checkNotNull(
                 httpMethod, r'WebhooksUpdateRequestApplicationJson', 'httpMethod'),
             uri: BuiltValueNullFieldError.checkNotNull(uri, r'WebhooksUpdateRequestApplicationJson', 'uri'),
@@ -2551,7 +2496,7 @@ class WebhooksUpdateRequestApplicationJsonBuilder
         _$failedField = 'authData';
         _authData?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'WebhooksUpdateRequestApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'WebhooksUpdateRequestApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2578,13 +2523,9 @@ class _$WebhooksUpdateResponseApplicationJson_Ocs extends WebhooksUpdateResponse
 
   factory _$WebhooksUpdateResponseApplicationJson_Ocs(
           [void Function(WebhooksUpdateResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new WebhooksUpdateResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (WebhooksUpdateResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$WebhooksUpdateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'WebhooksUpdateResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'WebhooksUpdateResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$WebhooksUpdateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   WebhooksUpdateResponseApplicationJson_Ocs rebuild(
           void Function(WebhooksUpdateResponseApplicationJson_OcsBuilder) updates) =>
@@ -2592,7 +2533,7 @@ class _$WebhooksUpdateResponseApplicationJson_Ocs extends WebhooksUpdateResponse
 
   @override
   WebhooksUpdateResponseApplicationJson_OcsBuilder toBuilder() =>
-      new WebhooksUpdateResponseApplicationJson_OcsBuilder()..replace(this);
+      WebhooksUpdateResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2625,11 +2566,11 @@ class WebhooksUpdateResponseApplicationJson_OcsBuilder
   _$WebhooksUpdateResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   WebhookInfoBuilder? _data;
-  WebhookInfoBuilder get data => _$this._data ??= new WebhookInfoBuilder();
+  WebhookInfoBuilder get data => _$this._data ??= WebhookInfoBuilder();
   set data(covariant WebhookInfoBuilder? data) => _$this._data = data;
 
   WebhooksUpdateResponseApplicationJson_OcsBuilder() {
@@ -2648,7 +2589,6 @@ class WebhooksUpdateResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant WebhooksUpdateResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WebhooksUpdateResponseApplicationJson_Ocs;
   }
 
@@ -2665,7 +2605,7 @@ class WebhooksUpdateResponseApplicationJson_OcsBuilder
     _$WebhooksUpdateResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$WebhooksUpdateResponseApplicationJson_Ocs._(
+          _$WebhooksUpdateResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: data.build(),
           );
@@ -2677,7 +2617,7 @@ class WebhooksUpdateResponseApplicationJson_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'WebhooksUpdateResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'WebhooksUpdateResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2699,19 +2639,16 @@ class _$WebhooksUpdateResponseApplicationJson extends WebhooksUpdateResponseAppl
 
   factory _$WebhooksUpdateResponseApplicationJson(
           [void Function(WebhooksUpdateResponseApplicationJsonBuilder)? updates]) =>
-      (new WebhooksUpdateResponseApplicationJsonBuilder()..update(updates))._build();
+      (WebhooksUpdateResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$WebhooksUpdateResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'WebhooksUpdateResponseApplicationJson', 'ocs');
-  }
-
+  _$WebhooksUpdateResponseApplicationJson._({required this.ocs}) : super._();
   @override
   WebhooksUpdateResponseApplicationJson rebuild(void Function(WebhooksUpdateResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   WebhooksUpdateResponseApplicationJsonBuilder toBuilder() =>
-      new WebhooksUpdateResponseApplicationJsonBuilder()..replace(this);
+      WebhooksUpdateResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2741,7 +2678,7 @@ class WebhooksUpdateResponseApplicationJsonBuilder
 
   WebhooksUpdateResponseApplicationJson_OcsBuilder? _ocs;
   WebhooksUpdateResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new WebhooksUpdateResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= WebhooksUpdateResponseApplicationJson_OcsBuilder();
   set ocs(covariant WebhooksUpdateResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   WebhooksUpdateResponseApplicationJsonBuilder() {
@@ -2759,7 +2696,6 @@ class WebhooksUpdateResponseApplicationJsonBuilder
 
   @override
   void replace(covariant WebhooksUpdateResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WebhooksUpdateResponseApplicationJson;
   }
 
@@ -2776,7 +2712,7 @@ class WebhooksUpdateResponseApplicationJsonBuilder
     _$WebhooksUpdateResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$WebhooksUpdateResponseApplicationJson._(
+          _$WebhooksUpdateResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -2785,7 +2721,7 @@ class WebhooksUpdateResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'WebhooksUpdateResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'WebhooksUpdateResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2812,13 +2748,9 @@ class _$WebhooksDestroyResponseApplicationJson_Ocs extends WebhooksDestroyRespon
 
   factory _$WebhooksDestroyResponseApplicationJson_Ocs(
           [void Function(WebhooksDestroyResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new WebhooksDestroyResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (WebhooksDestroyResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$WebhooksDestroyResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'WebhooksDestroyResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'WebhooksDestroyResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$WebhooksDestroyResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   WebhooksDestroyResponseApplicationJson_Ocs rebuild(
           void Function(WebhooksDestroyResponseApplicationJson_OcsBuilder) updates) =>
@@ -2826,7 +2758,7 @@ class _$WebhooksDestroyResponseApplicationJson_Ocs extends WebhooksDestroyRespon
 
   @override
   WebhooksDestroyResponseApplicationJson_OcsBuilder toBuilder() =>
-      new WebhooksDestroyResponseApplicationJson_OcsBuilder()..replace(this);
+      WebhooksDestroyResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2859,7 +2791,7 @@ class WebhooksDestroyResponseApplicationJson_OcsBuilder
   _$WebhooksDestroyResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   bool? _data;
@@ -2882,7 +2814,6 @@ class WebhooksDestroyResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant WebhooksDestroyResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WebhooksDestroyResponseApplicationJson_Ocs;
   }
 
@@ -2899,7 +2830,7 @@ class WebhooksDestroyResponseApplicationJson_OcsBuilder
     _$WebhooksDestroyResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$WebhooksDestroyResponseApplicationJson_Ocs._(
+          _$WebhooksDestroyResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(data, r'WebhooksDestroyResponseApplicationJson_Ocs', 'data'),
           );
@@ -2909,8 +2840,7 @@ class WebhooksDestroyResponseApplicationJson_OcsBuilder
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'WebhooksDestroyResponseApplicationJson_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'WebhooksDestroyResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2932,12 +2862,9 @@ class _$WebhooksDestroyResponseApplicationJson extends WebhooksDestroyResponseAp
 
   factory _$WebhooksDestroyResponseApplicationJson(
           [void Function(WebhooksDestroyResponseApplicationJsonBuilder)? updates]) =>
-      (new WebhooksDestroyResponseApplicationJsonBuilder()..update(updates))._build();
+      (WebhooksDestroyResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$WebhooksDestroyResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'WebhooksDestroyResponseApplicationJson', 'ocs');
-  }
-
+  _$WebhooksDestroyResponseApplicationJson._({required this.ocs}) : super._();
   @override
   WebhooksDestroyResponseApplicationJson rebuild(
           void Function(WebhooksDestroyResponseApplicationJsonBuilder) updates) =>
@@ -2945,7 +2872,7 @@ class _$WebhooksDestroyResponseApplicationJson extends WebhooksDestroyResponseAp
 
   @override
   WebhooksDestroyResponseApplicationJsonBuilder toBuilder() =>
-      new WebhooksDestroyResponseApplicationJsonBuilder()..replace(this);
+      WebhooksDestroyResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2975,7 +2902,7 @@ class WebhooksDestroyResponseApplicationJsonBuilder
 
   WebhooksDestroyResponseApplicationJson_OcsBuilder? _ocs;
   WebhooksDestroyResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new WebhooksDestroyResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= WebhooksDestroyResponseApplicationJson_OcsBuilder();
   set ocs(covariant WebhooksDestroyResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   WebhooksDestroyResponseApplicationJsonBuilder() {
@@ -2993,7 +2920,6 @@ class WebhooksDestroyResponseApplicationJsonBuilder
 
   @override
   void replace(covariant WebhooksDestroyResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WebhooksDestroyResponseApplicationJson;
   }
 
@@ -3010,7 +2936,7 @@ class WebhooksDestroyResponseApplicationJsonBuilder
     _$WebhooksDestroyResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$WebhooksDestroyResponseApplicationJson._(
+          _$WebhooksDestroyResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -3019,7 +2945,7 @@ class WebhooksDestroyResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(r'WebhooksDestroyResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'WebhooksDestroyResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3046,13 +2972,9 @@ class _$WebhooksDeleteByAppIdResponseApplicationJson_Ocs extends WebhooksDeleteB
 
   factory _$WebhooksDeleteByAppIdResponseApplicationJson_Ocs(
           [void Function(WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder)? updates]) =>
-      (new WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder()..update(updates))._build();
+      (WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$WebhooksDeleteByAppIdResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'WebhooksDeleteByAppIdResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'WebhooksDeleteByAppIdResponseApplicationJson_Ocs', 'data');
-  }
-
+  _$WebhooksDeleteByAppIdResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   WebhooksDeleteByAppIdResponseApplicationJson_Ocs rebuild(
           void Function(WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder) updates) =>
@@ -3060,7 +2982,7 @@ class _$WebhooksDeleteByAppIdResponseApplicationJson_Ocs extends WebhooksDeleteB
 
   @override
   WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder toBuilder() =>
-      new WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder()..replace(this);
+      WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3094,7 +3016,7 @@ class WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder
   _$WebhooksDeleteByAppIdResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= new OCSMetaBuilder();
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
   int? _data;
@@ -3117,7 +3039,6 @@ class WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder
 
   @override
   void replace(covariant WebhooksDeleteByAppIdResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WebhooksDeleteByAppIdResponseApplicationJson_Ocs;
   }
 
@@ -3134,7 +3055,7 @@ class WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder
     _$WebhooksDeleteByAppIdResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
-          new _$WebhooksDeleteByAppIdResponseApplicationJson_Ocs._(
+          _$WebhooksDeleteByAppIdResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(
                 data, r'WebhooksDeleteByAppIdResponseApplicationJson_Ocs', 'data'),
@@ -3145,7 +3066,7 @@ class WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder
         _$failedField = 'meta';
         meta.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'WebhooksDeleteByAppIdResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
@@ -3168,12 +3089,9 @@ class _$WebhooksDeleteByAppIdResponseApplicationJson extends WebhooksDeleteByApp
 
   factory _$WebhooksDeleteByAppIdResponseApplicationJson(
           [void Function(WebhooksDeleteByAppIdResponseApplicationJsonBuilder)? updates]) =>
-      (new WebhooksDeleteByAppIdResponseApplicationJsonBuilder()..update(updates))._build();
+      (WebhooksDeleteByAppIdResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$WebhooksDeleteByAppIdResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'WebhooksDeleteByAppIdResponseApplicationJson', 'ocs');
-  }
-
+  _$WebhooksDeleteByAppIdResponseApplicationJson._({required this.ocs}) : super._();
   @override
   WebhooksDeleteByAppIdResponseApplicationJson rebuild(
           void Function(WebhooksDeleteByAppIdResponseApplicationJsonBuilder) updates) =>
@@ -3181,7 +3099,7 @@ class _$WebhooksDeleteByAppIdResponseApplicationJson extends WebhooksDeleteByApp
 
   @override
   WebhooksDeleteByAppIdResponseApplicationJsonBuilder toBuilder() =>
-      new WebhooksDeleteByAppIdResponseApplicationJsonBuilder()..replace(this);
+      WebhooksDeleteByAppIdResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3211,7 +3129,7 @@ class WebhooksDeleteByAppIdResponseApplicationJsonBuilder
 
   WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder? _ocs;
   WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= new WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder();
+      _$this._ocs ??= WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder();
   set ocs(covariant WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
   WebhooksDeleteByAppIdResponseApplicationJsonBuilder() {
@@ -3229,7 +3147,6 @@ class WebhooksDeleteByAppIdResponseApplicationJsonBuilder
 
   @override
   void replace(covariant WebhooksDeleteByAppIdResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WebhooksDeleteByAppIdResponseApplicationJson;
   }
 
@@ -3246,7 +3163,7 @@ class WebhooksDeleteByAppIdResponseApplicationJsonBuilder
     _$WebhooksDeleteByAppIdResponseApplicationJson _$result;
     try {
       _$result = _$v ??
-          new _$WebhooksDeleteByAppIdResponseApplicationJson._(
+          _$WebhooksDeleteByAppIdResponseApplicationJson._(
             ocs: ocs.build(),
           );
     } catch (_) {
@@ -3255,8 +3172,7 @@ class WebhooksDeleteByAppIdResponseApplicationJsonBuilder
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'WebhooksDeleteByAppIdResponseApplicationJson', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'WebhooksDeleteByAppIdResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
