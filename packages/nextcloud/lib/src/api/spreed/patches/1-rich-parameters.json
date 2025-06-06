@@ -15,5 +15,18 @@
         }
       }
     }
+  },
+  {
+    "op": "replace",
+    "path": "/components/schemas/ChatReminderUpcoming/properties/messageParameters",
+    "value": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "object"
+        }
+      }
+    }
   }
 ]

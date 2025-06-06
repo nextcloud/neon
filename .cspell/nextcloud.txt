@@ -18,6 +18,7 @@ displayname
 etag
 federatedfilesharing
 fediverse
+fmttype
 groupid
 heavyrain
 heavyrainshowers
