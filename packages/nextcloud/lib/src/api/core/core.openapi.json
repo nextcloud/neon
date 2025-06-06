@@ -1945,13 +1945,15 @@
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "minItems": 1
                     },
                     "features-local": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "minItems": 1
                     },
                     "config": {
                         "type": "object",
@@ -2015,6 +2017,14 @@
                                     },
                                     "predefined-backgrounds": {
                                         "type": "array",
+                                        "description": "List of file names relative to the spreed/img/backgrounds/ web path, e.g. `2_home.jpg`",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "predefined-backgrounds-v2": {
+                                        "type": "array",
+                                        "description": "List of file paths relative to the server web root with leading slash, e.g. `/apps/spreed/img/backgrounds/2_home.jpg`",
                                         "items": {
                                             "type": "string"
                                         }
@@ -2103,6 +2113,21 @@
                                         "type": "integer",
                                         "format": "int64",
                                         "minimum": 1
+                                    },
+                                    "retention-event": {
+                                        "type": "integer",
+                                        "format": "int64",
+                                        "minimum": 0
+                                    },
+                                    "retention-phone": {
+                                        "type": "integer",
+                                        "format": "int64",
+                                        "minimum": 0
+                                    },
+                                    "retention-instant-meetings": {
+                                        "type": "integer",
+                                        "format": "int64",
+                                        "minimum": 0
                                     }
                                 }
                             },
@@ -2155,6 +2180,19 @@
                                         "type": "string"
                                     }
                                 }
+                            },
+                            "experiments": {
+                                "type": "object",
+                                "required": [
+                                    "enabled"
+                                ],
+                                "properties": {
+                                    "enabled": {
+                                        "type": "integer",
+                                        "format": "int64",
+                                        "minimum": 0
+                                    }
+                                }
                             }
                         }
                     },
@@ -2164,7 +2202,8 @@
                             "type": "array",
                             "items": {
                                 "type": "string"
-                            }
+                            },
+                            "minItems": 1
                         }
                     },
                     "version": {

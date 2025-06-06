@@ -1,0 +1,79 @@
+[
+  {
+    "op": "replace",
+    "path": "/paths/~1ocs~1v2.php~1apps~1spreed~1api~1{apiVersion}~1room/post/requestBody/content/application~1json/schema/required",
+    "value": [
+      "roomType"
+    ]
+  },
+  {
+    "op": "replace",
+    "path": "/components/schemas/Room/required",
+    "value": [
+      "actorId",
+      "actorType",
+      "attendeeId",
+      "attendeePermissions",
+      "attendeePin",
+      "avatarVersion",
+      "breakoutRoomMode",
+      "breakoutRoomStatus",
+      "callFlag",
+      "callPermissions",
+      "callRecording",
+      "callStartTime",
+      "canDeleteConversation",
+      "canEnableSIP",
+      "canLeaveConversation",
+      "canStartCall",
+      "defaultPermissions",
+      "description",
+      "displayName",
+      "hasCall",
+      "hasPassword",
+      "id",
+      "isCustomAvatar",
+      "isFavorite",
+      "lastActivity",
+      "lastCommonReadMessage",
+      "lastPing",
+      "lastReadMessage",
+      "listable",
+      "lobbyState",
+      "lobbyTimer",
+      "mentionPermissions",
+      "messageExpiration",
+      "name",
+      "notificationCalls",
+      "notificationLevel",
+      "objectId",
+      "objectType",
+      "participantFlags",
+      "participantType",
+      "permissions",
+      "readOnly",
+      "recordingConsent",
+      "sessionId",
+      "sipEnabled",
+      "token",
+      "type",
+      "unreadMention",
+      "unreadMentionDirect",
+      "unreadMessages",
+      "isArchived"
+    ]
+  },
+  {
+    "op": "replace",
+    "path": "/components/schemas/Capabilities/properties/config/required",
+    "value": [
+      "attachments",
+      "call",
+      "chat",
+      "conversations",
+      "federation",
+      "previews",
+      "signaling"
+    ]
+  }
+]

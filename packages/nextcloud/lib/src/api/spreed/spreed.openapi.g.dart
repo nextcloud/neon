@@ -787,6 +787,41 @@ final BuiltSet<BreakoutRoomSwitchBreakoutRoomApiVersion> _$breakoutRoomSwitchBre
   _$breakoutRoomSwitchBreakoutRoomApiVersionV1,
 ]);
 
+const CalendarIntegrationGetDashboardEventsApiVersion _$calendarIntegrationGetDashboardEventsApiVersionV4 =
+    const CalendarIntegrationGetDashboardEventsApiVersion._('v4');
+
+CalendarIntegrationGetDashboardEventsApiVersion _$valueOfCalendarIntegrationGetDashboardEventsApiVersion(String name) {
+  switch (name) {
+    case 'v4':
+      return _$calendarIntegrationGetDashboardEventsApiVersionV4;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<CalendarIntegrationGetDashboardEventsApiVersion>
+    _$calendarIntegrationGetDashboardEventsApiVersionValues =
+    BuiltSet<CalendarIntegrationGetDashboardEventsApiVersion>(const <CalendarIntegrationGetDashboardEventsApiVersion>[
+  _$calendarIntegrationGetDashboardEventsApiVersionV4,
+]);
+
+const CalendarIntegrationGetMutualEventsApiVersion _$calendarIntegrationGetMutualEventsApiVersionV4 =
+    const CalendarIntegrationGetMutualEventsApiVersion._('v4');
+
+CalendarIntegrationGetMutualEventsApiVersion _$valueOfCalendarIntegrationGetMutualEventsApiVersion(String name) {
+  switch (name) {
+    case 'v4':
+      return _$calendarIntegrationGetMutualEventsApiVersionV4;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<CalendarIntegrationGetMutualEventsApiVersion> _$calendarIntegrationGetMutualEventsApiVersionValues =
+    BuiltSet<CalendarIntegrationGetMutualEventsApiVersion>(const <CalendarIntegrationGetMutualEventsApiVersion>[
+  _$calendarIntegrationGetMutualEventsApiVersionV4,
+]);
+
 const CallGetPeersForCallApiVersion _$callGetPeersForCallApiVersionV4 = const CallGetPeersForCallApiVersion._('v4');
 
 CallGetPeersForCallApiVersion _$valueOfCallGetPeersForCallApiVersion(String name) {
@@ -1289,6 +1324,23 @@ ChatDeleteReminderApiVersion _$valueOfChatDeleteReminderApiVersion(String name) 
 final BuiltSet<ChatDeleteReminderApiVersion> _$chatDeleteReminderApiVersionValues =
     BuiltSet<ChatDeleteReminderApiVersion>(const <ChatDeleteReminderApiVersion>[
   _$chatDeleteReminderApiVersionV1,
+]);
+
+const ChatGetUpcomingRemindersApiVersion _$chatGetUpcomingRemindersApiVersionV1 =
+    const ChatGetUpcomingRemindersApiVersion._('v1');
+
+ChatGetUpcomingRemindersApiVersion _$valueOfChatGetUpcomingRemindersApiVersion(String name) {
+  switch (name) {
+    case 'v1':
+      return _$chatGetUpcomingRemindersApiVersionV1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<ChatGetUpcomingRemindersApiVersion> _$chatGetUpcomingRemindersApiVersionValues =
+    BuiltSet<ChatGetUpcomingRemindersApiVersion>(const <ChatGetUpcomingRemindersApiVersion>[
+  _$chatGetUpcomingRemindersApiVersionV1,
 ]);
 
 const ChatSetReadMarkerApiVersion _$chatSetReadMarkerApiVersionV1 = const ChatSetReadMarkerApiVersion._('v1');
@@ -2137,6 +2189,154 @@ final BuiltSet<RoomCreateRoomApiVersion> _$roomCreateRoomApiVersionValues =
   _$roomCreateRoomApiVersionV4,
 ]);
 
+const RoomCreateRoomRequestApplicationJson_ReadOnly _$roomCreateRoomRequestApplicationJsonReadOnly$0 =
+    const RoomCreateRoomRequestApplicationJson_ReadOnly._('\$0');
+const RoomCreateRoomRequestApplicationJson_ReadOnly _$roomCreateRoomRequestApplicationJsonReadOnly$1 =
+    const RoomCreateRoomRequestApplicationJson_ReadOnly._('\$1');
+
+RoomCreateRoomRequestApplicationJson_ReadOnly _$valueOfRoomCreateRoomRequestApplicationJson_ReadOnly(String name) {
+  switch (name) {
+    case '\$0':
+      return _$roomCreateRoomRequestApplicationJsonReadOnly$0;
+    case '\$1':
+      return _$roomCreateRoomRequestApplicationJsonReadOnly$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomCreateRoomRequestApplicationJson_ReadOnly> _$roomCreateRoomRequestApplicationJsonReadOnlyValues =
+    BuiltSet<RoomCreateRoomRequestApplicationJson_ReadOnly>(const <RoomCreateRoomRequestApplicationJson_ReadOnly>[
+  _$roomCreateRoomRequestApplicationJsonReadOnly$0,
+  _$roomCreateRoomRequestApplicationJsonReadOnly$1,
+]);
+
+const RoomCreateRoomRequestApplicationJson_Listable _$roomCreateRoomRequestApplicationJsonListable$0 =
+    const RoomCreateRoomRequestApplicationJson_Listable._('\$0');
+const RoomCreateRoomRequestApplicationJson_Listable _$roomCreateRoomRequestApplicationJsonListable$1 =
+    const RoomCreateRoomRequestApplicationJson_Listable._('\$1');
+const RoomCreateRoomRequestApplicationJson_Listable _$roomCreateRoomRequestApplicationJsonListable$2 =
+    const RoomCreateRoomRequestApplicationJson_Listable._('\$2');
+
+RoomCreateRoomRequestApplicationJson_Listable _$valueOfRoomCreateRoomRequestApplicationJson_Listable(String name) {
+  switch (name) {
+    case '\$0':
+      return _$roomCreateRoomRequestApplicationJsonListable$0;
+    case '\$1':
+      return _$roomCreateRoomRequestApplicationJsonListable$1;
+    case '\$2':
+      return _$roomCreateRoomRequestApplicationJsonListable$2;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomCreateRoomRequestApplicationJson_Listable> _$roomCreateRoomRequestApplicationJsonListableValues =
+    BuiltSet<RoomCreateRoomRequestApplicationJson_Listable>(const <RoomCreateRoomRequestApplicationJson_Listable>[
+  _$roomCreateRoomRequestApplicationJsonListable$0,
+  _$roomCreateRoomRequestApplicationJsonListable$1,
+  _$roomCreateRoomRequestApplicationJsonListable$2,
+]);
+
+const RoomCreateRoomRequestApplicationJson_LobbyState _$roomCreateRoomRequestApplicationJsonLobbyState$0 =
+    const RoomCreateRoomRequestApplicationJson_LobbyState._('\$0');
+const RoomCreateRoomRequestApplicationJson_LobbyState _$roomCreateRoomRequestApplicationJsonLobbyState$1 =
+    const RoomCreateRoomRequestApplicationJson_LobbyState._('\$1');
+
+RoomCreateRoomRequestApplicationJson_LobbyState _$valueOfRoomCreateRoomRequestApplicationJson_LobbyState(String name) {
+  switch (name) {
+    case '\$0':
+      return _$roomCreateRoomRequestApplicationJsonLobbyState$0;
+    case '\$1':
+      return _$roomCreateRoomRequestApplicationJsonLobbyState$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomCreateRoomRequestApplicationJson_LobbyState> _$roomCreateRoomRequestApplicationJsonLobbyStateValues =
+    BuiltSet<RoomCreateRoomRequestApplicationJson_LobbyState>(const <RoomCreateRoomRequestApplicationJson_LobbyState>[
+  _$roomCreateRoomRequestApplicationJsonLobbyState$0,
+  _$roomCreateRoomRequestApplicationJsonLobbyState$1,
+]);
+
+const RoomCreateRoomRequestApplicationJson_SipEnabled _$roomCreateRoomRequestApplicationJsonSipEnabled$0 =
+    const RoomCreateRoomRequestApplicationJson_SipEnabled._('\$0');
+const RoomCreateRoomRequestApplicationJson_SipEnabled _$roomCreateRoomRequestApplicationJsonSipEnabled$1 =
+    const RoomCreateRoomRequestApplicationJson_SipEnabled._('\$1');
+const RoomCreateRoomRequestApplicationJson_SipEnabled _$roomCreateRoomRequestApplicationJsonSipEnabled$2 =
+    const RoomCreateRoomRequestApplicationJson_SipEnabled._('\$2');
+
+RoomCreateRoomRequestApplicationJson_SipEnabled _$valueOfRoomCreateRoomRequestApplicationJson_SipEnabled(String name) {
+  switch (name) {
+    case '\$0':
+      return _$roomCreateRoomRequestApplicationJsonSipEnabled$0;
+    case '\$1':
+      return _$roomCreateRoomRequestApplicationJsonSipEnabled$1;
+    case '\$2':
+      return _$roomCreateRoomRequestApplicationJsonSipEnabled$2;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomCreateRoomRequestApplicationJson_SipEnabled> _$roomCreateRoomRequestApplicationJsonSipEnabledValues =
+    BuiltSet<RoomCreateRoomRequestApplicationJson_SipEnabled>(const <RoomCreateRoomRequestApplicationJson_SipEnabled>[
+  _$roomCreateRoomRequestApplicationJsonSipEnabled$0,
+  _$roomCreateRoomRequestApplicationJsonSipEnabled$1,
+  _$roomCreateRoomRequestApplicationJsonSipEnabled$2,
+]);
+
+const RoomCreateRoomRequestApplicationJson_RecordingConsent _$roomCreateRoomRequestApplicationJsonRecordingConsent$0 =
+    const RoomCreateRoomRequestApplicationJson_RecordingConsent._('\$0');
+const RoomCreateRoomRequestApplicationJson_RecordingConsent _$roomCreateRoomRequestApplicationJsonRecordingConsent$1 =
+    const RoomCreateRoomRequestApplicationJson_RecordingConsent._('\$1');
+
+RoomCreateRoomRequestApplicationJson_RecordingConsent _$valueOfRoomCreateRoomRequestApplicationJson_RecordingConsent(
+    String name) {
+  switch (name) {
+    case '\$0':
+      return _$roomCreateRoomRequestApplicationJsonRecordingConsent$0;
+    case '\$1':
+      return _$roomCreateRoomRequestApplicationJsonRecordingConsent$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomCreateRoomRequestApplicationJson_RecordingConsent>
+    _$roomCreateRoomRequestApplicationJsonRecordingConsentValues = BuiltSet<
+        RoomCreateRoomRequestApplicationJson_RecordingConsent>(const <RoomCreateRoomRequestApplicationJson_RecordingConsent>[
+  _$roomCreateRoomRequestApplicationJsonRecordingConsent$0,
+  _$roomCreateRoomRequestApplicationJsonRecordingConsent$1,
+]);
+
+const RoomCreateRoomRequestApplicationJson_MentionPermissions
+    _$roomCreateRoomRequestApplicationJsonMentionPermissions$0 =
+    const RoomCreateRoomRequestApplicationJson_MentionPermissions._('\$0');
+const RoomCreateRoomRequestApplicationJson_MentionPermissions
+    _$roomCreateRoomRequestApplicationJsonMentionPermissions$1 =
+    const RoomCreateRoomRequestApplicationJson_MentionPermissions._('\$1');
+
+RoomCreateRoomRequestApplicationJson_MentionPermissions
+    _$valueOfRoomCreateRoomRequestApplicationJson_MentionPermissions(String name) {
+  switch (name) {
+    case '\$0':
+      return _$roomCreateRoomRequestApplicationJsonMentionPermissions$0;
+    case '\$1':
+      return _$roomCreateRoomRequestApplicationJsonMentionPermissions$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomCreateRoomRequestApplicationJson_MentionPermissions>
+    _$roomCreateRoomRequestApplicationJsonMentionPermissionsValues = BuiltSet<
+        RoomCreateRoomRequestApplicationJson_MentionPermissions>(const <RoomCreateRoomRequestApplicationJson_MentionPermissions>[
+  _$roomCreateRoomRequestApplicationJsonMentionPermissions$0,
+  _$roomCreateRoomRequestApplicationJsonMentionPermissions$1,
+]);
+
 const RoomGetListedRoomsApiVersion _$roomGetListedRoomsApiVersionV4 = const RoomGetListedRoomsApiVersion._('v4');
 
 RoomGetListedRoomsApiVersion _$valueOfRoomGetListedRoomsApiVersion(String name) {
@@ -2232,6 +2432,23 @@ RoomGetBreakoutRoomsApiVersion _$valueOfRoomGetBreakoutRoomsApiVersion(String na
 final BuiltSet<RoomGetBreakoutRoomsApiVersion> _$roomGetBreakoutRoomsApiVersionValues =
     BuiltSet<RoomGetBreakoutRoomsApiVersion>(const <RoomGetBreakoutRoomsApiVersion>[
   _$roomGetBreakoutRoomsApiVersionV4,
+]);
+
+const RoomUnbindRoomFromObjectApiVersion _$roomUnbindRoomFromObjectApiVersionV4 =
+    const RoomUnbindRoomFromObjectApiVersion._('v4');
+
+RoomUnbindRoomFromObjectApiVersion _$valueOfRoomUnbindRoomFromObjectApiVersion(String name) {
+  switch (name) {
+    case 'v4':
+      return _$roomUnbindRoomFromObjectApiVersionV4;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomUnbindRoomFromObjectApiVersion> _$roomUnbindRoomFromObjectApiVersionValues =
+    BuiltSet<RoomUnbindRoomFromObjectApiVersion>(const <RoomUnbindRoomFromObjectApiVersion>[
+  _$roomUnbindRoomFromObjectApiVersionV4,
 ]);
 
 const RoomMakePublicApiVersion _$roomMakePublicApiVersionV4 = const RoomMakePublicApiVersion._('v4');
@@ -2869,6 +3086,74 @@ final BuiltSet<RoomRemoveFromFavoritesApiVersion> _$roomRemoveFromFavoritesApiVe
   _$roomRemoveFromFavoritesApiVersionV4,
 ]);
 
+const RoomMarkConversationAsImportantApiVersion _$roomMarkConversationAsImportantApiVersionV4 =
+    const RoomMarkConversationAsImportantApiVersion._('v4');
+
+RoomMarkConversationAsImportantApiVersion _$valueOfRoomMarkConversationAsImportantApiVersion(String name) {
+  switch (name) {
+    case 'v4':
+      return _$roomMarkConversationAsImportantApiVersionV4;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomMarkConversationAsImportantApiVersion> _$roomMarkConversationAsImportantApiVersionValues =
+    BuiltSet<RoomMarkConversationAsImportantApiVersion>(const <RoomMarkConversationAsImportantApiVersion>[
+  _$roomMarkConversationAsImportantApiVersionV4,
+]);
+
+const RoomMarkConversationAsUnimportantApiVersion _$roomMarkConversationAsUnimportantApiVersionV4 =
+    const RoomMarkConversationAsUnimportantApiVersion._('v4');
+
+RoomMarkConversationAsUnimportantApiVersion _$valueOfRoomMarkConversationAsUnimportantApiVersion(String name) {
+  switch (name) {
+    case 'v4':
+      return _$roomMarkConversationAsUnimportantApiVersionV4;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomMarkConversationAsUnimportantApiVersion> _$roomMarkConversationAsUnimportantApiVersionValues =
+    BuiltSet<RoomMarkConversationAsUnimportantApiVersion>(const <RoomMarkConversationAsUnimportantApiVersion>[
+  _$roomMarkConversationAsUnimportantApiVersionV4,
+]);
+
+const RoomMarkConversationAsSensitiveApiVersion _$roomMarkConversationAsSensitiveApiVersionV4 =
+    const RoomMarkConversationAsSensitiveApiVersion._('v4');
+
+RoomMarkConversationAsSensitiveApiVersion _$valueOfRoomMarkConversationAsSensitiveApiVersion(String name) {
+  switch (name) {
+    case 'v4':
+      return _$roomMarkConversationAsSensitiveApiVersionV4;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomMarkConversationAsSensitiveApiVersion> _$roomMarkConversationAsSensitiveApiVersionValues =
+    BuiltSet<RoomMarkConversationAsSensitiveApiVersion>(const <RoomMarkConversationAsSensitiveApiVersion>[
+  _$roomMarkConversationAsSensitiveApiVersionV4,
+]);
+
+const RoomMarkConversationAsInsensitiveApiVersion _$roomMarkConversationAsInsensitiveApiVersionV4 =
+    const RoomMarkConversationAsInsensitiveApiVersion._('v4');
+
+RoomMarkConversationAsInsensitiveApiVersion _$valueOfRoomMarkConversationAsInsensitiveApiVersion(String name) {
+  switch (name) {
+    case 'v4':
+      return _$roomMarkConversationAsInsensitiveApiVersionV4;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomMarkConversationAsInsensitiveApiVersion> _$roomMarkConversationAsInsensitiveApiVersionValues =
+    BuiltSet<RoomMarkConversationAsInsensitiveApiVersion>(const <RoomMarkConversationAsInsensitiveApiVersion>[
+  _$roomMarkConversationAsInsensitiveApiVersionV4,
+]);
+
 const RoomSetNotificationLevelApiVersion _$roomSetNotificationLevelApiVersionV4 =
     const RoomSetNotificationLevelApiVersion._('v4');
 
@@ -2917,6 +3202,28 @@ RoomSetLobbyApiVersion _$valueOfRoomSetLobbyApiVersion(String name) {
 final BuiltSet<RoomSetLobbyApiVersion> _$roomSetLobbyApiVersionValues =
     BuiltSet<RoomSetLobbyApiVersion>(const <RoomSetLobbyApiVersion>[
   _$roomSetLobbyApiVersionV4,
+]);
+
+const RoomSetLobbyRequestApplicationJson_State _$roomSetLobbyRequestApplicationJsonState$0 =
+    const RoomSetLobbyRequestApplicationJson_State._('\$0');
+const RoomSetLobbyRequestApplicationJson_State _$roomSetLobbyRequestApplicationJsonState$1 =
+    const RoomSetLobbyRequestApplicationJson_State._('\$1');
+
+RoomSetLobbyRequestApplicationJson_State _$valueOfRoomSetLobbyRequestApplicationJson_State(String name) {
+  switch (name) {
+    case '\$0':
+      return _$roomSetLobbyRequestApplicationJsonState$0;
+    case '\$1':
+      return _$roomSetLobbyRequestApplicationJsonState$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomSetLobbyRequestApplicationJson_State> _$roomSetLobbyRequestApplicationJsonStateValues =
+    BuiltSet<RoomSetLobbyRequestApplicationJson_State>(const <RoomSetLobbyRequestApplicationJson_State>[
+  _$roomSetLobbyRequestApplicationJsonState$0,
+  _$roomSetLobbyRequestApplicationJsonState$1,
 ]);
 
 const RoomSetsipEnabledApiVersion _$roomSetsipEnabledApiVersionV4 = const RoomSetsipEnabledApiVersion._('v4');
@@ -3226,6 +3533,22 @@ RoomVerifyDialOutNumberApiVersion _$valueOfRoomVerifyDialOutNumberApiVersion(Str
 final BuiltSet<RoomVerifyDialOutNumberApiVersion> _$roomVerifyDialOutNumberApiVersionValues =
     BuiltSet<RoomVerifyDialOutNumberApiVersion>(const <RoomVerifyDialOutNumberApiVersion>[
   _$roomVerifyDialOutNumberApiVersionV4,
+]);
+
+const RoomDirectDialInApiVersion _$roomDirectDialInApiVersionV4 = const RoomDirectDialInApiVersion._('v4');
+
+RoomDirectDialInApiVersion _$valueOfRoomDirectDialInApiVersion(String name) {
+  switch (name) {
+    case 'v4':
+      return _$roomDirectDialInApiVersionV4;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomDirectDialInApiVersion> _$roomDirectDialInApiVersionValues =
+    BuiltSet<RoomDirectDialInApiVersion>(const <RoomDirectDialInApiVersion>[
+  _$roomDirectDialInApiVersionV4,
 ]);
 
 const RoomCreateGuestByDialInApiVersion _$roomCreateGuestByDialInApiVersionV4 =
@@ -3543,6 +3866,21 @@ Serializer<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs>
 Serializer<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson>
     _$breakoutRoomSwitchBreakoutRoomResponseApplicationJsonSerializer =
     _$BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonSerializer();
+Serializer<DashboardEventCalendar> _$dashboardEventCalendarSerializer = _$DashboardEventCalendarSerializer();
+Serializer<DashboardEventAttachment> _$dashboardEventAttachmentSerializer = _$DashboardEventAttachmentSerializer();
+Serializer<DashboardEvent> _$dashboardEventSerializer = _$DashboardEventSerializer();
+Serializer<CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs>
+    _$calendarIntegrationGetDashboardEventsResponseApplicationJsonOcsSerializer =
+    _$CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsSerializer();
+Serializer<CalendarIntegrationGetDashboardEventsResponseApplicationJson>
+    _$calendarIntegrationGetDashboardEventsResponseApplicationJsonSerializer =
+    _$CalendarIntegrationGetDashboardEventsResponseApplicationJsonSerializer();
+Serializer<CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs>
+    _$calendarIntegrationGetMutualEventsResponseApplicationJsonOcsSerializer =
+    _$CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsSerializer();
+Serializer<CalendarIntegrationGetMutualEventsResponseApplicationJson>
+    _$calendarIntegrationGetMutualEventsResponseApplicationJsonSerializer =
+    _$CalendarIntegrationGetMutualEventsResponseApplicationJsonSerializer();
 Serializer<CallPeer> _$callPeerSerializer = _$CallPeerSerializer();
 Serializer<CallGetPeersForCallResponseApplicationJson_Ocs> _$callGetPeersForCallResponseApplicationJsonOcsSerializer =
     _$CallGetPeersForCallResponseApplicationJson_OcsSerializer();
@@ -3668,6 +4006,13 @@ Serializer<ChatDeleteReminderResponseApplicationJson_Ocs> _$chatDeleteReminderRe
     _$ChatDeleteReminderResponseApplicationJson_OcsSerializer();
 Serializer<ChatDeleteReminderResponseApplicationJson> _$chatDeleteReminderResponseApplicationJsonSerializer =
     _$ChatDeleteReminderResponseApplicationJsonSerializer();
+Serializer<ChatReminderUpcoming> _$chatReminderUpcomingSerializer = _$ChatReminderUpcomingSerializer();
+Serializer<ChatGetUpcomingRemindersResponseApplicationJson_Ocs>
+    _$chatGetUpcomingRemindersResponseApplicationJsonOcsSerializer =
+    _$ChatGetUpcomingRemindersResponseApplicationJson_OcsSerializer();
+Serializer<ChatGetUpcomingRemindersResponseApplicationJson>
+    _$chatGetUpcomingRemindersResponseApplicationJsonSerializer =
+    _$ChatGetUpcomingRemindersResponseApplicationJsonSerializer();
 Serializer<ChatSetReadMarkerRequestApplicationJson> _$chatSetReadMarkerRequestApplicationJsonSerializer =
     _$ChatSetReadMarkerRequestApplicationJsonSerializer();
 Serializer<ChatSetReadMarkerResponseApplicationJson_Ocs> _$chatSetReadMarkerResponseApplicationJsonOcsSerializer =
@@ -3935,6 +4280,7 @@ Serializer<RoomGetRoomsResponseApplicationJson_Ocs> _$roomGetRoomsResponseApplic
 Serializer<RoomGetRoomsResponseApplicationJson> _$roomGetRoomsResponseApplicationJsonSerializer =
     _$RoomGetRoomsResponseApplicationJsonSerializer();
 Serializer<RoomRoomGetRoomsHeaders> _$roomRoomGetRoomsHeadersSerializer = _$RoomRoomGetRoomsHeadersSerializer();
+Serializer<InvitationList> _$invitationListSerializer = _$InvitationListSerializer();
 Serializer<RoomCreateRoomRequestApplicationJson> _$roomCreateRoomRequestApplicationJsonSerializer =
     _$RoomCreateRoomRequestApplicationJsonSerializer();
 Serializer<RoomCreateRoomResponseApplicationJson_Ocs> _$roomCreateRoomResponseApplicationJsonOcsSerializer =
@@ -3973,6 +4319,12 @@ Serializer<RoomGetBreakoutRoomsResponseApplicationJson_Ocs> _$roomGetBreakoutRoo
     _$RoomGetBreakoutRoomsResponseApplicationJson_OcsSerializer();
 Serializer<RoomGetBreakoutRoomsResponseApplicationJson> _$roomGetBreakoutRoomsResponseApplicationJsonSerializer =
     _$RoomGetBreakoutRoomsResponseApplicationJsonSerializer();
+Serializer<RoomUnbindRoomFromObjectResponseApplicationJson_Ocs>
+    _$roomUnbindRoomFromObjectResponseApplicationJsonOcsSerializer =
+    _$RoomUnbindRoomFromObjectResponseApplicationJson_OcsSerializer();
+Serializer<RoomUnbindRoomFromObjectResponseApplicationJson>
+    _$roomUnbindRoomFromObjectResponseApplicationJsonSerializer =
+    _$RoomUnbindRoomFromObjectResponseApplicationJsonSerializer();
 Serializer<RoomMakePublicRequestApplicationJson> _$roomMakePublicRequestApplicationJsonSerializer =
     _$RoomMakePublicRequestApplicationJsonSerializer();
 Serializer<RoomMakePublicResponseApplicationJson_Ocs> _$roomMakePublicResponseApplicationJsonOcsSerializer =
@@ -4113,6 +4465,30 @@ Serializer<RoomRemoveFromFavoritesResponseApplicationJson_Ocs>
     _$RoomRemoveFromFavoritesResponseApplicationJson_OcsSerializer();
 Serializer<RoomRemoveFromFavoritesResponseApplicationJson> _$roomRemoveFromFavoritesResponseApplicationJsonSerializer =
     _$RoomRemoveFromFavoritesResponseApplicationJsonSerializer();
+Serializer<RoomMarkConversationAsImportantResponseApplicationJson_Ocs>
+    _$roomMarkConversationAsImportantResponseApplicationJsonOcsSerializer =
+    _$RoomMarkConversationAsImportantResponseApplicationJson_OcsSerializer();
+Serializer<RoomMarkConversationAsImportantResponseApplicationJson>
+    _$roomMarkConversationAsImportantResponseApplicationJsonSerializer =
+    _$RoomMarkConversationAsImportantResponseApplicationJsonSerializer();
+Serializer<RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs>
+    _$roomMarkConversationAsUnimportantResponseApplicationJsonOcsSerializer =
+    _$RoomMarkConversationAsUnimportantResponseApplicationJson_OcsSerializer();
+Serializer<RoomMarkConversationAsUnimportantResponseApplicationJson>
+    _$roomMarkConversationAsUnimportantResponseApplicationJsonSerializer =
+    _$RoomMarkConversationAsUnimportantResponseApplicationJsonSerializer();
+Serializer<RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs>
+    _$roomMarkConversationAsSensitiveResponseApplicationJsonOcsSerializer =
+    _$RoomMarkConversationAsSensitiveResponseApplicationJson_OcsSerializer();
+Serializer<RoomMarkConversationAsSensitiveResponseApplicationJson>
+    _$roomMarkConversationAsSensitiveResponseApplicationJsonSerializer =
+    _$RoomMarkConversationAsSensitiveResponseApplicationJsonSerializer();
+Serializer<RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs>
+    _$roomMarkConversationAsInsensitiveResponseApplicationJsonOcsSerializer =
+    _$RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsSerializer();
+Serializer<RoomMarkConversationAsInsensitiveResponseApplicationJson>
+    _$roomMarkConversationAsInsensitiveResponseApplicationJsonSerializer =
+    _$RoomMarkConversationAsInsensitiveResponseApplicationJsonSerializer();
 Serializer<RoomSetNotificationLevelRequestApplicationJson> _$roomSetNotificationLevelRequestApplicationJsonSerializer =
     _$RoomSetNotificationLevelRequestApplicationJsonSerializer();
 Serializer<RoomSetNotificationLevelResponseApplicationJson_Ocs>
@@ -4168,6 +4544,8 @@ Serializer<Capabilities_Config_Previews> _$capabilitiesConfigPreviewsSerializer 
     _$Capabilities_Config_PreviewsSerializer();
 Serializer<Capabilities_Config_Signaling> _$capabilitiesConfigSignalingSerializer =
     _$Capabilities_Config_SignalingSerializer();
+Serializer<Capabilities_Config_Experiments> _$capabilitiesConfigExperimentsSerializer =
+    _$Capabilities_Config_ExperimentsSerializer();
 Serializer<Capabilities_Config> _$capabilitiesConfigSerializer = _$Capabilities_ConfigSerializer();
 Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
 Serializer<RoomGetCapabilitiesResponseApplicationJson_Ocs> _$roomGetCapabilitiesResponseApplicationJsonOcsSerializer =
@@ -4250,6 +4628,12 @@ Serializer<RoomVerifyDialOutNumberResponseApplicationJson_Ocs>
     _$RoomVerifyDialOutNumberResponseApplicationJson_OcsSerializer();
 Serializer<RoomVerifyDialOutNumberResponseApplicationJson> _$roomVerifyDialOutNumberResponseApplicationJsonSerializer =
     _$RoomVerifyDialOutNumberResponseApplicationJsonSerializer();
+Serializer<RoomDirectDialInRequestApplicationJson> _$roomDirectDialInRequestApplicationJsonSerializer =
+    _$RoomDirectDialInRequestApplicationJsonSerializer();
+Serializer<RoomDirectDialInResponseApplicationJson_Ocs> _$roomDirectDialInResponseApplicationJsonOcsSerializer =
+    _$RoomDirectDialInResponseApplicationJson_OcsSerializer();
+Serializer<RoomDirectDialInResponseApplicationJson> _$roomDirectDialInResponseApplicationJsonSerializer =
+    _$RoomDirectDialInResponseApplicationJsonSerializer();
 Serializer<RoomCreateGuestByDialInResponseApplicationJson_Ocs>
     _$roomCreateGuestByDialInResponseApplicationJsonOcsSerializer =
     _$RoomCreateGuestByDialInResponseApplicationJson_OcsSerializer();
@@ -4298,6 +4682,9 @@ Serializer<SettingsSetsipSettingsResponseApplicationJson_Ocs>
     _$SettingsSetsipSettingsResponseApplicationJson_OcsSerializer();
 Serializer<SettingsSetsipSettingsResponseApplicationJson> _$settingsSetsipSettingsResponseApplicationJsonSerializer =
     _$SettingsSetsipSettingsResponseApplicationJsonSerializer();
+Serializer<SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data>
+    _$signalingGetWelcomeMessageResponseApplicationJsonOcsDataSerializer =
+    _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataSerializer();
 Serializer<SignalingGetWelcomeMessageResponseApplicationJson_Ocs>
     _$signalingGetWelcomeMessageResponseApplicationJsonOcsSerializer =
     _$SignalingGetWelcomeMessageResponseApplicationJson_OcsSerializer();
@@ -4330,6 +4717,8 @@ Serializer<TempAvatarDeleteAvatarResponseApplicationJson_Ocs>
 Serializer<TempAvatarDeleteAvatarResponseApplicationJson> _$tempAvatarDeleteAvatarResponseApplicationJsonSerializer =
     _$TempAvatarDeleteAvatarResponseApplicationJsonSerializer();
 Serializer<PublicCapabilities> _$publicCapabilitiesSerializer = _$PublicCapabilitiesSerializer();
+Serializer<RoomWithInvalidInvitations> _$roomWithInvalidInvitationsSerializer =
+    _$RoomWithInvalidInvitationsSerializer();
 
 class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
@@ -4834,6 +5223,18 @@ class _$RoomSerializer implements StructuredSerializer<Room> {
         ..add('statusMessage')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
+    value = object.isImportant;
+    if (value != null) {
+      result
+        ..add('isImportant')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.isSensitive;
+    if (value != null) {
+      result
+        ..add('isSensitive')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     return result;
   }
 
@@ -5025,6 +5426,12 @@ class _$RoomSerializer implements StructuredSerializer<Room> {
           break;
         case 'isArchived':
           result.isArchived = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'isImportant':
+          result.isImportant = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'isSensitive':
+          result.isSensitive = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
       }
     }
@@ -7481,6 +7888,470 @@ class _$BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonSerializer
   }
 }
 
+class _$DashboardEventCalendarSerializer implements StructuredSerializer<DashboardEventCalendar> {
+  @override
+  final Iterable<Type> types = const [DashboardEventCalendar, _$DashboardEventCalendar];
+  @override
+  final String wireName = 'DashboardEventCalendar';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, DashboardEventCalendar object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'principalUri',
+      serializers.serialize(object.principalUri, specifiedType: const FullType(String)),
+      'calendarName',
+      serializers.serialize(object.calendarName, specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.calendarColor;
+    if (value != null) {
+      result
+        ..add('calendarColor')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  DashboardEventCalendar deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = DashboardEventCalendarBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'principalUri':
+          result.principalUri = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'calendarName':
+          result.calendarName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'calendarColor':
+          result.calendarColor = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$DashboardEventAttachmentSerializer implements StructuredSerializer<DashboardEventAttachment> {
+  @override
+  final Iterable<Type> types = const [DashboardEventAttachment, _$DashboardEventAttachment];
+  @override
+  final String wireName = 'DashboardEventAttachment';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, DashboardEventAttachment object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'calendars',
+      serializers.serialize(object.calendars, specifiedType: const FullType(BuiltList, const [const FullType(String)])),
+      'fmttype',
+      serializers.serialize(object.fmttype, specifiedType: const FullType(String)),
+      'filename',
+      serializers.serialize(object.filename, specifiedType: const FullType(String)),
+      'fileid',
+      serializers.serialize(object.fileid, specifiedType: const FullType(int)),
+      'preview',
+      serializers.serialize(object.preview, specifiedType: const FullType(bool)),
+    ];
+    Object? value;
+    value = object.previewLink;
+    if (value != null) {
+      result
+        ..add('previewLink')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  DashboardEventAttachment deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = DashboardEventAttachmentBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'calendars':
+          result.calendars.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'fmttype':
+          result.fmttype = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'filename':
+          result.filename = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'fileid':
+          result.fileid = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'preview':
+          result.preview = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'previewLink':
+          result.previewLink = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$DashboardEventSerializer implements StructuredSerializer<DashboardEvent> {
+  @override
+  final Iterable<Type> types = const [DashboardEvent, _$DashboardEvent];
+  @override
+  final String wireName = 'DashboardEvent';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, DashboardEvent object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'calendars',
+      serializers.serialize(object.calendars,
+          specifiedType: const FullType(BuiltList, const [const FullType(DashboardEventCalendar)])),
+      'eventName',
+      serializers.serialize(object.eventName, specifiedType: const FullType(String)),
+      'eventAttachments',
+      serializers.serialize(object.eventAttachments,
+          specifiedType:
+              const FullType(BuiltMap, const [const FullType(String), const FullType(DashboardEventAttachment)])),
+      'eventLink',
+      serializers.serialize(object.eventLink, specifiedType: const FullType(String)),
+      'start',
+      serializers.serialize(object.start, specifiedType: const FullType(int)),
+      'end',
+      serializers.serialize(object.end, specifiedType: const FullType(int)),
+      'roomToken',
+      serializers.serialize(object.roomToken, specifiedType: const FullType(String)),
+      'roomAvatarVersion',
+      serializers.serialize(object.roomAvatarVersion, specifiedType: const FullType(String)),
+      'roomName',
+      serializers.serialize(object.roomName, specifiedType: const FullType(String)),
+      'roomDisplayName',
+      serializers.serialize(object.roomDisplayName, specifiedType: const FullType(String)),
+      'roomType',
+      serializers.serialize(object.roomType, specifiedType: const FullType(int)),
+    ];
+    Object? value;
+    value = object.eventDescription;
+    if (value != null) {
+      result
+        ..add('eventDescription')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.roomActiveSince;
+    if (value != null) {
+      result
+        ..add('roomActiveSince')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.invited;
+    if (value != null) {
+      result
+        ..add('invited')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.accepted;
+    if (value != null) {
+      result
+        ..add('accepted')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.tentative;
+    if (value != null) {
+      result
+        ..add('tentative')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.declined;
+    if (value != null) {
+      result
+        ..add('declined')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    return result;
+  }
+
+  @override
+  DashboardEvent deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = DashboardEventBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'calendars':
+          result.calendars.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(DashboardEventCalendar)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'eventName':
+          result.eventName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'eventDescription':
+          result.eventDescription = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'eventAttachments':
+          result.eventAttachments.replace(serializers.deserialize(value,
+              specifiedType:
+                  const FullType(BuiltMap, const [const FullType(String), const FullType(DashboardEventAttachment)]))!);
+          break;
+        case 'eventLink':
+          result.eventLink = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'start':
+          result.start = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'end':
+          result.end = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'roomToken':
+          result.roomToken = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'roomAvatarVersion':
+          result.roomAvatarVersion = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'roomName':
+          result.roomName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'roomDisplayName':
+          result.roomDisplayName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'roomType':
+          result.roomType = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'roomActiveSince':
+          result.roomActiveSince = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'invited':
+          result.invited = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'accepted':
+          result.accepted = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'tentative':
+          result.tentative = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'declined':
+          result.declined = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs,
+    _$CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(BuiltList, const [const FullType(DashboardEvent)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [const FullType(DashboardEvent)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CalendarIntegrationGetDashboardEventsResponseApplicationJsonSerializer
+    implements StructuredSerializer<CalendarIntegrationGetDashboardEventsResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    CalendarIntegrationGetDashboardEventsResponseApplicationJson,
+    _$CalendarIntegrationGetDashboardEventsResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'CalendarIntegrationGetDashboardEventsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, CalendarIntegrationGetDashboardEventsResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CalendarIntegrationGetDashboardEventsResponseApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CalendarIntegrationGetDashboardEventsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs))!
+              as CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs,
+    _$CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(BuiltList, const [const FullType(DashboardEvent)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [const FullType(DashboardEvent)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CalendarIntegrationGetMutualEventsResponseApplicationJsonSerializer
+    implements StructuredSerializer<CalendarIntegrationGetMutualEventsResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    CalendarIntegrationGetMutualEventsResponseApplicationJson,
+    _$CalendarIntegrationGetMutualEventsResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'CalendarIntegrationGetMutualEventsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CalendarIntegrationGetMutualEventsResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CalendarIntegrationGetMutualEventsResponseApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CalendarIntegrationGetMutualEventsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs))!
+              as CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$CallPeerSerializer implements StructuredSerializer<CallPeer> {
   @override
   final Iterable<Type> types = const [CallPeer, _$CallPeer];
@@ -7788,6 +8659,8 @@ class _$CallJoinCallRequestApplicationJsonSerializer
       serializers.serialize(object.silent, specifiedType: const FullType(bool)),
       'recordingConsent',
       serializers.serialize(object.recordingConsent, specifiedType: const FullType(bool)),
+      'silentFor',
+      serializers.serialize(object.silentFor, specifiedType: const FullType(BuiltList, const [const FullType(String)])),
     ];
     Object? value;
     value = object.flags;
@@ -7818,6 +8691,10 @@ class _$CallJoinCallRequestApplicationJsonSerializer
           break;
         case 'recordingConsent':
           result.recordingConsent = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'silentFor':
+          result.silentFor.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -10435,6 +11312,182 @@ class _$ChatDeleteReminderResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(ChatDeleteReminderResponseApplicationJson_Ocs))!
               as ChatDeleteReminderResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ChatReminderUpcomingSerializer implements StructuredSerializer<ChatReminderUpcoming> {
+  @override
+  final Iterable<Type> types = const [ChatReminderUpcoming, _$ChatReminderUpcoming];
+  @override
+  final String wireName = 'ChatReminderUpcoming';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ChatReminderUpcoming object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'actorDisplayName',
+      serializers.serialize(object.actorDisplayName, specifiedType: const FullType(String)),
+      'actorId',
+      serializers.serialize(object.actorId, specifiedType: const FullType(String)),
+      'actorType',
+      serializers.serialize(object.actorType, specifiedType: const FullType(String)),
+      'message',
+      serializers.serialize(object.message, specifiedType: const FullType(String)),
+      'messageId',
+      serializers.serialize(object.messageId, specifiedType: const FullType(int)),
+      'messageParameters',
+      serializers.serialize(object.messageParameters,
+          specifiedType: const FullType(BuiltMap, const [
+            const FullType(String),
+            const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])
+          ])),
+      'reminderTimestamp',
+      serializers.serialize(object.reminderTimestamp, specifiedType: const FullType(int)),
+      'roomToken',
+      serializers.serialize(object.roomToken, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ChatReminderUpcoming deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ChatReminderUpcomingBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'actorDisplayName':
+          result.actorDisplayName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'actorId':
+          result.actorId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'actorType':
+          result.actorType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'message':
+          result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'messageId':
+          result.messageId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'messageParameters':
+          result.messageParameters.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])
+              ]))!);
+          break;
+        case 'reminderTimestamp':
+          result.reminderTimestamp = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'roomToken':
+          result.roomToken = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ChatGetUpcomingRemindersResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ChatGetUpcomingRemindersResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    ChatGetUpcomingRemindersResponseApplicationJson_Ocs,
+    _$ChatGetUpcomingRemindersResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'ChatGetUpcomingRemindersResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ChatGetUpcomingRemindersResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(BuiltList, const [const FullType(ChatReminderUpcoming)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  ChatGetUpcomingRemindersResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ChatGetUpcomingRemindersResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ChatReminderUpcoming)]))!
+              as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ChatGetUpcomingRemindersResponseApplicationJsonSerializer
+    implements StructuredSerializer<ChatGetUpcomingRemindersResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ChatGetUpcomingRemindersResponseApplicationJson,
+    _$ChatGetUpcomingRemindersResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'ChatGetUpcomingRemindersResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ChatGetUpcomingRemindersResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(ChatGetUpcomingRemindersResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ChatGetUpcomingRemindersResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ChatGetUpcomingRemindersResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ChatGetUpcomingRemindersResponseApplicationJson_Ocs))!
+              as ChatGetUpcomingRemindersResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -16409,6 +17462,98 @@ class _$RoomRoomGetRoomsHeadersSerializer implements StructuredSerializer<RoomRo
   }
 }
 
+class _$InvitationListSerializer implements StructuredSerializer<InvitationList> {
+  @override
+  final Iterable<Type> types = const [InvitationList, _$InvitationList];
+  @override
+  final String wireName = 'InvitationList';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, InvitationList object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.users;
+    if (value != null) {
+      result
+        ..add('users')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)])));
+    }
+    value = object.federatedUsers;
+    if (value != null) {
+      result
+        ..add('federated_users')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)])));
+    }
+    value = object.groups;
+    if (value != null) {
+      result
+        ..add('groups')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)])));
+    }
+    value = object.emails;
+    if (value != null) {
+      result
+        ..add('emails')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)])));
+    }
+    value = object.phones;
+    if (value != null) {
+      result
+        ..add('phones')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)])));
+    }
+    value = object.teams;
+    if (value != null) {
+      result
+        ..add('teams')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)])));
+    }
+    return result;
+  }
+
+  @override
+  InvitationList deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = InvitationListBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'users':
+          result.users.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'federated_users':
+          result.federatedUsers.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'groups':
+          result.groups.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'emails':
+          result.emails.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'phones':
+          result.phones.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'teams':
+          result.teams.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$RoomCreateRoomRequestApplicationJsonSerializer
     implements StructuredSerializer<RoomCreateRoomRequestApplicationJson> {
   @override
@@ -16434,8 +17579,80 @@ class _$RoomCreateRoomRequestApplicationJsonSerializer
       serializers.serialize(object.objectId, specifiedType: const FullType(String)),
       'password',
       serializers.serialize(object.password, specifiedType: const FullType(String)),
+      'messageExpiration',
+      serializers.serialize(object.messageExpiration, specifiedType: const FullType(int)),
+      'description',
+      serializers.serialize(object.description, specifiedType: const FullType(String)),
+      'participants',
+      serializers.serialize(object.participants, specifiedType: const FullType(InvitationList)),
     ];
-
+    Object? value;
+    value = object.readOnly;
+    if (value != null) {
+      result
+        ..add('readOnly')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(RoomCreateRoomRequestApplicationJson_ReadOnly)));
+    }
+    value = object.listable;
+    if (value != null) {
+      result
+        ..add('listable')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(RoomCreateRoomRequestApplicationJson_Listable)));
+    }
+    value = object.lobbyState;
+    if (value != null) {
+      result
+        ..add('lobbyState')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(RoomCreateRoomRequestApplicationJson_LobbyState)));
+    }
+    value = object.lobbyTimer;
+    if (value != null) {
+      result
+        ..add('lobbyTimer')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.sipEnabled;
+    if (value != null) {
+      result
+        ..add('sipEnabled')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(RoomCreateRoomRequestApplicationJson_SipEnabled)));
+    }
+    value = object.permissions;
+    if (value != null) {
+      result
+        ..add('permissions')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.recordingConsent;
+    if (value != null) {
+      result
+        ..add('recordingConsent')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(RoomCreateRoomRequestApplicationJson_RecordingConsent)));
+    }
+    value = object.mentionPermissions;
+    if (value != null) {
+      result
+        ..add('mentionPermissions')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(RoomCreateRoomRequestApplicationJson_MentionPermissions)));
+    }
+    value = object.emoji;
+    if (value != null) {
+      result
+        ..add('emoji')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.avatarColor;
+    if (value != null) {
+      result
+        ..add('avatarColor')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -16470,6 +17687,58 @@ class _$RoomCreateRoomRequestApplicationJsonSerializer
           break;
         case 'password':
           result.password = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'readOnly':
+          result.readOnly = serializers.deserialize(value,
+                  specifiedType: const FullType(RoomCreateRoomRequestApplicationJson_ReadOnly))
+              as RoomCreateRoomRequestApplicationJson_ReadOnly?;
+          break;
+        case 'listable':
+          result.listable = serializers.deserialize(value,
+                  specifiedType: const FullType(RoomCreateRoomRequestApplicationJson_Listable))
+              as RoomCreateRoomRequestApplicationJson_Listable?;
+          break;
+        case 'messageExpiration':
+          result.messageExpiration = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'lobbyState':
+          result.lobbyState = serializers.deserialize(value,
+                  specifiedType: const FullType(RoomCreateRoomRequestApplicationJson_LobbyState))
+              as RoomCreateRoomRequestApplicationJson_LobbyState?;
+          break;
+        case 'lobbyTimer':
+          result.lobbyTimer = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'sipEnabled':
+          result.sipEnabled = serializers.deserialize(value,
+                  specifiedType: const FullType(RoomCreateRoomRequestApplicationJson_SipEnabled))
+              as RoomCreateRoomRequestApplicationJson_SipEnabled?;
+          break;
+        case 'permissions':
+          result.permissions = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'recordingConsent':
+          result.recordingConsent = serializers.deserialize(value,
+                  specifiedType: const FullType(RoomCreateRoomRequestApplicationJson_RecordingConsent))
+              as RoomCreateRoomRequestApplicationJson_RecordingConsent?;
+          break;
+        case 'mentionPermissions':
+          result.mentionPermissions = serializers.deserialize(value,
+                  specifiedType: const FullType(RoomCreateRoomRequestApplicationJson_MentionPermissions))
+              as RoomCreateRoomRequestApplicationJson_MentionPermissions?;
+          break;
+        case 'description':
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'emoji':
+          result.emoji = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'avatarColor':
+          result.avatarColor = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'participants':
+          result.participants.replace(
+              serializers.deserialize(value, specifiedType: const FullType(InvitationList))! as InvitationList);
           break;
       }
     }
@@ -17232,6 +18501,98 @@ class _$RoomGetBreakoutRoomsResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(RoomGetBreakoutRoomsResponseApplicationJson_Ocs))!
               as RoomGetBreakoutRoomsResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RoomUnbindRoomFromObjectResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomUnbindRoomFromObjectResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    RoomUnbindRoomFromObjectResponseApplicationJson_Ocs,
+    _$RoomUnbindRoomFromObjectResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'RoomUnbindRoomFromObjectResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RoomUnbindRoomFromObjectResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Room)),
+    ];
+
+    return result;
+  }
+
+  @override
+  RoomUnbindRoomFromObjectResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RoomUnbindRoomFromObjectResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(Room))! as Room);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RoomUnbindRoomFromObjectResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomUnbindRoomFromObjectResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    RoomUnbindRoomFromObjectResponseApplicationJson,
+    _$RoomUnbindRoomFromObjectResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'RoomUnbindRoomFromObjectResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RoomUnbindRoomFromObjectResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(RoomUnbindRoomFromObjectResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  RoomUnbindRoomFromObjectResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RoomUnbindRoomFromObjectResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(RoomUnbindRoomFromObjectResponseApplicationJson_Ocs))!
+              as RoomUnbindRoomFromObjectResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -20225,6 +21586,386 @@ class _$RoomRemoveFromFavoritesResponseApplicationJsonSerializer
   }
 }
 
+class _$RoomMarkConversationAsImportantResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomMarkConversationAsImportantResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    RoomMarkConversationAsImportantResponseApplicationJson_Ocs,
+    _$RoomMarkConversationAsImportantResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'RoomMarkConversationAsImportantResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, RoomMarkConversationAsImportantResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Room)),
+    ];
+
+    return result;
+  }
+
+  @override
+  RoomMarkConversationAsImportantResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RoomMarkConversationAsImportantResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(Room))! as Room);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RoomMarkConversationAsImportantResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomMarkConversationAsImportantResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    RoomMarkConversationAsImportantResponseApplicationJson,
+    _$RoomMarkConversationAsImportantResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'RoomMarkConversationAsImportantResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RoomMarkConversationAsImportantResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(RoomMarkConversationAsImportantResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  RoomMarkConversationAsImportantResponseApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RoomMarkConversationAsImportantResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(RoomMarkConversationAsImportantResponseApplicationJson_Ocs))!
+              as RoomMarkConversationAsImportantResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RoomMarkConversationAsUnimportantResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs,
+    _$RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Room)),
+    ];
+
+    return result;
+  }
+
+  @override
+  RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RoomMarkConversationAsUnimportantResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(Room))! as Room);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RoomMarkConversationAsUnimportantResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomMarkConversationAsUnimportantResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    RoomMarkConversationAsUnimportantResponseApplicationJson,
+    _$RoomMarkConversationAsUnimportantResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'RoomMarkConversationAsUnimportantResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RoomMarkConversationAsUnimportantResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  RoomMarkConversationAsUnimportantResponseApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RoomMarkConversationAsUnimportantResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs))!
+              as RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RoomMarkConversationAsSensitiveResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs,
+    _$RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Room)),
+    ];
+
+    return result;
+  }
+
+  @override
+  RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RoomMarkConversationAsSensitiveResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(Room))! as Room);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RoomMarkConversationAsSensitiveResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomMarkConversationAsSensitiveResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    RoomMarkConversationAsSensitiveResponseApplicationJson,
+    _$RoomMarkConversationAsSensitiveResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'RoomMarkConversationAsSensitiveResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RoomMarkConversationAsSensitiveResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  RoomMarkConversationAsSensitiveResponseApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RoomMarkConversationAsSensitiveResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs))!
+              as RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs,
+    _$RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Room)),
+    ];
+
+    return result;
+  }
+
+  @override
+  RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(Room))! as Room);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RoomMarkConversationAsInsensitiveResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomMarkConversationAsInsensitiveResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    RoomMarkConversationAsInsensitiveResponseApplicationJson,
+    _$RoomMarkConversationAsInsensitiveResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'RoomMarkConversationAsInsensitiveResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RoomMarkConversationAsInsensitiveResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  RoomMarkConversationAsInsensitiveResponseApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RoomMarkConversationAsInsensitiveResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs))!
+              as RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$RoomSetNotificationLevelRequestApplicationJsonSerializer
     implements StructuredSerializer<RoomSetNotificationLevelRequestApplicationJson> {
   @override
@@ -20505,7 +22246,7 @@ class _$RoomSetLobbyRequestApplicationJsonSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'state',
-      serializers.serialize(object.state, specifiedType: const FullType(int)),
+      serializers.serialize(object.state, specifiedType: const FullType(RoomSetLobbyRequestApplicationJson_State)),
     ];
     Object? value;
     value = object.timer;
@@ -20529,7 +22270,9 @@ class _$RoomSetLobbyRequestApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'state':
-          result.state = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.state =
+              serializers.deserialize(value, specifiedType: const FullType(RoomSetLobbyRequestApplicationJson_State))!
+                  as RoomSetLobbyRequestApplicationJson_State;
           break;
         case 'timer':
           result.timer = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
@@ -21116,6 +22859,12 @@ class _$Capabilities_Config_CallSerializer implements StructuredSerializer<Capab
       serializers.serialize(object.canEnableSip, specifiedType: const FullType(bool)),
     ];
     Object? value;
+    value = object.predefinedBackgroundsV2;
+    if (value != null) {
+      result
+        ..add('predefined-backgrounds-v2')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)])));
+    }
     value = object.startWithoutMedia;
     if (value != null) {
       result
@@ -21172,6 +22921,10 @@ class _$Capabilities_Config_CallSerializer implements StructuredSerializer<Capab
           break;
         case 'predefined-backgrounds':
           result.predefinedBackgrounds.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'predefined-backgrounds-v2':
+          result.predefinedBackgroundsV2.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
           break;
         case 'can-upload-background':
@@ -21309,6 +23062,24 @@ class _$Capabilities_Config_ConversationsSerializer implements StructuredSeriali
         ..add('description-length')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
+    value = object.retentionEvent;
+    if (value != null) {
+      result
+        ..add('retention-event')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.retentionPhone;
+    if (value != null) {
+      result
+        ..add('retention-phone')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.retentionInstantMeetings;
+    if (value != null) {
+      result
+        ..add('retention-instant-meetings')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     return result;
   }
 
@@ -21336,6 +23107,15 @@ class _$Capabilities_Config_ConversationsSerializer implements StructuredSeriali
           break;
         case 'description-length':
           result.descriptionLength = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'retention-event':
+          result.retentionEvent = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'retention-phone':
+          result.retentionPhone = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'retention-instant-meetings':
+          result.retentionInstantMeetings = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
       }
     }
@@ -21482,6 +23262,44 @@ class _$Capabilities_Config_SignalingSerializer implements StructuredSerializer<
   }
 }
 
+class _$Capabilities_Config_ExperimentsSerializer implements StructuredSerializer<Capabilities_Config_Experiments> {
+  @override
+  final Iterable<Type> types = const [Capabilities_Config_Experiments, _$Capabilities_Config_Experiments];
+  @override
+  final String wireName = 'Capabilities_Config_Experiments';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_Config_Experiments object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(int)),
+    ];
+
+    return result;
+  }
+
+  @override
+  Capabilities_Config_Experiments deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = Capabilities_Config_ExperimentsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$Capabilities_ConfigSerializer implements StructuredSerializer<Capabilities_Config> {
   @override
   final Iterable<Type> types = const [Capabilities_Config, _$Capabilities_Config];
@@ -21507,7 +23325,13 @@ class _$Capabilities_ConfigSerializer implements StructuredSerializer<Capabiliti
       'signaling',
       serializers.serialize(object.signaling, specifiedType: const FullType(Capabilities_Config_Signaling)),
     ];
-
+    Object? value;
+    value = object.experiments;
+    if (value != null) {
+      result
+        ..add('experiments')
+        ..add(serializers.serialize(value, specifiedType: const FullType(Capabilities_Config_Experiments)));
+    }
     return result;
   }
 
@@ -21549,6 +23373,10 @@ class _$Capabilities_ConfigSerializer implements StructuredSerializer<Capabiliti
         case 'signaling':
           result.signaling.replace(serializers.deserialize(value,
               specifiedType: const FullType(Capabilities_Config_Signaling))! as Capabilities_Config_Signaling);
+          break;
+        case 'experiments':
+          result.experiments.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Capabilities_Config_Experiments))! as Capabilities_Config_Experiments);
           break;
       }
     }
@@ -23198,6 +25026,141 @@ class _$RoomVerifyDialOutNumberResponseApplicationJsonSerializer
   }
 }
 
+class _$RoomDirectDialInRequestApplicationJsonSerializer
+    implements StructuredSerializer<RoomDirectDialInRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [RoomDirectDialInRequestApplicationJson, _$RoomDirectDialInRequestApplicationJson];
+  @override
+  final String wireName = 'RoomDirectDialInRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RoomDirectDialInRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'phoneNumber',
+      serializers.serialize(object.phoneNumber, specifiedType: const FullType(String)),
+      'caller',
+      serializers.serialize(object.caller, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  RoomDirectDialInRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RoomDirectDialInRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'phoneNumber':
+          result.phoneNumber = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'caller':
+          result.caller = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RoomDirectDialInResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomDirectDialInResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    RoomDirectDialInResponseApplicationJson_Ocs,
+    _$RoomDirectDialInResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'RoomDirectDialInResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RoomDirectDialInResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Room)),
+    ];
+
+    return result;
+  }
+
+  @override
+  RoomDirectDialInResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RoomDirectDialInResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(Room))! as Room);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RoomDirectDialInResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomDirectDialInResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    RoomDirectDialInResponseApplicationJson,
+    _$RoomDirectDialInResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'RoomDirectDialInResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RoomDirectDialInResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomDirectDialInResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  RoomDirectDialInResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RoomDirectDialInResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(RoomDirectDialInResponseApplicationJson_Ocs))!
+              as RoomDirectDialInResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$RoomCreateGuestByDialInResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomCreateGuestByDialInResponseApplicationJson_Ocs> {
   @override
@@ -24155,6 +26118,69 @@ class _$SettingsSetsipSettingsResponseApplicationJsonSerializer
   }
 }
 
+class _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data,
+    _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'version',
+      serializers.serialize(object.version, specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.warning;
+    if (value != null) {
+      result
+        ..add('warning')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.features;
+    if (value != null) {
+      result
+        ..add('features')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)])));
+    }
+    return result;
+  }
+
+  @override
+  SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'version':
+          result.version = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'warning':
+          result.warning = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'features':
+          result.features.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$SignalingGetWelcomeMessageResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<SignalingGetWelcomeMessageResponseApplicationJson_Ocs> {
   @override
@@ -24173,7 +26199,7 @@ class _$SignalingGetWelcomeMessageResponseApplicationJson_OcsSerializer
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])),
+          specifiedType: const FullType(SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data)),
     ];
 
     return result;
@@ -24196,7 +26222,8 @@ class _$SignalingGetWelcomeMessageResponseApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]))!);
+                  specifiedType: const FullType(SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data))!
+              as SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -24842,6 +26869,395 @@ class _$PublicCapabilitiesSerializer implements StructuredSerializer<PublicCapab
         case 'spreed':
           result.spreed
               .replace(serializers.deserialize(value, specifiedType: const FullType(Capabilities))! as Capabilities);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$RoomWithInvalidInvitationsSerializer implements StructuredSerializer<RoomWithInvalidInvitations> {
+  @override
+  final Iterable<Type> types = const [RoomWithInvalidInvitations, _$RoomWithInvalidInvitations];
+  @override
+  final String wireName = 'RoomWithInvalidInvitations';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RoomWithInvalidInvitations object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'invalidParticipants',
+      serializers.serialize(object.invalidParticipants, specifiedType: const FullType(InvitationList)),
+      'actorId',
+      serializers.serialize(object.actorId, specifiedType: const FullType(String)),
+      'actorType',
+      serializers.serialize(object.actorType, specifiedType: const FullType(ActorTypes)),
+      'attendeeId',
+      serializers.serialize(object.attendeeId, specifiedType: const FullType(int)),
+      'attendeePermissions',
+      serializers.serialize(object.attendeePermissions, specifiedType: const FullType(int)),
+      'avatarVersion',
+      serializers.serialize(object.avatarVersion, specifiedType: const FullType(String)),
+      'breakoutRoomMode',
+      serializers.serialize(object.breakoutRoomMode, specifiedType: const FullType(int)),
+      'breakoutRoomStatus',
+      serializers.serialize(object.breakoutRoomStatus, specifiedType: const FullType(int)),
+      'callFlag',
+      serializers.serialize(object.callFlag, specifiedType: const FullType(int)),
+      'callPermissions',
+      serializers.serialize(object.callPermissions, specifiedType: const FullType(int)),
+      'callRecording',
+      serializers.serialize(object.callRecording, specifiedType: const FullType(int)),
+      'callStartTime',
+      serializers.serialize(object.callStartTime, specifiedType: const FullType(int)),
+      'canDeleteConversation',
+      serializers.serialize(object.canDeleteConversation, specifiedType: const FullType(bool)),
+      'canEnableSIP',
+      serializers.serialize(object.canEnableSIP, specifiedType: const FullType(bool)),
+      'canLeaveConversation',
+      serializers.serialize(object.canLeaveConversation, specifiedType: const FullType(bool)),
+      'canStartCall',
+      serializers.serialize(object.canStartCall, specifiedType: const FullType(bool)),
+      'defaultPermissions',
+      serializers.serialize(object.defaultPermissions, specifiedType: const FullType(int)),
+      'description',
+      serializers.serialize(object.description, specifiedType: const FullType(String)),
+      'displayName',
+      serializers.serialize(object.displayName, specifiedType: const FullType(String)),
+      'hasCall',
+      serializers.serialize(object.hasCall, specifiedType: const FullType(bool)),
+      'hasPassword',
+      serializers.serialize(object.hasPassword, specifiedType: const FullType(bool)),
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      'isCustomAvatar',
+      serializers.serialize(object.isCustomAvatar, specifiedType: const FullType(bool)),
+      'isFavorite',
+      serializers.serialize(object.isFavorite, specifiedType: const FullType(bool)),
+      'lastActivity',
+      serializers.serialize(object.lastActivity, specifiedType: const FullType(int)),
+      'lastCommonReadMessage',
+      serializers.serialize(object.lastCommonReadMessage, specifiedType: const FullType(int)),
+      'lastPing',
+      serializers.serialize(object.lastPing, specifiedType: const FullType(int)),
+      'lastReadMessage',
+      serializers.serialize(object.lastReadMessage, specifiedType: const FullType(int)),
+      'listable',
+      serializers.serialize(object.listable, specifiedType: const FullType(int)),
+      'lobbyState',
+      serializers.serialize(object.lobbyState, specifiedType: const FullType(int)),
+      'lobbyTimer',
+      serializers.serialize(object.lobbyTimer, specifiedType: const FullType(int)),
+      'mentionPermissions',
+      serializers.serialize(object.mentionPermissions, specifiedType: const FullType(int)),
+      'messageExpiration',
+      serializers.serialize(object.messageExpiration, specifiedType: const FullType(int)),
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'notificationCalls',
+      serializers.serialize(object.notificationCalls, specifiedType: const FullType(int)),
+      'notificationLevel',
+      serializers.serialize(object.notificationLevel, specifiedType: const FullType(int)),
+      'objectId',
+      serializers.serialize(object.objectId, specifiedType: const FullType(String)),
+      'objectType',
+      serializers.serialize(object.objectType, specifiedType: const FullType(String)),
+      'participantFlags',
+      serializers.serialize(object.participantFlags, specifiedType: const FullType(int)),
+      'participantType',
+      serializers.serialize(object.participantType, specifiedType: const FullType(int)),
+      'permissions',
+      serializers.serialize(object.permissions, specifiedType: const FullType(int)),
+      'readOnly',
+      serializers.serialize(object.readOnly, specifiedType: const FullType(int)),
+      'recordingConsent',
+      serializers.serialize(object.recordingConsent, specifiedType: const FullType(int)),
+      'sessionId',
+      serializers.serialize(object.sessionId, specifiedType: const FullType(String)),
+      'sipEnabled',
+      serializers.serialize(object.sipEnabled, specifiedType: const FullType(int)),
+      'token',
+      serializers.serialize(object.token, specifiedType: const FullType(String)),
+      'type',
+      serializers.serialize(object.type, specifiedType: const FullType(int)),
+      'unreadMention',
+      serializers.serialize(object.unreadMention, specifiedType: const FullType(bool)),
+      'unreadMentionDirect',
+      serializers.serialize(object.unreadMentionDirect, specifiedType: const FullType(bool)),
+      'unreadMessages',
+      serializers.serialize(object.unreadMessages, specifiedType: const FullType(int)),
+      'isArchived',
+      serializers.serialize(object.isArchived, specifiedType: const FullType(bool)),
+    ];
+    Object? value;
+    value = object.invitedActorId;
+    if (value != null) {
+      result
+        ..add('invitedActorId')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.attendeePin;
+    if (value != null) {
+      result
+        ..add('attendeePin')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.lastMessage;
+    if (value != null) {
+      result
+        ..add('lastMessage')
+        ..add(serializers.serialize(value, specifiedType: const FullType(RoomLastMessage)));
+    }
+    value = object.remoteServer;
+    if (value != null) {
+      result
+        ..add('remoteServer')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.remoteToken;
+    if (value != null) {
+      result
+        ..add('remoteToken')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.status;
+    if (value != null) {
+      result
+        ..add('status')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.statusClearAt;
+    if (value != null) {
+      result
+        ..add('statusClearAt')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.statusIcon;
+    if (value != null) {
+      result
+        ..add('statusIcon')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.statusMessage;
+    if (value != null) {
+      result
+        ..add('statusMessage')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.isImportant;
+    if (value != null) {
+      result
+        ..add('isImportant')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.isSensitive;
+    if (value != null) {
+      result
+        ..add('isSensitive')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    return result;
+  }
+
+  @override
+  RoomWithInvalidInvitations deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RoomWithInvalidInvitationsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'invalidParticipants':
+          result.invalidParticipants.replace(
+              serializers.deserialize(value, specifiedType: const FullType(InvitationList))! as InvitationList);
+          break;
+        case 'actorId':
+          result.actorId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'invitedActorId':
+          result.invitedActorId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'actorType':
+          result.actorType = serializers.deserialize(value, specifiedType: const FullType(ActorTypes))! as ActorTypes;
+          break;
+        case 'attendeeId':
+          result.attendeeId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'attendeePermissions':
+          result.attendeePermissions = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'attendeePin':
+          result.attendeePin = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'avatarVersion':
+          result.avatarVersion = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'breakoutRoomMode':
+          result.breakoutRoomMode = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'breakoutRoomStatus':
+          result.breakoutRoomStatus = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'callFlag':
+          result.callFlag = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'callPermissions':
+          result.callPermissions = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'callRecording':
+          result.callRecording = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'callStartTime':
+          result.callStartTime = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'canDeleteConversation':
+          result.canDeleteConversation = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'canEnableSIP':
+          result.canEnableSIP = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'canLeaveConversation':
+          result.canLeaveConversation = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'canStartCall':
+          result.canStartCall = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'defaultPermissions':
+          result.defaultPermissions = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'description':
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'displayName':
+          result.displayName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'hasCall':
+          result.hasCall = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'hasPassword':
+          result.hasPassword = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'isCustomAvatar':
+          result.isCustomAvatar = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'isFavorite':
+          result.isFavorite = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'lastActivity':
+          result.lastActivity = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'lastCommonReadMessage':
+          result.lastCommonReadMessage = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'lastMessage':
+          result.lastMessage =
+              serializers.deserialize(value, specifiedType: const FullType(RoomLastMessage)) as RoomLastMessage?;
+          break;
+        case 'lastPing':
+          result.lastPing = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'lastReadMessage':
+          result.lastReadMessage = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'listable':
+          result.listable = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'lobbyState':
+          result.lobbyState = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'lobbyTimer':
+          result.lobbyTimer = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'mentionPermissions':
+          result.mentionPermissions = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'messageExpiration':
+          result.messageExpiration = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'name':
+          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'notificationCalls':
+          result.notificationCalls = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'notificationLevel':
+          result.notificationLevel = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'objectId':
+          result.objectId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'objectType':
+          result.objectType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'participantFlags':
+          result.participantFlags = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'participantType':
+          result.participantType = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'permissions':
+          result.permissions = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'readOnly':
+          result.readOnly = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'recordingConsent':
+          result.recordingConsent = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'remoteServer':
+          result.remoteServer = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'remoteToken':
+          result.remoteToken = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'sessionId':
+          result.sessionId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'sipEnabled':
+          result.sipEnabled = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'status':
+          result.status = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'statusClearAt':
+          result.statusClearAt = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'statusIcon':
+          result.statusIcon = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'statusMessage':
+          result.statusMessage = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'token':
+          result.token = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'type':
+          result.type = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'unreadMention':
+          result.unreadMention = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'unreadMentionDirect':
+          result.unreadMentionDirect = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'unreadMessages':
+          result.unreadMessages = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'isArchived':
+          result.isArchived = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'isImportant':
+          result.isImportant = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'isSensitive':
+          result.isSensitive = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
       }
     }
@@ -25811,6 +28227,12 @@ abstract mixin class $RoomInterfaceBuilder {
 
   bool? get isArchived;
   set isArchived(bool? isArchived);
+
+  bool? get isImportant;
+  set isImportant(bool? isImportant);
+
+  bool? get isSensitive;
+  set isSensitive(bool? isSensitive);
 }
 
 class _$Room extends Room {
@@ -25932,6 +28354,10 @@ class _$Room extends Room {
   final int unreadMessages;
   @override
   final bool isArchived;
+  @override
+  final bool? isImportant;
+  @override
+  final bool? isSensitive;
 
   factory _$Room([void Function(RoomBuilder)? updates]) => (RoomBuilder()..update(updates))._build();
 
@@ -25994,7 +28420,9 @@ class _$Room extends Room {
       required this.unreadMention,
       required this.unreadMentionDirect,
       required this.unreadMessages,
-      required this.isArchived})
+      required this.isArchived,
+      this.isImportant,
+      this.isSensitive})
       : super._();
   @override
   Room rebuild(void Function(RoomBuilder) updates) => (toBuilder()..update(updates)).build();
@@ -26065,7 +28493,9 @@ class _$Room extends Room {
         unreadMention == other.unreadMention &&
         unreadMentionDirect == other.unreadMentionDirect &&
         unreadMessages == other.unreadMessages &&
-        isArchived == other.isArchived;
+        isArchived == other.isArchived &&
+        isImportant == other.isImportant &&
+        isSensitive == other.isSensitive;
   }
 
   @override
@@ -26130,6 +28560,8 @@ class _$Room extends Room {
     _$hash = $jc(_$hash, unreadMentionDirect.hashCode);
     _$hash = $jc(_$hash, unreadMessages.hashCode);
     _$hash = $jc(_$hash, isArchived.hashCode);
+    _$hash = $jc(_$hash, isImportant.hashCode);
+    _$hash = $jc(_$hash, isSensitive.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -26195,7 +28627,9 @@ class _$Room extends Room {
           ..add('unreadMention', unreadMention)
           ..add('unreadMentionDirect', unreadMentionDirect)
           ..add('unreadMessages', unreadMessages)
-          ..add('isArchived', isArchived))
+          ..add('isArchived', isArchived)
+          ..add('isImportant', isImportant)
+          ..add('isSensitive', isSensitive))
         .toString();
   }
 }
@@ -26441,6 +28875,14 @@ class RoomBuilder implements Builder<Room, RoomBuilder>, $RoomInterfaceBuilder {
   bool? get isArchived => _$this._isArchived;
   set isArchived(covariant bool? isArchived) => _$this._isArchived = isArchived;
 
+  bool? _isImportant;
+  bool? get isImportant => _$this._isImportant;
+  set isImportant(covariant bool? isImportant) => _$this._isImportant = isImportant;
+
+  bool? _isSensitive;
+  bool? get isSensitive => _$this._isSensitive;
+  set isSensitive(covariant bool? isSensitive) => _$this._isSensitive = isSensitive;
+
   RoomBuilder() {
     Room._defaults(this);
   }
@@ -26507,6 +28949,8 @@ class RoomBuilder implements Builder<Room, RoomBuilder>, $RoomInterfaceBuilder {
       _unreadMentionDirect = $v.unreadMentionDirect;
       _unreadMessages = $v.unreadMessages;
       _isArchived = $v.isArchived;
+      _isImportant = $v.isImportant;
+      _isSensitive = $v.isSensitive;
       _$v = null;
     }
     return this;
@@ -26593,6 +29037,8 @@ class RoomBuilder implements Builder<Room, RoomBuilder>, $RoomInterfaceBuilder {
               BuiltValueNullFieldError.checkNotNull(unreadMentionDirect, r'Room', 'unreadMentionDirect'),
           unreadMessages: BuiltValueNullFieldError.checkNotNull(unreadMessages, r'Room', 'unreadMessages'),
           isArchived: BuiltValueNullFieldError.checkNotNull(isArchived, r'Room', 'isArchived'),
+          isImportant: isImportant,
+          isSensitive: isSensitive,
         );
     replace(_$result);
     return _$result;
@@ -32614,6 +35060,1127 @@ class BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class $DashboardEventCalendarInterfaceBuilder {
+  void replace($DashboardEventCalendarInterface other);
+  void update(void Function($DashboardEventCalendarInterfaceBuilder) updates);
+  String? get principalUri;
+  set principalUri(String? principalUri);
+
+  String? get calendarName;
+  set calendarName(String? calendarName);
+
+  String? get calendarColor;
+  set calendarColor(String? calendarColor);
+}
+
+class _$DashboardEventCalendar extends DashboardEventCalendar {
+  @override
+  final String principalUri;
+  @override
+  final String calendarName;
+  @override
+  final String? calendarColor;
+
+  factory _$DashboardEventCalendar([void Function(DashboardEventCalendarBuilder)? updates]) =>
+      (DashboardEventCalendarBuilder()..update(updates))._build();
+
+  _$DashboardEventCalendar._({required this.principalUri, required this.calendarName, this.calendarColor}) : super._();
+  @override
+  DashboardEventCalendar rebuild(void Function(DashboardEventCalendarBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  DashboardEventCalendarBuilder toBuilder() => DashboardEventCalendarBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is DashboardEventCalendar &&
+        principalUri == other.principalUri &&
+        calendarName == other.calendarName &&
+        calendarColor == other.calendarColor;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, principalUri.hashCode);
+    _$hash = $jc(_$hash, calendarName.hashCode);
+    _$hash = $jc(_$hash, calendarColor.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'DashboardEventCalendar')
+          ..add('principalUri', principalUri)
+          ..add('calendarName', calendarName)
+          ..add('calendarColor', calendarColor))
+        .toString();
+  }
+}
+
+class DashboardEventCalendarBuilder
+    implements Builder<DashboardEventCalendar, DashboardEventCalendarBuilder>, $DashboardEventCalendarInterfaceBuilder {
+  _$DashboardEventCalendar? _$v;
+
+  String? _principalUri;
+  String? get principalUri => _$this._principalUri;
+  set principalUri(covariant String? principalUri) => _$this._principalUri = principalUri;
+
+  String? _calendarName;
+  String? get calendarName => _$this._calendarName;
+  set calendarName(covariant String? calendarName) => _$this._calendarName = calendarName;
+
+  String? _calendarColor;
+  String? get calendarColor => _$this._calendarColor;
+  set calendarColor(covariant String? calendarColor) => _$this._calendarColor = calendarColor;
+
+  DashboardEventCalendarBuilder() {
+    DashboardEventCalendar._defaults(this);
+  }
+
+  DashboardEventCalendarBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _principalUri = $v.principalUri;
+      _calendarName = $v.calendarName;
+      _calendarColor = $v.calendarColor;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant DashboardEventCalendar other) {
+    _$v = other as _$DashboardEventCalendar;
+  }
+
+  @override
+  void update(void Function(DashboardEventCalendarBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  DashboardEventCalendar build() => _build();
+
+  _$DashboardEventCalendar _build() {
+    DashboardEventCalendar._validate(this);
+    final _$result = _$v ??
+        _$DashboardEventCalendar._(
+          principalUri: BuiltValueNullFieldError.checkNotNull(principalUri, r'DashboardEventCalendar', 'principalUri'),
+          calendarName: BuiltValueNullFieldError.checkNotNull(calendarName, r'DashboardEventCalendar', 'calendarName'),
+          calendarColor: calendarColor,
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $DashboardEventAttachmentInterfaceBuilder {
+  void replace($DashboardEventAttachmentInterface other);
+  void update(void Function($DashboardEventAttachmentInterfaceBuilder) updates);
+  ListBuilder<String> get calendars;
+  set calendars(ListBuilder<String>? calendars);
+
+  String? get fmttype;
+  set fmttype(String? fmttype);
+
+  String? get filename;
+  set filename(String? filename);
+
+  int? get fileid;
+  set fileid(int? fileid);
+
+  bool? get preview;
+  set preview(bool? preview);
+
+  String? get previewLink;
+  set previewLink(String? previewLink);
+}
+
+class _$DashboardEventAttachment extends DashboardEventAttachment {
+  @override
+  final BuiltList<String> calendars;
+  @override
+  final String fmttype;
+  @override
+  final String filename;
+  @override
+  final int fileid;
+  @override
+  final bool preview;
+  @override
+  final String? previewLink;
+
+  factory _$DashboardEventAttachment([void Function(DashboardEventAttachmentBuilder)? updates]) =>
+      (DashboardEventAttachmentBuilder()..update(updates))._build();
+
+  _$DashboardEventAttachment._(
+      {required this.calendars,
+      required this.fmttype,
+      required this.filename,
+      required this.fileid,
+      required this.preview,
+      this.previewLink})
+      : super._();
+  @override
+  DashboardEventAttachment rebuild(void Function(DashboardEventAttachmentBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  DashboardEventAttachmentBuilder toBuilder() => DashboardEventAttachmentBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is DashboardEventAttachment &&
+        calendars == other.calendars &&
+        fmttype == other.fmttype &&
+        filename == other.filename &&
+        fileid == other.fileid &&
+        preview == other.preview &&
+        previewLink == other.previewLink;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, calendars.hashCode);
+    _$hash = $jc(_$hash, fmttype.hashCode);
+    _$hash = $jc(_$hash, filename.hashCode);
+    _$hash = $jc(_$hash, fileid.hashCode);
+    _$hash = $jc(_$hash, preview.hashCode);
+    _$hash = $jc(_$hash, previewLink.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'DashboardEventAttachment')
+          ..add('calendars', calendars)
+          ..add('fmttype', fmttype)
+          ..add('filename', filename)
+          ..add('fileid', fileid)
+          ..add('preview', preview)
+          ..add('previewLink', previewLink))
+        .toString();
+  }
+}
+
+class DashboardEventAttachmentBuilder
+    implements
+        Builder<DashboardEventAttachment, DashboardEventAttachmentBuilder>,
+        $DashboardEventAttachmentInterfaceBuilder {
+  _$DashboardEventAttachment? _$v;
+
+  ListBuilder<String>? _calendars;
+  ListBuilder<String> get calendars => _$this._calendars ??= ListBuilder<String>();
+  set calendars(covariant ListBuilder<String>? calendars) => _$this._calendars = calendars;
+
+  String? _fmttype;
+  String? get fmttype => _$this._fmttype;
+  set fmttype(covariant String? fmttype) => _$this._fmttype = fmttype;
+
+  String? _filename;
+  String? get filename => _$this._filename;
+  set filename(covariant String? filename) => _$this._filename = filename;
+
+  int? _fileid;
+  int? get fileid => _$this._fileid;
+  set fileid(covariant int? fileid) => _$this._fileid = fileid;
+
+  bool? _preview;
+  bool? get preview => _$this._preview;
+  set preview(covariant bool? preview) => _$this._preview = preview;
+
+  String? _previewLink;
+  String? get previewLink => _$this._previewLink;
+  set previewLink(covariant String? previewLink) => _$this._previewLink = previewLink;
+
+  DashboardEventAttachmentBuilder() {
+    DashboardEventAttachment._defaults(this);
+  }
+
+  DashboardEventAttachmentBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _calendars = $v.calendars.toBuilder();
+      _fmttype = $v.fmttype;
+      _filename = $v.filename;
+      _fileid = $v.fileid;
+      _preview = $v.preview;
+      _previewLink = $v.previewLink;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant DashboardEventAttachment other) {
+    _$v = other as _$DashboardEventAttachment;
+  }
+
+  @override
+  void update(void Function(DashboardEventAttachmentBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  DashboardEventAttachment build() => _build();
+
+  _$DashboardEventAttachment _build() {
+    DashboardEventAttachment._validate(this);
+    _$DashboardEventAttachment _$result;
+    try {
+      _$result = _$v ??
+          _$DashboardEventAttachment._(
+            calendars: calendars.build(),
+            fmttype: BuiltValueNullFieldError.checkNotNull(fmttype, r'DashboardEventAttachment', 'fmttype'),
+            filename: BuiltValueNullFieldError.checkNotNull(filename, r'DashboardEventAttachment', 'filename'),
+            fileid: BuiltValueNullFieldError.checkNotNull(fileid, r'DashboardEventAttachment', 'fileid'),
+            preview: BuiltValueNullFieldError.checkNotNull(preview, r'DashboardEventAttachment', 'preview'),
+            previewLink: previewLink,
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'calendars';
+        calendars.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'DashboardEventAttachment', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $DashboardEventInterfaceBuilder {
+  void replace($DashboardEventInterface other);
+  void update(void Function($DashboardEventInterfaceBuilder) updates);
+  ListBuilder<DashboardEventCalendar> get calendars;
+  set calendars(ListBuilder<DashboardEventCalendar>? calendars);
+
+  String? get eventName;
+  set eventName(String? eventName);
+
+  String? get eventDescription;
+  set eventDescription(String? eventDescription);
+
+  MapBuilder<String, DashboardEventAttachment> get eventAttachments;
+  set eventAttachments(MapBuilder<String, DashboardEventAttachment>? eventAttachments);
+
+  String? get eventLink;
+  set eventLink(String? eventLink);
+
+  int? get start;
+  set start(int? start);
+
+  int? get end;
+  set end(int? end);
+
+  String? get roomToken;
+  set roomToken(String? roomToken);
+
+  String? get roomAvatarVersion;
+  set roomAvatarVersion(String? roomAvatarVersion);
+
+  String? get roomName;
+  set roomName(String? roomName);
+
+  String? get roomDisplayName;
+  set roomDisplayName(String? roomDisplayName);
+
+  int? get roomType;
+  set roomType(int? roomType);
+
+  int? get roomActiveSince;
+  set roomActiveSince(int? roomActiveSince);
+
+  int? get invited;
+  set invited(int? invited);
+
+  int? get accepted;
+  set accepted(int? accepted);
+
+  int? get tentative;
+  set tentative(int? tentative);
+
+  int? get declined;
+  set declined(int? declined);
+}
+
+class _$DashboardEvent extends DashboardEvent {
+  @override
+  final BuiltList<DashboardEventCalendar> calendars;
+  @override
+  final String eventName;
+  @override
+  final String? eventDescription;
+  @override
+  final BuiltMap<String, DashboardEventAttachment> eventAttachments;
+  @override
+  final String eventLink;
+  @override
+  final int start;
+  @override
+  final int end;
+  @override
+  final String roomToken;
+  @override
+  final String roomAvatarVersion;
+  @override
+  final String roomName;
+  @override
+  final String roomDisplayName;
+  @override
+  final int roomType;
+  @override
+  final int? roomActiveSince;
+  @override
+  final int? invited;
+  @override
+  final int? accepted;
+  @override
+  final int? tentative;
+  @override
+  final int? declined;
+
+  factory _$DashboardEvent([void Function(DashboardEventBuilder)? updates]) =>
+      (DashboardEventBuilder()..update(updates))._build();
+
+  _$DashboardEvent._(
+      {required this.calendars,
+      required this.eventName,
+      this.eventDescription,
+      required this.eventAttachments,
+      required this.eventLink,
+      required this.start,
+      required this.end,
+      required this.roomToken,
+      required this.roomAvatarVersion,
+      required this.roomName,
+      required this.roomDisplayName,
+      required this.roomType,
+      this.roomActiveSince,
+      this.invited,
+      this.accepted,
+      this.tentative,
+      this.declined})
+      : super._();
+  @override
+  DashboardEvent rebuild(void Function(DashboardEventBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  DashboardEventBuilder toBuilder() => DashboardEventBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is DashboardEvent &&
+        calendars == other.calendars &&
+        eventName == other.eventName &&
+        eventDescription == other.eventDescription &&
+        eventAttachments == other.eventAttachments &&
+        eventLink == other.eventLink &&
+        start == other.start &&
+        end == other.end &&
+        roomToken == other.roomToken &&
+        roomAvatarVersion == other.roomAvatarVersion &&
+        roomName == other.roomName &&
+        roomDisplayName == other.roomDisplayName &&
+        roomType == other.roomType &&
+        roomActiveSince == other.roomActiveSince &&
+        invited == other.invited &&
+        accepted == other.accepted &&
+        tentative == other.tentative &&
+        declined == other.declined;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, calendars.hashCode);
+    _$hash = $jc(_$hash, eventName.hashCode);
+    _$hash = $jc(_$hash, eventDescription.hashCode);
+    _$hash = $jc(_$hash, eventAttachments.hashCode);
+    _$hash = $jc(_$hash, eventLink.hashCode);
+    _$hash = $jc(_$hash, start.hashCode);
+    _$hash = $jc(_$hash, end.hashCode);
+    _$hash = $jc(_$hash, roomToken.hashCode);
+    _$hash = $jc(_$hash, roomAvatarVersion.hashCode);
+    _$hash = $jc(_$hash, roomName.hashCode);
+    _$hash = $jc(_$hash, roomDisplayName.hashCode);
+    _$hash = $jc(_$hash, roomType.hashCode);
+    _$hash = $jc(_$hash, roomActiveSince.hashCode);
+    _$hash = $jc(_$hash, invited.hashCode);
+    _$hash = $jc(_$hash, accepted.hashCode);
+    _$hash = $jc(_$hash, tentative.hashCode);
+    _$hash = $jc(_$hash, declined.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'DashboardEvent')
+          ..add('calendars', calendars)
+          ..add('eventName', eventName)
+          ..add('eventDescription', eventDescription)
+          ..add('eventAttachments', eventAttachments)
+          ..add('eventLink', eventLink)
+          ..add('start', start)
+          ..add('end', end)
+          ..add('roomToken', roomToken)
+          ..add('roomAvatarVersion', roomAvatarVersion)
+          ..add('roomName', roomName)
+          ..add('roomDisplayName', roomDisplayName)
+          ..add('roomType', roomType)
+          ..add('roomActiveSince', roomActiveSince)
+          ..add('invited', invited)
+          ..add('accepted', accepted)
+          ..add('tentative', tentative)
+          ..add('declined', declined))
+        .toString();
+  }
+}
+
+class DashboardEventBuilder implements Builder<DashboardEvent, DashboardEventBuilder>, $DashboardEventInterfaceBuilder {
+  _$DashboardEvent? _$v;
+
+  ListBuilder<DashboardEventCalendar>? _calendars;
+  ListBuilder<DashboardEventCalendar> get calendars => _$this._calendars ??= ListBuilder<DashboardEventCalendar>();
+  set calendars(covariant ListBuilder<DashboardEventCalendar>? calendars) => _$this._calendars = calendars;
+
+  String? _eventName;
+  String? get eventName => _$this._eventName;
+  set eventName(covariant String? eventName) => _$this._eventName = eventName;
+
+  String? _eventDescription;
+  String? get eventDescription => _$this._eventDescription;
+  set eventDescription(covariant String? eventDescription) => _$this._eventDescription = eventDescription;
+
+  MapBuilder<String, DashboardEventAttachment>? _eventAttachments;
+  MapBuilder<String, DashboardEventAttachment> get eventAttachments =>
+      _$this._eventAttachments ??= MapBuilder<String, DashboardEventAttachment>();
+  set eventAttachments(covariant MapBuilder<String, DashboardEventAttachment>? eventAttachments) =>
+      _$this._eventAttachments = eventAttachments;
+
+  String? _eventLink;
+  String? get eventLink => _$this._eventLink;
+  set eventLink(covariant String? eventLink) => _$this._eventLink = eventLink;
+
+  int? _start;
+  int? get start => _$this._start;
+  set start(covariant int? start) => _$this._start = start;
+
+  int? _end;
+  int? get end => _$this._end;
+  set end(covariant int? end) => _$this._end = end;
+
+  String? _roomToken;
+  String? get roomToken => _$this._roomToken;
+  set roomToken(covariant String? roomToken) => _$this._roomToken = roomToken;
+
+  String? _roomAvatarVersion;
+  String? get roomAvatarVersion => _$this._roomAvatarVersion;
+  set roomAvatarVersion(covariant String? roomAvatarVersion) => _$this._roomAvatarVersion = roomAvatarVersion;
+
+  String? _roomName;
+  String? get roomName => _$this._roomName;
+  set roomName(covariant String? roomName) => _$this._roomName = roomName;
+
+  String? _roomDisplayName;
+  String? get roomDisplayName => _$this._roomDisplayName;
+  set roomDisplayName(covariant String? roomDisplayName) => _$this._roomDisplayName = roomDisplayName;
+
+  int? _roomType;
+  int? get roomType => _$this._roomType;
+  set roomType(covariant int? roomType) => _$this._roomType = roomType;
+
+  int? _roomActiveSince;
+  int? get roomActiveSince => _$this._roomActiveSince;
+  set roomActiveSince(covariant int? roomActiveSince) => _$this._roomActiveSince = roomActiveSince;
+
+  int? _invited;
+  int? get invited => _$this._invited;
+  set invited(covariant int? invited) => _$this._invited = invited;
+
+  int? _accepted;
+  int? get accepted => _$this._accepted;
+  set accepted(covariant int? accepted) => _$this._accepted = accepted;
+
+  int? _tentative;
+  int? get tentative => _$this._tentative;
+  set tentative(covariant int? tentative) => _$this._tentative = tentative;
+
+  int? _declined;
+  int? get declined => _$this._declined;
+  set declined(covariant int? declined) => _$this._declined = declined;
+
+  DashboardEventBuilder() {
+    DashboardEvent._defaults(this);
+  }
+
+  DashboardEventBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _calendars = $v.calendars.toBuilder();
+      _eventName = $v.eventName;
+      _eventDescription = $v.eventDescription;
+      _eventAttachments = $v.eventAttachments.toBuilder();
+      _eventLink = $v.eventLink;
+      _start = $v.start;
+      _end = $v.end;
+      _roomToken = $v.roomToken;
+      _roomAvatarVersion = $v.roomAvatarVersion;
+      _roomName = $v.roomName;
+      _roomDisplayName = $v.roomDisplayName;
+      _roomType = $v.roomType;
+      _roomActiveSince = $v.roomActiveSince;
+      _invited = $v.invited;
+      _accepted = $v.accepted;
+      _tentative = $v.tentative;
+      _declined = $v.declined;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant DashboardEvent other) {
+    _$v = other as _$DashboardEvent;
+  }
+
+  @override
+  void update(void Function(DashboardEventBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  DashboardEvent build() => _build();
+
+  _$DashboardEvent _build() {
+    DashboardEvent._validate(this);
+    _$DashboardEvent _$result;
+    try {
+      _$result = _$v ??
+          _$DashboardEvent._(
+            calendars: calendars.build(),
+            eventName: BuiltValueNullFieldError.checkNotNull(eventName, r'DashboardEvent', 'eventName'),
+            eventDescription: eventDescription,
+            eventAttachments: eventAttachments.build(),
+            eventLink: BuiltValueNullFieldError.checkNotNull(eventLink, r'DashboardEvent', 'eventLink'),
+            start: BuiltValueNullFieldError.checkNotNull(start, r'DashboardEvent', 'start'),
+            end: BuiltValueNullFieldError.checkNotNull(end, r'DashboardEvent', 'end'),
+            roomToken: BuiltValueNullFieldError.checkNotNull(roomToken, r'DashboardEvent', 'roomToken'),
+            roomAvatarVersion:
+                BuiltValueNullFieldError.checkNotNull(roomAvatarVersion, r'DashboardEvent', 'roomAvatarVersion'),
+            roomName: BuiltValueNullFieldError.checkNotNull(roomName, r'DashboardEvent', 'roomName'),
+            roomDisplayName:
+                BuiltValueNullFieldError.checkNotNull(roomDisplayName, r'DashboardEvent', 'roomDisplayName'),
+            roomType: BuiltValueNullFieldError.checkNotNull(roomType, r'DashboardEvent', 'roomType'),
+            roomActiveSince: roomActiveSince,
+            invited: invited,
+            accepted: accepted,
+            tentative: tentative,
+            declined: declined,
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'calendars';
+        calendars.build();
+
+        _$failedField = 'eventAttachments';
+        eventAttachments.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'DashboardEvent', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsInterface other);
+  void update(void Function($CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  ListBuilder<DashboardEvent> get data;
+  set data(ListBuilder<DashboardEvent>? data);
+}
+
+class _$CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs
+    extends CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final BuiltList<DashboardEvent> data;
+
+  factory _$CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs(
+          [void Function(CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs._({required this.meta, required this.data})
+      : super._();
+  @override
+  CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs rebuild(
+          void Function(CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsBuilder toBuilder() =>
+      CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsBuilder
+    implements
+        Builder<CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs,
+            CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsBuilder>,
+        $CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsInterfaceBuilder {
+  _$CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  ListBuilder<DashboardEvent>? _data;
+  ListBuilder<DashboardEvent> get data => _$this._data ??= ListBuilder<DashboardEvent>();
+  set data(covariant ListBuilder<DashboardEvent>? data) => _$this._data = data;
+
+  CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsBuilder() {
+    CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs other) {
+    _$v = other as _$CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs build() => _build();
+
+  _$CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs _build() {
+    CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs._validate(this);
+    _$CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $CalendarIntegrationGetDashboardEventsResponseApplicationJsonInterfaceBuilder {
+  void replace($CalendarIntegrationGetDashboardEventsResponseApplicationJsonInterface other);
+  void update(void Function($CalendarIntegrationGetDashboardEventsResponseApplicationJsonInterfaceBuilder) updates);
+  CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$CalendarIntegrationGetDashboardEventsResponseApplicationJson
+    extends CalendarIntegrationGetDashboardEventsResponseApplicationJson {
+  @override
+  final CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs ocs;
+
+  factory _$CalendarIntegrationGetDashboardEventsResponseApplicationJson(
+          [void Function(CalendarIntegrationGetDashboardEventsResponseApplicationJsonBuilder)? updates]) =>
+      (CalendarIntegrationGetDashboardEventsResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$CalendarIntegrationGetDashboardEventsResponseApplicationJson._({required this.ocs}) : super._();
+  @override
+  CalendarIntegrationGetDashboardEventsResponseApplicationJson rebuild(
+          void Function(CalendarIntegrationGetDashboardEventsResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CalendarIntegrationGetDashboardEventsResponseApplicationJsonBuilder toBuilder() =>
+      CalendarIntegrationGetDashboardEventsResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CalendarIntegrationGetDashboardEventsResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CalendarIntegrationGetDashboardEventsResponseApplicationJson')
+          ..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class CalendarIntegrationGetDashboardEventsResponseApplicationJsonBuilder
+    implements
+        Builder<CalendarIntegrationGetDashboardEventsResponseApplicationJson,
+            CalendarIntegrationGetDashboardEventsResponseApplicationJsonBuilder>,
+        $CalendarIntegrationGetDashboardEventsResponseApplicationJsonInterfaceBuilder {
+  _$CalendarIntegrationGetDashboardEventsResponseApplicationJson? _$v;
+
+  CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsBuilder? _ocs;
+  CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  CalendarIntegrationGetDashboardEventsResponseApplicationJsonBuilder() {
+    CalendarIntegrationGetDashboardEventsResponseApplicationJson._defaults(this);
+  }
+
+  CalendarIntegrationGetDashboardEventsResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant CalendarIntegrationGetDashboardEventsResponseApplicationJson other) {
+    _$v = other as _$CalendarIntegrationGetDashboardEventsResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(CalendarIntegrationGetDashboardEventsResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CalendarIntegrationGetDashboardEventsResponseApplicationJson build() => _build();
+
+  _$CalendarIntegrationGetDashboardEventsResponseApplicationJson _build() {
+    CalendarIntegrationGetDashboardEventsResponseApplicationJson._validate(this);
+    _$CalendarIntegrationGetDashboardEventsResponseApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$CalendarIntegrationGetDashboardEventsResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'CalendarIntegrationGetDashboardEventsResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsInterface other);
+  void update(void Function($CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  ListBuilder<DashboardEvent> get data;
+  set data(ListBuilder<DashboardEvent>? data);
+}
+
+class _$CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs
+    extends CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final BuiltList<DashboardEvent> data;
+
+  factory _$CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs(
+          [void Function(CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs._({required this.meta, required this.data})
+      : super._();
+  @override
+  CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs rebuild(
+          void Function(CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsBuilder toBuilder() =>
+      CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsBuilder
+    implements
+        Builder<CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs,
+            CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsBuilder>,
+        $CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsInterfaceBuilder {
+  _$CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  ListBuilder<DashboardEvent>? _data;
+  ListBuilder<DashboardEvent> get data => _$this._data ??= ListBuilder<DashboardEvent>();
+  set data(covariant ListBuilder<DashboardEvent>? data) => _$this._data = data;
+
+  CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsBuilder() {
+    CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs other) {
+    _$v = other as _$CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs build() => _build();
+
+  _$CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs _build() {
+    CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs._validate(this);
+    _$CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $CalendarIntegrationGetMutualEventsResponseApplicationJsonInterfaceBuilder {
+  void replace($CalendarIntegrationGetMutualEventsResponseApplicationJsonInterface other);
+  void update(void Function($CalendarIntegrationGetMutualEventsResponseApplicationJsonInterfaceBuilder) updates);
+  CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$CalendarIntegrationGetMutualEventsResponseApplicationJson
+    extends CalendarIntegrationGetMutualEventsResponseApplicationJson {
+  @override
+  final CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs ocs;
+
+  factory _$CalendarIntegrationGetMutualEventsResponseApplicationJson(
+          [void Function(CalendarIntegrationGetMutualEventsResponseApplicationJsonBuilder)? updates]) =>
+      (CalendarIntegrationGetMutualEventsResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$CalendarIntegrationGetMutualEventsResponseApplicationJson._({required this.ocs}) : super._();
+  @override
+  CalendarIntegrationGetMutualEventsResponseApplicationJson rebuild(
+          void Function(CalendarIntegrationGetMutualEventsResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CalendarIntegrationGetMutualEventsResponseApplicationJsonBuilder toBuilder() =>
+      CalendarIntegrationGetMutualEventsResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CalendarIntegrationGetMutualEventsResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CalendarIntegrationGetMutualEventsResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class CalendarIntegrationGetMutualEventsResponseApplicationJsonBuilder
+    implements
+        Builder<CalendarIntegrationGetMutualEventsResponseApplicationJson,
+            CalendarIntegrationGetMutualEventsResponseApplicationJsonBuilder>,
+        $CalendarIntegrationGetMutualEventsResponseApplicationJsonInterfaceBuilder {
+  _$CalendarIntegrationGetMutualEventsResponseApplicationJson? _$v;
+
+  CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsBuilder? _ocs;
+  CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  CalendarIntegrationGetMutualEventsResponseApplicationJsonBuilder() {
+    CalendarIntegrationGetMutualEventsResponseApplicationJson._defaults(this);
+  }
+
+  CalendarIntegrationGetMutualEventsResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant CalendarIntegrationGetMutualEventsResponseApplicationJson other) {
+    _$v = other as _$CalendarIntegrationGetMutualEventsResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(CalendarIntegrationGetMutualEventsResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CalendarIntegrationGetMutualEventsResponseApplicationJson build() => _build();
+
+  _$CalendarIntegrationGetMutualEventsResponseApplicationJson _build() {
+    CalendarIntegrationGetMutualEventsResponseApplicationJson._validate(this);
+    _$CalendarIntegrationGetMutualEventsResponseApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$CalendarIntegrationGetMutualEventsResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'CalendarIntegrationGetMutualEventsResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $CallPeerInterfaceBuilder {
   void replace($CallPeerInterface other);
   void update(void Function($CallPeerInterfaceBuilder) updates);
@@ -33333,6 +36900,9 @@ abstract mixin class $CallJoinCallRequestApplicationJsonInterfaceBuilder {
 
   bool? get recordingConsent;
   set recordingConsent(bool? recordingConsent);
+
+  ListBuilder<String> get silentFor;
+  set silentFor(ListBuilder<String>? silentFor);
 }
 
 class _$CallJoinCallRequestApplicationJson extends CallJoinCallRequestApplicationJson {
@@ -33342,11 +36912,14 @@ class _$CallJoinCallRequestApplicationJson extends CallJoinCallRequestApplicatio
   final bool silent;
   @override
   final bool recordingConsent;
+  @override
+  final BuiltList<String> silentFor;
 
   factory _$CallJoinCallRequestApplicationJson([void Function(CallJoinCallRequestApplicationJsonBuilder)? updates]) =>
       (CallJoinCallRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$CallJoinCallRequestApplicationJson._({this.flags, required this.silent, required this.recordingConsent})
+  _$CallJoinCallRequestApplicationJson._(
+      {this.flags, required this.silent, required this.recordingConsent, required this.silentFor})
       : super._();
   @override
   CallJoinCallRequestApplicationJson rebuild(void Function(CallJoinCallRequestApplicationJsonBuilder) updates) =>
@@ -33361,7 +36934,8 @@ class _$CallJoinCallRequestApplicationJson extends CallJoinCallRequestApplicatio
     return other is CallJoinCallRequestApplicationJson &&
         flags == other.flags &&
         silent == other.silent &&
-        recordingConsent == other.recordingConsent;
+        recordingConsent == other.recordingConsent &&
+        silentFor == other.silentFor;
   }
 
   @override
@@ -33370,6 +36944,7 @@ class _$CallJoinCallRequestApplicationJson extends CallJoinCallRequestApplicatio
     _$hash = $jc(_$hash, flags.hashCode);
     _$hash = $jc(_$hash, silent.hashCode);
     _$hash = $jc(_$hash, recordingConsent.hashCode);
+    _$hash = $jc(_$hash, silentFor.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -33379,7 +36954,8 @@ class _$CallJoinCallRequestApplicationJson extends CallJoinCallRequestApplicatio
     return (newBuiltValueToStringHelper(r'CallJoinCallRequestApplicationJson')
           ..add('flags', flags)
           ..add('silent', silent)
-          ..add('recordingConsent', recordingConsent))
+          ..add('recordingConsent', recordingConsent)
+          ..add('silentFor', silentFor))
         .toString();
   }
 }
@@ -33402,6 +36978,10 @@ class CallJoinCallRequestApplicationJsonBuilder
   bool? get recordingConsent => _$this._recordingConsent;
   set recordingConsent(covariant bool? recordingConsent) => _$this._recordingConsent = recordingConsent;
 
+  ListBuilder<String>? _silentFor;
+  ListBuilder<String> get silentFor => _$this._silentFor ??= ListBuilder<String>();
+  set silentFor(covariant ListBuilder<String>? silentFor) => _$this._silentFor = silentFor;
+
   CallJoinCallRequestApplicationJsonBuilder() {
     CallJoinCallRequestApplicationJson._defaults(this);
   }
@@ -33412,6 +36992,7 @@ class CallJoinCallRequestApplicationJsonBuilder
       _flags = $v.flags;
       _silent = $v.silent;
       _recordingConsent = $v.recordingConsent;
+      _silentFor = $v.silentFor.toBuilder();
       _$v = null;
     }
     return this;
@@ -33432,13 +37013,26 @@ class CallJoinCallRequestApplicationJsonBuilder
 
   _$CallJoinCallRequestApplicationJson _build() {
     CallJoinCallRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$CallJoinCallRequestApplicationJson._(
-          flags: flags,
-          silent: BuiltValueNullFieldError.checkNotNull(silent, r'CallJoinCallRequestApplicationJson', 'silent'),
-          recordingConsent: BuiltValueNullFieldError.checkNotNull(
-              recordingConsent, r'CallJoinCallRequestApplicationJson', 'recordingConsent'),
-        );
+    _$CallJoinCallRequestApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$CallJoinCallRequestApplicationJson._(
+            flags: flags,
+            silent: BuiltValueNullFieldError.checkNotNull(silent, r'CallJoinCallRequestApplicationJson', 'silent'),
+            recordingConsent: BuiltValueNullFieldError.checkNotNull(
+                recordingConsent, r'CallJoinCallRequestApplicationJson', 'recordingConsent'),
+            silentFor: silentFor.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'silentFor';
+        silentFor.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'CallJoinCallRequestApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
@@ -39650,6 +43244,451 @@ class ChatDeleteReminderResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'ChatDeleteReminderResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ChatReminderUpcomingInterfaceBuilder {
+  void replace($ChatReminderUpcomingInterface other);
+  void update(void Function($ChatReminderUpcomingInterfaceBuilder) updates);
+  String? get actorDisplayName;
+  set actorDisplayName(String? actorDisplayName);
+
+  String? get actorId;
+  set actorId(String? actorId);
+
+  String? get actorType;
+  set actorType(String? actorType);
+
+  String? get message;
+  set message(String? message);
+
+  int? get messageId;
+  set messageId(int? messageId);
+
+  MapBuilder<String, BuiltMap<String, JsonObject>> get messageParameters;
+  set messageParameters(MapBuilder<String, BuiltMap<String, JsonObject>>? messageParameters);
+
+  int? get reminderTimestamp;
+  set reminderTimestamp(int? reminderTimestamp);
+
+  String? get roomToken;
+  set roomToken(String? roomToken);
+}
+
+class _$ChatReminderUpcoming extends ChatReminderUpcoming {
+  @override
+  final String actorDisplayName;
+  @override
+  final String actorId;
+  @override
+  final String actorType;
+  @override
+  final String message;
+  @override
+  final int messageId;
+  @override
+  final BuiltMap<String, BuiltMap<String, JsonObject>> messageParameters;
+  @override
+  final int reminderTimestamp;
+  @override
+  final String roomToken;
+
+  factory _$ChatReminderUpcoming([void Function(ChatReminderUpcomingBuilder)? updates]) =>
+      (ChatReminderUpcomingBuilder()..update(updates))._build();
+
+  _$ChatReminderUpcoming._(
+      {required this.actorDisplayName,
+      required this.actorId,
+      required this.actorType,
+      required this.message,
+      required this.messageId,
+      required this.messageParameters,
+      required this.reminderTimestamp,
+      required this.roomToken})
+      : super._();
+  @override
+  ChatReminderUpcoming rebuild(void Function(ChatReminderUpcomingBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ChatReminderUpcomingBuilder toBuilder() => ChatReminderUpcomingBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ChatReminderUpcoming &&
+        actorDisplayName == other.actorDisplayName &&
+        actorId == other.actorId &&
+        actorType == other.actorType &&
+        message == other.message &&
+        messageId == other.messageId &&
+        messageParameters == other.messageParameters &&
+        reminderTimestamp == other.reminderTimestamp &&
+        roomToken == other.roomToken;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, actorDisplayName.hashCode);
+    _$hash = $jc(_$hash, actorId.hashCode);
+    _$hash = $jc(_$hash, actorType.hashCode);
+    _$hash = $jc(_$hash, message.hashCode);
+    _$hash = $jc(_$hash, messageId.hashCode);
+    _$hash = $jc(_$hash, messageParameters.hashCode);
+    _$hash = $jc(_$hash, reminderTimestamp.hashCode);
+    _$hash = $jc(_$hash, roomToken.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ChatReminderUpcoming')
+          ..add('actorDisplayName', actorDisplayName)
+          ..add('actorId', actorId)
+          ..add('actorType', actorType)
+          ..add('message', message)
+          ..add('messageId', messageId)
+          ..add('messageParameters', messageParameters)
+          ..add('reminderTimestamp', reminderTimestamp)
+          ..add('roomToken', roomToken))
+        .toString();
+  }
+}
+
+class ChatReminderUpcomingBuilder
+    implements Builder<ChatReminderUpcoming, ChatReminderUpcomingBuilder>, $ChatReminderUpcomingInterfaceBuilder {
+  _$ChatReminderUpcoming? _$v;
+
+  String? _actorDisplayName;
+  String? get actorDisplayName => _$this._actorDisplayName;
+  set actorDisplayName(covariant String? actorDisplayName) => _$this._actorDisplayName = actorDisplayName;
+
+  String? _actorId;
+  String? get actorId => _$this._actorId;
+  set actorId(covariant String? actorId) => _$this._actorId = actorId;
+
+  String? _actorType;
+  String? get actorType => _$this._actorType;
+  set actorType(covariant String? actorType) => _$this._actorType = actorType;
+
+  String? _message;
+  String? get message => _$this._message;
+  set message(covariant String? message) => _$this._message = message;
+
+  int? _messageId;
+  int? get messageId => _$this._messageId;
+  set messageId(covariant int? messageId) => _$this._messageId = messageId;
+
+  MapBuilder<String, BuiltMap<String, JsonObject>>? _messageParameters;
+  MapBuilder<String, BuiltMap<String, JsonObject>> get messageParameters =>
+      _$this._messageParameters ??= MapBuilder<String, BuiltMap<String, JsonObject>>();
+  set messageParameters(covariant MapBuilder<String, BuiltMap<String, JsonObject>>? messageParameters) =>
+      _$this._messageParameters = messageParameters;
+
+  int? _reminderTimestamp;
+  int? get reminderTimestamp => _$this._reminderTimestamp;
+  set reminderTimestamp(covariant int? reminderTimestamp) => _$this._reminderTimestamp = reminderTimestamp;
+
+  String? _roomToken;
+  String? get roomToken => _$this._roomToken;
+  set roomToken(covariant String? roomToken) => _$this._roomToken = roomToken;
+
+  ChatReminderUpcomingBuilder() {
+    ChatReminderUpcoming._defaults(this);
+  }
+
+  ChatReminderUpcomingBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _actorDisplayName = $v.actorDisplayName;
+      _actorId = $v.actorId;
+      _actorType = $v.actorType;
+      _message = $v.message;
+      _messageId = $v.messageId;
+      _messageParameters = $v.messageParameters.toBuilder();
+      _reminderTimestamp = $v.reminderTimestamp;
+      _roomToken = $v.roomToken;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ChatReminderUpcoming other) {
+    _$v = other as _$ChatReminderUpcoming;
+  }
+
+  @override
+  void update(void Function(ChatReminderUpcomingBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ChatReminderUpcoming build() => _build();
+
+  _$ChatReminderUpcoming _build() {
+    ChatReminderUpcoming._validate(this);
+    _$ChatReminderUpcoming _$result;
+    try {
+      _$result = _$v ??
+          _$ChatReminderUpcoming._(
+            actorDisplayName:
+                BuiltValueNullFieldError.checkNotNull(actorDisplayName, r'ChatReminderUpcoming', 'actorDisplayName'),
+            actorId: BuiltValueNullFieldError.checkNotNull(actorId, r'ChatReminderUpcoming', 'actorId'),
+            actorType: BuiltValueNullFieldError.checkNotNull(actorType, r'ChatReminderUpcoming', 'actorType'),
+            message: BuiltValueNullFieldError.checkNotNull(message, r'ChatReminderUpcoming', 'message'),
+            messageId: BuiltValueNullFieldError.checkNotNull(messageId, r'ChatReminderUpcoming', 'messageId'),
+            messageParameters: messageParameters.build(),
+            reminderTimestamp:
+                BuiltValueNullFieldError.checkNotNull(reminderTimestamp, r'ChatReminderUpcoming', 'reminderTimestamp'),
+            roomToken: BuiltValueNullFieldError.checkNotNull(roomToken, r'ChatReminderUpcoming', 'roomToken'),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'messageParameters';
+        messageParameters.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'ChatReminderUpcoming', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ChatGetUpcomingRemindersResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ChatGetUpcomingRemindersResponseApplicationJson_OcsInterface other);
+  void update(void Function($ChatGetUpcomingRemindersResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  ListBuilder<ChatReminderUpcoming> get data;
+  set data(ListBuilder<ChatReminderUpcoming>? data);
+}
+
+class _$ChatGetUpcomingRemindersResponseApplicationJson_Ocs
+    extends ChatGetUpcomingRemindersResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final BuiltList<ChatReminderUpcoming> data;
+
+  factory _$ChatGetUpcomingRemindersResponseApplicationJson_Ocs(
+          [void Function(ChatGetUpcomingRemindersResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ChatGetUpcomingRemindersResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$ChatGetUpcomingRemindersResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
+  @override
+  ChatGetUpcomingRemindersResponseApplicationJson_Ocs rebuild(
+          void Function(ChatGetUpcomingRemindersResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ChatGetUpcomingRemindersResponseApplicationJson_OcsBuilder toBuilder() =>
+      ChatGetUpcomingRemindersResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ChatGetUpcomingRemindersResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ChatGetUpcomingRemindersResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class ChatGetUpcomingRemindersResponseApplicationJson_OcsBuilder
+    implements
+        Builder<ChatGetUpcomingRemindersResponseApplicationJson_Ocs,
+            ChatGetUpcomingRemindersResponseApplicationJson_OcsBuilder>,
+        $ChatGetUpcomingRemindersResponseApplicationJson_OcsInterfaceBuilder {
+  _$ChatGetUpcomingRemindersResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  ListBuilder<ChatReminderUpcoming>? _data;
+  ListBuilder<ChatReminderUpcoming> get data => _$this._data ??= ListBuilder<ChatReminderUpcoming>();
+  set data(covariant ListBuilder<ChatReminderUpcoming>? data) => _$this._data = data;
+
+  ChatGetUpcomingRemindersResponseApplicationJson_OcsBuilder() {
+    ChatGetUpcomingRemindersResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  ChatGetUpcomingRemindersResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ChatGetUpcomingRemindersResponseApplicationJson_Ocs other) {
+    _$v = other as _$ChatGetUpcomingRemindersResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(ChatGetUpcomingRemindersResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ChatGetUpcomingRemindersResponseApplicationJson_Ocs build() => _build();
+
+  _$ChatGetUpcomingRemindersResponseApplicationJson_Ocs _build() {
+    ChatGetUpcomingRemindersResponseApplicationJson_Ocs._validate(this);
+    _$ChatGetUpcomingRemindersResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$ChatGetUpcomingRemindersResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ChatGetUpcomingRemindersResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ChatGetUpcomingRemindersResponseApplicationJsonInterfaceBuilder {
+  void replace($ChatGetUpcomingRemindersResponseApplicationJsonInterface other);
+  void update(void Function($ChatGetUpcomingRemindersResponseApplicationJsonInterfaceBuilder) updates);
+  ChatGetUpcomingRemindersResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ChatGetUpcomingRemindersResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$ChatGetUpcomingRemindersResponseApplicationJson extends ChatGetUpcomingRemindersResponseApplicationJson {
+  @override
+  final ChatGetUpcomingRemindersResponseApplicationJson_Ocs ocs;
+
+  factory _$ChatGetUpcomingRemindersResponseApplicationJson(
+          [void Function(ChatGetUpcomingRemindersResponseApplicationJsonBuilder)? updates]) =>
+      (ChatGetUpcomingRemindersResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$ChatGetUpcomingRemindersResponseApplicationJson._({required this.ocs}) : super._();
+  @override
+  ChatGetUpcomingRemindersResponseApplicationJson rebuild(
+          void Function(ChatGetUpcomingRemindersResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ChatGetUpcomingRemindersResponseApplicationJsonBuilder toBuilder() =>
+      ChatGetUpcomingRemindersResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ChatGetUpcomingRemindersResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ChatGetUpcomingRemindersResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class ChatGetUpcomingRemindersResponseApplicationJsonBuilder
+    implements
+        Builder<ChatGetUpcomingRemindersResponseApplicationJson,
+            ChatGetUpcomingRemindersResponseApplicationJsonBuilder>,
+        $ChatGetUpcomingRemindersResponseApplicationJsonInterfaceBuilder {
+  _$ChatGetUpcomingRemindersResponseApplicationJson? _$v;
+
+  ChatGetUpcomingRemindersResponseApplicationJson_OcsBuilder? _ocs;
+  ChatGetUpcomingRemindersResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ChatGetUpcomingRemindersResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ChatGetUpcomingRemindersResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  ChatGetUpcomingRemindersResponseApplicationJsonBuilder() {
+    ChatGetUpcomingRemindersResponseApplicationJson._defaults(this);
+  }
+
+  ChatGetUpcomingRemindersResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ChatGetUpcomingRemindersResponseApplicationJson other) {
+    _$v = other as _$ChatGetUpcomingRemindersResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(ChatGetUpcomingRemindersResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ChatGetUpcomingRemindersResponseApplicationJson build() => _build();
+
+  _$ChatGetUpcomingRemindersResponseApplicationJson _build() {
+    ChatGetUpcomingRemindersResponseApplicationJson._validate(this);
+    _$ChatGetUpcomingRemindersResponseApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$ChatGetUpcomingRemindersResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ChatGetUpcomingRemindersResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -54133,6 +58172,186 @@ class RoomRoomGetRoomsHeadersBuilder
   }
 }
 
+abstract mixin class $InvitationListInterfaceBuilder {
+  void replace($InvitationListInterface other);
+  void update(void Function($InvitationListInterfaceBuilder) updates);
+  ListBuilder<String> get users;
+  set users(ListBuilder<String>? users);
+
+  ListBuilder<String> get federatedUsers;
+  set federatedUsers(ListBuilder<String>? federatedUsers);
+
+  ListBuilder<String> get groups;
+  set groups(ListBuilder<String>? groups);
+
+  ListBuilder<String> get emails;
+  set emails(ListBuilder<String>? emails);
+
+  ListBuilder<String> get phones;
+  set phones(ListBuilder<String>? phones);
+
+  ListBuilder<String> get teams;
+  set teams(ListBuilder<String>? teams);
+}
+
+class _$InvitationList extends InvitationList {
+  @override
+  final BuiltList<String>? users;
+  @override
+  final BuiltList<String>? federatedUsers;
+  @override
+  final BuiltList<String>? groups;
+  @override
+  final BuiltList<String>? emails;
+  @override
+  final BuiltList<String>? phones;
+  @override
+  final BuiltList<String>? teams;
+
+  factory _$InvitationList([void Function(InvitationListBuilder)? updates]) =>
+      (InvitationListBuilder()..update(updates))._build();
+
+  _$InvitationList._({this.users, this.federatedUsers, this.groups, this.emails, this.phones, this.teams}) : super._();
+  @override
+  InvitationList rebuild(void Function(InvitationListBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  InvitationListBuilder toBuilder() => InvitationListBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is InvitationList &&
+        users == other.users &&
+        federatedUsers == other.federatedUsers &&
+        groups == other.groups &&
+        emails == other.emails &&
+        phones == other.phones &&
+        teams == other.teams;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, users.hashCode);
+    _$hash = $jc(_$hash, federatedUsers.hashCode);
+    _$hash = $jc(_$hash, groups.hashCode);
+    _$hash = $jc(_$hash, emails.hashCode);
+    _$hash = $jc(_$hash, phones.hashCode);
+    _$hash = $jc(_$hash, teams.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'InvitationList')
+          ..add('users', users)
+          ..add('federatedUsers', federatedUsers)
+          ..add('groups', groups)
+          ..add('emails', emails)
+          ..add('phones', phones)
+          ..add('teams', teams))
+        .toString();
+  }
+}
+
+class InvitationListBuilder implements Builder<InvitationList, InvitationListBuilder>, $InvitationListInterfaceBuilder {
+  _$InvitationList? _$v;
+
+  ListBuilder<String>? _users;
+  ListBuilder<String> get users => _$this._users ??= ListBuilder<String>();
+  set users(covariant ListBuilder<String>? users) => _$this._users = users;
+
+  ListBuilder<String>? _federatedUsers;
+  ListBuilder<String> get federatedUsers => _$this._federatedUsers ??= ListBuilder<String>();
+  set federatedUsers(covariant ListBuilder<String>? federatedUsers) => _$this._federatedUsers = federatedUsers;
+
+  ListBuilder<String>? _groups;
+  ListBuilder<String> get groups => _$this._groups ??= ListBuilder<String>();
+  set groups(covariant ListBuilder<String>? groups) => _$this._groups = groups;
+
+  ListBuilder<String>? _emails;
+  ListBuilder<String> get emails => _$this._emails ??= ListBuilder<String>();
+  set emails(covariant ListBuilder<String>? emails) => _$this._emails = emails;
+
+  ListBuilder<String>? _phones;
+  ListBuilder<String> get phones => _$this._phones ??= ListBuilder<String>();
+  set phones(covariant ListBuilder<String>? phones) => _$this._phones = phones;
+
+  ListBuilder<String>? _teams;
+  ListBuilder<String> get teams => _$this._teams ??= ListBuilder<String>();
+  set teams(covariant ListBuilder<String>? teams) => _$this._teams = teams;
+
+  InvitationListBuilder() {
+    InvitationList._defaults(this);
+  }
+
+  InvitationListBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _users = $v.users?.toBuilder();
+      _federatedUsers = $v.federatedUsers?.toBuilder();
+      _groups = $v.groups?.toBuilder();
+      _emails = $v.emails?.toBuilder();
+      _phones = $v.phones?.toBuilder();
+      _teams = $v.teams?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant InvitationList other) {
+    _$v = other as _$InvitationList;
+  }
+
+  @override
+  void update(void Function(InvitationListBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  InvitationList build() => _build();
+
+  _$InvitationList _build() {
+    InvitationList._validate(this);
+    _$InvitationList _$result;
+    try {
+      _$result = _$v ??
+          _$InvitationList._(
+            users: _users?.build(),
+            federatedUsers: _federatedUsers?.build(),
+            groups: _groups?.build(),
+            emails: _emails?.build(),
+            phones: _phones?.build(),
+            teams: _teams?.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'users';
+        _users?.build();
+        _$failedField = 'federatedUsers';
+        _federatedUsers?.build();
+        _$failedField = 'groups';
+        _groups?.build();
+        _$failedField = 'emails';
+        _emails?.build();
+        _$failedField = 'phones';
+        _phones?.build();
+        _$failedField = 'teams';
+        _teams?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'InvitationList', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $RoomCreateRoomRequestApplicationJsonInterfaceBuilder {
   void replace($RoomCreateRoomRequestApplicationJsonInterface other);
   void update(void Function($RoomCreateRoomRequestApplicationJsonInterfaceBuilder) updates);
@@ -54156,6 +58375,45 @@ abstract mixin class $RoomCreateRoomRequestApplicationJsonInterfaceBuilder {
 
   String? get password;
   set password(String? password);
+
+  RoomCreateRoomRequestApplicationJson_ReadOnly? get readOnly;
+  set readOnly(RoomCreateRoomRequestApplicationJson_ReadOnly? readOnly);
+
+  RoomCreateRoomRequestApplicationJson_Listable? get listable;
+  set listable(RoomCreateRoomRequestApplicationJson_Listable? listable);
+
+  int? get messageExpiration;
+  set messageExpiration(int? messageExpiration);
+
+  RoomCreateRoomRequestApplicationJson_LobbyState? get lobbyState;
+  set lobbyState(RoomCreateRoomRequestApplicationJson_LobbyState? lobbyState);
+
+  int? get lobbyTimer;
+  set lobbyTimer(int? lobbyTimer);
+
+  RoomCreateRoomRequestApplicationJson_SipEnabled? get sipEnabled;
+  set sipEnabled(RoomCreateRoomRequestApplicationJson_SipEnabled? sipEnabled);
+
+  int? get permissions;
+  set permissions(int? permissions);
+
+  RoomCreateRoomRequestApplicationJson_RecordingConsent? get recordingConsent;
+  set recordingConsent(RoomCreateRoomRequestApplicationJson_RecordingConsent? recordingConsent);
+
+  RoomCreateRoomRequestApplicationJson_MentionPermissions? get mentionPermissions;
+  set mentionPermissions(RoomCreateRoomRequestApplicationJson_MentionPermissions? mentionPermissions);
+
+  String? get description;
+  set description(String? description);
+
+  String? get emoji;
+  set emoji(String? emoji);
+
+  String? get avatarColor;
+  set avatarColor(String? avatarColor);
+
+  InvitationListBuilder get participants;
+  set participants(InvitationListBuilder? participants);
 }
 
 class _$RoomCreateRoomRequestApplicationJson extends RoomCreateRoomRequestApplicationJson {
@@ -54173,6 +58431,32 @@ class _$RoomCreateRoomRequestApplicationJson extends RoomCreateRoomRequestApplic
   final String objectId;
   @override
   final String password;
+  @override
+  final RoomCreateRoomRequestApplicationJson_ReadOnly? readOnly;
+  @override
+  final RoomCreateRoomRequestApplicationJson_Listable? listable;
+  @override
+  final int messageExpiration;
+  @override
+  final RoomCreateRoomRequestApplicationJson_LobbyState? lobbyState;
+  @override
+  final int? lobbyTimer;
+  @override
+  final RoomCreateRoomRequestApplicationJson_SipEnabled? sipEnabled;
+  @override
+  final int? permissions;
+  @override
+  final RoomCreateRoomRequestApplicationJson_RecordingConsent? recordingConsent;
+  @override
+  final RoomCreateRoomRequestApplicationJson_MentionPermissions? mentionPermissions;
+  @override
+  final String description;
+  @override
+  final String? emoji;
+  @override
+  final String? avatarColor;
+  @override
+  final InvitationList participants;
 
   factory _$RoomCreateRoomRequestApplicationJson(
           [void Function(RoomCreateRoomRequestApplicationJsonBuilder)? updates]) =>
@@ -54185,7 +58469,20 @@ class _$RoomCreateRoomRequestApplicationJson extends RoomCreateRoomRequestApplic
       required this.source,
       required this.objectType,
       required this.objectId,
-      required this.password})
+      required this.password,
+      this.readOnly,
+      this.listable,
+      required this.messageExpiration,
+      this.lobbyState,
+      this.lobbyTimer,
+      this.sipEnabled,
+      this.permissions,
+      this.recordingConsent,
+      this.mentionPermissions,
+      required this.description,
+      this.emoji,
+      this.avatarColor,
+      required this.participants})
       : super._();
   @override
   RoomCreateRoomRequestApplicationJson rebuild(void Function(RoomCreateRoomRequestApplicationJsonBuilder) updates) =>
@@ -54205,7 +58502,20 @@ class _$RoomCreateRoomRequestApplicationJson extends RoomCreateRoomRequestApplic
         source == other.source &&
         objectType == other.objectType &&
         objectId == other.objectId &&
-        password == other.password;
+        password == other.password &&
+        readOnly == other.readOnly &&
+        listable == other.listable &&
+        messageExpiration == other.messageExpiration &&
+        lobbyState == other.lobbyState &&
+        lobbyTimer == other.lobbyTimer &&
+        sipEnabled == other.sipEnabled &&
+        permissions == other.permissions &&
+        recordingConsent == other.recordingConsent &&
+        mentionPermissions == other.mentionPermissions &&
+        description == other.description &&
+        emoji == other.emoji &&
+        avatarColor == other.avatarColor &&
+        participants == other.participants;
   }
 
   @override
@@ -54218,6 +58528,19 @@ class _$RoomCreateRoomRequestApplicationJson extends RoomCreateRoomRequestApplic
     _$hash = $jc(_$hash, objectType.hashCode);
     _$hash = $jc(_$hash, objectId.hashCode);
     _$hash = $jc(_$hash, password.hashCode);
+    _$hash = $jc(_$hash, readOnly.hashCode);
+    _$hash = $jc(_$hash, listable.hashCode);
+    _$hash = $jc(_$hash, messageExpiration.hashCode);
+    _$hash = $jc(_$hash, lobbyState.hashCode);
+    _$hash = $jc(_$hash, lobbyTimer.hashCode);
+    _$hash = $jc(_$hash, sipEnabled.hashCode);
+    _$hash = $jc(_$hash, permissions.hashCode);
+    _$hash = $jc(_$hash, recordingConsent.hashCode);
+    _$hash = $jc(_$hash, mentionPermissions.hashCode);
+    _$hash = $jc(_$hash, description.hashCode);
+    _$hash = $jc(_$hash, emoji.hashCode);
+    _$hash = $jc(_$hash, avatarColor.hashCode);
+    _$hash = $jc(_$hash, participants.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -54231,7 +58554,20 @@ class _$RoomCreateRoomRequestApplicationJson extends RoomCreateRoomRequestApplic
           ..add('source', source)
           ..add('objectType', objectType)
           ..add('objectId', objectId)
-          ..add('password', password))
+          ..add('password', password)
+          ..add('readOnly', readOnly)
+          ..add('listable', listable)
+          ..add('messageExpiration', messageExpiration)
+          ..add('lobbyState', lobbyState)
+          ..add('lobbyTimer', lobbyTimer)
+          ..add('sipEnabled', sipEnabled)
+          ..add('permissions', permissions)
+          ..add('recordingConsent', recordingConsent)
+          ..add('mentionPermissions', mentionPermissions)
+          ..add('description', description)
+          ..add('emoji', emoji)
+          ..add('avatarColor', avatarColor)
+          ..add('participants', participants))
         .toString();
   }
 }
@@ -54270,6 +58606,62 @@ class RoomCreateRoomRequestApplicationJsonBuilder
   String? get password => _$this._password;
   set password(covariant String? password) => _$this._password = password;
 
+  RoomCreateRoomRequestApplicationJson_ReadOnly? _readOnly;
+  RoomCreateRoomRequestApplicationJson_ReadOnly? get readOnly => _$this._readOnly;
+  set readOnly(covariant RoomCreateRoomRequestApplicationJson_ReadOnly? readOnly) => _$this._readOnly = readOnly;
+
+  RoomCreateRoomRequestApplicationJson_Listable? _listable;
+  RoomCreateRoomRequestApplicationJson_Listable? get listable => _$this._listable;
+  set listable(covariant RoomCreateRoomRequestApplicationJson_Listable? listable) => _$this._listable = listable;
+
+  int? _messageExpiration;
+  int? get messageExpiration => _$this._messageExpiration;
+  set messageExpiration(covariant int? messageExpiration) => _$this._messageExpiration = messageExpiration;
+
+  RoomCreateRoomRequestApplicationJson_LobbyState? _lobbyState;
+  RoomCreateRoomRequestApplicationJson_LobbyState? get lobbyState => _$this._lobbyState;
+  set lobbyState(covariant RoomCreateRoomRequestApplicationJson_LobbyState? lobbyState) =>
+      _$this._lobbyState = lobbyState;
+
+  int? _lobbyTimer;
+  int? get lobbyTimer => _$this._lobbyTimer;
+  set lobbyTimer(covariant int? lobbyTimer) => _$this._lobbyTimer = lobbyTimer;
+
+  RoomCreateRoomRequestApplicationJson_SipEnabled? _sipEnabled;
+  RoomCreateRoomRequestApplicationJson_SipEnabled? get sipEnabled => _$this._sipEnabled;
+  set sipEnabled(covariant RoomCreateRoomRequestApplicationJson_SipEnabled? sipEnabled) =>
+      _$this._sipEnabled = sipEnabled;
+
+  int? _permissions;
+  int? get permissions => _$this._permissions;
+  set permissions(covariant int? permissions) => _$this._permissions = permissions;
+
+  RoomCreateRoomRequestApplicationJson_RecordingConsent? _recordingConsent;
+  RoomCreateRoomRequestApplicationJson_RecordingConsent? get recordingConsent => _$this._recordingConsent;
+  set recordingConsent(covariant RoomCreateRoomRequestApplicationJson_RecordingConsent? recordingConsent) =>
+      _$this._recordingConsent = recordingConsent;
+
+  RoomCreateRoomRequestApplicationJson_MentionPermissions? _mentionPermissions;
+  RoomCreateRoomRequestApplicationJson_MentionPermissions? get mentionPermissions => _$this._mentionPermissions;
+  set mentionPermissions(covariant RoomCreateRoomRequestApplicationJson_MentionPermissions? mentionPermissions) =>
+      _$this._mentionPermissions = mentionPermissions;
+
+  String? _description;
+  String? get description => _$this._description;
+  set description(covariant String? description) => _$this._description = description;
+
+  String? _emoji;
+  String? get emoji => _$this._emoji;
+  set emoji(covariant String? emoji) => _$this._emoji = emoji;
+
+  String? _avatarColor;
+  String? get avatarColor => _$this._avatarColor;
+  set avatarColor(covariant String? avatarColor) => _$this._avatarColor = avatarColor;
+
+  InvitationListBuilder? _participants;
+  InvitationListBuilder get participants => _$this._participants ??= InvitationListBuilder();
+  set participants(covariant InvitationListBuilder? participants) => _$this._participants = participants;
+
   RoomCreateRoomRequestApplicationJsonBuilder() {
     RoomCreateRoomRequestApplicationJson._defaults(this);
   }
@@ -54284,6 +58676,19 @@ class RoomCreateRoomRequestApplicationJsonBuilder
       _objectType = $v.objectType;
       _objectId = $v.objectId;
       _password = $v.password;
+      _readOnly = $v.readOnly;
+      _listable = $v.listable;
+      _messageExpiration = $v.messageExpiration;
+      _lobbyState = $v.lobbyState;
+      _lobbyTimer = $v.lobbyTimer;
+      _sipEnabled = $v.sipEnabled;
+      _permissions = $v.permissions;
+      _recordingConsent = $v.recordingConsent;
+      _mentionPermissions = $v.mentionPermissions;
+      _description = $v.description;
+      _emoji = $v.emoji;
+      _avatarColor = $v.avatarColor;
+      _participants = $v.participants.toBuilder();
       _$v = null;
     }
     return this;
@@ -54304,21 +58709,48 @@ class RoomCreateRoomRequestApplicationJsonBuilder
 
   _$RoomCreateRoomRequestApplicationJson _build() {
     RoomCreateRoomRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$RoomCreateRoomRequestApplicationJson._(
-          roomType:
-              BuiltValueNullFieldError.checkNotNull(roomType, r'RoomCreateRoomRequestApplicationJson', 'roomType'),
-          invite: BuiltValueNullFieldError.checkNotNull(invite, r'RoomCreateRoomRequestApplicationJson', 'invite'),
-          roomName:
-              BuiltValueNullFieldError.checkNotNull(roomName, r'RoomCreateRoomRequestApplicationJson', 'roomName'),
-          source: BuiltValueNullFieldError.checkNotNull(source, r'RoomCreateRoomRequestApplicationJson', 'source'),
-          objectType:
-              BuiltValueNullFieldError.checkNotNull(objectType, r'RoomCreateRoomRequestApplicationJson', 'objectType'),
-          objectId:
-              BuiltValueNullFieldError.checkNotNull(objectId, r'RoomCreateRoomRequestApplicationJson', 'objectId'),
-          password:
-              BuiltValueNullFieldError.checkNotNull(password, r'RoomCreateRoomRequestApplicationJson', 'password'),
-        );
+    _$RoomCreateRoomRequestApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$RoomCreateRoomRequestApplicationJson._(
+            roomType:
+                BuiltValueNullFieldError.checkNotNull(roomType, r'RoomCreateRoomRequestApplicationJson', 'roomType'),
+            invite: BuiltValueNullFieldError.checkNotNull(invite, r'RoomCreateRoomRequestApplicationJson', 'invite'),
+            roomName:
+                BuiltValueNullFieldError.checkNotNull(roomName, r'RoomCreateRoomRequestApplicationJson', 'roomName'),
+            source: BuiltValueNullFieldError.checkNotNull(source, r'RoomCreateRoomRequestApplicationJson', 'source'),
+            objectType: BuiltValueNullFieldError.checkNotNull(
+                objectType, r'RoomCreateRoomRequestApplicationJson', 'objectType'),
+            objectId:
+                BuiltValueNullFieldError.checkNotNull(objectId, r'RoomCreateRoomRequestApplicationJson', 'objectId'),
+            password:
+                BuiltValueNullFieldError.checkNotNull(password, r'RoomCreateRoomRequestApplicationJson', 'password'),
+            readOnly: readOnly,
+            listable: listable,
+            messageExpiration: BuiltValueNullFieldError.checkNotNull(
+                messageExpiration, r'RoomCreateRoomRequestApplicationJson', 'messageExpiration'),
+            lobbyState: lobbyState,
+            lobbyTimer: lobbyTimer,
+            sipEnabled: sipEnabled,
+            permissions: permissions,
+            recordingConsent: recordingConsent,
+            mentionPermissions: mentionPermissions,
+            description: BuiltValueNullFieldError.checkNotNull(
+                description, r'RoomCreateRoomRequestApplicationJson', 'description'),
+            emoji: emoji,
+            avatarColor: avatarColor,
+            participants: participants.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'participants';
+        participants.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'RoomCreateRoomRequestApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
@@ -56180,6 +60612,238 @@ class RoomGetBreakoutRoomsResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'RoomGetBreakoutRoomsResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RoomUnbindRoomFromObjectResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($RoomUnbindRoomFromObjectResponseApplicationJson_OcsInterface other);
+  void update(void Function($RoomUnbindRoomFromObjectResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  RoomBuilder get data;
+  set data(RoomBuilder? data);
+}
+
+class _$RoomUnbindRoomFromObjectResponseApplicationJson_Ocs
+    extends RoomUnbindRoomFromObjectResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final Room data;
+
+  factory _$RoomUnbindRoomFromObjectResponseApplicationJson_Ocs(
+          [void Function(RoomUnbindRoomFromObjectResponseApplicationJson_OcsBuilder)? updates]) =>
+      (RoomUnbindRoomFromObjectResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$RoomUnbindRoomFromObjectResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
+  @override
+  RoomUnbindRoomFromObjectResponseApplicationJson_Ocs rebuild(
+          void Function(RoomUnbindRoomFromObjectResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RoomUnbindRoomFromObjectResponseApplicationJson_OcsBuilder toBuilder() =>
+      RoomUnbindRoomFromObjectResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RoomUnbindRoomFromObjectResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RoomUnbindRoomFromObjectResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class RoomUnbindRoomFromObjectResponseApplicationJson_OcsBuilder
+    implements
+        Builder<RoomUnbindRoomFromObjectResponseApplicationJson_Ocs,
+            RoomUnbindRoomFromObjectResponseApplicationJson_OcsBuilder>,
+        $RoomUnbindRoomFromObjectResponseApplicationJson_OcsInterfaceBuilder {
+  _$RoomUnbindRoomFromObjectResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  RoomBuilder? _data;
+  RoomBuilder get data => _$this._data ??= RoomBuilder();
+  set data(covariant RoomBuilder? data) => _$this._data = data;
+
+  RoomUnbindRoomFromObjectResponseApplicationJson_OcsBuilder() {
+    RoomUnbindRoomFromObjectResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  RoomUnbindRoomFromObjectResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RoomUnbindRoomFromObjectResponseApplicationJson_Ocs other) {
+    _$v = other as _$RoomUnbindRoomFromObjectResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(RoomUnbindRoomFromObjectResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RoomUnbindRoomFromObjectResponseApplicationJson_Ocs build() => _build();
+
+  _$RoomUnbindRoomFromObjectResponseApplicationJson_Ocs _build() {
+    RoomUnbindRoomFromObjectResponseApplicationJson_Ocs._validate(this);
+    _$RoomUnbindRoomFromObjectResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$RoomUnbindRoomFromObjectResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'RoomUnbindRoomFromObjectResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RoomUnbindRoomFromObjectResponseApplicationJsonInterfaceBuilder {
+  void replace($RoomUnbindRoomFromObjectResponseApplicationJsonInterface other);
+  void update(void Function($RoomUnbindRoomFromObjectResponseApplicationJsonInterfaceBuilder) updates);
+  RoomUnbindRoomFromObjectResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(RoomUnbindRoomFromObjectResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$RoomUnbindRoomFromObjectResponseApplicationJson extends RoomUnbindRoomFromObjectResponseApplicationJson {
+  @override
+  final RoomUnbindRoomFromObjectResponseApplicationJson_Ocs ocs;
+
+  factory _$RoomUnbindRoomFromObjectResponseApplicationJson(
+          [void Function(RoomUnbindRoomFromObjectResponseApplicationJsonBuilder)? updates]) =>
+      (RoomUnbindRoomFromObjectResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$RoomUnbindRoomFromObjectResponseApplicationJson._({required this.ocs}) : super._();
+  @override
+  RoomUnbindRoomFromObjectResponseApplicationJson rebuild(
+          void Function(RoomUnbindRoomFromObjectResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RoomUnbindRoomFromObjectResponseApplicationJsonBuilder toBuilder() =>
+      RoomUnbindRoomFromObjectResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RoomUnbindRoomFromObjectResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RoomUnbindRoomFromObjectResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class RoomUnbindRoomFromObjectResponseApplicationJsonBuilder
+    implements
+        Builder<RoomUnbindRoomFromObjectResponseApplicationJson,
+            RoomUnbindRoomFromObjectResponseApplicationJsonBuilder>,
+        $RoomUnbindRoomFromObjectResponseApplicationJsonInterfaceBuilder {
+  _$RoomUnbindRoomFromObjectResponseApplicationJson? _$v;
+
+  RoomUnbindRoomFromObjectResponseApplicationJson_OcsBuilder? _ocs;
+  RoomUnbindRoomFromObjectResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= RoomUnbindRoomFromObjectResponseApplicationJson_OcsBuilder();
+  set ocs(covariant RoomUnbindRoomFromObjectResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  RoomUnbindRoomFromObjectResponseApplicationJsonBuilder() {
+    RoomUnbindRoomFromObjectResponseApplicationJson._defaults(this);
+  }
+
+  RoomUnbindRoomFromObjectResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RoomUnbindRoomFromObjectResponseApplicationJson other) {
+    _$v = other as _$RoomUnbindRoomFromObjectResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(RoomUnbindRoomFromObjectResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RoomUnbindRoomFromObjectResponseApplicationJson build() => _build();
+
+  _$RoomUnbindRoomFromObjectResponseApplicationJson _build() {
+    RoomUnbindRoomFromObjectResponseApplicationJson._validate(this);
+    _$RoomUnbindRoomFromObjectResponseApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$RoomUnbindRoomFromObjectResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'RoomUnbindRoomFromObjectResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -63368,6 +68032,948 @@ class RoomRemoveFromFavoritesResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class $RoomMarkConversationAsImportantResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($RoomMarkConversationAsImportantResponseApplicationJson_OcsInterface other);
+  void update(void Function($RoomMarkConversationAsImportantResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  RoomBuilder get data;
+  set data(RoomBuilder? data);
+}
+
+class _$RoomMarkConversationAsImportantResponseApplicationJson_Ocs
+    extends RoomMarkConversationAsImportantResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final Room data;
+
+  factory _$RoomMarkConversationAsImportantResponseApplicationJson_Ocs(
+          [void Function(RoomMarkConversationAsImportantResponseApplicationJson_OcsBuilder)? updates]) =>
+      (RoomMarkConversationAsImportantResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$RoomMarkConversationAsImportantResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
+  @override
+  RoomMarkConversationAsImportantResponseApplicationJson_Ocs rebuild(
+          void Function(RoomMarkConversationAsImportantResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RoomMarkConversationAsImportantResponseApplicationJson_OcsBuilder toBuilder() =>
+      RoomMarkConversationAsImportantResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RoomMarkConversationAsImportantResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RoomMarkConversationAsImportantResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class RoomMarkConversationAsImportantResponseApplicationJson_OcsBuilder
+    implements
+        Builder<RoomMarkConversationAsImportantResponseApplicationJson_Ocs,
+            RoomMarkConversationAsImportantResponseApplicationJson_OcsBuilder>,
+        $RoomMarkConversationAsImportantResponseApplicationJson_OcsInterfaceBuilder {
+  _$RoomMarkConversationAsImportantResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  RoomBuilder? _data;
+  RoomBuilder get data => _$this._data ??= RoomBuilder();
+  set data(covariant RoomBuilder? data) => _$this._data = data;
+
+  RoomMarkConversationAsImportantResponseApplicationJson_OcsBuilder() {
+    RoomMarkConversationAsImportantResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  RoomMarkConversationAsImportantResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RoomMarkConversationAsImportantResponseApplicationJson_Ocs other) {
+    _$v = other as _$RoomMarkConversationAsImportantResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(RoomMarkConversationAsImportantResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RoomMarkConversationAsImportantResponseApplicationJson_Ocs build() => _build();
+
+  _$RoomMarkConversationAsImportantResponseApplicationJson_Ocs _build() {
+    RoomMarkConversationAsImportantResponseApplicationJson_Ocs._validate(this);
+    _$RoomMarkConversationAsImportantResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$RoomMarkConversationAsImportantResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'RoomMarkConversationAsImportantResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RoomMarkConversationAsImportantResponseApplicationJsonInterfaceBuilder {
+  void replace($RoomMarkConversationAsImportantResponseApplicationJsonInterface other);
+  void update(void Function($RoomMarkConversationAsImportantResponseApplicationJsonInterfaceBuilder) updates);
+  RoomMarkConversationAsImportantResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(RoomMarkConversationAsImportantResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$RoomMarkConversationAsImportantResponseApplicationJson
+    extends RoomMarkConversationAsImportantResponseApplicationJson {
+  @override
+  final RoomMarkConversationAsImportantResponseApplicationJson_Ocs ocs;
+
+  factory _$RoomMarkConversationAsImportantResponseApplicationJson(
+          [void Function(RoomMarkConversationAsImportantResponseApplicationJsonBuilder)? updates]) =>
+      (RoomMarkConversationAsImportantResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$RoomMarkConversationAsImportantResponseApplicationJson._({required this.ocs}) : super._();
+  @override
+  RoomMarkConversationAsImportantResponseApplicationJson rebuild(
+          void Function(RoomMarkConversationAsImportantResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RoomMarkConversationAsImportantResponseApplicationJsonBuilder toBuilder() =>
+      RoomMarkConversationAsImportantResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RoomMarkConversationAsImportantResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RoomMarkConversationAsImportantResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class RoomMarkConversationAsImportantResponseApplicationJsonBuilder
+    implements
+        Builder<RoomMarkConversationAsImportantResponseApplicationJson,
+            RoomMarkConversationAsImportantResponseApplicationJsonBuilder>,
+        $RoomMarkConversationAsImportantResponseApplicationJsonInterfaceBuilder {
+  _$RoomMarkConversationAsImportantResponseApplicationJson? _$v;
+
+  RoomMarkConversationAsImportantResponseApplicationJson_OcsBuilder? _ocs;
+  RoomMarkConversationAsImportantResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= RoomMarkConversationAsImportantResponseApplicationJson_OcsBuilder();
+  set ocs(covariant RoomMarkConversationAsImportantResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  RoomMarkConversationAsImportantResponseApplicationJsonBuilder() {
+    RoomMarkConversationAsImportantResponseApplicationJson._defaults(this);
+  }
+
+  RoomMarkConversationAsImportantResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RoomMarkConversationAsImportantResponseApplicationJson other) {
+    _$v = other as _$RoomMarkConversationAsImportantResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(RoomMarkConversationAsImportantResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RoomMarkConversationAsImportantResponseApplicationJson build() => _build();
+
+  _$RoomMarkConversationAsImportantResponseApplicationJson _build() {
+    RoomMarkConversationAsImportantResponseApplicationJson._validate(this);
+    _$RoomMarkConversationAsImportantResponseApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$RoomMarkConversationAsImportantResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'RoomMarkConversationAsImportantResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RoomMarkConversationAsUnimportantResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($RoomMarkConversationAsUnimportantResponseApplicationJson_OcsInterface other);
+  void update(void Function($RoomMarkConversationAsUnimportantResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  RoomBuilder get data;
+  set data(RoomBuilder? data);
+}
+
+class _$RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs
+    extends RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final Room data;
+
+  factory _$RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs(
+          [void Function(RoomMarkConversationAsUnimportantResponseApplicationJson_OcsBuilder)? updates]) =>
+      (RoomMarkConversationAsUnimportantResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs._({required this.meta, required this.data})
+      : super._();
+  @override
+  RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs rebuild(
+          void Function(RoomMarkConversationAsUnimportantResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RoomMarkConversationAsUnimportantResponseApplicationJson_OcsBuilder toBuilder() =>
+      RoomMarkConversationAsUnimportantResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class RoomMarkConversationAsUnimportantResponseApplicationJson_OcsBuilder
+    implements
+        Builder<RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs,
+            RoomMarkConversationAsUnimportantResponseApplicationJson_OcsBuilder>,
+        $RoomMarkConversationAsUnimportantResponseApplicationJson_OcsInterfaceBuilder {
+  _$RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  RoomBuilder? _data;
+  RoomBuilder get data => _$this._data ??= RoomBuilder();
+  set data(covariant RoomBuilder? data) => _$this._data = data;
+
+  RoomMarkConversationAsUnimportantResponseApplicationJson_OcsBuilder() {
+    RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  RoomMarkConversationAsUnimportantResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs other) {
+    _$v = other as _$RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(RoomMarkConversationAsUnimportantResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs build() => _build();
+
+  _$RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs _build() {
+    RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs._validate(this);
+    _$RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RoomMarkConversationAsUnimportantResponseApplicationJsonInterfaceBuilder {
+  void replace($RoomMarkConversationAsUnimportantResponseApplicationJsonInterface other);
+  void update(void Function($RoomMarkConversationAsUnimportantResponseApplicationJsonInterfaceBuilder) updates);
+  RoomMarkConversationAsUnimportantResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(RoomMarkConversationAsUnimportantResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$RoomMarkConversationAsUnimportantResponseApplicationJson
+    extends RoomMarkConversationAsUnimportantResponseApplicationJson {
+  @override
+  final RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs ocs;
+
+  factory _$RoomMarkConversationAsUnimportantResponseApplicationJson(
+          [void Function(RoomMarkConversationAsUnimportantResponseApplicationJsonBuilder)? updates]) =>
+      (RoomMarkConversationAsUnimportantResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$RoomMarkConversationAsUnimportantResponseApplicationJson._({required this.ocs}) : super._();
+  @override
+  RoomMarkConversationAsUnimportantResponseApplicationJson rebuild(
+          void Function(RoomMarkConversationAsUnimportantResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RoomMarkConversationAsUnimportantResponseApplicationJsonBuilder toBuilder() =>
+      RoomMarkConversationAsUnimportantResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RoomMarkConversationAsUnimportantResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RoomMarkConversationAsUnimportantResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class RoomMarkConversationAsUnimportantResponseApplicationJsonBuilder
+    implements
+        Builder<RoomMarkConversationAsUnimportantResponseApplicationJson,
+            RoomMarkConversationAsUnimportantResponseApplicationJsonBuilder>,
+        $RoomMarkConversationAsUnimportantResponseApplicationJsonInterfaceBuilder {
+  _$RoomMarkConversationAsUnimportantResponseApplicationJson? _$v;
+
+  RoomMarkConversationAsUnimportantResponseApplicationJson_OcsBuilder? _ocs;
+  RoomMarkConversationAsUnimportantResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= RoomMarkConversationAsUnimportantResponseApplicationJson_OcsBuilder();
+  set ocs(covariant RoomMarkConversationAsUnimportantResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  RoomMarkConversationAsUnimportantResponseApplicationJsonBuilder() {
+    RoomMarkConversationAsUnimportantResponseApplicationJson._defaults(this);
+  }
+
+  RoomMarkConversationAsUnimportantResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RoomMarkConversationAsUnimportantResponseApplicationJson other) {
+    _$v = other as _$RoomMarkConversationAsUnimportantResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(RoomMarkConversationAsUnimportantResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RoomMarkConversationAsUnimportantResponseApplicationJson build() => _build();
+
+  _$RoomMarkConversationAsUnimportantResponseApplicationJson _build() {
+    RoomMarkConversationAsUnimportantResponseApplicationJson._validate(this);
+    _$RoomMarkConversationAsUnimportantResponseApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$RoomMarkConversationAsUnimportantResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'RoomMarkConversationAsUnimportantResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RoomMarkConversationAsSensitiveResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($RoomMarkConversationAsSensitiveResponseApplicationJson_OcsInterface other);
+  void update(void Function($RoomMarkConversationAsSensitiveResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  RoomBuilder get data;
+  set data(RoomBuilder? data);
+}
+
+class _$RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs
+    extends RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final Room data;
+
+  factory _$RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs(
+          [void Function(RoomMarkConversationAsSensitiveResponseApplicationJson_OcsBuilder)? updates]) =>
+      (RoomMarkConversationAsSensitiveResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
+  @override
+  RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs rebuild(
+          void Function(RoomMarkConversationAsSensitiveResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RoomMarkConversationAsSensitiveResponseApplicationJson_OcsBuilder toBuilder() =>
+      RoomMarkConversationAsSensitiveResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class RoomMarkConversationAsSensitiveResponseApplicationJson_OcsBuilder
+    implements
+        Builder<RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs,
+            RoomMarkConversationAsSensitiveResponseApplicationJson_OcsBuilder>,
+        $RoomMarkConversationAsSensitiveResponseApplicationJson_OcsInterfaceBuilder {
+  _$RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  RoomBuilder? _data;
+  RoomBuilder get data => _$this._data ??= RoomBuilder();
+  set data(covariant RoomBuilder? data) => _$this._data = data;
+
+  RoomMarkConversationAsSensitiveResponseApplicationJson_OcsBuilder() {
+    RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  RoomMarkConversationAsSensitiveResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs other) {
+    _$v = other as _$RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(RoomMarkConversationAsSensitiveResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs build() => _build();
+
+  _$RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs _build() {
+    RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs._validate(this);
+    _$RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RoomMarkConversationAsSensitiveResponseApplicationJsonInterfaceBuilder {
+  void replace($RoomMarkConversationAsSensitiveResponseApplicationJsonInterface other);
+  void update(void Function($RoomMarkConversationAsSensitiveResponseApplicationJsonInterfaceBuilder) updates);
+  RoomMarkConversationAsSensitiveResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(RoomMarkConversationAsSensitiveResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$RoomMarkConversationAsSensitiveResponseApplicationJson
+    extends RoomMarkConversationAsSensitiveResponseApplicationJson {
+  @override
+  final RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs ocs;
+
+  factory _$RoomMarkConversationAsSensitiveResponseApplicationJson(
+          [void Function(RoomMarkConversationAsSensitiveResponseApplicationJsonBuilder)? updates]) =>
+      (RoomMarkConversationAsSensitiveResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$RoomMarkConversationAsSensitiveResponseApplicationJson._({required this.ocs}) : super._();
+  @override
+  RoomMarkConversationAsSensitiveResponseApplicationJson rebuild(
+          void Function(RoomMarkConversationAsSensitiveResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RoomMarkConversationAsSensitiveResponseApplicationJsonBuilder toBuilder() =>
+      RoomMarkConversationAsSensitiveResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RoomMarkConversationAsSensitiveResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RoomMarkConversationAsSensitiveResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class RoomMarkConversationAsSensitiveResponseApplicationJsonBuilder
+    implements
+        Builder<RoomMarkConversationAsSensitiveResponseApplicationJson,
+            RoomMarkConversationAsSensitiveResponseApplicationJsonBuilder>,
+        $RoomMarkConversationAsSensitiveResponseApplicationJsonInterfaceBuilder {
+  _$RoomMarkConversationAsSensitiveResponseApplicationJson? _$v;
+
+  RoomMarkConversationAsSensitiveResponseApplicationJson_OcsBuilder? _ocs;
+  RoomMarkConversationAsSensitiveResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= RoomMarkConversationAsSensitiveResponseApplicationJson_OcsBuilder();
+  set ocs(covariant RoomMarkConversationAsSensitiveResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  RoomMarkConversationAsSensitiveResponseApplicationJsonBuilder() {
+    RoomMarkConversationAsSensitiveResponseApplicationJson._defaults(this);
+  }
+
+  RoomMarkConversationAsSensitiveResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RoomMarkConversationAsSensitiveResponseApplicationJson other) {
+    _$v = other as _$RoomMarkConversationAsSensitiveResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(RoomMarkConversationAsSensitiveResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RoomMarkConversationAsSensitiveResponseApplicationJson build() => _build();
+
+  _$RoomMarkConversationAsSensitiveResponseApplicationJson _build() {
+    RoomMarkConversationAsSensitiveResponseApplicationJson._validate(this);
+    _$RoomMarkConversationAsSensitiveResponseApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$RoomMarkConversationAsSensitiveResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'RoomMarkConversationAsSensitiveResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsInterface other);
+  void update(void Function($RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  RoomBuilder get data;
+  set data(RoomBuilder? data);
+}
+
+class _$RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs
+    extends RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final Room data;
+
+  factory _$RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs(
+          [void Function(RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsBuilder)? updates]) =>
+      (RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs._({required this.meta, required this.data})
+      : super._();
+  @override
+  RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs rebuild(
+          void Function(RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsBuilder toBuilder() =>
+      RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsBuilder
+    implements
+        Builder<RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs,
+            RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsBuilder>,
+        $RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsInterfaceBuilder {
+  _$RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  RoomBuilder? _data;
+  RoomBuilder get data => _$this._data ??= RoomBuilder();
+  set data(covariant RoomBuilder? data) => _$this._data = data;
+
+  RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsBuilder() {
+    RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs other) {
+    _$v = other as _$RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs build() => _build();
+
+  _$RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs _build() {
+    RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs._validate(this);
+    _$RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RoomMarkConversationAsInsensitiveResponseApplicationJsonInterfaceBuilder {
+  void replace($RoomMarkConversationAsInsensitiveResponseApplicationJsonInterface other);
+  void update(void Function($RoomMarkConversationAsInsensitiveResponseApplicationJsonInterfaceBuilder) updates);
+  RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$RoomMarkConversationAsInsensitiveResponseApplicationJson
+    extends RoomMarkConversationAsInsensitiveResponseApplicationJson {
+  @override
+  final RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs ocs;
+
+  factory _$RoomMarkConversationAsInsensitiveResponseApplicationJson(
+          [void Function(RoomMarkConversationAsInsensitiveResponseApplicationJsonBuilder)? updates]) =>
+      (RoomMarkConversationAsInsensitiveResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$RoomMarkConversationAsInsensitiveResponseApplicationJson._({required this.ocs}) : super._();
+  @override
+  RoomMarkConversationAsInsensitiveResponseApplicationJson rebuild(
+          void Function(RoomMarkConversationAsInsensitiveResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RoomMarkConversationAsInsensitiveResponseApplicationJsonBuilder toBuilder() =>
+      RoomMarkConversationAsInsensitiveResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RoomMarkConversationAsInsensitiveResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RoomMarkConversationAsInsensitiveResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class RoomMarkConversationAsInsensitiveResponseApplicationJsonBuilder
+    implements
+        Builder<RoomMarkConversationAsInsensitiveResponseApplicationJson,
+            RoomMarkConversationAsInsensitiveResponseApplicationJsonBuilder>,
+        $RoomMarkConversationAsInsensitiveResponseApplicationJsonInterfaceBuilder {
+  _$RoomMarkConversationAsInsensitiveResponseApplicationJson? _$v;
+
+  RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsBuilder? _ocs;
+  RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsBuilder();
+  set ocs(covariant RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  RoomMarkConversationAsInsensitiveResponseApplicationJsonBuilder() {
+    RoomMarkConversationAsInsensitiveResponseApplicationJson._defaults(this);
+  }
+
+  RoomMarkConversationAsInsensitiveResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RoomMarkConversationAsInsensitiveResponseApplicationJson other) {
+    _$v = other as _$RoomMarkConversationAsInsensitiveResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(RoomMarkConversationAsInsensitiveResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RoomMarkConversationAsInsensitiveResponseApplicationJson build() => _build();
+
+  _$RoomMarkConversationAsInsensitiveResponseApplicationJson _build() {
+    RoomMarkConversationAsInsensitiveResponseApplicationJson._validate(this);
+    _$RoomMarkConversationAsInsensitiveResponseApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$RoomMarkConversationAsInsensitiveResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'RoomMarkConversationAsInsensitiveResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $RoomSetNotificationLevelRequestApplicationJsonInterfaceBuilder {
   void replace($RoomSetNotificationLevelRequestApplicationJsonInterface other);
   void update(void Function($RoomSetNotificationLevelRequestApplicationJsonInterfaceBuilder) updates);
@@ -64023,8 +69629,8 @@ class RoomSetNotificationCallsResponseApplicationJsonBuilder
 abstract mixin class $RoomSetLobbyRequestApplicationJsonInterfaceBuilder {
   void replace($RoomSetLobbyRequestApplicationJsonInterface other);
   void update(void Function($RoomSetLobbyRequestApplicationJsonInterfaceBuilder) updates);
-  int? get state;
-  set state(int? state);
+  RoomSetLobbyRequestApplicationJson_State? get state;
+  set state(RoomSetLobbyRequestApplicationJson_State? state);
 
   int? get timer;
   set timer(int? timer);
@@ -64032,7 +69638,7 @@ abstract mixin class $RoomSetLobbyRequestApplicationJsonInterfaceBuilder {
 
 class _$RoomSetLobbyRequestApplicationJson extends RoomSetLobbyRequestApplicationJson {
   @override
-  final int state;
+  final RoomSetLobbyRequestApplicationJson_State state;
   @override
   final int? timer;
 
@@ -64077,9 +69683,9 @@ class RoomSetLobbyRequestApplicationJsonBuilder
         $RoomSetLobbyRequestApplicationJsonInterfaceBuilder {
   _$RoomSetLobbyRequestApplicationJson? _$v;
 
-  int? _state;
-  int? get state => _$this._state;
-  set state(covariant int? state) => _$this._state = state;
+  RoomSetLobbyRequestApplicationJson_State? _state;
+  RoomSetLobbyRequestApplicationJson_State? get state => _$this._state;
+  set state(covariant RoomSetLobbyRequestApplicationJson_State? state) => _$this._state = state;
 
   int? _timer;
   int? get timer => _$this._timer;
@@ -65442,6 +71048,9 @@ abstract mixin class $Capabilities_Config_CallInterfaceBuilder {
   ListBuilder<String> get predefinedBackgrounds;
   set predefinedBackgrounds(ListBuilder<String>? predefinedBackgrounds);
 
+  ListBuilder<String> get predefinedBackgroundsV2;
+  set predefinedBackgroundsV2(ListBuilder<String>? predefinedBackgroundsV2);
+
   bool? get canUploadBackground;
   set canUploadBackground(bool? canUploadBackground);
 
@@ -65481,6 +71090,8 @@ class _$Capabilities_Config_Call extends Capabilities_Config_Call {
   @override
   final BuiltList<String> predefinedBackgrounds;
   @override
+  final BuiltList<String>? predefinedBackgroundsV2;
+  @override
   final bool canUploadBackground;
   @override
   final bool sipEnabled;
@@ -65507,6 +71118,7 @@ class _$Capabilities_Config_Call extends Capabilities_Config_Call {
       required this.recordingConsent,
       required this.supportedReactions,
       required this.predefinedBackgrounds,
+      this.predefinedBackgroundsV2,
       required this.canUploadBackground,
       required this.sipEnabled,
       required this.sipDialoutEnabled,
@@ -65533,6 +71145,7 @@ class _$Capabilities_Config_Call extends Capabilities_Config_Call {
         recordingConsent == other.recordingConsent &&
         supportedReactions == other.supportedReactions &&
         predefinedBackgrounds == other.predefinedBackgrounds &&
+        predefinedBackgroundsV2 == other.predefinedBackgroundsV2 &&
         canUploadBackground == other.canUploadBackground &&
         sipEnabled == other.sipEnabled &&
         sipDialoutEnabled == other.sipDialoutEnabled &&
@@ -65552,6 +71165,7 @@ class _$Capabilities_Config_Call extends Capabilities_Config_Call {
     _$hash = $jc(_$hash, recordingConsent.hashCode);
     _$hash = $jc(_$hash, supportedReactions.hashCode);
     _$hash = $jc(_$hash, predefinedBackgrounds.hashCode);
+    _$hash = $jc(_$hash, predefinedBackgroundsV2.hashCode);
     _$hash = $jc(_$hash, canUploadBackground.hashCode);
     _$hash = $jc(_$hash, sipEnabled.hashCode);
     _$hash = $jc(_$hash, sipDialoutEnabled.hashCode);
@@ -65573,6 +71187,7 @@ class _$Capabilities_Config_Call extends Capabilities_Config_Call {
           ..add('recordingConsent', recordingConsent)
           ..add('supportedReactions', supportedReactions)
           ..add('predefinedBackgrounds', predefinedBackgrounds)
+          ..add('predefinedBackgroundsV2', predefinedBackgroundsV2)
           ..add('canUploadBackground', canUploadBackground)
           ..add('sipEnabled', sipEnabled)
           ..add('sipDialoutEnabled', sipDialoutEnabled)
@@ -65616,6 +71231,11 @@ class Capabilities_Config_CallBuilder
   ListBuilder<String> get predefinedBackgrounds => _$this._predefinedBackgrounds ??= ListBuilder<String>();
   set predefinedBackgrounds(covariant ListBuilder<String>? predefinedBackgrounds) =>
       _$this._predefinedBackgrounds = predefinedBackgrounds;
+
+  ListBuilder<String>? _predefinedBackgroundsV2;
+  ListBuilder<String> get predefinedBackgroundsV2 => _$this._predefinedBackgroundsV2 ??= ListBuilder<String>();
+  set predefinedBackgroundsV2(covariant ListBuilder<String>? predefinedBackgroundsV2) =>
+      _$this._predefinedBackgroundsV2 = predefinedBackgroundsV2;
 
   bool? _canUploadBackground;
   bool? get canUploadBackground => _$this._canUploadBackground;
@@ -65663,6 +71283,7 @@ class Capabilities_Config_CallBuilder
       _recordingConsent = $v.recordingConsent;
       _supportedReactions = $v.supportedReactions.toBuilder();
       _predefinedBackgrounds = $v.predefinedBackgrounds.toBuilder();
+      _predefinedBackgroundsV2 = $v.predefinedBackgroundsV2?.toBuilder();
       _canUploadBackground = $v.canUploadBackground;
       _sipEnabled = $v.sipEnabled;
       _sipDialoutEnabled = $v.sipDialoutEnabled;
@@ -65703,6 +71324,7 @@ class Capabilities_Config_CallBuilder
                 recordingConsent, r'Capabilities_Config_Call', 'recordingConsent'),
             supportedReactions: supportedReactions.build(),
             predefinedBackgrounds: predefinedBackgrounds.build(),
+            predefinedBackgroundsV2: _predefinedBackgroundsV2?.build(),
             canUploadBackground: BuiltValueNullFieldError.checkNotNull(
                 canUploadBackground, r'Capabilities_Config_Call', 'canUploadBackground'),
             sipEnabled: BuiltValueNullFieldError.checkNotNull(sipEnabled, r'Capabilities_Config_Call', 'sipEnabled'),
@@ -65722,6 +71344,8 @@ class Capabilities_Config_CallBuilder
         supportedReactions.build();
         _$failedField = 'predefinedBackgrounds';
         predefinedBackgrounds.build();
+        _$failedField = 'predefinedBackgroundsV2';
+        _predefinedBackgroundsV2?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'Capabilities_Config_Call', _$failedField, e.toString());
       }
@@ -65919,6 +71543,15 @@ abstract mixin class $Capabilities_Config_ConversationsInterfaceBuilder {
 
   int? get descriptionLength;
   set descriptionLength(int? descriptionLength);
+
+  int? get retentionEvent;
+  set retentionEvent(int? retentionEvent);
+
+  int? get retentionPhone;
+  set retentionPhone(int? retentionPhone);
+
+  int? get retentionInstantMeetings;
+  set retentionInstantMeetings(int? retentionInstantMeetings);
 }
 
 class _$Capabilities_Config_Conversations extends Capabilities_Config_Conversations {
@@ -65930,12 +71563,24 @@ class _$Capabilities_Config_Conversations extends Capabilities_Config_Conversati
   final Capabilities_Config_Conversations_ListStyle? listStyle;
   @override
   final int? descriptionLength;
+  @override
+  final int? retentionEvent;
+  @override
+  final int? retentionPhone;
+  @override
+  final int? retentionInstantMeetings;
 
   factory _$Capabilities_Config_Conversations([void Function(Capabilities_Config_ConversationsBuilder)? updates]) =>
       (Capabilities_Config_ConversationsBuilder()..update(updates))._build();
 
   _$Capabilities_Config_Conversations._(
-      {required this.canCreate, this.forcePasswords, this.listStyle, this.descriptionLength})
+      {required this.canCreate,
+      this.forcePasswords,
+      this.listStyle,
+      this.descriptionLength,
+      this.retentionEvent,
+      this.retentionPhone,
+      this.retentionInstantMeetings})
       : super._();
   @override
   Capabilities_Config_Conversations rebuild(void Function(Capabilities_Config_ConversationsBuilder) updates) =>
@@ -65951,7 +71596,10 @@ class _$Capabilities_Config_Conversations extends Capabilities_Config_Conversati
         canCreate == other.canCreate &&
         forcePasswords == other.forcePasswords &&
         listStyle == other.listStyle &&
-        descriptionLength == other.descriptionLength;
+        descriptionLength == other.descriptionLength &&
+        retentionEvent == other.retentionEvent &&
+        retentionPhone == other.retentionPhone &&
+        retentionInstantMeetings == other.retentionInstantMeetings;
   }
 
   @override
@@ -65961,6 +71609,9 @@ class _$Capabilities_Config_Conversations extends Capabilities_Config_Conversati
     _$hash = $jc(_$hash, forcePasswords.hashCode);
     _$hash = $jc(_$hash, listStyle.hashCode);
     _$hash = $jc(_$hash, descriptionLength.hashCode);
+    _$hash = $jc(_$hash, retentionEvent.hashCode);
+    _$hash = $jc(_$hash, retentionPhone.hashCode);
+    _$hash = $jc(_$hash, retentionInstantMeetings.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -65971,7 +71622,10 @@ class _$Capabilities_Config_Conversations extends Capabilities_Config_Conversati
           ..add('canCreate', canCreate)
           ..add('forcePasswords', forcePasswords)
           ..add('listStyle', listStyle)
-          ..add('descriptionLength', descriptionLength))
+          ..add('descriptionLength', descriptionLength)
+          ..add('retentionEvent', retentionEvent)
+          ..add('retentionPhone', retentionPhone)
+          ..add('retentionInstantMeetings', retentionInstantMeetings))
         .toString();
   }
 }
@@ -65998,6 +71652,19 @@ class Capabilities_Config_ConversationsBuilder
   int? get descriptionLength => _$this._descriptionLength;
   set descriptionLength(covariant int? descriptionLength) => _$this._descriptionLength = descriptionLength;
 
+  int? _retentionEvent;
+  int? get retentionEvent => _$this._retentionEvent;
+  set retentionEvent(covariant int? retentionEvent) => _$this._retentionEvent = retentionEvent;
+
+  int? _retentionPhone;
+  int? get retentionPhone => _$this._retentionPhone;
+  set retentionPhone(covariant int? retentionPhone) => _$this._retentionPhone = retentionPhone;
+
+  int? _retentionInstantMeetings;
+  int? get retentionInstantMeetings => _$this._retentionInstantMeetings;
+  set retentionInstantMeetings(covariant int? retentionInstantMeetings) =>
+      _$this._retentionInstantMeetings = retentionInstantMeetings;
+
   Capabilities_Config_ConversationsBuilder() {
     Capabilities_Config_Conversations._defaults(this);
   }
@@ -66009,6 +71676,9 @@ class Capabilities_Config_ConversationsBuilder
       _forcePasswords = $v.forcePasswords;
       _listStyle = $v.listStyle;
       _descriptionLength = $v.descriptionLength;
+      _retentionEvent = $v.retentionEvent;
+      _retentionPhone = $v.retentionPhone;
+      _retentionInstantMeetings = $v.retentionInstantMeetings;
       _$v = null;
     }
     return this;
@@ -66036,6 +71706,9 @@ class Capabilities_Config_ConversationsBuilder
           forcePasswords: forcePasswords,
           listStyle: listStyle,
           descriptionLength: descriptionLength,
+          retentionEvent: retentionEvent,
+          retentionPhone: retentionPhone,
+          retentionInstantMeetings: retentionInstantMeetings,
         );
     replace(_$result);
     return _$result;
@@ -66380,6 +72053,95 @@ class Capabilities_Config_SignalingBuilder
   }
 }
 
+abstract mixin class $Capabilities_Config_ExperimentsInterfaceBuilder {
+  void replace($Capabilities_Config_ExperimentsInterface other);
+  void update(void Function($Capabilities_Config_ExperimentsInterfaceBuilder) updates);
+  int? get enabled;
+  set enabled(int? enabled);
+}
+
+class _$Capabilities_Config_Experiments extends Capabilities_Config_Experiments {
+  @override
+  final int enabled;
+
+  factory _$Capabilities_Config_Experiments([void Function(Capabilities_Config_ExperimentsBuilder)? updates]) =>
+      (Capabilities_Config_ExperimentsBuilder()..update(updates))._build();
+
+  _$Capabilities_Config_Experiments._({required this.enabled}) : super._();
+  @override
+  Capabilities_Config_Experiments rebuild(void Function(Capabilities_Config_ExperimentsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  Capabilities_Config_ExperimentsBuilder toBuilder() => Capabilities_Config_ExperimentsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Capabilities_Config_Experiments && enabled == other.enabled;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, enabled.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'Capabilities_Config_Experiments')..add('enabled', enabled)).toString();
+  }
+}
+
+class Capabilities_Config_ExperimentsBuilder
+    implements
+        Builder<Capabilities_Config_Experiments, Capabilities_Config_ExperimentsBuilder>,
+        $Capabilities_Config_ExperimentsInterfaceBuilder {
+  _$Capabilities_Config_Experiments? _$v;
+
+  int? _enabled;
+  int? get enabled => _$this._enabled;
+  set enabled(covariant int? enabled) => _$this._enabled = enabled;
+
+  Capabilities_Config_ExperimentsBuilder() {
+    Capabilities_Config_Experiments._defaults(this);
+  }
+
+  Capabilities_Config_ExperimentsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _enabled = $v.enabled;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant Capabilities_Config_Experiments other) {
+    _$v = other as _$Capabilities_Config_Experiments;
+  }
+
+  @override
+  void update(void Function(Capabilities_Config_ExperimentsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  Capabilities_Config_Experiments build() => _build();
+
+  _$Capabilities_Config_Experiments _build() {
+    Capabilities_Config_Experiments._validate(this);
+    final _$result = _$v ??
+        _$Capabilities_Config_Experiments._(
+          enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_Config_Experiments', 'enabled'),
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $Capabilities_ConfigInterfaceBuilder {
   void replace($Capabilities_ConfigInterface other);
   void update(void Function($Capabilities_ConfigInterfaceBuilder) updates);
@@ -66403,6 +72165,9 @@ abstract mixin class $Capabilities_ConfigInterfaceBuilder {
 
   Capabilities_Config_SignalingBuilder get signaling;
   set signaling(Capabilities_Config_SignalingBuilder? signaling);
+
+  Capabilities_Config_ExperimentsBuilder get experiments;
+  set experiments(Capabilities_Config_ExperimentsBuilder? experiments);
 }
 
 class _$Capabilities_Config extends Capabilities_Config {
@@ -66420,6 +72185,8 @@ class _$Capabilities_Config extends Capabilities_Config {
   final Capabilities_Config_Previews previews;
   @override
   final Capabilities_Config_Signaling signaling;
+  @override
+  final Capabilities_Config_Experiments? experiments;
 
   factory _$Capabilities_Config([void Function(Capabilities_ConfigBuilder)? updates]) =>
       (Capabilities_ConfigBuilder()..update(updates))._build();
@@ -66431,7 +72198,8 @@ class _$Capabilities_Config extends Capabilities_Config {
       required this.conversations,
       required this.federation,
       required this.previews,
-      required this.signaling})
+      required this.signaling,
+      this.experiments})
       : super._();
   @override
   Capabilities_Config rebuild(void Function(Capabilities_ConfigBuilder) updates) =>
@@ -66450,7 +72218,8 @@ class _$Capabilities_Config extends Capabilities_Config {
         conversations == other.conversations &&
         federation == other.federation &&
         previews == other.previews &&
-        signaling == other.signaling;
+        signaling == other.signaling &&
+        experiments == other.experiments;
   }
 
   @override
@@ -66463,6 +72232,7 @@ class _$Capabilities_Config extends Capabilities_Config {
     _$hash = $jc(_$hash, federation.hashCode);
     _$hash = $jc(_$hash, previews.hashCode);
     _$hash = $jc(_$hash, signaling.hashCode);
+    _$hash = $jc(_$hash, experiments.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -66476,7 +72246,8 @@ class _$Capabilities_Config extends Capabilities_Config {
           ..add('conversations', conversations)
           ..add('federation', federation)
           ..add('previews', previews)
-          ..add('signaling', signaling))
+          ..add('signaling', signaling)
+          ..add('experiments', experiments))
         .toString();
   }
 }
@@ -66517,6 +72288,11 @@ class Capabilities_ConfigBuilder
   Capabilities_Config_SignalingBuilder get signaling => _$this._signaling ??= Capabilities_Config_SignalingBuilder();
   set signaling(covariant Capabilities_Config_SignalingBuilder? signaling) => _$this._signaling = signaling;
 
+  Capabilities_Config_ExperimentsBuilder? _experiments;
+  Capabilities_Config_ExperimentsBuilder get experiments =>
+      _$this._experiments ??= Capabilities_Config_ExperimentsBuilder();
+  set experiments(covariant Capabilities_Config_ExperimentsBuilder? experiments) => _$this._experiments = experiments;
+
   Capabilities_ConfigBuilder() {
     Capabilities_Config._defaults(this);
   }
@@ -66531,6 +72307,7 @@ class Capabilities_ConfigBuilder
       _federation = $v.federation.toBuilder();
       _previews = $v.previews.toBuilder();
       _signaling = $v.signaling.toBuilder();
+      _experiments = $v.experiments?.toBuilder();
       _$v = null;
     }
     return this;
@@ -66562,6 +72339,7 @@ class Capabilities_ConfigBuilder
             federation: federation.build(),
             previews: previews.build(),
             signaling: signaling.build(),
+            experiments: _experiments?.build(),
           );
     } catch (_) {
       late String _$failedField;
@@ -66580,6 +72358,8 @@ class Capabilities_ConfigBuilder
         previews.build();
         _$failedField = 'signaling';
         signaling.build();
+        _$failedField = 'experiments';
+        _experiments?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'Capabilities_Config', _$failedField, e.toString());
       }
@@ -70463,6 +76243,342 @@ class RoomVerifyDialOutNumberResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class $RoomDirectDialInRequestApplicationJsonInterfaceBuilder {
+  void replace($RoomDirectDialInRequestApplicationJsonInterface other);
+  void update(void Function($RoomDirectDialInRequestApplicationJsonInterfaceBuilder) updates);
+  String? get phoneNumber;
+  set phoneNumber(String? phoneNumber);
+
+  String? get caller;
+  set caller(String? caller);
+}
+
+class _$RoomDirectDialInRequestApplicationJson extends RoomDirectDialInRequestApplicationJson {
+  @override
+  final String phoneNumber;
+  @override
+  final String caller;
+
+  factory _$RoomDirectDialInRequestApplicationJson(
+          [void Function(RoomDirectDialInRequestApplicationJsonBuilder)? updates]) =>
+      (RoomDirectDialInRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$RoomDirectDialInRequestApplicationJson._({required this.phoneNumber, required this.caller}) : super._();
+  @override
+  RoomDirectDialInRequestApplicationJson rebuild(
+          void Function(RoomDirectDialInRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RoomDirectDialInRequestApplicationJsonBuilder toBuilder() =>
+      RoomDirectDialInRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RoomDirectDialInRequestApplicationJson &&
+        phoneNumber == other.phoneNumber &&
+        caller == other.caller;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, phoneNumber.hashCode);
+    _$hash = $jc(_$hash, caller.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RoomDirectDialInRequestApplicationJson')
+          ..add('phoneNumber', phoneNumber)
+          ..add('caller', caller))
+        .toString();
+  }
+}
+
+class RoomDirectDialInRequestApplicationJsonBuilder
+    implements
+        Builder<RoomDirectDialInRequestApplicationJson, RoomDirectDialInRequestApplicationJsonBuilder>,
+        $RoomDirectDialInRequestApplicationJsonInterfaceBuilder {
+  _$RoomDirectDialInRequestApplicationJson? _$v;
+
+  String? _phoneNumber;
+  String? get phoneNumber => _$this._phoneNumber;
+  set phoneNumber(covariant String? phoneNumber) => _$this._phoneNumber = phoneNumber;
+
+  String? _caller;
+  String? get caller => _$this._caller;
+  set caller(covariant String? caller) => _$this._caller = caller;
+
+  RoomDirectDialInRequestApplicationJsonBuilder() {
+    RoomDirectDialInRequestApplicationJson._defaults(this);
+  }
+
+  RoomDirectDialInRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _phoneNumber = $v.phoneNumber;
+      _caller = $v.caller;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RoomDirectDialInRequestApplicationJson other) {
+    _$v = other as _$RoomDirectDialInRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(RoomDirectDialInRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RoomDirectDialInRequestApplicationJson build() => _build();
+
+  _$RoomDirectDialInRequestApplicationJson _build() {
+    RoomDirectDialInRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$RoomDirectDialInRequestApplicationJson._(
+          phoneNumber: BuiltValueNullFieldError.checkNotNull(
+              phoneNumber, r'RoomDirectDialInRequestApplicationJson', 'phoneNumber'),
+          caller: BuiltValueNullFieldError.checkNotNull(caller, r'RoomDirectDialInRequestApplicationJson', 'caller'),
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RoomDirectDialInResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($RoomDirectDialInResponseApplicationJson_OcsInterface other);
+  void update(void Function($RoomDirectDialInResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  RoomBuilder get data;
+  set data(RoomBuilder? data);
+}
+
+class _$RoomDirectDialInResponseApplicationJson_Ocs extends RoomDirectDialInResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final Room data;
+
+  factory _$RoomDirectDialInResponseApplicationJson_Ocs(
+          [void Function(RoomDirectDialInResponseApplicationJson_OcsBuilder)? updates]) =>
+      (RoomDirectDialInResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$RoomDirectDialInResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
+  @override
+  RoomDirectDialInResponseApplicationJson_Ocs rebuild(
+          void Function(RoomDirectDialInResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RoomDirectDialInResponseApplicationJson_OcsBuilder toBuilder() =>
+      RoomDirectDialInResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RoomDirectDialInResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RoomDirectDialInResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class RoomDirectDialInResponseApplicationJson_OcsBuilder
+    implements
+        Builder<RoomDirectDialInResponseApplicationJson_Ocs, RoomDirectDialInResponseApplicationJson_OcsBuilder>,
+        $RoomDirectDialInResponseApplicationJson_OcsInterfaceBuilder {
+  _$RoomDirectDialInResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  RoomBuilder? _data;
+  RoomBuilder get data => _$this._data ??= RoomBuilder();
+  set data(covariant RoomBuilder? data) => _$this._data = data;
+
+  RoomDirectDialInResponseApplicationJson_OcsBuilder() {
+    RoomDirectDialInResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  RoomDirectDialInResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RoomDirectDialInResponseApplicationJson_Ocs other) {
+    _$v = other as _$RoomDirectDialInResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(RoomDirectDialInResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RoomDirectDialInResponseApplicationJson_Ocs build() => _build();
+
+  _$RoomDirectDialInResponseApplicationJson_Ocs _build() {
+    RoomDirectDialInResponseApplicationJson_Ocs._validate(this);
+    _$RoomDirectDialInResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$RoomDirectDialInResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'RoomDirectDialInResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RoomDirectDialInResponseApplicationJsonInterfaceBuilder {
+  void replace($RoomDirectDialInResponseApplicationJsonInterface other);
+  void update(void Function($RoomDirectDialInResponseApplicationJsonInterfaceBuilder) updates);
+  RoomDirectDialInResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(RoomDirectDialInResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$RoomDirectDialInResponseApplicationJson extends RoomDirectDialInResponseApplicationJson {
+  @override
+  final RoomDirectDialInResponseApplicationJson_Ocs ocs;
+
+  factory _$RoomDirectDialInResponseApplicationJson(
+          [void Function(RoomDirectDialInResponseApplicationJsonBuilder)? updates]) =>
+      (RoomDirectDialInResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$RoomDirectDialInResponseApplicationJson._({required this.ocs}) : super._();
+  @override
+  RoomDirectDialInResponseApplicationJson rebuild(
+          void Function(RoomDirectDialInResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RoomDirectDialInResponseApplicationJsonBuilder toBuilder() =>
+      RoomDirectDialInResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RoomDirectDialInResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RoomDirectDialInResponseApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class RoomDirectDialInResponseApplicationJsonBuilder
+    implements
+        Builder<RoomDirectDialInResponseApplicationJson, RoomDirectDialInResponseApplicationJsonBuilder>,
+        $RoomDirectDialInResponseApplicationJsonInterfaceBuilder {
+  _$RoomDirectDialInResponseApplicationJson? _$v;
+
+  RoomDirectDialInResponseApplicationJson_OcsBuilder? _ocs;
+  RoomDirectDialInResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= RoomDirectDialInResponseApplicationJson_OcsBuilder();
+  set ocs(covariant RoomDirectDialInResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  RoomDirectDialInResponseApplicationJsonBuilder() {
+    RoomDirectDialInResponseApplicationJson._defaults(this);
+  }
+
+  RoomDirectDialInResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RoomDirectDialInResponseApplicationJson other) {
+    _$v = other as _$RoomDirectDialInResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(RoomDirectDialInResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RoomDirectDialInResponseApplicationJson build() => _build();
+
+  _$RoomDirectDialInResponseApplicationJson _build() {
+    RoomDirectDialInResponseApplicationJson._validate(this);
+    _$RoomDirectDialInResponseApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$RoomDirectDialInResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'RoomDirectDialInResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $RoomCreateGuestByDialInResponseApplicationJson_OcsInterfaceBuilder {
   void replace($RoomCreateGuestByDialInResponseApplicationJson_OcsInterface other);
   void update(void Function($RoomCreateGuestByDialInResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -72739,14 +78855,154 @@ class SettingsSetsipSettingsResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class $SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  String? get version;
+  set version(String? version);
+
+  String? get warning;
+  set warning(String? warning);
+
+  ListBuilder<String> get features;
+  set features(ListBuilder<String>? features);
+}
+
+class _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data
+    extends SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data {
+  @override
+  final String version;
+  @override
+  final String? warning;
+  @override
+  final BuiltList<String>? features;
+
+  factory _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data(
+          [void Function(SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data._({required this.version, this.warning, this.features})
+      : super._();
+  @override
+  SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data rebuild(
+          void Function(SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data &&
+        version == other.version &&
+        warning == other.warning &&
+        features == other.features;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, version.hashCode);
+    _$hash = $jc(_$hash, warning.hashCode);
+    _$hash = $jc(_$hash, features.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data')
+          ..add('version', version)
+          ..add('warning', warning)
+          ..add('features', features))
+        .toString();
+  }
+}
+
+class SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data,
+            SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder>,
+        $SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data? _$v;
+
+  String? _version;
+  String? get version => _$this._version;
+  set version(covariant String? version) => _$this._version = version;
+
+  String? _warning;
+  String? get warning => _$this._warning;
+  set warning(covariant String? warning) => _$this._warning = warning;
+
+  ListBuilder<String>? _features;
+  ListBuilder<String> get features => _$this._features ??= ListBuilder<String>();
+  set features(covariant ListBuilder<String>? features) => _$this._features = features;
+
+  SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder() {
+    SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _version = $v.version;
+      _warning = $v.warning;
+      _features = $v.features?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data other) {
+    _$v = other as _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data _build() {
+    SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data._validate(this);
+    _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data _$result;
+    try {
+      _$result = _$v ??
+          _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data._(
+            version: BuiltValueNullFieldError.checkNotNull(
+                version, r'SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data', 'version'),
+            warning: warning,
+            features: _features?.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'features';
+        _features?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $SignalingGetWelcomeMessageResponseApplicationJson_OcsInterfaceBuilder {
   void replace($SignalingGetWelcomeMessageResponseApplicationJson_OcsInterface other);
   void update(void Function($SignalingGetWelcomeMessageResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
-  MapBuilder<String, JsonObject> get data;
-  set data(MapBuilder<String, JsonObject>? data);
+  SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder? data);
 }
 
 class _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs
@@ -72754,7 +79010,7 @@ class _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs
   @override
   final OCSMeta meta;
   @override
-  final BuiltMap<String, JsonObject> data;
+  final SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data data;
 
   factory _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs(
           [void Function(SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder)? updates]) =>
@@ -72805,9 +79061,10 @@ class SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder
   OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  MapBuilder<String, JsonObject>? _data;
-  MapBuilder<String, JsonObject> get data => _$this._data ??= MapBuilder<String, JsonObject>();
-  set data(covariant MapBuilder<String, JsonObject>? data) => _$this._data = data;
+  SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder? _data;
+  SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
   SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder() {
     SignalingGetWelcomeMessageResponseApplicationJson_Ocs._defaults(this);
@@ -74327,6 +80584,1061 @@ class PublicCapabilitiesBuilder
         _spreed?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'PublicCapabilities', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $RoomWithInvalidInvitationsInterfaceBuilder implements $RoomInterfaceBuilder {
+  void replace(covariant $RoomWithInvalidInvitationsInterface other);
+  void update(void Function($RoomWithInvalidInvitationsInterfaceBuilder) updates);
+  InvitationListBuilder get invalidParticipants;
+  set invalidParticipants(covariant InvitationListBuilder? invalidParticipants);
+
+  String? get actorId;
+  set actorId(covariant String? actorId);
+
+  String? get invitedActorId;
+  set invitedActorId(covariant String? invitedActorId);
+
+  ActorTypes? get actorType;
+  set actorType(covariant ActorTypes? actorType);
+
+  int? get attendeeId;
+  set attendeeId(covariant int? attendeeId);
+
+  int? get attendeePermissions;
+  set attendeePermissions(covariant int? attendeePermissions);
+
+  String? get attendeePin;
+  set attendeePin(covariant String? attendeePin);
+
+  String? get avatarVersion;
+  set avatarVersion(covariant String? avatarVersion);
+
+  int? get breakoutRoomMode;
+  set breakoutRoomMode(covariant int? breakoutRoomMode);
+
+  int? get breakoutRoomStatus;
+  set breakoutRoomStatus(covariant int? breakoutRoomStatus);
+
+  int? get callFlag;
+  set callFlag(covariant int? callFlag);
+
+  int? get callPermissions;
+  set callPermissions(covariant int? callPermissions);
+
+  int? get callRecording;
+  set callRecording(covariant int? callRecording);
+
+  int? get callStartTime;
+  set callStartTime(covariant int? callStartTime);
+
+  bool? get canDeleteConversation;
+  set canDeleteConversation(covariant bool? canDeleteConversation);
+
+  bool? get canEnableSIP;
+  set canEnableSIP(covariant bool? canEnableSIP);
+
+  bool? get canLeaveConversation;
+  set canLeaveConversation(covariant bool? canLeaveConversation);
+
+  bool? get canStartCall;
+  set canStartCall(covariant bool? canStartCall);
+
+  int? get defaultPermissions;
+  set defaultPermissions(covariant int? defaultPermissions);
+
+  String? get description;
+  set description(covariant String? description);
+
+  String? get displayName;
+  set displayName(covariant String? displayName);
+
+  bool? get hasCall;
+  set hasCall(covariant bool? hasCall);
+
+  bool? get hasPassword;
+  set hasPassword(covariant bool? hasPassword);
+
+  int? get id;
+  set id(covariant int? id);
+
+  bool? get isCustomAvatar;
+  set isCustomAvatar(covariant bool? isCustomAvatar);
+
+  bool? get isFavorite;
+  set isFavorite(covariant bool? isFavorite);
+
+  int? get lastActivity;
+  set lastActivity(covariant int? lastActivity);
+
+  int? get lastCommonReadMessage;
+  set lastCommonReadMessage(covariant int? lastCommonReadMessage);
+
+  RoomLastMessage? get lastMessage;
+  set lastMessage(covariant RoomLastMessage? lastMessage);
+
+  int? get lastPing;
+  set lastPing(covariant int? lastPing);
+
+  int? get lastReadMessage;
+  set lastReadMessage(covariant int? lastReadMessage);
+
+  int? get listable;
+  set listable(covariant int? listable);
+
+  int? get lobbyState;
+  set lobbyState(covariant int? lobbyState);
+
+  int? get lobbyTimer;
+  set lobbyTimer(covariant int? lobbyTimer);
+
+  int? get mentionPermissions;
+  set mentionPermissions(covariant int? mentionPermissions);
+
+  int? get messageExpiration;
+  set messageExpiration(covariant int? messageExpiration);
+
+  String? get name;
+  set name(covariant String? name);
+
+  int? get notificationCalls;
+  set notificationCalls(covariant int? notificationCalls);
+
+  int? get notificationLevel;
+  set notificationLevel(covariant int? notificationLevel);
+
+  String? get objectId;
+  set objectId(covariant String? objectId);
+
+  String? get objectType;
+  set objectType(covariant String? objectType);
+
+  int? get participantFlags;
+  set participantFlags(covariant int? participantFlags);
+
+  int? get participantType;
+  set participantType(covariant int? participantType);
+
+  int? get permissions;
+  set permissions(covariant int? permissions);
+
+  int? get readOnly;
+  set readOnly(covariant int? readOnly);
+
+  int? get recordingConsent;
+  set recordingConsent(covariant int? recordingConsent);
+
+  String? get remoteServer;
+  set remoteServer(covariant String? remoteServer);
+
+  String? get remoteToken;
+  set remoteToken(covariant String? remoteToken);
+
+  String? get sessionId;
+  set sessionId(covariant String? sessionId);
+
+  int? get sipEnabled;
+  set sipEnabled(covariant int? sipEnabled);
+
+  String? get status;
+  set status(covariant String? status);
+
+  int? get statusClearAt;
+  set statusClearAt(covariant int? statusClearAt);
+
+  String? get statusIcon;
+  set statusIcon(covariant String? statusIcon);
+
+  String? get statusMessage;
+  set statusMessage(covariant String? statusMessage);
+
+  String? get token;
+  set token(covariant String? token);
+
+  int? get type;
+  set type(covariant int? type);
+
+  bool? get unreadMention;
+  set unreadMention(covariant bool? unreadMention);
+
+  bool? get unreadMentionDirect;
+  set unreadMentionDirect(covariant bool? unreadMentionDirect);
+
+  int? get unreadMessages;
+  set unreadMessages(covariant int? unreadMessages);
+
+  bool? get isArchived;
+  set isArchived(covariant bool? isArchived);
+
+  bool? get isImportant;
+  set isImportant(covariant bool? isImportant);
+
+  bool? get isSensitive;
+  set isSensitive(covariant bool? isSensitive);
+}
+
+class _$RoomWithInvalidInvitations extends RoomWithInvalidInvitations {
+  @override
+  final InvitationList invalidParticipants;
+  @override
+  final String actorId;
+  @override
+  final String? invitedActorId;
+  @override
+  final ActorTypes actorType;
+  @override
+  final int attendeeId;
+  @override
+  final int attendeePermissions;
+  @override
+  final String? attendeePin;
+  @override
+  final String avatarVersion;
+  @override
+  final int breakoutRoomMode;
+  @override
+  final int breakoutRoomStatus;
+  @override
+  final int callFlag;
+  @override
+  final int callPermissions;
+  @override
+  final int callRecording;
+  @override
+  final int callStartTime;
+  @override
+  final bool canDeleteConversation;
+  @override
+  final bool canEnableSIP;
+  @override
+  final bool canLeaveConversation;
+  @override
+  final bool canStartCall;
+  @override
+  final int defaultPermissions;
+  @override
+  final String description;
+  @override
+  final String displayName;
+  @override
+  final bool hasCall;
+  @override
+  final bool hasPassword;
+  @override
+  final int id;
+  @override
+  final bool isCustomAvatar;
+  @override
+  final bool isFavorite;
+  @override
+  final int lastActivity;
+  @override
+  final int lastCommonReadMessage;
+  @override
+  final RoomLastMessage? lastMessage;
+  @override
+  final int lastPing;
+  @override
+  final int lastReadMessage;
+  @override
+  final int listable;
+  @override
+  final int lobbyState;
+  @override
+  final int lobbyTimer;
+  @override
+  final int mentionPermissions;
+  @override
+  final int messageExpiration;
+  @override
+  final String name;
+  @override
+  final int notificationCalls;
+  @override
+  final int notificationLevel;
+  @override
+  final String objectId;
+  @override
+  final String objectType;
+  @override
+  final int participantFlags;
+  @override
+  final int participantType;
+  @override
+  final int permissions;
+  @override
+  final int readOnly;
+  @override
+  final int recordingConsent;
+  @override
+  final String? remoteServer;
+  @override
+  final String? remoteToken;
+  @override
+  final String sessionId;
+  @override
+  final int sipEnabled;
+  @override
+  final String? status;
+  @override
+  final int? statusClearAt;
+  @override
+  final String? statusIcon;
+  @override
+  final String? statusMessage;
+  @override
+  final String token;
+  @override
+  final int type;
+  @override
+  final bool unreadMention;
+  @override
+  final bool unreadMentionDirect;
+  @override
+  final int unreadMessages;
+  @override
+  final bool isArchived;
+  @override
+  final bool? isImportant;
+  @override
+  final bool? isSensitive;
+
+  factory _$RoomWithInvalidInvitations([void Function(RoomWithInvalidInvitationsBuilder)? updates]) =>
+      (RoomWithInvalidInvitationsBuilder()..update(updates))._build();
+
+  _$RoomWithInvalidInvitations._(
+      {required this.invalidParticipants,
+      required this.actorId,
+      this.invitedActorId,
+      required this.actorType,
+      required this.attendeeId,
+      required this.attendeePermissions,
+      this.attendeePin,
+      required this.avatarVersion,
+      required this.breakoutRoomMode,
+      required this.breakoutRoomStatus,
+      required this.callFlag,
+      required this.callPermissions,
+      required this.callRecording,
+      required this.callStartTime,
+      required this.canDeleteConversation,
+      required this.canEnableSIP,
+      required this.canLeaveConversation,
+      required this.canStartCall,
+      required this.defaultPermissions,
+      required this.description,
+      required this.displayName,
+      required this.hasCall,
+      required this.hasPassword,
+      required this.id,
+      required this.isCustomAvatar,
+      required this.isFavorite,
+      required this.lastActivity,
+      required this.lastCommonReadMessage,
+      this.lastMessage,
+      required this.lastPing,
+      required this.lastReadMessage,
+      required this.listable,
+      required this.lobbyState,
+      required this.lobbyTimer,
+      required this.mentionPermissions,
+      required this.messageExpiration,
+      required this.name,
+      required this.notificationCalls,
+      required this.notificationLevel,
+      required this.objectId,
+      required this.objectType,
+      required this.participantFlags,
+      required this.participantType,
+      required this.permissions,
+      required this.readOnly,
+      required this.recordingConsent,
+      this.remoteServer,
+      this.remoteToken,
+      required this.sessionId,
+      required this.sipEnabled,
+      this.status,
+      this.statusClearAt,
+      this.statusIcon,
+      this.statusMessage,
+      required this.token,
+      required this.type,
+      required this.unreadMention,
+      required this.unreadMentionDirect,
+      required this.unreadMessages,
+      required this.isArchived,
+      this.isImportant,
+      this.isSensitive})
+      : super._();
+  @override
+  RoomWithInvalidInvitations rebuild(void Function(RoomWithInvalidInvitationsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RoomWithInvalidInvitationsBuilder toBuilder() => RoomWithInvalidInvitationsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    final dynamic _$dynamicOther = other;
+    return other is RoomWithInvalidInvitations &&
+        invalidParticipants == other.invalidParticipants &&
+        actorId == other.actorId &&
+        invitedActorId == other.invitedActorId &&
+        actorType == other.actorType &&
+        attendeeId == other.attendeeId &&
+        attendeePermissions == other.attendeePermissions &&
+        attendeePin == other.attendeePin &&
+        avatarVersion == other.avatarVersion &&
+        breakoutRoomMode == other.breakoutRoomMode &&
+        breakoutRoomStatus == other.breakoutRoomStatus &&
+        callFlag == other.callFlag &&
+        callPermissions == other.callPermissions &&
+        callRecording == other.callRecording &&
+        callStartTime == other.callStartTime &&
+        canDeleteConversation == other.canDeleteConversation &&
+        canEnableSIP == other.canEnableSIP &&
+        canLeaveConversation == other.canLeaveConversation &&
+        canStartCall == other.canStartCall &&
+        defaultPermissions == other.defaultPermissions &&
+        description == other.description &&
+        displayName == other.displayName &&
+        hasCall == other.hasCall &&
+        hasPassword == other.hasPassword &&
+        id == other.id &&
+        isCustomAvatar == other.isCustomAvatar &&
+        isFavorite == other.isFavorite &&
+        lastActivity == other.lastActivity &&
+        lastCommonReadMessage == other.lastCommonReadMessage &&
+        lastMessage == _$dynamicOther.lastMessage &&
+        lastPing == other.lastPing &&
+        lastReadMessage == other.lastReadMessage &&
+        listable == other.listable &&
+        lobbyState == other.lobbyState &&
+        lobbyTimer == other.lobbyTimer &&
+        mentionPermissions == other.mentionPermissions &&
+        messageExpiration == other.messageExpiration &&
+        name == other.name &&
+        notificationCalls == other.notificationCalls &&
+        notificationLevel == other.notificationLevel &&
+        objectId == other.objectId &&
+        objectType == other.objectType &&
+        participantFlags == other.participantFlags &&
+        participantType == other.participantType &&
+        permissions == other.permissions &&
+        readOnly == other.readOnly &&
+        recordingConsent == other.recordingConsent &&
+        remoteServer == other.remoteServer &&
+        remoteToken == other.remoteToken &&
+        sessionId == other.sessionId &&
+        sipEnabled == other.sipEnabled &&
+        status == other.status &&
+        statusClearAt == other.statusClearAt &&
+        statusIcon == other.statusIcon &&
+        statusMessage == other.statusMessage &&
+        token == other.token &&
+        type == other.type &&
+        unreadMention == other.unreadMention &&
+        unreadMentionDirect == other.unreadMentionDirect &&
+        unreadMessages == other.unreadMessages &&
+        isArchived == other.isArchived &&
+        isImportant == other.isImportant &&
+        isSensitive == other.isSensitive;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, invalidParticipants.hashCode);
+    _$hash = $jc(_$hash, actorId.hashCode);
+    _$hash = $jc(_$hash, invitedActorId.hashCode);
+    _$hash = $jc(_$hash, actorType.hashCode);
+    _$hash = $jc(_$hash, attendeeId.hashCode);
+    _$hash = $jc(_$hash, attendeePermissions.hashCode);
+    _$hash = $jc(_$hash, attendeePin.hashCode);
+    _$hash = $jc(_$hash, avatarVersion.hashCode);
+    _$hash = $jc(_$hash, breakoutRoomMode.hashCode);
+    _$hash = $jc(_$hash, breakoutRoomStatus.hashCode);
+    _$hash = $jc(_$hash, callFlag.hashCode);
+    _$hash = $jc(_$hash, callPermissions.hashCode);
+    _$hash = $jc(_$hash, callRecording.hashCode);
+    _$hash = $jc(_$hash, callStartTime.hashCode);
+    _$hash = $jc(_$hash, canDeleteConversation.hashCode);
+    _$hash = $jc(_$hash, canEnableSIP.hashCode);
+    _$hash = $jc(_$hash, canLeaveConversation.hashCode);
+    _$hash = $jc(_$hash, canStartCall.hashCode);
+    _$hash = $jc(_$hash, defaultPermissions.hashCode);
+    _$hash = $jc(_$hash, description.hashCode);
+    _$hash = $jc(_$hash, displayName.hashCode);
+    _$hash = $jc(_$hash, hasCall.hashCode);
+    _$hash = $jc(_$hash, hasPassword.hashCode);
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, isCustomAvatar.hashCode);
+    _$hash = $jc(_$hash, isFavorite.hashCode);
+    _$hash = $jc(_$hash, lastActivity.hashCode);
+    _$hash = $jc(_$hash, lastCommonReadMessage.hashCode);
+    _$hash = $jc(_$hash, lastMessage.hashCode);
+    _$hash = $jc(_$hash, lastPing.hashCode);
+    _$hash = $jc(_$hash, lastReadMessage.hashCode);
+    _$hash = $jc(_$hash, listable.hashCode);
+    _$hash = $jc(_$hash, lobbyState.hashCode);
+    _$hash = $jc(_$hash, lobbyTimer.hashCode);
+    _$hash = $jc(_$hash, mentionPermissions.hashCode);
+    _$hash = $jc(_$hash, messageExpiration.hashCode);
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, notificationCalls.hashCode);
+    _$hash = $jc(_$hash, notificationLevel.hashCode);
+    _$hash = $jc(_$hash, objectId.hashCode);
+    _$hash = $jc(_$hash, objectType.hashCode);
+    _$hash = $jc(_$hash, participantFlags.hashCode);
+    _$hash = $jc(_$hash, participantType.hashCode);
+    _$hash = $jc(_$hash, permissions.hashCode);
+    _$hash = $jc(_$hash, readOnly.hashCode);
+    _$hash = $jc(_$hash, recordingConsent.hashCode);
+    _$hash = $jc(_$hash, remoteServer.hashCode);
+    _$hash = $jc(_$hash, remoteToken.hashCode);
+    _$hash = $jc(_$hash, sessionId.hashCode);
+    _$hash = $jc(_$hash, sipEnabled.hashCode);
+    _$hash = $jc(_$hash, status.hashCode);
+    _$hash = $jc(_$hash, statusClearAt.hashCode);
+    _$hash = $jc(_$hash, statusIcon.hashCode);
+    _$hash = $jc(_$hash, statusMessage.hashCode);
+    _$hash = $jc(_$hash, token.hashCode);
+    _$hash = $jc(_$hash, type.hashCode);
+    _$hash = $jc(_$hash, unreadMention.hashCode);
+    _$hash = $jc(_$hash, unreadMentionDirect.hashCode);
+    _$hash = $jc(_$hash, unreadMessages.hashCode);
+    _$hash = $jc(_$hash, isArchived.hashCode);
+    _$hash = $jc(_$hash, isImportant.hashCode);
+    _$hash = $jc(_$hash, isSensitive.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'RoomWithInvalidInvitations')
+          ..add('invalidParticipants', invalidParticipants)
+          ..add('actorId', actorId)
+          ..add('invitedActorId', invitedActorId)
+          ..add('actorType', actorType)
+          ..add('attendeeId', attendeeId)
+          ..add('attendeePermissions', attendeePermissions)
+          ..add('attendeePin', attendeePin)
+          ..add('avatarVersion', avatarVersion)
+          ..add('breakoutRoomMode', breakoutRoomMode)
+          ..add('breakoutRoomStatus', breakoutRoomStatus)
+          ..add('callFlag', callFlag)
+          ..add('callPermissions', callPermissions)
+          ..add('callRecording', callRecording)
+          ..add('callStartTime', callStartTime)
+          ..add('canDeleteConversation', canDeleteConversation)
+          ..add('canEnableSIP', canEnableSIP)
+          ..add('canLeaveConversation', canLeaveConversation)
+          ..add('canStartCall', canStartCall)
+          ..add('defaultPermissions', defaultPermissions)
+          ..add('description', description)
+          ..add('displayName', displayName)
+          ..add('hasCall', hasCall)
+          ..add('hasPassword', hasPassword)
+          ..add('id', id)
+          ..add('isCustomAvatar', isCustomAvatar)
+          ..add('isFavorite', isFavorite)
+          ..add('lastActivity', lastActivity)
+          ..add('lastCommonReadMessage', lastCommonReadMessage)
+          ..add('lastMessage', lastMessage)
+          ..add('lastPing', lastPing)
+          ..add('lastReadMessage', lastReadMessage)
+          ..add('listable', listable)
+          ..add('lobbyState', lobbyState)
+          ..add('lobbyTimer', lobbyTimer)
+          ..add('mentionPermissions', mentionPermissions)
+          ..add('messageExpiration', messageExpiration)
+          ..add('name', name)
+          ..add('notificationCalls', notificationCalls)
+          ..add('notificationLevel', notificationLevel)
+          ..add('objectId', objectId)
+          ..add('objectType', objectType)
+          ..add('participantFlags', participantFlags)
+          ..add('participantType', participantType)
+          ..add('permissions', permissions)
+          ..add('readOnly', readOnly)
+          ..add('recordingConsent', recordingConsent)
+          ..add('remoteServer', remoteServer)
+          ..add('remoteToken', remoteToken)
+          ..add('sessionId', sessionId)
+          ..add('sipEnabled', sipEnabled)
+          ..add('status', status)
+          ..add('statusClearAt', statusClearAt)
+          ..add('statusIcon', statusIcon)
+          ..add('statusMessage', statusMessage)
+          ..add('token', token)
+          ..add('type', type)
+          ..add('unreadMention', unreadMention)
+          ..add('unreadMentionDirect', unreadMentionDirect)
+          ..add('unreadMessages', unreadMessages)
+          ..add('isArchived', isArchived)
+          ..add('isImportant', isImportant)
+          ..add('isSensitive', isSensitive))
+        .toString();
+  }
+}
+
+class RoomWithInvalidInvitationsBuilder
+    implements
+        Builder<RoomWithInvalidInvitations, RoomWithInvalidInvitationsBuilder>,
+        $RoomWithInvalidInvitationsInterfaceBuilder {
+  _$RoomWithInvalidInvitations? _$v;
+
+  InvitationListBuilder? _invalidParticipants;
+  InvitationListBuilder get invalidParticipants => _$this._invalidParticipants ??= InvitationListBuilder();
+  set invalidParticipants(covariant InvitationListBuilder? invalidParticipants) =>
+      _$this._invalidParticipants = invalidParticipants;
+
+  String? _actorId;
+  String? get actorId => _$this._actorId;
+  set actorId(covariant String? actorId) => _$this._actorId = actorId;
+
+  String? _invitedActorId;
+  String? get invitedActorId => _$this._invitedActorId;
+  set invitedActorId(covariant String? invitedActorId) => _$this._invitedActorId = invitedActorId;
+
+  ActorTypes? _actorType;
+  ActorTypes? get actorType => _$this._actorType;
+  set actorType(covariant ActorTypes? actorType) => _$this._actorType = actorType;
+
+  int? _attendeeId;
+  int? get attendeeId => _$this._attendeeId;
+  set attendeeId(covariant int? attendeeId) => _$this._attendeeId = attendeeId;
+
+  int? _attendeePermissions;
+  int? get attendeePermissions => _$this._attendeePermissions;
+  set attendeePermissions(covariant int? attendeePermissions) => _$this._attendeePermissions = attendeePermissions;
+
+  String? _attendeePin;
+  String? get attendeePin => _$this._attendeePin;
+  set attendeePin(covariant String? attendeePin) => _$this._attendeePin = attendeePin;
+
+  String? _avatarVersion;
+  String? get avatarVersion => _$this._avatarVersion;
+  set avatarVersion(covariant String? avatarVersion) => _$this._avatarVersion = avatarVersion;
+
+  int? _breakoutRoomMode;
+  int? get breakoutRoomMode => _$this._breakoutRoomMode;
+  set breakoutRoomMode(covariant int? breakoutRoomMode) => _$this._breakoutRoomMode = breakoutRoomMode;
+
+  int? _breakoutRoomStatus;
+  int? get breakoutRoomStatus => _$this._breakoutRoomStatus;
+  set breakoutRoomStatus(covariant int? breakoutRoomStatus) => _$this._breakoutRoomStatus = breakoutRoomStatus;
+
+  int? _callFlag;
+  int? get callFlag => _$this._callFlag;
+  set callFlag(covariant int? callFlag) => _$this._callFlag = callFlag;
+
+  int? _callPermissions;
+  int? get callPermissions => _$this._callPermissions;
+  set callPermissions(covariant int? callPermissions) => _$this._callPermissions = callPermissions;
+
+  int? _callRecording;
+  int? get callRecording => _$this._callRecording;
+  set callRecording(covariant int? callRecording) => _$this._callRecording = callRecording;
+
+  int? _callStartTime;
+  int? get callStartTime => _$this._callStartTime;
+  set callStartTime(covariant int? callStartTime) => _$this._callStartTime = callStartTime;
+
+  bool? _canDeleteConversation;
+  bool? get canDeleteConversation => _$this._canDeleteConversation;
+  set canDeleteConversation(covariant bool? canDeleteConversation) =>
+      _$this._canDeleteConversation = canDeleteConversation;
+
+  bool? _canEnableSIP;
+  bool? get canEnableSIP => _$this._canEnableSIP;
+  set canEnableSIP(covariant bool? canEnableSIP) => _$this._canEnableSIP = canEnableSIP;
+
+  bool? _canLeaveConversation;
+  bool? get canLeaveConversation => _$this._canLeaveConversation;
+  set canLeaveConversation(covariant bool? canLeaveConversation) => _$this._canLeaveConversation = canLeaveConversation;
+
+  bool? _canStartCall;
+  bool? get canStartCall => _$this._canStartCall;
+  set canStartCall(covariant bool? canStartCall) => _$this._canStartCall = canStartCall;
+
+  int? _defaultPermissions;
+  int? get defaultPermissions => _$this._defaultPermissions;
+  set defaultPermissions(covariant int? defaultPermissions) => _$this._defaultPermissions = defaultPermissions;
+
+  String? _description;
+  String? get description => _$this._description;
+  set description(covariant String? description) => _$this._description = description;
+
+  String? _displayName;
+  String? get displayName => _$this._displayName;
+  set displayName(covariant String? displayName) => _$this._displayName = displayName;
+
+  bool? _hasCall;
+  bool? get hasCall => _$this._hasCall;
+  set hasCall(covariant bool? hasCall) => _$this._hasCall = hasCall;
+
+  bool? _hasPassword;
+  bool? get hasPassword => _$this._hasPassword;
+  set hasPassword(covariant bool? hasPassword) => _$this._hasPassword = hasPassword;
+
+  int? _id;
+  int? get id => _$this._id;
+  set id(covariant int? id) => _$this._id = id;
+
+  bool? _isCustomAvatar;
+  bool? get isCustomAvatar => _$this._isCustomAvatar;
+  set isCustomAvatar(covariant bool? isCustomAvatar) => _$this._isCustomAvatar = isCustomAvatar;
+
+  bool? _isFavorite;
+  bool? get isFavorite => _$this._isFavorite;
+  set isFavorite(covariant bool? isFavorite) => _$this._isFavorite = isFavorite;
+
+  int? _lastActivity;
+  int? get lastActivity => _$this._lastActivity;
+  set lastActivity(covariant int? lastActivity) => _$this._lastActivity = lastActivity;
+
+  int? _lastCommonReadMessage;
+  int? get lastCommonReadMessage => _$this._lastCommonReadMessage;
+  set lastCommonReadMessage(covariant int? lastCommonReadMessage) =>
+      _$this._lastCommonReadMessage = lastCommonReadMessage;
+
+  RoomLastMessage? _lastMessage;
+  RoomLastMessage? get lastMessage => _$this._lastMessage;
+  set lastMessage(covariant RoomLastMessage? lastMessage) => _$this._lastMessage = lastMessage;
+
+  int? _lastPing;
+  int? get lastPing => _$this._lastPing;
+  set lastPing(covariant int? lastPing) => _$this._lastPing = lastPing;
+
+  int? _lastReadMessage;
+  int? get lastReadMessage => _$this._lastReadMessage;
+  set lastReadMessage(covariant int? lastReadMessage) => _$this._lastReadMessage = lastReadMessage;
+
+  int? _listable;
+  int? get listable => _$this._listable;
+  set listable(covariant int? listable) => _$this._listable = listable;
+
+  int? _lobbyState;
+  int? get lobbyState => _$this._lobbyState;
+  set lobbyState(covariant int? lobbyState) => _$this._lobbyState = lobbyState;
+
+  int? _lobbyTimer;
+  int? get lobbyTimer => _$this._lobbyTimer;
+  set lobbyTimer(covariant int? lobbyTimer) => _$this._lobbyTimer = lobbyTimer;
+
+  int? _mentionPermissions;
+  int? get mentionPermissions => _$this._mentionPermissions;
+  set mentionPermissions(covariant int? mentionPermissions) => _$this._mentionPermissions = mentionPermissions;
+
+  int? _messageExpiration;
+  int? get messageExpiration => _$this._messageExpiration;
+  set messageExpiration(covariant int? messageExpiration) => _$this._messageExpiration = messageExpiration;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(covariant String? name) => _$this._name = name;
+
+  int? _notificationCalls;
+  int? get notificationCalls => _$this._notificationCalls;
+  set notificationCalls(covariant int? notificationCalls) => _$this._notificationCalls = notificationCalls;
+
+  int? _notificationLevel;
+  int? get notificationLevel => _$this._notificationLevel;
+  set notificationLevel(covariant int? notificationLevel) => _$this._notificationLevel = notificationLevel;
+
+  String? _objectId;
+  String? get objectId => _$this._objectId;
+  set objectId(covariant String? objectId) => _$this._objectId = objectId;
+
+  String? _objectType;
+  String? get objectType => _$this._objectType;
+  set objectType(covariant String? objectType) => _$this._objectType = objectType;
+
+  int? _participantFlags;
+  int? get participantFlags => _$this._participantFlags;
+  set participantFlags(covariant int? participantFlags) => _$this._participantFlags = participantFlags;
+
+  int? _participantType;
+  int? get participantType => _$this._participantType;
+  set participantType(covariant int? participantType) => _$this._participantType = participantType;
+
+  int? _permissions;
+  int? get permissions => _$this._permissions;
+  set permissions(covariant int? permissions) => _$this._permissions = permissions;
+
+  int? _readOnly;
+  int? get readOnly => _$this._readOnly;
+  set readOnly(covariant int? readOnly) => _$this._readOnly = readOnly;
+
+  int? _recordingConsent;
+  int? get recordingConsent => _$this._recordingConsent;
+  set recordingConsent(covariant int? recordingConsent) => _$this._recordingConsent = recordingConsent;
+
+  String? _remoteServer;
+  String? get remoteServer => _$this._remoteServer;
+  set remoteServer(covariant String? remoteServer) => _$this._remoteServer = remoteServer;
+
+  String? _remoteToken;
+  String? get remoteToken => _$this._remoteToken;
+  set remoteToken(covariant String? remoteToken) => _$this._remoteToken = remoteToken;
+
+  String? _sessionId;
+  String? get sessionId => _$this._sessionId;
+  set sessionId(covariant String? sessionId) => _$this._sessionId = sessionId;
+
+  int? _sipEnabled;
+  int? get sipEnabled => _$this._sipEnabled;
+  set sipEnabled(covariant int? sipEnabled) => _$this._sipEnabled = sipEnabled;
+
+  String? _status;
+  String? get status => _$this._status;
+  set status(covariant String? status) => _$this._status = status;
+
+  int? _statusClearAt;
+  int? get statusClearAt => _$this._statusClearAt;
+  set statusClearAt(covariant int? statusClearAt) => _$this._statusClearAt = statusClearAt;
+
+  String? _statusIcon;
+  String? get statusIcon => _$this._statusIcon;
+  set statusIcon(covariant String? statusIcon) => _$this._statusIcon = statusIcon;
+
+  String? _statusMessage;
+  String? get statusMessage => _$this._statusMessage;
+  set statusMessage(covariant String? statusMessage) => _$this._statusMessage = statusMessage;
+
+  String? _token;
+  String? get token => _$this._token;
+  set token(covariant String? token) => _$this._token = token;
+
+  int? _type;
+  int? get type => _$this._type;
+  set type(covariant int? type) => _$this._type = type;
+
+  bool? _unreadMention;
+  bool? get unreadMention => _$this._unreadMention;
+  set unreadMention(covariant bool? unreadMention) => _$this._unreadMention = unreadMention;
+
+  bool? _unreadMentionDirect;
+  bool? get unreadMentionDirect => _$this._unreadMentionDirect;
+  set unreadMentionDirect(covariant bool? unreadMentionDirect) => _$this._unreadMentionDirect = unreadMentionDirect;
+
+  int? _unreadMessages;
+  int? get unreadMessages => _$this._unreadMessages;
+  set unreadMessages(covariant int? unreadMessages) => _$this._unreadMessages = unreadMessages;
+
+  bool? _isArchived;
+  bool? get isArchived => _$this._isArchived;
+  set isArchived(covariant bool? isArchived) => _$this._isArchived = isArchived;
+
+  bool? _isImportant;
+  bool? get isImportant => _$this._isImportant;
+  set isImportant(covariant bool? isImportant) => _$this._isImportant = isImportant;
+
+  bool? _isSensitive;
+  bool? get isSensitive => _$this._isSensitive;
+  set isSensitive(covariant bool? isSensitive) => _$this._isSensitive = isSensitive;
+
+  RoomWithInvalidInvitationsBuilder() {
+    RoomWithInvalidInvitations._defaults(this);
+  }
+
+  RoomWithInvalidInvitationsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _invalidParticipants = $v.invalidParticipants.toBuilder();
+      _actorId = $v.actorId;
+      _invitedActorId = $v.invitedActorId;
+      _actorType = $v.actorType;
+      _attendeeId = $v.attendeeId;
+      _attendeePermissions = $v.attendeePermissions;
+      _attendeePin = $v.attendeePin;
+      _avatarVersion = $v.avatarVersion;
+      _breakoutRoomMode = $v.breakoutRoomMode;
+      _breakoutRoomStatus = $v.breakoutRoomStatus;
+      _callFlag = $v.callFlag;
+      _callPermissions = $v.callPermissions;
+      _callRecording = $v.callRecording;
+      _callStartTime = $v.callStartTime;
+      _canDeleteConversation = $v.canDeleteConversation;
+      _canEnableSIP = $v.canEnableSIP;
+      _canLeaveConversation = $v.canLeaveConversation;
+      _canStartCall = $v.canStartCall;
+      _defaultPermissions = $v.defaultPermissions;
+      _description = $v.description;
+      _displayName = $v.displayName;
+      _hasCall = $v.hasCall;
+      _hasPassword = $v.hasPassword;
+      _id = $v.id;
+      _isCustomAvatar = $v.isCustomAvatar;
+      _isFavorite = $v.isFavorite;
+      _lastActivity = $v.lastActivity;
+      _lastCommonReadMessage = $v.lastCommonReadMessage;
+      _lastMessage = $v.lastMessage;
+      _lastPing = $v.lastPing;
+      _lastReadMessage = $v.lastReadMessage;
+      _listable = $v.listable;
+      _lobbyState = $v.lobbyState;
+      _lobbyTimer = $v.lobbyTimer;
+      _mentionPermissions = $v.mentionPermissions;
+      _messageExpiration = $v.messageExpiration;
+      _name = $v.name;
+      _notificationCalls = $v.notificationCalls;
+      _notificationLevel = $v.notificationLevel;
+      _objectId = $v.objectId;
+      _objectType = $v.objectType;
+      _participantFlags = $v.participantFlags;
+      _participantType = $v.participantType;
+      _permissions = $v.permissions;
+      _readOnly = $v.readOnly;
+      _recordingConsent = $v.recordingConsent;
+      _remoteServer = $v.remoteServer;
+      _remoteToken = $v.remoteToken;
+      _sessionId = $v.sessionId;
+      _sipEnabled = $v.sipEnabled;
+      _status = $v.status;
+      _statusClearAt = $v.statusClearAt;
+      _statusIcon = $v.statusIcon;
+      _statusMessage = $v.statusMessage;
+      _token = $v.token;
+      _type = $v.type;
+      _unreadMention = $v.unreadMention;
+      _unreadMentionDirect = $v.unreadMentionDirect;
+      _unreadMessages = $v.unreadMessages;
+      _isArchived = $v.isArchived;
+      _isImportant = $v.isImportant;
+      _isSensitive = $v.isSensitive;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant RoomWithInvalidInvitations other) {
+    _$v = other as _$RoomWithInvalidInvitations;
+  }
+
+  @override
+  void update(void Function(RoomWithInvalidInvitationsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RoomWithInvalidInvitations build() => _build();
+
+  _$RoomWithInvalidInvitations _build() {
+    RoomWithInvalidInvitations._validate(this);
+    _$RoomWithInvalidInvitations _$result;
+    try {
+      _$result = _$v ??
+          _$RoomWithInvalidInvitations._(
+            invalidParticipants: invalidParticipants.build(),
+            actorId: BuiltValueNullFieldError.checkNotNull(actorId, r'RoomWithInvalidInvitations', 'actorId'),
+            invitedActorId: invitedActorId,
+            actorType: BuiltValueNullFieldError.checkNotNull(actorType, r'RoomWithInvalidInvitations', 'actorType'),
+            attendeeId: BuiltValueNullFieldError.checkNotNull(attendeeId, r'RoomWithInvalidInvitations', 'attendeeId'),
+            attendeePermissions: BuiltValueNullFieldError.checkNotNull(
+                attendeePermissions, r'RoomWithInvalidInvitations', 'attendeePermissions'),
+            attendeePin: attendeePin,
+            avatarVersion:
+                BuiltValueNullFieldError.checkNotNull(avatarVersion, r'RoomWithInvalidInvitations', 'avatarVersion'),
+            breakoutRoomMode: BuiltValueNullFieldError.checkNotNull(
+                breakoutRoomMode, r'RoomWithInvalidInvitations', 'breakoutRoomMode'),
+            breakoutRoomStatus: BuiltValueNullFieldError.checkNotNull(
+                breakoutRoomStatus, r'RoomWithInvalidInvitations', 'breakoutRoomStatus'),
+            callFlag: BuiltValueNullFieldError.checkNotNull(callFlag, r'RoomWithInvalidInvitations', 'callFlag'),
+            callPermissions: BuiltValueNullFieldError.checkNotNull(
+                callPermissions, r'RoomWithInvalidInvitations', 'callPermissions'),
+            callRecording:
+                BuiltValueNullFieldError.checkNotNull(callRecording, r'RoomWithInvalidInvitations', 'callRecording'),
+            callStartTime:
+                BuiltValueNullFieldError.checkNotNull(callStartTime, r'RoomWithInvalidInvitations', 'callStartTime'),
+            canDeleteConversation: BuiltValueNullFieldError.checkNotNull(
+                canDeleteConversation, r'RoomWithInvalidInvitations', 'canDeleteConversation'),
+            canEnableSIP:
+                BuiltValueNullFieldError.checkNotNull(canEnableSIP, r'RoomWithInvalidInvitations', 'canEnableSIP'),
+            canLeaveConversation: BuiltValueNullFieldError.checkNotNull(
+                canLeaveConversation, r'RoomWithInvalidInvitations', 'canLeaveConversation'),
+            canStartCall:
+                BuiltValueNullFieldError.checkNotNull(canStartCall, r'RoomWithInvalidInvitations', 'canStartCall'),
+            defaultPermissions: BuiltValueNullFieldError.checkNotNull(
+                defaultPermissions, r'RoomWithInvalidInvitations', 'defaultPermissions'),
+            description:
+                BuiltValueNullFieldError.checkNotNull(description, r'RoomWithInvalidInvitations', 'description'),
+            displayName:
+                BuiltValueNullFieldError.checkNotNull(displayName, r'RoomWithInvalidInvitations', 'displayName'),
+            hasCall: BuiltValueNullFieldError.checkNotNull(hasCall, r'RoomWithInvalidInvitations', 'hasCall'),
+            hasPassword:
+                BuiltValueNullFieldError.checkNotNull(hasPassword, r'RoomWithInvalidInvitations', 'hasPassword'),
+            id: BuiltValueNullFieldError.checkNotNull(id, r'RoomWithInvalidInvitations', 'id'),
+            isCustomAvatar:
+                BuiltValueNullFieldError.checkNotNull(isCustomAvatar, r'RoomWithInvalidInvitations', 'isCustomAvatar'),
+            isFavorite: BuiltValueNullFieldError.checkNotNull(isFavorite, r'RoomWithInvalidInvitations', 'isFavorite'),
+            lastActivity:
+                BuiltValueNullFieldError.checkNotNull(lastActivity, r'RoomWithInvalidInvitations', 'lastActivity'),
+            lastCommonReadMessage: BuiltValueNullFieldError.checkNotNull(
+                lastCommonReadMessage, r'RoomWithInvalidInvitations', 'lastCommonReadMessage'),
+            lastMessage: lastMessage,
+            lastPing: BuiltValueNullFieldError.checkNotNull(lastPing, r'RoomWithInvalidInvitations', 'lastPing'),
+            lastReadMessage: BuiltValueNullFieldError.checkNotNull(
+                lastReadMessage, r'RoomWithInvalidInvitations', 'lastReadMessage'),
+            listable: BuiltValueNullFieldError.checkNotNull(listable, r'RoomWithInvalidInvitations', 'listable'),
+            lobbyState: BuiltValueNullFieldError.checkNotNull(lobbyState, r'RoomWithInvalidInvitations', 'lobbyState'),
+            lobbyTimer: BuiltValueNullFieldError.checkNotNull(lobbyTimer, r'RoomWithInvalidInvitations', 'lobbyTimer'),
+            mentionPermissions: BuiltValueNullFieldError.checkNotNull(
+                mentionPermissions, r'RoomWithInvalidInvitations', 'mentionPermissions'),
+            messageExpiration: BuiltValueNullFieldError.checkNotNull(
+                messageExpiration, r'RoomWithInvalidInvitations', 'messageExpiration'),
+            name: BuiltValueNullFieldError.checkNotNull(name, r'RoomWithInvalidInvitations', 'name'),
+            notificationCalls: BuiltValueNullFieldError.checkNotNull(
+                notificationCalls, r'RoomWithInvalidInvitations', 'notificationCalls'),
+            notificationLevel: BuiltValueNullFieldError.checkNotNull(
+                notificationLevel, r'RoomWithInvalidInvitations', 'notificationLevel'),
+            objectId: BuiltValueNullFieldError.checkNotNull(objectId, r'RoomWithInvalidInvitations', 'objectId'),
+            objectType: BuiltValueNullFieldError.checkNotNull(objectType, r'RoomWithInvalidInvitations', 'objectType'),
+            participantFlags: BuiltValueNullFieldError.checkNotNull(
+                participantFlags, r'RoomWithInvalidInvitations', 'participantFlags'),
+            participantType: BuiltValueNullFieldError.checkNotNull(
+                participantType, r'RoomWithInvalidInvitations', 'participantType'),
+            permissions:
+                BuiltValueNullFieldError.checkNotNull(permissions, r'RoomWithInvalidInvitations', 'permissions'),
+            readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'RoomWithInvalidInvitations', 'readOnly'),
+            recordingConsent: BuiltValueNullFieldError.checkNotNull(
+                recordingConsent, r'RoomWithInvalidInvitations', 'recordingConsent'),
+            remoteServer: remoteServer,
+            remoteToken: remoteToken,
+            sessionId: BuiltValueNullFieldError.checkNotNull(sessionId, r'RoomWithInvalidInvitations', 'sessionId'),
+            sipEnabled: BuiltValueNullFieldError.checkNotNull(sipEnabled, r'RoomWithInvalidInvitations', 'sipEnabled'),
+            status: status,
+            statusClearAt: statusClearAt,
+            statusIcon: statusIcon,
+            statusMessage: statusMessage,
+            token: BuiltValueNullFieldError.checkNotNull(token, r'RoomWithInvalidInvitations', 'token'),
+            type: BuiltValueNullFieldError.checkNotNull(type, r'RoomWithInvalidInvitations', 'type'),
+            unreadMention:
+                BuiltValueNullFieldError.checkNotNull(unreadMention, r'RoomWithInvalidInvitations', 'unreadMention'),
+            unreadMentionDirect: BuiltValueNullFieldError.checkNotNull(
+                unreadMentionDirect, r'RoomWithInvalidInvitations', 'unreadMentionDirect'),
+            unreadMessages:
+                BuiltValueNullFieldError.checkNotNull(unreadMessages, r'RoomWithInvalidInvitations', 'unreadMessages'),
+            isArchived: BuiltValueNullFieldError.checkNotNull(isArchived, r'RoomWithInvalidInvitations', 'isArchived'),
+            isImportant: isImportant,
+            isSensitive: isSensitive,
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'invalidParticipants';
+        invalidParticipants.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'RoomWithInvalidInvitations', _$failedField, e.toString());
       }
       rethrow;
     }
