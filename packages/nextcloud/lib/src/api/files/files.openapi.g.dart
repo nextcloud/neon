@@ -88,6 +88,12 @@ Serializer<TemplateListResponseApplicationJson_Ocs> _$templateListResponseApplic
     _$TemplateListResponseApplicationJson_OcsSerializer();
 Serializer<TemplateListResponseApplicationJson> _$templateListResponseApplicationJsonSerializer =
     _$TemplateListResponseApplicationJsonSerializer();
+Serializer<TemplateListTemplateFieldsResponseApplicationJson_Ocs>
+    _$templateListTemplateFieldsResponseApplicationJsonOcsSerializer =
+    _$TemplateListTemplateFieldsResponseApplicationJson_OcsSerializer();
+Serializer<TemplateListTemplateFieldsResponseApplicationJson>
+    _$templateListTemplateFieldsResponseApplicationJsonSerializer =
+    _$TemplateListTemplateFieldsResponseApplicationJsonSerializer();
 Serializer<TemplateCreateRequestApplicationJson> _$templateCreateRequestApplicationJsonSerializer =
     _$TemplateCreateRequestApplicationJsonSerializer();
 Serializer<TemplateFile> _$templateFileSerializer = _$TemplateFileSerializer();
@@ -2206,6 +2212,101 @@ class _$TemplateListResponseApplicationJsonSerializer
           result.ocs.replace(
               serializers.deserialize(value, specifiedType: const FullType(TemplateListResponseApplicationJson_Ocs))!
                   as TemplateListResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TemplateListTemplateFieldsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TemplateListTemplateFieldsResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    TemplateListTemplateFieldsResponseApplicationJson_Ocs,
+    _$TemplateListTemplateFieldsResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'TemplateListTemplateFieldsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TemplateListTemplateFieldsResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(TemplateField)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  TemplateListTemplateFieldsResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(TemplateField)]))!);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TemplateListTemplateFieldsResponseApplicationJsonSerializer
+    implements StructuredSerializer<TemplateListTemplateFieldsResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TemplateListTemplateFieldsResponseApplicationJson,
+    _$TemplateListTemplateFieldsResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'TemplateListTemplateFieldsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TemplateListTemplateFieldsResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(TemplateListTemplateFieldsResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TemplateListTemplateFieldsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TemplateListTemplateFieldsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TemplateListTemplateFieldsResponseApplicationJson_Ocs))!
+              as TemplateListTemplateFieldsResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -8175,6 +8276,238 @@ class TemplateListResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'TemplateListResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TemplateListTemplateFieldsResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($TemplateListTemplateFieldsResponseApplicationJson_OcsInterface other);
+  void update(void Function($TemplateListTemplateFieldsResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  MapBuilder<String, TemplateField> get data;
+  set data(MapBuilder<String, TemplateField>? data);
+}
+
+class _$TemplateListTemplateFieldsResponseApplicationJson_Ocs
+    extends TemplateListTemplateFieldsResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final BuiltMap<String, TemplateField> data;
+
+  factory _$TemplateListTemplateFieldsResponseApplicationJson_Ocs(
+          [void Function(TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$TemplateListTemplateFieldsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
+  @override
+  TemplateListTemplateFieldsResponseApplicationJson_Ocs rebuild(
+          void Function(TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder toBuilder() =>
+      TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TemplateListTemplateFieldsResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TemplateListTemplateFieldsResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder
+    implements
+        Builder<TemplateListTemplateFieldsResponseApplicationJson_Ocs,
+            TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder>,
+        $TemplateListTemplateFieldsResponseApplicationJson_OcsInterfaceBuilder {
+  _$TemplateListTemplateFieldsResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  MapBuilder<String, TemplateField>? _data;
+  MapBuilder<String, TemplateField> get data => _$this._data ??= MapBuilder<String, TemplateField>();
+  set data(covariant MapBuilder<String, TemplateField>? data) => _$this._data = data;
+
+  TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder() {
+    TemplateListTemplateFieldsResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TemplateListTemplateFieldsResponseApplicationJson_Ocs other) {
+    _$v = other as _$TemplateListTemplateFieldsResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TemplateListTemplateFieldsResponseApplicationJson_Ocs build() => _build();
+
+  _$TemplateListTemplateFieldsResponseApplicationJson_Ocs _build() {
+    TemplateListTemplateFieldsResponseApplicationJson_Ocs._validate(this);
+    _$TemplateListTemplateFieldsResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$TemplateListTemplateFieldsResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TemplateListTemplateFieldsResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TemplateListTemplateFieldsResponseApplicationJsonInterfaceBuilder {
+  void replace($TemplateListTemplateFieldsResponseApplicationJsonInterface other);
+  void update(void Function($TemplateListTemplateFieldsResponseApplicationJsonInterfaceBuilder) updates);
+  TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$TemplateListTemplateFieldsResponseApplicationJson extends TemplateListTemplateFieldsResponseApplicationJson {
+  @override
+  final TemplateListTemplateFieldsResponseApplicationJson_Ocs ocs;
+
+  factory _$TemplateListTemplateFieldsResponseApplicationJson(
+          [void Function(TemplateListTemplateFieldsResponseApplicationJsonBuilder)? updates]) =>
+      (TemplateListTemplateFieldsResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$TemplateListTemplateFieldsResponseApplicationJson._({required this.ocs}) : super._();
+  @override
+  TemplateListTemplateFieldsResponseApplicationJson rebuild(
+          void Function(TemplateListTemplateFieldsResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TemplateListTemplateFieldsResponseApplicationJsonBuilder toBuilder() =>
+      TemplateListTemplateFieldsResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TemplateListTemplateFieldsResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TemplateListTemplateFieldsResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class TemplateListTemplateFieldsResponseApplicationJsonBuilder
+    implements
+        Builder<TemplateListTemplateFieldsResponseApplicationJson,
+            TemplateListTemplateFieldsResponseApplicationJsonBuilder>,
+        $TemplateListTemplateFieldsResponseApplicationJsonInterfaceBuilder {
+  _$TemplateListTemplateFieldsResponseApplicationJson? _$v;
+
+  TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder? _ocs;
+  TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  TemplateListTemplateFieldsResponseApplicationJsonBuilder() {
+    TemplateListTemplateFieldsResponseApplicationJson._defaults(this);
+  }
+
+  TemplateListTemplateFieldsResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TemplateListTemplateFieldsResponseApplicationJson other) {
+    _$v = other as _$TemplateListTemplateFieldsResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(TemplateListTemplateFieldsResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TemplateListTemplateFieldsResponseApplicationJson build() => _build();
+
+  _$TemplateListTemplateFieldsResponseApplicationJson _build() {
+    TemplateListTemplateFieldsResponseApplicationJson._validate(this);
+    _$TemplateListTemplateFieldsResponseApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$TemplateListTemplateFieldsResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TemplateListTemplateFieldsResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

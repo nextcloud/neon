@@ -955,6 +955,92 @@ class $TemplateClient {
     return _i1.ResponseConverter<TemplateListResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
+  /// Builds a serializer to parse the response of [$listTemplateFields_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TemplateListTemplateFieldsResponseApplicationJson, void> $listTemplateFields_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TemplateListTemplateFieldsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// List the fields for the template specified by the given file ID.
+  ///
+  /// Returns a `DynamiteRequest` backing the [listTemplateFields] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [fileId] File ID of the template.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Fields returned
+  ///
+  /// See:
+  ///  * [listTemplateFields] for a method executing this request and parsing the response.
+  ///  * [$listTemplateFields_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $listTemplateFields_Request({required int fileId, bool? oCSAPIRequest}) {
+    final _parameters = <String, Object?>{};
+    final __fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    _parameters['fileId'] = __fileId;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/files/api/v1/templates/fields/{fileId}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+    // coverage:ignore-start
+    final authentication = _i6.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(authentication.headers);
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+    // coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// List the fields for the template specified by the given file ID.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [fileId] File ID of the template.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Fields returned
+  ///
+  /// See:
+  ///  * [$listTemplateFields_Request] for the request send by this method.
+  ///  * [$listTemplateFields_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TemplateListTemplateFieldsResponseApplicationJson, void>> listTemplateFields({
+    required int fileId,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $listTemplateFields_Request(fileId: fileId, oCSAPIRequest: oCSAPIRequest);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $listTemplateFields_Serializer();
+    return _i1.ResponseConverter<TemplateListTemplateFieldsResponseApplicationJson, void>(
+      _serializer,
+    ).convert(_response);
+  }
+
   /// Builds a serializer to parse the response of [$create_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<TemplateCreateResponseApplicationJson, void> $create_Serializer() => _i1.DynamiteSerializer(
@@ -3797,6 +3883,135 @@ abstract class TemplateListResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $TemplateListTemplateFieldsResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltMap<String, TemplateField> get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TemplateListTemplateFieldsResponseApplicationJson_OcsInterfaceBuilder].
+  $TemplateListTemplateFieldsResponseApplicationJson_OcsInterface rebuild(
+    void Function($TemplateListTemplateFieldsResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TemplateListTemplateFieldsResponseApplicationJson_OcsInterfaceBuilder].
+  $TemplateListTemplateFieldsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TemplateListTemplateFieldsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TemplateListTemplateFieldsResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class TemplateListTemplateFieldsResponseApplicationJson_Ocs
+    implements
+        $TemplateListTemplateFieldsResponseApplicationJson_OcsInterface,
+        Built<TemplateListTemplateFieldsResponseApplicationJson_Ocs,
+            TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TemplateListTemplateFieldsResponseApplicationJson_Ocs object using the builder pattern.
+  factory TemplateListTemplateFieldsResponseApplicationJson_Ocs([
+    void Function(TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TemplateListTemplateFieldsResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const TemplateListTemplateFieldsResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TemplateListTemplateFieldsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TemplateListTemplateFieldsResponseApplicationJson_Ocs.
+  static Serializer<TemplateListTemplateFieldsResponseApplicationJson_Ocs> get serializer =>
+      _$templateListTemplateFieldsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder b) {
+    $TemplateListTemplateFieldsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder b) {
+    $TemplateListTemplateFieldsResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TemplateListTemplateFieldsResponseApplicationJsonInterface {
+  TemplateListTemplateFieldsResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TemplateListTemplateFieldsResponseApplicationJsonInterfaceBuilder].
+  $TemplateListTemplateFieldsResponseApplicationJsonInterface rebuild(
+    void Function($TemplateListTemplateFieldsResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TemplateListTemplateFieldsResponseApplicationJsonInterfaceBuilder].
+  $TemplateListTemplateFieldsResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TemplateListTemplateFieldsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TemplateListTemplateFieldsResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TemplateListTemplateFieldsResponseApplicationJson
+    implements
+        $TemplateListTemplateFieldsResponseApplicationJsonInterface,
+        Built<TemplateListTemplateFieldsResponseApplicationJson,
+            TemplateListTemplateFieldsResponseApplicationJsonBuilder> {
+  /// Creates a new TemplateListTemplateFieldsResponseApplicationJson object using the builder pattern.
+  factory TemplateListTemplateFieldsResponseApplicationJson([
+    void Function(TemplateListTemplateFieldsResponseApplicationJsonBuilder)? b,
+  ]) = _$TemplateListTemplateFieldsResponseApplicationJson;
+
+  // coverage:ignore-start
+  const TemplateListTemplateFieldsResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TemplateListTemplateFieldsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TemplateListTemplateFieldsResponseApplicationJson.
+  static Serializer<TemplateListTemplateFieldsResponseApplicationJson> get serializer =>
+      _$templateListTemplateFieldsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TemplateListTemplateFieldsResponseApplicationJsonBuilder b) {
+    $TemplateListTemplateFieldsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TemplateListTemplateFieldsResponseApplicationJsonBuilder b) {
+    $TemplateListTemplateFieldsResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $TemplateCreateRequestApplicationJsonInterface {
   static final _$templatePath = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
@@ -5312,6 +5527,20 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(TemplateFileCreatorWithTemplates)]),
         ListBuilder<TemplateFileCreatorWithTemplates>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(TemplateListTemplateFieldsResponseApplicationJson),
+        TemplateListTemplateFieldsResponseApplicationJsonBuilder.new,
+      )
+      ..add(TemplateListTemplateFieldsResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TemplateListTemplateFieldsResponseApplicationJson_Ocs),
+        TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(TemplateListTemplateFieldsResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(TemplateField)]),
+        MapBuilder<String, TemplateField>.new,
       )
       ..addBuilderFactory(
         const FullType(TemplateCreateRequestApplicationJson),
