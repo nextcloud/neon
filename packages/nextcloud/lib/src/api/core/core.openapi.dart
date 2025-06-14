@@ -15077,8 +15077,14 @@ sealed class $SpreedCapabilities_Config_CallInterface {
   int get recordingConsent;
   @BuiltValueField(wireName: 'supported-reactions')
   BuiltList<String> get supportedReactions;
+
+  /// List of file names relative to the spreed/img/backgrounds/ web path, e.g. `2_home.jpg`.
   @BuiltValueField(wireName: 'predefined-backgrounds')
   BuiltList<String> get predefinedBackgrounds;
+
+  /// List of file paths relative to the server web root with leading slash, e.g. `/apps/spreed/img/backgrounds/2_home.jpg`.
+  @BuiltValueField(wireName: 'predefined-backgrounds-v2')
+  BuiltList<String>? get predefinedBackgroundsV2;
   @BuiltValueField(wireName: 'can-upload-background')
   bool get canUploadBackground;
   @BuiltValueField(wireName: 'sip-enabled')
@@ -15307,6 +15313,12 @@ sealed class $SpreedCapabilities_Config_ConversationsInterface {
   SpreedCapabilities_Config_Conversations_ListStyle? get listStyle;
   @BuiltValueField(wireName: 'description-length')
   int? get descriptionLength;
+  @BuiltValueField(wireName: 'retention-event')
+  int? get retentionEvent;
+  @BuiltValueField(wireName: 'retention-phone')
+  int? get retentionPhone;
+  @BuiltValueField(wireName: 'retention-instant-meetings')
+  int? get retentionInstantMeetings;
 
   /// Rebuilds the instance.
   ///
@@ -15323,6 +15335,9 @@ sealed class $SpreedCapabilities_Config_ConversationsInterface {
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($SpreedCapabilities_Config_ConversationsInterfaceBuilder b) {
     _i5.checkNumber(b.descriptionLength, 'descriptionLength', minimum: 1);
+    _i5.checkNumber(b.retentionEvent, 'retentionEvent', minimum: 0);
+    _i5.checkNumber(b.retentionPhone, 'retentionPhone', minimum: 0);
+    _i5.checkNumber(b.retentionInstantMeetings, 'retentionInstantMeetings', minimum: 0);
   }
 }
 
@@ -15564,6 +15579,70 @@ abstract class SpreedCapabilities_Config_Signaling
 }
 
 @BuiltValue(instantiable: false)
+sealed class $SpreedCapabilities_Config_ExperimentsInterface {
+  int get enabled;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$SpreedCapabilities_Config_ExperimentsInterfaceBuilder].
+  $SpreedCapabilities_Config_ExperimentsInterface rebuild(
+    void Function($SpreedCapabilities_Config_ExperimentsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$SpreedCapabilities_Config_ExperimentsInterfaceBuilder].
+  $SpreedCapabilities_Config_ExperimentsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SpreedCapabilities_Config_ExperimentsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SpreedCapabilities_Config_ExperimentsInterfaceBuilder b) {
+    _i5.checkNumber(b.enabled, 'enabled', minimum: 0);
+  }
+}
+
+abstract class SpreedCapabilities_Config_Experiments
+    implements
+        $SpreedCapabilities_Config_ExperimentsInterface,
+        Built<SpreedCapabilities_Config_Experiments, SpreedCapabilities_Config_ExperimentsBuilder> {
+  /// Creates a new SpreedCapabilities_Config_Experiments object using the builder pattern.
+  factory SpreedCapabilities_Config_Experiments([void Function(SpreedCapabilities_Config_ExperimentsBuilder)? b]) =
+      _$SpreedCapabilities_Config_Experiments;
+
+  // coverage:ignore-start
+  const SpreedCapabilities_Config_Experiments._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SpreedCapabilities_Config_Experiments.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SpreedCapabilities_Config_Experiments.
+  static Serializer<SpreedCapabilities_Config_Experiments> get serializer =>
+      _$spreedCapabilitiesConfigExperimentsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SpreedCapabilities_Config_ExperimentsBuilder b) {
+    $SpreedCapabilities_Config_ExperimentsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SpreedCapabilities_Config_ExperimentsBuilder b) {
+    $SpreedCapabilities_Config_ExperimentsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $SpreedCapabilities_ConfigInterface {
   SpreedCapabilities_Config_Attachments get attachments;
   SpreedCapabilities_Config_Call get call;
@@ -15572,6 +15651,7 @@ sealed class $SpreedCapabilities_ConfigInterface {
   SpreedCapabilities_Config_Federation get federation;
   SpreedCapabilities_Config_Previews get previews;
   SpreedCapabilities_Config_Signaling get signaling;
+  SpreedCapabilities_Config_Experiments? get experiments;
 
   /// Rebuilds the instance.
   ///
@@ -15646,7 +15726,10 @@ sealed class $SpreedCapabilitiesInterface {
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SpreedCapabilitiesInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SpreedCapabilitiesInterfaceBuilder b) {}
+  static void _validate($SpreedCapabilitiesInterfaceBuilder b) {
+    _i5.checkIterable(b.features, 'features', minItems: 1);
+    _i5.checkIterable(b.featuresLocal, 'featuresLocal', minItems: 1);
+  }
 }
 
 abstract class SpreedCapabilities
@@ -29944,6 +30027,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         SpreedCapabilities_Config_SignalingBuilder.new,
       )
       ..add(SpreedCapabilities_Config_Signaling.serializer)
+      ..addBuilderFactory(
+        const FullType(SpreedCapabilities_Config_Experiments),
+        SpreedCapabilities_Config_ExperimentsBuilder.new,
+      )
+      ..add(SpreedCapabilities_Config_Experiments.serializer)
       ..addBuilderFactory(
         const FullType(BuiltMap, [
           FullType(String),

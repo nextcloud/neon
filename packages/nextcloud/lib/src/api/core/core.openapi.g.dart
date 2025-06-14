@@ -974,6 +974,8 @@ Serializer<SpreedCapabilities_Config_Previews> _$spreedCapabilitiesConfigPreview
     _$SpreedCapabilities_Config_PreviewsSerializer();
 Serializer<SpreedCapabilities_Config_Signaling> _$spreedCapabilitiesConfigSignalingSerializer =
     _$SpreedCapabilities_Config_SignalingSerializer();
+Serializer<SpreedCapabilities_Config_Experiments> _$spreedCapabilitiesConfigExperimentsSerializer =
+    _$SpreedCapabilities_Config_ExperimentsSerializer();
 Serializer<SpreedCapabilities_Config> _$spreedCapabilitiesConfigSerializer = _$SpreedCapabilities_ConfigSerializer();
 Serializer<SpreedCapabilities> _$spreedCapabilitiesSerializer = _$SpreedCapabilitiesSerializer();
 Serializer<SpreedPublicCapabilities> _$spreedPublicCapabilitiesSerializer = _$SpreedPublicCapabilitiesSerializer();
@@ -7272,6 +7274,12 @@ class _$SpreedCapabilities_Config_CallSerializer implements StructuredSerializer
       serializers.serialize(object.canEnableSip, specifiedType: const FullType(bool)),
     ];
     Object? value;
+    value = object.predefinedBackgroundsV2;
+    if (value != null) {
+      result
+        ..add('predefined-backgrounds-v2')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)])));
+    }
     value = object.startWithoutMedia;
     if (value != null) {
       result
@@ -7328,6 +7336,10 @@ class _$SpreedCapabilities_Config_CallSerializer implements StructuredSerializer
           break;
         case 'predefined-backgrounds':
           result.predefinedBackgrounds.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'predefined-backgrounds-v2':
+          result.predefinedBackgroundsV2.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
           break;
         case 'can-upload-background':
@@ -7470,6 +7482,24 @@ class _$SpreedCapabilities_Config_ConversationsSerializer
         ..add('description-length')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
+    value = object.retentionEvent;
+    if (value != null) {
+      result
+        ..add('retention-event')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.retentionPhone;
+    if (value != null) {
+      result
+        ..add('retention-phone')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.retentionInstantMeetings;
+    if (value != null) {
+      result
+        ..add('retention-instant-meetings')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     return result;
   }
 
@@ -7497,6 +7527,15 @@ class _$SpreedCapabilities_Config_ConversationsSerializer
           break;
         case 'description-length':
           result.descriptionLength = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'retention-event':
+          result.retentionEvent = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'retention-phone':
+          result.retentionPhone = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'retention-instant-meetings':
+          result.retentionInstantMeetings = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
       }
     }
@@ -7646,6 +7685,45 @@ class _$SpreedCapabilities_Config_SignalingSerializer
   }
 }
 
+class _$SpreedCapabilities_Config_ExperimentsSerializer
+    implements StructuredSerializer<SpreedCapabilities_Config_Experiments> {
+  @override
+  final Iterable<Type> types = const [SpreedCapabilities_Config_Experiments, _$SpreedCapabilities_Config_Experiments];
+  @override
+  final String wireName = 'SpreedCapabilities_Config_Experiments';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SpreedCapabilities_Config_Experiments object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(int)),
+    ];
+
+    return result;
+  }
+
+  @override
+  SpreedCapabilities_Config_Experiments deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SpreedCapabilities_Config_ExperimentsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$SpreedCapabilities_ConfigSerializer implements StructuredSerializer<SpreedCapabilities_Config> {
   @override
   final Iterable<Type> types = const [SpreedCapabilities_Config, _$SpreedCapabilities_Config];
@@ -7672,7 +7750,13 @@ class _$SpreedCapabilities_ConfigSerializer implements StructuredSerializer<Spre
       'signaling',
       serializers.serialize(object.signaling, specifiedType: const FullType(SpreedCapabilities_Config_Signaling)),
     ];
-
+    Object? value;
+    value = object.experiments;
+    if (value != null) {
+      result
+        ..add('experiments')
+        ..add(serializers.serialize(value, specifiedType: const FullType(SpreedCapabilities_Config_Experiments)));
+    }
     return result;
   }
 
@@ -7719,6 +7803,11 @@ class _$SpreedCapabilities_ConfigSerializer implements StructuredSerializer<Spre
           result.signaling.replace(
               serializers.deserialize(value, specifiedType: const FullType(SpreedCapabilities_Config_Signaling))!
                   as SpreedCapabilities_Config_Signaling);
+          break;
+        case 'experiments':
+          result.experiments.replace(
+              serializers.deserialize(value, specifiedType: const FullType(SpreedCapabilities_Config_Experiments))!
+                  as SpreedCapabilities_Config_Experiments);
           break;
       }
     }
@@ -31219,6 +31308,9 @@ abstract mixin class $SpreedCapabilities_Config_CallInterfaceBuilder {
   ListBuilder<String> get predefinedBackgrounds;
   set predefinedBackgrounds(ListBuilder<String>? predefinedBackgrounds);
 
+  ListBuilder<String> get predefinedBackgroundsV2;
+  set predefinedBackgroundsV2(ListBuilder<String>? predefinedBackgroundsV2);
+
   bool? get canUploadBackground;
   set canUploadBackground(bool? canUploadBackground);
 
@@ -31258,6 +31350,8 @@ class _$SpreedCapabilities_Config_Call extends SpreedCapabilities_Config_Call {
   @override
   final BuiltList<String> predefinedBackgrounds;
   @override
+  final BuiltList<String>? predefinedBackgroundsV2;
+  @override
   final bool canUploadBackground;
   @override
   final bool sipEnabled;
@@ -31284,6 +31378,7 @@ class _$SpreedCapabilities_Config_Call extends SpreedCapabilities_Config_Call {
       required this.recordingConsent,
       required this.supportedReactions,
       required this.predefinedBackgrounds,
+      this.predefinedBackgroundsV2,
       required this.canUploadBackground,
       required this.sipEnabled,
       required this.sipDialoutEnabled,
@@ -31310,6 +31405,7 @@ class _$SpreedCapabilities_Config_Call extends SpreedCapabilities_Config_Call {
         recordingConsent == other.recordingConsent &&
         supportedReactions == other.supportedReactions &&
         predefinedBackgrounds == other.predefinedBackgrounds &&
+        predefinedBackgroundsV2 == other.predefinedBackgroundsV2 &&
         canUploadBackground == other.canUploadBackground &&
         sipEnabled == other.sipEnabled &&
         sipDialoutEnabled == other.sipDialoutEnabled &&
@@ -31329,6 +31425,7 @@ class _$SpreedCapabilities_Config_Call extends SpreedCapabilities_Config_Call {
     _$hash = $jc(_$hash, recordingConsent.hashCode);
     _$hash = $jc(_$hash, supportedReactions.hashCode);
     _$hash = $jc(_$hash, predefinedBackgrounds.hashCode);
+    _$hash = $jc(_$hash, predefinedBackgroundsV2.hashCode);
     _$hash = $jc(_$hash, canUploadBackground.hashCode);
     _$hash = $jc(_$hash, sipEnabled.hashCode);
     _$hash = $jc(_$hash, sipDialoutEnabled.hashCode);
@@ -31350,6 +31447,7 @@ class _$SpreedCapabilities_Config_Call extends SpreedCapabilities_Config_Call {
           ..add('recordingConsent', recordingConsent)
           ..add('supportedReactions', supportedReactions)
           ..add('predefinedBackgrounds', predefinedBackgrounds)
+          ..add('predefinedBackgroundsV2', predefinedBackgroundsV2)
           ..add('canUploadBackground', canUploadBackground)
           ..add('sipEnabled', sipEnabled)
           ..add('sipDialoutEnabled', sipDialoutEnabled)
@@ -31393,6 +31491,11 @@ class SpreedCapabilities_Config_CallBuilder
   ListBuilder<String> get predefinedBackgrounds => _$this._predefinedBackgrounds ??= ListBuilder<String>();
   set predefinedBackgrounds(covariant ListBuilder<String>? predefinedBackgrounds) =>
       _$this._predefinedBackgrounds = predefinedBackgrounds;
+
+  ListBuilder<String>? _predefinedBackgroundsV2;
+  ListBuilder<String> get predefinedBackgroundsV2 => _$this._predefinedBackgroundsV2 ??= ListBuilder<String>();
+  set predefinedBackgroundsV2(covariant ListBuilder<String>? predefinedBackgroundsV2) =>
+      _$this._predefinedBackgroundsV2 = predefinedBackgroundsV2;
 
   bool? _canUploadBackground;
   bool? get canUploadBackground => _$this._canUploadBackground;
@@ -31440,6 +31543,7 @@ class SpreedCapabilities_Config_CallBuilder
       _recordingConsent = $v.recordingConsent;
       _supportedReactions = $v.supportedReactions.toBuilder();
       _predefinedBackgrounds = $v.predefinedBackgrounds.toBuilder();
+      _predefinedBackgroundsV2 = $v.predefinedBackgroundsV2?.toBuilder();
       _canUploadBackground = $v.canUploadBackground;
       _sipEnabled = $v.sipEnabled;
       _sipDialoutEnabled = $v.sipDialoutEnabled;
@@ -31480,6 +31584,7 @@ class SpreedCapabilities_Config_CallBuilder
                 recordingConsent, r'SpreedCapabilities_Config_Call', 'recordingConsent'),
             supportedReactions: supportedReactions.build(),
             predefinedBackgrounds: predefinedBackgrounds.build(),
+            predefinedBackgroundsV2: _predefinedBackgroundsV2?.build(),
             canUploadBackground: BuiltValueNullFieldError.checkNotNull(
                 canUploadBackground, r'SpreedCapabilities_Config_Call', 'canUploadBackground'),
             sipEnabled:
@@ -31500,6 +31605,8 @@ class SpreedCapabilities_Config_CallBuilder
         supportedReactions.build();
         _$failedField = 'predefinedBackgrounds';
         predefinedBackgrounds.build();
+        _$failedField = 'predefinedBackgroundsV2';
+        _predefinedBackgroundsV2?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'SpreedCapabilities_Config_Call', _$failedField, e.toString());
       }
@@ -31698,6 +31805,15 @@ abstract mixin class $SpreedCapabilities_Config_ConversationsInterfaceBuilder {
 
   int? get descriptionLength;
   set descriptionLength(int? descriptionLength);
+
+  int? get retentionEvent;
+  set retentionEvent(int? retentionEvent);
+
+  int? get retentionPhone;
+  set retentionPhone(int? retentionPhone);
+
+  int? get retentionInstantMeetings;
+  set retentionInstantMeetings(int? retentionInstantMeetings);
 }
 
 class _$SpreedCapabilities_Config_Conversations extends SpreedCapabilities_Config_Conversations {
@@ -31709,13 +31825,25 @@ class _$SpreedCapabilities_Config_Conversations extends SpreedCapabilities_Confi
   final SpreedCapabilities_Config_Conversations_ListStyle? listStyle;
   @override
   final int? descriptionLength;
+  @override
+  final int? retentionEvent;
+  @override
+  final int? retentionPhone;
+  @override
+  final int? retentionInstantMeetings;
 
   factory _$SpreedCapabilities_Config_Conversations(
           [void Function(SpreedCapabilities_Config_ConversationsBuilder)? updates]) =>
       (SpreedCapabilities_Config_ConversationsBuilder()..update(updates))._build();
 
   _$SpreedCapabilities_Config_Conversations._(
-      {required this.canCreate, this.forcePasswords, this.listStyle, this.descriptionLength})
+      {required this.canCreate,
+      this.forcePasswords,
+      this.listStyle,
+      this.descriptionLength,
+      this.retentionEvent,
+      this.retentionPhone,
+      this.retentionInstantMeetings})
       : super._();
   @override
   SpreedCapabilities_Config_Conversations rebuild(
@@ -31733,7 +31861,10 @@ class _$SpreedCapabilities_Config_Conversations extends SpreedCapabilities_Confi
         canCreate == other.canCreate &&
         forcePasswords == other.forcePasswords &&
         listStyle == other.listStyle &&
-        descriptionLength == other.descriptionLength;
+        descriptionLength == other.descriptionLength &&
+        retentionEvent == other.retentionEvent &&
+        retentionPhone == other.retentionPhone &&
+        retentionInstantMeetings == other.retentionInstantMeetings;
   }
 
   @override
@@ -31743,6 +31874,9 @@ class _$SpreedCapabilities_Config_Conversations extends SpreedCapabilities_Confi
     _$hash = $jc(_$hash, forcePasswords.hashCode);
     _$hash = $jc(_$hash, listStyle.hashCode);
     _$hash = $jc(_$hash, descriptionLength.hashCode);
+    _$hash = $jc(_$hash, retentionEvent.hashCode);
+    _$hash = $jc(_$hash, retentionPhone.hashCode);
+    _$hash = $jc(_$hash, retentionInstantMeetings.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -31753,7 +31887,10 @@ class _$SpreedCapabilities_Config_Conversations extends SpreedCapabilities_Confi
           ..add('canCreate', canCreate)
           ..add('forcePasswords', forcePasswords)
           ..add('listStyle', listStyle)
-          ..add('descriptionLength', descriptionLength))
+          ..add('descriptionLength', descriptionLength)
+          ..add('retentionEvent', retentionEvent)
+          ..add('retentionPhone', retentionPhone)
+          ..add('retentionInstantMeetings', retentionInstantMeetings))
         .toString();
   }
 }
@@ -31781,6 +31918,19 @@ class SpreedCapabilities_Config_ConversationsBuilder
   int? get descriptionLength => _$this._descriptionLength;
   set descriptionLength(covariant int? descriptionLength) => _$this._descriptionLength = descriptionLength;
 
+  int? _retentionEvent;
+  int? get retentionEvent => _$this._retentionEvent;
+  set retentionEvent(covariant int? retentionEvent) => _$this._retentionEvent = retentionEvent;
+
+  int? _retentionPhone;
+  int? get retentionPhone => _$this._retentionPhone;
+  set retentionPhone(covariant int? retentionPhone) => _$this._retentionPhone = retentionPhone;
+
+  int? _retentionInstantMeetings;
+  int? get retentionInstantMeetings => _$this._retentionInstantMeetings;
+  set retentionInstantMeetings(covariant int? retentionInstantMeetings) =>
+      _$this._retentionInstantMeetings = retentionInstantMeetings;
+
   SpreedCapabilities_Config_ConversationsBuilder() {
     SpreedCapabilities_Config_Conversations._defaults(this);
   }
@@ -31792,6 +31942,9 @@ class SpreedCapabilities_Config_ConversationsBuilder
       _forcePasswords = $v.forcePasswords;
       _listStyle = $v.listStyle;
       _descriptionLength = $v.descriptionLength;
+      _retentionEvent = $v.retentionEvent;
+      _retentionPhone = $v.retentionPhone;
+      _retentionInstantMeetings = $v.retentionInstantMeetings;
       _$v = null;
     }
     return this;
@@ -31819,6 +31972,9 @@ class SpreedCapabilities_Config_ConversationsBuilder
           forcePasswords: forcePasswords,
           listStyle: listStyle,
           descriptionLength: descriptionLength,
+          retentionEvent: retentionEvent,
+          retentionPhone: retentionPhone,
+          retentionInstantMeetings: retentionInstantMeetings,
         );
     replace(_$result);
     return _$result;
@@ -32167,6 +32323,97 @@ class SpreedCapabilities_Config_SignalingBuilder
   }
 }
 
+abstract mixin class $SpreedCapabilities_Config_ExperimentsInterfaceBuilder {
+  void replace($SpreedCapabilities_Config_ExperimentsInterface other);
+  void update(void Function($SpreedCapabilities_Config_ExperimentsInterfaceBuilder) updates);
+  int? get enabled;
+  set enabled(int? enabled);
+}
+
+class _$SpreedCapabilities_Config_Experiments extends SpreedCapabilities_Config_Experiments {
+  @override
+  final int enabled;
+
+  factory _$SpreedCapabilities_Config_Experiments(
+          [void Function(SpreedCapabilities_Config_ExperimentsBuilder)? updates]) =>
+      (SpreedCapabilities_Config_ExperimentsBuilder()..update(updates))._build();
+
+  _$SpreedCapabilities_Config_Experiments._({required this.enabled}) : super._();
+  @override
+  SpreedCapabilities_Config_Experiments rebuild(void Function(SpreedCapabilities_Config_ExperimentsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SpreedCapabilities_Config_ExperimentsBuilder toBuilder() =>
+      SpreedCapabilities_Config_ExperimentsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SpreedCapabilities_Config_Experiments && enabled == other.enabled;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, enabled.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SpreedCapabilities_Config_Experiments')..add('enabled', enabled)).toString();
+  }
+}
+
+class SpreedCapabilities_Config_ExperimentsBuilder
+    implements
+        Builder<SpreedCapabilities_Config_Experiments, SpreedCapabilities_Config_ExperimentsBuilder>,
+        $SpreedCapabilities_Config_ExperimentsInterfaceBuilder {
+  _$SpreedCapabilities_Config_Experiments? _$v;
+
+  int? _enabled;
+  int? get enabled => _$this._enabled;
+  set enabled(covariant int? enabled) => _$this._enabled = enabled;
+
+  SpreedCapabilities_Config_ExperimentsBuilder() {
+    SpreedCapabilities_Config_Experiments._defaults(this);
+  }
+
+  SpreedCapabilities_Config_ExperimentsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _enabled = $v.enabled;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SpreedCapabilities_Config_Experiments other) {
+    _$v = other as _$SpreedCapabilities_Config_Experiments;
+  }
+
+  @override
+  void update(void Function(SpreedCapabilities_Config_ExperimentsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SpreedCapabilities_Config_Experiments build() => _build();
+
+  _$SpreedCapabilities_Config_Experiments _build() {
+    SpreedCapabilities_Config_Experiments._validate(this);
+    final _$result = _$v ??
+        _$SpreedCapabilities_Config_Experiments._(
+          enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'SpreedCapabilities_Config_Experiments', 'enabled'),
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $SpreedCapabilities_ConfigInterfaceBuilder {
   void replace($SpreedCapabilities_ConfigInterface other);
   void update(void Function($SpreedCapabilities_ConfigInterfaceBuilder) updates);
@@ -32190,6 +32437,9 @@ abstract mixin class $SpreedCapabilities_ConfigInterfaceBuilder {
 
   SpreedCapabilities_Config_SignalingBuilder get signaling;
   set signaling(SpreedCapabilities_Config_SignalingBuilder? signaling);
+
+  SpreedCapabilities_Config_ExperimentsBuilder get experiments;
+  set experiments(SpreedCapabilities_Config_ExperimentsBuilder? experiments);
 }
 
 class _$SpreedCapabilities_Config extends SpreedCapabilities_Config {
@@ -32207,6 +32457,8 @@ class _$SpreedCapabilities_Config extends SpreedCapabilities_Config {
   final SpreedCapabilities_Config_Previews previews;
   @override
   final SpreedCapabilities_Config_Signaling signaling;
+  @override
+  final SpreedCapabilities_Config_Experiments? experiments;
 
   factory _$SpreedCapabilities_Config([void Function(SpreedCapabilities_ConfigBuilder)? updates]) =>
       (SpreedCapabilities_ConfigBuilder()..update(updates))._build();
@@ -32218,7 +32470,8 @@ class _$SpreedCapabilities_Config extends SpreedCapabilities_Config {
       required this.conversations,
       required this.federation,
       required this.previews,
-      required this.signaling})
+      required this.signaling,
+      this.experiments})
       : super._();
   @override
   SpreedCapabilities_Config rebuild(void Function(SpreedCapabilities_ConfigBuilder) updates) =>
@@ -32237,7 +32490,8 @@ class _$SpreedCapabilities_Config extends SpreedCapabilities_Config {
         conversations == other.conversations &&
         federation == other.federation &&
         previews == other.previews &&
-        signaling == other.signaling;
+        signaling == other.signaling &&
+        experiments == other.experiments;
   }
 
   @override
@@ -32250,6 +32504,7 @@ class _$SpreedCapabilities_Config extends SpreedCapabilities_Config {
     _$hash = $jc(_$hash, federation.hashCode);
     _$hash = $jc(_$hash, previews.hashCode);
     _$hash = $jc(_$hash, signaling.hashCode);
+    _$hash = $jc(_$hash, experiments.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -32263,7 +32518,8 @@ class _$SpreedCapabilities_Config extends SpreedCapabilities_Config {
           ..add('conversations', conversations)
           ..add('federation', federation)
           ..add('previews', previews)
-          ..add('signaling', signaling))
+          ..add('signaling', signaling)
+          ..add('experiments', experiments))
         .toString();
   }
 }
@@ -32309,6 +32565,12 @@ class SpreedCapabilities_ConfigBuilder
       _$this._signaling ??= SpreedCapabilities_Config_SignalingBuilder();
   set signaling(covariant SpreedCapabilities_Config_SignalingBuilder? signaling) => _$this._signaling = signaling;
 
+  SpreedCapabilities_Config_ExperimentsBuilder? _experiments;
+  SpreedCapabilities_Config_ExperimentsBuilder get experiments =>
+      _$this._experiments ??= SpreedCapabilities_Config_ExperimentsBuilder();
+  set experiments(covariant SpreedCapabilities_Config_ExperimentsBuilder? experiments) =>
+      _$this._experiments = experiments;
+
   SpreedCapabilities_ConfigBuilder() {
     SpreedCapabilities_Config._defaults(this);
   }
@@ -32323,6 +32585,7 @@ class SpreedCapabilities_ConfigBuilder
       _federation = $v.federation.toBuilder();
       _previews = $v.previews.toBuilder();
       _signaling = $v.signaling.toBuilder();
+      _experiments = $v.experiments?.toBuilder();
       _$v = null;
     }
     return this;
@@ -32354,6 +32617,7 @@ class SpreedCapabilities_ConfigBuilder
             federation: federation.build(),
             previews: previews.build(),
             signaling: signaling.build(),
+            experiments: _experiments?.build(),
           );
     } catch (_) {
       late String _$failedField;
@@ -32372,6 +32636,8 @@ class SpreedCapabilities_ConfigBuilder
         previews.build();
         _$failedField = 'signaling';
         signaling.build();
+        _$failedField = 'experiments';
+        _experiments?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'SpreedCapabilities_Config', _$failedField, e.toString());
       }

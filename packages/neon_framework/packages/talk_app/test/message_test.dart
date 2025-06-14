@@ -108,6 +108,7 @@ void main() {
     capabilities = core.SpreedCapabilities(
       (b) => b
         ..features.replace(['edit-messages'])
+        ..featuresLocal.replace(['edit-messages'])
         ..config.update(
           (b) => b
             ..attachments.update(
@@ -1430,7 +1431,7 @@ def
         });
 
         testWidgets('No feature', (tester) async {
-          capabilities = capabilities.rebuild((b) => b.features.clear());
+          capabilities = capabilities.rebuild((b) => b.features.replace(['']));
 
           await tester.pumpWidgetWithAccessibility(
             wrapWidget(
