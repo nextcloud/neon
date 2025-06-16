@@ -58,7 +58,7 @@ String? redirect(BuildContext context, GoRouterState state) {
 /// Route for the [AccountSettingsPage].
 /// {@endtemplate}
 @immutable
-class AccountSettingsRoute extends GoRouteData {
+class AccountSettingsRoute extends GoRouteData with _$AccountSettingsRoute {
   /// {@macro AppRoutes.AccountSettingsRoute}
   const AccountSettingsRoute({
     required this.accountID,
@@ -103,7 +103,7 @@ class AccountSettingsRoute extends GoRouteData {
   ],
 )
 @immutable
-class HomeRoute extends GoRouteData {
+class HomeRoute extends GoRouteData with _$HomeRoute {
   /// {@macro AppRoutes.HomeRoute}
   const HomeRoute();
 
@@ -138,7 +138,7 @@ class HomeRoute extends GoRouteData {
   name: 'login',
 )
 @immutable
-class LoginRoute extends GoRouteData {
+class LoginRoute extends GoRouteData with _$LoginRoute {
   /// {@macro AppRoutes.LoginRoute}
   const LoginRoute({
     this.serverUrl,
@@ -164,7 +164,7 @@ class LoginRoute extends GoRouteData {
 /// Route for the [AppImplementationSettingsPage].
 /// {@endtemplate}
 @immutable
-class AppImplementationSettingsRoute extends GoRouteData {
+class AppImplementationSettingsRoute extends GoRouteData with _$AppImplementationSettingsRoute {
   /// {@macro AppRoutes.AppImplementationSettingsRoute}
   const AppImplementationSettingsRoute({
     required this.appid,
@@ -186,7 +186,7 @@ class AppImplementationSettingsRoute extends GoRouteData {
 /// Route for the [SettingsPage].
 /// {@endtemplate}
 @immutable
-class SettingsRoute extends GoRouteData {
+class SettingsRoute extends GoRouteData with _$SettingsRoute {
   /// {@macro AppRoutes.SettingsRoute}
   const SettingsRoute({
     this.initialCategory,
