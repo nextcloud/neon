@@ -27,24 +27,17 @@
     },
     {
       "matchManagers": ["pub"],
-      "matchDepTypes": ["dependencies"],
+      "matchDepTypes": ["dependencies", "devDependencies"],
       "matchUpdateTypes": [
         "minor",
         "patch"
       ],
       "matchCurrentVersion": "!/^0/",
-      "matchDepNames": [
-        "!example",
-        "!dynamite_end_to_end_test",
-        "!dynamite_petstore_example",
-        "!neon_lints",
-        "!nextcloud_test"
-      ],
       "enabled": false
     },
     {
       "matchManagers": ["pub"],
-      "matchDepTypes": ["dependencies"],
+      "matchDepTypes": ["dependencies", "devDependencies"],
       "matchUpdateTypes": [
         "patch"
       ],
