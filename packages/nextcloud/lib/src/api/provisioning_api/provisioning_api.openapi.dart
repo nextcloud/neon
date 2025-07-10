@@ -3101,6 +3101,83 @@ class $UsersClient {
     ).convert(_response);
   }
 
+  /// Builds a serializer to parse the response of [$getEnabledApps_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<UsersGetEnabledAppsResponseApplicationJson, void> $getEnabledApps_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(UsersGetEnabledAppsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Get a list of enabled apps for the current user.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getEnabledApps] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Enabled apps returned
+  ///
+  /// See:
+  ///  * [getEnabledApps] for a method executing this request and parsing the response.
+  ///  * [$getEnabledApps_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getEnabledApps_Request({bool? oCSAPIRequest}) {
+    const _path = '/ocs/v2.php/cloud/user/apps';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+    // coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(authentication.headers);
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+    // coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get a list of enabled apps for the current user.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Enabled apps returned
+  ///
+  /// See:
+  ///  * [$getEnabledApps_Request] for the request send by this method.
+  ///  * [$getEnabledApps_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<UsersGetEnabledAppsResponseApplicationJson, void>> getEnabledApps({
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $getEnabledApps_Request(oCSAPIRequest: oCSAPIRequest);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $getEnabledApps_Serializer();
+    return _i1.ResponseConverter<UsersGetEnabledAppsResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+
   /// Builds a serializer to parse the response of [$editUserMultiValue_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<UsersEditUserMultiValueResponseApplicationJson, void> $editUserMultiValue_Serializer() =>
@@ -10127,6 +10204,197 @@ abstract class UsersGetEditableFieldsForUserResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $UsersGetEnabledAppsResponseApplicationJson_Ocs_DataInterface {
+  BuiltList<String> get apps;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UsersGetEnabledAppsResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $UsersGetEnabledAppsResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($UsersGetEnabledAppsResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UsersGetEnabledAppsResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $UsersGetEnabledAppsResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetEnabledAppsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetEnabledAppsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class UsersGetEnabledAppsResponseApplicationJson_Ocs_Data
+    implements
+        $UsersGetEnabledAppsResponseApplicationJson_Ocs_DataInterface,
+        Built<UsersGetEnabledAppsResponseApplicationJson_Ocs_Data,
+            UsersGetEnabledAppsResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new UsersGetEnabledAppsResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory UsersGetEnabledAppsResponseApplicationJson_Ocs_Data([
+    void Function(UsersGetEnabledAppsResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$UsersGetEnabledAppsResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const UsersGetEnabledAppsResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UsersGetEnabledAppsResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UsersGetEnabledAppsResponseApplicationJson_Ocs_Data.
+  static Serializer<UsersGetEnabledAppsResponseApplicationJson_Ocs_Data> get serializer =>
+      _$usersGetEnabledAppsResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetEnabledAppsResponseApplicationJson_Ocs_DataBuilder b) {
+    $UsersGetEnabledAppsResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetEnabledAppsResponseApplicationJson_Ocs_DataBuilder b) {
+    $UsersGetEnabledAppsResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $UsersGetEnabledAppsResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  UsersGetEnabledAppsResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UsersGetEnabledAppsResponseApplicationJson_OcsInterfaceBuilder].
+  $UsersGetEnabledAppsResponseApplicationJson_OcsInterface rebuild(
+    void Function($UsersGetEnabledAppsResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UsersGetEnabledAppsResponseApplicationJson_OcsInterfaceBuilder].
+  $UsersGetEnabledAppsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetEnabledAppsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetEnabledAppsResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class UsersGetEnabledAppsResponseApplicationJson_Ocs
+    implements
+        $UsersGetEnabledAppsResponseApplicationJson_OcsInterface,
+        Built<UsersGetEnabledAppsResponseApplicationJson_Ocs, UsersGetEnabledAppsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new UsersGetEnabledAppsResponseApplicationJson_Ocs object using the builder pattern.
+  factory UsersGetEnabledAppsResponseApplicationJson_Ocs([
+    void Function(UsersGetEnabledAppsResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$UsersGetEnabledAppsResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const UsersGetEnabledAppsResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UsersGetEnabledAppsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UsersGetEnabledAppsResponseApplicationJson_Ocs.
+  static Serializer<UsersGetEnabledAppsResponseApplicationJson_Ocs> get serializer =>
+      _$usersGetEnabledAppsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetEnabledAppsResponseApplicationJson_OcsBuilder b) {
+    $UsersGetEnabledAppsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetEnabledAppsResponseApplicationJson_OcsBuilder b) {
+    $UsersGetEnabledAppsResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $UsersGetEnabledAppsResponseApplicationJsonInterface {
+  UsersGetEnabledAppsResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UsersGetEnabledAppsResponseApplicationJsonInterfaceBuilder].
+  $UsersGetEnabledAppsResponseApplicationJsonInterface rebuild(
+    void Function($UsersGetEnabledAppsResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UsersGetEnabledAppsResponseApplicationJsonInterfaceBuilder].
+  $UsersGetEnabledAppsResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetEnabledAppsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetEnabledAppsResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class UsersGetEnabledAppsResponseApplicationJson
+    implements
+        $UsersGetEnabledAppsResponseApplicationJsonInterface,
+        Built<UsersGetEnabledAppsResponseApplicationJson, UsersGetEnabledAppsResponseApplicationJsonBuilder> {
+  /// Creates a new UsersGetEnabledAppsResponseApplicationJson object using the builder pattern.
+  factory UsersGetEnabledAppsResponseApplicationJson([
+    void Function(UsersGetEnabledAppsResponseApplicationJsonBuilder)? b,
+  ]) = _$UsersGetEnabledAppsResponseApplicationJson;
+
+  // coverage:ignore-start
+  const UsersGetEnabledAppsResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UsersGetEnabledAppsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UsersGetEnabledAppsResponseApplicationJson.
+  static Serializer<UsersGetEnabledAppsResponseApplicationJson> get serializer =>
+      _$usersGetEnabledAppsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetEnabledAppsResponseApplicationJsonBuilder b) {
+    $UsersGetEnabledAppsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetEnabledAppsResponseApplicationJsonBuilder b) {
+    $UsersGetEnabledAppsResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $UsersEditUserMultiValueRequestApplicationJsonInterface {
   /// Key that will be updated.
   String get key;
@@ -12936,6 +13204,21 @@ final Serializers _$serializers = (Serializers().toBuilder()
         UsersGetEditableFieldsForUserResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersGetEditableFieldsForUserResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(UsersGetEnabledAppsResponseApplicationJson),
+        UsersGetEnabledAppsResponseApplicationJsonBuilder.new,
+      )
+      ..add(UsersGetEnabledAppsResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(UsersGetEnabledAppsResponseApplicationJson_Ocs),
+        UsersGetEnabledAppsResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(UsersGetEnabledAppsResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(UsersGetEnabledAppsResponseApplicationJson_Ocs_Data),
+        UsersGetEnabledAppsResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(UsersGetEnabledAppsResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(UsersEditUserMultiValueRequestApplicationJson),
         UsersEditUserMultiValueRequestApplicationJsonBuilder.new,

@@ -265,6 +265,13 @@ Serializer<UsersGetEditableFieldsForUserResponseApplicationJson_Ocs>
 Serializer<UsersGetEditableFieldsForUserResponseApplicationJson>
     _$usersGetEditableFieldsForUserResponseApplicationJsonSerializer =
     _$UsersGetEditableFieldsForUserResponseApplicationJsonSerializer();
+Serializer<UsersGetEnabledAppsResponseApplicationJson_Ocs_Data>
+    _$usersGetEnabledAppsResponseApplicationJsonOcsDataSerializer =
+    _$UsersGetEnabledAppsResponseApplicationJson_Ocs_DataSerializer();
+Serializer<UsersGetEnabledAppsResponseApplicationJson_Ocs> _$usersGetEnabledAppsResponseApplicationJsonOcsSerializer =
+    _$UsersGetEnabledAppsResponseApplicationJson_OcsSerializer();
+Serializer<UsersGetEnabledAppsResponseApplicationJson> _$usersGetEnabledAppsResponseApplicationJsonSerializer =
+    _$UsersGetEnabledAppsResponseApplicationJsonSerializer();
 Serializer<UsersEditUserMultiValueRequestApplicationJson> _$usersEditUserMultiValueRequestApplicationJsonSerializer =
     _$UsersEditUserMultiValueRequestApplicationJsonSerializer();
 Serializer<UsersEditUserMultiValueResponseApplicationJson_Ocs>
@@ -4997,6 +5004,143 @@ class _$UsersGetEditableFieldsForUserResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(UsersGetEditableFieldsForUserResponseApplicationJson_Ocs))!
               as UsersGetEditableFieldsForUserResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UsersGetEnabledAppsResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<UsersGetEnabledAppsResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    UsersGetEnabledAppsResponseApplicationJson_Ocs_Data,
+    _$UsersGetEnabledAppsResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'UsersGetEnabledAppsResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UsersGetEnabledAppsResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'apps',
+      serializers.serialize(object.apps, specifiedType: const FullType(BuiltList, const [const FullType(String)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  UsersGetEnabledAppsResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UsersGetEnabledAppsResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'apps':
+          result.apps.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UsersGetEnabledAppsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<UsersGetEnabledAppsResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    UsersGetEnabledAppsResponseApplicationJson_Ocs,
+    _$UsersGetEnabledAppsResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'UsersGetEnabledAppsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UsersGetEnabledAppsResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(UsersGetEnabledAppsResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UsersGetEnabledAppsResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UsersGetEnabledAppsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(UsersGetEnabledAppsResponseApplicationJson_Ocs_Data))!
+              as UsersGetEnabledAppsResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UsersGetEnabledAppsResponseApplicationJsonSerializer
+    implements StructuredSerializer<UsersGetEnabledAppsResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    UsersGetEnabledAppsResponseApplicationJson,
+    _$UsersGetEnabledAppsResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'UsersGetEnabledAppsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UsersGetEnabledAppsResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(UsersGetEnabledAppsResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UsersGetEnabledAppsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UsersGetEnabledAppsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(UsersGetEnabledAppsResponseApplicationJson_Ocs))!
+              as UsersGetEnabledAppsResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -17505,6 +17649,342 @@ class UsersGetEditableFieldsForUserResponseApplicationJsonBuilder
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'UsersGetEditableFieldsForUserResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $UsersGetEnabledAppsResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($UsersGetEnabledAppsResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($UsersGetEnabledAppsResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  ListBuilder<String> get apps;
+  set apps(ListBuilder<String>? apps);
+}
+
+class _$UsersGetEnabledAppsResponseApplicationJson_Ocs_Data
+    extends UsersGetEnabledAppsResponseApplicationJson_Ocs_Data {
+  @override
+  final BuiltList<String> apps;
+
+  factory _$UsersGetEnabledAppsResponseApplicationJson_Ocs_Data(
+          [void Function(UsersGetEnabledAppsResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (UsersGetEnabledAppsResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$UsersGetEnabledAppsResponseApplicationJson_Ocs_Data._({required this.apps}) : super._();
+  @override
+  UsersGetEnabledAppsResponseApplicationJson_Ocs_Data rebuild(
+          void Function(UsersGetEnabledAppsResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UsersGetEnabledAppsResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      UsersGetEnabledAppsResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UsersGetEnabledAppsResponseApplicationJson_Ocs_Data && apps == other.apps;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, apps.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UsersGetEnabledAppsResponseApplicationJson_Ocs_Data')..add('apps', apps))
+        .toString();
+  }
+}
+
+class UsersGetEnabledAppsResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<UsersGetEnabledAppsResponseApplicationJson_Ocs_Data,
+            UsersGetEnabledAppsResponseApplicationJson_Ocs_DataBuilder>,
+        $UsersGetEnabledAppsResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$UsersGetEnabledAppsResponseApplicationJson_Ocs_Data? _$v;
+
+  ListBuilder<String>? _apps;
+  ListBuilder<String> get apps => _$this._apps ??= ListBuilder<String>();
+  set apps(covariant ListBuilder<String>? apps) => _$this._apps = apps;
+
+  UsersGetEnabledAppsResponseApplicationJson_Ocs_DataBuilder() {
+    UsersGetEnabledAppsResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  UsersGetEnabledAppsResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _apps = $v.apps.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UsersGetEnabledAppsResponseApplicationJson_Ocs_Data other) {
+    _$v = other as _$UsersGetEnabledAppsResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(UsersGetEnabledAppsResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UsersGetEnabledAppsResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$UsersGetEnabledAppsResponseApplicationJson_Ocs_Data _build() {
+    UsersGetEnabledAppsResponseApplicationJson_Ocs_Data._validate(this);
+    _$UsersGetEnabledAppsResponseApplicationJson_Ocs_Data _$result;
+    try {
+      _$result = _$v ??
+          _$UsersGetEnabledAppsResponseApplicationJson_Ocs_Data._(
+            apps: apps.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'apps';
+        apps.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UsersGetEnabledAppsResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $UsersGetEnabledAppsResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($UsersGetEnabledAppsResponseApplicationJson_OcsInterface other);
+  void update(void Function($UsersGetEnabledAppsResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  UsersGetEnabledAppsResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(UsersGetEnabledAppsResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$UsersGetEnabledAppsResponseApplicationJson_Ocs extends UsersGetEnabledAppsResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final UsersGetEnabledAppsResponseApplicationJson_Ocs_Data data;
+
+  factory _$UsersGetEnabledAppsResponseApplicationJson_Ocs(
+          [void Function(UsersGetEnabledAppsResponseApplicationJson_OcsBuilder)? updates]) =>
+      (UsersGetEnabledAppsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$UsersGetEnabledAppsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
+  @override
+  UsersGetEnabledAppsResponseApplicationJson_Ocs rebuild(
+          void Function(UsersGetEnabledAppsResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UsersGetEnabledAppsResponseApplicationJson_OcsBuilder toBuilder() =>
+      UsersGetEnabledAppsResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UsersGetEnabledAppsResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UsersGetEnabledAppsResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class UsersGetEnabledAppsResponseApplicationJson_OcsBuilder
+    implements
+        Builder<UsersGetEnabledAppsResponseApplicationJson_Ocs, UsersGetEnabledAppsResponseApplicationJson_OcsBuilder>,
+        $UsersGetEnabledAppsResponseApplicationJson_OcsInterfaceBuilder {
+  _$UsersGetEnabledAppsResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  UsersGetEnabledAppsResponseApplicationJson_Ocs_DataBuilder? _data;
+  UsersGetEnabledAppsResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= UsersGetEnabledAppsResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant UsersGetEnabledAppsResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  UsersGetEnabledAppsResponseApplicationJson_OcsBuilder() {
+    UsersGetEnabledAppsResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  UsersGetEnabledAppsResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UsersGetEnabledAppsResponseApplicationJson_Ocs other) {
+    _$v = other as _$UsersGetEnabledAppsResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(UsersGetEnabledAppsResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UsersGetEnabledAppsResponseApplicationJson_Ocs build() => _build();
+
+  _$UsersGetEnabledAppsResponseApplicationJson_Ocs _build() {
+    UsersGetEnabledAppsResponseApplicationJson_Ocs._validate(this);
+    _$UsersGetEnabledAppsResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$UsersGetEnabledAppsResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UsersGetEnabledAppsResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $UsersGetEnabledAppsResponseApplicationJsonInterfaceBuilder {
+  void replace($UsersGetEnabledAppsResponseApplicationJsonInterface other);
+  void update(void Function($UsersGetEnabledAppsResponseApplicationJsonInterfaceBuilder) updates);
+  UsersGetEnabledAppsResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(UsersGetEnabledAppsResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$UsersGetEnabledAppsResponseApplicationJson extends UsersGetEnabledAppsResponseApplicationJson {
+  @override
+  final UsersGetEnabledAppsResponseApplicationJson_Ocs ocs;
+
+  factory _$UsersGetEnabledAppsResponseApplicationJson(
+          [void Function(UsersGetEnabledAppsResponseApplicationJsonBuilder)? updates]) =>
+      (UsersGetEnabledAppsResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$UsersGetEnabledAppsResponseApplicationJson._({required this.ocs}) : super._();
+  @override
+  UsersGetEnabledAppsResponseApplicationJson rebuild(
+          void Function(UsersGetEnabledAppsResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UsersGetEnabledAppsResponseApplicationJsonBuilder toBuilder() =>
+      UsersGetEnabledAppsResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UsersGetEnabledAppsResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UsersGetEnabledAppsResponseApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class UsersGetEnabledAppsResponseApplicationJsonBuilder
+    implements
+        Builder<UsersGetEnabledAppsResponseApplicationJson, UsersGetEnabledAppsResponseApplicationJsonBuilder>,
+        $UsersGetEnabledAppsResponseApplicationJsonInterfaceBuilder {
+  _$UsersGetEnabledAppsResponseApplicationJson? _$v;
+
+  UsersGetEnabledAppsResponseApplicationJson_OcsBuilder? _ocs;
+  UsersGetEnabledAppsResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= UsersGetEnabledAppsResponseApplicationJson_OcsBuilder();
+  set ocs(covariant UsersGetEnabledAppsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  UsersGetEnabledAppsResponseApplicationJsonBuilder() {
+    UsersGetEnabledAppsResponseApplicationJson._defaults(this);
+  }
+
+  UsersGetEnabledAppsResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UsersGetEnabledAppsResponseApplicationJson other) {
+    _$v = other as _$UsersGetEnabledAppsResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(UsersGetEnabledAppsResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UsersGetEnabledAppsResponseApplicationJson build() => _build();
+
+  _$UsersGetEnabledAppsResponseApplicationJson _build() {
+    UsersGetEnabledAppsResponseApplicationJson._validate(this);
+    _$UsersGetEnabledAppsResponseApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$UsersGetEnabledAppsResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'UsersGetEnabledAppsResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
