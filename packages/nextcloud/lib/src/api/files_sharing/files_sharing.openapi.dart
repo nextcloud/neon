@@ -327,18 +327,27 @@ class $PublicPreviewClient {
   ///   * [x] Width of the preview. Defaults to `32`.
   ///   * [y] Height of the preview. Defaults to `32`.
   ///   * [a] Whether to not crop the preview. Defaults to `0`.
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
   ///   * 400: Getting preview is not possible
   ///   * 403: Getting preview is not allowed
   ///   * 404: Share or preview not found
+  ///   * 303: Redirect to the mime icon url if mimeFallback is true
   ///
   /// See:
   ///  * [getPreview] for a method executing this request and parsing the response.
   ///  * [$getPreview_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getPreview_Request({required String token, String? file, int? x, int? y, PublicPreviewGetPreviewA? a}) {
+  _i3.Request $getPreview_Request({
+    required String token,
+    String? file,
+    int? x,
+    int? y,
+    PublicPreviewGetPreviewA? a,
+    PublicPreviewGetPreviewMimeFallback? mimeFallback,
+  }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _parameters['token'] = __token;
@@ -359,8 +368,15 @@ class $PublicPreviewClient {
     __a ??= 0;
     _parameters['a'] = __a;
 
+    var __mimeFallback = _$jsonSerializers.serialize(
+      mimeFallback,
+      specifiedType: const FullType(PublicPreviewGetPreviewMimeFallback),
+    );
+    __mimeFallback ??= 0;
+    _parameters['mimeFallback'] = __mimeFallback;
+
     final _path = _i6.UriTemplate(
-      '/index.php/apps/files_sharing/publicpreview/{token}{?file*,x*,y*,a*}',
+      '/index.php/apps/files_sharing/publicpreview/{token}{?file*,x*,y*,a*,mimeFallback*}',
     ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
@@ -392,12 +408,14 @@ class $PublicPreviewClient {
   ///   * [x] Width of the preview. Defaults to `32`.
   ///   * [y] Height of the preview. Defaults to `32`.
   ///   * [a] Whether to not crop the preview. Defaults to `0`.
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
   ///   * 400: Getting preview is not possible
   ///   * 403: Getting preview is not allowed
   ///   * 404: Share or preview not found
+  ///   * 303: Redirect to the mime icon url if mimeFallback is true
   ///
   /// See:
   ///  * [$getPreview_Request] for the request send by this method.
@@ -408,8 +426,9 @@ class $PublicPreviewClient {
     int? x,
     int? y,
     PublicPreviewGetPreviewA? a,
+    PublicPreviewGetPreviewMimeFallback? mimeFallback,
   }) async {
-    final _request = $getPreview_Request(token: token, file: file, x: x, y: y, a: a);
+    final _request = $getPreview_Request(token: token, file: file, x: x, y: y, a: a, mimeFallback: mimeFallback);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -2680,6 +2699,72 @@ class _$PublicPreviewGetPreviewASerializer implements PrimitiveSerializer<Public
 
   @override
   PublicPreviewGetPreviewA deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class PublicPreviewGetPreviewMimeFallback extends EnumClass {
+  const PublicPreviewGetPreviewMimeFallback._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const PublicPreviewGetPreviewMimeFallback $0 = _$publicPreviewGetPreviewMimeFallback$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const PublicPreviewGetPreviewMimeFallback $1 = _$publicPreviewGetPreviewMimeFallback$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<PublicPreviewGetPreviewMimeFallback> get values => _$publicPreviewGetPreviewMimeFallbackValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static PublicPreviewGetPreviewMimeFallback valueOf(String name) => _$valueOfPublicPreviewGetPreviewMimeFallback(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for PublicPreviewGetPreviewMimeFallback.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PublicPreviewGetPreviewMimeFallback> get serializer =>
+      const _$PublicPreviewGetPreviewMimeFallbackSerializer();
+}
+
+class _$PublicPreviewGetPreviewMimeFallbackSerializer
+    implements PrimitiveSerializer<PublicPreviewGetPreviewMimeFallback> {
+  const _$PublicPreviewGetPreviewMimeFallbackSerializer();
+
+  static const Map<PublicPreviewGetPreviewMimeFallback, Object> _toWire = <PublicPreviewGetPreviewMimeFallback, Object>{
+    PublicPreviewGetPreviewMimeFallback.$0: 0,
+    PublicPreviewGetPreviewMimeFallback.$1: 1,
+  };
+
+  static const Map<Object, PublicPreviewGetPreviewMimeFallback> _fromWire =
+      <Object, PublicPreviewGetPreviewMimeFallback>{
+    0: PublicPreviewGetPreviewMimeFallback.$0,
+    1: PublicPreviewGetPreviewMimeFallback.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PublicPreviewGetPreviewMimeFallback];
+
+  @override
+  String get wireName => 'PublicPreviewGetPreviewMimeFallback';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PublicPreviewGetPreviewMimeFallback object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PublicPreviewGetPreviewMimeFallback deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
@@ -8625,6 +8710,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(DeletedShareapiUndeleteResponseApplicationJson_Ocs.serializer)
       ..add(PublicPreviewGetPreviewA.serializer)
+      ..add(PublicPreviewGetPreviewMimeFallback.serializer)
       ..addBuilderFactory(
         const FullType(RemoteGetSharesResponseApplicationJson),
         RemoteGetSharesResponseApplicationJsonBuilder.new,

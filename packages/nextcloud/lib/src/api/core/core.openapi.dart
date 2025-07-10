@@ -28620,6 +28620,10 @@ sealed class $RichObjectParameterInterface {
   /// The blurhash of the image.
   String? get blurhash;
 
+  /// Whether the download option should be hidden. If not set to `yes` the option can be shown.
+  @BuiltValueField(wireName: 'hide-download')
+  String? get hideDownload;
+
   /// The latitude of the location MUST be the same as in the id.
   String? get latitude;
 

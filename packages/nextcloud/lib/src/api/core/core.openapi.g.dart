@@ -17146,6 +17146,12 @@ class _$RichObjectParameterSerializer implements StructuredSerializer<RichObject
         ..add('blurhash')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
+    value = object.hideDownload;
+    if (value != null) {
+      result
+        ..add('hide-download')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
     value = object.latitude;
     if (value != null) {
       result
@@ -17271,6 +17277,9 @@ class _$RichObjectParameterSerializer implements StructuredSerializer<RichObject
           break;
         case 'blurhash':
           result.blurhash = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'hide-download':
+          result.hideDownload = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'latitude':
           result.latitude = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -54875,6 +54884,9 @@ abstract mixin class $RichObjectParameterInterfaceBuilder {
   String? get blurhash;
   set blurhash(String? blurhash);
 
+  String? get hideDownload;
+  set hideDownload(String? hideDownload);
+
   String? get latitude;
   set latitude(String? latitude);
 
@@ -54943,6 +54955,8 @@ class _$RichObjectParameter extends RichObjectParameter {
   @override
   final String? blurhash;
   @override
+  final String? hideDownload;
+  @override
   final String? latitude;
   @override
   final String? longitude;
@@ -54984,6 +54998,7 @@ class _$RichObjectParameter extends RichObjectParameter {
       this.width,
       this.height,
       this.blurhash,
+      this.hideDownload,
       this.latitude,
       this.longitude,
       this.description,
@@ -55024,6 +55039,7 @@ class _$RichObjectParameter extends RichObjectParameter {
         width == other.width &&
         height == other.height &&
         blurhash == other.blurhash &&
+        hideDownload == other.hideDownload &&
         latitude == other.latitude &&
         longitude == other.longitude &&
         description == other.description &&
@@ -55057,6 +55073,7 @@ class _$RichObjectParameter extends RichObjectParameter {
     _$hash = $jc(_$hash, width.hashCode);
     _$hash = $jc(_$hash, height.hashCode);
     _$hash = $jc(_$hash, blurhash.hashCode);
+    _$hash = $jc(_$hash, hideDownload.hashCode);
     _$hash = $jc(_$hash, latitude.hashCode);
     _$hash = $jc(_$hash, longitude.hashCode);
     _$hash = $jc(_$hash, description.hashCode);
@@ -55092,6 +55109,7 @@ class _$RichObjectParameter extends RichObjectParameter {
           ..add('width', width)
           ..add('height', height)
           ..add('blurhash', blurhash)
+          ..add('hideDownload', hideDownload)
           ..add('latitude', latitude)
           ..add('longitude', longitude)
           ..add('description', description)
@@ -55185,6 +55203,10 @@ class RichObjectParameterBuilder
   String? get blurhash => _$this._blurhash;
   set blurhash(covariant String? blurhash) => _$this._blurhash = blurhash;
 
+  String? _hideDownload;
+  String? get hideDownload => _$this._hideDownload;
+  set hideDownload(covariant String? hideDownload) => _$this._hideDownload = hideDownload;
+
   String? _latitude;
   String? get latitude => _$this._latitude;
   set latitude(covariant String? latitude) => _$this._latitude = latitude;
@@ -55247,6 +55269,7 @@ class RichObjectParameterBuilder
       _width = $v.width;
       _height = $v.height;
       _blurhash = $v.blurhash;
+      _hideDownload = $v.hideDownload;
       _latitude = $v.latitude;
       _longitude = $v.longitude;
       _description = $v.description;
@@ -55297,6 +55320,7 @@ class RichObjectParameterBuilder
           width: width,
           height: height,
           blurhash: blurhash,
+          hideDownload: hideDownload,
           latitude: latitude,
           longitude: longitude,
           description: description,

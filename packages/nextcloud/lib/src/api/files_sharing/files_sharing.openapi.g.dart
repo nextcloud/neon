@@ -26,6 +26,28 @@ final BuiltSet<PublicPreviewGetPreviewA> _$publicPreviewGetPreviewAValues =
   _$publicPreviewGetPreviewA$1,
 ]);
 
+const PublicPreviewGetPreviewMimeFallback _$publicPreviewGetPreviewMimeFallback$0 =
+    const PublicPreviewGetPreviewMimeFallback._('\$0');
+const PublicPreviewGetPreviewMimeFallback _$publicPreviewGetPreviewMimeFallback$1 =
+    const PublicPreviewGetPreviewMimeFallback._('\$1');
+
+PublicPreviewGetPreviewMimeFallback _$valueOfPublicPreviewGetPreviewMimeFallback(String name) {
+  switch (name) {
+    case '\$0':
+      return _$publicPreviewGetPreviewMimeFallback$0;
+    case '\$1':
+      return _$publicPreviewGetPreviewMimeFallback$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<PublicPreviewGetPreviewMimeFallback> _$publicPreviewGetPreviewMimeFallbackValues =
+    BuiltSet<PublicPreviewGetPreviewMimeFallback>(const <PublicPreviewGetPreviewMimeFallback>[
+  _$publicPreviewGetPreviewMimeFallback$0,
+  _$publicPreviewGetPreviewMimeFallback$1,
+]);
+
 const Share_HideDownload _$shareHideDownload$0 = const Share_HideDownload._('\$0');
 const Share_HideDownload _$shareHideDownload$1 = const Share_HideDownload._('\$1');
 
