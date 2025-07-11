@@ -726,6 +726,7 @@ final BuiltSet<RowocsCreateRowNodeCollection> _$rowocsCreateRowNodeCollectionVal
 ]);
 
 Serializer<Table_OnSharePermissions> _$tableOnSharePermissionsSerializer = _$Table_OnSharePermissionsSerializer();
+Serializer<View_ColumnSettings> _$viewColumnSettingsSerializer = _$View_ColumnSettingsSerializer();
 Serializer<View_Sort> _$viewSortSerializer = _$View_SortSerializer();
 Serializer<View_Filter> _$viewFilterSerializer = _$View_FilterSerializer();
 Serializer<View_OnSharePermissions> _$viewOnSharePermissionsSerializer = _$View_OnSharePermissionsSerializer();
@@ -1010,6 +1011,49 @@ class _$Table_OnSharePermissionsSerializer implements StructuredSerializer<Table
   }
 }
 
+class _$View_ColumnSettingsSerializer implements StructuredSerializer<View_ColumnSettings> {
+  @override
+  final Iterable<Type> types = const [View_ColumnSettings, _$View_ColumnSettings];
+  @override
+  final String wireName = 'View_ColumnSettings';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, View_ColumnSettings object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'columnId',
+      serializers.serialize(object.columnId, specifiedType: const FullType(int)),
+      'order',
+      serializers.serialize(object.order, specifiedType: const FullType(int)),
+    ];
+
+    return result;
+  }
+
+  @override
+  View_ColumnSettings deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = View_ColumnSettingsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'columnId':
+          result.columnId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'order':
+          result.order = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$View_SortSerializer implements StructuredSerializer<View_Sort> {
   @override
   final Iterable<Type> types = const [View_Sort, _$View_Sort];
@@ -1189,6 +1233,9 @@ class _$ViewSerializer implements StructuredSerializer<View> {
       serializers.serialize(object.lastEditAt, specifiedType: const FullType(String)),
       'columns',
       serializers.serialize(object.columns, specifiedType: const FullType(BuiltList, const [const FullType(int)])),
+      'columnSettings',
+      serializers.serialize(object.columnSettings,
+          specifiedType: const FullType(BuiltList, const [const FullType(View_ColumnSettings)])),
       'sort',
       serializers.serialize(object.sort, specifiedType: const FullType(BuiltList, const [const FullType(View_Sort)])),
       'filter',
@@ -1280,6 +1327,11 @@ class _$ViewSerializer implements StructuredSerializer<View> {
         case 'columns':
           result.columns.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, const [const FullType(int)]))! as BuiltList<Object?>);
+          break;
+        case 'columnSettings':
+          result.columnSettings.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(View_ColumnSettings)]))!
+              as BuiltList<Object?>);
           break;
         case 'sort':
           result.sort.replace(serializers.deserialize(value,
@@ -7775,6 +7827,108 @@ class Table_OnSharePermissionsBuilder
   }
 }
 
+abstract mixin class $View_ColumnSettingsInterfaceBuilder {
+  void replace($View_ColumnSettingsInterface other);
+  void update(void Function($View_ColumnSettingsInterfaceBuilder) updates);
+  int? get columnId;
+  set columnId(int? columnId);
+
+  int? get order;
+  set order(int? order);
+}
+
+class _$View_ColumnSettings extends View_ColumnSettings {
+  @override
+  final int columnId;
+  @override
+  final int order;
+
+  factory _$View_ColumnSettings([void Function(View_ColumnSettingsBuilder)? updates]) =>
+      (View_ColumnSettingsBuilder()..update(updates))._build();
+
+  _$View_ColumnSettings._({required this.columnId, required this.order}) : super._();
+  @override
+  View_ColumnSettings rebuild(void Function(View_ColumnSettingsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  View_ColumnSettingsBuilder toBuilder() => View_ColumnSettingsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is View_ColumnSettings && columnId == other.columnId && order == other.order;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, columnId.hashCode);
+    _$hash = $jc(_$hash, order.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'View_ColumnSettings')
+          ..add('columnId', columnId)
+          ..add('order', order))
+        .toString();
+  }
+}
+
+class View_ColumnSettingsBuilder
+    implements Builder<View_ColumnSettings, View_ColumnSettingsBuilder>, $View_ColumnSettingsInterfaceBuilder {
+  _$View_ColumnSettings? _$v;
+
+  int? _columnId;
+  int? get columnId => _$this._columnId;
+  set columnId(covariant int? columnId) => _$this._columnId = columnId;
+
+  int? _order;
+  int? get order => _$this._order;
+  set order(covariant int? order) => _$this._order = order;
+
+  View_ColumnSettingsBuilder() {
+    View_ColumnSettings._defaults(this);
+  }
+
+  View_ColumnSettingsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _columnId = $v.columnId;
+      _order = $v.order;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant View_ColumnSettings other) {
+    _$v = other as _$View_ColumnSettings;
+  }
+
+  @override
+  void update(void Function(View_ColumnSettingsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  View_ColumnSettings build() => _build();
+
+  _$View_ColumnSettings _build() {
+    View_ColumnSettings._validate(this);
+    final _$result = _$v ??
+        _$View_ColumnSettings._(
+          columnId: BuiltValueNullFieldError.checkNotNull(columnId, r'View_ColumnSettings', 'columnId'),
+          order: BuiltValueNullFieldError.checkNotNull(order, r'View_ColumnSettings', 'order'),
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $View_SortInterfaceBuilder {
   void replace($View_SortInterface other);
   void update(void Function($View_SortInterfaceBuilder) updates);
@@ -8180,6 +8334,9 @@ abstract mixin class $ViewInterfaceBuilder {
   ListBuilder<int> get columns;
   set columns(ListBuilder<int>? columns);
 
+  ListBuilder<View_ColumnSettings> get columnSettings;
+  set columnSettings(ListBuilder<View_ColumnSettings>? columnSettings);
+
   ListBuilder<View_Sort> get sort;
   set sort(ListBuilder<View_Sort>? sort);
 
@@ -8228,6 +8385,8 @@ class _$View extends View {
   @override
   final BuiltList<int> columns;
   @override
+  final BuiltList<View_ColumnSettings> columnSettings;
+  @override
   final BuiltList<View_Sort> sort;
   @override
   final BuiltList<BuiltList<View_Filter>> filter;
@@ -8257,6 +8416,7 @@ class _$View extends View {
       required this.lastEditAt,
       this.description,
       required this.columns,
+      required this.columnSettings,
       required this.sort,
       required this.filter,
       required this.isShared,
@@ -8287,6 +8447,7 @@ class _$View extends View {
         lastEditAt == other.lastEditAt &&
         description == other.description &&
         columns == other.columns &&
+        columnSettings == other.columnSettings &&
         sort == other.sort &&
         filter == other.filter &&
         isShared == other.isShared &&
@@ -8311,6 +8472,7 @@ class _$View extends View {
     _$hash = $jc(_$hash, lastEditAt.hashCode);
     _$hash = $jc(_$hash, description.hashCode);
     _$hash = $jc(_$hash, columns.hashCode);
+    _$hash = $jc(_$hash, columnSettings.hashCode);
     _$hash = $jc(_$hash, sort.hashCode);
     _$hash = $jc(_$hash, filter.hashCode);
     _$hash = $jc(_$hash, isShared.hashCode);
@@ -8337,6 +8499,7 @@ class _$View extends View {
           ..add('lastEditAt', lastEditAt)
           ..add('description', description)
           ..add('columns', columns)
+          ..add('columnSettings', columnSettings)
           ..add('sort', sort)
           ..add('filter', filter)
           ..add('isShared', isShared)
@@ -8399,6 +8562,11 @@ class ViewBuilder implements Builder<View, ViewBuilder>, $ViewInterfaceBuilder {
   ListBuilder<int> get columns => _$this._columns ??= ListBuilder<int>();
   set columns(covariant ListBuilder<int>? columns) => _$this._columns = columns;
 
+  ListBuilder<View_ColumnSettings>? _columnSettings;
+  ListBuilder<View_ColumnSettings> get columnSettings => _$this._columnSettings ??= ListBuilder<View_ColumnSettings>();
+  set columnSettings(covariant ListBuilder<View_ColumnSettings>? columnSettings) =>
+      _$this._columnSettings = columnSettings;
+
   ListBuilder<View_Sort>? _sort;
   ListBuilder<View_Sort> get sort => _$this._sort ??= ListBuilder<View_Sort>();
   set sort(covariant ListBuilder<View_Sort>? sort) => _$this._sort = sort;
@@ -8448,6 +8616,7 @@ class ViewBuilder implements Builder<View, ViewBuilder>, $ViewInterfaceBuilder {
       _lastEditAt = $v.lastEditAt;
       _description = $v.description;
       _columns = $v.columns.toBuilder();
+      _columnSettings = $v.columnSettings.toBuilder();
       _sort = $v.sort.toBuilder();
       _filter = $v.filter.toBuilder();
       _isShared = $v.isShared;
@@ -8491,6 +8660,7 @@ class ViewBuilder implements Builder<View, ViewBuilder>, $ViewInterfaceBuilder {
             lastEditAt: BuiltValueNullFieldError.checkNotNull(lastEditAt, r'View', 'lastEditAt'),
             description: description,
             columns: columns.build(),
+            columnSettings: columnSettings.build(),
             sort: sort.build(),
             filter: filter.build(),
             isShared: BuiltValueNullFieldError.checkNotNull(isShared, r'View', 'isShared'),
@@ -8504,6 +8674,8 @@ class ViewBuilder implements Builder<View, ViewBuilder>, $ViewInterfaceBuilder {
       try {
         _$failedField = 'columns';
         columns.build();
+        _$failedField = 'columnSettings';
+        columnSettings.build();
         _$failedField = 'sort';
         sort.build();
         _$failedField = 'filter';

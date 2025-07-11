@@ -5718,6 +5718,63 @@ abstract class Table_OnSharePermissions
   }
 }
 
+@BuiltValue(instantiable: false)
+sealed class $View_ColumnSettingsInterface {
+  int get columnId;
+  int get order;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$View_ColumnSettingsInterfaceBuilder].
+  $View_ColumnSettingsInterface rebuild(void Function($View_ColumnSettingsInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$View_ColumnSettingsInterfaceBuilder].
+  $View_ColumnSettingsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($View_ColumnSettingsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($View_ColumnSettingsInterfaceBuilder b) {}
+}
+
+abstract class View_ColumnSettings
+    implements $View_ColumnSettingsInterface, Built<View_ColumnSettings, View_ColumnSettingsBuilder> {
+  /// Creates a new View_ColumnSettings object using the builder pattern.
+  factory View_ColumnSettings([void Function(View_ColumnSettingsBuilder)? b]) = _$View_ColumnSettings;
+
+  // coverage:ignore-start
+  const View_ColumnSettings._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory View_ColumnSettings.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for View_ColumnSettings.
+  static Serializer<View_ColumnSettings> get serializer => _$viewColumnSettingsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(View_ColumnSettingsBuilder b) {
+    $View_ColumnSettingsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(View_ColumnSettingsBuilder b) {
+    $View_ColumnSettingsInterface._validate(b);
+  }
+}
+
 class View_Sort_Mode extends EnumClass {
   const View_Sort_Mode._(super.name);
 
@@ -6072,6 +6129,7 @@ sealed class $ViewInterface {
   String get lastEditAt;
   String? get description;
   BuiltList<int> get columns;
+  BuiltList<View_ColumnSettings> get columnSettings;
   BuiltList<View_Sort> get sort;
   BuiltList<BuiltList<View_Filter>> get filter;
   bool get isShared;
@@ -15545,6 +15603,12 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(View), ViewBuilder.new)
       ..add(View.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
+      ..addBuilderFactory(const FullType(View_ColumnSettings), View_ColumnSettingsBuilder.new)
+      ..add(View_ColumnSettings.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(View_ColumnSettings)]),
+        ListBuilder<View_ColumnSettings>.new,
+      )
       ..addBuilderFactory(const FullType(View_Sort), View_SortBuilder.new)
       ..add(View_Sort.serializer)
       ..add(View_Sort_Mode.serializer)
