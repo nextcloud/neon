@@ -108,6 +108,13 @@
         "bloc_test",
         "flutter_bloc"
       ]
+    },
+    {
+      "groupName": "build",
+      "matchPackageNames": [
+        "build",
+        "build_runner"
+      ]
     }
   ]
 }
