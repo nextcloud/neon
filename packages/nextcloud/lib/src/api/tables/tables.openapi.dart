@@ -73,6 +73,8 @@ class $Api1Client {
 
   /// Returns all Tables.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a `DynamiteRequest` backing the [index] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -109,6 +111,8 @@ class $Api1Client {
 
   /// Returns all Tables.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -138,6 +142,8 @@ class $Api1Client {
       );
 
   /// Create a new table and return it.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [createTable] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -179,6 +185,8 @@ class $Api1Client {
 
   /// Create a new table and return it.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -208,6 +216,8 @@ class $Api1Client {
       );
 
   /// Get a table object.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [getTable] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -254,6 +264,8 @@ class $Api1Client {
 
   /// Get a table object.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -288,6 +300,8 @@ class $Api1Client {
       );
 
   /// Update tables properties.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [updateTable] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -345,6 +359,8 @@ class $Api1Client {
 
   /// Update tables properties.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -382,6 +398,8 @@ class $Api1Client {
       );
 
   /// Delete a table.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [deleteTable] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -428,6 +446,8 @@ class $Api1Client {
 
   /// Delete a table.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -462,6 +482,8 @@ class $Api1Client {
       );
 
   /// returns table scheme.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [showScheme] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -508,6 +530,8 @@ class $Api1Client {
 
   /// returns table scheme.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -542,6 +566,8 @@ class $Api1Client {
       );
 
   /// Get all views for a table.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [indexViews] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -588,6 +614,8 @@ class $Api1Client {
 
   /// Get all views for a table.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -622,6 +650,8 @@ class $Api1Client {
       );
 
   /// Create a new view for a table.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [createView] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -672,6 +702,8 @@ class $Api1Client {
 
   /// Create a new view for a table.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -709,6 +741,8 @@ class $Api1Client {
       );
 
   /// Get a view object.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [getView] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -755,6 +789,8 @@ class $Api1Client {
 
   /// Get a view object.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -790,6 +826,8 @@ class $Api1Client {
 
   /// Update a view via key-value sets.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a `DynamiteRequest` backing the [updateView] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -799,6 +837,7 @@ class $Api1Client {
   /// Status codes:
   ///   * 200: View updated
   ///   * 403: No permissions
+  ///   * 404: Not found
   ///   * 400: Invalid data
   ///   * 500
   ///
@@ -839,6 +878,8 @@ class $Api1Client {
 
   /// Update a view via key-value sets.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -848,6 +889,7 @@ class $Api1Client {
   /// Status codes:
   ///   * 200: View updated
   ///   * 403: No permissions
+  ///   * 404: Not found
   ///   * 400: Invalid data
   ///   * 500
   ///
@@ -876,6 +918,8 @@ class $Api1Client {
       );
 
   /// Delete a view.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [deleteView] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -922,6 +966,8 @@ class $Api1Client {
 
   /// Delete a view.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -956,6 +1002,8 @@ class $Api1Client {
       );
 
   /// Get a share object.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [getShare] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1002,6 +1050,8 @@ class $Api1Client {
 
   /// Get a share object.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -1036,6 +1086,8 @@ class $Api1Client {
       );
 
   /// Update a share permission.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [updateSharePermissions] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1092,6 +1144,8 @@ class $Api1Client {
 
   /// Update a share permission.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -1129,6 +1183,8 @@ class $Api1Client {
       );
 
   /// Delete a share.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [deleteShare] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1175,6 +1231,8 @@ class $Api1Client {
 
   /// Delete a share.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -1209,6 +1267,8 @@ class $Api1Client {
       );
 
   /// Get all shares for a view Will be empty if view does not exist.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [indexViewShares] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1253,6 +1313,8 @@ class $Api1Client {
 
   /// Get all shares for a view Will be empty if view does not exist.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -1285,6 +1347,8 @@ class $Api1Client {
       );
 
   /// Get all shares for a table Will be empty if table does not exist.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [indexTableShares] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1329,6 +1393,8 @@ class $Api1Client {
 
   /// Get all shares for a table Will be empty if table does not exist.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -1361,6 +1427,8 @@ class $Api1Client {
       );
 
   /// Create a share for a table.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [createTableShare] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1414,6 +1482,8 @@ class $Api1Client {
 
   /// Create a share for a table.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -1451,6 +1521,8 @@ class $Api1Client {
       );
 
   /// Create a new share.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [createShare] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1494,6 +1566,8 @@ class $Api1Client {
 
   /// Create a new share.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -1525,6 +1599,8 @@ class $Api1Client {
       );
 
   /// Updates the display mode of a context share.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [updateShareDisplayMode] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1582,6 +1658,8 @@ class $Api1Client {
 
   /// Updates the display mode of a context share.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -1620,6 +1698,8 @@ class $Api1Client {
       );
 
   /// Get all columns for a table or a underlying view Return an empty array if no columns were found.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [indexTableColumns] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1672,6 +1752,8 @@ class $Api1Client {
 
   /// Get all columns for a table or a underlying view Return an empty array if no columns were found.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -1707,6 +1789,8 @@ class $Api1Client {
       );
 
   /// Create a new column for a table.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [createTableColumn] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1760,6 +1844,8 @@ class $Api1Client {
 
   /// Create a new column for a table.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -1797,6 +1883,8 @@ class $Api1Client {
       );
 
   /// Get all columns for a view Return an empty array if no columns were found.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [indexViewColumns] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1843,6 +1931,8 @@ class $Api1Client {
 
   /// Get all columns for a view Return an empty array if no columns were found.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -1877,6 +1967,8 @@ class $Api1Client {
       );
 
   /// Create a column.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [createColumn] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1920,6 +2012,8 @@ class $Api1Client {
 
   /// Create a column.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -1953,6 +2047,8 @@ class $Api1Client {
       );
 
   /// Returns a column object.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [getColumn] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1999,6 +2095,8 @@ class $Api1Client {
 
   /// Returns a column object.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -2033,6 +2131,8 @@ class $Api1Client {
       );
 
   /// Update a column.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [updateColumn] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -2081,6 +2181,8 @@ class $Api1Client {
 
   /// Update a column.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -2116,6 +2218,8 @@ class $Api1Client {
       );
 
   /// Delete a column.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [deleteColumn] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -2162,6 +2266,8 @@ class $Api1Client {
 
   /// Delete a column.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -2196,6 +2302,8 @@ class $Api1Client {
       );
 
   /// List all rows values for a table, first row are the column titles.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [indexTableRowsSimple] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -2252,6 +2360,8 @@ class $Api1Client {
 
   /// List all rows values for a table, first row are the column titles.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -2292,6 +2402,8 @@ class $Api1Client {
       );
 
   /// List all rows for a table.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [indexTableRows] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -2348,6 +2460,8 @@ class $Api1Client {
 
   /// List all rows for a table.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -2389,6 +2503,8 @@ class $Api1Client {
 
   /// Create a row within a table.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a `DynamiteRequest` backing the [createRowInTable] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -2398,6 +2514,7 @@ class $Api1Client {
   /// Status codes:
   ///   * 200: Row returned
   ///   * 403: No permissions
+  ///   * 404: Not found
   ///   * 500
   ///
   /// See:
@@ -2440,6 +2557,8 @@ class $Api1Client {
 
   /// Create a row within a table.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -2449,6 +2568,7 @@ class $Api1Client {
   /// Status codes:
   ///   * 200: Row returned
   ///   * 403: No permissions
+  ///   * 404: Not found
   ///   * 500
   ///
   /// See:
@@ -2476,6 +2596,8 @@ class $Api1Client {
       );
 
   /// List all rows for a view.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [indexViewRows] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -2532,6 +2654,8 @@ class $Api1Client {
 
   /// List all rows for a view.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -2572,6 +2696,8 @@ class $Api1Client {
       );
 
   /// Create a row within a view.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [createRowInView] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -2624,6 +2750,8 @@ class $Api1Client {
 
   /// Create a row within a view.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -2660,6 +2788,8 @@ class $Api1Client {
       );
 
   /// Get a row.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [getRow] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -2706,6 +2836,8 @@ class $Api1Client {
 
   /// Get a row.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -2740,6 +2872,8 @@ class $Api1Client {
       );
 
   /// Update a row.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [updateRow] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -2790,6 +2924,8 @@ class $Api1Client {
 
   /// Update a row.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -2827,6 +2963,8 @@ class $Api1Client {
       );
 
   /// Delete a row.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [deleteRow] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -2873,6 +3011,8 @@ class $Api1Client {
 
   /// Delete a row.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -2907,6 +3047,8 @@ class $Api1Client {
       );
 
   /// Delete a row within a view.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [deleteRowByView] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -2957,6 +3099,8 @@ class $Api1Client {
 
   /// Delete a row within a view.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -2992,6 +3136,8 @@ class $Api1Client {
       );
 
   /// Import from file in to a table.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [importInTable] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -3042,6 +3188,8 @@ class $Api1Client {
 
   /// Import from file in to a table.
   ///
+  /// This endpoint allows CORS requests.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -3079,6 +3227,8 @@ class $Api1Client {
       );
 
   /// Import from file in to a table.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a `DynamiteRequest` backing the [importInView] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -3128,6 +3278,8 @@ class $Api1Client {
   }
 
   /// Import from file in to a table.
+  ///
+  /// This endpoint allows CORS requests.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -5250,6 +5402,7 @@ class $ContextClient {
   ///   * 200: returning the full context information
   ///   * 500
   ///   * 404: Not found
+  ///   * 403: No permissions
   ///
   /// See:
   ///  * [destroy] for a method executing this request and parsing the response.
@@ -5299,6 +5452,7 @@ class $ContextClient {
   ///   * 200: returning the full context information
   ///   * 500
   ///   * 404: Not found
+  ///   * 403: No permissions
   ///
   /// See:
   ///  * [$destroy_Request] for the request send by this method.
@@ -5336,6 +5490,7 @@ class $ContextClient {
   /// Status codes:
   ///   * 200: Ownership transferred
   ///   * 500
+  ///   * 403: No permissions
   ///   * 404: Not found
   ///   * 400: Invalid request
   ///
@@ -5395,6 +5550,7 @@ class $ContextClient {
   /// Status codes:
   ///   * 200: Ownership transferred
   ///   * 500
+  ///   * 403: No permissions
   ///   * 404: Not found
   ///   * 400: Invalid request
   ///
@@ -5438,6 +5594,7 @@ class $ContextClient {
   ///   * 200: content updated successfully
   ///   * 500
   ///   * 404: Not found
+  ///   * 403: No permissions
   ///   * 400: Invalid request
   ///
   /// See:
@@ -5506,6 +5663,7 @@ class $ContextClient {
   ///   * 200: content updated successfully
   ///   * 500
   ///   * 404: Not found
+  ///   * 403: No permissions
   ///   * 400: Invalid request
   ///
   /// See:
@@ -8428,7 +8586,7 @@ sealed class $Api1CreateTableColumnRequestApplicationJsonInterface {
   /// Options for a selection (json array{id: int, label: string}).
   String? get selectionOptions;
 
-  /// Default option IDs for a selection (json int[]).
+  /// Default option IDs for a selection (json list&lt;int&gt;).
   String? get selectionDefault;
 
   /// Default value, if column is datetime.
@@ -8670,7 +8828,7 @@ sealed class $Api1CreateColumnRequestApplicationJsonInterface {
   /// Options for a selection (json array{id: int, label: string}).
   String? get selectionOptions;
 
-  /// Default option IDs for a selection (json int[]).
+  /// Default option IDs for a selection (json list&lt;int&gt;).
   String? get selectionDefault;
 
   /// Default value, if column is datetime.
@@ -8806,7 +8964,7 @@ sealed class $Api1UpdateColumnRequestApplicationJsonInterface {
   /// Options for a selection (json array{id: int, label: string}).
   String? get selectionOptions;
 
-  /// Default option IDs for a selection (json int[]).
+  /// Default option IDs for a selection (json list&lt;int&gt;).
   String? get selectionDefault;
 
   /// Default value, if column is datetime.
@@ -10723,7 +10881,7 @@ sealed class $ApiColumnsCreateSelectionColumnRequestApplicationJsonInterface {
   /// Json array{id: int, label: string} with options that can be selected, eg [{"id": 1, "label": "first"},{"id": 2, "label": "second"}].
   String get selectionOptions;
 
-  /// Json int|int[] for default selected option(s), eg 5 or ["1", "8"].
+  /// Json int|list&lt;int&gt; for default selected option(s), eg 5 or ["1", "8"].
   String? get selectionDefault;
 
   /// Subtype for the new column.
