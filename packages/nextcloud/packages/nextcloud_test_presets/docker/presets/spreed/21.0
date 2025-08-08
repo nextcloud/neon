@@ -1,10 +1,10 @@
-SERVER_VERSION=31.0.7-fpm-alpine@sha256:29071abdb658237a916aa5fcc83ee606367a8abf0f6282bdf9433f26401f2a00
+SERVER_VERSION=31.0.7-fpm-alpine@sha256:502bea8b153a7bc7a270edf0d5a06046216f55e64ce62657197bc943133fa197
 COOKBOOK_URL=https://github.com/christianlupus-nextcloud/cookbook-releases/releases/download/v0.11.3/cookbook-0.11.3.tar.gz
 COOKBOOK_CHECKSUM=sha256:1162c1ca9bf9f3c2243b5c31d2f16fdba35293918ac75a6a4964e501c5b69b01
 DROP_ACCOUNT_URL=https://packages.framasoft.org/projects/nextcloud-apps/drop-account/drop_account-2.7.1.tar.gz
 DROP_ACCOUNT_CHECKSUM=sha256:0005804798bc9a81a5c8631a36a27040fa8f007a96bc87f89af67853475f83f0
-NEWS_URL=https://github.com/nextcloud/news/releases/download/26.0.2/news.tar.gz
-NEWS_CHECKSUM=sha256:635fa1711c5ec16c9cb46e674bb1a337ecd6081af1a2ba1e6f4d472f3a80474f
+NEWS_URL=https://github.com/nextcloud/news/releases/download/26.1.0/news.tar.gz
+NEWS_CHECKSUM=sha256:f14d8438af265cf124ef4214f062d7614d04a1953b3b87e1164ce11a96aebd97
 NOTES_URL=https://github.com/nextcloud-releases/notes/releases/download/v4.12.2/notes-v4.12.2.tar.gz
 NOTES_CHECKSUM=sha256:5a9c51278e4df9a3be70ea79bbafaec258a3ce87e999d714834edac77a775830
 SPREED_URL=https://github.com/nextcloud-releases/spreed/releases/download/v21.0.4/spreed-v21.0.4.tar.gz
