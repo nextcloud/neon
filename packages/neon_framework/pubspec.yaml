@@ -82,7 +82,7 @@ dev_dependencies:
     path: ../cookie_store/packages/cookie_store_conformance_tests
   crypton: ^2.2.1
   custom_lint: ^0.7.6
-  dart_style: ^3.1.0
+  dart_style: ^3.1.2
   flutter_test:
     sdk: flutter
   go_router_builder: ^3.0.0
