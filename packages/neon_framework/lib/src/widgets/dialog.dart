@@ -646,22 +646,23 @@ class _NeonAccountDeletionDialogState extends State<NeonAccountDeletionDialog> {
       icon: icon,
       title: Text(title),
       content: SingleChildScrollView(
-        child: Column(
-          children: [
-            RadioListTile(
-              value: AccountDeletion.local,
-              groupValue: value,
-              onChanged: (value) => update(value!),
-              title: Text(localizations.accountOptionsRemoveLocal),
-            ),
-            RadioListTile<AccountDeletion>(
-              value: AccountDeletion.remote,
-              groupValue: value,
-              onChanged: capabilities.enabled ? (value) => update(value!) : null,
-              title: Text(localizations.accountOptionsRemoveRemote),
-              subtitle: subtitle,
-            ),
-          ],
+        child: RadioGroup<AccountDeletion>(
+          groupValue: value,
+          onChanged: (value) => update(value!),
+          child: Column(
+            children: [
+              RadioListTile(
+                value: AccountDeletion.local,
+                title: Text(localizations.accountOptionsRemoveLocal),
+              ),
+              RadioListTile<AccountDeletion>(
+                value: AccountDeletion.remote,
+                enabled: capabilities.enabled,
+                title: Text(localizations.accountOptionsRemoveRemote),
+                subtitle: subtitle,
+              ),
+            ],
+          ),
         ),
       ),
       actions: [

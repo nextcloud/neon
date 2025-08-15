@@ -23,7 +23,7 @@ class NewsFolderSelect extends StatelessWidget {
       decoration: InputDecoration(
         hintText: NewsLocalizations.of(context).folder,
       ),
-      value: value,
+      initialValue: value,
       items: [
         DropdownMenuItem(
           child: Text(NewsLocalizations.of(context).folderRoot),

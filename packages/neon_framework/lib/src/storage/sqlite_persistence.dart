@@ -4,7 +4,6 @@ import 'dart:convert';
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:logging/logging.dart';
-import 'package:meta/meta.dart' show internal;
 import 'package:neon_framework/platform.dart';
 import 'package:neon_framework/src/storage/persistence.dart';
 import 'package:path/path.dart' as p;
