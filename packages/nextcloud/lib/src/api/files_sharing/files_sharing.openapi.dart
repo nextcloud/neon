@@ -4002,6 +4002,8 @@ sealed class $ShareInterface {
   bool get hasPreview;
   @BuiltValueField(wireName: 'hide_download')
   Share_HideDownload get hideDownload;
+  @BuiltValueField(wireName: 'is_trusted_server')
+  bool? get isTrustedServer;
   @BuiltValueField(wireName: 'is-mount-root')
   bool get isMountRoot;
   String get id;
