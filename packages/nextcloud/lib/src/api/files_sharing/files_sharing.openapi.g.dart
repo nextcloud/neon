@@ -1736,6 +1736,12 @@ class _$ShareSerializer implements StructuredSerializer<Share> {
         ..add('expiration')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
+    value = object.isTrustedServer;
+    if (value != null) {
+      result
+        ..add('is_trusted_server')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     value = object.itemPermissions;
     if (value != null) {
       result
@@ -1868,6 +1874,9 @@ class _$ShareSerializer implements StructuredSerializer<Share> {
         case 'hide_download':
           result.hideDownload =
               serializers.deserialize(value, specifiedType: const FullType(Share_HideDownload))! as Share_HideDownload;
+          break;
+        case 'is_trusted_server':
+          result.isTrustedServer = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
         case 'is-mount-root':
           result.isMountRoot = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -8769,6 +8778,9 @@ abstract mixin class $ShareInterfaceBuilder {
   Share_HideDownload? get hideDownload;
   set hideDownload(Share_HideDownload? hideDownload);
 
+  bool? get isTrustedServer;
+  set isTrustedServer(bool? isTrustedServer);
+
   bool? get isMountRoot;
   set isMountRoot(bool? isMountRoot);
 
@@ -8890,6 +8902,8 @@ class _$Share extends Share {
   @override
   final Share_HideDownload hideDownload;
   @override
+  final bool? isTrustedServer;
+  @override
   final bool isMountRoot;
   @override
   final String id;
@@ -8968,6 +8982,7 @@ class _$Share extends Share {
       required this.fileTarget,
       required this.hasPreview,
       required this.hideDownload,
+      this.isTrustedServer,
       required this.isMountRoot,
       required this.id,
       required this.itemMtime,
@@ -9022,6 +9037,7 @@ class _$Share extends Share {
         fileTarget == other.fileTarget &&
         hasPreview == other.hasPreview &&
         hideDownload == other.hideDownload &&
+        isTrustedServer == other.isTrustedServer &&
         isMountRoot == other.isMountRoot &&
         id == other.id &&
         itemMtime == other.itemMtime &&
@@ -9070,6 +9086,7 @@ class _$Share extends Share {
     _$hash = $jc(_$hash, fileTarget.hashCode);
     _$hash = $jc(_$hash, hasPreview.hashCode);
     _$hash = $jc(_$hash, hideDownload.hashCode);
+    _$hash = $jc(_$hash, isTrustedServer.hashCode);
     _$hash = $jc(_$hash, isMountRoot.hashCode);
     _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, itemMtime.hashCode);
@@ -9120,6 +9137,7 @@ class _$Share extends Share {
           ..add('fileTarget', fileTarget)
           ..add('hasPreview', hasPreview)
           ..add('hideDownload', hideDownload)
+          ..add('isTrustedServer', isTrustedServer)
           ..add('isMountRoot', isMountRoot)
           ..add('id', id)
           ..add('itemMtime', itemMtime)
@@ -9203,6 +9221,10 @@ class ShareBuilder implements Builder<Share, ShareBuilder>, $ShareInterfaceBuild
   Share_HideDownload? _hideDownload;
   Share_HideDownload? get hideDownload => _$this._hideDownload;
   set hideDownload(covariant Share_HideDownload? hideDownload) => _$this._hideDownload = hideDownload;
+
+  bool? _isTrustedServer;
+  bool? get isTrustedServer => _$this._isTrustedServer;
+  set isTrustedServer(covariant bool? isTrustedServer) => _$this._isTrustedServer = isTrustedServer;
 
   bool? _isMountRoot;
   bool? get isMountRoot => _$this._isMountRoot;
@@ -9353,6 +9375,7 @@ class ShareBuilder implements Builder<Share, ShareBuilder>, $ShareInterfaceBuild
       _fileTarget = $v.fileTarget;
       _hasPreview = $v.hasPreview;
       _hideDownload = $v.hideDownload;
+      _isTrustedServer = $v.isTrustedServer;
       _isMountRoot = $v.isMountRoot;
       _id = $v.id;
       _itemMtime = $v.itemMtime;
@@ -9421,6 +9444,7 @@ class ShareBuilder implements Builder<Share, ShareBuilder>, $ShareInterfaceBuild
             fileTarget: BuiltValueNullFieldError.checkNotNull(fileTarget, r'Share', 'fileTarget'),
             hasPreview: BuiltValueNullFieldError.checkNotNull(hasPreview, r'Share', 'hasPreview'),
             hideDownload: BuiltValueNullFieldError.checkNotNull(hideDownload, r'Share', 'hideDownload'),
+            isTrustedServer: isTrustedServer,
             isMountRoot: BuiltValueNullFieldError.checkNotNull(isMountRoot, r'Share', 'isMountRoot'),
             id: BuiltValueNullFieldError.checkNotNull(id, r'Share', 'id'),
             itemMtime: BuiltValueNullFieldError.checkNotNull(itemMtime, r'Share', 'itemMtime'),
