@@ -61,7 +61,7 @@ For an example checkout the [example](https://github.com/nextcloud/neon/blob/mai
 | [Password Policy app](https://github.com/nextcloud/password_policy)                | 30 - 31                |
 | [Talk app](https://github.com/nextcloud/spreed)                                    | 20 - 21.1              |
 | [Tables app](https://github.com/nextcloud/tables)                                  | 0.7 - 1                |
-| [Terms of service app](https://github.com/nextcloud/terms_of_service)              | 3 - 4.4                |
+| [Terms of service app](https://github.com/nextcloud/terms_of_service)              | 3 - 4.5                |
 | [NextPush app](https://codeberg.org/NextPush/uppush)                               | 1.5 - 2.3              |
 
 [Do not edit manually above]: #
