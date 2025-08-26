@@ -94,7 +94,7 @@ dev_dependencies:
   plugin_platform_interface: ^2.1.8
   string_normalizer: ^0.3.5
   url_launcher_platform_interface: ^2.3.2
-  vector_graphics_compiler: ^1.1.18
+  vector_graphics_compiler: ^1.1.19
   version: ^3.0.2
 
 flutter:
