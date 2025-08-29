@@ -457,7 +457,7 @@ void main() {
         expect(response.body.ocs.data[0].id, 'user2');
         expect(response.body.ocs.data[0].label, 'User Two');
         expect(response.body.ocs.data[0].source, 'users');
-        expect(response.body.ocs.data[0].mentionId, tester.version < Version(19, 0, 0) ? null : 'user2');
+        expect(response.body.ocs.data[0].mentionId, 'user2');
         expect(response.body.ocs.data[0].status, null);
         expect(response.body.ocs.data[0].statusClearAt, null);
         expect(response.body.ocs.data[0].statusIcon, null);
