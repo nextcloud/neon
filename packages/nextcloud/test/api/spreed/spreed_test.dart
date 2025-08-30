@@ -453,15 +453,26 @@ void main() {
           token: room.token,
           search: 'user',
         );
-        expect(response.body.ocs.data, hasLength(1));
+        final mentionSelf = tester.version >= Version(21, 1, 0);
+        expect(response.body.ocs.data, hasLength(mentionSelf ? 2 : 1));
         expect(response.body.ocs.data[0].id, 'user2');
         expect(response.body.ocs.data[0].label, 'User Two');
         expect(response.body.ocs.data[0].source, 'users');
-        expect(response.body.ocs.data[0].mentionId, tester.version < Version(19, 0, 0) ? null : 'user2');
+        expect(response.body.ocs.data[0].mentionId, 'user2');
         expect(response.body.ocs.data[0].status, null);
         expect(response.body.ocs.data[0].statusClearAt, null);
         expect(response.body.ocs.data[0].statusIcon, null);
         expect(response.body.ocs.data[0].statusMessage, null);
+        if (mentionSelf) {
+          expect(response.body.ocs.data[1].id, 'user1');
+          expect(response.body.ocs.data[1].label, 'User One');
+          expect(response.body.ocs.data[1].source, 'users');
+          expect(response.body.ocs.data[1].mentionId, 'user1');
+          expect(response.body.ocs.data[1].status, null);
+          expect(response.body.ocs.data[1].statusClearAt, null);
+          expect(response.body.ocs.data[1].statusIcon, null);
+          expect(response.body.ocs.data[1].statusMessage, null);
+        }
       });
 
       test('Delete message', () async {

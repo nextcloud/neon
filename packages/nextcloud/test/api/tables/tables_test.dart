@@ -3,7 +3,6 @@ import 'package:nextcloud/tables.dart' as tables;
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 import 'package:timezone/timezone.dart' as tz;
-import 'package:version/version.dart';
 
 void main() {
   presets('tables', 'tables', (tester) {
@@ -42,8 +41,8 @@ void main() {
           expect(tz.TZDateTime.parse(tz.UTC, createResponse.body.createdAt).isBefore(DateTime.timestamp()), isTrue);
           expect(createResponse.body.lastEditBy, 'user1');
           expect(tz.TZDateTime.parse(tz.UTC, createResponse.body.lastEditAt).isBefore(DateTime.timestamp()), isTrue);
-          expect(createResponse.body.archived, tester.version < Version(0, 7, 0) ? null : false);
-          expect(createResponse.body.favorite, tester.version < Version(0, 7, 0) ? null : false);
+          expect(createResponse.body.archived, false);
+          expect(createResponse.body.favorite, false);
           expect(createResponse.body.isShared, false);
           expect(createResponse.body.hasShares, false);
           expect(createResponse.body.rowsCount, 0);
@@ -60,13 +59,13 @@ void main() {
           expect(deleteResponse.body.title, 'title');
           expect(deleteResponse.body.emoji, '😀');
           expect(deleteResponse.body.ownership, 'user1');
-          expect(deleteResponse.body.ownerDisplayName, tester.version < Version(0, 7, 0) ? null : '');
+          expect(deleteResponse.body.ownerDisplayName, '');
           expect(deleteResponse.body.createdBy, 'user1');
           expect(tz.TZDateTime.parse(tz.UTC, deleteResponse.body.createdAt).isBefore(DateTime.timestamp()), isTrue);
           expect(deleteResponse.body.lastEditBy, 'user1');
           expect(tz.TZDateTime.parse(tz.UTC, deleteResponse.body.lastEditAt).isBefore(DateTime.timestamp()), isTrue);
-          expect(deleteResponse.body.archived, tester.version < Version(0, 7, 0) ? null : false);
-          expect(deleteResponse.body.favorite, tester.version < Version(0, 7, 0) ? null : false);
+          expect(deleteResponse.body.archived, false);
+          expect(deleteResponse.body.favorite, false);
           expect(deleteResponse.body.isShared, false);
           expect(deleteResponse.body.hasShares, false);
           expect(deleteResponse.body.rowsCount, 0);

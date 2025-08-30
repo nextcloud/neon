@@ -14,7 +14,6 @@ import 'package:nextcloud/webdav.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 import 'package:universal_io/io.dart';
-import 'package:version/version.dart';
 
 class MockCallbackFunction extends Mock {
   void progressCallback(double progress);
@@ -435,7 +434,7 @@ void main() {
       expect(props.ncHasPreview, isFalse);
       expect(props.ncHidden, isFalse);
       expect(props.ncInheritedAclList, isNull);
-      expect(props.ncIsEncrypted, tester.version < Version(30, 0, 0) ? isFalse : isNull);
+      expect(props.ncIsEncrypted, isNull);
       expect(props.ncIsMountRoot, isFalse);
       expect(props.ncLock, isNull);
       expect(props.ncLockOwner, isNull);
