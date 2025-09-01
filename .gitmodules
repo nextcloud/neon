@@ -44,4 +44,4 @@
 [submodule "external/nextcloud-terms_of_service"]
 	path = external/nextcloud-terms_of_service
 	url = https://github.com/nextcloud/terms_of_service.git
-	branch = v4.5.0
+	branch = v4.6.0
