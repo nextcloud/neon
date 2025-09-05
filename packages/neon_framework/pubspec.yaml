@@ -76,7 +76,7 @@ dependencies:
 dev_dependencies:
   bloc_test: ^10.0.0
   build_runner: ^2.5.4
-  built_value_generator: ^8.10.1
+  built_value_generator: ^8.12.0
   code_builder: ^4.10.1
   cookie_store_conformance_tests:
     path: ../cookie_store/packages/cookie_store_conformance_tests
