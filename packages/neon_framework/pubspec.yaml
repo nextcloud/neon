@@ -81,7 +81,7 @@ dev_dependencies:
   cookie_store_conformance_tests:
     path: ../cookie_store/packages/cookie_store_conformance_tests
   crypton: ^2.2.1
-  custom_lint: ^0.7.6
+  custom_lint: ^0.8.1
   dart_style: ^3.1.0
   flutter_test:
     sdk: flutter
