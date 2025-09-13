@@ -16,4 +16,4 @@ dev_dependencies:
     path: packages/cookie_store_conformance_tests
   neon_lints:
     path: ../neon_lints
-  test: ^1.25.15
+  test: ^1.26.3
