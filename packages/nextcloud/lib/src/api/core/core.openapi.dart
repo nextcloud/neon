@@ -3908,6 +3908,8 @@ class $TaskProcessingApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(authentication.headers);
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
     // coverage:ignore-end
@@ -3989,6 +3991,8 @@ class $TaskProcessingApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(authentication.headers);
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
     // coverage:ignore-end
@@ -4087,6 +4091,8 @@ class $TaskProcessingApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(authentication.headers);
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
     // coverage:ignore-end
