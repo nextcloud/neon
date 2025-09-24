@@ -12,7 +12,6 @@ import 'package:flutter_svg/flutter_svg.dart' show SvgBytesLoader, vg;
 import 'package:http/http.dart' as http;
 import 'package:image/image.dart' as img;
 import 'package:logging/logging.dart';
-import 'package:meta/meta.dart';
 import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/storage/keys.dart';

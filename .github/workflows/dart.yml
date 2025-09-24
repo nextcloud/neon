@@ -50,12 +50,12 @@ jobs:
           git apply .github/workflows/dependency_overrides.patch
           fvm dart pub downgrade
       - name: Check formatting
-        run: melos run format:check
+        run: fvm exec melos run format:check
       - name: Lint code
-        run: melos run analyze
+        run: fvm exec melos run analyze
       - name: Run tests
         run: |
-          mapfile -t packages < <(melos list --parsable --diff=${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }}..${{ github.event.pull_request.head.sha }} --include-dependents | xargs -r -n1 basename)
+          mapfile -t packages < <(fvm exec melos list --parsable --diff=${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }}..${{ github.event.pull_request.head.sha }} --include-dependents | xargs -r -n1 basename)
           packages_glob="$(printf ",%s" "${packages[@]}")"
           packages_glob="${packages_glob:1}"
           if [ -n "$packages_glob" ]; then
@@ -65,10 +65,10 @@ jobs:
               fi
               ./tool/build-dev-container.sh
             fi
-            MELOS_PACKAGES="$packages_glob" melos test
+            MELOS_PACKAGES="$packages_glob" fvm exec melos test
           else
             ./tool/build-dev-container.sh
-            melos test
+            fvm exec melos test
           fi
 
       - name: Setup Codecov
@@ -89,6 +89,6 @@ jobs:
         if: ${{ matrix.dependencies == 'current' }}
         run: |
           export PATH="$PATH:/tmp/bin"
-          melos exec --file-exists="coverage/lcov.info" --concurrency=1 -- "
+          fvm exec melos exec --file-exists="coverage/lcov.info" --concurrency=1 -- "
             codecov --verbose upload-process --fail-on-error -F MELOS_PACKAGE_NAME -f MELOS_PACKAGE_PATH/coverage/lcov.info -t ${{ secrets.CODECOV_TOKEN }}
           "

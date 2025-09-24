@@ -69,49 +69,51 @@ class _TalkCreateRoomDialogState extends State<TalkCreateRoomDialog> {
 
   @override
   Widget build(BuildContext context) {
-    final body = Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        for (final type in [
-          spreed.RoomType.oneToOne,
-          spreed.RoomType.group,
-          spreed.RoomType.public,
-        ])
-          RadioListTile.adaptive(
-            title: Text(TalkLocalizations.of(context).roomType(type.name)),
-            secondary: Icon(
-              // coverage:ignore-start
-              switch (type) {
-                // coverage:ignore-end
-                spreed.RoomType.oneToOne => AdaptiveIcons.person,
-                spreed.RoomType.group => AdaptiveIcons.group,
-                spreed.RoomType.public => AdaptiveIcons.link,
-                _ => throw UnimplementedError('$type is not a valid type'), // coverage:ignore-line
-              },
-            ),
-            value: type,
-            groupValue: selectedType,
-            onChanged: changeType,
-          ),
-        const Divider(),
-        switch (selectedType) {
-          spreed.RoomType.oneToOne || spreed.RoomType.group => buildAutocomplete(),
-          spreed.RoomType.public => TextFormField(
-              controller: controller,
-              focusNode: focusNode,
-              validator: (input) => validateNotEmpty(context, input),
-              decoration: InputDecoration(
-                hintText: TalkLocalizations.of(context).roomCreateRoomName,
+    final body = RadioGroup<spreed.RoomType>(
+      groupValue: selectedType,
+      onChanged: changeType,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          for (final type in [
+            spreed.RoomType.oneToOne,
+            spreed.RoomType.group,
+            spreed.RoomType.public,
+          ])
+            RadioListTile.adaptive(
+              title: Text(TalkLocalizations.of(context).roomType(type.name)),
+              secondary: Icon(
+                // coverage:ignore-start
+                switch (type) {
+                  // coverage:ignore-end
+                  spreed.RoomType.oneToOne => AdaptiveIcons.person,
+                  spreed.RoomType.group => AdaptiveIcons.group,
+                  spreed.RoomType.public => AdaptiveIcons.link,
+                  _ => throw UnimplementedError('$type is not a valid type'), // coverage:ignore-line
+                },
               ),
-              onFieldSubmitted: (_) {
-                submit();
-              },
+              value: type,
             ),
-          null => const SizedBox(),
-          _ => throw StateError('$selectedType is not a valid type'), // coverage:ignore-line
-        },
-      ],
+          const Divider(),
+          switch (selectedType) {
+            spreed.RoomType.oneToOne || spreed.RoomType.group => buildAutocomplete(),
+            spreed.RoomType.public => TextFormField(
+                controller: controller,
+                focusNode: focusNode,
+                validator: (input) => validateNotEmpty(context, input),
+                decoration: InputDecoration(
+                  hintText: TalkLocalizations.of(context).roomCreateRoomName,
+                ),
+                onFieldSubmitted: (_) {
+                  submit();
+                },
+              ),
+            null => const SizedBox(),
+            _ => throw StateError('$selectedType is not a valid type'), // coverage:ignore-line
+          },
+        ],
+      ),
     );
 
     return NeonDialog(
