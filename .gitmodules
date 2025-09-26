@@ -9,7 +9,7 @@
 [submodule "external/nextcloud-spreed"]
 	path = external/nextcloud-spreed
 	url = https://github.com/nextcloud/spreed
-	branch = v21.1.5
+	branch = v22.0.0
 [submodule "external/nextcloud-news"]
 	path = external/nextcloud-news
 	url = https://github.com/nextcloud/news
