@@ -28,7 +28,7 @@ dependencies:
   vector_graphics: any
 
 dev_dependencies:
-  custom_lint: ^0.7.6
+  custom_lint: ^0.8.1
   neon_lints:
     path: ../../neon_lints
   vector_graphics_compiler: any
