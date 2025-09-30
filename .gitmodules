@@ -1,7 +1,7 @@
 [submodule "external/nextcloud-server"]
 	path = external/nextcloud-server
 	url = https://github.com/nextcloud/server.git
-	branch = v31.0.9
+	branch = v32.0.0
 [submodule "external/nextcloud-notifications"]
 	path = external/nextcloud-notifications
 	url = https://github.com/nextcloud/notifications.git
