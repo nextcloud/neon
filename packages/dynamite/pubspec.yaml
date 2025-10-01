@@ -13,7 +13,7 @@ environment:
   sdk: ^3.5.0
 
 dependencies:
-  build: ^2.0.0
+  build: ^4.0.1
   built_collection: ^5.0.0
   built_value: ^8.9.0
   checked_yaml: ^2.0.0
