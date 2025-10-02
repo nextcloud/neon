@@ -52,14 +52,14 @@ For an example checkout the [example](https://github.com/nextcloud/neon/blob/mai
 
 | Component                                                                          | Supported versions (1) |
 |------------------------------------------------------------------------------------|------------------------|
-| [Server](https://github.com/nextcloud/server) (2)                                  | 30 - 31                |
+| [Server](https://github.com/nextcloud/server) (2)                                  | 30 - 32                |
 | [Cookbook app](https://github.com/nextcloud/cookbook)                              | 0.11                   |
 | [User account deletion app](https://framagit.org/framasoft/nextcloud/drop_account) | 2.6 - 2.7              |
 | [News app](https://github.com/nextcloud/news)                                      | 25 - 27                |
 | [Notes app](https://github.com/nextcloud/notes)                                    | 4.10 - 4.12            |
-| [Notifications app](https://github.com/nextcloud/notifications)                    | 30 - 31                |
-| [Password Policy app](https://github.com/nextcloud/password_policy)                | 30 - 31                |
-| [Talk app](https://github.com/nextcloud/spreed)                                    | 20 - 21.1              |
+| [Notifications app](https://github.com/nextcloud/notifications)                    | 30 - 32                |
+| [Password Policy app](https://github.com/nextcloud/password_policy)                | 30 - 32                |
+| [Talk app](https://github.com/nextcloud/spreed)                                    | 20 - 22                |
 | [Tables app](https://github.com/nextcloud/tables)                                  | 0.7 - 1                |
 | [Terms of service app](https://github.com/nextcloud/terms_of_service)              | 3 - 4.7                |
 | [NextPush app](https://codeberg.org/NextPush/uppush)                               | 1.5 - 2.3              |
