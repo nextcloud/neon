@@ -38,4 +38,4 @@ dev_dependencies:
   neon_lints:
     path: ../../../neon_lints
   plugin_platform_interface: ^2.1.8
-  unifiedpush_platform_interface: ^3.0.1
+  unifiedpush_platform_interface: ^3.1.0
