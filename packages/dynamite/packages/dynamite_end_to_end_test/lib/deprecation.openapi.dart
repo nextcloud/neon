@@ -291,6 +291,7 @@ typedef _$b2c4857c0136baea42828d89c87c757d = ({int? $int, String? string});
 // ignore: library_private_types_in_public_api
 extension $b2c4857c0136baea42828d89c87c757dExtension on _$b2c4857c0136baea42828d89c87c757d {
   List<dynamic> get _values => [$int, string];
+
   List<String> get _names => const [r'$int', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
@@ -298,8 +299,10 @@ extension $b2c4857c0136baea42828d89c87c757dExtension on _$b2c4857c0136baea42828d
 
   /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => _i5.validateAnyOf(_values, _names);
+
   static Serializer<_$b2c4857c0136baea42828d89c87c757d> get _serializer =>
       const _$b2c4857c0136baea42828d89c87c757dSerializer();
+
   static _$b2c4857c0136baea42828d89c87c757d _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 

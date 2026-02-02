@@ -143,6 +143,7 @@ typedef _$e1c7ecea8e5fdae7b94cd86c0dc4f1ba = ({Base? base, int? $int, JsonObject
 // ignore: library_private_types_in_public_api
 extension $e1c7ecea8e5fdae7b94cd86c0dc4f1baExtension on _$e1c7ecea8e5fdae7b94cd86c0dc4f1ba {
   List<dynamic> get _values => [base, $int, jsonObject];
+
   List<String> get _names => const ['base', r'$int', 'jsonObject'];
 
   /// {@macro Dynamite.validateOneOf}
@@ -150,8 +151,10 @@ extension $e1c7ecea8e5fdae7b94cd86c0dc4f1baExtension on _$e1c7ecea8e5fdae7b94cd8
 
   /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => _i1.validateAnyOf(_values, _names);
+
   static Serializer<_$e1c7ecea8e5fdae7b94cd86c0dc4f1ba> get _serializer =>
       const _$e1c7ecea8e5fdae7b94cd86c0dc4f1baSerializer();
+
   static _$e1c7ecea8e5fdae7b94cd86c0dc4f1ba _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 

@@ -1224,6 +1224,7 @@ typedef _$ecd8d9fe35935410da9dc2662cd86d27 = ({
 // ignore: library_private_types_in_public_api
 extension $ecd8d9fe35935410da9dc2662cd86d27Extension on _$ecd8d9fe35935410da9dc2662cd86d27 {
   List<dynamic> get _values => [declarativeFormFieldOptions1, string];
+
   List<String> get _names => const ['declarativeFormFieldOptions1', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
@@ -1231,8 +1232,10 @@ extension $ecd8d9fe35935410da9dc2662cd86d27Extension on _$ecd8d9fe35935410da9dc2
 
   /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => _i5.validateAnyOf(_values, _names);
+
   static Serializer<_$ecd8d9fe35935410da9dc2662cd86d27> get _serializer =>
       const _$ecd8d9fe35935410da9dc2662cd86d27Serializer();
+
   static _$ecd8d9fe35935410da9dc2662cd86d27 _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 
@@ -1302,6 +1305,7 @@ typedef _$bb4e9af94b69347c125c27e03a648d24 = ({
 // ignore: library_private_types_in_public_api
 extension $bb4e9af94b69347c125c27e03a648d24Extension on _$bb4e9af94b69347c125c27e03a648d24 {
   List<dynamic> get _values => [$bool, builtListString, $num, string];
+
   List<String> get _names => const [r'$bool', 'builtListString', r'$num', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
@@ -1309,8 +1313,10 @@ extension $bb4e9af94b69347c125c27e03a648d24Extension on _$bb4e9af94b69347c125c27
 
   /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => _i5.validateAnyOf(_values, _names);
+
   static Serializer<_$bb4e9af94b69347c125c27e03a648d24> get _serializer =>
       const _$bb4e9af94b69347c125c27e03a648d24Serializer();
+
   static _$bb4e9af94b69347c125c27e03a648d24 _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 
