@@ -6,6 +6,7 @@ import 'package:neon_framework/models.dart';
 import 'package:news_app/news_app.dart';
 import 'package:notes_app/notes_app.dart';
 import 'package:notifications_app/notifications_app.dart';
+import 'package:photos_app/photos_app.dart';
 import 'package:talk_app/talk_app.dart';
 
 /// The collection of clients enabled for the Neon app.
@@ -15,5 +16,6 @@ final BuiltSet<AppImplementation> appImplementations = BuiltSet({
   NewsApp(),
   NotesApp(),
   NotificationsApp(),
+  PhotosApp(),
   if (kDebugMode) TalkApp(),
 });

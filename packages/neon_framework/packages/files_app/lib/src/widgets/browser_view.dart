@@ -24,6 +24,7 @@ class FilesBrowserView extends StatefulWidget {
     required this.uri,
     required this.mode,
     required this.setPath,
+    this.mimeFilter = const MimeFilter.files(),
     this.hideUri,
   }) : super(key: Key(uri.toString()));
 
@@ -32,6 +33,7 @@ class FilesBrowserView extends StatefulWidget {
   final FilesBrowserMode mode;
   final void Function(webdav.PathUri uri) setPath;
   final webdav.PathUri? hideUri;
+  final MimeFilter mimeFilter;
 
   @override
   State<FilesBrowserView> createState() => _FilesBrowserViewState();
@@ -53,6 +55,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
       uri: widget.uri,
       mode: widget.mode,
       hideUri: widget.hideUri,
+      mimeFilter: widget.mimeFilter,
     );
 
     errorsSubscription = bloc.errors.listen((error) {
@@ -113,6 +116,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                   browserBloc: bloc,
                   details: details,
                   setPath: widget.setPath,
+                  checkOpenInNeon: () => handleFileInNeon(sorted, file),
                 );
               },
               isLoading: filesSnapshot.isLoading,
@@ -131,6 +135,16 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
         ),
       ),
     );
+  }
+
+  Future<bool> handleFileInNeon(List<webdav.WebDavFile> sorted, webdav.WebDavFile file) async {
+    final mimeHandler = NeonProvider.of<AppsBloc>(context).mimeTypeHandler(file.mimeType);
+
+    if (mimeHandler != null) {
+      await mimeHandler.handle(context, MimeContext(file: file, files: sorted));
+      return true;
+    }
+    return false;
   }
 
   Iterable<Widget> buildUploadTasks(BuiltList<FilesTask> tasks, List<webdav.WebDavFile> files) sync* {

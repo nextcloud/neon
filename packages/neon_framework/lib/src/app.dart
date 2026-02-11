@@ -31,6 +31,8 @@ import 'package:provider/provider.dart';
 import 'package:quick_actions/quick_actions.dart';
 import 'package:universal_io/io.dart';
 import 'package:window_manager/window_manager.dart';
+import 'package:files_app/src/blocs/files.dart';
+import 'package:nextcloud/files.dart' as files;
 
 /// Main Neon widget.
 ///
@@ -278,6 +280,10 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
                       ),
                       NeonProvider<ReferencesBloc>.value(
                         value: _accountsBloc.getReferencesBlocFor(account),
+                      ),
+                      // This is temporary until we had a discussion how/what to move from files-app to the framework
+                      NeonProvider<FilesBloc>.value(
+                        value: _appImplementations.tryFind(files.appID)!.getBloc(account) as FilesBloc,
                       ),
                     ],
                     child: app,

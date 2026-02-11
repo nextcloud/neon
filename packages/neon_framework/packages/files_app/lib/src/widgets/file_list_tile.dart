@@ -20,6 +20,7 @@ class FileListTile extends StatelessWidget {
     required this.browserBloc,
     required this.details,
     required this.setPath,
+    this.checkOpenInNeon,
     super.key,
   });
 
@@ -27,6 +28,7 @@ class FileListTile extends StatelessWidget {
   final FilesBrowserBloc browserBloc;
   final FileDetails details;
   final void Function(webdav.PathUri uri) setPath;
+  final Future<bool> Function()? checkOpenInNeon;
 
   Future<void> _onTap(BuildContext context, FileDetails details) async {
     if (details.isDirectory) {
@@ -40,7 +42,11 @@ class FileListTile extends StatelessWidget {
           return;
         }
       }
-      bloc.openFile(details.uri, details.etag!, details.mimeType);
+
+      // if we can not handle the file type in neon, we open externally
+      if (!(await checkOpenInNeon?.call() ?? false)) {
+        bloc.openFile(details.uri, details.etag!, details.mimeType);
+      }
     }
   }
 

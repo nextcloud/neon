@@ -1,3 +1,5 @@
+import 'package:files_app/src/blocs/files.dart';
+import 'package:files_app/src/widgets/dialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
@@ -7,6 +9,7 @@ import 'package:neon_framework/src/settings/widgets/settings_tile.dart';
 import 'package:neon_framework/src/theme/dialog.dart';
 import 'package:neon_framework/src/widgets/adaptive_widgets/list_tile.dart';
 import 'package:neon_framework/utils.dart';
+import 'package:nextcloud/webdav.dart' as webdav;
 
 @internal
 class OptionSettingsTile extends InputSettingsTile {
@@ -20,6 +23,7 @@ class OptionSettingsTile extends InputSettingsTile {
     return switch (option) {
       ToggleOption() => ToggleSettingsTile(option: option as ToggleOption),
       SelectOption() => SelectSettingsTile(option: option as SelectOption),
+      PathUriOption() => PathUriSettingsTile(option: option as PathUriOption),
     };
   }
 }
@@ -237,6 +241,40 @@ class SelectSettingsTileScreen<T> extends StatelessWidget {
           child: selector,
         ),
       ),
+    );
+  }
+}
+
+@internal
+class PathUriSettingsTile extends InputSettingsTile<PathUriOption> {
+  const PathUriSettingsTile({
+    required super.option,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder(
+      valueListenable: option,
+      builder: (context, value, child) => AdaptiveListTile.additionalInfo(
+        enabled: option.enabled,
+        title: child!,
+        additionalInfo: Text(value.toString()),
+        onTap: () async {
+          final result = await showDialog<webdav.PathUri>(
+            context: context,
+            builder: (context) => FilesChooseFolderDialog(
+              bloc: NeonProvider.of<FilesBloc>(context),
+              uri: value,
+            ),
+          );
+
+          if (result != null) {
+            option.value = result;
+          }
+        },
+      ),
+      child: Text(option.label(context)),
     );
   }
 }

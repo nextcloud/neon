@@ -194,4 +194,7 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
 
   @override
   int get hashCode => id.hashCode;
+
+  /// If the app provides handling for a specific MIME type, it can return a handler to force file handling in Neon instead of system apps.
+  MimeHandler? mimeTypeHandler(String mimeType) => null;
 }

@@ -28,6 +28,7 @@ sealed class FilesBrowserBloc implements InteractiveBloc {
     required Account account,
     required webdav.PathUri uri,
     required FilesBrowserMode mode,
+    required MimeFilter mimeFilter,
     webdav.PathUri? hideUri,
   }) = _FilesBrowserBloc;
 
@@ -44,6 +45,7 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
     required this.account,
     required this.uri,
     required this.mode,
+    required this.mimeFilter,
     this.hideUri,
   }) {
     options.showHiddenFilesOption.addListener(refresh);
@@ -58,6 +60,7 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
 
   final FilesBloc filesBloc;
   final FilesOptions options;
+  final MimeFilter mimeFilter;
   final Account account;
   late StreamSubscription<void> updatesSubscription;
   final webdav.PathUri uri;
@@ -114,6 +117,16 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
 
           // Do not show hidden files unless the option is enabled
           if (!options.showHiddenFilesOption.value && file.isHidden) {
+            continue;
+          }
+
+          // Some apps like the Photos app might not be interested in directories.
+          if (!mimeFilter.showDirectories && file.isDirectory) {
+            continue;
+          }
+
+          // Some apps like the Photos app are interested only in specific MIME types.
+          if (!file.isDirectory && !(file.mimeType?.startsWith(RegExp(mimeFilter.activeMimeRegex)) ?? false)) {
             continue;
           }
 

@@ -48,6 +48,12 @@ sealed class FilesBloc implements InteractiveBloc {
 
   void createFolder(webdav.PathUri uri);
 
+  // Temporarly added here as proof of concept
+  // Need to discuss which parts of file handling move up to the framework for reuse
+  Future<File> cacheFile(webdav.PathUri uri, String etag);
+
+  Future<Uint8List> downloadMemory(webdav.PathUri uri);
+
   BehaviorSubject<BuiltList<FilesTask>> get tasks;
 
   Stream<void> get updates;
@@ -214,6 +220,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
     await wrapAction(() async => account.client.webdav.mkcol(uri));
   }
 
+  @override
   Future<File> cacheFile(webdav.PathUri uri, String etag) async {
     final cacheDir = await getApplicationCacheDirectory();
     final file = File(p.join(cacheDir.path, 'files', etag.replaceAll('"', ''), uri.name));
@@ -240,6 +247,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
     tasks.add(tasks.value.rebuild((b) => b.remove(task)));
   }
 
+  @override
   Future<Uint8List> downloadMemory(webdav.PathUri uri) async {
     final task = FilesDownloadTaskMemory(uri: uri);
 

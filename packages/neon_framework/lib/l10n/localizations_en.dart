@@ -1,5 +1,5 @@
+// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
-
 import 'localizations.dart';
 
 // ignore_for_file: type=lint
@@ -26,6 +26,7 @@ class NeonLocalizationsEn extends NeonLocalizations {
         'news': 'News',
         'notes': 'Notes',
         'notifications': 'Notifications',
+        'photos': 'Photos',
         'spreed': 'Talk',
         'talk': 'Talk',
         'other': '',

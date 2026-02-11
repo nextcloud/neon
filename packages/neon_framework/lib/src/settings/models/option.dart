@@ -8,6 +8,7 @@ import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/models/label_builder.dart';
 import 'package:neon_framework/src/settings/models/options_category.dart';
 import 'package:neon_framework/storage.dart';
+import 'package:nextcloud/webdav.dart' as webdav;
 import 'package:rxdart/rxdart.dart';
 
 final _log = Logger('Option');
@@ -17,6 +18,7 @@ final _log = Logger('Option');
 /// See:
 ///   * [ToggleOption] for an `Option<bool>`
 ///   * [SelectOption] for an Option with multiple values
+///   * [PathUriOption] for an `Option<PathUri>`
 sealed class Option<T> extends ChangeNotifier implements ValueListenable<T>, Disposable {
   /// Creates an Option
   Option({
@@ -294,4 +296,50 @@ class ToggleOption extends Option<bool> {
 
   @override
   bool? deserialize(Object? data) => data as bool?;
+}
+
+/// [Option] with a [PathUri] value.
+class PathUriOption extends Option<webdav.PathUri> {
+  /// Creates a PathUriOption
+  PathUriOption({
+    required super.storage,
+    required super.key,
+    required super.label,
+    required webdav.PathUri defaultValue,
+    super.category,
+    super.enabled,
+  }) : super(defaultValue: _loadPathUri(storage.getString(key.value)) ?? defaultValue);
+
+  static webdav.PathUri? _loadPathUri(String? stored) {
+    if (stored == null) {
+      return null;
+    }
+
+    try {
+      return webdav.PathUri.parse(stored);
+    } catch (e) {
+      _log.warning('Failed to parse stored PathUri "$stored": $e');
+      return null;
+    }
+  }
+
+  @override
+  void reset() {
+    unawaited(storage.remove(key.value));
+
+    super.reset();
+  }
+
+  @override
+  set value(webdav.PathUri value) {
+    super.value = value;
+
+    unawaited(storage.setString(key.value, serialize()));
+  }
+
+  @override
+  String serialize() => value.toString();
+
+  @override
+  webdav.PathUri? deserialize(Object? data) => _loadPathUri(data as String?);
 }

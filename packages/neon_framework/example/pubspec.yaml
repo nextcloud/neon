@@ -23,6 +23,8 @@ dependencies:
     path: ../packages/notes_app
   notifications_app:
     path: ../packages/notifications_app
+  photos_app:
+    path: ../packages/photos_app
   talk_app:
     path: ../packages/talk_app
   vector_graphics: any

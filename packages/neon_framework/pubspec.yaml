@@ -28,6 +28,9 @@ dependencies:
   dynamite_runtime: ^0.5.0+1
   equatable: ^2.0.0
   file_picker: ^10.0.0
+  # todo: this has obviously to be refactored by moving common components up to neon
+  files_app:
+    path: packages/files_app
   filesize: ^2.0.0
   flutter:
     sdk: flutter
@@ -98,6 +101,7 @@ dev_dependencies:
   version: ^3.0.2
 
 flutter:
+  generate: true
   uses-material-design: true
   assets:
     - assets/
