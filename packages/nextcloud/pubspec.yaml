@@ -24,7 +24,7 @@ dependencies:
   meta: ^1.0.0
   string_scanner: ^1.4.0
   timezone: ^0.10.1
-  universal_io: ^2.0.0
+  universal_io: ^2.3.0
   uri: ^1.0.0
   version: ^3.0.0
   xml: ^6.3.0
