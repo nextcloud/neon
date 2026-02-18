@@ -14,7 +14,7 @@ dependencies:
   bloc_concurrency: ^0.3.0
   built_collection: ^5.0.0
   built_value: ^8.9.0
-  collection: ^1.0.0
+  collection: ^1.19.0
   cookie_store:
     path: ../cookie_store
   crypto: ^3.0.0

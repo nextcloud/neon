@@ -8,7 +8,7 @@ environment:
 
 dependencies:
   built_collection: ^5.1.1
-  collection: ^1.0.0
+  collection: ^1.19.0
   cookie_store:
     path: ../../../cookie_store
   glob: ^2.1.2

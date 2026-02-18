@@ -18,7 +18,7 @@ dependencies:
   built_value: ^8.9.0
   checked_yaml: ^2.0.0
   code_builder: ^4.10.0
-  collection: ^1.0.0
+  collection: ^1.19.0
   crypto: ^3.0.0
   dart_style: ^3.0.1
   logging: ^1.2.0

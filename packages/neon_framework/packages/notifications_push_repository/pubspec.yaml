@@ -13,7 +13,7 @@ dependencies:
     path: ../account_repository
   built_collection: ^5.0.0
   built_value: ^8.9.2
-  collection: ^1.0.0
+  collection: ^1.19.0
   crypton: ^2.2.0
   http: ^1.6.0
   logging: ^1.0.0

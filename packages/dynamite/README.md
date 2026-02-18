@@ -9,7 +9,7 @@ The generated code makes use of various third party packages. Please add the fol
 dependencies:
   built_collection: ^5.0.0
   built_value: ^8.9.0
-  collection: ^1.0.0
+  collection: ^1.19.0
   dynamite_runtime: ^0.1.0
   http: ^1.6.0
   meta: ^1.0.0
