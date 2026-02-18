@@ -13,7 +13,7 @@ class FileDetails {
     required this.lastModified,
     required this.isFavorite,
     required this.blurHash,
-  }) : task = null;
+  });
 
   FileDetails.fromWebDav({
     required webdav.WebDavFile file,
@@ -23,11 +23,10 @@ class FileDetails {
         mimeType = file.mimeType,
         lastModified = file.lastModified,
         isFavorite = file.favorite,
-        blurHash = file.blurHash,
-        task = null;
+        blurHash = file.blurHash;
 
   FileDetails.fromUploadTask({
-    required FilesUploadTask this.task,
+    required FilesUploadTask task,
   })  : uri = task.uri,
         size = task.size,
         lastModified = task.lastModified,
@@ -35,32 +34,6 @@ class FileDetails {
         mimeType = null,
         isFavorite = null,
         blurHash = null;
-
-  FileDetails.fromDownloadTask({
-    required FilesDownloadTask this.task,
-    required webdav.WebDavFile file,
-  })  : uri = task.uri,
-        size = file.size,
-        etag = file.etag,
-        mimeType = file.mimeType,
-        lastModified = file.lastModified,
-        isFavorite = file.favorite,
-        blurHash = file.blurHash;
-
-  factory FileDetails.fromTask({
-    required FilesTask task,
-    required webdav.WebDavFile file,
-  }) {
-    switch (task) {
-      case FilesUploadTask():
-        return FileDetails.fromUploadTask(task: task);
-      case FilesDownloadTask():
-        return FileDetails.fromDownloadTask(
-          task: task,
-          file: file,
-        );
-    }
-  }
 
   String get name => uri.name;
 
@@ -79,8 +52,4 @@ class FileDetails {
   final bool? isFavorite;
 
   final String? blurHash;
-
-  final FilesTask? task;
-
-  bool get hasTask => task != null;
 }

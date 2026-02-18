@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:collection/collection.dart';
 import 'package:files_app/src/blocs/browser.dart';
 import 'package:files_app/src/blocs/files.dart';
 import 'package:files_app/src/models/file_details.dart';
@@ -80,7 +79,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
     return ResultBuilder.behaviorSubject(
       subject: bloc.files,
       builder: (context, filesSnapshot) => StreamBuilder(
-        stream: widget.filesBloc.tasks,
+        stream: widget.filesBloc.uploadTasks,
         builder: (context, tasksSnapshot) => SortBoxBuilder(
           sortBox: filesSortBox,
           sortProperty: options.filesSortPropertyOption,
@@ -98,23 +97,13 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
               itemCount: sorted.length,
               itemBuilder: (context, index) {
                 final file = sorted[index];
-                final matchingTask = tasksSnapshot.requireData.firstWhereOrNull(
-                  (task) => file.name == task.uri.name && widget.uri == task.uri.parent,
-                );
-
-                final details = matchingTask != null
-                    ? FileDetails.fromTask(
-                        task: matchingTask,
-                        file: file,
-                      )
-                    : FileDetails.fromWebDav(
-                        file: file,
-                      );
 
                 return FileListTile(
                   bloc: widget.filesBloc,
                   browserBloc: bloc,
-                  details: details,
+                  details: FileDetails.fromWebDav(
+                    file: file,
+                  ),
                   setPath: widget.setPath,
                   checkOpenInNeon: () => handleFileInNeon(sorted, file),
                 );
@@ -147,9 +136,10 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
     return false;
   }
 
-  Iterable<Widget> buildUploadTasks(BuiltList<FilesTask> tasks, List<webdav.WebDavFile> files) sync* {
+  Iterable<Widget> buildUploadTasks(BuiltList<FilesUploadTask> tasks, List<webdav.WebDavFile> files) sync* {
     for (final task in tasks) {
-      if (task is! FilesUploadTask) {
+      // in case of long uploads, user could navigate to another folder
+      if (task.uri.parent != widget.uri) {
         continue;
       }
 

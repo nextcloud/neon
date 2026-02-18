@@ -4,7 +4,6 @@ import 'package:files_app/src/blocs/browser.dart';
 import 'package:files_app/src/blocs/files.dart';
 import 'package:files_app/src/models/file_details.dart';
 import 'package:files_app/src/options.dart';
-import 'package:files_app/src/pages/main.dart';
 import 'package:files_app/src/sort/files.dart';
 import 'package:files_app/src/utils/dialog.dart';
 import 'package:files_app/src/widgets/file_preview.dart';
@@ -18,26 +17,6 @@ import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/webdav.dart' as webdav;
 import 'package:photos_app/src/blocs/bloc.dart';
 import 'package:photos_app/src/options.dart';
-
-class PhotosMainPage1 extends StatelessWidget {
-  const PhotosMainPage1({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    PhotosOptions options = NeonProvider.of<PhotosOptions>(context);
-
-    return ValueListenableBuilder(
-      valueListenable: options.photosHomePathOption,
-      // Just temporary to get everything started, I will create a proper timeline view next.
-      builder: (context, value, child) => FilesMainPage(
-        mimeFilter: const MimeFilter.images(),
-        uri: value,
-      ),
-    );
-  }
-}
 
 class PhotosMainPage extends StatefulWidget {
   const PhotosMainPage({
@@ -87,7 +66,6 @@ class _PhotosMainPageState extends State<PhotosMainPage> {
     );
   }
 }
-
 
 class CategoryView extends StatefulWidget {
   CategoryView({
@@ -146,31 +124,29 @@ class _CategoryViewState extends State<CategoryView> {
   Widget build(BuildContext context) {
     return ResultBuilder.behaviorSubject(
       subject: bloc.files,
-      builder: (context, filesSnapshot) => StreamBuilder(
-        stream: filesBloc.tasks,
-        builder: (context, tasksSnapshot) {
-          final List<webdav.WebDavFile> sorted = filesSnapshot.data?.toList() ?? [];
-          final box = (property: FilesSortProperty.modifiedDate, order: SortBoxOrder.descending);
-          filesSortBox.sortList(sorted, box);
+      builder: (context, filesSnapshot) {
+        final List<webdav.WebDavFile> sorted = filesSnapshot.data?.toList() ?? [];
+        final box = (property: FilesSortProperty.modifiedDate, order: SortBoxOrder.descending);
+        filesSortBox.sortList(sorted, box);
 
-          Map<String, List<webdav.WebDavFile>> categories = {};
-          
-          sorted.forEach((file) {
-            final key = '${file.lastModified!.year}-${file.lastModified!.month.toString().padLeft(2, '0')}';
-            if(categories[key] == null) {
-              categories[key] = [];
-            }
-            categories[key]!.add(file);
-          });
+        Map<String, List<webdav.WebDavFile>> categories = {};
 
-          final List<Widget> slivers = categories.keys.map((key) => _buildCategory(key, categories[key]!, sorted, context)).toList();
+        sorted.forEach((file) {
+          final key = '${file.lastModified!.year}-${file.lastModified!.month.toString().padLeft(2, '0')}';
+          if (categories[key] == null) {
+            categories[key] = [];
+          }
+          categories[key]!.add(file);
+        });
 
-          return CustomScrollView(
-            slivers: slivers,
-            physics: const AlwaysScrollableScrollPhysics(),
-          );
-        },
-      ),
+        final List<Widget> slivers =
+            categories.keys.map((key) => _buildCategory(key, categories[key]!, sorted, context)).toList();
+
+        return CustomScrollView(
+          slivers: slivers,
+          physics: const AlwaysScrollableScrollPhysics(),
+        );
+      },
     );
   }
 
@@ -187,11 +163,16 @@ class _CategoryViewState extends State<CategoryView> {
     );
   }
 
-  SliverStickyHeader _buildCategory(String key, List<webdav.WebDavFile> category, List<webdav.WebDavFile> sorted, BuildContext context) {
+  SliverStickyHeader _buildCategory(
+    String key,
+    List<webdav.WebDavFile> category,
+    List<webdav.WebDavFile> sorted,
+    BuildContext context,
+  ) {
     final cut = 550;
     final minAxis = 3;
     double realdWidth = MediaQuery.sizeOf(context).width - 8;
-    final axis = minAxis + minAxis * ((realdWidth-cut) ~/ cut);
+    final axis = minAxis + minAxis * ((realdWidth - cut) ~/ cut);
 
     double width = (realdWidth / axis) - 4;
 
@@ -207,7 +188,7 @@ class _CategoryViewState extends State<CategoryView> {
             final details = FileDetails.fromWebDav(
               file: file,
             );
-            
+
             return GestureDetector(
               onTap: () => _onTap(file, details, sorted),
               child: FilePreview(
@@ -216,7 +197,7 @@ class _CategoryViewState extends State<CategoryView> {
                 details: details,
               ),
             );
-          }, 
+          },
           childCount: category.length,
         ),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -246,4 +227,3 @@ class _CategoryViewState extends State<CategoryView> {
     }
   }
 }
-

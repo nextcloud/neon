@@ -82,12 +82,29 @@ class FileListTile extends StatelessWidget {
         details: details,
         bloc: bloc,
       ),
-      trailing: !details.hasTask && browserBloc.mode == FilesBrowserMode.browser
-          ? FileActions(details: details)
-          : const SizedBox.square(
-              dimension: largeIconSize,
-            ),
+      trailing: StreamBuilder(
+        stream: bloc.downloadTasks.where((task) => task != null && task.uri == details.uri),
+        initialData: bloc.getTask(details.uri),
+        builder: _buildTrailing,
+      ),
     );
+  }
+
+  Widget _buildTrailing(BuildContext context, AsyncSnapshot<FilesTask?> task) {
+    const empty = SizedBox.square(dimension: largeIconSize,);
+
+    if(FilesBrowserMode.browser == browserBloc.mode) {
+      if(task.hasData) {
+        return StreamBuilder(
+          stream: task.data!.progress,
+          builder: (context, progress) => progress.hasData && progress.data == 1.0 ? FileActions(details: details,) : empty,
+        );
+      }
+
+      return FileActions(details: details,);
+    }
+
+    return empty;
   }
 }
 
@@ -103,28 +120,13 @@ class _FileIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget icon = Center(
-      child: details.hasTask
-          ? StreamBuilder(
-              stream: details.task!.progress,
-              builder: (context, progress) => Column(
-                children: [
-                  Icon(
-                    switch (details.task!) {
-                      FilesUploadTask() => MdiIcons.upload,
-                      FilesDownloadTask() => MdiIcons.download,
-                    },
-                    color: Theme.of(context).colorScheme.primary,
-                  ),
-                  LinearProgressIndicator(
-                    value: progress.data,
-                  ),
-                ],
-              ),
-            )
-          : FilePreview(
-              bloc: bloc,
-              details: details,
-            ),
+      child: StreamBuilder(
+        stream: bloc.downloadTasks.where((task) => task != null && task.uri == details.uri), 
+        initialData: bloc.getTask(details.uri),
+        builder: (context, task) {
+          return task.hasData ? _buildProgressIndicator(context, task.data!) : _buildPreview();
+        },
+      ),
     );
 
     if (details.isFavorite ?? false) {
@@ -146,6 +148,33 @@ class _FileIcon extends StatelessWidget {
     return SizedBox.square(
       dimension: largeIconSize,
       child: icon,
+    );
+  }
+
+  Widget _buildPreview() {
+    return FilePreview(
+      bloc: bloc,
+      details: details,
+    );
+  }
+
+  Widget _buildProgressIndicator(BuildContext context, FilesTask task) {
+    return StreamBuilder(
+      stream: task.progress,
+      builder: (context, progress) => progress.hasData && progress.data == 1.0 ? _buildPreview() : Column(
+        children: [
+          Icon(
+            switch (task) {
+              FilesUploadTask() => MdiIcons.upload,
+              FilesDownloadTask() => MdiIcons.download,
+            },
+            color: Theme.of(context).colorScheme.primary,
+          ),
+          LinearProgressIndicator(
+            value: progress.data,
+          ),
+        ],
+      ),
     );
   }
 }

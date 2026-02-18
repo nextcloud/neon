@@ -50,11 +50,15 @@ sealed class FilesBloc implements InteractiveBloc {
 
   Future<Uint8List> fetchFile(webdav.PathUri uri, String etag, {bool cache = true});
 
-  BehaviorSubject<BuiltList<FilesTask>> get tasks;
+  BehaviorSubject<BuiltList<FilesUploadTask>> get uploadTasks;
 
   BehaviorSubject<FilesDownloadTask?> get downloadTasks;
 
   FilesDownloadTask? getDownloadTask(webdav.PathUri path);
+
+  FilesUploadTask? getUploadTask(webdav.PathUri path);
+
+  FilesTask? getTask(webdav.PathUri path);
 
   Stream<void> get updates;
 }
@@ -79,6 +83,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   final updatesController = StreamController<void>();
 
   final _downloadTasks = <webdav.PathUri, FilesDownloadTask>{};
+  final _uploadTasks = <webdav.PathUri, FilesUploadTask>{};
 
   @override
   final downloadTasks = BehaviorSubject.seeded(null);
@@ -87,7 +92,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   void dispose() {
     uploadQueue.dispose();
     downloadQueue.dispose();
-    unawaited(tasks.close());
+    unawaited(uploadTasks.close());
     unawaited(updatesController.close());
     unawaited(downloadTasks.close());
 
@@ -98,7 +103,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  final tasks = BehaviorSubject.seeded(BuiltList());
+  final uploadTasks = BehaviorSubject.seeded(BuiltList());
 
   @override
   late final updates = updatesController.stream.asBroadcastStream();
@@ -106,12 +111,41 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   @override
   FilesDownloadTask? getDownloadTask(webdav.PathUri path) => _downloadTasks[path];
 
-  Future<void> _executeDownloadTask(FilesDownloadTask task) {
-    _downloadTasks[task.uri] = task;
-    downloadTasks.add(task);
-    // we subscribe to progress in case no one else does, and use it to clean up the task list
-    final progress = task.progress.listen((_) => {}, onDone: () => _downloadTasks.remove(task.uri));
-    task.result = downloadQueue.add(() => task.execute(account.client)).then((_) => progress.cancel());
+  @override
+  FilesUploadTask? getUploadTask(webdav.PathUri path) => _uploadTasks[path];
+
+  @override
+  FilesTask? getTask(webdav.PathUri path) => _downloadTasks[path] ?? _uploadTasks[path];
+
+  Future<void> _executeDownloadTask(FilesDownloadTask task) => _executeTask(
+        task: task,
+        queue: downloadQueue,
+        taskMap: _downloadTasks,
+        notify: () => downloadTasks.add(task),
+      );
+
+  Future<void> _executeUploadTask(FilesUploadTask task) => _executeTask(
+        task: task,
+        queue: uploadQueue,
+        taskMap: _uploadTasks,
+        notify: () => uploadTasks.add(_uploadTasks.values.toBuiltList()),
+      );
+
+  Future<void> _executeTask<T extends FilesTask>({
+    required T task,
+    required Queue queue,
+    required Map<webdav.PathUri, T> taskMap,
+    required void Function() notify,
+  }) {
+    taskMap[task.uri] = task;
+    notify();
+    // we subscribe to progress in case no one else does
+    final progress = task.progress.listen((_) => {});
+    task.result = queue.add(() => task.execute(account.client)).then((_) async {
+      await progress.cancel();
+      taskMap.remove(task.uri);
+      notify();
+    });
     return task.result!;
   }
 
@@ -124,13 +158,16 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   Future<void> uploadFile(webdav.PathUri uri, String localPath) async {
     await wrapAction(
       () async {
+        final existingTask = getUploadTask(uri);
+        if (existingTask != null) {
+          return existingTask.result;
+        }
+
         final task = FilesUploadTaskIO(
           uri: uri,
           file: File(localPath),
         );
-        tasks.add(tasks.value.rebuild((b) => b.add(task)));
-        await uploadQueue.add(() => task.execute(account.client));
-        tasks.add(tasks.value.rebuild((b) => b.remove(task)));
+        await _executeUploadTask(task);
       },
       disableTimeout: true,
     );
@@ -140,15 +177,18 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   Future<void> uploadMemory(webdav.PathUri uri, Uint8List bytes, {tz.TZDateTime? lastModified}) async {
     await wrapAction(
       () async {
+        final existingTask = getUploadTask(uri);
+        if (existingTask != null) {
+          return existingTask.result;
+        }
+
         final task = FilesUploadTaskMemory(
           uri: uri,
           size: bytes.length,
           lastModified: lastModified,
           bytes: bytes,
         );
-        tasks.add(tasks.value.rebuild((b) => b.add(task)));
-        await uploadQueue.add(() => task.execute(account.client));
-        tasks.add(tasks.value.rebuild((b) => b.remove(task)));
+        await _executeUploadTask(task);
       },
       disableTimeout: true,
     );
@@ -170,6 +210,8 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
         }
       },
       disableTimeout: true,
+      // no need to refresh the view after an open operation
+      refresh: Future.value,
     );
   }
 
@@ -185,6 +227,8 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
         }
       },
       disableTimeout: true,
+      // no need to refresh the view after a share operation
+      refresh: Future.value,
     );
   }
 
@@ -265,7 +309,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   Future<void> downloadIO(webdav.PathUri uri, File file) {
     final existingTask = getDownloadTask(uri);
 
-    if(existingTask != null && existingTask is FilesDownloadTaskIO) {
+    if (existingTask != null && existingTask is FilesDownloadTaskIO) {
       return existingTask.result!;
     }
 
@@ -273,7 +317,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
       uri: uri,
       file: file,
     );
-    
+
     return _executeDownloadTask(task);
   }
 
@@ -281,11 +325,11 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
     final buffer = BytesBuilder(copy: false);
 
     final existingTask = getDownloadTask(uri);
-    if(existingTask != null && existingTask is FilesDownloadTaskMemory) {
+    if (existingTask != null && existingTask is FilesDownloadTaskMemory) {
       await existingTask.stream.forEach(buffer.add);
       return buffer.takeBytes();
     }
-    
+
     final task = FilesDownloadTaskMemory(uri: uri);
     final fillBuffer = task.stream.forEach(buffer.add);
     await _executeDownloadTask(task);

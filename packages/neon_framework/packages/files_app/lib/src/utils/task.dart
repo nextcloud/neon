@@ -14,21 +14,21 @@ sealed class FilesTask {
   });
 
   final webdav.PathUri uri;
+  Future<void>? result;
 
   @protected
   final progressController = BehaviorSubject<double>();
 
   /// Task progress in percent `[0, 1]`.
   late final progress = progressController.stream;
+
+  Future<void> execute(NextcloudClient client) async {}
 }
 
 sealed class FilesDownloadTask extends FilesTask {
   FilesDownloadTask({
     required super.uri,
   });
-
-  Future<void>? result;
-  Future<void> execute(NextcloudClient client) async {}
 }
 
 sealed class FilesUploadTask extends FilesTask {
@@ -71,9 +71,6 @@ class FilesDownloadTaskIO extends FilesTaskIO implements FilesDownloadTask {
   });
 
   @override
-  Future<void>? result;
-
-  @override
   Future<void> execute(NextcloudClient client) async {
     await client.webdav.getFile(
       uri,
@@ -98,6 +95,7 @@ class FilesUploadTaskIO extends FilesTaskIO implements FilesUploadTask {
   @override
   late tz.TZDateTime lastModified = tz.TZDateTime.from(_stat.modified, tz.UTC);
 
+  @override
   Future<void> execute(NextcloudClient client) async {
     await client.webdav.putFile(
       file,
@@ -114,8 +112,6 @@ class FilesDownloadTaskMemory extends FilesTaskMemory implements FilesDownloadTa
   FilesDownloadTaskMemory({
     required super.uri,
   });
-
-  Future<void>? result;
 
   @override
   Future<void> execute(NextcloudClient client) async {
@@ -144,6 +140,7 @@ class FilesUploadTaskMemory extends FilesTaskMemory implements FilesUploadTask {
   @override
   final tz.TZDateTime? lastModified;
 
+  @override
   Future<void> execute(NextcloudClient client) async {
     await client.webdav.putStream(
       _stream.stream,
