@@ -11,7 +11,7 @@ dependencies:
   built_value: ^8.9.0
   collection: ^1.0.0
   dynamite_runtime: ^0.1.0
-  http: ^1.2.0
+  http: ^1.6.0
   meta: ^1.0.0
   uri: ^1.0.0
 dev_dependencies:

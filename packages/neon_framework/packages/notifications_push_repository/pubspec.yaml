@@ -15,7 +15,7 @@ dependencies:
   built_value: ^8.9.2
   collection: ^1.0.0
   crypton: ^2.0.0
-  http: ^1.0.0
+  http: ^1.6.0
   logging: ^1.0.0
   meta: ^1.0.0
   neon_framework:

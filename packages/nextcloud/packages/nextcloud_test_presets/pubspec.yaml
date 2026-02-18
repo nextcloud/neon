@@ -8,7 +8,7 @@ environment:
 
 dependencies:
   crypto: ^3.0.0
-  http: ^1.2.0
+  http: ^1.6.0
   meta: ^1.0.0
   nextcloud: ^8.1.0
   version: ^3.0.0
