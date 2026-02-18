@@ -15,7 +15,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   go_router: ^16.0.0
-  logging: ^1.0.0
+  logging: ^1.3.0
   neon_framework:
     path: ../..
   nextcloud: ^8.1.0

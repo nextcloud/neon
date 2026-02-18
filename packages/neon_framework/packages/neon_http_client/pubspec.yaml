@@ -15,7 +15,7 @@ dependencies:
   http_parser: ^4.0.0
   interceptor_http_client:
     path: ../../../interceptor_http_client
-  logging: ^1.0.0
+  logging: ^1.3.0
   meta: ^1.0.0
   nextcloud: ^8.1.0
 
