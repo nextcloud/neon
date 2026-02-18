@@ -24,7 +24,7 @@ dependencies:
   test_api: ^0.7.0
   universal_io: ^2.3.0
   version: ^3.0.0
-  xml: ^6.0.0
+  xml: ^6.6.0
 
 dev_dependencies:
   neon_lints:
