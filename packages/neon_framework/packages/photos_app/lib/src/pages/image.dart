@@ -8,7 +8,6 @@ import 'package:files_app/src/blocs/files.dart';
 import 'package:nextcloud/webdav.dart' as webdav;
 import 'package:neon_framework/utils.dart';
 import 'dart:ui' as ui show Codec, ImmutableBuffer;
-import 'package:neon_framework/platform.dart';
 import 'package:universal_io/io.dart';
 
 class ImagePage extends StatefulWidget {
@@ -95,6 +94,11 @@ class _ImagePageState extends State<ImagePage> {
                       imageProvider: NeonImageProvider(file: file, bloc: bloc, options: options),
                     );
                   },
+                  loadingBuilder: (context, event) => Center(
+                    child: CircularProgressIndicator(
+                      value: event?.cumulativeBytesLoaded != null ? event!.cumulativeBytesLoaded.toDouble() / event.expectedTotalBytes! : null,
+                    ),
+                  ),
                 ),
                 ..._buildDesktopButtons(context),
               ],
@@ -169,7 +173,7 @@ class _ImagePageState extends State<ImagePage> {
   }
 }
 
-class NeonImageProvider extends ImageProvider<NeonImageProvider> {
+class NeonImageProvider extends ImageProvider<webdav.WebDavFile> {
   NeonImageProvider({required this.file, required this.bloc, required this.options});
 
   final webdav.WebDavFile file;
@@ -177,18 +181,13 @@ class NeonImageProvider extends ImageProvider<NeonImageProvider> {
   final PhotosOptions options;
 
   @override
-  Future<NeonImageProvider> obtainKey(ImageConfiguration configuration) {
-    return SynchronousFuture<NeonImageProvider>(this);
+  Future<webdav.WebDavFile> obtainKey(ImageConfiguration configuration) {
+    return SynchronousFuture<webdav.WebDavFile>(file);
   }
 
   @override
   @protected
-  ImageStreamCompleter loadImage(NeonImageProvider key, ImageDecoderCallback decode) {
-    return _load(key, decode);
-  }
-
-  @override
-  ImageStreamCompleter _load(NeonImageProvider key, ImageDecoderCallback decode) {
+  ImageStreamCompleter loadImage(webdav.WebDavFile key, ImageDecoderCallback decode) {
     return MultiFrameImageStreamCompleter(
       codec: _loadAsync(decode),
       scale: 1.0,
@@ -196,16 +195,28 @@ class NeonImageProvider extends ImageProvider<NeonImageProvider> {
       informationCollector: () => <DiagnosticsNode>[
         ErrorDescription('Path: ${file.path}'),
       ],
+      chunkEvents: _chunkEvents(),
     );
   }
 
   Future<ui.Codec> _loadAsync(ImageDecoderCallback decode) async {
-    if (NeonPlatform.instance.canUsePaths && options.cacheImagesOption.value) {
-      final cachedFile = await bloc.cacheFile(file.path, file.etag!);
-      return decode(await ui.ImmutableBuffer.fromUint8List(cachedFile.readAsBytesSync()));
+    final data = await bloc.fetchFile(file.path, file.etag!, cache: options.cacheImagesOption.value);
+    return decode(await ui.ImmutableBuffer.fromUint8List(data));
+  }
+
+  Stream<ImageChunkEvent> _chunkEvents() {
+    final task = bloc.getDownloadTask(file.path);
+    if (task == null) {
+      return bloc.downloadTasks
+        .where((task) => task != null && task.uri == file.path)
+        .asyncExpand((task) => task!.progress.map(_toChunkEvent));
     }
 
-    final data = bloc.downloadMemory(file.path);
-    return decode(await ui.ImmutableBuffer.fromUint8List(await data));
+    return task.progress.map(_toChunkEvent);
   }
+
+  ImageChunkEvent _toChunkEvent(double progress) => ImageChunkEvent(
+    cumulativeBytesLoaded: (progress * 100).toInt(),
+    expectedTotalBytes: 100,
+  );  
 }

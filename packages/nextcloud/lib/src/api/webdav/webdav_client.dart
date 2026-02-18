@@ -449,6 +449,8 @@ class WebDavClient extends DynamiteClient {
       onProgress: onProgress,
     );
     await stream.pipe(sink);
+    // make sure that data is actually written to the file before returning
+    await sink.flush();
     await sink.close();
   }
 
