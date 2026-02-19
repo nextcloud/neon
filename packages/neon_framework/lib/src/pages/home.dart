@@ -15,7 +15,6 @@ import 'package:neon_framework/src/widgets/app_bar.dart';
 import 'package:neon_framework/src/widgets/drawer.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:provider/provider.dart';
 
 /// The home page of Neon.
 @internal
@@ -154,10 +153,7 @@ class _HomePageState extends State<HomePage> {
           },
         );
 
-        return MultiProvider(
-          providers: _appsBloc.appBlocProviders,
-          child: body,
-        );
+        return body;
       },
     );
   }

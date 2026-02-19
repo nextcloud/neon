@@ -31,8 +31,6 @@ import 'package:provider/provider.dart';
 import 'package:quick_actions/quick_actions.dart';
 import 'package:universal_io/io.dart';
 import 'package:window_manager/window_manager.dart';
-import 'package:files_app/src/blocs/files.dart';
-import 'package:nextcloud/files.dart' as files;
 
 /// Main Neon widget.
 ///
@@ -248,6 +246,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
 
                 if (activeAccountSnapshot.hasData) {
                   final account = activeAccountSnapshot.requireData!;
+                  final appsBloc = _accountsBloc.getAppsBlocFor(account);
 
                   return MultiProvider(
                     providers: [
@@ -258,7 +257,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
                         value: _accountsBloc.getOptionsFor(account),
                       ),
                       NeonProvider<AppsBloc>.value(
-                        value: _accountsBloc.getAppsBlocFor(account),
+                        value: appsBloc,
                       ),
                       NeonProvider<CapabilitiesBloc>.value(
                         value: _accountsBloc.getCapabilitiesBlocFor(account),
@@ -281,10 +280,8 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
                       NeonProvider<ReferencesBloc>.value(
                         value: _accountsBloc.getReferencesBlocFor(account),
                       ),
-                      // This is temporary until we had a discussion how/what to move from files-app to the framework
-                      NeonProvider<FilesBloc>.value(
-                        value: _appImplementations.tryFind(files.appID)!.getBloc(account) as FilesBloc,
-                      ),
+                      // Provide app specific blocs here to allow settings to find files bloc for picking a directory
+                      ...appsBloc.appBlocProviders,
                     ],
                     child: app,
                   );
